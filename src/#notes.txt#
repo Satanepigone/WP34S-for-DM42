@@ -1728,3 +1728,20 @@ Changes after the split
 
 * We need a HELP file!
 
++++++++++++++++++++++++
+
+I kept getting crashes when I increased the size of the program
+loading buffer to 2 * page_size. This is bad - although the crashes go
+away when I make the buffer smaller again, I still can't be sure that
+they won't repeat.
+
+Also, writing to flash probably isn't very sensible when there really
+is RAM available.
+
+I've made a new RAM section called RAM2, pointing at the second bank
+of RAM. I've put UserFlash and UserBackup there; the code compiles and
+loads (though since the saving and loading routines involve writing to
+Flash they don't work). So let's put the main memory there too, along
+with any buffers, and make the whole thing work.
+
+I've also got .git going.

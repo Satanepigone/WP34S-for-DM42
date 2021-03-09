@@ -1020,6 +1020,7 @@ Memory Configuration
 Name             Origin             Length             Attributes
 FLASH            0x0000000008050000 0x00000000000b0000 xrw
 RAM              0x0000000010000000 0x0000000000002000 xrw
+RAM2             0x0000000020000000 0x0000000000008000 xrw
 QSPI             0x0000000090000000 0x0000000000200000 xr
 *default*        0x0000000000000000 0xffffffffffffffff
 
@@ -3871,7 +3872,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtn.o
                 0x000000000807ab54                _fini
  .fini          0x000000000807ab58        0x8 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtn.o
                 0x000000000807ab60                . = ALIGN (0x8)
-                0x000000000807f800                _etext = .
+                0x0000000020004800                _etext = .
 
 .vfp11_veneer   0x000000000807ab60        0x0
  .vfp11_veneer  0x000000000807ab60        0x0 linker stubs
@@ -3882,68 +3883,67 @@ LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtn.o
 .iplt           0x000000000807ab60        0x0
  .iplt          0x000000000807ab60        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.storage        0x000000000807ab60     0x4ca0
-                0x000000000807b000                . = ALIGN (0x800)
- *fill*         0x000000000807ab60      0x4a0 
+.storage        0x0000000020000000     0x4800
+                0x0000000020000000                . = ALIGN (0x800)
  *(.storage)
- .storage       0x000000000807b000     0x4800 build/storage.o
-                0x000000000807b000                BackupFlash
-                0x000000000807b800                UserFlash
+ .storage       0x0000000020000000     0x4800 build/storage.o
+                0x0000000020000000                BackupFlash
+                0x0000000020000800                UserFlash
  *(.storage*)
  *(.glue_7)
  *(.glue_7t)
  *(.eh_frame)
  *(.init)
  *(.fini)
-                0x000000000807f800                . = ALIGN (0x8)
-                0x000000000807f800                _etext = .
+                0x0000000020004800                . = ALIGN (0x8)
+                0x0000000020004800                _etext = .
 
-.ARM.extab      0x000000000807f800        0x0
-                0x000000000807f800                . = ALIGN (0x8)
+.ARM.extab      0x000000000807ab60        0x0
+                0x000000000807ab60                . = ALIGN (0x8)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x000000000807f800                . = ALIGN (0x8)
+                0x000000000807ab60                . = ALIGN (0x8)
 
-.ARM            0x000000000807f800        0x8
-                0x000000000807f800                . = ALIGN (0x8)
-                0x000000000807f800                __exidx_start = .
+.ARM            0x000000000807ab60        0x8
+                0x000000000807ab60                . = ALIGN (0x8)
+                0x000000000807ab60                __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x000000000807f800        0x8 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
-                0x000000000807f808                __exidx_end = .
-                0x000000000807f808                . = ALIGN (0x8)
+ .ARM.exidx     0x000000000807ab60        0x8 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+                0x000000000807ab68                __exidx_end = .
+                0x000000000807ab68                . = ALIGN (0x8)
 
-.rel.dyn        0x000000000807f808        0x0
- .rel.iplt      0x000000000807f808        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x000000000807ab68        0x0
+ .rel.iplt      0x000000000807ab68        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.preinit_array  0x000000000807f808        0x0
-                0x000000000807f808                . = ALIGN (0x8)
-                0x000000000807f808                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x000000000807ab68        0x0
+                0x000000000807ab68                . = ALIGN (0x8)
+                0x000000000807ab68                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x000000000807f808                PROVIDE (__preinit_array_end = .)
-                0x000000000807f808                . = ALIGN (0x8)
+                0x000000000807ab68                PROVIDE (__preinit_array_end = .)
+                0x000000000807ab68                . = ALIGN (0x8)
 
-.init_array     0x000000000807f808        0x8
-                0x000000000807f808                . = ALIGN (0x8)
-                0x000000000807f808                PROVIDE (__init_array_start = .)
+.init_array     0x000000000807ab68        0x8
+                0x000000000807ab68                . = ALIGN (0x8)
+                0x000000000807ab68                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  .init_array.00000
-                0x000000000807f808        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-__call_atexit.o)
+                0x000000000807ab68        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-__call_atexit.o)
  *(.init_array*)
- .init_array    0x000000000807f80c        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x000000000807f810                PROVIDE (__init_array_end = .)
-                0x000000000807f810                . = ALIGN (0x8)
+ .init_array    0x000000000807ab6c        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x000000000807ab70                PROVIDE (__init_array_end = .)
+                0x000000000807ab70                . = ALIGN (0x8)
 
-.fini_array     0x000000000807f810        0x8
-                0x000000000807f810                . = ALIGN (0x8)
-                0x000000000807f810                PROVIDE (__fini_array_start = .)
+.fini_array     0x000000000807ab70        0x8
+                0x000000000807ab70                . = ALIGN (0x8)
+                0x000000000807ab70                PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x000000000807f810        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x000000000807f814                PROVIDE (__fini_array_end = .)
-                0x000000000807f818                . = ALIGN (0x8)
- *fill*         0x000000000807f814        0x4 
-                0x000000000807f818                _sidata = LOADADDR (.data)
+ .fini_array    0x000000000807ab70        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x000000000807ab74                PROVIDE (__fini_array_end = .)
+                0x000000000807ab78                . = ALIGN (0x8)
+ *fill*         0x000000000807ab74        0x4 
+                0x000000000807ab78                _sidata = LOADADDR (.data)
 
-.data           0x0000000010000000      0x5e8 load address 0x000000000807f818
+.data           0x0000000010000000      0x5e8 load address 0x000000000807ab78
                 0x0000000010000000                . = ALIGN (0x8)
                 0x0000000010000000                _sdata = .
  *(.data.sdb)
@@ -3973,13 +3973,13 @@ LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtn.o
                 0x00000000100005e8                _edata = .
 
 .tm_clone_table
-                0x00000000100005e8        0x0 load address 0x000000000807fe00
+                0x00000000100005e8        0x0 load address 0x000000000807b160
  .tm_clone_table
                 0x00000000100005e8        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  .tm_clone_table
                 0x00000000100005e8        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtend.o
 
-.igot.plt       0x00000000100005e8        0x0 load address 0x000000000807fe00
+.igot.plt       0x00000000100005e8        0x0 load address 0x000000000807b160
  .igot.plt      0x00000000100005e8        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtbegin.o
                 0x00000000100005e8                . = ALIGN (0x4)
 

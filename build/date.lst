@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccnqma1I.s 			page 1
+ARM GAS  /tmp/ccO1gJj0.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
   27:src/date.c    **** #include "decn.h"
   28:src/date.c    **** #include "xeq.h"
   29:src/date.c    **** #include "consts.h"
-ARM GAS  /tmp/ccnqma1I.s 			page 2
+ARM GAS  /tmp/ccO1gJj0.s 			page 2
 
 
   30:src/date.c    **** #include "alpha.h"
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
   48 0004 2B4D     		ldr	r5, .L12+4
   49              	.LBE40:
   50              	.LBE39:
-ARM GAS  /tmp/ccnqma1I.s 			page 3
+ARM GAS  /tmp/ccO1gJj0.s 			page 3
 
 
   51              		.loc 1 63 20 view .LVU5
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
   97 0038 4FF00E0E 		movge	lr, #14
   98 003c 4FF00A0C 		movlt	ip, #10
   99 0040 4FF0090C 		movge	ip, #9
-ARM GAS  /tmp/ccnqma1I.s 			page 4
+ARM GAS  /tmp/ccO1gJj0.s 			page 4
 
 
   46:src/date.c    **** 		return 1;
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  136              	.LVL3:
   54:src/date.c    **** 		return 0;
  137              		.loc 1 54 5 view .LVU36
-ARM GAS  /tmp/ccnqma1I.s 			page 5
+ARM GAS  /tmp/ccO1gJj0.s 			page 5
 
 
  138              	.LBE46:
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  181              		.loc 1 72 13 view .LVU55
  182 0092 1A44     		add	r2, r2, r3
  183              	.LVL8:
-ARM GAS  /tmp/ccnqma1I.s 			page 6
+ARM GAS  /tmp/ccO1gJj0.s 			page 6
 
 
   72:src/date.c    **** 	return jdn;
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
   79:src/date.c    **** static void JDN2(int J, int *year, int *month, int *day) {
  228              		.loc 1 79 58 is_stmt 1 view -0
  229              		.cfi_startproc
-ARM GAS  /tmp/ccnqma1I.s 			page 7
+ARM GAS  /tmp/ccO1gJj0.s 			page 7
 
 
  230              		@ args = 0, pretend = 0, frame = 0
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  275              	.LVL16:
   85:src/date.c    **** 		b = (4*a+3)/146097;
  276              		.loc 1 85 9 view .LVU80
-ARM GAS  /tmp/ccnqma1I.s 			page 8
+ARM GAS  /tmp/ccO1gJj0.s 			page 8
 
 
  277 0024 4FEA800C 		lsl	ip, r0, #2
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  314              	.LVL20:
   93:src/date.c    **** 	e = c - (1461*d)/4;
  315              		.loc 1 93 4 view .LVU97
-ARM GAS  /tmp/ccnqma1I.s 			page 9
+ARM GAS  /tmp/ccO1gJj0.s 			page 9
 
 
  316 0058 E417     		asrs	r4, r4, #31
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  355 0098 0230     		adds	r0, r0, #2
   97:src/date.c    **** 	*month = m + 3 - 12*(m/10);
  356              		.loc 1 97 24 view .LVU114
-ARM GAS  /tmp/ccnqma1I.s 			page 10
+ARM GAS  /tmp/ccO1gJj0.s 			page 10
 
 
  357 009a 88FB0098 		smull	r9, r8, r8, r0
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  396              	.LVL29:
  397              	.L16:
   89:src/date.c    **** 		c = J + 32082;
-ARM GAS  /tmp/ccnqma1I.s 			page 11
+ARM GAS  /tmp/ccO1gJj0.s 			page 11
 
 
  398              		.loc 1 89 3 is_stmt 1 view .LVU133
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  123:src/date.c    ****  */
  124:src/date.c    **** static int check_date(int year, int month, int day) {
  432              		.loc 1 124 53 is_stmt 1 view -0
-ARM GAS  /tmp/ccnqma1I.s 			page 12
+ARM GAS  /tmp/ccO1gJj0.s 			page 12
 
 
  433              		.cfi_startproc
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  479 0032 0398     		ldr	r0, [sp, #12]
  480 0034 801B     		subs	r0, r0, r6
  481 0036 18BF     		it	ne
-ARM GAS  /tmp/ccnqma1I.s 			page 13
+ARM GAS  /tmp/ccO1gJj0.s 			page 13
 
 
  482 0038 4FF0FF30 		movne	r0, #-1
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  158:src/date.c    **** 		set_NaN(res);
  159:src/date.c    **** 		return res;
  160:src/date.c    **** 	}
-ARM GAS  /tmp/ccnqma1I.s 			page 14
+ARM GAS  /tmp/ccO1gJj0.s 			page 14
 
 
  161:src/date.c    **** 	if (year < 0) {
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  215:src/date.c    **** 	decNumberTrunc(&a, &z);			// a = iii	z = iii.ffrrrr
  216:src/date.c    **** 	ip = dn_to_int(&a);
  217:src/date.c    **** 	dn_subtract(&a, &z, &a);		// a = .ffrrrr
-ARM GAS  /tmp/ccnqma1I.s 			page 15
+ARM GAS  /tmp/ccO1gJj0.s 			page 15
 
 
  218:src/date.c    **** 	dn_mul100(&z, &a);			// z = ff.rrrr
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  272:src/date.c    **** 	} else if (extract_date(x, &y, NULL, NULL))
  273:src/date.c    **** 		return -1;
  274:src/date.c    **** 	*year = y;
-ARM GAS  /tmp/ccnqma1I.s 			page 16
+ARM GAS  /tmp/ccO1gJj0.s 			page 16
 
 
  275:src/date.c    **** 	return 0;
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  329:src/date.c    **** 	return res;
  330:src/date.c    **** }
  331:src/date.c    **** #endif
-ARM GAS  /tmp/ccnqma1I.s 			page 17
+ARM GAS  /tmp/ccO1gJj0.s 			page 17
 
 
  332:src/date.c    **** 
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  386:src/date.c    **** 
  387:src/date.c    **** void date_alphaday(enum nilop op) {
  388:src/date.c    **** 	decNumber x;
-ARM GAS  /tmp/ccnqma1I.s 			page 18
+ARM GAS  /tmp/ccO1gJj0.s 			page 18
 
 
  389:src/date.c    **** 	int y, m, d, dow;
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  443:src/date.c    **** void date_alphadate(enum nilop op) {
  444:src/date.c    **** 	decNumber x;
  445:src/date.c    **** 	int d, m, y;
-ARM GAS  /tmp/ccnqma1I.s 			page 19
+ARM GAS  /tmp/ccO1gJj0.s 			page 19
 
 
  446:src/date.c    **** 	char buf[16];
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  518 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
  519              		.cfi_def_cfa_offset 28
  520              		.cfi_offset 4, -28
-ARM GAS  /tmp/ccnqma1I.s 			page 20
+ARM GAS  /tmp/ccO1gJj0.s 			page 20
 
 
  521              		.cfi_offset 5, -24
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  493:src/date.c    **** 	*s = (hms % 100);
  568              		.loc 1 493 12 view .LVU170
  569 0040 6423     		movs	r3, #100
-ARM GAS  /tmp/ccnqma1I.s 			page 21
+ARM GAS  /tmp/ccO1gJj0.s 			page 21
 
 
  570 0042 03FB1402 		mls	r2, r3, r4, r0
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  611              		.cfi_restore_state
  498:src/date.c    **** 		report_err(ERR_BAD_DATE);
  612              		.loc 1 498 3 is_stmt 1 view .LVU186
-ARM GAS  /tmp/ccnqma1I.s 			page 22
+ARM GAS  /tmp/ccO1gJj0.s 			page 22
 
 
  613 006e 0220     		movs	r0, #2
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  662              		.loc 1 209 5 view .LVU195
  663 0004 90F90840 		ldrsb	r4, [r0, #8]
  201:src/date.c    **** 	int ip, fp, y, m, d;
-ARM GAS  /tmp/ccnqma1I.s 			page 23
+ARM GAS  /tmp/ccO1gJj0.s 			page 23
 
 
  664              		.loc 1 201 12 view .LVU196
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  704              		.loc 1 216 7 view .LVU210
  705 0034 0546     		mov	r5, r0
  706              	.LVL56:
-ARM GAS  /tmp/ccnqma1I.s 			page 24
+ARM GAS  /tmp/ccO1gJj0.s 			page 24
 
 
  217:src/date.c    **** 	dn_mul100(&z, &a);			// z = ff.rrrr
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  222:src/date.c    **** 	default:
  747              		.loc 1 222 2 view .LVU225
  748 006c 21D0     		beq	.L44
-ARM GAS  /tmp/ccnqma1I.s 			page 25
+ARM GAS  /tmp/ccO1gJj0.s 			page 25
 
 
  749 006e 022A     		cmp	r2, #2
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  787              		.loc 1 250 2 is_stmt 1 view .LVU241
  250:src/date.c    **** 		*month = m;
  788              		.loc 1 250 5 is_stmt 0 view .LVU242
-ARM GAS  /tmp/ccnqma1I.s 			page 26
+ARM GAS  /tmp/ccO1gJj0.s 			page 26
 
 
  789 0096 B8F1000F 		cmp	r8, #0
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  241:src/date.c    **** 		y = dn_to_int(&z);
  831              		.loc 1 241 3 view .LVU255
  832 00c2 09A9     		add	r1, sp, #36
-ARM GAS  /tmp/ccnqma1I.s 			page 27
+ARM GAS  /tmp/ccO1gJj0.s 			page 27
 
 
  833 00c4 2046     		mov	r0, r4
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  880              		.cfi_offset 3, -24
  881              		.cfi_offset 4, -20
  882              		.cfi_offset 5, -16
-ARM GAS  /tmp/ccnqma1I.s 			page 28
+ARM GAS  /tmp/ccO1gJj0.s 			page 28
 
 
  883              		.cfi_offset 6, -12
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  922              	.LBE57:
  923              	.LBE59:
  349:src/date.c    **** 	if (decNumberIsSpecial(x) || extract_date(x, y, m, d)) {
-ARM GAS  /tmp/ccnqma1I.s 			page 29
+ARM GAS  /tmp/ccO1gJj0.s 			page 29
 
 
  924              		.loc 1 349 84 view .LVU280
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  968              		.syntax unified
  969              		.thumb
  970              		.thumb_func
-ARM GAS  /tmp/ccnqma1I.s 			page 30
+ARM GAS  /tmp/ccO1gJj0.s 			page 30
 
 
  971              		.fpu fpv4-sp-d16
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  1011              		.loc 1 146 3 is_stmt 1 view .LVU306
  146:src/date.c    **** 	return h != 0 ? h : 7;
  1012              		.loc 1 146 15 is_stmt 0 view .LVU307
-ARM GAS  /tmp/ccnqma1I.s 			page 31
+ARM GAS  /tmp/ccO1gJj0.s 			page 31
 
 
  1013 0022 074A     		ldr	r2, .L67+8
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  157:src/date.c    **** 		set_NaN(res);
  1059              		.loc 1 157 2 view .LVU318
  154:src/date.c    **** 	int sign = 1, shift = -6, r = 0;
-ARM GAS  /tmp/ccnqma1I.s 			page 32
+ARM GAS  /tmp/ccO1gJj0.s 			page 32
 
 
  1060              		.loc 1 154 76 is_stmt 0 view .LVU319
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  1101              	.LVL101:
  163:src/date.c    **** 	}
  1102              		.loc 1 163 3 is_stmt 1 view .LVU333
-ARM GAS  /tmp/ccnqma1I.s 			page 33
+ARM GAS  /tmp/ccO1gJj0.s 			page 33
 
 
  163:src/date.c    **** 	}
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  158:src/date.c    **** 		return res;
  1147              		.loc 1 158 3 is_stmt 1 view .LVU344
  1148 0060 2846     		mov	r0, r5
-ARM GAS  /tmp/ccnqma1I.s 			page 34
+ARM GAS  /tmp/ccO1gJj0.s 			page 34
 
 
  1149 0062 FFF7FEFF 		bl	set_NaN
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  1186              	.LVL116:
  168:src/date.c    **** 		shift = -4;
  1187              		.loc 1 168 5 view .LVU362
-ARM GAS  /tmp/ccnqma1I.s 			page 35
+ARM GAS  /tmp/ccO1gJj0.s 			page 35
 
 
  1188 008e 03FB00F0 		mul	r0, r3, r0
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  1233              		.loc 1 190 2 view .LVU373
  189:src/date.c    **** 	if (decNumberIsSpecial(x) || decNumberIsSpecial(y) || decNumberIsSpecial(z))
  1234              		.loc 1 189 100 is_stmt 0 view .LVU374
-ARM GAS  /tmp/ccnqma1I.s 			page 36
+ARM GAS  /tmp/ccO1gJj0.s 			page 36
 
 
  1235 0000 F0B5     		push	{r4, r5, r6, r7, lr}
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  1279              		.cfi_restore 4
  1280              		.cfi_def_cfa_offset 0
  1281              	.LVL124:
-ARM GAS  /tmp/ccnqma1I.s 			page 37
+ARM GAS  /tmp/ccO1gJj0.s 			page 37
 
 
  191:src/date.c    **** 	else {
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  1329              		.p2align 2,,3
  1330              		.global	date_isleap
  1331              		.syntax unified
-ARM GAS  /tmp/ccnqma1I.s 			page 38
+ARM GAS  /tmp/ccO1gJj0.s 			page 38
 
 
  1332              		.thumb
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  268:src/date.c    **** 		y = dn_to_int(x);
  1373              		.loc 1 268 6 view .LVU407
  1374 0016 FFF7FEFF 		bl	is_int
-ARM GAS  /tmp/ccnqma1I.s 			page 39
+ARM GAS  /tmp/ccO1gJj0.s 			page 39
 
 
  1375              	.LVL136:
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  1413              		.loc 1 275 2 is_stmt 0 view .LVU423
  1414              	.LBE70:
  1415              	.LBE69:
-ARM GAS  /tmp/ccnqma1I.s 			page 40
+ARM GAS  /tmp/ccO1gJj0.s 			page 40
 
 
  342:src/date.c    **** 	fin_tst(t);
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  116:src/date.c    **** 	}
  1455              		.loc 1 116 10 view .LVU439
  1456              	.LBE75:
-ARM GAS  /tmp/ccnqma1I.s 			page 41
+ARM GAS  /tmp/ccO1gJj0.s 			page 41
 
 
  1457              	.LBE74:
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  1499 0070 0020     		movs	r0, #0
  1500              	.L89:
  1501              	.LVL152:
-ARM GAS  /tmp/ccnqma1I.s 			page 42
+ARM GAS  /tmp/ccO1gJj0.s 			page 42
 
 
  118:src/date.c    **** }
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  1548 009c 00000000 		.word	PersistentRam
  1549 00a0 295C8FC2 		.word	-1030792151
  1550 00a4 50B81E05 		.word	85899344
-ARM GAS  /tmp/ccnqma1I.s 			page 43
+ARM GAS  /tmp/ccO1gJj0.s 			page 43
 
 
  1551 00a8 285C8F02 		.word	42949672
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  1597 0014 2046     		mov	r0, r4
  1598 0016 06B0     		add	sp, sp, #24
  1599              		.cfi_remember_state
-ARM GAS  /tmp/ccnqma1I.s 			page 44
+ARM GAS  /tmp/ccO1gJj0.s 			page 44
 
 
  1600              		.cfi_def_cfa_offset 8
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  1648              		.cfi_offset 14, -4
  1649 0002 86B0     		sub	sp, sp, #24
  1650              		.cfi_def_cfa_offset 32
-ARM GAS  /tmp/ccnqma1I.s 			page 45
+ARM GAS  /tmp/ccO1gJj0.s 			page 45
 
 
  371:src/date.c    **** 		int_to_dn(res, z[argKIND(XeqOpCode) - OP_DATE_YEAR]);
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  1694              	.L119:
  374:src/date.c    **** 
  1695              		.loc 1 374 1 view .LVU489
-ARM GAS  /tmp/ccnqma1I.s 			page 46
+ARM GAS  /tmp/ccO1gJj0.s 			page 46
 
 
  1696 0036 00BF     		.align	2
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  201:src/date.c    **** 	int ip, fp, y, m, d;
  1740              		.loc 1 201 12 view .LVU498
  1741              	.LBB88:
-ARM GAS  /tmp/ccnqma1I.s 			page 47
+ARM GAS  /tmp/ccO1gJj0.s 			page 47
 
 
  202:src/date.c    **** 	decNumber z, a;
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  1779              		.loc 1 393 3 is_stmt 1 view .LVU515
  1780 002e 0220     		movs	r0, #2
  1781 0030 FFF7FEFF 		bl	report_err
-ARM GAS  /tmp/ccnqma1I.s 			page 48
+ARM GAS  /tmp/ccO1gJj0.s 			page 48
 
 
  1782              	.LVL174:
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  1822 005a 17D0     		beq	.L125
  1823 005c 013B     		subs	r3, r3, #1
  1824              	.LVL179:
-ARM GAS  /tmp/ccnqma1I.s 			page 49
+ARM GAS  /tmp/ccO1gJj0.s 			page 49
 
 
  147:src/date.c    **** }
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  1862              		.loc 1 382 3 view .LVU546
  383:src/date.c    **** 	add_string(buf);
  1863              		.loc 1 383 9 is_stmt 0 view .LVU547
-ARM GAS  /tmp/ccnqma1I.s 			page 50
+ARM GAS  /tmp/ccO1gJj0.s 			page 50
 
 
  1864 0076 0023     		movs	r3, #0
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  1907              	.LFE15:
  1909              		.section	.text.date_alphamonth,"ax",%progbits
  1910              		.align	1
-ARM GAS  /tmp/ccnqma1I.s 			page 51
+ARM GAS  /tmp/ccO1gJj0.s 			page 51
 
 
  1911              		.p2align 2,,3
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  1951 000a 174A     		ldr	r2, .L136
  206:src/date.c    **** 		return 1;
  1952              		.loc 1 206 5 view .LVU574
-ARM GAS  /tmp/ccnqma1I.s 			page 52
+ARM GAS  /tmp/ccO1gJj0.s 			page 52
 
 
  1953 000c 9DF81C30 		ldrb	r3, [sp, #28]	@ zero_extendqisi2
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  409:src/date.c    **** 	}
  1995              		.loc 1 409 3 is_stmt 1 view .LVU587
  409:src/date.c    **** 	}
-ARM GAS  /tmp/ccnqma1I.s 			page 53
+ARM GAS  /tmp/ccO1gJj0.s 			page 53
 
 
  1996              		.loc 1 409 20 is_stmt 0 view .LVU588
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  381:src/date.c    **** 		buf[i] = p[i];
  2034              		.loc 1 381 12 view .LVU605
  382:src/date.c    **** 	buf[3] = '\0';
-ARM GAS  /tmp/ccnqma1I.s 			page 54
+ARM GAS  /tmp/ccO1gJj0.s 			page 54
 
 
  2035              		.loc 1 382 3 view .LVU606
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  2080              		.loc 1 415 56 is_stmt 0 view .LVU617
  2081 0000 10B5     		push	{r4, lr}
  2082              		.cfi_def_cfa_offset 8
-ARM GAS  /tmp/ccnqma1I.s 			page 55
+ARM GAS  /tmp/ccO1gJj0.s 			page 55
 
 
  2083              		.cfi_offset 4, -8
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  2121              		.loc 1 206 5 view .LVU633
  2122 001e 01A9     		add	r1, sp, #4
  2123              	.LVL209:
-ARM GAS  /tmp/ccnqma1I.s 			page 56
+ARM GAS  /tmp/ccO1gJj0.s 			page 56
 
 
  206:src/date.c    **** 		return 1;
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  2168              	.L145:
  2169 004c 00000000 		.word	PersistentRam
  2170              		.cfi_endproc
-ARM GAS  /tmp/ccnqma1I.s 			page 57
+ARM GAS  /tmp/ccO1gJj0.s 			page 57
 
 
  2171              	.LFE17:
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  430:src/date.c    **** 	else {
  2217              		.loc 1 430 3 is_stmt 1 view .LVU654
  2218 0018 2046     		mov	r0, r4
-ARM GAS  /tmp/ccnqma1I.s 			page 58
+ARM GAS  /tmp/ccO1gJj0.s 			page 58
 
 
  2219 001a FFF7FEFF 		bl	set_NaN
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  2263              		.section	.text.date_alphadate,"ax",%progbits
  2264              		.align	1
  2265              		.p2align 2,,3
-ARM GAS  /tmp/ccnqma1I.s 			page 59
+ARM GAS  /tmp/ccO1gJj0.s 			page 59
 
 
  2266              		.global	date_alphadate
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  451:src/date.c    **** 		report_err(ERR_BAD_DATE);
  2310              		.loc 1 451 2 view .LVU677
  2311              	.LBB108:
-ARM GAS  /tmp/ccnqma1I.s 			page 60
+ARM GAS  /tmp/ccO1gJj0.s 			page 60
 
 
  2312              	.LBI105:
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  2349 0038 1CD0     		beq	.L157
  2350 003a 022C     		cmp	r4, #2
  2351 003c 2CD0     		beq	.L158
-ARM GAS  /tmp/ccnqma1I.s 			page 61
+ARM GAS  /tmp/ccO1gJj0.s 			page 61
 
 
  457:src/date.c    **** 		*p++ = '-';
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  2393 006a 0220     		movs	r0, #2
  2394 006c FFF7FEFF 		bl	report_err
  2395              	.LVL239:
-ARM GAS  /tmp/ccnqma1I.s 			page 62
+ARM GAS  /tmp/ccO1gJj0.s 			page 62
 
 
  453:src/date.c    **** 	}
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  2436 0098 0199     		ldr	r1, [sp, #4]
  2437 009a 03A8     		add	r0, sp, #12
  2438 009c FFF7FEFF 		bl	num_arg
-ARM GAS  /tmp/ccnqma1I.s 			page 63
+ARM GAS  /tmp/ccO1gJj0.s 			page 63
 
 
  2439              	.LVL245:
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  2486              		.fpu fpv4-sp-d16
  2488              	date_alphatime:
  2489              	.LVL250:
-ARM GAS  /tmp/ccnqma1I.s 			page 64
+ARM GAS  /tmp/ccO1gJj0.s 			page 64
 
 
  2490              	.LFB21:
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  528:src/date.c    **** 	add_string(buf);
  529:src/date.c    **** }
  2518              		.loc 1 529 1 view .LVU739
-ARM GAS  /tmp/ccnqma1I.s 			page 65
+ARM GAS  /tmp/ccO1gJj0.s 			page 65
 
 
  2519 0012 09B0     		add	sp, sp, #36
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  525:src/date.c    **** 	p = num_arg_0(p, s, 2);
  2561              		.loc 1 525 2 is_stmt 1 discriminator 1 view .LVU752
  525:src/date.c    **** 	p = num_arg_0(p, s, 2);
-ARM GAS  /tmp/ccnqma1I.s 			page 66
+ARM GAS  /tmp/ccO1gJj0.s 			page 66
 
 
  2562              		.loc 1 525 7 is_stmt 0 discriminator 1 view .LVU753
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  2603              		.loc 1 518 3 view .LVU767
  518:src/date.c    **** 			h = 12;
  2604              		.loc 1 518 6 is_stmt 0 view .LVU768
-ARM GAS  /tmp/ccnqma1I.s 			page 67
+ARM GAS  /tmp/ccO1gJj0.s 			page 67
 
 
  2605 006a 0029     		cmp	r1, #0
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  555:src/date.c    **** 	unsigned short year;
  556:src/date.c    **** 	
  557:src/date.c    **** 	RTC_GetDate( &year, &month, &day, &dow );
-ARM GAS  /tmp/ccnqma1I.s 			page 68
+ARM GAS  /tmp/ccO1gJj0.s 			page 68
 
 
  558:src/date.c    **** 
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  2663 0008 1946     		mov	r1, r3
  2664 000a 01A8     		add	r0, sp, #4
  2665              	.LVL265:
-ARM GAS  /tmp/ccnqma1I.s 			page 69
+ARM GAS  /tmp/ccO1gJj0.s 			page 69
 
 
  2666              		.loc 1 579 3 view .LVU783
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  592:src/date.c    **** 		int_to_dn(&a, h);
  2709              		.loc 1 592 3 view .LVU795
  2710              	.LBE114:
-ARM GAS  /tmp/ccnqma1I.s 			page 70
+ARM GAS  /tmp/ccO1gJj0.s 			page 70
 
 
  585:src/date.c    **** 	if (Xtal) {
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  2759              		@ args = 0, pretend = 0, frame = 48
  2760              		@ frame_needed = 0, uses_anonymous_args = 0
  600:src/date.c    **** 	int d, m, y, dow;
-ARM GAS  /tmp/ccnqma1I.s 			page 71
+ARM GAS  /tmp/ccO1gJj0.s 			page 71
 
 
  2761              		.loc 1 600 2 view .LVU804
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  2800              		.loc 1 206 5 view .LVU820
  2801 001c FFF7FEFF 		bl	extract_date.part.0
  2802              	.LVL279:
-ARM GAS  /tmp/ccnqma1I.s 			page 72
+ARM GAS  /tmp/ccO1gJj0.s 			page 72
 
 
  206:src/date.c    **** 		return 1;
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  2831 002e 0720     		movs	r0, #7
  2832 0030 FFF7FEFF 		bl	report_err
  2833              	.LVL282:
-ARM GAS  /tmp/ccnqma1I.s 			page 73
+ARM GAS  /tmp/ccO1gJj0.s 			page 73
 
 
  2834              		.loc 1 621 1 is_stmt 0 view .LVU834
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  630:src/date.c    **** 		RTC_SetTime((unsigned char) h, (unsigned char) m, (unsigned char) s);
  631:src/date.c    **** 	} else
  632:src/date.c    **** 		report_err(ERR_NO_CRYSTAL);
-ARM GAS  /tmp/ccnqma1I.s 			page 74
+ARM GAS  /tmp/ccO1gJj0.s 			page 74
 
 
  633:src/date.c    **** #else
@@ -4433,78 +4433,78 @@ ARM GAS  /tmp/ccnqma1I.s 			page 1
  2917              		.file 10 "src/consts.h"
  2918              		.file 11 "src/decn.h"
  2919              		.file 12 "src/alpha.h"
-ARM GAS  /tmp/ccnqma1I.s 			page 75
+ARM GAS  /tmp/ccO1gJj0.s 			page 75
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 date.c
-     /tmp/ccnqma1I.s:18     .text.JDN:0000000000000000 $t
-     /tmp/ccnqma1I.s:26     .text.JDN:0000000000000000 JDN
-     /tmp/ccnqma1I.s:209    .text.JDN:00000000000000b0 $d
-     /tmp/ccnqma1I.s:218    .text.JDN2:0000000000000000 $t
-     /tmp/ccnqma1I.s:225    .text.JDN2:0000000000000000 JDN2
-     /tmp/ccnqma1I.s:409    .text.JDN2:00000000000000d4 $d
-     /tmp/ccnqma1I.s:422    .text.check_date:0000000000000000 $t
-     /tmp/ccnqma1I.s:429    .text.check_date:0000000000000000 check_date
-     /tmp/ccnqma1I.s:500    .text.extract_time:0000000000000000 $t
-     /tmp/ccnqma1I.s:507    .text.extract_time:0000000000000000 extract_time
-     /tmp/ccnqma1I.s:631    .text.extract_time:000000000000007c $d
-     /tmp/ccnqma1I.s:636    .text.extract_date.part.0:0000000000000000 $t
-     /tmp/ccnqma1I.s:643    .text.extract_date.part.0:0000000000000000 extract_date.part.0
-     /tmp/ccnqma1I.s:857    .text.extract_date.part.0:00000000000000e0 $d
-     /tmp/ccnqma1I.s:862    .text.dateExtract:0000000000000000 $t
-     /tmp/ccnqma1I.s:869    .text.dateExtract:0000000000000000 dateExtract
-     /tmp/ccnqma1I.s:961    .text.dateExtract:0000000000000038 $d
-     /tmp/ccnqma1I.s:966    .text.day_of_week.constprop.0:0000000000000000 $t
-     /tmp/ccnqma1I.s:973    .text.day_of_week.constprop.0:0000000000000000 day_of_week.constprop.0
-     /tmp/ccnqma1I.s:1036   .text.day_of_week.constprop.0:0000000000000038 $d
-     /tmp/ccnqma1I.s:1044   .text.build_date:0000000000000000 $t
-     /tmp/ccnqma1I.s:1051   .text.build_date:0000000000000000 build_date
-     /tmp/ccnqma1I.s:1213   .text.build_date:00000000000000ac $d
-     /tmp/ccnqma1I.s:1218   .text.dateFromYMD:0000000000000000 $t
-     /tmp/ccnqma1I.s:1226   .text.dateFromYMD:0000000000000000 dateFromYMD
-     /tmp/ccnqma1I.s:1328   .text.date_isleap:0000000000000000 $t
-     /tmp/ccnqma1I.s:1336   .text.date_isleap:0000000000000000 date_isleap
-     /tmp/ccnqma1I.s:1548   .text.date_isleap:000000000000009c $d
-     /tmp/ccnqma1I.s:1559   .text.dateDayOfWeek:0000000000000000 $t
-     /tmp/ccnqma1I.s:1567   .text.dateDayOfWeek:0000000000000000 dateDayOfWeek
-     /tmp/ccnqma1I.s:1627   .text.dateExtraction:0000000000000000 $t
-     /tmp/ccnqma1I.s:1635   .text.dateExtraction:0000000000000000 dateExtraction
-     /tmp/ccnqma1I.s:1698   .text.dateExtraction:0000000000000038 $d
-     /tmp/ccnqma1I.s:1703   .rodata.date_alphaday.str1.4:0000000000000000 $d
-     /tmp/ccnqma1I.s:1707   .text.date_alphaday:0000000000000000 $t
-     /tmp/ccnqma1I.s:1715   .text.date_alphaday:0000000000000000 date_alphaday
-     /tmp/ccnqma1I.s:1901   .text.date_alphaday:0000000000000094 $d
-     /tmp/ccnqma1I.s:1910   .text.date_alphamonth:0000000000000000 $t
-     /tmp/ccnqma1I.s:1918   .text.date_alphamonth:0000000000000000 date_alphamonth
-     /tmp/ccnqma1I.s:2058   .text.date_alphamonth:0000000000000068 $d
-     /tmp/ccnqma1I.s:2064   .text.dateToJ:0000000000000000 $t
-     /tmp/ccnqma1I.s:2072   .text.dateToJ:0000000000000000 dateToJ
-     /tmp/ccnqma1I.s:2169   .text.dateToJ:000000000000004c $d
-     /tmp/ccnqma1I.s:2174   .text.dateFromJ:0000000000000000 $t
-     /tmp/ccnqma1I.s:2182   .text.dateFromJ:0000000000000000 dateFromJ
-     /tmp/ccnqma1I.s:2264   .text.date_alphadate:0000000000000000 $t
-     /tmp/ccnqma1I.s:2272   .text.date_alphadate:0000000000000000 date_alphadate
-     /tmp/ccnqma1I.s:2465   .text.date_alphadate:00000000000000bc $d
-     /tmp/ccnqma1I.s:2470   .rodata.date_alphatime.str1.4:0000000000000000 $d
-     /tmp/ccnqma1I.s:2480   .text.date_alphatime:0000000000000000 $t
-     /tmp/ccnqma1I.s:2488   .text.date_alphatime:0000000000000000 date_alphatime
-     /tmp/ccnqma1I.s:2615   .text.date_alphatime:0000000000000074 $d
-     /tmp/ccnqma1I.s:2623   .text.date_date:0000000000000000 $t
-     /tmp/ccnqma1I.s:2631   .text.date_date:0000000000000000 date_date
-     /tmp/ccnqma1I.s:2684   .text.date_time:0000000000000000 $t
-ARM GAS  /tmp/ccnqma1I.s 			page 76
+     /tmp/ccO1gJj0.s:18     .text.JDN:0000000000000000 $t
+     /tmp/ccO1gJj0.s:26     .text.JDN:0000000000000000 JDN
+     /tmp/ccO1gJj0.s:209    .text.JDN:00000000000000b0 $d
+     /tmp/ccO1gJj0.s:218    .text.JDN2:0000000000000000 $t
+     /tmp/ccO1gJj0.s:225    .text.JDN2:0000000000000000 JDN2
+     /tmp/ccO1gJj0.s:409    .text.JDN2:00000000000000d4 $d
+     /tmp/ccO1gJj0.s:422    .text.check_date:0000000000000000 $t
+     /tmp/ccO1gJj0.s:429    .text.check_date:0000000000000000 check_date
+     /tmp/ccO1gJj0.s:500    .text.extract_time:0000000000000000 $t
+     /tmp/ccO1gJj0.s:507    .text.extract_time:0000000000000000 extract_time
+     /tmp/ccO1gJj0.s:631    .text.extract_time:000000000000007c $d
+     /tmp/ccO1gJj0.s:636    .text.extract_date.part.0:0000000000000000 $t
+     /tmp/ccO1gJj0.s:643    .text.extract_date.part.0:0000000000000000 extract_date.part.0
+     /tmp/ccO1gJj0.s:857    .text.extract_date.part.0:00000000000000e0 $d
+     /tmp/ccO1gJj0.s:862    .text.dateExtract:0000000000000000 $t
+     /tmp/ccO1gJj0.s:869    .text.dateExtract:0000000000000000 dateExtract
+     /tmp/ccO1gJj0.s:961    .text.dateExtract:0000000000000038 $d
+     /tmp/ccO1gJj0.s:966    .text.day_of_week.constprop.0:0000000000000000 $t
+     /tmp/ccO1gJj0.s:973    .text.day_of_week.constprop.0:0000000000000000 day_of_week.constprop.0
+     /tmp/ccO1gJj0.s:1036   .text.day_of_week.constprop.0:0000000000000038 $d
+     /tmp/ccO1gJj0.s:1044   .text.build_date:0000000000000000 $t
+     /tmp/ccO1gJj0.s:1051   .text.build_date:0000000000000000 build_date
+     /tmp/ccO1gJj0.s:1213   .text.build_date:00000000000000ac $d
+     /tmp/ccO1gJj0.s:1218   .text.dateFromYMD:0000000000000000 $t
+     /tmp/ccO1gJj0.s:1226   .text.dateFromYMD:0000000000000000 dateFromYMD
+     /tmp/ccO1gJj0.s:1328   .text.date_isleap:0000000000000000 $t
+     /tmp/ccO1gJj0.s:1336   .text.date_isleap:0000000000000000 date_isleap
+     /tmp/ccO1gJj0.s:1548   .text.date_isleap:000000000000009c $d
+     /tmp/ccO1gJj0.s:1559   .text.dateDayOfWeek:0000000000000000 $t
+     /tmp/ccO1gJj0.s:1567   .text.dateDayOfWeek:0000000000000000 dateDayOfWeek
+     /tmp/ccO1gJj0.s:1627   .text.dateExtraction:0000000000000000 $t
+     /tmp/ccO1gJj0.s:1635   .text.dateExtraction:0000000000000000 dateExtraction
+     /tmp/ccO1gJj0.s:1698   .text.dateExtraction:0000000000000038 $d
+     /tmp/ccO1gJj0.s:1703   .rodata.date_alphaday.str1.4:0000000000000000 $d
+     /tmp/ccO1gJj0.s:1707   .text.date_alphaday:0000000000000000 $t
+     /tmp/ccO1gJj0.s:1715   .text.date_alphaday:0000000000000000 date_alphaday
+     /tmp/ccO1gJj0.s:1901   .text.date_alphaday:0000000000000094 $d
+     /tmp/ccO1gJj0.s:1910   .text.date_alphamonth:0000000000000000 $t
+     /tmp/ccO1gJj0.s:1918   .text.date_alphamonth:0000000000000000 date_alphamonth
+     /tmp/ccO1gJj0.s:2058   .text.date_alphamonth:0000000000000068 $d
+     /tmp/ccO1gJj0.s:2064   .text.dateToJ:0000000000000000 $t
+     /tmp/ccO1gJj0.s:2072   .text.dateToJ:0000000000000000 dateToJ
+     /tmp/ccO1gJj0.s:2169   .text.dateToJ:000000000000004c $d
+     /tmp/ccO1gJj0.s:2174   .text.dateFromJ:0000000000000000 $t
+     /tmp/ccO1gJj0.s:2182   .text.dateFromJ:0000000000000000 dateFromJ
+     /tmp/ccO1gJj0.s:2264   .text.date_alphadate:0000000000000000 $t
+     /tmp/ccO1gJj0.s:2272   .text.date_alphadate:0000000000000000 date_alphadate
+     /tmp/ccO1gJj0.s:2465   .text.date_alphadate:00000000000000bc $d
+     /tmp/ccO1gJj0.s:2470   .rodata.date_alphatime.str1.4:0000000000000000 $d
+     /tmp/ccO1gJj0.s:2480   .text.date_alphatime:0000000000000000 $t
+     /tmp/ccO1gJj0.s:2488   .text.date_alphatime:0000000000000000 date_alphatime
+     /tmp/ccO1gJj0.s:2615   .text.date_alphatime:0000000000000074 $d
+     /tmp/ccO1gJj0.s:2623   .text.date_date:0000000000000000 $t
+     /tmp/ccO1gJj0.s:2631   .text.date_date:0000000000000000 date_date
+     /tmp/ccO1gJj0.s:2684   .text.date_time:0000000000000000 $t
+ARM GAS  /tmp/ccO1gJj0.s 			page 76
 
 
-     /tmp/ccnqma1I.s:2692   .text.date_time:0000000000000000 date_time
-     /tmp/ccnqma1I.s:2746   .text.date_setdate:0000000000000000 $t
-     /tmp/ccnqma1I.s:2754   .text.date_setdate:0000000000000000 date_setdate
-     /tmp/ccnqma1I.s:2842   .text.date_setdate:000000000000003c $d
-     /tmp/ccnqma1I.s:2847   .text.date_settime:0000000000000000 $t
-     /tmp/ccnqma1I.s:2855   .text.date_settime:0000000000000000 date_settime
-     /tmp/ccnqma1I.s:2895   .rodata:0000000000000000 $d
-     /tmp/ccnqma1I.s:2901   .rodata.mons.8918:0000000000000000 $d
-     /tmp/ccnqma1I.s:2905   .rodata.mons.8918:0000000000000000 mons.8918
+     /tmp/ccO1gJj0.s:2692   .text.date_time:0000000000000000 date_time
+     /tmp/ccO1gJj0.s:2746   .text.date_setdate:0000000000000000 $t
+     /tmp/ccO1gJj0.s:2754   .text.date_setdate:0000000000000000 date_setdate
+     /tmp/ccO1gJj0.s:2842   .text.date_setdate:000000000000003c $d
+     /tmp/ccO1gJj0.s:2847   .text.date_settime:0000000000000000 $t
+     /tmp/ccO1gJj0.s:2855   .text.date_settime:0000000000000000 date_settime
+     /tmp/ccO1gJj0.s:2895   .rodata:0000000000000000 $d
+     /tmp/ccO1gJj0.s:2901   .rodata.mons.8918:0000000000000000 $d
+     /tmp/ccO1gJj0.s:2905   .rodata.mons.8918:0000000000000000 mons.8918
 
 UNDEFINED SYMBOLS
 PersistentRam
