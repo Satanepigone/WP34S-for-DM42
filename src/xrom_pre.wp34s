@@ -1,0 +1,3395 @@
+ XLBL"START"
+slv_ridders:: [cmplx]RCL .03
+   RCL A
+   [<->] XZXY
+   [cmplx][times]
+   x[<=]0?
+    RTN+1
+   [sqrt]
+   1/x
+   RCL .03
+   RCL- .04
+   GSB sign
+   RCL[times] A
+   [times]
+   RCL .02
+   RCL- .00
+   [times]
+   RCL+ .02
+  
+   RTN
+  XLBL"SOLVE"
+   INTM?
+    ERR 13
+   LocR 06
+   x=? Y
+    INC Y
+   x=? Y
+    SDR 01
+   x>? Y
+    x[<->] Y
+   [cmplx]STO .00
+   XEQUSR
+   POPUSR
+   STO .03
+   x=0?
+    JMP slv_initial1_perfect
+   RCL .01
+   XEQUSR
+   POPUSR
+   STO .04
+   x=0?
+    JMP slv_initial2_perfect
+   A..D[->]
+   RCL[times] .03
+   x[>=]0?
+    JMP slvi_same_sign
+   SF .00
+   GSB slv_secant
+   [cmplx]RCL .00
+   GSB slv_bracket
+    GSB slv_bisect
+   JMP slvi_done_init
+slvi_same_sign:: RCL .03
+   x=? .04
+    SF .01
+   GSB slv_bisect
+slvi_done_init:: STO .02
+slv_loop:: [->]A..D
+   RCL .02
+   XEQUSR
+   POPUSR
+   x=0?
+    JMP slv_success
+   A..D[->]
+   STO A
+   INC .05
+  
+   FC? .00
+    JMP slv_not_bracket
+  
+   # 250
+   x<? .05
+    JMP slv_failed
+slv_newly_bracket:: FC?C .02
+    JMP slv_skip_ridders
+   GSB slv_ridders
+    JMP slv_br_update
+slv_skip_ridders:: GSB slv_quadratic
+    SF .03
+slv_br_update:: STO C
+   RCL A
+   GSB sign
+   RCL .04
+   GSB sign
+   x=? Y
+    JMP slv_br_same_sign
+   RCL .02
+   STO .00
+   RCL A
+   STO .03
+   RCL .01
+   JMP slv_br_check
+slv_br_same_sign:: RCL .02
+   STO .01
+   RCL A
+   STO .04
+   RCL .00
+slv_br_check:: STO D
+   FS?C .03
+    GSB slv_secant
+   RCL C
+   RCL D
+   RCL .02
+   GSB slv_bracket
+    GSB slv_bisect
+slv_est_fin:: STO .02
+  
+  
+   RCL .01
+   RCL- .00
+   ABS
+   RCL .01
+   ABS
+   RCL .00
+   ABS
+   MIN
+   ULP
+   # 5
+   [times]
+   x[<=]? Y
+    JMP slv_loop
+   # 0
+   STO L
+   RCL A
+   RCL .01
+   RCL .02
+   [->]A..D
+   RTN
+slv_not_bracket:: RCL A
+   GSB sign
+   RCL .04
+   GSB sign
+   x=? Y
+    JMP slv_nb_still
+   # 0
+   STO .05
+   SF .00
+   JMP slv_newly_bracket
+slv_nb_still:: FS? .01
+    JMP slv_const
+  
+   # 100
+   x<? .05
+    JMP slv_failed
+slv_newly_oneside:: GSB slv_quadratic
+    SF .03
+   STO C
+   RCL .04
+   ABS
+   RCL .03
+   ABS
+   x>? Y
+    JMP slv_nb_1
+   RCL .02
+   STO .00
+   RCL A
+   STO .03
+   JMP slv_nb_0
+slv_nb_1:: RCL .02
+   STO .01
+   RCL A
+   STO .04
+slv_nb_0:: RCL .01
+   x[>=]? .00
+    JMP slv_nb_maybe_secant
+   x[<->] .00
+   STO .01
+   RCL .04
+   x[<->] .03
+   STO .04
+slv_nb_maybe_secant:: FS?C .03
+    GSB slv_secant
+slv_nb_limit:: RCL C
+   RCL .01
+   RCL- .00
+   ABS
+   SDL 02
+   RCL .00
+   RCL- Y
+   x[>=]? Z
+    JMP slv_est_fin
+   DROP
+   RCL+ .01
+   x[<=]? Y
+    JMP slv_est_fin
+   x[<->] Y
+   JMP slv_est_fin
+slv_const:: # 20
+  
+   x<? .05
+    JMP slv_failed
+   RCL A
+   x=? .04
+    JMP slv_still_const
+   # 0
+   STO .05
+   CF .01
+   JMP slv_newly_oneside
+slv_still_const:: RCL .05
+   EVEN?
+    JMP slv_const_even
+   RCL .02
+   STO .01
+   RCL A
+   STO .04
+   RCL .00
+   x<0?
+    JMP slv_const_1
+   # 1/2
+   [times]
+   JMP slv_const_0
+slv_const_1:: RCL+ X
+slv_const_0:: # 10
+   -
+   JMP slv_est_fin
+slv_const_even:: RCL .02
+   STO .00
+   RCL A
+   STO .03
+   RCL .01
+   x<0?
+    JMP slv_const_3
+   RCL+ X
+   JMP slv_const_4
+slv_const_3:: # 1/2
+   [times]
+slv_const_4:: # 10
+   +
+   JMP slv_est_fin
+slv_failed:: RCL .03
+   ABS
+   RCL .04
+   ABS
+   x<? Y
+    JMP slv_fail_BltA
+   RCL T
+   STO L
+   # 0
+   x[<->] Y
+   RCL .00
+   RCL .02
+   JMP slv_fail_common
+slv_fail_BltA:: RCL T
+   STO L
+   # 0
+   x[<->] Y
+   RCL .01
+   RCL .02
+slv_fail_common:: [->]A..D
+   TOP?
+    ERR 20
+   RTN+1
+slv_success:: # 0
+   STO L
+   RCL Y
+   RCL .01
+   RCL .02
+   RTN
+slv_initial2_perfect:: RCL .04
+   RCL .01
+   JMP slv_initial_common
+slv_initial1_perfect:: RCL .03
+   RCL .00
+slv_initial_common:: RCL X
+   # 0
+   STO L
+   [cmplx]x[<->] Z
+   RTN
+slv_bracket:: ENTER[^]
+   RCL[v] Z
+   [<->] YZXT
+   MAX
+   [cmplx]x[<->] Z
+   x[<=]? T
+    RTN
+   x[>=]? Z
+    RTN
+   RTN+1
+slv_bisect:: RCL .00
+   RCL+ .01
+   # 1/2
+   [times]
+  
+   SF .02
+   RTN
+slv_secant:: RCL .01
+   ENTER[^]
+   RCL- .00
+   RCL .04
+   RCL- .03
+   /
+   RCL[times] .04
+   -
+   STO C
+  
+   RTN
+slv_quadratic:: RCL .00
+   RCL .04
+   RCL A
+   RCL .03
+   GSB slv_q_step
+    RTN
+   STO C
+   RCL .01
+   RCL .03
+   RCL A
+   RCL .04
+   GSB slv_q_step
+    RTN
+   STO+ C
+   RCL .02
+   RCL .03
+   RCL .04
+   RCL A
+   GSB slv_q_step
+    RTN
+   RCL+ C
+  
+   RTN+1
+slv_q_step:: R[v]
+   STO D
+   R[v]
+   STO[times] D
+   [cmplx]R[^]
+   STO- Y
+   STO- Z
+   DROP
+   [times]
+   x=0?
+    RTN
+   /
+   RCL[times] D
+   RTN+1
+              XLBL"INTEGRATE"
+                INTM?
+                  ERR 13
+                LocR 16
+                FS?S D
+                  SF .00
+                cSTO .00
+                NaN?
+                  JMP DEI_bad_rng
+                x<>y
+                NaN?
+                  JMP DEI_bad_rng
+                x=? Y
+                  JMP DEI_0
+                x>? Y
+                  SF .01
+                INF?
+                  SF .02
+                x<>y
+                INF?
+                  SF .03
+                FS? .02
+                  FC? .03
+                    JMP DEI_inf_1
+                # 000
+                # 002
+                CF .02
+                JMP DEI_ba2_rdy
+DEI_inf_1:: FC? .02
+                  FS? .03
+                    JMP DEI_inf_2
+                cENTER
+                +
+                x<> Z
+                -
+                ABS
+                SF .05
+                JMP DEI_ba2_rdy
+DEI_inf_2:: INF?
+                  x<>y
+                x>? Y
+                  SF .04
+                RCL+ X
+                CF .03
+                x=0?
+                  SF .03
+                SF .02
+                # 002
+DEI_ba2_rdy:: # 002
+                /
+                STO .02
+                x<>y
+                RCL/ L
+                STO .03
+                # 034
+                +/-
+                DBL?
+                  JMP DEI_dbl
+                # 009
+                1/x
+                ROUND
+                RCL- L
+                EXPT
+                # 002
+                -
+DEI_dbl:: ENTER
+                10^x
+                STO .04
+                SQRT
+                SDL 001
+                STO .05
+                DROP
+                ABS
+                LB
+                ROUNDI
+                # 002
+                +
+                STO .06
+                FC? .03
+                  JMP DEI_tanhsinh
+                # 001
+                # 000
+                NEIGHB
+                STO .04
+DEI_tanhsinh:: FC? .05
+                  JMP DEI_ss_es
+                # 001
+                RCLMIN .02
+                RCL+ X
+                JMP DEI_cont
+DEI_ss_es:: FS? .03
+                  JMP DEI_ss_es0
+                # 1/2
+                RCL/ .03
+                ABS
+                JMP DEI_cont
+DEI_ss_es0:: RCL .04
+                SQRT
+DEI_cont:: RCL/ .04
+                LN
+                FC? .05
+                  RCL+ X
+                RCL+ X
+                PI
+                /
+                LN
+                STO .07
+                cRCL .14
+                # 002
+                STO .08
+DEI_lvl_loop:: z<> .15
+                # 000
+                STO .09
+                # 001
+                STO .10
+                # 002
+                STO/ .08
+                RCL .08
+DEI_j_loop:: COSH
+                STO .11
+                x^2
+                DEC X
+                SQRT
+                # PIon2
+                *
+                FS? .02
+                  EXP
+                FC? .02
+                  COSH
+                FILL
+                FC? .05
+                  JMP DEI_not_ts
+                x^2
+                1/x
+DEI_not_ts:: STO .12
+                DROP
+                FS? .02
+                  JMP DEI_es_skip
+                x^2
+                DEC X
+                SQRT
+DEI_es_skip:: FS? .05
+                  RCL/ Y
+                FS? .04
+                  +/-
+                STO .13
+                RCL* .02
+                RCL+ .03
+                GSB DEI_xeq_user
+                RCL* .12
+                x<> .13
+                RCL .03
+                RCL .02
+                FS? .02
+                  JMP DEI_es_mode
+                RCL* Z
+                -
+                JMP DEI_call_usr_m
+DEI_es_mode:: RCL/ Z
+                +
+DEI_call_usr_m:: GSB DEI_xeq_user
+                FS? .02
+                  RCL/ .12
+                FC? .02
+                  RCL* .12
+                RCL+ .13
+                RCL* .11
+                SPEC?
+                  # 000
+                STO+ .09
+                FC? .06
+                  JMP DEI_updte_j
+                INC .10
+                ABS
+                RCL .09
+                RCL* .04
+                ABS
+                x>=? Y
+                  JMP DEI_j_exit
+                KEY? Y
+                  JMP DEI_updte_j
+                # 035
+                x!=? Z
+                  JMP DEI_updte_j
+                RCL .15
+                JMP DEI_chk_bad
+DEI_xeq_user:: SPEC?
+                    JMP DEI_bad_absc
+                  FC? .00
+                    CF D
+                  XEQUSR
+                  POPUSR
+                  SPEC?
+                    # 0
+                  SF D
+                RTN
+DEI_bad_absc:: # 000
+                RTN
+DEI_updte_j:: INC .10
+                RCL .10
+                RCL* .08
+                x<=? .07
+                  JMP DEI_j_loop
+DEI_j_exit:: RCL .09
+                STO+ .14
+                FS? .06
+                  JMP DEI_chk_conv
+                # 001
+                FS? .04
+                  +/-
+                RCL .03
+                FS? .02
+                  +
+                GSB DEI_xeq_user
+                STO+ .14
+DEI_chk_conv:: RCL .14
+                RCL* .02
+                RCL* .08
+                # PIon2
+                *
+                FS? .01
+                  +/-
+                TOP?
+                  MSG 25
+                RCL .09
+                RCL+ X
+                RCL- .14
+                ABS
+                RCL .05
+                RCL* .14
+                ABS
+                x>? Y
+                  JMP DEI_fin
+                SF .06
+                DSL .06
+                  JMP DEI_lvl_loop
+DEI_fin:: RCL Z
+DEI_chk_bad:: RCL X
+                ABS
+                RCL Y
+                RCL- .15
+                ABS
+                RCL X
+                SDL 001
+                x<? Z
+                  JMP DEI_res_okay
+                x<> Z
+                +
+                # 000
+                STO T
+DEI_res_okay:: x<> T
+DEI_exit:: TOP?
+                  MSG 25
+                cRCL .00
+                STO L
+                cx<> Z
+                FC? .00
+                  CF D
+              RTN
+DEI_0:: # 000
+                JMP DEI_dup_exit
+DEI_bad_rng:: # NaN
+DEI_dup_exit:: RCL X
+                JMP DEI_exit
+  XLBL"2DERIV"
+   INTM?
+    ERR 13
+   LocR 05
+   SPEC?
+    JMP deriv_bad_input
+   SF .00
+   GSB deriv_default_h
+   # 1
+   GSB deriv_eval_func
+    JMP deriv_bad_input
+   # 16
+   [times]
+   STO .01
+   # 42
+   SDL 03
+   RCL[times] .00
+   STO .02
+   # 0
+   GSB deriv_eval_func
+    JMP deriv_bad_input
+   # 30
+   [times]
+   STO- .01
+   7
+   3
+   7
+   6
+   6
+   RCL[times] .00
+   STO- .02
+   # 2
+   GSB deriv_eval_func
+    JMP deriv_bad_input
+   STO- .01
+   # 6
+   SDL 03
+   [times]
+   STO- .02
+   # 3
+   GSB deriv_eval_func
+    JMP deriv2_4point
+   SDL 03
+   STO+ .02
+   # 4
+   GSB deriv_eval_func
+    JMP deriv2_4point
+   # 125
+   [times]
+   STO- .02
+   # 5
+   GSB deriv_eval_func
+    JMP deriv2_4point
+   # 8
+   [times]
+   RCL+ .02
+   # 252
+   SDL 02
+   RCL[times] .04
+   RCL[times] .04
+   /
+   JMP deriv_return
+deriv_bad_input:: # NaN
+   JMP deriv_return
+deriv2_4point:: # 12
+   RCL[times] .04
+   RCL[times] .04
+   1/x
+   STO[times] .01
+deriv_6point:: RCL .01
+   JMP deriv_return
+  XLBL"DERIV"
+   INTM?
+    ERR 13
+   LocR 05
+   SPEC?
+    JMP deriv_bad_input
+   CF .00
+   GSB deriv_default_h
+   # 1
+   GSB deriv_eval_func
+    JMP deriv_bad_input
+   STO .01
+   # 2
+   GSB deriv_eval_func
+    JMP deriv_bad_input
+   STO .02
+   # 3
+   GSB deriv_eval_func
+    JMP deriv_4point
+   # 45
+   RCL[times] .01
+   # 9
+   RCL[times] .02
+   -
+   +
+   # 60
+   RCL[times] .04
+   /
+   x[<->] .01
+   # 21
+   SDL 02
+   [times]
+   # 6
+   SDL 02
+   RCL[times] .02
+   -
+   # 150
+   RCL[times] .00
+   +
+   STO .02
+   # 4
+   GSB deriv_eval_func
+    JMP deriv_6point
+   # 25
+   [times]
+   STO- .02
+   # 5
+   GSB deriv_eval_func
+    JMP deriv_6point
+   RCL+ .00
+   RCL+ .02
+   # 252
+   SDL 01
+   RCL[times] .04
+   /
+   JMP deriv_return
+deriv_eval_func:: STO .00
+   RCL[times] .04
+   RCL+ .03
+   XEQUSR
+   POPUSR
+   SPEC?
+    RTN
+   x[<->] .00
+   x=0?
+    JMP deriv_skip_midpoint
+   +/-
+   RCL[times] .04
+   RCL+ .03
+   XEQUSR
+   POPUSR
+   SPEC?
+    RTN
+   FS? .00
+   +/-
+   STO- .00
+deriv_skip_midpoint:: RCL .00
+   RTN+1
+deriv_4point:: # 8
+   RCL[times] .01
+   RCL- .02
+   # 12
+   RCL[times] .04
+   /
+deriv_return:: STO L
+   # 0
+   FILL
+   RCL .03
+   x[<->] L
+   RTN
+deriv_default_h:: STO .03
+   FILL
+   XEQ'[delta]x'
+    JMP deriv_found_lbl
+   XEQ'[delta]X'
+    JMP deriv_found_lbl
+   XEQ'[DELTA]x'
+    JMP deriv_found_lbl
+   XEQ'[DELTA]X'
+    JMP deriv_found_lbl
+   # 1
+   SDR 01
+   JMP deltaX_return
+deriv_found_lbl:: POPUSR
+deltaX_return:: STO .04
+   RTN
+  XLBL"SIGMA"
+   INTM?
+    ERR 13
+   LocR 04
+   STO .03
+   SPEC?
+    JMP sum_product_nan
+   STO .00
+   IP
+   XEQUSR
+   POPUSR
+   SPEC?
+    JMP sum_product_nan
+   STO .01
+   # 0
+   STO .02
+   JMP sum_entry
+sum_loop:: RCL .00
+   IP
+   XEQUSR
+   POPUSR
+   SPEC?
+    JMP sum_product_nan
+   RCL- .02
+   ENTER[^]
+   RCL+ .01
+   ENTER[^]
+   RCL- .01
+   RCL- Z
+   x[<->] Y
+   [cmplx]STO .01
+sum_entry:: DSL .00
+    JMP sum_loop
+   JMP sum_product_okay
+  XLBL"PRODUCT"
+   INTM?
+    ERR 13
+   LocR 04
+   STO .03
+   SPEC?
+    JMP sum_product_nan
+   STO .00
+   IP
+   XEQUSR
+   POPUSR
+   SPEC?
+    JMP sum_product_nan
+   STO .01
+   JMP product_entry
+product_loop:: RCL .00
+   IP
+   XEQUSR
+   POPUSR
+   SPEC?
+    JMP sum_product_nan
+   STO[times] .01
+product_entry:: DSL .00
+    JMP product_loop
+sum_product_okay:: RCL .03
+   STO L
+   # 0
+   FILL
+   RCL .01
+   RTN
+sum_product_nan:: # NaN
+   STO .01
+   JMP sum_product_okay
+ XLBL"PARL"
+  xIN (((2 & 7) | ((1 & 7) << 3)) | (64))
+  x=0?
+   xOUT (0)
+  ENTER[^]
+  RCL+ Z
+  x=0?
+   JMP ret_neginf
+  /
+  [times]
+  xOUT (0)
+ XLBL"CPX_PARL"
+  xIN ((((2 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+  [cmplx]x=0?
+   xOUT (0)
+  [cmplx]ENTER
+  [cmplx]RCL+ A
+  [cmplx]/
+  [cmplx][times]
+  xOUT (0)
+ XLBL"PERCENT"
+  xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   RCL[times] Y
+   SDR 02
+  xOUT (0)
+  XLBL"PERCHG"
+  xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   RCL- Y
+   RCL/ Y
+per_mul100:: SDL 02
+  xOUT (0)
+ XLBL"PERTOT"
+  xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   RCL/ Y
+   JMP per_mul100
+ XLBL"MARGIN"
+  xIN (((2 & 7) | ((1 & 7) << 3)) | (64))
+   RCL- Y
+   RCL/ L
+   JMP per_mul100
+ XLBL"PERMMR"
+  xIN (((3 & 7) | ((1 & 7) << 3)) | (64))
+   RCL/ Y
+   LN
+   RCL/ Z
+   e[^x]-1
+   JMP per_mul100
+ XLBL"PERMARGIN"
+  xIN (((2 & 7) | ((1 & 7) << 3)) | (64))
+   SDR 02
+   +/-
+   INC X
+   /
+  xOUT (0)
+ XLBL"AGM"
+  xIN (((2 & 7) | ((1 & 7) << 3)) | (64))
+  x<0?
+   ERR 1
+  x[<->] Y
+  x<0?
+   ERR 1
+agm_loop:: RCL[times] Y
+  x[<->] Y
+  RCL+ L
+  # 1/2
+  [times]
+  x[<->] Y
+  [sqrt]
+  CNVG? 03
+   xOUT (0)
+  JMP agm_loop
+ XLBL"CPX_AGM"
+  xIN ((((2 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+cagm_loop:: [cmplx]RCL[times] Z
+  [cmplx]x[<->] Z
+  [cmplx]RCL+ L
+  [cmplx]# 1/2
+  [cmplx][times]
+  [cmplx]x[<->] Z
+  [cmplx][sqrt]
+  CNVG? 11
+   xOUT (0)
+  JMP cagm_loop
+  XLBL"CPX_PERM"
+   xIN ((((2 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   GSB cperm_common
+   JMP cperm_exit
+  XLBL"CPX_COMB"
+   xIN ((((2 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   [cmplx]STO A
+   GSB cperm_common
+   [cmplx]RCL A
+   INC X
+   [cmplx]LN[GAMMA]
+   [cmplx]-
+cperm_exit:: [cmplx]e[^x]
+   xOUT (0)
+cperm_common:: xMCLR 51
+   INC Z
+   [cmplx]-
+   [cmplx]LN[GAMMA]
+   [cmplx]x[<->] Z
+   [cmplx]LN[GAMMA]
+   [cmplx]x[<->] Z
+   [cmplx]-
+   RTN
+   XLBL"W0"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   SPEC?
+    JMP ret_NaN
+   x=0?
+    xOUT (0)
+   JMP LamW0_common
+   XLBL"W1"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   SPEC?
+    JMP ret_NaN
+   x>0?
+    JMP ret_NaN
+   x=0?
+    JMP ret_neginf
+   SF .00
+LamW0_common:: LocR 003
+   STO .00
+   # 007
+   STO .01
+   # 035
+   FS? .00
+    # 025
+   SDR 002
+   +/-
+   RCL .00
+   x>? Y
+    JMP LamW0_normal
+   # 1/eH
+   RCL+ .00
+   # 1/eL
+   +
+   # eE
+   [times]
+   STO .02
+   STO+ X
+   [sqrt]
+   FS?C .00
+    +/-
+   RCL L
+   # 003
+   /
+   -
+LamW0_wp1_newton:: FILL
+   +/-
+   e[^x]-1
+   RCL[times] .00
+   # eE
+   [times]
+   RCL- Y
+   RCL+ .02
+   RCL/ Y
+   +
+   FS?C .02
+    JMP LamW0_converged
+   CNVG? 06
+    SF .02
+   DSE .01
+    JMP LamW0_wp1_newton
+LamW0_converged:: DEC X
+   JMP LamW0_finish
+LamW0_normal:: FS?C .00
+    JMP LamW0_smallx
+   LN1+x
+   x[<=]1?
+    JMP LamW0_halley
+   ENTER[^]
+   LN
+   -
+   JMP LamW0_halley
+LamW0_smallx:: +/-
+   LN
+   ENTER[^]
+   +/-
+   LN
+   -
+LamW0_halley:: FILL
+   RCL .00
+   x[<->] Y
+   e[^x]
+   /
+   -
+   x[<->] Y
+   INC X
+   /
+   RCL L
+   1/x
+   INC X
+   RCL[times] Y
+   # 1/2
+   [times]
+   +/-
+   INC X
+   /
+   -
+   FS?C .02
+    JMP LamW0_finish
+   CNVG? 01
+    SF .02
+   DSE .01
+    JMP LamW0_halley
+LamW0_finish:: xOUT (0)
+   XLBL"CPX_W0"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   LocR 06
+   [cmplx]STO .00
+   # 1
+   STO .02
+   STO .03
+   +
+   [cmplx]x=0?
+    JMP LamW_cloop
+   [cmplx]LN
+   [cmplx]STO .02
+LamW_cloop:: [cmplx]ENTER
+   [cmplx]e[^x]
+   [cmplx]STO .04
+   [cmplx]RCL[times] .02
+   [cmplx]STO+ .04
+   [cmplx]RCL- .00
+   [cmplx]RCL/ .04
+   [cmplx]STO- .02
+   [cmplx]DROP
+   [cmplx]RCL .02
+   CNVG? 11
+    xOUT (0)
+   JMP LamW_cloop
+   XLBL"W_INVERSE"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+    e[^x]
+    RCL[times] L
+   xOUT (0)
+   XLBL"CPX_W_INVERSE"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+    [cmplx]e[^x]
+    [cmplx]RCL[times] L
+   xOUT (0)
+  XLBL"beta"
+   xIN (((2 & 7) | ((1 & 7) << 3)) | (64))
+   [GAMMA]
+   RCL L
+   RCL+ Z
+   [GAMMA]
+   /
+   x[<->] Y
+   [GAMMA]
+   [times]
+   xOUT (0)
+  XLBL"cpx_beta"
+   xIN ((((2 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   [cmplx][GAMMA]
+   [cmplx]RCL L
+   [cmplx]RCL+ A
+   [cmplx][GAMMA]
+   [cmplx]/
+   [cmplx]x[<->] Z
+   [cmplx][GAMMA]
+   [cmplx][times]
+   xOUT (0)
+  XLBL"cpx_lnbeta"
+   xIN ((((2 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   [cmplx]LN[GAMMA]
+   [cmplx]RCL L
+   [cmplx]RCL+ A
+   [cmplx]LN[GAMMA]
+   [cmplx]-
+   [cmplx]x[<->] Z
+   [cmplx]LN[GAMMA]
+   [cmplx]+
+   xOUT (0)
+  XLBL"gd"
+  xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+  # 1/2
+  [times]
+  TANH
+  ATAN
+  RCL+ X
+  xOUT (0)
+  XLBL"cpx_gd"
+  xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+  [cmplx]TANH
+  GSB cpx_asin
+  xOUT (0)
+  XLBL"inv_gd"
+  xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+  # 1/2
+  [times]
+  # [pi]
+  # 4
+  /
+  +
+  TAN
+  LN
+  xOUT (0)
+  XLBL"cpx_inv_gd"
+  xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+  [cmplx]# 1/2
+  [cmplx][times]
+  [cmplx]# [pi]
+  # 4
+  /
+  [cmplx]+
+  [cmplx]TAN
+  [cmplx]LN
+  xOUT (0)
+  XLBL"ERFC"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   # 2
+   [sqrt]
+   [times]
+   +/-
+   GSB cdf_q
+   RCL+ X
+   xOUT (0)
+  XLBL"ERF"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   [infinity]?
+    JMP erf_infinite
+   x<0?
+    SF .00
+   x[^2]
+   # 1/2
+   [gamma][sub-x][sub-y]
+   # 1/[sqrt][pi]
+   [times]
+   FS? .00
+    +/-
+   xOUT (0)
+erf_infinite:: # 1
+   x>? Y
+    +/-
+   xOUT (0)
+  XLBL"PDF_CAUCHY"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB cauchy_xform
+   SPEC?
+    JMP ret_0
+   RCL[times] X
+   INC X
+   RCL[times] K
+   # [pi]
+   [times]
+   1/x
+   xOUT (0)
+  XLBL"CDFU_CAUCHY"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   SF .00
+   JMP cdf_cauchy_common
+  XLBL"CDF_CAUCHY"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+cdf_cauchy_common:: GSB cauchy_xform
+   SPEC?
+    JMP cdf_infinite
+   ATAN
+   # [pi]
+   /
+   FS? .00
+    +/-
+   # 1/2
+   +
+   xOUT (0)
+cauchy_xform:: RCL- J
+   GSB check_special
+   RCL K
+   GSB check_special_pos
+   /
+   RTN
+  XLBL"QF_CAUCHY"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB qf_check_probability
+   # 1/2
+   -
+   # [pi]
+   [times]
+   TAN
+   RCL K
+   GSB check_special_pos
+   [times]
+   RCL+ J
+   GSB check_special
+   xOUT (0)
+  XLBL"PDF_EXPON"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB expon_param
+   SPEC?
+    JMP ret_0
+   [times]
+   +/-
+   e[^x]
+   RCL[times] J
+   xOUT (0)
+  XLBL"CDFU_EXPON"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB expon_param
+   SPEC?
+    JMP cdf_infinite
+   [times]
+   x<0?
+    JMP ret_1
+   +/-
+   e[^x]
+   xOUT (0)
+  XLBL"CDF_EXPON"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB expon_param
+   SPEC?
+    JMP cdf_infinite
+   [times]
+   x<0?
+    JMP ret_0
+   +/-
+   e[^x]-1
+   +/-
+   xOUT (0)
+  XLBL"QF_EXPON"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB qf_check_probability
+   GSB log1m
+   GSB expon_param
+   /
+   +/-
+   xOUT (0)
+expon_param:: RCL J
+   JMP check_special_pos
+  XLBL"PDF_GEOM"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB geom_param
+   x<0?
+    JMP ret_0
+   FP?
+    JMP ret_0
+   RCL J
+   GSB log1m
+   [times]
+   e[^x]
+   RCL[times] J
+   xOUT (0)
+  XLBL"CDFU_GEOM"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB geom_param
+   CEIL
+   x<1?
+    JMP ret_1
+   [infinity]?
+    JMP ret_0
+   # 1
+   RCL- J
+   x[<->] Y
+   y[^x]
+   xOUT (0)
+  XLBL"CDF_GEOM"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB geom_param
+   GSB cdf_geom
+   xOUT (0)
+cdf_geom:: x<0?
+    JMP dist_ret_0
+   [infinity]?
+    JMP dist_ret_1
+   FLOOR
+   INC X
+   RCL J
+   GSB log1m
+   [times]
+   e[^x]-1
+   +/-
+   RTN
+geom_param:: RCL J
+   GSB check_probability
+   DROP
+   RTN
+  XLBL"QF_GEOM"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB geom_param
+   x[<=]0?
+    JMP ret_0
+   GSB qf_check_probability
+   ENTER[^]
+   GSB log1m
+   RCL J
+   GSB log1m
+   /
+   DEC X
+   FLOOR
+   # ((3) - (1))
+                        GSB qf_discrete_final
+                        xOUT (0)
+qf_discrete_final:: LocR 3
+   [cmplx]STO .00
+   z[<->] .02
+   DROP
+   GSB qf_discrete_cdf
+   x<? .02
+    INC .01
+qf_discrere_out:: RCL .01
+   RTN
+qf_discrete_cdf:: CASE .00
+   JMP cdf_poisson
+   JMP cdf_binomial
+   JMP cdf_geom
+  XLBL"PDF_LOGIT"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB logistic_param
+   SPEC?
+    JMP ret_0
+   COSH
+   x[^2]
+   RCL[times] K
+   # 4
+   [times]
+   1/x
+   xOUT (0)
+  XLBL"CDFU_LOGIT"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB logistic_param
+   SPEC?
+    JMP cdf_infinite
+   x[<=]0?
+    JMP ret_0
+   +/-
+   JMP cdf_logit_common
+  XLBL"CDF_LOGIT"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB logistic_param
+   SPEC?
+    JMP cdf_infinite
+   x[<=]0?
+    JMP ret_0
+cdf_logit_common:: TANH
+   INC X
+   # 1/2
+   [times]
+   xOUT (0)
+logistic_param:: RCL- J
+   GSB check_special
+   RCL K
+   GSB check_special_pos
+   RCL+ X
+   /
+   RTN
+  XLBL"QF_LOGIT"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB qf_check_probability
+   RCL+ X
+   DEC X
+   ATANH
+   RCL+ X
+   RCL K
+   GSB check_special_pos
+   [times]
+   RCL J
+   GSB check_special
+   +
+   xOUT (0)
+   XLBL"PDF_LOGNORMAL"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+    LocR 01
+    STO .00
+    LN
+    GSB pdf_normal
+    RCL/ .00
+   xOUT (0)
+  XLBL"CDFU_LOGNORMAL"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+    SPEC?
+     JMP cdf_infinite
+    x[<=]0?
+     JMP ret_1
+    LN
+    JMP cdfu_normal
+  XLBL"CDF_LOGNORMAL"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+    SPEC?
+     JMP cdf_infinite
+    x[<=]0?
+     JMP ret_0
+    LN
+    JMP cdf_normal
+  XLBL"QF_LOGNORMAL"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+    x=0?
+     xOUT (0)
+    GSB qf_normal
+    e[^x]
+   xOUT (0)
+   XLBL"PDF_NORMAL"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+    GSB pdf_normal
+   xOUT (0)
+pdf_normal:: GSB normal_param
+   GSB pdf_q
+   RCL/ K
+   RTN
+  XLBL"CDFU_NORMAL"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+cdfu_normal:: SF .00
+   JMP cdf_norm_common
+  XLBL"CDF_NORMAL"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+cdf_norm_common:: SPEC?
+    JMP cdf_infinite
+cdf_normal:: GSB normal_param
+   FS?C .00
+    +/-
+   JMP cdf_q_xout
+normal_param:: RCL J
+   GSB check_special
+   -
+   RCL K
+   GSB check_special_pos
+   /
+   RTN
+  XLBL"QF_NORMAL"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+    GSB qf_normal
+   xOUT (0)
+qf_normal:: GSB qf_q
+   RCL K
+   GSB check_special_pos
+   [times]
+   RCL J
+   GSB check_special
+   +
+   RTN
+  XLBL"PDF_Q"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+pdf_q_xout:: GSB pdf_q
+   xOUT (0)
+pdf_q:: x[^2]
+   # 1/2
+   [times]
+   +/-
+   e[^x]
+   # [sqrt]2[pi]
+   /
+   RTN
+  XLBL"CDFU_Q"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB cdfu_q
+   xOUT (0)
+cdfu_q:: x<0?
+    JMP cdfu_q_flip
+cdf_q_flip:: x[^2]
+   # 1/2
+   STO[times] Y
+   [GAMMA][sub-x][sub-y]
+   RCL[times] L
+   # 1/[sqrt][pi]
+   [times]
+   RTN
+  XLBL"CDF_Q"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+cdf_q_xout:: GSB cdf_q
+   xOUT (0)
+cdf_q:: x<0?
+    JMP cdf_q_flip
+cdfu_q_flip:: x[^2]
+   # 1/2
+   STO[times] Y
+   [gamma][sub-x][sub-y]
+   # 1/[sqrt][pi]
+   [times]
+   INC X
+   # 1/2
+   [times]
+   RTN
+  XLBL"QF_Q"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+qf_q_xout:: GSB qf_q
+   xOUT (0)
+qf_q:: GSB qf_check_probability
+                LocR 002
+  GSB qf_q_int_est
+  x<0?
+   SF .00
+  x[<->] Y
+  STO .00
+  # 002
+  STO .01
+  RCL Z
+  ABS
+  FILL
+  INC X
+  RSD 03
+  x[!=]1?
+   JMP qf_q_calc
+  DEC .01
+  DROP
+  SDL 016
+  x>1?
+   JMP qf_q_calc
+  DROP
+  JMP qf_q_out
+qf_q_calc:: DROP
+qf_q_refine:: FILL
+  x<1?
+   JMP qf_q_small
+  GSB cdfu_q
+  RCL- .00
+  JMP qf_q_common
+qf_q_small:: x[^2]
+  # 1/2
+  [times]
+  # 1/2
+  [GAMMA][sub-p]
+  RCL[times] L
+  +/-
+  # 1/2
+  RCL- .00
+  +
+qf_q_common:: x[<->] Y
+  GSB pdf_q
+  /
+  ENTER[^]
+  x[^3]
+  RCL T
+  x[^2]
+  STO+ X
+  INC X
+  [times]
+  # 006
+  /
+  # 1/2
+  RCL[times] T
+  RCL[times] Z
+  RCL[times] Z
+  +
+  +
+  +
+ 
+  DSE .01
+   JMP qf_q_refine
+qf_q_out:: FS?C .00
+   +/-
+  RTN
+qf_q_est:: LocR 000
+qf_q_int_est:: ENTER[^]
+  +/-
+  INC X
+  MIN
+  x[!=]? L
+   SF .01
+  # 002
+  SDR 001
+  x[<->] Y
+  x[>=]? Y
+   JMP qf_q_mid
+  FILL
+  LN
+  STO+ X
+  +/-
+  ENTER[^]
+  DEC X
+  # [pi]
+  [times]
+  STO+ X
+  [sqrt]
+  RCL[times] T
+  LN
+  STO+ X
+  +/-
+  [sqrt]
+  x[<->] Y
+  # 132
+  STO+ X
+  SDR 003
+  x[<->] Y
+  /
+  +
+  JMP qf_q_signfix
+qf_q_mid:: ENTER[^]
+  +/-
+  # 1/2
+  +
+  # [pi]
+  STO+ X
+  [sqrt]
+  [times]
+  ENTER[^]
+  x[^3]
+  # 005
+  /
+  +
+qf_q_signfix:: FS?C .01
+   +/-
+  RTN
+  XLBL"PDF_WEIB"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB weibull_param
+   RCL Y
+   SPEC?
+    JMP ret_0
+   x[<=]0?
+    JMP ret_0
+   x[<->] Y
+   y[^x]
+   STO Z
+   +/-
+   e[^x]
+   RCL[times] Z
+   RCL/ Y
+   RCL[times] K
+   RCL/ J
+   xOUT (0)
+  XLBL"CDFU_WEIB"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB weibull_param
+   x[<->] Y
+   x[<=]0?
+    JMP ret_1
+   SPEC?
+    JMP ret_0
+   x[<->] Y
+   y[^x]
+   +/-
+   e[^x]
+   xOUT (0)
+  XLBL"CDF_WEIB"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB weibull_param
+   x[<->] Y
+   x[<=]0?
+    JMP ret_0
+   SPEC?
+    JMP ret_1
+   x[<->] Y
+   y[^x]
+   +/-
+   e[^x]-1
+   +/-
+   xOUT (0)
+weibull_param:: RCL J
+   GSB check_special_pos
+   /
+   RCL K
+   GSB check_special_pos
+   RTN
+  XLBL"QF_WEIB"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB qf_check_probability
+   GSB log1m
+   +/-
+   RCL K
+   GSB check_special_pos
+   1/x
+   y[^x]
+   RCL J
+   GSB check_special_pos
+   [times]
+   xOUT (0)
+cdf_infinite:: x<0?
+    JMP ret_0
+   JMP ret_1
+check_probability:: NaN?
+    JMP ret_NaN
+   x<0?
+    ERR 16
+   x>1?
+    ERR 16
+   RTN
+qf_check_probability:: NaN?
+    JMP ret_NaN
+   x<0?
+    JMP ret_NaN
+   x>1?
+    JMP ret_NaN
+   RTN
+check_special_pos:: x=0?
+    ERR 16
+check_special_notneg:: x<0?
+    ERR 16
+check_special:: SPEC?
+    ERR 16
+   RTN
+log1m:: +/-
+  LN1+x
+  RTN
+dist_ret_0:: # 0
+   RTN
+dist_ret_1:: # 1
+   RTN
+  XLBL"PDF_CHI2"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB chi2_param
+   GSB pdf_chi2
+   xOUT (0)
+pdf_chi2:: x[<=]0?
+    JMP dist_ret_0
+   # 1/2
+   RCL[times] J
+   RCL X
+   [<->] ZXYT
+   LN
+   # 1/2
+   RCL[times] L
+   +/-
+   [<->] ZYXT
+   DEC X
+   [times]
+   +
+   RCL Y
+   LN[GAMMA]
+   -
+   # LN2
+   [<->] ZXYT
+   [times]
+   -
+   e[^x]
+   RTN
+  XLBL"CDFU_CHI2"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB chi2_param
+   GSB cdfu_chi2
+   xOUT (0)
+cdfu_chi2:: x[<=]0?
+    JMP dist_ret_1
+   [infinity]?
+    JMP dist_ret_0
+   # 1/2
+   [times]
+   # 1/2
+   RCL[times] J
+   [GAMMA][sub-q]
+   RTN
+  XLBL"CDF_CHI2"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB chi2_param
+   GSB cdf_chi2
+   xOUT (0)
+cdf_chi2:: x[<=]0?
+    JMP dist_ret_0
+   [infinity]?
+    JMP dist_ret_1
+   # 1/2
+   [times]
+   # 1/2
+   RCL[times] J
+   [GAMMA][sub-p]
+   RTN
+chi2_param:: RCL J
+   GSB check_special_notneg
+   FP?
+    ERR 16
+   DROP
+   RTN
+  XLBL"QF_CHI2"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB chi2_param
+   GSB qf_check_probability
+   x=0?
+    xOUT (0)
+   LocR 002
+   STO .00
+   # 006
+   STO .01
+   # 019
+   SDR 001
+   RCL J
+   x=1?
+    DEC X
+   +/-
+   y[^x]
+   # [pi]
+   /
+   RCL .00
+   x<? Y
+    JMP chi2_q_low
+   GSB qf_q_int_est
+   # 222
+   SDR 003
+   RCL/ J
+   STO Z
+   [sqrt]
+   [times]
+   INC X
+   RCL- Y
+   x[^3]
+   RCL[times] J
+   # eE
+   RCL[times] J
+   # 008
+   +
+   x[<->] Y
+   x<? Y
+    JMP chi2_q_refine
+   # 1/2
+   [times]
+   LN
+   # 1/2
+   RCL[times] J
+   DEC X
+   [times]
+   +/-
+   RCL .00
+   +/-
+   LN1+x
+   +
+   # 1/2
+   RCL[times] J
+   LN[GAMMA]
+   +
+   STO+ X
+   +/-
+   JMP chi2_q_refine
+chi2_q_low:: RCL[times] J
+   # 1/2
+   [times]
+   LN
+   # 1/2
+   RCL[times] J
+   LN[GAMMA]
+   +
+   STO+ X
+   RCL/ J
+   e[^x]
+   STO+ X
+chi2_q_refine:: FILL
+   x[>=]? J
+    JMP chi2_q_big
+   GSB cdf_chi2
+   ENTER[^]
+   RCL/ .00
+   LN
+   JMP chi2_q_common
+chi2_q_big:: # 001
+   ENTER[^]
+   RCL- .00
+   RCL Z
+   GSB cdfu_chi2
+   STO- Z
+   -
+   RCL/ .00
+   LN1+x
+chi2_q_common:: x[<->] Y
+   RCL Z
+   GSB pdf_chi2
+   x[<->] Y
+   /
+   STO Z
+   /
+   RCL J
+   DEC X
+   DEC X
+   RCL- T
+   RCL/ T
+   [<->] ZXYT
+   STO+ X
+   -
+   # 004
+   /
+   RCL[times] Y
+   +/-
+   INC X
+   /
+   +/-
+   +
+  
+   CNVG? 00
+    xOUT (0)
+   DSE .01
+    JMP chi2_q_refine
+   ERR 20
+normal_moment_approx:: LocR 003
+   [cmplx]STO .00
+   [cmplx]DROP
+   STO .02
+   GSB qf_q_est
+   ENTER[^]
+   x[^2]
+   DEC X
+   # 6
+   /
+   RCL/ .01
+   +
+   RCL[times] .01
+   RCL+ .00
+   RCL .02
+   RTN
+  XLBL"PDF_POISSON"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB poission1_param
+pdf_poisson_xout:: FP?
+    JMP ret_0
+   RCL J
+   LN
+   RCL[times] Y
+   RCL- J
+   x[<->] Y
+   INC X
+   LN[GAMMA]
+   -
+   e[^x]
+   xOUT (0)
+  XLBL"CDFU_POISSON"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB poission1_param
+cdfu_poisson_xout:: CEIL
+   x<1?
+    JMP ret_1
+   [infinity]?
+    JMP ret_0
+   RCL J
+   x[<->] Y
+   [GAMMA][sub-p]
+   xOUT (0)
+  XLBL"CDF_POISSON"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB poission1_param
+cdf_poisson_xout:: FLOOR
+   GSB cdf_poisson
+   xOUT (0)
+cdf_poisson:: x<0?
+    JMP dist_ret_0
+   [infinity]?
+    JMP dist_ret_1
+   INC X
+   RCL J
+   x[<->] Y
+   [GAMMA][sub-q]
+   RTN
+  XLBL"QF_POISSON"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB poission1_param
+qf_poisson_xout:: GSB qf_check_probability
+   RCL J
+   [sqrt]
+   RCL J
+   GSB normal_moment_approx
+   # (1)
+   XEQ qf_newton
+   xOUT (0)
+poission1_param:: x[<->] J
+   NaN?
+    JMP ret_NaN
+   SPEC?
+    ERR 16
+   x[<=]0?
+    JMP ret_0
+   x[<->] J
+   RTN
+  XLBL"PDF_POIS2"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB poisson2_param
+   JMP pdf_poisson_xout
+  XLBL"CDFU_POIS2"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB poisson2_param
+   JMP cdfu_poisson_xout
+  XLBL"CDF_POIS2"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB poisson2_param
+   JMP cdf_poisson_xout
+  XLBL"QF_POIS2"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB poisson2_param
+   JMP qf_poisson_xout
+poisson2_param:: x[<->] J
+   GSB check_probability
+   RCL[times] K
+   x<0?
+    JMP ret_0
+   x[<->] J
+   RTN
+qf_newton_setflags:: CASE .00
+   JMP qf_f_flags
+   NOP
+   SF .00
+qf_f_flags:: # 75
+   SDR 02
+   RCL[times] .06
+   STO .05
+   SF .03
+   SF .01
+   RTN
+qf_newton:: LocR 009
+   [cmplx]STO .00
+   z[<->] .06
+   GSB qf_newton_setflags
+   # 100
+   STO .02
+   # [infinity]
+   STO .04
+   # -[infinity]
+   FS? .01
+    CLx
+   STO .03
+qf_newton_search:: RCL .06
+   x[>=]? .04
+    JMP qf_newton_try_bisect
+   x[<=]? .03
+    JMP qf_newton_try_bisect
+qf_newton_no_bisect:: RCL .06
+   GSB qf_newton_cdf
+   STO .08
+   RCL- .01
+   STO .07
+   x[>=]0?
+    JMP qf_newton_fix_high
+   FS?C .02
+    JMP qf_newton_fix_low2
+   RCL .06
+   x>? .03
+    JMP qf_newton_fix_low3
+   RCL .04
+   [infinity]?
+    JMP qf_newton_fix_low2
+   JMP qf_newton_do_bisect
+qf_newton_fix_low2:: RCL .06
+qf_newton_fix_low3:: STO[^] .03
+   JMP qf_newton_fixed
+qf_newton_fix_high:: FS?C .02
+    JMP qf_newton_fix_high2
+   RCL .06
+   x<? .04
+    JMP qf_newton_fix_high3
+   RCL .03
+   [infinity]?
+    JMP qf_newton_fix_high2
+   JMP qf_newton_do_bisect
+qf_newton_fix_high2:: RCL .06
+qf_newton_fix_high3:: STO[v] .04
+qf_newton_fixed:: GSB qf_newton_pdf
+   x=0?
+    JMP qf_newton_done
+   RCL .07
+   RCL/ Y
+   STO .08
+   FC? .03
+    JMP qf_newton_no_limit
+   ABS
+   x<? .05
+    JMP qf_newton_no_limit
+   RCL .08
+   x<0?
+    JMP qf_newton_neg_limit
+   RCL .05
+   JMP qf_newton_fin_limit
+qf_newton_neg_limit:: RCL .05
+   +/-
+qf_newton_fin_limit:: STO .08
+qf_newton_no_limit:: RCL .06
+   STO .07
+   RCL- .08
+   STO .06
+   FC? .01
+    JMP qf_newton_nosign
+   x[>=]0?
+    JMP qf_newton_nosign
+   RCL .07
+   SDR 05
+   STO .06
+qf_newton_nosign:: RCL .04
+   [infinity]?
+    JMP qf_newton_nobounds
+   RCL .03
+   [infinity]?
+    JMP qf_newton_nobounds
+   CNVG? (03 + 16)
+    JMP qf_newton_bounds_cnvg
+   JMP qf_newton_nobounds
+qf_newton_bounds_cnvg:: +
+   # 1/2
+   [times]
+   JMP qf_newton_done2
+qf_newton_nobounds:: RCL .07
+   RCL .06
+   FS? .00
+    JMP qf_newton_dis_end
+   CNVG? 03
+    JMP qf_newton_done2
+   JMP qf_newton_again
+qf_newton_dis_end:: -
+   ABS
+   # 1
+   SDR 01
+   x>? Y
+    JMP qf_newton_done
+qf_newton_again:: DSE .02
+    JMP qf_newton_search
+   JMP ret_NaN
+qf_newton_done:: RCL .06
+qf_newton_done2:: FS? .00
+    JMP qf_discrete_exit
+   RTN
+qf_newton_try_bisect:: RCL .04
+   [infinity]?
+    JMP qf_newton_overlow
+   RCL .03
+   [infinity]?
+    JMP qf_newton_underhigh
+qf_newton_do_bisect:: RCL .03
+   RCL+ .04
+   # 1/2
+   [times]
+   SF .02
+qf_newton_bisect_out:: STO .06
+   JMP qf_newton_no_bisect
+qf_newton_overlow:: RCL .03
+   RCL+ X
+   JMP qf_newton_bisect_out
+qf_newton_underhigh:: RCL .04
+   # 1/2
+   [times]
+   JMP qf_newton_bisect_out
+qf_discrete_exit:: FLOOR
+   RCL .00
+   # (1)
+   -
+   z[<->] .01
+   JMP qf_discrete_final
+qf_newton_pdf:: CASE .00
+   JMP pdf_f
+   NOP
+pdf_discrete:: # 1
+   SDR 03
+   RCL+ .06
+   GSB qf_newton_cdf
+   RCL- .08
+   # 1
+   SDL 3
+   [times]
+   RTN
+qf_newton_cdf:: CASE .00
+   JMP cdf_f
+   JMP cdf_poisson
+   JMP cdf_binomial
+  XLBL"PDF_BINOMIAL"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB binomial_param
+   x<0?
+    JMP ret_0
+   x>? K
+    JMP ret_0
+   RCL J
+   GSB log1m
+   RCL K
+   RCL- Z
+   [times]
+   e[^x]
+   RCL K
+   RCL Z
+   COMB
+   [times]
+   RCL J
+   RCL Z
+   y[^x]
+   [times]
+   xOUT (0)
+  XLBL"CDFU_BINOMIAL"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB binomial_param
+   CEIL
+   x[<=]0?
+    JMP ret_1
+   DEC X
+   x>? K
+    JMP ret_0
+   GSB cdf_bin_beta_xform
+   RCL J
+   I[sub-x]
+   xOUT (0)
+  XLBL"CDF_BINOMIAL"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB binomial_param
+   FLOOR
+   GSB cdf_binomial
+   xOUT (0)
+cdf_binomial:: x<0?
+    JMP dist_ret_0
+   x[>=]? K
+    JMP dist_ret_1
+   GSB cdf_bin_beta_xform
+   # 1
+   RCL- J
+   [<->] XZYT
+   I[sub-x]
+   RTN
+cdf_bin_beta_xform:: RCL K
+   RCL- Y
+   # 1
+   RCL+ Z
+   RTN
+  XLBL"QF_BINOMIAL"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB binomial_param
+   GSB qf_check_probability
+                        x[<=]0?
+                            JMP ret_0
+   RCL J
+   RCL[times] K
+   # 1
+   RCL- J
+   RCL[times] Y
+   [sqrt]
+   x[<->] Y
+   GSB normal_moment_approx
+   # (2)
+   XEQ qf_newton
+   RCL[v] K
+   xOUT (0)
+binomial_param:: RCL J
+   GSB check_probability
+   RCL K
+   SPEC?
+    ERR 16
+   FP?
+    JMP ret_0
+   x<0?
+    JMP ret_0
+   [cmplx]DROP
+   RTN
+  XLBL"PDF_F"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB f_param
+   GSB pdf_f
+   xOUT (0)
+pdf_f:: FILL
+   RCL K
+   LN
+   RCL[times] K
+   RCL J
+   RCL[times] Z
+   STO Z
+   LN
+   RCL[times] J
+   +
+   x[<->] Y
+   RCL+ K
+   LN
+   RCL J
+   RCL+ K
+   [times]
+   -
+   # 1/2
+   [times]
+   # 1/2
+   RCL[times] J
+   RCL K
+   RCL[times] L
+   LN[beta]
+   -
+   e[^x]
+   x[<->] Y
+   /
+   RTN
+  XLBL"CDFU_F"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB f_param
+   x[<=]0?
+    JMP ret_1
+   [infinity]?
+    JMP ret_0
+   RCL[times] J
+   RCL+ K
+   RCL K
+   x[<->] Y
+   /
+   # 1/2
+   RCL[times] K
+   # 1/2
+   RCL[times] J
+   [<->] ZYXT
+   I[sub-x]
+   xOUT (0)
+  XLBL"CDF_F"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB f_param
+   GSB cdf_f
+   xOUT (0)
+cdf_f:: x[<=]0?
+    JMP dist_ret_0
+   [infinity]?
+    JMP dist_ret_1
+   RCL[times] J
+   ENTER[^]
+   RCL+ K
+   /
+   # 1/2
+   RCL[times] K
+   # 1/2
+   RCL[times] J
+   RCL Z
+   I[sub-x]
+   RTN
+  XLBL"QF_F"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB f_param
+   GSB qf_f_est
+   # (0)
+   XEQ qf_newton
+   xOUT (0)
+qf_f_est:: LocR 003
+   STO .00
+   GSB qf_q_est
+   RCL J
+   x>1?
+    DEC X
+   1/x
+   RCL K
+   x>1?
+    DEC X
+   1/x
+   [cmplx]STO .01
+   +
+   # 2
+   x[<->] Y
+   /
+   RCL Y
+   x[^2]
+   # 3
+   -
+   # 6
+   /
+   RCL Y
+   RCL+ Y
+   [sqrt]
+   RCL[times] T
+   RCL/ Z
+   # 2
+   RCL/ T
+   # 3
+   /
+   +/-
+   RCL+ Z
+   # 5
+   # 6
+   /
+   +
+   [cmplx]RCL .01
+   -
+   [times]
+   -
+   RCL+ X
+   e[^x]
+   RCL .00
+   RTN
+f_param:: RCL J
+   GSB check_special_pos
+   RCL K
+   GSB check_special_pos
+   [cmplx]DROP
+   RTN
+  XLBL"PDF_T"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB t_param
+   FS?C .00
+    JMP pdf_q_xout
+   GSB pdf_t
+   xOUT (0)
+pdf_t:: x[^2]
+   # 1/2
+   RCL[times] J
+   LN[GAMMA]
+   # 1/2
+   RCL+ L
+   STO I
+   LN[GAMMA]
+   x[<->] Y
+   -
+   x[<->] Y
+   RCL/ J
+   LN1+x
+   RCL[times] I
+   -
+   e[^x]
+   # [pi]
+   RCL[times] J
+   [sqrt]
+   /
+   RTN
+  XLBL"CDFU_T"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   +/-
+   JMP cdf_t_common
+  XLBL"CDF_T"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+cdf_t_common:: GSB t_param
+   FS?C .00
+    JMP cdf_q_xout
+   GSB cdf_t
+   xOUT (0)
+cdfu_t:: +/-
+cdf_t:: [infinity]?
+    JMP cdf_t_infinite
+   x=0?
+    JMP dist_ret_half
+   x>0?
+    JMP cdf_t_invert
+cdf_t_return:: x[^2]
+   x<1?
+                         JMP cdf_t_small
+                        RCL J
+                        x[<->] Y
+                        RCL+ J
+                        /
+                        # 1/2
+                        RCL[times] J
+                        # 1/2
+                        x[<->] Z
+                        I[sub-x]
+                        # 1/2
+                        [times]
+                        RTN
+cdf_t_small:: ENTER[^]
+                        RCL+ J
+                        /
+                        # 1/2
+                        ENTER[^]
+                        RCL[times] J
+                        x[<->] Z
+                        I[sub-x]
+                        # 1/2
+                        [times]
+                        +/-
+                        RCL+ L
+                        RTN
+cdf_t_invert:: GSB cdf_t_return
+                        +/-
+                        INC X
+                        RTN
+cdf_t_infinite:: x<0?
+    JMP dist_ret_0
+   JMP dist_ret_1
+dist_ret_half:: # 1/2
+   RTN
+  XLBL"QF_T"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB t_param
+   GSB qf_check_probability
+   FS?C .00
+    JMP qf_t_exit
+   x=0?
+    JMP ret_neginf
+   LocR 002
+   ENTER[^]
+   +/-
+   INC X
+   MIN
+   x[!=]? L
+    SF .00
+   STO .00
+   RCL J
+   [sqrt]
+   # 007
+   STO .01
+   +
+   RCL J
+   +/-
+   y[^x]
+   # 004
+   /
+   STO A
+   RCL .00
+   x>? Y
+    JMP qf_t_tail
+   RCL J
+   STO+ X
+   [times]
+   # [pi]
+   RCL L
+   # 1/2
+   x[^2]
+   DEC X
+   +
+   /
+   [sqrt]
+   [times]
+   RCL J
+   [^x][sqrt]y
+   RCL J
+   [sqrt]
+   x[<->] Y
+   /
+   JMP qf_t_loop
+qf_t_tail:: GSB qf_q_int_est
+   x[^2]
+   # eE
+   RCL[times] J
+   1/x
+   INC X
+   [times]
+   RCL/ J
+   e[^x]-1
+   RCL[times] J
+   [sqrt]
+qf_t_loop:: FILL
+   x[^2]
+   x<1?
+    JMP qf_t_small
+   x[<->] L
+   GSB cdfu_t
+   RCL- .00
+   JMP qf_t_step
+qf_t_small:: ENTER[^]
+   RCL+ J
+   /
+   # 1/2
+   ENTER[^]
+   RCL[times] J
+   x[<->] Z
+   I[sub-x]
+   # 1/2
+   [times]
+   +/-
+   # 1/2
+   RCL- .00
+   +
+qf_t_step:: RCL T
+   GSB pdf_t
+   /
+   ENTER[^]
+   RCL[times] T
+   RCL J
+   INC X
+   [times]
+   RCL T
+   x[^2]
+   RCL+ J
+   STO+ X
+   /
+   DEC X
+   /
+   +/-
+   +
+  
+   CNVG? 00
+    JMP qf_t_exit
+   DSE .01
+    JMP qf_t_loop
+   ERR 20
+qf_t_exit:: FS? .00
+    +/-
+   xOUT (0)
+t_param:: RCL J
+   [infinity]?
+    JMP t_param_inf
+   GSB check_special_pos
+t_drop_rtn:: DROP
+   RTN
+t_param_inf:: x<0?
+    ERR 16
+   SF .00
+   JMP t_drop_rtn
+  XLBL"LegendrePn"
+   xIN (((2 & 7) | ((1 & 7) << 3)) | (64))
+   LocR 06
+   GSB ortho_default
+   RCL .00
+   STO+ A
+   RCL+ X
+   STO D
+   JMP ortho_allinc
+  XLBL"ChebychevTn"
+   xIN (((2 & 7) | ((1 & 7) << 3)) | (64))
+   LocR 06
+   GSB ortho_default
+   JMP ortho_common
+  XLBL"ChebychevUn"
+   xIN (((2 & 7) | ((1 & 7) << 3)) | (64))
+   LocR 06
+   GSB ortho_default
+   RCL .00
+   STO+ .04
+   JMP ortho_common
+  XLBL"LaguerreLn"
+   xIN (((2 & 7) | ((1 & 7) << 3)) | (64))
+   LocR 06
+   # 0
+   JMP laguerre_common
+  XLBL"LaguerreLnA"
+   xIN (((3 & 7) | ((1 & 7) << 3)) | (64))
+   LocR 06
+   RCL Z
+   SPEC?
+    JMP ret_NaN
+laguerre_common:: STO .02
+   INC X
+   x[<=]0?
+    JMP ret_NaN
+   DROP
+   GSB ortho_default
+   RCL .02
+   STO+ B
+   # 3
+   +
+   RCL- .00
+   STO A
+   RCL .02
+   INC X
+   RCL- .00
+   STO .04
+ortho_allinc:: SF .00
+   INC .05
+   SF .02
+   JMP ortho_common
+  XLBL"HermiteHe"
+   xIN (((2 & 7) | ((1 & 7) << 3)) | (64))
+   LocR 06
+   GSB ortho_default
+   RCL .00
+   STO A
+   INC .05
+   JMP ortho_common
+  XLBL"HermiteH"
+   xIN (((2 & 7) | ((1 & 7) << 3)) | (64))
+   LocR 06
+   GSB ortho_default
+   RCL .00
+   STO+ .04
+   # 2
+   STO B
+   STO .05
+   JMP ortho_common
+ortho_default:: xMCLR 51
+  [cmplx]STO .00
+  SPEC?
+   JMP ret_NaN
+  RCL .01
+  FP?
+   JMP ret_NaN
+  x<0?
+   JMP ret_NaN
+  x=0?
+   JMP ret_1
+  SDR 03
+  x[>=]1?
+   JMP ret_NaN
+  STO I
+  # 1
+  STO .03
+  SDL 03
+  x<? Y
+   JMP ret_NaN
+  # 2
+  STO+ I
+  STO D
+  # 1
+  STO C
+  STO B
+  RCL .00
+  STO .04
+  RCL+ X
+  STO A
+  RTN
+ortho_common:: RCL .01
+  x=1?
+   JMP ortho_exit
+ortho_loop:: RCL .04
+  RCL[times] A
+  RCL .03
+  RCL[times] B
+  -
+  x[<->] .04
+  STO .03
+  FC? .02
+   JMP ortho_noC
+  INC C
+  RCL C
+  STO/ .04
+ortho_noC:: FC? .00
+   JMP ortho_noA
+  RCL D
+  STO+ A
+ortho_noA:: RCL .05
+  STO+ B
+  ISG I
+   JMP ortho_common
+ortho_exit:: RCL .04
+  xOUT (0)
+ret_NaN:: FC? D
+   ERR 1
+  # NaN
+  FILL
+  xOUT (0)
+ret_1:: # 1
+  xOUT (0)
+ret_0:: # 0
+  xOUT (0)
+push_neginf:: FC? D
+   ERR 5
+  # -[infinity]
+  FILL
+  RTN
+ret_neginf:: GSB push_neginf
+  xOUT (0)
+push_posinf:: FC? D
+   ERR 4
+  # [infinity]
+  FILL
+  RTN
+ret_posinf:: GSB push_posinf
+  xOUT (0)
+  XLBL"CPX_I"
+  xIN ((((0 & 7) | ((1 & 7) << 3))) | (128))
+  # 1
+cmplx_real_0:: # 0
+  xOUT (0)
+  XLBL"NEXTPRIME"
+   INTM?
+    JMP nextprime_xin
+   DBL?
+    JMP nextprime_xin
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   # 16
+   10[^x]
+   # 63
+   -
+   x[<=]? Y
+    ERR 1
+   x[<->] Y
+   JMP nextprime_skip_xin
+nextprime_xin:: xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+nextprime_skip_xin:: FLOOR
+   x[<=]1?
+    JMP prime_2
+   [infinity]?
+    ERR 1
+   PRIME?
+    INC X
+   EVEN?
+nextprime_loop:: INC X
+   PRIME?
+    xOUT (0)
+   INC X
+   JMP nextprime_loop
+prime_2:: # 2
+   xOUT (0)
+   XLBL"DATE_TO"
+   xIN (((1 & 7) | ((3 & 7) << 3)) | (64))
+   YEAR
+   RCL L
+   MONTH
+   RCL L
+   DAY
+   xOUT (0)
+   XLBL"DATE_DELTA"
+   xIN (((2 & 7) | ((1 & 7) << 3)) | (64))
+   D[->]J
+   x[<->] Y
+   D[->]J
+   -
+   xOUT (0)
+   XLBL"DATE_ADD"
+   xIN (((2 & 7) | ((1 & 7) << 3)) | (64))
+   FP?
+    JMP ret_NaN
+   x[<->] Y
+   D[->]J
+   +
+   J[->]D
+   xOUT (0)
+F
+  XLBL"SETEUR"
+   GSB locale_common
+   GSB mode_comma
+   JMP jg1582
+  XLBL"SETUK"
+   GSB locale_common
+   JMP hr12
+  XLBL"SETUSA"
+   GSB locale_common
+   GSB hr12
+   JMP date_mdy
+  XLBL"SETIND"
+   GSB locale_common
+   JMP e3off
+  XLBL"SETCHN"
+   GSB locale_common
+   GSB e3off
+   JMP date_ymd
+  XLBL"SETJAP"
+   GSB locale_common
+   JMP date_ymd
+locale_common:: GSB mode_dot
+   GSB e3on
+   GSB hr24
+   GSB jg1752
+   JMP date_dmy
+  XLBL"RADIX_COM"
+mode_comma:: xMSET 29
+   JMP mode_nofract
+  XLBL"RADIX_DOT"
+mode_dot:: xMCLR 29
+mode_nofract:: xMCLR 21
+   RTN
+  XLBL"DEGREES"
+mode_deg:: xMCLR 54
+   JMP mode_trigc
+  XLBL"RADIANS"
+mode_rad:: xMSET 54
+mode_trigc:: xMCLR 55
+   RTN
+  XLBL"GRADIANS"
+mode_grad:: xMCLR 54
+   xMSET 55
+   RTN
+  XLBL"JG1582"
+jg1582:: xMSET 63
+   RTN
+  XLBL"JG1752"
+jg1752:: xMCLR 63
+   RTN
+  XLBL"HR12"
+hr12:: xMSET 47
+   RTN
+  XLBL"HR24"
+hr24:: xMCLR 47
+   RTN
+  XLBL"D_DMY"
+date_dmy:: xMCLR 52
+   JMP date_common
+  XLBL"D_YMD"
+date_ymd:: xMSET 52
+date_common:: xMCLR 53
+   RTN
+  XLBL"D_MDY"
+date_mdy:: xMCLR 52
+   xMSET 53
+   RTN
+  XLBL"E3ON"
+e3on:: xMCLR 30
+   RTN
+  XLBL"E3OFF"
+e3off:: xMSET 30
+   RTN
+  XLBL"SEPON"
+intsepon:: xMCLR 31
+   RTN
+  XLBL"SEPOFF"
+intsepoff:: xMSET 31
+   RTN
+  XLBL"ISGN_2C"
+   xMCLR 34
+isgn_clr2:: xMCLR 35
+   RTN
+  XLBL"ISGN_1C"
+   xMSET 34
+   JMP isgn_clr2
+  XLBL"ISGN_UN"
+   xMCLR 34
+   JMP isgn_set2
+  XLBL"ISGN_SM"
+   xMSET 34
+isgn_set2:: xMSET 35
+   RTN
+  XLBL"IM_LZON"
+   xMSET 33
+   RTN
+  XLBL"IM_LZOFF"
+   xMCLR 33
+   RTN
+  XLBL"FIXSCI"
+   xMCLR 28
+   JMP fixsci_nofrac
+  XLBL"FIXENG"
+   xMSET 28
+fixsci_nofrac:: xMCLR 21
+   RTN
+  XLBL"F_DENANY"
+   xMCLR 04
+   JMP denom_common
+  XLBL"F_DENFIX"
+   xMSET 04
+denom_common:: xMCLR 05
+   RTN
+  XLBL"F_DENFAC"
+   xMCLR 04
+   xMSET 05
+   RTN
+  XLBL"STACK_4_LEVEL"
+   xMCLR 51
+   RTN
+  XLBL"STACK_8_LEVEL"
+   xMSET 51
+   RTN
+  XLBL"SHOW_Y_REG"
+   xMSET 50
+   RTN
+  XLBL"HIDE_Y_REG"
+   xMCLR 50
+   RTN
+  XLBL"WHO"
+   CL[alpha]
+   GSB who_wp
+   "by"
+   GSB who_show
+   "Pauli"
+   GSB who_show
+   "Walter"
+   GSB who_show
+   "Marcus"
+   GSB who_show
+   "Neil"
+   GSB who_show
+   "& more"
+   GSB who_show
+   GSB who_wp
+   VERS
+   PSE 08
+   RTN
+who_wp:: "WP 34S"
+who_show:: VIEW[alpha]
+   PSE 08
+   CL[alpha]
+   RTN
+  XLBL"FIB"
+  xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+  # [PHI]
+  x[<->] Y
+  y[^x]
+  RCL L
+  (-1)[^x]
+  RCL/ Y
+  -
+  # 1/[sqrt]5
+  [times]
+  xOUT (0)
+  XLBL"CPX_FIB"
+  xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+  [cmplx]# [PHI]
+  [cmplx]x[<->] Z
+  [cmplx]y[^x]
+  [cmplx]RCL L
+  [cmplx](-1)[^x]
+  [cmplx]RCL/ Z
+  [cmplx]-
+  [cmplx]# 1/[sqrt]5
+  [cmplx][times]
+  xOUT (0)
+  XLBL"QUAD"
+   xIN (((3 & 7) | ((3 & 7) << 3)) | (64))
+   xMCLR 51
+   RCL+ X
+   x[<->] Z
+   x=0?
+    ERR 18
+   RCL+ X
+   STO A
+   RCL Y
+   [cmplx][times]
+   STO D
+   x<0?
+    JMP quad_complex
+   [sqrt]
+   [<->] ZXTX
+   x[>=]0?
+    GSB cpx_conj
+   -
+                        x[!=]0?
+    STO/ Y
+   RCL/ A
+   z[<->] D
+   xOUT (0)
+quad_complex:: ABS
+   [sqrt]
+   RCL/ A
+   RCL Z
+   RCL/ A
+   +/-
+   SF .12
+   z[<->] D
+   xOUT ((1) | (2))
+  XLBL"Bn_star"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   FP?
+    ERR 1
+   x[<=]0?
+    ERR 1
+   STO I
+   STO+ X
+   GSB bernoulli
+   STO+ X
+   ABS
+   xOUT (0)
+  XLBL"Bn"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   FP?
+    ERR 1
+   x<0?
+    ERR 1
+   x=0?
+    JMP Bn_0
+   x=1?
+    JMP zeta_0
+   ODD?
+    JMP Bn_odd
+   STO I
+   GSB bernoulli
+   xOUT (0)
+bernoulli:: DEC X
+   +/-
+   GSB zeta_int
+   RCL[times] I
+   +/-
+   RTN
+Bn_odd:: # 0
+   xOUT (0)
+Bn_0:: # 1
+   xOUT (0)
+zeta_0:: # 1/2
+   +/-
+   xOUT (0)
+  XLBL"ZETA"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   x=0?
+    JMP zeta_0
+   GSB zeta_int
+   xOUT (0)
+zeta_int:: LocR 08
+   STO .01
+   STO .07
+   # 1/2
+   x>? 0
+    JMP zeta_calc
+zeta_neg:: # 1
+   x[<->] Y
+   -
+   STO .01
+   GSB zeta_calc
+   # 1
+   ASIN
+   RCL[times] .07
+   SIN
+   [times]
+   # [pi]
+   STO/ Y
+   STO+ X
+   RCL .07
+   y[^x]
+   [times]
+   x[<->] .01
+   [GAMMA]
+   RCL[times] .01
+   RTN
+zeta_calc:: # 22
+   FS? .11
+    STO+ X
+   STO .00
+   STO .03
+   GSB sign
+   STO .04
+   STO .05
+   +/-
+   STO .06
+   # 0
+zeta_loop:: RCL .05
+   RCL .00
+   RCL .01
+   +/-
+   y[^x]
+   [times]
+   RCL .06
+   +/-
+   STO .06
+   [times]
+   +
+   RCL .00
+   ENTER[^]
+   STO+ Y
+   STO[times] Y
+   -
+   RCL[times] .04
+   RCL .03
+   x[^2]
+   RCL .00
+   DEC X
+   x[^2]
+   -
+   STO+ X
+   /
+   STO .04
+   STO+ .05
+   x[<->] Y
+   DSE .00
+    JMP zeta_loop
+   RCL/ .05
+   # 2
+   LN
+   # 1
+   RCL- .01
+   [times]
+   e[^x]-1
+   /
+   RTN
+  XLBL"SIGN"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   GSB sign
+   xOUT (0)
+sign:: x=0?
+    RTN
+   x<0?
+    JMP sign_negative
+   DROP
+   # 1
+   RTN
+sign_negative:: DROP
+   # 1
+   +/-
+   RTN
+  XLBL"cpx_IDIV"
+   xIN ((((2 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   [cmplx]/
+   JMP cpx_trunc
+  XLBL"cpx_ROUND"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   ROUND
+   x[<->] Y
+   ROUND
+   JMP cpx_trunc_exit
+  XLBL"cpx_FRAC"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   FP
+   x[<->] Y
+   FP
+   JMP cpx_trunc_exit
+  XLBL"cpx_TRUNC"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+cpx_trunc:: IP
+   x[<->] Y
+   IP
+cpx_trunc_exit:: x[<->] Y
+   xOUT (0)
+  XLBL"cpx_CONJ"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   GSB cpx_conj
+   xOUT (0)
+cpx_conj:: x[<->] Y
+   +/-
+   x[<->] Y
+   RTN
+  XLBL"cpx_FACT"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   INC X
+   [cmplx][GAMMA]
+   xOUT (0)
+  XLBL"cpx_SIGN"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   SPEC?
+    JMP sign_real_special
+   x=0?
+    JMP sign_real_zero
+   [<->] YXXY
+   SPEC?
+    JMP sign_cmplx_special
+   x=0?
+    JMP sign_cmplx_zero
+   [cmplx]ABS
+   [cmplx]/
+   xOUT (0)
+sign_real_zero:: x[<->] Y
+   GSB sign
+sign_swap_exit:: x[<->] Y
+   xOUT (0)
+sign_cmplx_zero:: x[<->] Y
+   GSB sign
+   xOUT (0)
+sign_real_special:: GSB sign
+   x[<->] Y
+   SPEC?
+    JMP ret_NaN
+   CLx
+   JMP sign_swap_exit
+sign_cmplx_special:: GSB sign
+   # 0
+   xOUT (0)
+  XLBL"cpx_DOT"
+   xIN ((((2 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   GSB cpx_conj
+   JMP cpx_dot_cross_exit
+  XLBL"cpx_CROSS"
+   xIN ((((2 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   z[<->] T
+cpx_dot_cross_exit:: [cmplx][times]
+   # 0
+   x[<->] Y
+   xOUT (0)
+  XLBL"cpx_x2"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   [cmplx]RCL[times] X
+   xOUT (0)
+  XLBL"cpx_x3"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   [cmplx]RCL[times] X
+   [cmplx]RCL[times] L
+   xOUT (0)
+  XLBL"cpx_ASIN"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   GSB cpx_asin
+   xOUT (0)
+cpx_asin:: +/-
+   x[<->] Y
+   GSB cpx_asinh
+   x[<->] Y
+   +/-
+   RTN
+  XLBL"cpx_ACOS"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   GSB cpx_asin
+   [cmplx]+/-
+   # [pi]/2
+   +
+   xOUT (0)
+  XLBL"cpx_ATAN"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   RCL X
+   +/-
+   RCL Z
+   INC X
+   [cmplx]LN
+   RCL Z
+   # 1
+   RCL- B
+   [cmplx]LN
+   [cmplx]-
+   # 1/2
+   # 0
+   [cmplx][times]
+   xOUT (0)
+  XLBL"cpx_ASINH"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   GSB cpx_asinh
+   xOUT (0)
+cpx_asinh:: x[>=]0?
+    JMP cpx_asinh_pos
+   SF .00
+   [cmplx]+/-
+cpx_asinh_pos:: [cmplx]FILL
+   [cmplx]RCL[times] X
+   INC X
+   [cmplx][sqrt]
+   [cmplx]+
+   [cmplx]LN
+   FS? .00
+    [cmplx]+/-
+   RTN
+  XLBL"cpx_ACOSH"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   [cmplx]FILL
+   INC X
+   [cmplx][sqrt]
+   [cmplx]x[<->] Z
+   DEC X
+   [cmplx][sqrt]
+   [cmplx][times]
+   [cmplx]+
+   [cmplx]LN
+   xOUT (0)
+  XLBL"cpx_ATANH"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   [cmplx]# 1
+   [cmplx]x[<->] Z
+   [cmplx]-
+   [cmplx]RCL L
+   INC X
+   [cmplx]x[<->] Z
+   [cmplx]/
+   [cmplx]LN
+   [cmplx]# 1/2
+   [cmplx][times]
+   xOUT (0)
+  XLBL"cpx_LOGXY"
+   xIN ((((2 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   [cmplx]LN
+   [cmplx]x[<->] Z
+   [cmplx]LN
+   [cmplx]x[<->] Z
+   [cmplx]/
+   xOUT (0)
+  XLBL"cpx_LOG10"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   [cmplx]LN
+   [cmplx]# L10[^-1]
+   JMP cpx_log_common
+  XLBL"cpx_LOG2"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   [cmplx]LN
+   [cmplx]# LN2[^-1]
+cpx_log_common:: [cmplx][times]
+   xOUT (0)
+  XLBL"cpx_POW10"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   [cmplx]# 10
+   JMP cpx_pow_common
+  XLBL"cpx_POW2"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   [cmplx]# 2
+cpx_pow_common:: [cmplx]x[<->] Z
+   [cmplx]y[^x]
+   xOUT (0)
+  XLBL"cpx_EXPM1"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+                        [cmplx]# 1/2
+                        [cmplx][times]
+                        [cmplx]e[^x]
+                        [cmplx]RCL L
+                        x[<->] Y
+                        +/-
+                        [cmplx]SIN
+                        # 2
+                        # 0
+                        [cmplx][times]
+                        [cmplx]+/-
+                        [cmplx][times]
+                        xOUT (0)
+  XLBL"cpx_LN1P"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   [cmplx]FILL
+   [cmplx]ABS
+   +
+   # 1
+   SDR 4
+   x>? Y
+    JMP cpx_ln1p_small
+   [cmplx]DROP
+   INC X
+   [cmplx]LN
+   xOUT (0)
+cpx_ln1p_small:: LocR 01
+   [cmplx]DROP
+   [cmplx]# (8)
+   STO .00
+   INC X
+   1/x
+   [cmplx]/
+cpx_ln1p_loop:: # 0
+   RCL .00
+   1/x
+   [cmplx]-
+   [cmplx][times]
+   DEC .00
+   # 0
+   RCL .00
+   1/x
+   [cmplx]+
+   [cmplx][times]
+   DSZ .00
+    JMP cpx_ln1p_loop
+   xOUT (0)
+  XLBL"int_ULP"
+   STO L
+   CLx
+   INC X
+   RTN
+  XLBL"IDIV"
+   xIN (((2 & 7) | ((1 & 7) << 3)) | (64))
+   /
+   IP
+   xOUT (0)

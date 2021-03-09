@@ -1,0 +1,1695 @@
+Archive member included because of file (symbol)
+
+c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_thumb1_case_uqi.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (__gnu_thumb1_case_uqi)
+c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_thumb1_case_uhi.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (__gnu_thumb1_case_uhi)
+c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivsi3.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (__aeabi_uidiv)
+c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divsi3.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (__aeabi_idiv)
+c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_dvmd_tls.o)
+                              c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_lshrdi3.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (__aeabi_llsr)
+c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_ashrdi3.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (__aeabi_lasr)
+c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_ashldi3.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (__aeabi_llsl)
+c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_aeabi_uldivmod.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (__aeabi_uldivmod)
+c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_muldi3.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (__aeabi_lmul)
+c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_paritysi2.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (__paritysi2)
+c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(bpabi.o)
+                              c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_aeabi_uldivmod.o) (__gnu_uldivmod_helper)
+c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divdi3.o)
+                              c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(bpabi.o) (__divdi3)
+c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivdi3.o)
+                              c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(bpabi.o) (__udivdi3)
+c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_clzsi2.o)
+                              c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divdi3.o) (__clzsi2)
+windows32_realbuild/obj\libconsts.a(const_NaN.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_NaN)
+windows32_realbuild/obj\libconsts.a(const_inf.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_inf)
+windows32_realbuild/obj\libconsts.a(const__inf.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const__inf)
+windows32_realbuild/obj\libconsts.a(const__1.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const__1)
+windows32_realbuild/obj\libconsts.a(const__0.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (::const(void))
+windows32_realbuild/obj\libconsts.a(const_0.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_0)
+windows32_realbuild/obj\libconsts.a(const_1.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_1)
+windows32_realbuild/obj\libconsts.a(const_2.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_2)
+windows32_realbuild/obj\libconsts.a(const_3.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_3)
+windows32_realbuild/obj\libconsts.a(const_5.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_5)
+windows32_realbuild/obj\libconsts.a(const_10.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_10)
+windows32_realbuild/obj\libconsts.a(const_20.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_20)
+windows32_realbuild/obj\libconsts.a(const_21.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_21)
+windows32_realbuild/obj\libconsts.a(const_32.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_32)
+windows32_realbuild/obj\libconsts.a(const_45.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_45)
+windows32_realbuild/obj\libconsts.a(const_50.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_50)
+windows32_realbuild/obj\libconsts.a(const_60.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_60)
+windows32_realbuild/obj\libconsts.a(const_90.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_90)
+windows32_realbuild/obj\libconsts.a(const_100.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_100)
+windows32_realbuild/obj\libconsts.a(const_180.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_180)
+windows32_realbuild/obj\libconsts.a(const_200.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_200)
+windows32_realbuild/obj\libconsts.a(const_256.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_256)
+windows32_realbuild/obj\libconsts.a(const_360.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_360)
+windows32_realbuild/obj\libconsts.a(const_400.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_400)
+windows32_realbuild/obj\libconsts.a(const_9000.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_9000)
+windows32_realbuild/obj\libconsts.a(const_36000.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_36000)
+windows32_realbuild/obj\libconsts.a(const_100000.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_100000)
+windows32_realbuild/obj\libconsts.a(const_1e_32.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_1e_32)
+windows32_realbuild/obj\libconsts.a(const_1e_37.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_1e_37)
+windows32_realbuild/obj\libconsts.a(const_1e_10000.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_1e_10000)
+windows32_realbuild/obj\libconsts.a(const_1e_24.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_1e_24)
+windows32_realbuild/obj\libconsts.a(const_1e_14.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_1e_14)
+windows32_realbuild/obj\libconsts.a(const_hms_threshold.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_hms_threshold)
+windows32_realbuild/obj\libconsts.a(const_0_0001.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_0_0001)
+windows32_realbuild/obj\libconsts.a(const_0_1.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_0_1)
+windows32_realbuild/obj\libconsts.a(const_0_05.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_0_05)
+windows32_realbuild/obj\libconsts.a(const_0_4.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_0_4)
+windows32_realbuild/obj\libconsts.a(const_0_5.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_0_5)
+windows32_realbuild/obj\libconsts.a(const_0_6.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_0_6)
+windows32_realbuild/obj\libconsts.a(const_0_75.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_0_75)
+windows32_realbuild/obj\libconsts.a(const_0_9.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_0_9)
+windows32_realbuild/obj\libconsts.a(const_0_995.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_0_995)
+windows32_realbuild/obj\libconsts.a(const_1on60.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_1on60)
+windows32_realbuild/obj\libconsts.a(const_9on5.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_9on5)
+windows32_realbuild/obj\libconsts.a(const_root2on2.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_root2on2)
+windows32_realbuild/obj\libconsts.a(const_PI.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_PI)
+windows32_realbuild/obj\libconsts.a(const_2PI.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_2PI)
+windows32_realbuild/obj\libconsts.a(const_PIon2.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_PIon2)
+windows32_realbuild/obj\libconsts.a(const_PIon180.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_PIon180)
+windows32_realbuild/obj\libconsts.a(const_PIon200.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_PIon200)
+windows32_realbuild/obj\libconsts.a(const_ln2.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_ln2)
+windows32_realbuild/obj\libconsts.a(const_ln10.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_ln10)
+windows32_realbuild/obj\libconsts.a(const_egamma.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_egamma)
+windows32_realbuild/obj\libconsts.a(const_2pow64.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_2pow64)
+windows32_realbuild/obj\libconsts.a(const_randfac.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_randfac)
+windows32_realbuild/obj\libconsts.a(const_gammaR.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaR)
+windows32_realbuild/obj\libconsts.a(const_gammaC00.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC00)
+windows32_realbuild/obj\libconsts.a(const_gammaC01.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC01)
+windows32_realbuild/obj\libconsts.a(const_gammaC02.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC02)
+windows32_realbuild/obj\libconsts.a(const_gammaC03.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC03)
+windows32_realbuild/obj\libconsts.a(const_gammaC04.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC04)
+windows32_realbuild/obj\libconsts.a(const_gammaC05.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC05)
+windows32_realbuild/obj\libconsts.a(const_gammaC06.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC06)
+windows32_realbuild/obj\libconsts.a(const_gammaC07.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC07)
+windows32_realbuild/obj\libconsts.a(const_gammaC08.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC08)
+windows32_realbuild/obj\libconsts.a(const_gammaC09.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC09)
+windows32_realbuild/obj\libconsts.a(const_gammaC10.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC10)
+windows32_realbuild/obj\libconsts.a(const_gammaC11.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC11)
+windows32_realbuild/obj\libconsts.a(const_gammaC12.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC12)
+windows32_realbuild/obj\libconsts.a(const_gammaC13.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC13)
+windows32_realbuild/obj\libconsts.a(const_gammaC14.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC14)
+windows32_realbuild/obj\libconsts.a(const_gammaC15.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC15)
+windows32_realbuild/obj\libconsts.a(const_gammaC16.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC16)
+windows32_realbuild/obj\libconsts.a(const_gammaC17.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC17)
+windows32_realbuild/obj\libconsts.a(const_gammaC18.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC18)
+windows32_realbuild/obj\libconsts.a(const_gammaC19.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC19)
+windows32_realbuild/obj\libconsts.a(const_gammaC20.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC20)
+windows32_realbuild/obj\libconsts.a(const_gammaC21.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (const_gammaC21)
+windows32_realbuild/obj\libdecNum34s.a(decContext.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (decContextDefault)
+windows32_realbuild/obj\libdecNum34s.a(decNumber.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (decNumberToString)
+windows32_realbuild/obj\libdecNum34s.a(decimal128.o)
+                              C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o (decimal128FromNumber)
+windows32_realbuild/obj\libdecNum34s.a(decimal64.o)
+                              windows32_realbuild/obj\libdecNum34s.a(decimal128.o) (decDigitsToDPD)
+
+Discarded input sections
+
+ .data          0x00000000        0x0 C:\Users\Marcus\AppData\Local\Temp\cc21kmNW.o
+ .bss           0x00000000        0x0 C:\Users\Marcus\AppData\Local\Temp\cc21kmNW.o
+ .data          0x00000000        0x0 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+ .data          0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_thumb1_case_uqi.o)
+ .bss           0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_thumb1_case_uqi.o)
+ .data          0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_thumb1_case_uhi.o)
+ .bss           0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_thumb1_case_uhi.o)
+ .data          0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivsi3.o)
+ .bss           0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivsi3.o)
+ .data          0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divsi3.o)
+ .bss           0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divsi3.o)
+ .data          0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_dvmd_tls.o)
+ .bss           0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_dvmd_tls.o)
+ .data          0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_lshrdi3.o)
+ .bss           0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_lshrdi3.o)
+ .data          0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_ashrdi3.o)
+ .bss           0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_ashrdi3.o)
+ .data          0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_ashldi3.o)
+ .bss           0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_ashldi3.o)
+ .data          0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_aeabi_uldivmod.o)
+ .bss           0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_aeabi_uldivmod.o)
+ .data          0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_muldi3.o)
+ .bss           0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_muldi3.o)
+ .data          0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_paritysi2.o)
+ .bss           0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_paritysi2.o)
+ .data          0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(bpabi.o)
+ .bss           0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(bpabi.o)
+ .ARM.extab     0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(bpabi.o)
+ .ARM.exidx     0x00000000       0x10 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(bpabi.o)
+ .data          0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divdi3.o)
+ .bss           0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divdi3.o)
+ .ARM.extab     0x00000000        0xc c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divdi3.o)
+ .ARM.exidx     0x00000000        0x8 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divdi3.o)
+ .data          0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivdi3.o)
+ .bss           0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivdi3.o)
+ .ARM.extab     0x00000000        0xc c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivdi3.o)
+ .ARM.exidx     0x00000000        0x8 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivdi3.o)
+ .data          0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_clzsi2.o)
+ .bss           0x00000000        0x0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_clzsi2.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_NaN.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_NaN.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_NaN.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_inf.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_inf.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_inf.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const__inf.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const__inf.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const__inf.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const__1.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const__1.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const__1.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const__0.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const__0.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const__0.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_2.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_2.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_2.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_3.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_3.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_3.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_5.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_5.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_5.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_10.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_10.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_10.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_20.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_20.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_20.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_21.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_21.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_21.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_32.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_32.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_32.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_45.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_45.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_45.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_50.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_50.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_50.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_60.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_60.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_60.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_90.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_90.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_90.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_100.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_100.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_100.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_180.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_180.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_180.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_200.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_200.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_200.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_256.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_256.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_256.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_360.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_360.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_360.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_400.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_400.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_400.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_9000.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_9000.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_9000.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_36000.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_36000.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_36000.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_100000.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_100000.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_100000.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1e_32.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1e_32.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1e_32.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1e_37.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1e_37.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1e_37.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1e_10000.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1e_10000.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1e_10000.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1e_24.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1e_24.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1e_24.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1e_14.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1e_14.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1e_14.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_hms_threshold.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_hms_threshold.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_hms_threshold.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_0001.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_0001.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_0001.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_1.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_1.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_1.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_05.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_05.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_05.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_4.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_4.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_4.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_5.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_5.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_5.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_6.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_6.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_6.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_75.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_75.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_75.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_9.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_9.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_9.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_995.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_995.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_0_995.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1on60.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1on60.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_1on60.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_9on5.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_9on5.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_9on5.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_root2on2.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_root2on2.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_root2on2.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_PI.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_PI.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_PI.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_2PI.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_2PI.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_2PI.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_PIon2.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_PIon2.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_PIon2.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_PIon180.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_PIon180.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_PIon180.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_PIon200.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_PIon200.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_PIon200.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_ln2.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_ln2.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_ln2.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_ln10.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_ln10.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_ln10.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_egamma.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_egamma.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_egamma.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_2pow64.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_2pow64.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_2pow64.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_randfac.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_randfac.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_randfac.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaR.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaR.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaR.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC00.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC00.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC00.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC01.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC01.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC01.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC02.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC02.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC02.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC03.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC03.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC03.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC04.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC04.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC04.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC05.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC05.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC05.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC06.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC06.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC06.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC07.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC07.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC07.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC08.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC08.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC08.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC09.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC09.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC09.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC10.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC10.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC10.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC11.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC11.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC11.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC12.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC12.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC12.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC13.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC13.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC13.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC14.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC14.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC14.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC15.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC15.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC15.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC16.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC16.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC16.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC17.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC17.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC17.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC18.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC18.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC18.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC19.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC19.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC19.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC20.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC20.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC20.o)
+ .text          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC21.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC21.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libconsts.a(const_gammaC21.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libdecNum34s.a(decContext.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libdecNum34s.a(decContext.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libdecNum34s.a(decNumber.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libdecNum34s.a(decNumber.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libdecNum34s.a(decimal128.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libdecNum34s.a(decimal128.o)
+ .data          0x00000000        0x0 windows32_realbuild/obj\libdecNum34s.a(decimal64.o)
+ .bss           0x00000000        0x0 windows32_realbuild/obj\libdecNum34s.a(decimal64.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+volatileram      0x00200000         0x00001000         w !xr
+persistentram    0x00300000         0x00000800         w !xr
+programflash     0x00100000         0x0001f800         xr
+backupflash      0x0011f800         0x00000800         r
+cmdtab           0x000f0000         0x00010000         r
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD C:\Users\Marcus\AppData\Local\Temp\cc21kmNW.o
+LOAD C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+LOAD c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a
+LOAD windows32_realbuild/obj\libconsts.a
+LOAD windows32_realbuild/obj\libdecNum34s.a
+
+.cmdtab         0x000f0000     0x2072
+ *(.cmdtab)
+ .cmdtab        0x000f0000     0x2072 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+                0x000f0000                command_info
+                0x000f0048                multicmds_ct
+                0x000f00b6                argcmds_ct
+                0x000f0806                niladics_ct
+                0x000f11ba                trifuncs_ct
+                0x000f1262                dyfuncs_ct
+                0x000f15b0                monfuncs_ct
+ *(.implicit_consts)
+
+.fixed          0x00100000    0x1e9fc
+                0x00100000                . = ALIGN (0x4)
+                0x00100000                _sfixed = .
+ *(.text*)
+ .text          0x00100000       0xf0 C:\Users\Marcus\AppData\Local\Temp\cc21kmNW.o
+                0x00100068                resetHandler
+                0x00100068                entry
+ .text          0x001000f0    0x12a44 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+                0x00107908                __aeabi_unwind_cpp_pr0
+                0x0010790a                __aeabi_unwind_cpp_pr1
+                0x0010790c                __aeabi_unwind_cpp_pr2
+                0x0010790e                LowLevelInit
+                0x001079ac                xcopy
+                0x001079ac                memcpy
+                0x00112b18                memset
+                0x00112b18                xset
+ .text.unlikely
+                0x00112b34      0x56c C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+ .text.startup  0x001130a0     0x1b04 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+                0x001130a0                main
+ .text          0x00114ba4       0x14 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_thumb1_case_uqi.o)
+                0x00114ba4                __gnu_thumb1_case_uqi
+ .text          0x00114bb8       0x14 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_thumb1_case_uhi.o)
+                0x00114bb8                __gnu_thumb1_case_uhi
+ .text          0x00114bcc      0x11c c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivsi3.o)
+                0x00114bcc                __aeabi_uidiv
+                0x00114bcc                __udivsi3
+                0x00114cc8                __aeabi_uidivmod
+ .text          0x00114ce8      0x150 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divsi3.o)
+                0x00114ce8                __divsi3
+                0x00114ce8                __aeabi_idiv
+                0x00114e18                __aeabi_idivmod
+ .text          0x00114e38        0x4 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_dvmd_tls.o)
+                0x00114e38                __aeabi_idiv0
+                0x00114e38                __aeabi_ldiv0
+ .text          0x00114e3c       0x18 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_lshrdi3.o)
+                0x00114e3c                __lshrdi3
+                0x00114e3c                __aeabi_llsr
+ .text          0x00114e54       0x1c c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_ashrdi3.o)
+                0x00114e54                __aeabi_lasr
+                0x00114e54                __ashrdi3
+ .text          0x00114e70       0x18 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_ashldi3.o)
+                0x00114e70                __aeabi_llsl
+                0x00114e70                __ashldi3
+ .text          0x00114e88       0x3c c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_aeabi_uldivmod.o)
+                0x00114e88                __aeabi_uldivmod
+ .text          0x00114ec4       0x4c c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_muldi3.o)
+                0x00114ec4                __muldi3
+                0x00114ec4                __aeabi_lmul
+ .text          0x00114f10       0x20 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_paritysi2.o)
+                0x00114f10                __paritysi2
+ .text          0x00114f30       0x74 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(bpabi.o)
+                0x00114f30                __gnu_ldivmod_helper
+                0x00114f6c                __gnu_uldivmod_helper
+ .text          0x00114fa4      0x390 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divdi3.o)
+                0x00114fa4                __divdi3
+ .text          0x00115334      0x358 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivdi3.o)
+                0x00115334                __udivdi3
+ .text          0x0011568c       0x48 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_clzsi2.o)
+                0x0011568c                __clzsi2
+ .text          0x001156d4       0x6c windows32_realbuild/obj\libdecNum34s.a(decContext.o)
+                0x001156d4                decContextDefault
+                0x00115738                decContextSetStatus
+ .text          0x00115740     0x3188 windows32_realbuild/obj\libdecNum34s.a(decNumber.o)
+                0x001164a0                decNumberToString
+                0x00116830                decNumberFromString
+                0x00116b58                decNumberCopy
+                0x00116bf8                decNumberNormalize
+                0x00116e08                decNumberMultiply
+                0x00116f3e                decNumberMin
+                0x00116f70                decNumberMax
+                0x00116fa2                decNumberCompare
+                0x001173f8                decNumberSubtract
+                0x0011742a                decNumberAdd
+                0x0011745a                decNumberPlus
+                0x0011749e                decNumberMinus
+                0x001174e4                decNumberAbs
+                0x00117be0                decNumberRemainder
+                0x00117c12                decNumberDivide
+                0x00117c44                decNumberSquareRoot
+                0x0011846c                decNumberExp
+                0x001184f0                decNumberZero
+                0x001184fe                decGetInt
+                0x00118784                decNumberRescale
+                0x001187b4                decNumberQuantize
+                0x001187e6                decNumberToIntegralValue
+                0x00118862                ullint_to_dn
+ .text          0x001188c8      0x254 windows32_realbuild/obj\libdecNum34s.a(decimal128.o)
+                0x001188c8                decimal128FromNumber
+                0x00118a30                decimal128ToNumber
+ .text          0x00118b1c      0x40c windows32_realbuild/obj\libdecNum34s.a(decimal64.o)
+                0x00118b1c                decDigitsToDPD
+                0x00118c50                decimal64FromNumber
+                0x00118da8                decDigitsFromDPD
+                0x00118e34                decimal64ToNumber
+                0x00118f08                decimal64ToString
+ .text.stub     0x00118f28       0x54 linker stubs
+ *(.rodata*)
+ .rodata        0x00118f88     0x3560 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+ .rodata.str1.1
+                0x0011c4e8      0x257 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+                                0x26c (size before relaxing)
+ *fill*         0x0011c73f        0x1 00
+ .rodata        0x0011c740        0xc windows32_realbuild/obj\libconsts.a(const_NaN.o)
+                0x0011c740                const_NaN
+ .rodata        0x0011c74c        0xc windows32_realbuild/obj\libconsts.a(const_inf.o)
+                0x0011c74c                const_inf
+ .rodata        0x0011c758        0xc windows32_realbuild/obj\libconsts.a(const__inf.o)
+                0x0011c758                const__inf
+ .rodata        0x0011c764        0xc windows32_realbuild/obj\libconsts.a(const__1.o)
+                0x0011c764                const__1
+ .rodata        0x0011c770        0xc windows32_realbuild/obj\libconsts.a(const__0.o)
+                0x0011c770                ::const(void)
+ .rodata        0x0011c77c        0xc windows32_realbuild/obj\libconsts.a(const_0.o)
+                0x0011c77c                const_0
+ .rodata        0x0011c788        0xc windows32_realbuild/obj\libconsts.a(const_1.o)
+                0x0011c788                const_1
+ .rodata        0x0011c794        0xc windows32_realbuild/obj\libconsts.a(const_2.o)
+                0x0011c794                const_2
+ .rodata        0x0011c7a0        0xc windows32_realbuild/obj\libconsts.a(const_3.o)
+                0x0011c7a0                const_3
+ .rodata        0x0011c7ac        0xc windows32_realbuild/obj\libconsts.a(const_5.o)
+                0x0011c7ac                const_5
+ .rodata        0x0011c7b8        0xc windows32_realbuild/obj\libconsts.a(const_10.o)
+                0x0011c7b8                const_10
+ .rodata        0x0011c7c4        0xc windows32_realbuild/obj\libconsts.a(const_20.o)
+                0x0011c7c4                const_20
+ .rodata        0x0011c7d0        0xc windows32_realbuild/obj\libconsts.a(const_21.o)
+                0x0011c7d0                const_21
+ .rodata        0x0011c7dc        0xc windows32_realbuild/obj\libconsts.a(const_32.o)
+                0x0011c7dc                const_32
+ .rodata        0x0011c7e8        0xc windows32_realbuild/obj\libconsts.a(const_45.o)
+                0x0011c7e8                const_45
+ .rodata        0x0011c7f4        0xc windows32_realbuild/obj\libconsts.a(const_50.o)
+                0x0011c7f4                const_50
+ .rodata        0x0011c800        0xc windows32_realbuild/obj\libconsts.a(const_60.o)
+                0x0011c800                const_60
+ .rodata        0x0011c80c        0xc windows32_realbuild/obj\libconsts.a(const_90.o)
+                0x0011c80c                const_90
+ .rodata        0x0011c818        0xc windows32_realbuild/obj\libconsts.a(const_100.o)
+                0x0011c818                const_100
+ .rodata        0x0011c824        0xc windows32_realbuild/obj\libconsts.a(const_180.o)
+                0x0011c824                const_180
+ .rodata        0x0011c830        0xc windows32_realbuild/obj\libconsts.a(const_200.o)
+                0x0011c830                const_200
+ .rodata        0x0011c83c        0xc windows32_realbuild/obj\libconsts.a(const_256.o)
+                0x0011c83c                const_256
+ .rodata        0x0011c848        0xc windows32_realbuild/obj\libconsts.a(const_360.o)
+                0x0011c848                const_360
+ .rodata        0x0011c854        0xc windows32_realbuild/obj\libconsts.a(const_400.o)
+                0x0011c854                const_400
+ .rodata        0x0011c860        0xc windows32_realbuild/obj\libconsts.a(const_9000.o)
+                0x0011c860                const_9000
+ .rodata        0x0011c86c        0xc windows32_realbuild/obj\libconsts.a(const_36000.o)
+                0x0011c86c                const_36000
+ .rodata        0x0011c878        0xc windows32_realbuild/obj\libconsts.a(const_100000.o)
+                0x0011c878                const_100000
+ .rodata        0x0011c884        0xc windows32_realbuild/obj\libconsts.a(const_1e_32.o)
+                0x0011c884                const_1e_32
+ .rodata        0x0011c890        0xc windows32_realbuild/obj\libconsts.a(const_1e_37.o)
+                0x0011c890                const_1e_37
+ .rodata        0x0011c89c        0xc windows32_realbuild/obj\libconsts.a(const_1e_10000.o)
+                0x0011c89c                const_1e_10000
+ .rodata        0x0011c8a8        0xc windows32_realbuild/obj\libconsts.a(const_1e_24.o)
+                0x0011c8a8                const_1e_24
+ .rodata        0x0011c8b4        0xc windows32_realbuild/obj\libconsts.a(const_1e_14.o)
+                0x0011c8b4                const_1e_14
+ .rodata        0x0011c8c0       0x24 windows32_realbuild/obj\libconsts.a(const_hms_threshold.o)
+                0x0011c8c0                const_hms_threshold
+ .rodata        0x0011c8e4        0xc windows32_realbuild/obj\libconsts.a(const_0_0001.o)
+                0x0011c8e4                const_0_0001
+ .rodata        0x0011c8f0        0xc windows32_realbuild/obj\libconsts.a(const_0_1.o)
+                0x0011c8f0                const_0_1
+ .rodata        0x0011c8fc        0xc windows32_realbuild/obj\libconsts.a(const_0_05.o)
+                0x0011c8fc                const_0_05
+ .rodata        0x0011c908        0xc windows32_realbuild/obj\libconsts.a(const_0_4.o)
+                0x0011c908                const_0_4
+ .rodata        0x0011c914        0xc windows32_realbuild/obj\libconsts.a(const_0_5.o)
+                0x0011c914                const_0_5
+ .rodata        0x0011c920        0xc windows32_realbuild/obj\libconsts.a(const_0_6.o)
+                0x0011c920                const_0_6
+ .rodata        0x0011c92c        0xc windows32_realbuild/obj\libconsts.a(const_0_75.o)
+                0x0011c92c                const_0_75
+ .rodata        0x0011c938        0xc windows32_realbuild/obj\libconsts.a(const_0_9.o)
+                0x0011c938                const_0_9
+ .rodata        0x0011c944        0xc windows32_realbuild/obj\libconsts.a(const_0_995.o)
+                0x0011c944                const_0_995
+ .rodata        0x0011c950       0x24 windows32_realbuild/obj\libconsts.a(const_1on60.o)
+                0x0011c950                const_1on60
+ .rodata        0x0011c974        0xc windows32_realbuild/obj\libconsts.a(const_9on5.o)
+                0x0011c974                const_9on5
+ .rodata        0x0011c980       0x24 windows32_realbuild/obj\libconsts.a(const_root2on2.o)
+                0x0011c980                const_root2on2
+ .rodata        0x0011c9a4       0x24 windows32_realbuild/obj\libconsts.a(const_PI.o)
+                0x0011c9a4                const_PI
+ .rodata        0x0011c9c8      0x138 windows32_realbuild/obj\libconsts.a(const_2PI.o)
+                0x0011c9c8                const_2PI
+ .rodata        0x0011cb00       0x24 windows32_realbuild/obj\libconsts.a(const_PIon2.o)
+                0x0011cb00                const_PIon2
+ .rodata        0x0011cb24       0x24 windows32_realbuild/obj\libconsts.a(const_PIon180.o)
+                0x0011cb24                const_PIon180
+ .rodata        0x0011cb48       0x24 windows32_realbuild/obj\libconsts.a(const_PIon200.o)
+                0x0011cb48                const_PIon200
+ .rodata        0x0011cb6c       0x24 windows32_realbuild/obj\libconsts.a(const_ln2.o)
+                0x0011cb6c                const_ln2
+ .rodata        0x0011cb90       0x24 windows32_realbuild/obj\libconsts.a(const_ln10.o)
+                0x0011cb90                const_ln10
+ .rodata        0x0011cbb4       0x24 windows32_realbuild/obj\libconsts.a(const_egamma.o)
+                0x0011cbb4                const_egamma
+ .rodata        0x0011cbd8       0x18 windows32_realbuild/obj\libconsts.a(const_2pow64.o)
+                0x0011cbd8                const_2pow64
+ .rodata        0x0011cbf0       0x1c windows32_realbuild/obj\libconsts.a(const_randfac.o)
+                0x0011cbf0                const_randfac
+ .rodata        0x0011cc0c       0x10 windows32_realbuild/obj\libconsts.a(const_gammaR.o)
+                0x0011cc0c                const_gammaR
+ .rodata        0x0011cc1c       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC00.o)
+                0x0011cc1c                const_gammaC00
+ .rodata        0x0011cc40       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC01.o)
+                0x0011cc40                const_gammaC01
+ .rodata        0x0011cc64       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC02.o)
+                0x0011cc64                const_gammaC02
+ .rodata        0x0011cc88       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC03.o)
+                0x0011cc88                const_gammaC03
+ .rodata        0x0011ccac       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC04.o)
+                0x0011ccac                const_gammaC04
+ .rodata        0x0011ccd0       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC05.o)
+                0x0011ccd0                const_gammaC05
+ .rodata        0x0011ccf4       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC06.o)
+                0x0011ccf4                const_gammaC06
+ .rodata        0x0011cd18       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC07.o)
+                0x0011cd18                const_gammaC07
+ .rodata        0x0011cd3c       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC08.o)
+                0x0011cd3c                const_gammaC08
+ .rodata        0x0011cd60       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC09.o)
+                0x0011cd60                const_gammaC09
+ .rodata        0x0011cd84       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC10.o)
+                0x0011cd84                const_gammaC10
+ .rodata        0x0011cda8       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC11.o)
+                0x0011cda8                const_gammaC11
+ .rodata        0x0011cdcc       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC12.o)
+                0x0011cdcc                const_gammaC12
+ .rodata        0x0011cdf0       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC13.o)
+                0x0011cdf0                const_gammaC13
+ .rodata        0x0011ce14       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC14.o)
+                0x0011ce14                const_gammaC14
+ .rodata        0x0011ce38       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC15.o)
+                0x0011ce38                const_gammaC15
+ .rodata        0x0011ce5c       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC16.o)
+                0x0011ce5c                const_gammaC16
+ .rodata        0x0011ce80       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC17.o)
+                0x0011ce80                const_gammaC17
+ .rodata        0x0011cea4       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC18.o)
+                0x0011cea4                const_gammaC18
+ .rodata        0x0011cec8       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC19.o)
+                0x0011cec8                const_gammaC19
+ .rodata        0x0011ceec       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC20.o)
+                0x0011ceec                const_gammaC20
+ .rodata        0x0011cf10       0x24 windows32_realbuild/obj\libconsts.a(const_gammaC21.o)
+                0x0011cf10                const_gammaC21
+ .rodata        0x0011cf34       0x48 windows32_realbuild/obj\libdecNum34s.a(decNumber.o)
+                0x0011cf34                powers
+ .rodata.str1.1
+                0x0011cf7c       0x23 windows32_realbuild/obj\libdecNum34s.a(decNumber.o)
+                                 0x27 (size before relaxing)
+ *fill*         0x0011cf9f        0x1 00
+ .rodata        0x0011cfa0        0x4 windows32_realbuild/obj\libdecNum34s.a(decimal128.o)
+ .rodata        0x0011cfa4      0x118 windows32_realbuild/obj\libdecNum34s.a(decimal64.o)
+                0x0011cfbc                COMBMSD
+                0x0011d03c                COMBEXP
+ *(.xrom)
+ .xrom          0x0011d0bc     0x1940 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+                0x0011e9fc                . = ALIGN (0x4)
+                0x0011e9fc                _efixed = .
+
+.glue_7         0x0011e9fc        0x0
+ .glue_7        0x00000000        0x0 linker stubs
+
+.glue_7t        0x0011e9fc        0x0
+ .glue_7t       0x00000000        0x0 linker stubs
+
+.vfp11_veneer   0x0011e9fc        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x0011e9fc        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.revision       0x0011e9fc        0x4
+ *(.revision)
+ .revision      0x0011e9fc        0x4 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+                0x0011e9fc                SvnRevision
+                0x0011ea00                . = ALIGN (0x100)
+ *fill*         0x0011ea00        0x0 00
+                0x0011ea00                UserFlash = .
+
+.backupflash    0x0011f800      0x800
+                0x00000e00                UserFlashSize = (. - UserFlash)
+ *(.backup_flash)
+ .backupflash   0x0011f800      0x800 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+
+.bss            0x00200000      0x1b0
+                0x00200000                . = ALIGN (0x4)
+                0x00200000                _szero = .
+ *(.bss)
+ .bss           0x00200000      0x1b0 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+
+.slcdcmem       0x002001b0       0x30
+                0x002001b0                . = ALIGN (0x4)
+ *(.slcdcmem)
+ .slcdcmem      0x002001b0       0x30 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+                0x002001e0                . = ALIGN (0x4)
+                0x002001e0                _ezero = .
+
+.volatileram    0x002001e0      0x210
+                0x002001e0                . = ALIGN (0x4)
+ *(.volatileram)
+ .volatileram   0x002001e0      0x210 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+                0x002003f0                . = ALIGN (0x4)
+
+.persistentram  0x00300000      0x800
+                0x00300000                . = ALIGN (0x4)
+                0x00300000                _spersistentram = .
+ *(.persistentram)
+ .persistentram
+                0x00300000      0x800 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+                0x00300800                . = ALIGN (0x4)
+                0x00300800                _epersistentram = .
+                0x00201000                _sstack = 0x201000
+
+/DISCARD/
+ *(.ARM.extab*)
+ *(.ARM.exidx*)
+                0x00300800                end = .
+OUTPUT(realbuild/calc_ir elf32-littlearm)
+
+.ARM.attributes
+                0x00000000       0x2e
+ .ARM.attributes
+                0x00000000       0x22 C:\Users\Marcus\AppData\Local\Temp\cc21kmNW.o
+ .ARM.attributes
+                0x00000022       0x32 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+ .ARM.attributes
+                0x00000054       0x18 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_thumb1_case_uqi.o)
+ .ARM.attributes
+                0x0000006c       0x18 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_thumb1_case_uhi.o)
+ .ARM.attributes
+                0x00000084       0x1a c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x0000009e       0x1a c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divsi3.o)
+ .ARM.attributes
+                0x000000b8       0x18 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x000000d0       0x18 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_lshrdi3.o)
+ .ARM.attributes
+                0x000000e8       0x18 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_ashrdi3.o)
+ .ARM.attributes
+                0x00000100       0x18 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_ashldi3.o)
+ .ARM.attributes
+                0x00000118       0x1a c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_aeabi_uldivmod.o)
+ .ARM.attributes
+                0x00000132       0x32 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_muldi3.o)
+ .ARM.attributes
+                0x00000164       0x32 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_paritysi2.o)
+ .ARM.attributes
+                0x00000196       0x32 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(bpabi.o)
+ .ARM.attributes
+                0x000001c8       0x32 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divdi3.o)
+ .ARM.attributes
+                0x000001fa       0x32 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivdi3.o)
+ .ARM.attributes
+                0x0000022c       0x1a c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_clzsi2.o)
+ .ARM.attributes
+                0x00000246       0x32 windows32_realbuild/obj\libconsts.a(const_NaN.o)
+ .ARM.attributes
+                0x00000278       0x32 windows32_realbuild/obj\libconsts.a(const_inf.o)
+ .ARM.attributes
+                0x000002aa       0x32 windows32_realbuild/obj\libconsts.a(const__inf.o)
+ .ARM.attributes
+                0x000002dc       0x32 windows32_realbuild/obj\libconsts.a(const__1.o)
+ .ARM.attributes
+                0x0000030e       0x32 windows32_realbuild/obj\libconsts.a(const__0.o)
+ .ARM.attributes
+                0x00000340       0x32 windows32_realbuild/obj\libconsts.a(const_0.o)
+ .ARM.attributes
+                0x00000372       0x32 windows32_realbuild/obj\libconsts.a(const_1.o)
+ .ARM.attributes
+                0x000003a4       0x32 windows32_realbuild/obj\libconsts.a(const_2.o)
+ .ARM.attributes
+                0x000003d6       0x32 windows32_realbuild/obj\libconsts.a(const_3.o)
+ .ARM.attributes
+                0x00000408       0x32 windows32_realbuild/obj\libconsts.a(const_5.o)
+ .ARM.attributes
+                0x0000043a       0x32 windows32_realbuild/obj\libconsts.a(const_10.o)
+ .ARM.attributes
+                0x0000046c       0x32 windows32_realbuild/obj\libconsts.a(const_20.o)
+ .ARM.attributes
+                0x0000049e       0x32 windows32_realbuild/obj\libconsts.a(const_21.o)
+ .ARM.attributes
+                0x000004d0       0x32 windows32_realbuild/obj\libconsts.a(const_32.o)
+ .ARM.attributes
+                0x00000502       0x32 windows32_realbuild/obj\libconsts.a(const_45.o)
+ .ARM.attributes
+                0x00000534       0x32 windows32_realbuild/obj\libconsts.a(const_50.o)
+ .ARM.attributes
+                0x00000566       0x32 windows32_realbuild/obj\libconsts.a(const_60.o)
+ .ARM.attributes
+                0x00000598       0x32 windows32_realbuild/obj\libconsts.a(const_90.o)
+ .ARM.attributes
+                0x000005ca       0x32 windows32_realbuild/obj\libconsts.a(const_100.o)
+ .ARM.attributes
+                0x000005fc       0x32 windows32_realbuild/obj\libconsts.a(const_180.o)
+ .ARM.attributes
+                0x0000062e       0x32 windows32_realbuild/obj\libconsts.a(const_200.o)
+ .ARM.attributes
+                0x00000660       0x32 windows32_realbuild/obj\libconsts.a(const_256.o)
+ .ARM.attributes
+                0x00000692       0x32 windows32_realbuild/obj\libconsts.a(const_360.o)
+ .ARM.attributes
+                0x000006c4       0x32 windows32_realbuild/obj\libconsts.a(const_400.o)
+ .ARM.attributes
+                0x000006f6       0x32 windows32_realbuild/obj\libconsts.a(const_9000.o)
+ .ARM.attributes
+                0x00000728       0x32 windows32_realbuild/obj\libconsts.a(const_36000.o)
+ .ARM.attributes
+                0x0000075a       0x32 windows32_realbuild/obj\libconsts.a(const_100000.o)
+ .ARM.attributes
+                0x0000078c       0x32 windows32_realbuild/obj\libconsts.a(const_1e_32.o)
+ .ARM.attributes
+                0x000007be       0x32 windows32_realbuild/obj\libconsts.a(const_1e_37.o)
+ .ARM.attributes
+                0x000007f0       0x32 windows32_realbuild/obj\libconsts.a(const_1e_10000.o)
+ .ARM.attributes
+                0x00000822       0x32 windows32_realbuild/obj\libconsts.a(const_1e_24.o)
+ .ARM.attributes
+                0x00000854       0x32 windows32_realbuild/obj\libconsts.a(const_1e_14.o)
+ .ARM.attributes
+                0x00000886       0x32 windows32_realbuild/obj\libconsts.a(const_hms_threshold.o)
+ .ARM.attributes
+                0x000008b8       0x32 windows32_realbuild/obj\libconsts.a(const_0_0001.o)
+ .ARM.attributes
+                0x000008ea       0x32 windows32_realbuild/obj\libconsts.a(const_0_1.o)
+ .ARM.attributes
+                0x0000091c       0x32 windows32_realbuild/obj\libconsts.a(const_0_05.o)
+ .ARM.attributes
+                0x0000094e       0x32 windows32_realbuild/obj\libconsts.a(const_0_4.o)
+ .ARM.attributes
+                0x00000980       0x32 windows32_realbuild/obj\libconsts.a(const_0_5.o)
+ .ARM.attributes
+                0x000009b2       0x32 windows32_realbuild/obj\libconsts.a(const_0_6.o)
+ .ARM.attributes
+                0x000009e4       0x32 windows32_realbuild/obj\libconsts.a(const_0_75.o)
+ .ARM.attributes
+                0x00000a16       0x32 windows32_realbuild/obj\libconsts.a(const_0_9.o)
+ .ARM.attributes
+                0x00000a48       0x32 windows32_realbuild/obj\libconsts.a(const_0_995.o)
+ .ARM.attributes
+                0x00000a7a       0x32 windows32_realbuild/obj\libconsts.a(const_1on60.o)
+ .ARM.attributes
+                0x00000aac       0x32 windows32_realbuild/obj\libconsts.a(const_9on5.o)
+ .ARM.attributes
+                0x00000ade       0x32 windows32_realbuild/obj\libconsts.a(const_root2on2.o)
+ .ARM.attributes
+                0x00000b10       0x32 windows32_realbuild/obj\libconsts.a(const_PI.o)
+ .ARM.attributes
+                0x00000b42       0x32 windows32_realbuild/obj\libconsts.a(const_2PI.o)
+ .ARM.attributes
+                0x00000b74       0x32 windows32_realbuild/obj\libconsts.a(const_PIon2.o)
+ .ARM.attributes
+                0x00000ba6       0x32 windows32_realbuild/obj\libconsts.a(const_PIon180.o)
+ .ARM.attributes
+                0x00000bd8       0x32 windows32_realbuild/obj\libconsts.a(const_PIon200.o)
+ .ARM.attributes
+                0x00000c0a       0x32 windows32_realbuild/obj\libconsts.a(const_ln2.o)
+ .ARM.attributes
+                0x00000c3c       0x32 windows32_realbuild/obj\libconsts.a(const_ln10.o)
+ .ARM.attributes
+                0x00000c6e       0x32 windows32_realbuild/obj\libconsts.a(const_egamma.o)
+ .ARM.attributes
+                0x00000ca0       0x32 windows32_realbuild/obj\libconsts.a(const_2pow64.o)
+ .ARM.attributes
+                0x00000cd2       0x32 windows32_realbuild/obj\libconsts.a(const_randfac.o)
+ .ARM.attributes
+                0x00000d04       0x32 windows32_realbuild/obj\libconsts.a(const_gammaR.o)
+ .ARM.attributes
+                0x00000d36       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC00.o)
+ .ARM.attributes
+                0x00000d68       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC01.o)
+ .ARM.attributes
+                0x00000d9a       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC02.o)
+ .ARM.attributes
+                0x00000dcc       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC03.o)
+ .ARM.attributes
+                0x00000dfe       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC04.o)
+ .ARM.attributes
+                0x00000e30       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC05.o)
+ .ARM.attributes
+                0x00000e62       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC06.o)
+ .ARM.attributes
+                0x00000e94       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC07.o)
+ .ARM.attributes
+                0x00000ec6       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC08.o)
+ .ARM.attributes
+                0x00000ef8       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC09.o)
+ .ARM.attributes
+                0x00000f2a       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC10.o)
+ .ARM.attributes
+                0x00000f5c       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC11.o)
+ .ARM.attributes
+                0x00000f8e       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC12.o)
+ .ARM.attributes
+                0x00000fc0       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC13.o)
+ .ARM.attributes
+                0x00000ff2       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC14.o)
+ .ARM.attributes
+                0x00001024       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC15.o)
+ .ARM.attributes
+                0x00001056       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC16.o)
+ .ARM.attributes
+                0x00001088       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC17.o)
+ .ARM.attributes
+                0x000010ba       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC18.o)
+ .ARM.attributes
+                0x000010ec       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC19.o)
+ .ARM.attributes
+                0x0000111e       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC20.o)
+ .ARM.attributes
+                0x00001150       0x32 windows32_realbuild/obj\libconsts.a(const_gammaC21.o)
+ .ARM.attributes
+                0x00001182       0x32 windows32_realbuild/obj\libdecNum34s.a(decContext.o)
+ .ARM.attributes
+                0x000011b4       0x32 windows32_realbuild/obj\libdecNum34s.a(decNumber.o)
+ .ARM.attributes
+                0x000011e6       0x32 windows32_realbuild/obj\libdecNum34s.a(decimal128.o)
+ .ARM.attributes
+                0x00001218       0x32 windows32_realbuild/obj\libdecNum34s.a(decimal64.o)
+
+.comment        0x00000000       0x11
+ .comment       0x00000000       0x11 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+                                 0x12 (size before relaxing)
+ .comment       0x00000000       0x12 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_muldi3.o)
+ .comment       0x00000000       0x12 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_paritysi2.o)
+ .comment       0x00000000       0x12 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(bpabi.o)
+ .comment       0x00000000       0x12 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divdi3.o)
+ .comment       0x00000000       0x12 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivdi3.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_NaN.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_inf.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const__inf.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const__1.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const__0.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_0.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_1.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_2.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_3.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_5.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_10.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_20.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_21.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_32.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_45.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_50.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_60.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_90.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_100.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_180.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_200.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_256.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_360.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_400.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_9000.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_36000.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_100000.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_1e_32.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_1e_37.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_1e_10000.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_1e_24.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_1e_14.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_hms_threshold.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_0_0001.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_0_1.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_0_05.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_0_4.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_0_5.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_0_6.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_0_75.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_0_9.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_0_995.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_1on60.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_9on5.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_root2on2.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_PI.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_2PI.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_PIon2.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_PIon180.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_PIon200.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_ln2.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_ln10.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_egamma.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_2pow64.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_randfac.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaR.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC00.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC01.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC02.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC03.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC04.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC05.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC06.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC07.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC08.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC09.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC10.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC11.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC12.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC13.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC14.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC15.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC16.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC17.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC18.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC19.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC20.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libconsts.a(const_gammaC21.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libdecNum34s.a(decContext.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libdecNum34s.a(decNumber.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libdecNum34s.a(decimal128.o)
+ .comment       0x00000000       0x12 windows32_realbuild/obj\libdecNum34s.a(decimal64.o)
+
+.debug_line     0x00000000     0x9b7b
+ .debug_line    0x00000000       0x7e C:\Users\Marcus\AppData\Local\Temp\cc21kmNW.o
+ .debug_line    0x0000007e     0x65a8 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+ .debug_line    0x00006626       0x75 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_thumb1_case_uqi.o)
+ .debug_line    0x0000669b       0x76 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_thumb1_case_uhi.o)
+ .debug_line    0x00006711       0x9a c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivsi3.o)
+ .debug_line    0x000067ab       0xa6 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divsi3.o)
+ .debug_line    0x00006851       0x6d c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_dvmd_tls.o)
+ .debug_line    0x000068be       0x78 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_lshrdi3.o)
+ .debug_line    0x00006936       0x79 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_ashrdi3.o)
+ .debug_line    0x000069af       0x78 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_ashldi3.o)
+ .debug_line    0x00006a27       0x70 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_aeabi_uldivmod.o)
+ .debug_line    0x00006a97       0x9e c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_muldi3.o)
+ .debug_line    0x00006b35       0x71 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_paritysi2.o)
+ .debug_line    0x00006ba6       0x75 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(bpabi.o)
+ .debug_line    0x00006c1b      0x103 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divdi3.o)
+ .debug_line    0x00006d1e       0xe0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivdi3.o)
+ .debug_line    0x00006dfe       0x7a c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_clzsi2.o)
+ .debug_line    0x00006e78       0x4c windows32_realbuild/obj\libconsts.a(const_NaN.o)
+ .debug_line    0x00006ec4       0x4c windows32_realbuild/obj\libconsts.a(const_inf.o)
+ .debug_line    0x00006f10       0x4d windows32_realbuild/obj\libconsts.a(const__inf.o)
+ .debug_line    0x00006f5d       0x4b windows32_realbuild/obj\libconsts.a(const__1.o)
+ .debug_line    0x00006fa8       0x4b windows32_realbuild/obj\libconsts.a(const__0.o)
+ .debug_line    0x00006ff3       0x4a windows32_realbuild/obj\libconsts.a(const_0.o)
+ .debug_line    0x0000703d       0x4a windows32_realbuild/obj\libconsts.a(const_1.o)
+ .debug_line    0x00007087       0x4a windows32_realbuild/obj\libconsts.a(const_2.o)
+ .debug_line    0x000070d1       0x4a windows32_realbuild/obj\libconsts.a(const_3.o)
+ .debug_line    0x0000711b       0x4a windows32_realbuild/obj\libconsts.a(const_5.o)
+ .debug_line    0x00007165       0x4b windows32_realbuild/obj\libconsts.a(const_10.o)
+ .debug_line    0x000071b0       0x4b windows32_realbuild/obj\libconsts.a(const_20.o)
+ .debug_line    0x000071fb       0x4b windows32_realbuild/obj\libconsts.a(const_21.o)
+ .debug_line    0x00007246       0x4b windows32_realbuild/obj\libconsts.a(const_32.o)
+ .debug_line    0x00007291       0x4b windows32_realbuild/obj\libconsts.a(const_45.o)
+ .debug_line    0x000072dc       0x4b windows32_realbuild/obj\libconsts.a(const_50.o)
+ .debug_line    0x00007327       0x4b windows32_realbuild/obj\libconsts.a(const_60.o)
+ .debug_line    0x00007372       0x4b windows32_realbuild/obj\libconsts.a(const_90.o)
+ .debug_line    0x000073bd       0x4c windows32_realbuild/obj\libconsts.a(const_100.o)
+ .debug_line    0x00007409       0x4c windows32_realbuild/obj\libconsts.a(const_180.o)
+ .debug_line    0x00007455       0x4c windows32_realbuild/obj\libconsts.a(const_200.o)
+ .debug_line    0x000074a1       0x4c windows32_realbuild/obj\libconsts.a(const_256.o)
+ .debug_line    0x000074ed       0x4c windows32_realbuild/obj\libconsts.a(const_360.o)
+ .debug_line    0x00007539       0x4c windows32_realbuild/obj\libconsts.a(const_400.o)
+ .debug_line    0x00007585       0x4d windows32_realbuild/obj\libconsts.a(const_9000.o)
+ .debug_line    0x000075d2       0x4e windows32_realbuild/obj\libconsts.a(const_36000.o)
+ .debug_line    0x00007620       0x4f windows32_realbuild/obj\libconsts.a(const_100000.o)
+ .debug_line    0x0000766f       0x4e windows32_realbuild/obj\libconsts.a(const_1e_32.o)
+ .debug_line    0x000076bd       0x4e windows32_realbuild/obj\libconsts.a(const_1e_37.o)
+ .debug_line    0x0000770b       0x51 windows32_realbuild/obj\libconsts.a(const_1e_10000.o)
+ .debug_line    0x0000775c       0x4e windows32_realbuild/obj\libconsts.a(const_1e_24.o)
+ .debug_line    0x000077aa       0x4e windows32_realbuild/obj\libconsts.a(const_1e_14.o)
+ .debug_line    0x000077f8       0x56 windows32_realbuild/obj\libconsts.a(const_hms_threshold.o)
+ .debug_line    0x0000784e       0x4f windows32_realbuild/obj\libconsts.a(const_0_0001.o)
+ .debug_line    0x0000789d       0x4c windows32_realbuild/obj\libconsts.a(const_0_1.o)
+ .debug_line    0x000078e9       0x4d windows32_realbuild/obj\libconsts.a(const_0_05.o)
+ .debug_line    0x00007936       0x4c windows32_realbuild/obj\libconsts.a(const_0_4.o)
+ .debug_line    0x00007982       0x4c windows32_realbuild/obj\libconsts.a(const_0_5.o)
+ .debug_line    0x000079ce       0x4c windows32_realbuild/obj\libconsts.a(const_0_6.o)
+ .debug_line    0x00007a1a       0x4d windows32_realbuild/obj\libconsts.a(const_0_75.o)
+ .debug_line    0x00007a67       0x4c windows32_realbuild/obj\libconsts.a(const_0_9.o)
+ .debug_line    0x00007ab3       0x4e windows32_realbuild/obj\libconsts.a(const_0_995.o)
+ .debug_line    0x00007b01       0x4e windows32_realbuild/obj\libconsts.a(const_1on60.o)
+ .debug_line    0x00007b4f       0x4d windows32_realbuild/obj\libconsts.a(const_9on5.o)
+ .debug_line    0x00007b9c       0x51 windows32_realbuild/obj\libconsts.a(const_root2on2.o)
+ .debug_line    0x00007bed       0x4b windows32_realbuild/obj\libconsts.a(const_PI.o)
+ .debug_line    0x00007c38       0x4c windows32_realbuild/obj\libconsts.a(const_2PI.o)
+ .debug_line    0x00007c84       0x4e windows32_realbuild/obj\libconsts.a(const_PIon2.o)
+ .debug_line    0x00007cd2       0x50 windows32_realbuild/obj\libconsts.a(const_PIon180.o)
+ .debug_line    0x00007d22       0x50 windows32_realbuild/obj\libconsts.a(const_PIon200.o)
+ .debug_line    0x00007d72       0x4c windows32_realbuild/obj\libconsts.a(const_ln2.o)
+ .debug_line    0x00007dbe       0x4d windows32_realbuild/obj\libconsts.a(const_ln10.o)
+ .debug_line    0x00007e0b       0x4f windows32_realbuild/obj\libconsts.a(const_egamma.o)
+ .debug_line    0x00007e5a       0x4f windows32_realbuild/obj\libconsts.a(const_2pow64.o)
+ .debug_line    0x00007ea9       0x50 windows32_realbuild/obj\libconsts.a(const_randfac.o)
+ .debug_line    0x00007ef9       0x4f windows32_realbuild/obj\libconsts.a(const_gammaR.o)
+ .debug_line    0x00007f48       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC00.o)
+ .debug_line    0x00007f99       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC01.o)
+ .debug_line    0x00007fea       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC02.o)
+ .debug_line    0x0000803b       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC03.o)
+ .debug_line    0x0000808c       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC04.o)
+ .debug_line    0x000080dd       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC05.o)
+ .debug_line    0x0000812e       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC06.o)
+ .debug_line    0x0000817f       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC07.o)
+ .debug_line    0x000081d0       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC08.o)
+ .debug_line    0x00008221       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC09.o)
+ .debug_line    0x00008272       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC10.o)
+ .debug_line    0x000082c3       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC11.o)
+ .debug_line    0x00008314       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC12.o)
+ .debug_line    0x00008365       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC13.o)
+ .debug_line    0x000083b6       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC14.o)
+ .debug_line    0x00008407       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC15.o)
+ .debug_line    0x00008458       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC16.o)
+ .debug_line    0x000084a9       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC17.o)
+ .debug_line    0x000084fa       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC18.o)
+ .debug_line    0x0000854b       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC19.o)
+ .debug_line    0x0000859c       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC20.o)
+ .debug_line    0x000085ed       0x51 windows32_realbuild/obj\libconsts.a(const_gammaC21.o)
+ .debug_line    0x0000863e       0x6b windows32_realbuild/obj\libdecNum34s.a(decContext.o)
+ .debug_line    0x000086a9     0x118d windows32_realbuild/obj\libdecNum34s.a(decNumber.o)
+ .debug_line    0x00009836      0x12d windows32_realbuild/obj\libdecNum34s.a(decimal128.o)
+ .debug_line    0x00009963      0x218 windows32_realbuild/obj\libdecNum34s.a(decimal64.o)
+
+.debug_info     0x00000000    0x29243
+ .debug_info    0x00000000       0x62 C:\Users\Marcus\AppData\Local\Temp\cc21kmNW.o
+ .debug_info    0x00000062    0x1fb91 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+ .debug_info    0x0001fbf3       0xa1 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_thumb1_case_uqi.o)
+ .debug_info    0x0001fc94       0xa1 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_thumb1_case_uhi.o)
+ .debug_info    0x0001fd35       0xa1 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivsi3.o)
+ .debug_info    0x0001fdd6       0xa1 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divsi3.o)
+ .debug_info    0x0001fe77       0xa1 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_dvmd_tls.o)
+ .debug_info    0x0001ff18       0xa1 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_lshrdi3.o)
+ .debug_info    0x0001ffb9       0xa1 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_ashrdi3.o)
+ .debug_info    0x0002005a       0xa1 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_ashldi3.o)
+ .debug_info    0x000200fb       0x9b c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_aeabi_uldivmod.o)
+ .debug_info    0x00020196      0x202 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_muldi3.o)
+ .debug_info    0x00020398       0xc2 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_paritysi2.o)
+ .debug_info    0x0002045a       0xea c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(bpabi.o)
+ .debug_info    0x00020544      0x687 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divdi3.o)
+ .debug_info    0x00020bcb      0x64a c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivdi3.o)
+ .debug_info    0x00021215       0xa1 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_clzsi2.o)
+ .debug_info    0x000212b6       0xe7 windows32_realbuild/obj\libconsts.a(const_NaN.o)
+ .debug_info    0x0002139d       0xe7 windows32_realbuild/obj\libconsts.a(const_inf.o)
+ .debug_info    0x00021484       0xe7 windows32_realbuild/obj\libconsts.a(const__inf.o)
+ .debug_info    0x0002156b       0xe7 windows32_realbuild/obj\libconsts.a(const__1.o)
+ .debug_info    0x00021652       0xe7 windows32_realbuild/obj\libconsts.a(const__0.o)
+ .debug_info    0x00021739       0xe7 windows32_realbuild/obj\libconsts.a(const_0.o)
+ .debug_info    0x00021820       0xe7 windows32_realbuild/obj\libconsts.a(const_1.o)
+ .debug_info    0x00021907       0xe7 windows32_realbuild/obj\libconsts.a(const_2.o)
+ .debug_info    0x000219ee       0xe7 windows32_realbuild/obj\libconsts.a(const_3.o)
+ .debug_info    0x00021ad5       0xe7 windows32_realbuild/obj\libconsts.a(const_5.o)
+ .debug_info    0x00021bbc       0xe7 windows32_realbuild/obj\libconsts.a(const_10.o)
+ .debug_info    0x00021ca3       0xe7 windows32_realbuild/obj\libconsts.a(const_20.o)
+ .debug_info    0x00021d8a       0xe7 windows32_realbuild/obj\libconsts.a(const_21.o)
+ .debug_info    0x00021e71       0xe7 windows32_realbuild/obj\libconsts.a(const_32.o)
+ .debug_info    0x00021f58       0xe7 windows32_realbuild/obj\libconsts.a(const_45.o)
+ .debug_info    0x0002203f       0xe7 windows32_realbuild/obj\libconsts.a(const_50.o)
+ .debug_info    0x00022126       0xe7 windows32_realbuild/obj\libconsts.a(const_60.o)
+ .debug_info    0x0002220d       0xe7 windows32_realbuild/obj\libconsts.a(const_90.o)
+ .debug_info    0x000222f4       0xe7 windows32_realbuild/obj\libconsts.a(const_100.o)
+ .debug_info    0x000223db       0xe7 windows32_realbuild/obj\libconsts.a(const_180.o)
+ .debug_info    0x000224c2       0xe7 windows32_realbuild/obj\libconsts.a(const_200.o)
+ .debug_info    0x000225a9       0xe7 windows32_realbuild/obj\libconsts.a(const_256.o)
+ .debug_info    0x00022690       0xe7 windows32_realbuild/obj\libconsts.a(const_360.o)
+ .debug_info    0x00022777       0xe7 windows32_realbuild/obj\libconsts.a(const_400.o)
+ .debug_info    0x0002285e       0xe7 windows32_realbuild/obj\libconsts.a(const_9000.o)
+ .debug_info    0x00022945       0xe7 windows32_realbuild/obj\libconsts.a(const_36000.o)
+ .debug_info    0x00022a2c       0xe7 windows32_realbuild/obj\libconsts.a(const_100000.o)
+ .debug_info    0x00022b13       0xe7 windows32_realbuild/obj\libconsts.a(const_1e_32.o)
+ .debug_info    0x00022bfa       0xe7 windows32_realbuild/obj\libconsts.a(const_1e_37.o)
+ .debug_info    0x00022ce1       0xe7 windows32_realbuild/obj\libconsts.a(const_1e_10000.o)
+ .debug_info    0x00022dc8       0xe7 windows32_realbuild/obj\libconsts.a(const_1e_24.o)
+ .debug_info    0x00022eaf       0xe7 windows32_realbuild/obj\libconsts.a(const_1e_14.o)
+ .debug_info    0x00022f96       0xe7 windows32_realbuild/obj\libconsts.a(const_hms_threshold.o)
+ .debug_info    0x0002307d       0xe7 windows32_realbuild/obj\libconsts.a(const_0_0001.o)
+ .debug_info    0x00023164       0xe7 windows32_realbuild/obj\libconsts.a(const_0_1.o)
+ .debug_info    0x0002324b       0xe7 windows32_realbuild/obj\libconsts.a(const_0_05.o)
+ .debug_info    0x00023332       0xe7 windows32_realbuild/obj\libconsts.a(const_0_4.o)
+ .debug_info    0x00023419       0xe7 windows32_realbuild/obj\libconsts.a(const_0_5.o)
+ .debug_info    0x00023500       0xe7 windows32_realbuild/obj\libconsts.a(const_0_6.o)
+ .debug_info    0x000235e7       0xe7 windows32_realbuild/obj\libconsts.a(const_0_75.o)
+ .debug_info    0x000236ce       0xe7 windows32_realbuild/obj\libconsts.a(const_0_9.o)
+ .debug_info    0x000237b5       0xe7 windows32_realbuild/obj\libconsts.a(const_0_995.o)
+ .debug_info    0x0002389c       0xe7 windows32_realbuild/obj\libconsts.a(const_1on60.o)
+ .debug_info    0x00023983       0xe7 windows32_realbuild/obj\libconsts.a(const_9on5.o)
+ .debug_info    0x00023a6a       0xe7 windows32_realbuild/obj\libconsts.a(const_root2on2.o)
+ .debug_info    0x00023b51       0xe7 windows32_realbuild/obj\libconsts.a(const_PI.o)
+ .debug_info    0x00023c38       0xe8 windows32_realbuild/obj\libconsts.a(const_2PI.o)
+ .debug_info    0x00023d20       0xe7 windows32_realbuild/obj\libconsts.a(const_PIon2.o)
+ .debug_info    0x00023e07       0xe7 windows32_realbuild/obj\libconsts.a(const_PIon180.o)
+ .debug_info    0x00023eee       0xe7 windows32_realbuild/obj\libconsts.a(const_PIon200.o)
+ .debug_info    0x00023fd5       0xe7 windows32_realbuild/obj\libconsts.a(const_ln2.o)
+ .debug_info    0x000240bc       0xe7 windows32_realbuild/obj\libconsts.a(const_ln10.o)
+ .debug_info    0x000241a3       0xe7 windows32_realbuild/obj\libconsts.a(const_egamma.o)
+ .debug_info    0x0002428a       0xe7 windows32_realbuild/obj\libconsts.a(const_2pow64.o)
+ .debug_info    0x00024371       0xe7 windows32_realbuild/obj\libconsts.a(const_randfac.o)
+ .debug_info    0x00024458       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaR.o)
+ .debug_info    0x0002453f       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC00.o)
+ .debug_info    0x00024626       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC01.o)
+ .debug_info    0x0002470d       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC02.o)
+ .debug_info    0x000247f4       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC03.o)
+ .debug_info    0x000248db       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC04.o)
+ .debug_info    0x000249c2       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC05.o)
+ .debug_info    0x00024aa9       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC06.o)
+ .debug_info    0x00024b90       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC07.o)
+ .debug_info    0x00024c77       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC08.o)
+ .debug_info    0x00024d5e       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC09.o)
+ .debug_info    0x00024e45       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC10.o)
+ .debug_info    0x00024f2c       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC11.o)
+ .debug_info    0x00025013       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC12.o)
+ .debug_info    0x000250fa       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC13.o)
+ .debug_info    0x000251e1       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC14.o)
+ .debug_info    0x000252c8       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC15.o)
+ .debug_info    0x000253af       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC16.o)
+ .debug_info    0x00025496       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC17.o)
+ .debug_info    0x0002557d       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC18.o)
+ .debug_info    0x00025664       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC19.o)
+ .debug_info    0x0002574b       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC20.o)
+ .debug_info    0x00025832       0xe7 windows32_realbuild/obj\libconsts.a(const_gammaC21.o)
+ .debug_info    0x00025919      0x1ce windows32_realbuild/obj\libdecNum34s.a(decContext.o)
+ .debug_info    0x00025ae7     0x2c56 windows32_realbuild/obj\libdecNum34s.a(decNumber.o)
+ .debug_info    0x0002873d      0x418 windows32_realbuild/obj\libdecNum34s.a(decimal128.o)
+ .debug_info    0x00028b55      0x6ee windows32_realbuild/obj\libdecNum34s.a(decimal64.o)
+
+.debug_abbrev   0x00000000     0x3fe7
+ .debug_abbrev  0x00000000       0x14 C:\Users\Marcus\AppData\Local\Temp\cc21kmNW.o
+ .debug_abbrev  0x00000014      0x908 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+ .debug_abbrev  0x0000091c       0x14 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_thumb1_case_uqi.o)
+ .debug_abbrev  0x00000930       0x14 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_thumb1_case_uhi.o)
+ .debug_abbrev  0x00000944       0x14 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivsi3.o)
+ .debug_abbrev  0x00000958       0x14 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divsi3.o)
+ .debug_abbrev  0x0000096c       0x14 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_dvmd_tls.o)
+ .debug_abbrev  0x00000980       0x14 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_lshrdi3.o)
+ .debug_abbrev  0x00000994       0x14 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_ashrdi3.o)
+ .debug_abbrev  0x000009a8       0x14 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_ashldi3.o)
+ .debug_abbrev  0x000009bc       0x14 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_aeabi_uldivmod.o)
+ .debug_abbrev  0x000009d0       0xec c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_muldi3.o)
+ .debug_abbrev  0x00000abc       0x5d c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_paritysi2.o)
+ .debug_abbrev  0x00000b19       0x6e c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(bpabi.o)
+ .debug_abbrev  0x00000b87      0x14e c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divdi3.o)
+ .debug_abbrev  0x00000cd5      0x148 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivdi3.o)
+ .debug_abbrev  0x00000e1d       0x14 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_clzsi2.o)
+ .debug_abbrev  0x00000e31       0x8c windows32_realbuild/obj\libconsts.a(const_NaN.o)
+ .debug_abbrev  0x00000ebd       0x8c windows32_realbuild/obj\libconsts.a(const_inf.o)
+ .debug_abbrev  0x00000f49       0x8c windows32_realbuild/obj\libconsts.a(const__inf.o)
+ .debug_abbrev  0x00000fd5       0x8c windows32_realbuild/obj\libconsts.a(const__1.o)
+ .debug_abbrev  0x00001061       0x8c windows32_realbuild/obj\libconsts.a(const__0.o)
+ .debug_abbrev  0x000010ed       0x8c windows32_realbuild/obj\libconsts.a(const_0.o)
+ .debug_abbrev  0x00001179       0x8c windows32_realbuild/obj\libconsts.a(const_1.o)
+ .debug_abbrev  0x00001205       0x8c windows32_realbuild/obj\libconsts.a(const_2.o)
+ .debug_abbrev  0x00001291       0x8c windows32_realbuild/obj\libconsts.a(const_3.o)
+ .debug_abbrev  0x0000131d       0x8c windows32_realbuild/obj\libconsts.a(const_5.o)
+ .debug_abbrev  0x000013a9       0x8c windows32_realbuild/obj\libconsts.a(const_10.o)
+ .debug_abbrev  0x00001435       0x8c windows32_realbuild/obj\libconsts.a(const_20.o)
+ .debug_abbrev  0x000014c1       0x8c windows32_realbuild/obj\libconsts.a(const_21.o)
+ .debug_abbrev  0x0000154d       0x8c windows32_realbuild/obj\libconsts.a(const_32.o)
+ .debug_abbrev  0x000015d9       0x8c windows32_realbuild/obj\libconsts.a(const_45.o)
+ .debug_abbrev  0x00001665       0x8c windows32_realbuild/obj\libconsts.a(const_50.o)
+ .debug_abbrev  0x000016f1       0x8c windows32_realbuild/obj\libconsts.a(const_60.o)
+ .debug_abbrev  0x0000177d       0x8c windows32_realbuild/obj\libconsts.a(const_90.o)
+ .debug_abbrev  0x00001809       0x8c windows32_realbuild/obj\libconsts.a(const_100.o)
+ .debug_abbrev  0x00001895       0x8c windows32_realbuild/obj\libconsts.a(const_180.o)
+ .debug_abbrev  0x00001921       0x8c windows32_realbuild/obj\libconsts.a(const_200.o)
+ .debug_abbrev  0x000019ad       0x8c windows32_realbuild/obj\libconsts.a(const_256.o)
+ .debug_abbrev  0x00001a39       0x8c windows32_realbuild/obj\libconsts.a(const_360.o)
+ .debug_abbrev  0x00001ac5       0x8c windows32_realbuild/obj\libconsts.a(const_400.o)
+ .debug_abbrev  0x00001b51       0x8c windows32_realbuild/obj\libconsts.a(const_9000.o)
+ .debug_abbrev  0x00001bdd       0x8c windows32_realbuild/obj\libconsts.a(const_36000.o)
+ .debug_abbrev  0x00001c69       0x8c windows32_realbuild/obj\libconsts.a(const_100000.o)
+ .debug_abbrev  0x00001cf5       0x8c windows32_realbuild/obj\libconsts.a(const_1e_32.o)
+ .debug_abbrev  0x00001d81       0x8c windows32_realbuild/obj\libconsts.a(const_1e_37.o)
+ .debug_abbrev  0x00001e0d       0x8c windows32_realbuild/obj\libconsts.a(const_1e_10000.o)
+ .debug_abbrev  0x00001e99       0x8c windows32_realbuild/obj\libconsts.a(const_1e_24.o)
+ .debug_abbrev  0x00001f25       0x8c windows32_realbuild/obj\libconsts.a(const_1e_14.o)
+ .debug_abbrev  0x00001fb1       0x8c windows32_realbuild/obj\libconsts.a(const_hms_threshold.o)
+ .debug_abbrev  0x0000203d       0x8c windows32_realbuild/obj\libconsts.a(const_0_0001.o)
+ .debug_abbrev  0x000020c9       0x8c windows32_realbuild/obj\libconsts.a(const_0_1.o)
+ .debug_abbrev  0x00002155       0x8c windows32_realbuild/obj\libconsts.a(const_0_05.o)
+ .debug_abbrev  0x000021e1       0x8c windows32_realbuild/obj\libconsts.a(const_0_4.o)
+ .debug_abbrev  0x0000226d       0x8c windows32_realbuild/obj\libconsts.a(const_0_5.o)
+ .debug_abbrev  0x000022f9       0x8c windows32_realbuild/obj\libconsts.a(const_0_6.o)
+ .debug_abbrev  0x00002385       0x8c windows32_realbuild/obj\libconsts.a(const_0_75.o)
+ .debug_abbrev  0x00002411       0x8c windows32_realbuild/obj\libconsts.a(const_0_9.o)
+ .debug_abbrev  0x0000249d       0x8c windows32_realbuild/obj\libconsts.a(const_0_995.o)
+ .debug_abbrev  0x00002529       0x8c windows32_realbuild/obj\libconsts.a(const_1on60.o)
+ .debug_abbrev  0x000025b5       0x8c windows32_realbuild/obj\libconsts.a(const_9on5.o)
+ .debug_abbrev  0x00002641       0x8c windows32_realbuild/obj\libconsts.a(const_root2on2.o)
+ .debug_abbrev  0x000026cd       0x8c windows32_realbuild/obj\libconsts.a(const_PI.o)
+ .debug_abbrev  0x00002759       0x8c windows32_realbuild/obj\libconsts.a(const_2PI.o)
+ .debug_abbrev  0x000027e5       0x8c windows32_realbuild/obj\libconsts.a(const_PIon2.o)
+ .debug_abbrev  0x00002871       0x8c windows32_realbuild/obj\libconsts.a(const_PIon180.o)
+ .debug_abbrev  0x000028fd       0x8c windows32_realbuild/obj\libconsts.a(const_PIon200.o)
+ .debug_abbrev  0x00002989       0x8c windows32_realbuild/obj\libconsts.a(const_ln2.o)
+ .debug_abbrev  0x00002a15       0x8c windows32_realbuild/obj\libconsts.a(const_ln10.o)
+ .debug_abbrev  0x00002aa1       0x8c windows32_realbuild/obj\libconsts.a(const_egamma.o)
+ .debug_abbrev  0x00002b2d       0x8c windows32_realbuild/obj\libconsts.a(const_2pow64.o)
+ .debug_abbrev  0x00002bb9       0x8c windows32_realbuild/obj\libconsts.a(const_randfac.o)
+ .debug_abbrev  0x00002c45       0x8c windows32_realbuild/obj\libconsts.a(const_gammaR.o)
+ .debug_abbrev  0x00002cd1       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC00.o)
+ .debug_abbrev  0x00002d5d       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC01.o)
+ .debug_abbrev  0x00002de9       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC02.o)
+ .debug_abbrev  0x00002e75       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC03.o)
+ .debug_abbrev  0x00002f01       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC04.o)
+ .debug_abbrev  0x00002f8d       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC05.o)
+ .debug_abbrev  0x00003019       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC06.o)
+ .debug_abbrev  0x000030a5       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC07.o)
+ .debug_abbrev  0x00003131       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC08.o)
+ .debug_abbrev  0x000031bd       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC09.o)
+ .debug_abbrev  0x00003249       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC10.o)
+ .debug_abbrev  0x000032d5       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC11.o)
+ .debug_abbrev  0x00003361       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC12.o)
+ .debug_abbrev  0x000033ed       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC13.o)
+ .debug_abbrev  0x00003479       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC14.o)
+ .debug_abbrev  0x00003505       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC15.o)
+ .debug_abbrev  0x00003591       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC16.o)
+ .debug_abbrev  0x0000361d       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC17.o)
+ .debug_abbrev  0x000036a9       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC18.o)
+ .debug_abbrev  0x00003735       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC19.o)
+ .debug_abbrev  0x000037c1       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC20.o)
+ .debug_abbrev  0x0000384d       0x8c windows32_realbuild/obj\libconsts.a(const_gammaC21.o)
+ .debug_abbrev  0x000038d9       0xec windows32_realbuild/obj\libdecNum34s.a(decContext.o)
+ .debug_abbrev  0x000039c5      0x2d7 windows32_realbuild/obj\libdecNum34s.a(decNumber.o)
+ .debug_abbrev  0x00003c9c      0x14e windows32_realbuild/obj\libdecNum34s.a(decimal128.o)
+ .debug_abbrev  0x00003dea      0x1fd windows32_realbuild/obj\libdecNum34s.a(decimal64.o)
+
+.debug_aranges  0x00000000      0x2a0
+ .debug_aranges
+                0x00000000       0x20 C:\Users\Marcus\AppData\Local\Temp\cc21kmNW.o
+ .debug_aranges
+                0x00000020       0x20 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+ .debug_aranges
+                0x00000040       0x20 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_thumb1_case_uqi.o)
+ .debug_aranges
+                0x00000060       0x20 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_thumb1_case_uhi.o)
+ .debug_aranges
+                0x00000080       0x20 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivsi3.o)
+ .debug_aranges
+                0x000000a0       0x20 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divsi3.o)
+ .debug_aranges
+                0x000000c0       0x20 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_dvmd_tls.o)
+ .debug_aranges
+                0x000000e0       0x20 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_lshrdi3.o)
+ .debug_aranges
+                0x00000100       0x20 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_ashrdi3.o)
+ .debug_aranges
+                0x00000120       0x20 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_ashldi3.o)
+ .debug_aranges
+                0x00000140       0x20 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_aeabi_uldivmod.o)
+ .debug_aranges
+                0x00000160       0x20 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_muldi3.o)
+ .debug_aranges
+                0x00000180       0x20 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_paritysi2.o)
+ .debug_aranges
+                0x000001a0       0x20 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(bpabi.o)
+ .debug_aranges
+                0x000001c0       0x20 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divdi3.o)
+ .debug_aranges
+                0x000001e0       0x20 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivdi3.o)
+ .debug_aranges
+                0x00000200       0x20 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_clzsi2.o)
+ .debug_aranges
+                0x00000220       0x20 windows32_realbuild/obj\libdecNum34s.a(decContext.o)
+ .debug_aranges
+                0x00000240       0x20 windows32_realbuild/obj\libdecNum34s.a(decNumber.o)
+ .debug_aranges
+                0x00000260       0x20 windows32_realbuild/obj\libdecNum34s.a(decimal128.o)
+ .debug_aranges
+                0x00000280       0x20 windows32_realbuild/obj\libdecNum34s.a(decimal64.o)
+
+.debug_loc      0x00000000    0x262be
+ .debug_loc     0x00000000    0x1ef1b C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+ .debug_loc     0x0001ef1b       0xed c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_muldi3.o)
+ .debug_loc     0x0001f008       0x2d c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_paritysi2.o)
+ .debug_loc     0x0001f035      0x198 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(bpabi.o)
+ .debug_loc     0x0001f1cd      0xcf1 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divdi3.o)
+ .debug_loc     0x0001febe      0xd8d c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivdi3.o)
+ .debug_loc     0x00020c4b       0x5b windows32_realbuild/obj\libdecNum34s.a(decContext.o)
+ .debug_loc     0x00020ca6     0x4b95 windows32_realbuild/obj\libdecNum34s.a(decNumber.o)
+ .debug_loc     0x0002583b      0x2fc windows32_realbuild/obj\libdecNum34s.a(decimal128.o)
+ .debug_loc     0x00025b37      0x787 windows32_realbuild/obj\libdecNum34s.a(decimal64.o)
+
+.debug_ranges   0x00000000     0x1e28
+ .debug_ranges  0x00000000     0x1808 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+ .debug_ranges  0x00001808       0x50 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_muldi3.o)
+ .debug_ranges  0x00001858      0x120 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divdi3.o)
+ .debug_ranges  0x00001978       0xf0 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivdi3.o)
+ .debug_ranges  0x00001a68      0x3a0 windows32_realbuild/obj\libdecNum34s.a(decNumber.o)
+ .debug_ranges  0x00001e08       0x20 windows32_realbuild/obj\libdecNum34s.a(decimal64.o)
+
+.debug_str      0x00000000     0x7af4
+ .debug_str     0x00000000     0x6e0e C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+                               0x749b (size before relaxing)
+ .debug_str     0x00006e0e       0xd3 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_muldi3.o)
+                                0x188 (size before relaxing)
+ .debug_str     0x00006ee1        0xc c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_paritysi2.o)
+                                0x13f (size before relaxing)
+ .debug_str     0x00006eed       0x75 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(bpabi.o)
+                                 0xe4 (size before relaxing)
+ .debug_str     0x00006f62       0x3c c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divdi3.o)
+                                0x1bb (size before relaxing)
+ .debug_str     0x00006f9e        0xa c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivdi3.o)
+                                0x1bc (size before relaxing)
+ .debug_str     0x00006fa8       0x4c windows32_realbuild/obj\libconsts.a(const_NaN.o)
+                                 0xf9 (size before relaxing)
+ .debug_str     0x00006ff4        0xc windows32_realbuild/obj\libconsts.a(const_inf.o)
+                                 0xf9 (size before relaxing)
+ .debug_str     0x00007000        0xd windows32_realbuild/obj\libconsts.a(const__inf.o)
+                                 0xfb (size before relaxing)
+ .debug_str     0x0000700d        0xb windows32_realbuild/obj\libconsts.a(const__1.o)
+                                 0xf7 (size before relaxing)
+ .debug_str     0x00007018        0xb windows32_realbuild/obj\libconsts.a(const__0.o)
+                                 0xf7 (size before relaxing)
+ .debug_str     0x00007023        0xa windows32_realbuild/obj\libconsts.a(const_0.o)
+                                 0xf5 (size before relaxing)
+ .debug_str     0x0000702d        0xa windows32_realbuild/obj\libconsts.a(const_1.o)
+                                 0xf5 (size before relaxing)
+ .debug_str     0x00007037        0xa windows32_realbuild/obj\libconsts.a(const_2.o)
+                                 0xf5 (size before relaxing)
+ .debug_str     0x00007041        0xa windows32_realbuild/obj\libconsts.a(const_3.o)
+                                 0xf5 (size before relaxing)
+ .debug_str     0x0000704b        0xa windows32_realbuild/obj\libconsts.a(const_5.o)
+                                 0xf5 (size before relaxing)
+ .debug_str     0x00007055        0xb windows32_realbuild/obj\libconsts.a(const_10.o)
+                                 0xf7 (size before relaxing)
+ .debug_str     0x00007060        0xb windows32_realbuild/obj\libconsts.a(const_20.o)
+                                 0xf7 (size before relaxing)
+ .debug_str     0x0000706b        0xb windows32_realbuild/obj\libconsts.a(const_21.o)
+                                 0xf7 (size before relaxing)
+ .debug_str     0x00007076        0xb windows32_realbuild/obj\libconsts.a(const_32.o)
+                                 0xf7 (size before relaxing)
+ .debug_str     0x00007081        0xb windows32_realbuild/obj\libconsts.a(const_45.o)
+                                 0xf7 (size before relaxing)
+ .debug_str     0x0000708c        0xb windows32_realbuild/obj\libconsts.a(const_50.o)
+                                 0xf7 (size before relaxing)
+ .debug_str     0x00007097        0xb windows32_realbuild/obj\libconsts.a(const_60.o)
+                                 0xf7 (size before relaxing)
+ .debug_str     0x000070a2        0xb windows32_realbuild/obj\libconsts.a(const_90.o)
+                                 0xf7 (size before relaxing)
+ .debug_str     0x000070ad        0xc windows32_realbuild/obj\libconsts.a(const_100.o)
+                                 0xf9 (size before relaxing)
+ .debug_str     0x000070b9        0xc windows32_realbuild/obj\libconsts.a(const_180.o)
+                                 0xf9 (size before relaxing)
+ .debug_str     0x000070c5        0xc windows32_realbuild/obj\libconsts.a(const_200.o)
+                                 0xf9 (size before relaxing)
+ .debug_str     0x000070d1        0xc windows32_realbuild/obj\libconsts.a(const_256.o)
+                                 0xf9 (size before relaxing)
+ .debug_str     0x000070dd        0xc windows32_realbuild/obj\libconsts.a(const_360.o)
+                                 0xf9 (size before relaxing)
+ .debug_str     0x000070e9        0xc windows32_realbuild/obj\libconsts.a(const_400.o)
+                                 0xf9 (size before relaxing)
+ .debug_str     0x000070f5        0xd windows32_realbuild/obj\libconsts.a(const_9000.o)
+                                 0xfb (size before relaxing)
+ .debug_str     0x00007102        0xe windows32_realbuild/obj\libconsts.a(const_36000.o)
+                                 0xfd (size before relaxing)
+ .debug_str     0x00007110        0xf windows32_realbuild/obj\libconsts.a(const_100000.o)
+                                 0xff (size before relaxing)
+ .debug_str     0x0000711f        0xe windows32_realbuild/obj\libconsts.a(const_1e_32.o)
+                                 0xfd (size before relaxing)
+ .debug_str     0x0000712d        0xe windows32_realbuild/obj\libconsts.a(const_1e_37.o)
+                                 0xfd (size before relaxing)
+ .debug_str     0x0000713b       0x11 windows32_realbuild/obj\libconsts.a(const_1e_10000.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x0000714c        0xe windows32_realbuild/obj\libconsts.a(const_1e_24.o)
+                                 0xfd (size before relaxing)
+ .debug_str     0x0000715a        0xe windows32_realbuild/obj\libconsts.a(const_1e_14.o)
+                                 0xfd (size before relaxing)
+ .debug_str     0x00007168       0x16 windows32_realbuild/obj\libconsts.a(const_hms_threshold.o)
+                                0x10d (size before relaxing)
+ .debug_str     0x0000717e        0xf windows32_realbuild/obj\libconsts.a(const_0_0001.o)
+                                 0xff (size before relaxing)
+ .debug_str     0x0000718d        0xc windows32_realbuild/obj\libconsts.a(const_0_1.o)
+                                 0xf9 (size before relaxing)
+ .debug_str     0x00007199        0xd windows32_realbuild/obj\libconsts.a(const_0_05.o)
+                                 0xfb (size before relaxing)
+ .debug_str     0x000071a6        0xc windows32_realbuild/obj\libconsts.a(const_0_4.o)
+                                 0xf9 (size before relaxing)
+ .debug_str     0x000071b2        0xc windows32_realbuild/obj\libconsts.a(const_0_5.o)
+                                 0xf9 (size before relaxing)
+ .debug_str     0x000071be        0xc windows32_realbuild/obj\libconsts.a(const_0_6.o)
+                                 0xf9 (size before relaxing)
+ .debug_str     0x000071ca        0xd windows32_realbuild/obj\libconsts.a(const_0_75.o)
+                                 0xfb (size before relaxing)
+ .debug_str     0x000071d7        0xc windows32_realbuild/obj\libconsts.a(const_0_9.o)
+                                 0xf9 (size before relaxing)
+ .debug_str     0x000071e3        0xe windows32_realbuild/obj\libconsts.a(const_0_995.o)
+                                 0xfd (size before relaxing)
+ .debug_str     0x000071f1        0xe windows32_realbuild/obj\libconsts.a(const_1on60.o)
+                                 0xfd (size before relaxing)
+ .debug_str     0x000071ff        0xd windows32_realbuild/obj\libconsts.a(const_9on5.o)
+                                 0xfb (size before relaxing)
+ .debug_str     0x0000720c       0x11 windows32_realbuild/obj\libconsts.a(const_root2on2.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x0000721d        0xb windows32_realbuild/obj\libconsts.a(const_PI.o)
+                                 0xf7 (size before relaxing)
+ .debug_str     0x00007228        0xc windows32_realbuild/obj\libconsts.a(const_2PI.o)
+                                 0xf9 (size before relaxing)
+ .debug_str     0x00007234        0xe windows32_realbuild/obj\libconsts.a(const_PIon2.o)
+                                 0xfd (size before relaxing)
+ .debug_str     0x00007242       0x10 windows32_realbuild/obj\libconsts.a(const_PIon180.o)
+                                0x101 (size before relaxing)
+ .debug_str     0x00007252       0x10 windows32_realbuild/obj\libconsts.a(const_PIon200.o)
+                                0x101 (size before relaxing)
+ .debug_str     0x00007262        0xc windows32_realbuild/obj\libconsts.a(const_ln2.o)
+                                 0xf9 (size before relaxing)
+ .debug_str     0x0000726e        0xd windows32_realbuild/obj\libconsts.a(const_ln10.o)
+                                 0xfb (size before relaxing)
+ .debug_str     0x0000727b        0xf windows32_realbuild/obj\libconsts.a(const_egamma.o)
+                                 0xff (size before relaxing)
+ .debug_str     0x0000728a        0xf windows32_realbuild/obj\libconsts.a(const_2pow64.o)
+                                 0xff (size before relaxing)
+ .debug_str     0x00007299       0x10 windows32_realbuild/obj\libconsts.a(const_randfac.o)
+                                0x101 (size before relaxing)
+ .debug_str     0x000072a9        0xf windows32_realbuild/obj\libconsts.a(const_gammaR.o)
+                                 0xff (size before relaxing)
+ .debug_str     0x000072b8       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC00.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x000072c9       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC01.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x000072da       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC02.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x000072eb       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC03.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x000072fc       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC04.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x0000730d       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC05.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x0000731e       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC06.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x0000732f       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC07.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x00007340       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC08.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x00007351       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC09.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x00007362       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC10.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x00007373       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC11.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x00007384       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC12.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x00007395       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC13.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x000073a6       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC14.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x000073b7       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC15.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x000073c8       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC16.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x000073d9       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC17.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x000073ea       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC18.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x000073fb       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC19.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x0000740c       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC20.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x0000741d       0x11 windows32_realbuild/obj\libconsts.a(const_gammaC21.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x0000742e       0x6a windows32_realbuild/obj\libdecNum34s.a(decContext.o)
+                                0x1bb (size before relaxing)
+ .debug_str     0x00007498      0x57b windows32_realbuild/obj\libdecNum34s.a(decNumber.o)
+                                0x7df (size before relaxing)
+ .debug_str     0x00007a13       0x66 windows32_realbuild/obj\libdecNum34s.a(decimal128.o)
+                                0x222 (size before relaxing)
+ .debug_str     0x00007a79       0x7b windows32_realbuild/obj\libdecNum34s.a(decimal64.o)
+                                0x2ab (size before relaxing)
+
+.debug_frame    0x00000000     0x5534
+ .debug_frame   0x00000000     0x4d28 C:\Users\Marcus\AppData\Local\Temp\cclxXHkz.o
+ .debug_frame   0x00004d28       0x20 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivsi3.o)
+ .debug_frame   0x00004d48       0x20 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divsi3.o)
+ .debug_frame   0x00004d68       0x30 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_muldi3.o)
+ .debug_frame   0x00004d98       0x20 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_paritysi2.o)
+ .debug_frame   0x00004db8       0x50 c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(bpabi.o)
+ .debug_frame   0x00004e08       0x3c c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_divdi3.o)
+ .debug_frame   0x00004e44       0x3c c:/apps/yagarto-4.6.0/bin/../lib/gcc/arm-none-eabi/4.6.0/thumb\libgcc.a(_udivdi3.o)
+ .debug_frame   0x00004e80       0x38 windows32_realbuild/obj\libdecNum34s.a(decContext.o)
+ .debug_frame   0x00004eb8      0x584 windows32_realbuild/obj\libdecNum34s.a(decNumber.o)
+ .debug_frame   0x0000543c       0x4c windows32_realbuild/obj\libdecNum34s.a(decimal128.o)
+ .debug_frame   0x00005488       0xac windows32_realbuild/obj\libdecNum34s.a(decimal64.o)

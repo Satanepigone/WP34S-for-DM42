@@ -1,0 +1,87 @@
+What is the WP34S?
+
+In 2009 a group of people began to write the firmware for their
+vision of the ultimate RPN scientific programmable calculator, using
+the recently-released HP20b and 30b as the platform. Unlike many
+open-source projects this one reached completion, has excellent
+documentation, and an excellent user interface. Versions exist not
+just for the intended hardware but 
+for Windows, Linux, and iOS. Those who prefer to use a physical
+calculator need to obtain a HP20b or 30b calculator (no longer
+manufactured), apply stickers and overlays to the keyboard, and then
+flash the firmware. Many (hundreds?) of people have done this and some
+are probably enjoying their calculator to this day. However, the
+limits of the original hardware (RAM, flash memory, and
+display) limited what could be achieved.
+
+The availablity of the far more capabable DM42 hardware led to the
+genesis of the WP43S (and WP43C) projects. At this time great progress
+has been made (the WP43C code can be loaded and used on DM42 hardware
+without the need for a keyboard overlay - try it!) but completion is
+still some way ahead. However, simpler projects will run just as
+well. One example is the SDKDemo scientific calculator provided by
+SwissMicros; another is the WP34S.
+
+Introduction
+
+If you've never used the WP34S before you need to read the manual. The latest
+version available in the public domain (though not open-source?) is
+v3.1, to be found in the doc folder of the firmware and online in
+various places.
+
+This implementation of the WP34S resembles the original as closely as
+possible. The main difference is with the keyboard - different key
+labels, only one shift key, but an extra row of menu keys. Most keys
+(unshifted and shifted) do what their label would lead you to
+expect. Functions not shown on the DM42 keyboard are available from
+catalogues (as in the original WP34S) or menus (a new feature here).
+
+Outside of alpha mode there are two shift states: f-shift (one press
+of the shift key) and g-shift (two presses). In alpha mode there are
+still five (or is it six?) shift states - but the letters shown on the
+DM42 keyboard are honoured.
+
+Catalogues and Menus
+
+The WP34S has a huge number of functions, far too many (even with
+three shift keys) to fit on any sensible keyboard. Those not on the
+keyboard are accessible through catalogues: e.g., the P.FCN cataloge
+on f-shift 3. You use the up and down arrows followed by XEQ to choose
+something; alphabetic keys help you to find something quickly.
+
+Menus use the function keys (unshifted and f-shifted) to provide
+access to WP34S keyboard functions that aren't on
+the DM42 keyboard. In all menus F5 and F6 provide the
+right-arrow and CPX keys present on the WP34S.
+
+Selecting the same menu twice gets rid of it.
+
+Shift-hold up-arrow goes to the previous menu.
+
+In general, an f-shifted key that doesn't have a direct function
+(e.g., MODE) leads to a relevant menu, while the g-shifted version of
+the key leads to a relevant catalogue, if there is one.
+
+Unshifted keys
+
+These do what they say on the key. Note that sigma+, 1/x, sqrt(x) and
+LOG call the labels A, B, C, and D respectively if those labels exist
+in the current program. (If they do, the unshifted function is
+available as the g-shifted key.)
+
+f-shifted keys
+
+COMPLEX - alternative to CPX key.
+MODES - modes menu (angular modes, R<>P conversions, HYP, HMS and H.d).
+DISP - display mode menu (All, Fix, Sci, Eng, fractions, radix choice,
+HMS and H.d).
+CLEAR - clear menu (current program, statistics registers,
+x-register).
+SOLVER - enters the SLV command.
+INTEGRAL - enters the "integrate" command.
+MATRIX - displays the Matrix Catalogue.
+
+
+g-shifted keys
+
+Alpha mode

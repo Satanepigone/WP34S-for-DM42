@@ -1,0 +1,62 @@
+mkdir -p -v Linux64/obj
+mkdir: created directory 'Linux64'
+mkdir: created directory 'Linux64/obj'
+cc -Wall -O1 -g -DHOSTBUILD=1 -o Linux64/genfont genfont.c
+Linux64/genfont
+cc -Wall -O1 -g -DHOSTBUILD=1 -IdecNumber -DNEED_D64FROMSTRING=1 -DNEED_D128FROMSTRING=1 -o Linux64/compile_consts compile_consts.c decNumber/decNumber.c decNumber/decContext.c decNumber/decimal64.c decNumber/decimal128.c
+cd Linux64 \
+	&& ./compile_consts "../" "../Linux64/obj/" \
+	&& make "CFLAGS=-Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -I../.." -j2 -C consts
+make[1]: Entering directory '/home/nd/programs/wp34s-code-r3913-trunk/Linux64/consts'
+ar q ../../Linux64/obj/libconsts.a const_NaN.o const_inf.o const__inf.o const__3.o const__2.o const__1.o const__0.o const_0.o const_1.o const_2.o const_3.o const_4.o const_5.o const_6.o const_7.o const_8.o const_9.o const_10.o const_15.o const_16.o const_20.o const_21.o const_32.o const_45.o const_50.o const_60.o const_90.o const_100.o const_150.o const_180.o const_200.o const_256.o const_300.o const_360.o const_400.o const_500.o const_9000.o const_36000.o const_100000.o const_1e_32.o const_1e_37.o const_1e_10000.o const_1e_24.o const_1e_14.o const_hms_threshold.o const_0_0001.o const_0_001.o const_0_1.o const_0_0195.o const_0_2.o const_0_2214.o const_0_25.o const_0_04.o const_0_05.o const_0_4.o const_0_5.o const__0_5.o const_0_6.o const_0_665.o const_0_75.o const_0_85.o const_0_9.o const_0_97.o const_0_995.o const_2on3.o const_5on6.o const_1on60.o const_1_3.o const_1_5.o const_1_7.o const_9on5.o const_2_326.o const_root2on2.o const_e.o const_PI.o const_2PI.o const_sqrt2PI.o const_recipsqrt2PI.o const_PIon2.o const_PIon180.o const_PIon200.o const_ln2.o const_ln10.o const_phi.o const_egamma.o const__1onPI.o const_2pow64.o const_randfac.o const_gammaR.o const_gammaC00.o const_gammaC01.o const_gammaC02.o const_gammaC03.o const_gammaC04.o const_gammaC05.o const_gammaC06.o const_gammaC07.o const_gammaC08.o const_gammaC09.o const_gammaC10.o const_gammaC11.o const_gammaC12.o const_gammaC13.o const_gammaC14.o const_gammaC15.o const_gammaC16.o const_gammaC17.o const_gammaC18.o const_gammaC19.o const_gammaC20.o const_gammaC21.o
+ranlib ../../Linux64/obj/libconsts.a
+make[1]: Leaving directory '/home/nd/programs/wp34s-code-r3913-trunk/Linux64/consts'
+cc -Wall -O1 -g -DHOSTBUILD=1 -IdecNumber -o Linux64/compile_cats compile_cats.c
+Linux64/compile_cats >catalogues.h 2>tools/wp34s.op
+cc -E -P -x c -Ixrom -DCOMPILE_XROM=1 xrom.wp34s > xrom_pre.wp34s
+tools/wp34s_asm.pl -pp -op tools/wp34s.op -c -o xrom.c xrom_pre.wp34s
+// WP 34S assembly preprocessor enabled: '-pp'
+// Opcode map source: tools/wp34s.op (specified)
+// Opcode SVN version: -- unknown --
+// Running WP 34S preprocessor from: tools/wp34s_pp.pl
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/keys.o keys.c
+cc -Wall -O1 -g -DHOSTBUILD=1 -o Linux64/create_revision create_revision.c
+cc -Wall -O1 -g -DHOSTBUILD=1 -o Linux64/genchars7 genchars7.c
+Linux64/genchars7 >charset7.h
+cc -Wall -O1 -g -DHOSTBUILD=1 -o Linux64/lcdgen lcdgen.c
+Linux64/lcdgen >lcdmap.h
+Linux64/create_revision >revision.h
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/display.o display.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/xeq.o xeq.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/prt.o prt.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/decn.o decn.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/complex.o complex.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/stats.o stats.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/lcd.o lcd.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/int.o int.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/date.o date.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/consts.o consts.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/alpha.o alpha.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/charmap.o charmap.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/commands.o commands.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/string.o string.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/storage.o storage.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/serial.o serial.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/matrix.o matrix.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/stopwatch.o stopwatch.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/printer.o printer.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/font.o font.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/data.o data.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/xrom.o xrom.c
+make[1]: Entering directory '/home/nd/programs/wp34s-code-r3913-trunk/decNumber'
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -DNEED_D128TOSTRING=1 -o ../Linux64/obj/decContext.o decContext.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -DNEED_D128TOSTRING=1 -o ../Linux64/obj/decNumber.o decNumber.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -DNEED_D128TOSTRING=1 -o ../Linux64/obj/decPacked.o decPacked.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -DNEED_D128TOSTRING=1 -o ../Linux64/obj/decimal128.o decimal128.c
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -DNEED_D128TOSTRING=1 -o ../Linux64/obj/decimal64.o decimal64.c
+rm -f ../Linux64/obj/libdecNum34s.a
+ar -r ../Linux64/obj/libdecNum34s.a ../Linux64/obj/decContext.o ../Linux64/obj/decNumber.o ../Linux64/obj/decPacked.o ../Linux64/obj/decimal128.o ../Linux64/obj/decimal64.o
+ranlib ../Linux64/obj/libdecNum34s.a
+make[1]: Leaving directory '/home/nd/programs/wp34s-code-r3913-trunk/decNumber'
+cc -c -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1 -o Linux64/obj/console.o console.c
+cc -Wall -Werror -g -fno-common -fno-exceptions  -O0 -DDEBUG=1 -DUSECURSES=1 -DFIX_64_BITS=1 -DFIX_LINUX_64_BITS=1  -o Linux64/calc Linux64/obj/console.o Linux64/obj/keys.o Linux64/obj/display.o Linux64/obj/xeq.o Linux64/obj/prt.o Linux64/obj/decn.o Linux64/obj/complex.o Linux64/obj/stats.o Linux64/obj/lcd.o Linux64/obj/int.o Linux64/obj/date.o Linux64/obj/consts.o Linux64/obj/alpha.o Linux64/obj/charmap.o Linux64/obj/commands.o Linux64/obj/string.o Linux64/obj/storage.o Linux64/obj/serial.o Linux64/obj/matrix.o Linux64/obj/stopwatch.o Linux64/obj/printer.o Linux64/obj/font.o Linux64/obj/data.o Linux64/obj/xrom.o -ldecNum34s -lcurses -LLinux64/obj -lconsts

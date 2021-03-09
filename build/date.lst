@@ -1,0 +1,4534 @@
+ARM GAS  /tmp/ccnqma1I.s 			page 1
+
+
+   1              		.arch armv7e-m
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"date.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.JDN,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	JDN:
+  27              	.LVL0:
+  28              	.LFB1:
+  29              		.file 1 "src/date.c"
+   1:src/date.c    **** /* This file is part of 34S.
+   2:src/date.c    ****  * 
+   3:src/date.c    ****  * 34S is free software: you can redistribute it and/or modify
+   4:src/date.c    ****  * it under the terms of the GNU General Public License as published by
+   5:src/date.c    ****  * the Free Software Foundation, either version 3 of the License, or
+   6:src/date.c    ****  * (at your option) any later version.
+   7:src/date.c    ****  * 
+   8:src/date.c    ****  * 34S is distributed in the hope that it will be useful,
+   9:src/date.c    ****  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  10:src/date.c    ****  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  11:src/date.c    ****  * GNU General Public License for more details.
+  12:src/date.c    ****  * 
+  13:src/date.c    ****  * You should have received a copy of the GNU General Public License
+  14:src/date.c    ****  * along with 34S.  If not, see <http://www.gnu.org/licenses/>.
+  15:src/date.c    ****  */
+  16:src/date.c    **** 
+  17:src/date.c    **** #ifdef REALBUILD
+  18:src/date.c    **** #include "atmel/rtc.h"
+  19:src/date.c    **** #elif defined(DM42)
+  20:src/date.c    **** #include "dmcp.h"
+  21:src/date.c    **** #else
+  22:src/date.c    **** #include <time.h>
+  23:src/date.c    **** #endif
+  24:src/date.c    **** 
+  25:src/date.c    **** #define DM42SAFE
+  26:src/date.c    **** #include "date.h"
+  27:src/date.c    **** #include "decn.h"
+  28:src/date.c    **** #include "xeq.h"
+  29:src/date.c    **** #include "consts.h"
+ARM GAS  /tmp/ccnqma1I.s 			page 2
+
+
+  30:src/date.c    **** #include "alpha.h"
+  31:src/date.c    **** #undef DM42SAFE
+  32:src/date.c    **** 
+  33:src/date.c    **** /* Test if a date is Gregorian or Julian
+  34:src/date.c    ****  */
+  35:src/date.c    **** static int isGregorian(int year, int month, int day) {
+  36:src/date.c    **** 	int y, m, d;
+  37:src/date.c    **** 	if (UState.jg1582) {
+  38:src/date.c    **** 		y = 1582;
+  39:src/date.c    **** 		m = 10;
+  40:src/date.c    **** 		d = 15;
+  41:src/date.c    **** 	} else {
+  42:src/date.c    **** 		y = 1752;
+  43:src/date.c    **** 		m = 9;
+  44:src/date.c    **** 		d = 14;
+  45:src/date.c    **** 	}
+  46:src/date.c    **** 	if (year > y)
+  47:src/date.c    **** 		return 1;
+  48:src/date.c    **** 	if (year < y)
+  49:src/date.c    **** 		return 0;
+  50:src/date.c    **** 	if (month < m)
+  51:src/date.c    **** 		return 0;
+  52:src/date.c    **** 	if (month > m)
+  53:src/date.c    **** 		return 1;
+  54:src/date.c    **** 	if (day < d)
+  55:src/date.c    **** 		return 0;
+  56:src/date.c    **** 	return 1;
+  57:src/date.c    **** }
+  58:src/date.c    **** 
+  59:src/date.c    **** 
+  60:src/date.c    **** /* Convert a date to a Julian day number
+  61:src/date.c    ****  */
+  62:src/date.c    **** static int JDN(int year, int month, int day) {
+  30              		.loc 1 62 46 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  63:src/date.c    **** 	const int a = (14 - month) / 12;
+  34              		.loc 1 63 2 view .LVU1
+  62:src/date.c    **** 	const int a = (14 - month) / 12;
+  35              		.loc 1 62 46 is_stmt 0 view .LVU2
+  36 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  37              		.cfi_def_cfa_offset 20
+  38              		.cfi_offset 4, -20
+  39              		.cfi_offset 5, -16
+  40              		.cfi_offset 6, -12
+  41              		.cfi_offset 7, -8
+  42              		.cfi_offset 14, -4
+  43              		.loc 1 63 12 view .LVU3
+  44 0002 2B4C     		ldr	r4, .L12
+  45              	.LBB39:
+  46              	.LBB40:
+  37:src/date.c    **** 		y = 1582;
+  47              		.loc 1 37 6 view .LVU4
+  48 0004 2B4D     		ldr	r5, .L12+4
+  49              	.LBE40:
+  50              	.LBE39:
+ARM GAS  /tmp/ccnqma1I.s 			page 3
+
+
+  51              		.loc 1 63 20 view .LVU5
+  52 0006 C1F10E03 		rsb	r3, r1, #14
+  53              		.loc 1 63 12 view .LVU6
+  54 000a 84FB0364 		smull	r6, r4, r4, r3
+  55              	.LBB47:
+  56              	.LBB41:
+  37:src/date.c    **** 		y = 1582;
+  57              		.loc 1 37 5 view .LVU7
+  58 000e 95F9EB57 		ldrsb	r5, [r5, #2027]
+  59              	.LBE41:
+  60              	.LBE47:
+  61              		.loc 1 63 12 view .LVU8
+  62 0012 DB17     		asrs	r3, r3, #31
+  63 0014 C3EB6404 		rsb	r4, r3, r4, asr #1
+  64              	.LVL1:
+  64:src/date.c    **** 	const int y = year + 4800 - a;
+  65              		.loc 1 64 2 is_stmt 1 view .LVU9
+  66              	.LBB48:
+  67              	.LBB42:
+  37:src/date.c    **** 		y = 1582;
+  68              		.loc 1 37 5 is_stmt 0 view .LVU10
+  69 0018 002D     		cmp	r5, #0
+  70              	.LBE42:
+  71              	.LBE48:
+  65:src/date.c    **** 	const int m = month + 12 * a - 3;
+  72              		.loc 1 65 27 view .LVU11
+  73 001a 04EB4406 		add	r6, r4, r4, lsl #1
+  74              	.LBB49:
+  75              	.LBB43:
+  44:src/date.c    **** 	}
+  76              		.loc 1 44 5 view .LVU12
+  77 001e 40F22E65 		movw	r5, #1582
+  78              	.LBE43:
+  79              	.LBE49:
+  80              		.loc 1 65 22 view .LVU13
+  81 0022 01EB8603 		add	r3, r1, r6, lsl #2
+  82              	.LBB50:
+  83              	.LBB44:
+  44:src/date.c    **** 	}
+  84              		.loc 1 44 5 view .LVU14
+  85 0026 B4BF     		ite	lt
+  86 0028 2E46     		movlt	r6, r5
+  87 002a 4FF4DB66 		movge	r6, #1752
+  88              	.LBE44:
+  89              	.LBE50:
+  64:src/date.c    **** 	const int y = year + 4800 - a;
+  90              		.loc 1 64 21 view .LVU15
+  91 002e 00F59657 		add	r7, r0, #4800
+  92              	.LBB51:
+  93              	.LBB45:
+  44:src/date.c    **** 	}
+  94              		.loc 1 44 5 view .LVU16
+  95 0032 B5BF     		itete	lt
+  96 0034 4FF00F0E 		movlt	lr, #15
+  97 0038 4FF00E0E 		movge	lr, #14
+  98 003c 4FF00A0C 		movlt	ip, #10
+  99 0040 4FF0090C 		movge	ip, #9
+ARM GAS  /tmp/ccnqma1I.s 			page 4
+
+
+  46:src/date.c    **** 		return 1;
+ 100              		.loc 1 46 5 view .LVU17
+ 101 0044 B042     		cmp	r0, r6
+ 102              	.LBE45:
+ 103              	.LBE51:
+ 104              		.loc 1 65 12 view .LVU18
+ 105 0046 A3F10303 		sub	r3, r3, #3
+  64:src/date.c    **** 	const int m = month + 12 * a - 3;
+ 106              		.loc 1 64 12 view .LVU19
+ 107 004a A7EB0405 		sub	r5, r7, r4
+ 108              	.LVL2:
+ 109              		.loc 1 65 2 is_stmt 1 view .LVU20
+  66:src/date.c    **** 	int jdn;
+ 110              		.loc 1 66 2 view .LVU21
+  67:src/date.c    **** 
+  68:src/date.c    **** 	if (isGregorian(year, month, day))
+ 111              		.loc 1 68 2 view .LVU22
+ 112              	.LBB52:
+ 113              	.LBI39:
+  35:src/date.c    **** 	int y, m, d;
+ 114              		.loc 1 35 12 view .LVU23
+ 115              	.LBB46:
+  36:src/date.c    **** 	if (UState.jg1582) {
+ 116              		.loc 1 36 2 view .LVU24
+  37:src/date.c    **** 		y = 1582;
+ 117              		.loc 1 37 2 view .LVU25
+  46:src/date.c    **** 		return 1;
+ 118              		.loc 1 46 2 view .LVU26
+  46:src/date.c    **** 		return 1;
+ 119              		.loc 1 46 5 is_stmt 0 view .LVU27
+ 120 004e 05DC     		bgt	.L3
+  48:src/date.c    **** 		return 0;
+ 121              		.loc 1 48 2 is_stmt 1 view .LVU28
+  48:src/date.c    **** 		return 0;
+ 122              		.loc 1 48 5 is_stmt 0 view .LVU29
+ 123 0050 2BDB     		blt	.L9
+  50:src/date.c    **** 		return 0;
+ 124              		.loc 1 50 2 is_stmt 1 view .LVU30
+  50:src/date.c    **** 		return 0;
+ 125              		.loc 1 50 5 is_stmt 0 view .LVU31
+ 126 0052 6145     		cmp	r1, ip
+ 127 0054 29DB     		blt	.L9
+  52:src/date.c    **** 		return 1;
+ 128              		.loc 1 52 2 is_stmt 1 view .LVU32
+  52:src/date.c    **** 		return 1;
+ 129              		.loc 1 52 5 is_stmt 0 view .LVU33
+ 130 0056 01DC     		bgt	.L3
+  54:src/date.c    **** 		return 0;
+ 131              		.loc 1 54 2 is_stmt 1 view .LVU34
+  54:src/date.c    **** 		return 0;
+ 132              		.loc 1 54 5 is_stmt 0 view .LVU35
+ 133 0058 7245     		cmp	r2, lr
+ 134 005a 26DB     		blt	.L9
+ 135              	.L3:
+ 136              	.LVL3:
+  54:src/date.c    **** 		return 0;
+ 137              		.loc 1 54 5 view .LVU36
+ARM GAS  /tmp/ccnqma1I.s 			page 5
+
+
+ 138              	.LBE46:
+ 139              	.LBE52:
+  69:src/date.c    **** 		jdn = -y/100 + y/400 - 32045;
+ 140              		.loc 1 69 3 is_stmt 1 view .LVU37
+ 141              		.loc 1 69 11 is_stmt 0 view .LVU38
+ 142 005c 164E     		ldr	r6, .L12+8
+ 143              		.loc 1 69 9 view .LVU39
+ 144 005e E41B     		subs	r4, r4, r7
+ 145              	.LVL4:
+ 146              		.loc 1 69 11 view .LVU40
+ 147 0060 86FB0401 		smull	r0, r1, r6, r4
+ 148              	.LVL5:
+ 149              		.loc 1 69 19 view .LVU41
+ 150 0064 86FB0506 		smull	r0, r6, r6, r5
+ 151              		.loc 1 69 11 view .LVU42
+ 152 0068 E417     		asrs	r4, r4, #31
+ 153              		.loc 1 69 19 view .LVU43
+ 154 006a E817     		asrs	r0, r5, #31
+ 155              		.loc 1 69 11 view .LVU44
+ 156 006c C4EB6111 		rsb	r1, r4, r1, asr #5
+ 157              		.loc 1 69 19 view .LVU45
+ 158 0070 C0EBE610 		rsb	r0, r0, r6, asr #7
+ 159              		.loc 1 69 16 view .LVU46
+ 160 0074 0144     		add	r1, r1, r0
+ 161              		.loc 1 69 7 view .LVU47
+ 162 0076 A1F5FA41 		sub	r1, r1, #32000
+ 163 007a 2D39     		subs	r1, r1, #45
+ 164              	.LVL6:
+ 165              	.L4:
+  70:src/date.c    **** 	else
+  71:src/date.c    **** 		jdn = -32083;
+  72:src/date.c    **** 	jdn += day + (153 * m + 2) / 5 + 365*y + y/4;
+ 166              		.loc 1 72 2 is_stmt 1 view .LVU48
+  73:src/date.c    **** 	return jdn;
+ 167              		.loc 1 73 2 view .LVU49
+  72:src/date.c    **** 	return jdn;
+ 168              		.loc 1 72 20 is_stmt 0 view .LVU50
+ 169 007c 03EBC303 		add	r3, r3, r3, lsl #3
+ 170              	.LVL7:
+  72:src/date.c    **** 	return jdn;
+ 171              		.loc 1 72 29 view .LVU51
+ 172 0080 0E48     		ldr	r0, .L12+12
+  72:src/date.c    **** 	return jdn;
+ 173              		.loc 1 72 20 view .LVU52
+ 174 0082 03EB0313 		add	r3, r3, r3, lsl #4
+  72:src/date.c    **** 	return jdn;
+ 175              		.loc 1 72 24 view .LVU53
+ 176 0086 0233     		adds	r3, r3, #2
+  72:src/date.c    **** 	return jdn;
+ 177              		.loc 1 72 29 view .LVU54
+ 178 0088 80FB0340 		smull	r4, r0, r0, r3
+ 179 008c DB17     		asrs	r3, r3, #31
+ 180 008e C3EB6003 		rsb	r3, r3, r0, asr #1
+  72:src/date.c    **** 	return jdn;
+ 181              		.loc 1 72 13 view .LVU55
+ 182 0092 1A44     		add	r2, r2, r3
+ 183              	.LVL8:
+ARM GAS  /tmp/ccnqma1I.s 			page 6
+
+
+  72:src/date.c    **** 	return jdn;
+ 184              		.loc 1 72 38 view .LVU56
+ 185 0094 40F26D10 		movw	r0, #365
+  72:src/date.c    **** 	return jdn;
+ 186              		.loc 1 72 33 view .LVU57
+ 187 0098 00FB0522 		mla	r2, r0, r5, r2
+  72:src/date.c    **** 	return jdn;
+ 188              		.loc 1 72 44 view .LVU58
+ 189 009c 002D     		cmp	r5, #0
+  72:src/date.c    **** 	return jdn;
+ 190              		.loc 1 72 44 view .LVU59
+ 191 009e B8BF     		it	lt
+ 192 00a0 0335     		addlt	r5, r5, #3
+ 193              	.LVL9:
+  72:src/date.c    **** 	return jdn;
+ 194              		.loc 1 72 41 view .LVU60
+ 195 00a2 02EBA505 		add	r5, r2, r5, asr #2
+  74:src/date.c    **** }
+ 196              		.loc 1 74 1 view .LVU61
+ 197 00a6 6818     		adds	r0, r5, r1
+ 198 00a8 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 199              	.LVL10:
+ 200              	.L9:
+  71:src/date.c    **** 	jdn += day + (153 * m + 2) / 5 + 365*y + y/4;
+ 201              		.loc 1 71 7 view .LVU62
+ 202 00aa 0549     		ldr	r1, .L12+16
+ 203              	.LVL11:
+  71:src/date.c    **** 	jdn += day + (153 * m + 2) / 5 + 365*y + y/4;
+ 204              		.loc 1 71 7 view .LVU63
+ 205 00ac E6E7     		b	.L4
+ 206              	.L13:
+ 207 00ae 00BF     		.align	2
+ 208              	.L12:
+ 209 00b0 ABAAAA2A 		.word	715827883
+ 210 00b4 00000000 		.word	PersistentRam
+ 211 00b8 1F85EB51 		.word	1374389535
+ 212 00bc 67666666 		.word	1717986919
+ 213 00c0 AD82FFFF 		.word	-32083
+ 214              		.cfi_endproc
+ 215              	.LFE1:
+ 217              		.section	.text.JDN2,"ax",%progbits
+ 218              		.align	1
+ 219              		.p2align 2,,3
+ 220              		.syntax unified
+ 221              		.thumb
+ 222              		.thumb_func
+ 223              		.fpu fpv4-sp-d16
+ 225              	JDN2:
+ 226              	.LVL12:
+ 227              	.LFB2:
+  75:src/date.c    **** 
+  76:src/date.c    **** 
+  77:src/date.c    **** /* Convert a julian day number to day, month and year.
+  78:src/date.c    ****  */
+  79:src/date.c    **** static void JDN2(int J, int *year, int *month, int *day) {
+ 228              		.loc 1 79 58 is_stmt 1 view -0
+ 229              		.cfi_startproc
+ARM GAS  /tmp/ccnqma1I.s 			page 7
+
+
+ 230              		@ args = 0, pretend = 0, frame = 0
+ 231              		@ frame_needed = 0, uses_anonymous_args = 0
+  80:src/date.c    **** 	int b, c, y, d, e, m;
+ 232              		.loc 1 80 2 view .LVU65
+  81:src/date.c    **** 	int jgthreshold = UState.jg1582 ? 2299161 : 2361222;
+ 233              		.loc 1 81 2 view .LVU66
+  79:src/date.c    **** 	int b, c, y, d, e, m;
+ 234              		.loc 1 79 58 is_stmt 0 view .LVU67
+ 235 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 236              		.cfi_def_cfa_offset 28
+ 237              		.cfi_offset 4, -28
+ 238              		.cfi_offset 5, -24
+ 239              		.cfi_offset 6, -20
+ 240              		.cfi_offset 7, -16
+ 241              		.cfi_offset 8, -12
+ 242              		.cfi_offset 9, -8
+ 243              		.cfi_offset 14, -4
+ 244              		.loc 1 81 34 view .LVU68
+ 245 0004 334D     		ldr	r5, .L22
+ 246              		.loc 1 81 44 view .LVU69
+ 247 0006 344C     		ldr	r4, .L22+4
+ 248 0008 95F9EB67 		ldrsb	r6, [r5, #2027]
+ 249 000c 334D     		ldr	r5, .L22+8
+ 250 000e 14EA2604 		ands	r4, r4, r6, asr #32
+ 251 0012 38BF     		it	cc
+ 252 0014 2C46     		movcc	r4, r5
+ 253              	.LVL13:
+  82:src/date.c    **** 
+  83:src/date.c    **** 	if (J >= jgthreshold) {	// Gregorian
+ 254              		.loc 1 83 2 is_stmt 1 view .LVU70
+ 255              		.loc 1 83 5 is_stmt 0 view .LVU71
+ 256 0016 8442     		cmp	r4, r0
+ 257              	.LBB53:
+  84:src/date.c    **** 		const int a = J + 32044;
+ 258              		.loc 1 84 13 view .LVU72
+ 259 0018 00F5FA40 		add	r0, r0, #32000
+ 260              	.LVL14:
+ 261              		.loc 1 84 13 view .LVU73
+ 262              	.LBE53:
+  83:src/date.c    **** 		const int a = J + 32044;
+ 263              		.loc 1 83 5 view .LVU74
+ 264 001c 56DC     		bgt	.L16
+ 265              	.LBB54:
+ 266              		.loc 1 84 3 is_stmt 1 view .LVU75
+ 267              		.loc 1 84 13 is_stmt 0 view .LVU76
+ 268 001e 2C30     		adds	r0, r0, #44
+ 269              	.LVL15:
+  85:src/date.c    **** 		b = (4*a+3)/146097;
+ 270              		.loc 1 85 3 is_stmt 1 view .LVU77
+ 271              		.loc 1 85 5 is_stmt 0 view .LVU78
+ 272 0020 2F4D     		ldr	r5, .L22+12
+  86:src/date.c    **** 		c = a - (b*146097)/4;
+ 273              		.loc 1 86 13 view .LVU79
+ 274 0022 304C     		ldr	r4, .L22+16
+ 275              	.LVL16:
+  85:src/date.c    **** 		b = (4*a+3)/146097;
+ 276              		.loc 1 85 9 view .LVU80
+ARM GAS  /tmp/ccnqma1I.s 			page 8
+
+
+ 277 0024 4FEA800C 		lsl	ip, r0, #2
+  85:src/date.c    **** 		b = (4*a+3)/146097;
+ 278              		.loc 1 85 11 view .LVU81
+ 279 0028 0CF1030C 		add	ip, ip, #3
+  85:src/date.c    **** 		b = (4*a+3)/146097;
+ 280              		.loc 1 85 5 view .LVU82
+ 281 002c A5FB0C5C 		umull	r5, ip, r5, ip
+ 282 0030 4FEADC35 		lsr	r5, ip, #15
+ 283              	.LVL17:
+ 284              		.loc 1 86 3 is_stmt 1 view .LVU83
+ 285              		.loc 1 86 13 is_stmt 0 view .LVU84
+ 286 0034 04FB05F4 		mul	r4, r4, r5
+ 287              		.loc 1 86 21 view .LVU85
+ 288 0038 002C     		cmp	r4, #0
+ 289 003a B8BF     		it	lt
+ 290 003c 0334     		addlt	r4, r4, #3
+  87:src/date.c    **** 		b *= 100;
+ 291              		.loc 1 87 5 view .LVU86
+ 292 003e 4FF0640C 		mov	ip, #100
+  86:src/date.c    **** 		c = a - (b*146097)/4;
+ 293              		.loc 1 86 5 view .LVU87
+ 294 0042 A0EBA400 		sub	r0, r0, r4, asr #2
+ 295              	.LVL18:
+ 296              		.loc 1 87 3 is_stmt 1 view .LVU88
+ 297              		.loc 1 87 5 is_stmt 0 view .LVU89
+ 298 0046 0CFB05FC 		mul	ip, ip, r5
+ 299              	.LVL19:
+ 300              	.L18:
+ 301              		.loc 1 87 5 view .LVU90
+ 302              	.LBE54:
+  88:src/date.c    **** 	} else {		// Julian
+  89:src/date.c    **** 		b = 0;
+  90:src/date.c    **** 		c = J + 32082;
+  91:src/date.c    **** 	}
+  92:src/date.c    **** 
+  93:src/date.c    **** 	d = (4*c+3)/1461;
+ 303              		.loc 1 93 2 is_stmt 1 view .LVU91
+ 304              		.loc 1 93 8 is_stmt 0 view .LVU92
+ 305 004a 8400     		lsls	r4, r0, #2
+ 306              		.loc 1 93 4 view .LVU93
+ 307 004c 264D     		ldr	r5, .L22+20
+  94:src/date.c    **** 	e = c - (1461*d)/4;
+  95:src/date.c    **** 	m = (5*e+2)/153;
+  96:src/date.c    **** 
+  97:src/date.c    **** 	*day   = e - (153*m+2)/5 + 1;
+  98:src/date.c    **** 	*month = m + 3 - 12*(m/10);
+ 308              		.loc 1 98 24 view .LVU94
+ 309 004e DFF8A080 		ldr	r8, .L22+28
+  93:src/date.c    **** 	e = c - (1461*d)/4;
+ 310              		.loc 1 93 10 view .LVU95
+ 311 0052 0334     		adds	r4, r4, #3
+  93:src/date.c    **** 	e = c - (1461*d)/4;
+ 312              		.loc 1 93 4 view .LVU96
+ 313 0054 85FB0465 		smull	r6, r5, r5, r4
+ 314              	.LVL20:
+  93:src/date.c    **** 	e = c - (1461*d)/4;
+ 315              		.loc 1 93 4 view .LVU97
+ARM GAS  /tmp/ccnqma1I.s 			page 9
+
+
+ 316 0058 E417     		asrs	r4, r4, #31
+ 317 005a C4EBE515 		rsb	r5, r4, r5, asr #7
+ 318              	.LVL21:
+  94:src/date.c    **** 	e = c - (1461*d)/4;
+ 319              		.loc 1 94 2 is_stmt 1 view .LVU98
+  94:src/date.c    **** 	e = c - (1461*d)/4;
+ 320              		.loc 1 94 15 is_stmt 0 view .LVU99
+ 321 005e 40F2B554 		movw	r4, #1461
+ 322 0062 04FB05F4 		mul	r4, r4, r5
+  94:src/date.c    **** 	e = c - (1461*d)/4;
+ 323              		.loc 1 94 18 view .LVU100
+ 324 0066 002C     		cmp	r4, #0
+ 325 0068 B8BF     		it	lt
+ 326 006a 0334     		addlt	r4, r4, #3
+  94:src/date.c    **** 	e = c - (1461*d)/4;
+ 327              		.loc 1 94 4 view .LVU101
+ 328 006c A0EBA404 		sub	r4, r0, r4, asr #2
+ 329              	.LVL22:
+  95:src/date.c    **** 
+ 330              		.loc 1 95 2 is_stmt 1 view .LVU102
+  95:src/date.c    **** 
+ 331              		.loc 1 95 4 is_stmt 0 view .LVU103
+ 332 0070 1E4E     		ldr	r6, .L22+24
+  95:src/date.c    **** 
+ 333              		.loc 1 95 8 view .LVU104
+ 334 0072 04EB840E 		add	lr, r4, r4, lsl #2
+  95:src/date.c    **** 
+ 335              		.loc 1 95 10 view .LVU105
+ 336 0076 0EF1020E 		add	lr, lr, #2
+  95:src/date.c    **** 
+ 337              		.loc 1 95 4 view .LVU106
+ 338 007a 86FB0E06 		smull	r0, r6, r6, lr
+ 339              	.LVL23:
+  95:src/date.c    **** 
+ 340              		.loc 1 95 4 view .LVU107
+ 341 007e 4FEAEE77 		asr	r7, lr, #31
+ 342 0082 7644     		add	r6, r6, lr
+ 343 0084 C7EBE616 		rsb	r6, r7, r6, asr #7
+ 344              	.LVL24:
+  97:src/date.c    **** 	*month = m + 3 - 12*(m/10);
+ 345              		.loc 1 97 2 is_stmt 1 view .LVU108
+  97:src/date.c    **** 	*month = m + 3 - 12*(m/10);
+ 346              		.loc 1 97 19 is_stmt 0 view .LVU109
+ 347 0088 06EBC600 		add	r0, r6, r6, lsl #3
+ 348              		.loc 1 98 24 view .LVU110
+ 349 008c 88FB0E8E 		smull	r8, lr, r8, lr
+  97:src/date.c    **** 	*month = m + 3 - 12*(m/10);
+ 350              		.loc 1 97 19 view .LVU111
+ 351 0090 00EB0010 		add	r0, r0, r0, lsl #4
+  97:src/date.c    **** 	*month = m + 3 - 12*(m/10);
+ 352              		.loc 1 97 24 view .LVU112
+ 353 0094 DFF85C80 		ldr	r8, .L22+32
+  97:src/date.c    **** 	*month = m + 3 - 12*(m/10);
+ 354              		.loc 1 97 21 view .LVU113
+ 355 0098 0230     		adds	r0, r0, #2
+  97:src/date.c    **** 	*month = m + 3 - 12*(m/10);
+ 356              		.loc 1 97 24 view .LVU114
+ARM GAS  /tmp/ccnqma1I.s 			page 10
+
+
+ 357 009a 88FB0098 		smull	r9, r8, r8, r0
+ 358 009e C017     		asrs	r0, r0, #31
+  99:src/date.c    **** 
+ 100:src/date.c    **** 	y = b + d - 4800 + m/10;
+ 359              		.loc 1 100 8 view .LVU115
+ 360 00a0 6544     		add	r5, r5, ip
+ 361              	.LVL25:
+  97:src/date.c    **** 	*month = m + 3 - 12*(m/10);
+ 362              		.loc 1 97 24 view .LVU116
+ 363 00a2 A0EB6800 		sub	r0, r0, r8, asr #1
+ 364              		.loc 1 100 22 view .LVU117
+ 365 00a6 C7EB2E2C 		rsb	ip, r7, lr, asr #8
+ 366              	.LVL26:
+  98:src/date.c    **** 
+ 367              		.loc 1 98 24 view .LVU118
+ 368 00aa A7EB2E27 		sub	r7, r7, lr, asr #8
+ 369              		.loc 1 100 12 view .LVU119
+ 370 00ae A5F59655 		sub	r5, r5, #4800
+  98:src/date.c    **** 
+ 371              		.loc 1 98 21 view .LVU120
+ 372 00b2 07EB4707 		add	r7, r7, r7, lsl #1
+  98:src/date.c    **** 
+ 373              		.loc 1 98 13 view .LVU121
+ 374 00b6 0336     		adds	r6, r6, #3
+ 375              	.LVL27:
+  97:src/date.c    **** 	*month = m + 3 - 12*(m/10);
+ 376              		.loc 1 97 13 view .LVU122
+ 377 00b8 2044     		add	r0, r0, r4
+ 378              		.loc 1 100 4 view .LVU123
+ 379 00ba 6544     		add	r5, r5, ip
+  98:src/date.c    **** 
+ 380              		.loc 1 98 17 view .LVU124
+ 381 00bc 06EB8707 		add	r7, r6, r7, lsl #2
+  97:src/date.c    **** 	*month = m + 3 - 12*(m/10);
+ 382              		.loc 1 97 27 view .LVU125
+ 383 00c0 0130     		adds	r0, r0, #1
+  97:src/date.c    **** 	*month = m + 3 - 12*(m/10);
+ 384              		.loc 1 97 9 view .LVU126
+ 385 00c2 1860     		str	r0, [r3]
+  98:src/date.c    **** 
+ 386              		.loc 1 98 2 is_stmt 1 view .LVU127
+  98:src/date.c    **** 
+ 387              		.loc 1 98 9 is_stmt 0 view .LVU128
+ 388 00c4 1760     		str	r7, [r2]
+ 389              		.loc 1 100 2 is_stmt 1 view .LVU129
+ 390              	.LVL28:
+ 101:src/date.c    **** //	if (y <= 0)	y--;
+ 102:src/date.c    **** 	*year = y;
+ 391              		.loc 1 102 2 view .LVU130
+ 392              		.loc 1 102 8 is_stmt 0 view .LVU131
+ 393 00c6 0D60     		str	r5, [r1]
+ 103:src/date.c    **** }
+ 394              		.loc 1 103 1 view .LVU132
+ 395 00c8 BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 396              	.LVL29:
+ 397              	.L16:
+  89:src/date.c    **** 		c = J + 32082;
+ARM GAS  /tmp/ccnqma1I.s 			page 11
+
+
+ 398              		.loc 1 89 3 is_stmt 1 view .LVU133
+  90:src/date.c    **** 	}
+ 399              		.loc 1 90 3 view .LVU134
+  90:src/date.c    **** 	}
+ 400              		.loc 1 90 5 is_stmt 0 view .LVU135
+ 401 00cc 5230     		adds	r0, r0, #82
+ 402              	.LVL30:
+  89:src/date.c    **** 		c = J + 32082;
+ 403              		.loc 1 89 5 view .LVU136
+ 404 00ce 4FF0000C 		mov	ip, #0
+ 405 00d2 BAE7     		b	.L18
+ 406              	.L23:
+ 407              		.align	2
+ 408              	.L22:
+ 409 00d4 00000000 		.word	PersistentRam
+ 410 00d8 19152300 		.word	2299161
+ 411 00dc 86072400 		.word	2361222
+ 412 00e0 BD066B39 		.word	963315389
+ 413 00e4 B13A0200 		.word	146097
+ 414 00e8 73B06D16 		.word	376287347
+ 415 00ec D7802BD6 		.word	-701792041
+ 416 00f0 2B80D52A 		.word	718635051
+ 417 00f4 67666666 		.word	1717986919
+ 418              		.cfi_endproc
+ 419              	.LFE2:
+ 421              		.section	.text.check_date,"ax",%progbits
+ 422              		.align	1
+ 423              		.p2align 2,,3
+ 424              		.syntax unified
+ 425              		.thumb
+ 426              		.thumb_func
+ 427              		.fpu fpv4-sp-d16
+ 429              	check_date:
+ 430              	.LVL31:
+ 431              	.LFB4:
+ 104:src/date.c    **** 
+ 105:src/date.c    **** 
+ 106:src/date.c    **** static int isleap(int year) {
+ 107:src/date.c    **** 	if ((year & 3) == 0) {		// leap year candidate
+ 108:src/date.c    **** 		if (isGregorian(year, 1, 1)) {
+ 109:src/date.c    **** 			// Gregorian is leap if not divisible by 100 or if devisible by 400
+ 110:src/date.c    **** 			if (year % 100 == 0) {
+ 111:src/date.c    **** 				if (year % 400 == 0)
+ 112:src/date.c    **** 					return 1;
+ 113:src/date.c    **** 				return 0;
+ 114:src/date.c    **** 			}
+ 115:src/date.c    **** 		}
+ 116:src/date.c    **** 		return 1;
+ 117:src/date.c    **** 	}
+ 118:src/date.c    **** 	return 0;
+ 119:src/date.c    **** }
+ 120:src/date.c    **** 
+ 121:src/date.c    **** 
+ 122:src/date.c    **** /* Validate that a date is in fact within our calculation range.
+ 123:src/date.c    ****  */
+ 124:src/date.c    **** static int check_date(int year, int month, int day) {
+ 432              		.loc 1 124 53 is_stmt 1 view -0
+ARM GAS  /tmp/ccnqma1I.s 			page 12
+
+
+ 433              		.cfi_startproc
+ 434              		@ args = 0, pretend = 0, frame = 16
+ 435              		@ frame_needed = 0, uses_anonymous_args = 0
+ 125:src/date.c    **** 	int y, m, d;
+ 436              		.loc 1 125 2 view .LVU138
+ 126:src/date.c    **** 
+ 127:src/date.c    **** 	if (year < -4712 || year > 9999)
+ 437              		.loc 1 127 2 view .LVU139
+ 124:src/date.c    **** 	int y, m, d;
+ 438              		.loc 1 124 53 is_stmt 0 view .LVU140
+ 439 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 440              		.cfi_def_cfa_offset 20
+ 441              		.cfi_offset 4, -20
+ 442              		.cfi_offset 5, -16
+ 443              		.cfi_offset 6, -12
+ 444              		.cfi_offset 7, -8
+ 445              		.cfi_offset 14, -4
+ 446              		.loc 1 127 19 view .LVU141
+ 447 0002 00F59353 		add	r3, r0, #4704
+ 448 0006 0833     		adds	r3, r3, #8
+ 449              		.loc 1 127 5 view .LVU142
+ 450 0008 43F67717 		movw	r7, #14711
+ 451 000c BB42     		cmp	r3, r7
+ 124:src/date.c    **** 	int y, m, d;
+ 452              		.loc 1 124 53 view .LVU143
+ 453 000e 85B0     		sub	sp, sp, #20
+ 454              		.cfi_def_cfa_offset 40
+ 455              		.loc 1 127 5 view .LVU144
+ 456 0010 16D8     		bhi	.L27
+ 128:src/date.c    **** 		return -1;
+ 129:src/date.c    **** 	JDN2(JDN(year, month, day), &y, &m, &d);
+ 457              		.loc 1 129 2 is_stmt 1 view .LVU145
+ 458 0012 0446     		mov	r4, r0
+ 459 0014 0D46     		mov	r5, r1
+ 460 0016 1646     		mov	r6, r2
+ 461 0018 FFF7FEFF 		bl	JDN
+ 462              	.LVL32:
+ 463              		.loc 1 129 2 is_stmt 0 view .LVU146
+ 464 001c 03AB     		add	r3, sp, #12
+ 465 001e 02AA     		add	r2, sp, #8
+ 466 0020 01A9     		add	r1, sp, #4
+ 467 0022 FFF7FEFF 		bl	JDN2
+ 468              	.LVL33:
+ 130:src/date.c    **** 	if (year == y && month == m && day == d)
+ 469              		.loc 1 130 2 is_stmt 1 view .LVU147
+ 470              		.loc 1 130 5 is_stmt 0 view .LVU148
+ 471 0026 019B     		ldr	r3, [sp, #4]
+ 472 0028 A342     		cmp	r3, r4
+ 473 002a 09D1     		bne	.L27
+ 474              		.loc 1 130 16 discriminator 1 view .LVU149
+ 475 002c 029B     		ldr	r3, [sp, #8]
+ 476 002e AB42     		cmp	r3, r5
+ 477 0030 06D1     		bne	.L27
+ 478              		.loc 1 130 30 discriminator 2 view .LVU150
+ 479 0032 0398     		ldr	r0, [sp, #12]
+ 480 0034 801B     		subs	r0, r0, r6
+ 481 0036 18BF     		it	ne
+ARM GAS  /tmp/ccnqma1I.s 			page 13
+
+
+ 482 0038 4FF0FF30 		movne	r0, #-1
+ 483              	.LVL34:
+ 484              	.L24:
+ 131:src/date.c    **** 		return 0;
+ 132:src/date.c    **** 	return -1;
+ 133:src/date.c    **** }
+ 485              		.loc 1 133 1 view .LVU151
+ 486 003c 05B0     		add	sp, sp, #20
+ 487              		.cfi_remember_state
+ 488              		.cfi_def_cfa_offset 20
+ 489              		@ sp needed
+ 490 003e F0BD     		pop	{r4, r5, r6, r7, pc}
+ 491              	.L27:
+ 492              		.cfi_restore_state
+ 128:src/date.c    **** 	JDN2(JDN(year, month, day), &y, &m, &d);
+ 493              		.loc 1 128 10 view .LVU152
+ 494 0040 4FF0FF30 		mov	r0, #-1
+ 495 0044 FAE7     		b	.L24
+ 496              		.cfi_endproc
+ 497              	.LFE4:
+ 499 0046 00BF     		.section	.text.extract_time,"ax",%progbits
+ 500              		.align	1
+ 501              		.p2align 2,,3
+ 502              		.syntax unified
+ 503              		.thumb
+ 504              		.thumb_func
+ 505              		.fpu fpv4-sp-d16
+ 507              	extract_time:
+ 508              	.LVL35:
+ 509              	.LFB20:
+ 134:src/date.c    **** 
+ 135:src/date.c    **** 
+ 136:src/date.c    **** /* Day of week.
+ 137:src/date.c    ****  * Display the day name and return the day as an integer (1 .. 7).
+ 138:src/date.c    ****  */
+ 139:src/date.c    **** static int day_of_week(int year, int month, int day, const char **msg) {
+ 140:src/date.c    **** 	int h;
+ 141:src/date.c    **** 	const char *const days = "\007\016\025\035\047\060\067"
+ 142:src/date.c    **** 				"Sunday\0Monday\0Tuesday\0Wednesday\0"
+ 143:src/date.c    **** 				"Thursday\0Friday\0Saturday";
+ 144:src/date.c    **** 	h = (JDN(year, month, day)+1) % 7;
+ 145:src/date.c    **** 	if (msg != NULL && ! Running)
+ 146:src/date.c    **** 		*msg = days + ((unsigned char *)days)[h];
+ 147:src/date.c    **** 	return h != 0 ? h : 7;
+ 148:src/date.c    **** }
+ 149:src/date.c    **** 
+ 150:src/date.c    **** 
+ 151:src/date.c    **** /* Convert a (y, m, d) triple into a decimal number that represents the date.
+ 152:src/date.c    ****  * Some care is required for overflow and the like.
+ 153:src/date.c    ****  */
+ 154:src/date.c    **** static decNumber *build_date(decNumber *res, int year, int month, int day) {
+ 155:src/date.c    **** 	int sign = 1, shift = -6, r = 0;
+ 156:src/date.c    **** 
+ 157:src/date.c    **** 	if (check_date(year, month, day)) {
+ 158:src/date.c    **** 		set_NaN(res);
+ 159:src/date.c    **** 		return res;
+ 160:src/date.c    **** 	}
+ARM GAS  /tmp/ccnqma1I.s 			page 14
+
+
+ 161:src/date.c    **** 	if (year < 0) {
+ 162:src/date.c    **** 		year = -year;
+ 163:src/date.c    **** 		sign = -1;
+ 164:src/date.c    **** 	}
+ 165:src/date.c    **** 
+ 166:src/date.c    **** 	switch (UState.date_mode) {
+ 167:src/date.c    **** 	case DATE_YMD:
+ 168:src/date.c    **** 		r = ((year * 100) + month) * 100 + day;
+ 169:src/date.c    **** 		shift = -4;
+ 170:src/date.c    **** 		break;
+ 171:src/date.c    **** 
+ 172:src/date.c    **** 	case DATE_DMY:
+ 173:src/date.c    **** 		r = ((day * 100) + month)* 10000 + year;
+ 174:src/date.c    **** 		break;
+ 175:src/date.c    **** 
+ 176:src/date.c    **** 	case DATE_MDY:
+ 177:src/date.c    **** 		r = ((month * 100) + day)* 10000 + year;
+ 178:src/date.c    **** 		break;
+ 179:src/date.c    **** 	}
+ 180:src/date.c    **** 	int_to_dn(res, r * sign);
+ 181:src/date.c    **** 	dn_mulpow10(res, res, shift);
+ 182:src/date.c    **** 	day_of_week(sign * year, month, day, &DispMsg);
+ 183:src/date.c    **** 	return res;
+ 184:src/date.c    **** }
+ 185:src/date.c    **** 
+ 186:src/date.c    **** /*
+ 187:src/date.c    ****  *  Convert Z = year, y = month, x = day to a valid date in X
+ 188:src/date.c    ****  */
+ 189:src/date.c    **** decNumber *dateFromYMD(decNumber *res, const decNumber *z, const decNumber *y, const decNumber *x) 
+ 190:src/date.c    **** 	if (decNumberIsSpecial(x) || decNumberIsSpecial(y) || decNumberIsSpecial(z))
+ 191:src/date.c    **** 		return set_NaN(res);
+ 192:src/date.c    **** 	else {
+ 193:src/date.c    **** 		return build_date(res, dn_to_int(z), dn_to_int(y), dn_to_int(x));
+ 194:src/date.c    **** 	}
+ 195:src/date.c    **** }
+ 196:src/date.c    **** 
+ 197:src/date.c    **** /* Convert a decimal real to a date.
+ 198:src/date.c    ****  * We have to honour the current date mode and make sure that things
+ 199:src/date.c    ****  * don't go out of range.
+ 200:src/date.c    ****  */
+ 201:src/date.c    **** static int extract_date(const decNumber *x, int *year, int *month, int *day) {
+ 202:src/date.c    **** 	int ip, fp, y, m, d;
+ 203:src/date.c    **** 	decNumber z, a;
+ 204:src/date.c    ****     int neg = 1;
+ 205:src/date.c    **** 
+ 206:src/date.c    **** 	if (is_intmode())
+ 207:src/date.c    **** 		return 1;
+ 208:src/date.c    **** 
+ 209:src/date.c    **** 	if (decNumberIsNegative(x)) {
+ 210:src/date.c    **** 		dn_minus(&z, x);
+ 211:src/date.c    ****         neg = -1;
+ 212:src/date.c    **** 	} else {
+ 213:src/date.c    **** 		decNumberCopy(&z, x);
+ 214:src/date.c    **** 	}
+ 215:src/date.c    **** 	decNumberTrunc(&a, &z);			// a = iii	z = iii.ffrrrr
+ 216:src/date.c    **** 	ip = dn_to_int(&a);
+ 217:src/date.c    **** 	dn_subtract(&a, &z, &a);		// a = .ffrrrr
+ARM GAS  /tmp/ccnqma1I.s 			page 15
+
+
+ 218:src/date.c    **** 	dn_mul100(&z, &a);			// z = ff.rrrr
+ 219:src/date.c    **** 	decNumberTrunc(&a, &z);			// a = ff
+ 220:src/date.c    **** 	fp = dn_to_int(&a);
+ 221:src/date.c    **** 	dn_subtract(&z, &z, &a);		// z = .rrrr
+ 222:src/date.c    **** 	switch (UState.date_mode) {
+ 223:src/date.c    **** 	default:
+ 224:src/date.c    **** 	case DATE_YMD:
+ 225:src/date.c    **** 		y = ip;
+ 226:src/date.c    **** 		m = fp;
+ 227:src/date.c    **** 		dn_mul100(&a, &z);
+ 228:src/date.c    **** 		decNumberTrunc(&z, &a);
+ 229:src/date.c    **** 		d = dn_to_int(&z);
+ 230:src/date.c    **** 		break;
+ 231:src/date.c    **** 
+ 232:src/date.c    **** 	case DATE_DMY:
+ 233:src/date.c    **** 		d = ip;
+ 234:src/date.c    **** 		m = fp;
+ 235:src/date.c    **** 		goto year;
+ 236:src/date.c    **** 
+ 237:src/date.c    **** 	case DATE_MDY:
+ 238:src/date.c    **** 		m = ip;
+ 239:src/date.c    **** 		d = fp;
+ 240:src/date.c    **** year:		dn_mulpow10(&a, &z, 4);
+ 241:src/date.c    **** 		decNumberTrunc(&z, &a);
+ 242:src/date.c    **** 		y = dn_to_int(&z);
+ 243:src/date.c    **** 		break;
+ 244:src/date.c    **** 	}
+ 245:src/date.c    **** 	/* Make sense of things
+ 246:src/date.c    **** 	 */
+ 247:src/date.c    ****     y *= neg;
+ 248:src/date.c    **** 	if (year != NULL)
+ 249:src/date.c    **** 		*year = y;
+ 250:src/date.c    **** 	if (month != NULL)
+ 251:src/date.c    **** 		*month = m;
+ 252:src/date.c    **** 	if (day != NULL)
+ 253:src/date.c    **** 		*day = d;
+ 254:src/date.c    **** 	return check_date(y, m, d);
+ 255:src/date.c    **** }
+ 256:src/date.c    **** 
+ 257:src/date.c    **** 
+ 258:src/date.c    **** /* Given an argument on the stack, attempt to determine the year.
+ 259:src/date.c    ****  * If the argument is a plain integer, it is the year.
+ 260:src/date.c    ****  * Otherwise, decode it according to the current date mode and
+ 261:src/date.c    ****  * return the year.
+ 262:src/date.c    ****  */
+ 263:src/date.c    **** static int find_year(const decNumber *x, int *year) {
+ 264:src/date.c    **** 	int y;
+ 265:src/date.c    **** 
+ 266:src/date.c    **** 	if (decNumberIsSpecial(x))
+ 267:src/date.c    **** 		return -1;
+ 268:src/date.c    **** 	if (is_int(x)) {
+ 269:src/date.c    **** 		y = dn_to_int(x);
+ 270:src/date.c    **** 		if (check_date(y, 1, 1))
+ 271:src/date.c    **** 			return -1;
+ 272:src/date.c    **** 	} else if (extract_date(x, &y, NULL, NULL))
+ 273:src/date.c    **** 		return -1;
+ 274:src/date.c    **** 	*year = y;
+ARM GAS  /tmp/ccnqma1I.s 			page 16
+
+
+ 275:src/date.c    **** 	return 0;
+ 276:src/date.c    **** }
+ 277:src/date.c    **** 
+ 278:src/date.c    **** 
+ 279:src/date.c    **** #ifdef INCLUDE_EASTER
+ 280:src/date.c    **** /* Return Easter dates from the year.
+ 281:src/date.c    ****  * We assume the calendar reformation took place in 1752 which means for this
+ 282:src/date.c    ****  * year and before, we return the Julian date of Easter Sunday and afterwards
+ 283:src/date.c    ****  * the Gregorian version.
+ 284:src/date.c    ****  */
+ 285:src/date.c    **** static void easter(int year, int *month, int *day) {
+ 286:src/date.c    **** 	if (year > (UState.jg1582 ? 1582 : 1752)) {	// Gregorian
+ 287:src/date.c    **** 		const int a = year % 19;
+ 288:src/date.c    **** 		const int b = year / 100;
+ 289:src/date.c    **** 		const int c = year % 100;
+ 290:src/date.c    **** 		const int d = b / 4;
+ 291:src/date.c    **** 		const int e = b % 4;
+ 292:src/date.c    **** 		const int f = (b + 8) / 25;
+ 293:src/date.c    **** 		const int g = (b - f + 1) / 3;
+ 294:src/date.c    **** 		const int h = (19 * a + b - d - g + 15) % 30;
+ 295:src/date.c    **** 		const int i = c / 4;
+ 296:src/date.c    **** 		const int k = c % 4;
+ 297:src/date.c    **** 		const int L = (32 + 2 * e + 2 * i - h - k) % 7;
+ 298:src/date.c    **** 		const int m = (a + 11 * h + 22 * L) / 451;
+ 299:src/date.c    **** 		*month = (h + L - 7 * m + 114) / 31;		// Jan = 1
+ 300:src/date.c    **** 		*day = ((h + L - 7 * m + 114) % 31) + 1;
+ 301:src/date.c    **** 	} else {
+ 302:src/date.c    **** 		const int a = year % 4;
+ 303:src/date.c    **** 		const int b = year % 7;
+ 304:src/date.c    **** 		const int c = year % 19;
+ 305:src/date.c    **** 		const int d = (19 * c + 15) % 30;
+ 306:src/date.c    **** 		const int e = (2 * a + 4 * b - d + 34) % 7;
+ 307:src/date.c    **** 		*month = (d + e + 114) / 31;			// Jan = 1
+ 308:src/date.c    **** 		*day = ((d + e + 114) % 31) + 1;
+ 309:src/date.c    **** 	}
+ 310:src/date.c    **** }
+ 311:src/date.c    **** 
+ 312:src/date.c    **** 
+ 313:src/date.c    **** /* Date of Easter.  Input is the year and output is a date.
+ 314:src/date.c    ****  * The input can either be specified as an integer year or as a
+ 315:src/date.c    ****  * valid date in the current format.
+ 316:src/date.c    ****  */
+ 317:src/date.c    **** decNumber *dateEaster(decNumber *res, const decNumber *x) {
+ 318:src/date.c    **** 	int y;
+ 319:src/date.c    **** 
+ 320:src/date.c    **** 	if (find_year(x, &y)) {
+ 321:src/date.c    **** 		set_NaN(res);
+ 322:src/date.c    **** 		return res;
+ 323:src/date.c    **** 	} else {
+ 324:src/date.c    **** 		int m, d;
+ 325:src/date.c    **** 
+ 326:src/date.c    **** 		easter(y, &m, &d);
+ 327:src/date.c    **** 		build_date(res, y, m, d);
+ 328:src/date.c    **** 	}
+ 329:src/date.c    **** 	return res;
+ 330:src/date.c    **** }
+ 331:src/date.c    **** #endif
+ARM GAS  /tmp/ccnqma1I.s 			page 17
+
+
+ 332:src/date.c    **** 
+ 333:src/date.c    **** 
+ 334:src/date.c    **** /* Test if a year is a leap year
+ 335:src/date.c    ****  */
+ 336:src/date.c    **** void date_isleap(enum nilop op) {
+ 337:src/date.c    **** 	int y, t = 0;
+ 338:src/date.c    **** 	decNumber x;
+ 339:src/date.c    **** 
+ 340:src/date.c    **** 	getX(&x);
+ 341:src/date.c    **** 	if (! find_year(&x, &y))
+ 342:src/date.c    **** 		t = isleap(y);
+ 343:src/date.c    **** 	fin_tst(t);
+ 344:src/date.c    **** }
+ 345:src/date.c    **** 
+ 346:src/date.c    **** 
+ 347:src/date.c    **** /* Return the day of the week
+ 348:src/date.c    ****  */
+ 349:src/date.c    **** static int dateExtract(decNumber *res, const decNumber *x, int *y, int *m, int *d) {
+ 350:src/date.c    **** 	if (decNumberIsSpecial(x) || extract_date(x, y, m, d)) {
+ 351:src/date.c    **** 		set_NaN(res);
+ 352:src/date.c    **** 		return 0;
+ 353:src/date.c    **** 	}
+ 354:src/date.c    **** 	return 1;
+ 355:src/date.c    **** }
+ 356:src/date.c    **** 
+ 357:src/date.c    **** decNumber *dateDayOfWeek(decNumber *res, const decNumber *x) {
+ 358:src/date.c    **** 	int y, m, d;
+ 359:src/date.c    **** 
+ 360:src/date.c    **** 	if (dateExtract(res, x, &y, &m, &d))
+ 361:src/date.c    **** 		int_to_dn(res, day_of_week(y, m, d, &DispMsg));
+ 362:src/date.c    **** 	return res;
+ 363:src/date.c    **** }
+ 364:src/date.c    **** 
+ 365:src/date.c    **** 
+ 366:src/date.c    **** /* Decompose dates into numerics
+ 367:src/date.c    ****  */
+ 368:src/date.c    **** decNumber *dateExtraction(decNumber *res, const decNumber *x) {
+ 369:src/date.c    **** 	int z[3];
+ 370:src/date.c    **** 
+ 371:src/date.c    **** 	if (dateExtract(res, x, z, z+1, z+2))
+ 372:src/date.c    **** 		int_to_dn(res, z[argKIND(XeqOpCode) - OP_DATE_YEAR]);
+ 373:src/date.c    **** 	return res;
+ 374:src/date.c    **** }
+ 375:src/date.c    **** 
+ 376:src/date.c    **** 
+ 377:src/date.c    **** static void copy3(const char *p) {
+ 378:src/date.c    **** 	char buf[4];
+ 379:src/date.c    **** 	int i;
+ 380:src/date.c    **** 
+ 381:src/date.c    **** 	for (i=0; i<3; i++)
+ 382:src/date.c    **** 		buf[i] = p[i];
+ 383:src/date.c    **** 	buf[3] = '\0';
+ 384:src/date.c    **** 	add_string(buf);
+ 385:src/date.c    **** }
+ 386:src/date.c    **** 
+ 387:src/date.c    **** void date_alphaday(enum nilop op) {
+ 388:src/date.c    **** 	decNumber x;
+ARM GAS  /tmp/ccnqma1I.s 			page 18
+
+
+ 389:src/date.c    **** 	int y, m, d, dow;
+ 390:src/date.c    **** 
+ 391:src/date.c    **** 	getX(&x);
+ 392:src/date.c    **** 	if (decNumberIsSpecial(&x) || extract_date(&x, &y, &m, &d))
+ 393:src/date.c    **** 		report_err(ERR_BAD_DATE);
+ 394:src/date.c    **** 	else {
+ 395:src/date.c    **** 		dow = day_of_week(y, m, d, NULL);
+ 396:src/date.c    **** 		copy3(&("MONTUEWEDTHUFRISATSUN"[3*(dow-1)]));
+ 397:src/date.c    **** 	}
+ 398:src/date.c    **** }
+ 399:src/date.c    **** 
+ 400:src/date.c    **** void date_alphamonth(enum nilop op) {
+ 401:src/date.c    **** 	decNumber x;
+ 402:src/date.c    **** 	int y, m, d;
+ 403:src/date.c    **** 	static const char mons[12*3] = "JANFEBMARAPRMAYJUNJULAUGSEPOCTNOVDEC";
+ 404:src/date.c    **** 
+ 405:src/date.c    **** 	getX(&x);
+ 406:src/date.c    **** 	if (decNumberIsSpecial(&x) || extract_date(&x, &y, &m, &d))
+ 407:src/date.c    **** 		report_err(ERR_BAD_DATE);
+ 408:src/date.c    **** 	else {
+ 409:src/date.c    **** 		copy3(&(mons[3*m - 3]));
+ 410:src/date.c    **** 	}
+ 411:src/date.c    **** }
+ 412:src/date.c    **** 
+ 413:src/date.c    **** /* Conversion routines from Julian days to and from dates
+ 414:src/date.c    ****  */
+ 415:src/date.c    **** decNumber *dateToJ(decNumber *res, const decNumber *x) {
+ 416:src/date.c    **** 	if (decNumberIsSpecial(x))
+ 417:src/date.c    **** err:		set_NaN(res);
+ 418:src/date.c    **** 	else {
+ 419:src/date.c    **** 		int y, m, d;
+ 420:src/date.c    **** 
+ 421:src/date.c    **** 		if (extract_date(x, &y, &m, &d))
+ 422:src/date.c    **** 			goto err;
+ 423:src/date.c    **** 		int_to_dn(res, JDN(y, m, d));
+ 424:src/date.c    **** 	}
+ 425:src/date.c    **** 	return res;
+ 426:src/date.c    **** }
+ 427:src/date.c    **** 
+ 428:src/date.c    **** decNumber *dateFromJ(decNumber *res, const decNumber *x) {
+ 429:src/date.c    **** 	if (decNumberIsSpecial(x) || dn_lt0(x))
+ 430:src/date.c    **** 		set_NaN(res);
+ 431:src/date.c    **** 	else {
+ 432:src/date.c    **** 		const int j = dn_to_int(x);
+ 433:src/date.c    **** 		int y, m, d;
+ 434:src/date.c    **** 
+ 435:src/date.c    **** 		JDN2(j, &y, &m, &d);
+ 436:src/date.c    **** 		return build_date(res, y, m, d);
+ 437:src/date.c    **** 	}
+ 438:src/date.c    **** 	return res;
+ 439:src/date.c    **** }
+ 440:src/date.c    **** 
+ 441:src/date.c    **** 
+ 442:src/date.c    **** /* Date and times to the Alpha register */
+ 443:src/date.c    **** void date_alphadate(enum nilop op) {
+ 444:src/date.c    **** 	decNumber x;
+ 445:src/date.c    **** 	int d, m, y;
+ARM GAS  /tmp/ccnqma1I.s 			page 19
+
+
+ 446:src/date.c    **** 	char buf[16];
+ 447:src/date.c    **** 	char *p;
+ 448:src/date.c    **** 
+ 449:src/date.c    **** 	getX(&x);
+ 450:src/date.c    **** 	xset(buf, '\0', sizeof(buf));
+ 451:src/date.c    **** 	if (extract_date(&x, &y, &m, &d)) {
+ 452:src/date.c    **** 		report_err(ERR_BAD_DATE);
+ 453:src/date.c    **** 		return;
+ 454:src/date.c    **** 	}
+ 455:src/date.c    **** 	switch (UState.date_mode) {
+ 456:src/date.c    **** 	default:
+ 457:src/date.c    **** 		p = num_arg(buf, y);
+ 458:src/date.c    **** 		*p++ = '-';
+ 459:src/date.c    **** 		p = num_arg_0(p, m, 2);
+ 460:src/date.c    **** 		*p++ = '-';
+ 461:src/date.c    **** 		num_arg_0(p, d, 2);
+ 462:src/date.c    **** 		break;
+ 463:src/date.c    **** 
+ 464:src/date.c    **** 	case DATE_DMY:
+ 465:src/date.c    **** 		p = num_arg(buf, d);
+ 466:src/date.c    **** 		*p++ = '.';
+ 467:src/date.c    **** 		p = num_arg_0(p, m, 2);
+ 468:src/date.c    **** 		*p++ = '.';
+ 469:src/date.c    **** 		num_arg_0(p, y, 4);
+ 470:src/date.c    **** 		break;
+ 471:src/date.c    **** 
+ 472:src/date.c    **** 	case DATE_MDY:
+ 473:src/date.c    **** 		p = num_arg(buf, m);
+ 474:src/date.c    **** 		*p++ = '/';
+ 475:src/date.c    **** 		p = num_arg_0(p, d, 2);
+ 476:src/date.c    **** 		*p++ ='/';
+ 477:src/date.c    **** 		num_arg_0(p, y, 4);
+ 478:src/date.c    **** 		break;
+ 479:src/date.c    **** 	}
+ 480:src/date.c    **** 	add_string(buf);
+ 481:src/date.c    **** }
+ 482:src/date.c    **** 
+ 483:src/date.c    **** /*
+ 484:src/date.c    ****  *  Time functions
+ 485:src/date.c    ****  */
+ 486:src/date.c    **** static int extract_time(int *h, int *m, int *s, int hour_threshold) {
+ 510              		.loc 1 486 69 is_stmt 1 view -0
+ 511              		.cfi_startproc
+ 512              		@ args = 0, pretend = 0, frame = 72
+ 513              		@ frame_needed = 0, uses_anonymous_args = 0
+ 487:src/date.c    **** 	int hms;
+ 514              		.loc 1 487 2 view .LVU154
+ 488:src/date.c    **** 	decNumber a, b;
+ 515              		.loc 1 488 2 view .LVU155
+ 489:src/date.c    **** 
+ 490:src/date.c    **** 	getX(&a);
+ 516              		.loc 1 490 2 view .LVU156
+ 486:src/date.c    **** 	int hms;
+ 517              		.loc 1 486 69 is_stmt 0 view .LVU157
+ 518 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 519              		.cfi_def_cfa_offset 28
+ 520              		.cfi_offset 4, -28
+ARM GAS  /tmp/ccnqma1I.s 			page 20
+
+
+ 521              		.cfi_offset 5, -24
+ 522              		.cfi_offset 6, -20
+ 523              		.cfi_offset 7, -16
+ 524              		.cfi_offset 8, -12
+ 525              		.cfi_offset 9, -8
+ 526              		.cfi_offset 14, -4
+ 527 0004 93B0     		sub	sp, sp, #76
+ 528              		.cfi_def_cfa_offset 104
+ 486:src/date.c    **** 	int hms;
+ 529              		.loc 1 486 69 view .LVU158
+ 530 0006 8146     		mov	r9, r0
+ 531              		.loc 1 490 2 view .LVU159
+ 532 0008 6846     		mov	r0, sp
+ 533              	.LVL36:
+ 486:src/date.c    **** 	int hms;
+ 534              		.loc 1 486 69 view .LVU160
+ 535 000a 9846     		mov	r8, r3
+ 536 000c 0E46     		mov	r6, r1
+ 537 000e 1746     		mov	r7, r2
+ 538              		.loc 1 490 2 view .LVU161
+ 539 0010 FFF7FEFF 		bl	getX
+ 540              	.LVL37:
+ 491:src/date.c    **** 	dn_mulpow10(&b, &a, 4);
+ 541              		.loc 1 491 2 is_stmt 1 view .LVU162
+ 542 0014 0422     		movs	r2, #4
+ 543 0016 6946     		mov	r1, sp
+ 544 0018 09A8     		add	r0, sp, #36
+ 545 001a FFF7FEFF 		bl	dn_mulpow10
+ 546              	.LVL38:
+ 492:src/date.c    **** 	hms = dn_to_int(decNumberRound(&a, &b));
+ 547              		.loc 1 492 2 view .LVU163
+ 548              		.loc 1 492 18 is_stmt 0 view .LVU164
+ 549 001e 09A9     		add	r1, sp, #36
+ 550 0020 6846     		mov	r0, sp
+ 551 0022 FFF7FEFF 		bl	decNumberRound
+ 552              	.LVL39:
+ 553              		.loc 1 492 8 view .LVU165
+ 554 0026 FFF7FEFF 		bl	dn_to_int
+ 555              	.LVL40:
+ 493:src/date.c    **** 	*s = (hms % 100);
+ 556              		.loc 1 493 12 view .LVU166
+ 557 002a 144A     		ldr	r2, .L34
+ 558              	.LVL41:
+ 559              		.loc 1 493 2 is_stmt 1 view .LVU167
+ 560              		.loc 1 493 12 is_stmt 0 view .LVU168
+ 561 002c C417     		asrs	r4, r0, #31
+ 562 002e 82FB0013 		smull	r1, r3, r2, r0
+ 563 0032 C4EB6314 		rsb	r4, r4, r3, asr #5
+ 494:src/date.c    **** 	hms /= 100;
+ 495:src/date.c    **** 	*m = (hms % 100);
+ 564              		.loc 1 495 12 view .LVU169
+ 565 0036 82FB0432 		smull	r3, r2, r2, r4
+ 566 003a E517     		asrs	r5, r4, #31
+ 567 003c C5EB6215 		rsb	r5, r5, r2, asr #5
+ 493:src/date.c    **** 	*s = (hms % 100);
+ 568              		.loc 1 493 12 view .LVU170
+ 569 0040 6423     		movs	r3, #100
+ARM GAS  /tmp/ccnqma1I.s 			page 21
+
+
+ 570 0042 03FB1402 		mls	r2, r3, r4, r0
+ 571              		.loc 1 495 12 view .LVU171
+ 572 0046 03FB1544 		mls	r4, r3, r5, r4
+ 496:src/date.c    **** 	*h = hms / 100;
+ 497:src/date.c    **** 	if (hms < 0 || *h >= hour_threshold || *m >= 60 || *s >= 60) {
+ 573              		.loc 1 497 5 view .LVU172
+ 574 004a 6330     		adds	r0, r0, #99
+ 575              	.LVL42:
+ 493:src/date.c    **** 	hms /= 100;
+ 576              		.loc 1 493 5 view .LVU173
+ 577 004c 3A60     		str	r2, [r7]
+ 494:src/date.c    **** 	hms /= 100;
+ 578              		.loc 1 494 2 is_stmt 1 view .LVU174
+ 579              	.LVL43:
+ 495:src/date.c    **** 	*h = hms / 100;
+ 580              		.loc 1 495 2 view .LVU175
+ 495:src/date.c    **** 	*h = hms / 100;
+ 581              		.loc 1 495 5 is_stmt 0 view .LVU176
+ 582 004e 3460     		str	r4, [r6]
+ 496:src/date.c    **** 	*h = hms / 100;
+ 583              		.loc 1 496 2 is_stmt 1 view .LVU177
+ 496:src/date.c    **** 	*h = hms / 100;
+ 584              		.loc 1 496 5 is_stmt 0 view .LVU178
+ 585 0050 C9F80050 		str	r5, [r9]
+ 586              		.loc 1 497 2 is_stmt 1 view .LVU179
+ 587              		.loc 1 497 5 is_stmt 0 view .LVU180
+ 588 0054 0BDB     		blt	.L30
+ 589              		.loc 1 497 14 discriminator 1 view .LVU181
+ 590 0056 4545     		cmp	r5, r8
+ 591 0058 09DA     		bge	.L30
+ 592              		.loc 1 497 38 discriminator 2 view .LVU182
+ 593 005a 3368     		ldr	r3, [r6]
+ 594 005c 3B2B     		cmp	r3, #59
+ 595 005e 06DC     		bgt	.L30
+ 596              		.loc 1 497 50 discriminator 3 view .LVU183
+ 597 0060 3B68     		ldr	r3, [r7]
+ 598 0062 3B2B     		cmp	r3, #59
+ 599 0064 03DC     		bgt	.L30
+ 498:src/date.c    **** 		report_err(ERR_BAD_DATE);
+ 499:src/date.c    **** 		return 1;
+ 500:src/date.c    **** 	}
+ 501:src/date.c    **** 	return 0;
+ 600              		.loc 1 501 9 view .LVU184
+ 601 0066 0020     		movs	r0, #0
+ 602              	.LVL44:
+ 502:src/date.c    **** }
+ 603              		.loc 1 502 1 view .LVU185
+ 604 0068 13B0     		add	sp, sp, #76
+ 605              		.cfi_remember_state
+ 606              		.cfi_def_cfa_offset 28
+ 607              		@ sp needed
+ 608 006a BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 609              	.LVL45:
+ 610              	.L30:
+ 611              		.cfi_restore_state
+ 498:src/date.c    **** 		report_err(ERR_BAD_DATE);
+ 612              		.loc 1 498 3 is_stmt 1 view .LVU186
+ARM GAS  /tmp/ccnqma1I.s 			page 22
+
+
+ 613 006e 0220     		movs	r0, #2
+ 614              	.LVL46:
+ 498:src/date.c    **** 		report_err(ERR_BAD_DATE);
+ 615              		.loc 1 498 3 is_stmt 0 view .LVU187
+ 616 0070 FFF7FEFF 		bl	report_err
+ 617              	.LVL47:
+ 499:src/date.c    **** 	}
+ 618              		.loc 1 499 3 is_stmt 1 view .LVU188
+ 499:src/date.c    **** 	}
+ 619              		.loc 1 499 10 is_stmt 0 view .LVU189
+ 620 0074 0120     		movs	r0, #1
+ 621              		.loc 1 502 1 view .LVU190
+ 622 0076 13B0     		add	sp, sp, #76
+ 623              		.cfi_def_cfa_offset 28
+ 624              		@ sp needed
+ 625 0078 BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 626              	.LVL48:
+ 627              	.L35:
+ 628              		.loc 1 502 1 view .LVU191
+ 629              		.align	2
+ 630              	.L34:
+ 631 007c 1F85EB51 		.word	1374389535
+ 632              		.cfi_endproc
+ 633              	.LFE20:
+ 635              		.section	.text.extract_date.part.0,"ax",%progbits
+ 636              		.align	1
+ 637              		.p2align 2,,3
+ 638              		.syntax unified
+ 639              		.thumb
+ 640              		.thumb_func
+ 641              		.fpu fpv4-sp-d16
+ 643              	extract_date.part.0:
+ 644              	.LVL49:
+ 645              	.LFB30:
+ 201:src/date.c    **** 	int ip, fp, y, m, d;
+ 646              		.loc 1 201 12 is_stmt 1 view -0
+ 647              		.cfi_startproc
+ 648              		@ args = 0, pretend = 0, frame = 72
+ 649              		@ frame_needed = 0, uses_anonymous_args = 0
+ 209:src/date.c    **** 		dn_minus(&z, x);
+ 650              		.loc 1 209 2 view .LVU193
+ 201:src/date.c    **** 	int ip, fp, y, m, d;
+ 651              		.loc 1 201 12 is_stmt 0 view .LVU194
+ 652 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 653              		.cfi_def_cfa_offset 32
+ 654              		.cfi_offset 4, -32
+ 655              		.cfi_offset 5, -28
+ 656              		.cfi_offset 6, -24
+ 657              		.cfi_offset 7, -20
+ 658              		.cfi_offset 8, -16
+ 659              		.cfi_offset 9, -12
+ 660              		.cfi_offset 10, -8
+ 661              		.cfi_offset 14, -4
+ 209:src/date.c    **** 		dn_minus(&z, x);
+ 662              		.loc 1 209 5 view .LVU195
+ 663 0004 90F90840 		ldrsb	r4, [r0, #8]
+ 201:src/date.c    **** 	int ip, fp, y, m, d;
+ARM GAS  /tmp/ccnqma1I.s 			page 23
+
+
+ 664              		.loc 1 201 12 view .LVU196
+ 665 0008 92B0     		sub	sp, sp, #72
+ 666              		.cfi_def_cfa_offset 104
+ 209:src/date.c    **** 		dn_minus(&z, x);
+ 667              		.loc 1 209 5 view .LVU197
+ 668 000a 002C     		cmp	r4, #0
+ 210:src/date.c    ****         neg = -1;
+ 669              		.loc 1 210 3 view .LVU198
+ 670 000c 6C46     		mov	r4, sp
+ 201:src/date.c    **** 	int ip, fp, y, m, d;
+ 671              		.loc 1 201 12 view .LVU199
+ 672 000e 8946     		mov	r9, r1
+ 673 0010 9046     		mov	r8, r2
+ 210:src/date.c    ****         neg = -1;
+ 674              		.loc 1 210 3 view .LVU200
+ 675 0012 0146     		mov	r1, r0
+ 676              	.LVL50:
+ 201:src/date.c    **** 	int ip, fp, y, m, d;
+ 677              		.loc 1 201 12 view .LVU201
+ 678 0014 1F46     		mov	r7, r3
+ 210:src/date.c    ****         neg = -1;
+ 679              		.loc 1 210 3 view .LVU202
+ 680 0016 2046     		mov	r0, r4
+ 681              	.LVL51:
+ 209:src/date.c    **** 		dn_minus(&z, x);
+ 682              		.loc 1 209 5 view .LVU203
+ 683 0018 5CDB     		blt	.L53
+ 213:src/date.c    **** 	}
+ 684              		.loc 1 213 3 is_stmt 1 view .LVU204
+ 685 001a FFF7FEFF 		bl	decNumberCopy
+ 686              	.LVL52:
+ 204:src/date.c    **** 
+ 687              		.loc 1 204 9 is_stmt 0 view .LVU205
+ 688 001e 4FF0010A 		mov	r10, #1
+ 689              	.L38:
+ 690              	.LVL53:
+ 215:src/date.c    **** 	ip = dn_to_int(&a);
+ 691              		.loc 1 215 2 is_stmt 1 view .LVU206
+ 692 0022 2146     		mov	r1, r4
+ 693 0024 09A8     		add	r0, sp, #36
+ 694 0026 FFF7FEFF 		bl	decNumberTrunc
+ 695              	.LVL54:
+ 216:src/date.c    **** 	dn_subtract(&a, &z, &a);		// a = .ffrrrr
+ 696              		.loc 1 216 2 view .LVU207
+ 216:src/date.c    **** 	dn_subtract(&a, &z, &a);		// a = .ffrrrr
+ 697              		.loc 1 216 7 is_stmt 0 view .LVU208
+ 698 002a 09A8     		add	r0, sp, #36
+ 699 002c FFF7FEFF 		bl	dn_to_int
+ 700              	.LVL55:
+ 217:src/date.c    **** 	dn_mul100(&z, &a);			// z = ff.rrrr
+ 701              		.loc 1 217 2 view .LVU209
+ 702 0030 09AA     		add	r2, sp, #36
+ 703 0032 2146     		mov	r1, r4
+ 216:src/date.c    **** 	dn_subtract(&a, &z, &a);		// a = .ffrrrr
+ 704              		.loc 1 216 7 view .LVU210
+ 705 0034 0546     		mov	r5, r0
+ 706              	.LVL56:
+ARM GAS  /tmp/ccnqma1I.s 			page 24
+
+
+ 217:src/date.c    **** 	dn_mul100(&z, &a);			// z = ff.rrrr
+ 707              		.loc 1 217 2 is_stmt 1 view .LVU211
+ 708 0036 1046     		mov	r0, r2
+ 709              	.LVL57:
+ 217:src/date.c    **** 	dn_mul100(&z, &a);			// z = ff.rrrr
+ 710              		.loc 1 217 2 is_stmt 0 view .LVU212
+ 711 0038 FFF7FEFF 		bl	dn_subtract
+ 712              	.LVL58:
+ 218:src/date.c    **** 	decNumberTrunc(&a, &z);			// a = ff
+ 713              		.loc 1 218 2 is_stmt 1 view .LVU213
+ 714 003c 09A9     		add	r1, sp, #36
+ 715 003e 2046     		mov	r0, r4
+ 716 0040 FFF7FEFF 		bl	dn_mul100
+ 717              	.LVL59:
+ 219:src/date.c    **** 	fp = dn_to_int(&a);
+ 718              		.loc 1 219 2 view .LVU214
+ 719 0044 2146     		mov	r1, r4
+ 720 0046 09A8     		add	r0, sp, #36
+ 721 0048 FFF7FEFF 		bl	decNumberTrunc
+ 722              	.LVL60:
+ 220:src/date.c    **** 	dn_subtract(&z, &z, &a);		// z = .rrrr
+ 723              		.loc 1 220 2 view .LVU215
+ 220:src/date.c    **** 	dn_subtract(&z, &z, &a);		// z = .rrrr
+ 724              		.loc 1 220 7 is_stmt 0 view .LVU216
+ 725 004c 09A8     		add	r0, sp, #36
+ 726 004e FFF7FEFF 		bl	dn_to_int
+ 727              	.LVL61:
+ 221:src/date.c    **** 	switch (UState.date_mode) {
+ 728              		.loc 1 221 2 view .LVU217
+ 729 0052 09AA     		add	r2, sp, #36
+ 220:src/date.c    **** 	dn_subtract(&z, &z, &a);		// z = .rrrr
+ 730              		.loc 1 220 7 view .LVU218
+ 731 0054 0646     		mov	r6, r0
+ 221:src/date.c    **** 	switch (UState.date_mode) {
+ 732              		.loc 1 221 2 view .LVU219
+ 733 0056 2146     		mov	r1, r4
+ 734 0058 2046     		mov	r0, r4
+ 735              	.LVL62:
+ 221:src/date.c    **** 	switch (UState.date_mode) {
+ 736              		.loc 1 221 2 is_stmt 1 view .LVU220
+ 737 005a FFF7FEFF 		bl	dn_subtract
+ 738              	.LVL63:
+ 222:src/date.c    **** 	default:
+ 739              		.loc 1 222 2 view .LVU221
+ 222:src/date.c    **** 	default:
+ 740              		.loc 1 222 16 is_stmt 0 view .LVU222
+ 741 005e 204B     		ldr	r3, .L54
+ 742 0060 93F8EA37 		ldrb	r3, [r3, #2026]	@ zero_extendqisi2
+ 222:src/date.c    **** 	default:
+ 743              		.loc 1 222 2 view .LVU223
+ 744 0064 13F0300F 		tst	r3, #48
+ 222:src/date.c    **** 	default:
+ 745              		.loc 1 222 16 view .LVU224
+ 746 0068 C3F30112 		ubfx	r2, r3, #4, #2
+ 222:src/date.c    **** 	default:
+ 747              		.loc 1 222 2 view .LVU225
+ 748 006c 21D0     		beq	.L44
+ARM GAS  /tmp/ccnqma1I.s 			page 25
+
+
+ 749 006e 022A     		cmp	r2, #2
+ 750 0070 22D0     		beq	.L39
+ 225:src/date.c    **** 		m = fp;
+ 751              		.loc 1 225 3 is_stmt 1 view .LVU226
+ 752              	.LVL64:
+ 226:src/date.c    **** 		dn_mul100(&a, &z);
+ 753              		.loc 1 226 3 view .LVU227
+ 227:src/date.c    **** 		decNumberTrunc(&z, &a);
+ 754              		.loc 1 227 3 view .LVU228
+ 755 0072 2146     		mov	r1, r4
+ 756 0074 09A8     		add	r0, sp, #36
+ 757 0076 FFF7FEFF 		bl	dn_mul100
+ 758              	.LVL65:
+ 228:src/date.c    **** 		d = dn_to_int(&z);
+ 759              		.loc 1 228 3 view .LVU229
+ 760 007a 09A9     		add	r1, sp, #36
+ 761 007c 2046     		mov	r0, r4
+ 762 007e FFF7FEFF 		bl	decNumberTrunc
+ 763              	.LVL66:
+ 229:src/date.c    **** 		break;
+ 764              		.loc 1 229 3 view .LVU230
+ 229:src/date.c    **** 		break;
+ 765              		.loc 1 229 7 is_stmt 0 view .LVU231
+ 766 0082 2046     		mov	r0, r4
+ 767 0084 FFF7FEFF 		bl	dn_to_int
+ 768              	.LVL67:
+ 230:src/date.c    **** 
+ 769              		.loc 1 230 3 is_stmt 1 view .LVU232
+ 225:src/date.c    **** 		m = fp;
+ 770              		.loc 1 225 5 is_stmt 0 view .LVU233
+ 771 0088 2C46     		mov	r4, r5
+ 226:src/date.c    **** 		dn_mul100(&a, &z);
+ 772              		.loc 1 226 5 view .LVU234
+ 773 008a 3546     		mov	r5, r6
+ 774              	.LVL68:
+ 229:src/date.c    **** 		break;
+ 775              		.loc 1 229 7 view .LVU235
+ 776 008c 0646     		mov	r6, r0
+ 777              	.LVL69:
+ 778              	.L40:
+ 247:src/date.c    **** 	if (year != NULL)
+ 779              		.loc 1 247 5 is_stmt 1 view .LVU236
+ 247:src/date.c    **** 	if (year != NULL)
+ 780              		.loc 1 247 7 is_stmt 0 view .LVU237
+ 781 008e 04FB0AF0 		mul	r0, r4, r10
+ 782              	.LVL70:
+ 248:src/date.c    **** 		*year = y;
+ 783              		.loc 1 248 2 is_stmt 1 view .LVU238
+ 249:src/date.c    **** 	if (month != NULL)
+ 784              		.loc 1 249 3 view .LVU239
+ 249:src/date.c    **** 	if (month != NULL)
+ 785              		.loc 1 249 9 is_stmt 0 view .LVU240
+ 786 0092 C9F80000 		str	r0, [r9]
+ 250:src/date.c    **** 		*month = m;
+ 787              		.loc 1 250 2 is_stmt 1 view .LVU241
+ 250:src/date.c    **** 		*month = m;
+ 788              		.loc 1 250 5 is_stmt 0 view .LVU242
+ARM GAS  /tmp/ccnqma1I.s 			page 26
+
+
+ 789 0096 B8F1000F 		cmp	r8, #0
+ 790 009a 01D0     		beq	.L43
+ 251:src/date.c    **** 	if (day != NULL)
+ 791              		.loc 1 251 3 is_stmt 1 view .LVU243
+ 251:src/date.c    **** 	if (day != NULL)
+ 792              		.loc 1 251 10 is_stmt 0 view .LVU244
+ 793 009c C8F80050 		str	r5, [r8]
+ 794              	.L43:
+ 252:src/date.c    **** 		*day = d;
+ 795              		.loc 1 252 2 is_stmt 1 view .LVU245
+ 252:src/date.c    **** 		*day = d;
+ 796              		.loc 1 252 5 is_stmt 0 view .LVU246
+ 797 00a0 07B1     		cbz	r7, .L41
+ 253:src/date.c    **** 	return check_date(y, m, d);
+ 798              		.loc 1 253 3 is_stmt 1 view .LVU247
+ 253:src/date.c    **** 	return check_date(y, m, d);
+ 799              		.loc 1 253 8 is_stmt 0 view .LVU248
+ 800 00a2 3E60     		str	r6, [r7]
+ 801              	.L41:
+ 254:src/date.c    **** }
+ 802              		.loc 1 254 2 is_stmt 1 view .LVU249
+ 254:src/date.c    **** }
+ 803              		.loc 1 254 9 is_stmt 0 view .LVU250
+ 804 00a4 3246     		mov	r2, r6
+ 805 00a6 2946     		mov	r1, r5
+ 806 00a8 FFF7FEFF 		bl	check_date
+ 807              	.LVL71:
+ 255:src/date.c    **** 
+ 808              		.loc 1 255 1 view .LVU251
+ 809 00ac 12B0     		add	sp, sp, #72
+ 810              		.cfi_remember_state
+ 811              		.cfi_def_cfa_offset 32
+ 812              		@ sp needed
+ 813 00ae BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 814              	.LVL72:
+ 815              	.L44:
+ 816              		.cfi_restore_state
+ 222:src/date.c    **** 	default:
+ 817              		.loc 1 222 2 view .LVU252
+ 818 00b2 2B46     		mov	r3, r5
+ 819 00b4 3546     		mov	r5, r6
+ 820              	.LVL73:
+ 222:src/date.c    **** 	default:
+ 821              		.loc 1 222 2 view .LVU253
+ 822 00b6 1E46     		mov	r6, r3
+ 823              	.LVL74:
+ 824              	.L39:
+ 240:src/date.c    **** 		decNumberTrunc(&z, &a);
+ 825              		.loc 1 240 8 is_stmt 1 view .LVU254
+ 826 00b8 0422     		movs	r2, #4
+ 827 00ba 2146     		mov	r1, r4
+ 828 00bc 09A8     		add	r0, sp, #36
+ 829 00be FFF7FEFF 		bl	dn_mulpow10
+ 830              	.LVL75:
+ 241:src/date.c    **** 		y = dn_to_int(&z);
+ 831              		.loc 1 241 3 view .LVU255
+ 832 00c2 09A9     		add	r1, sp, #36
+ARM GAS  /tmp/ccnqma1I.s 			page 27
+
+
+ 833 00c4 2046     		mov	r0, r4
+ 834 00c6 FFF7FEFF 		bl	decNumberTrunc
+ 835              	.LVL76:
+ 242:src/date.c    **** 		break;
+ 836              		.loc 1 242 3 view .LVU256
+ 242:src/date.c    **** 		break;
+ 837              		.loc 1 242 7 is_stmt 0 view .LVU257
+ 838 00ca 2046     		mov	r0, r4
+ 839 00cc FFF7FEFF 		bl	dn_to_int
+ 840              	.LVL77:
+ 841 00d0 0446     		mov	r4, r0
+ 842              	.LVL78:
+ 243:src/date.c    **** 	}
+ 843              		.loc 1 243 3 is_stmt 1 view .LVU258
+ 844 00d2 DCE7     		b	.L40
+ 845              	.LVL79:
+ 846              	.L53:
+ 210:src/date.c    ****         neg = -1;
+ 847              		.loc 1 210 3 view .LVU259
+ 848 00d4 FFF7FEFF 		bl	dn_minus
+ 849              	.LVL80:
+ 211:src/date.c    **** 	} else {
+ 850              		.loc 1 211 9 view .LVU260
+ 211:src/date.c    **** 	} else {
+ 851              		.loc 1 211 13 is_stmt 0 view .LVU261
+ 852 00d8 4FF0FF3A 		mov	r10, #-1
+ 853 00dc A1E7     		b	.L38
+ 854              	.L55:
+ 855 00de 00BF     		.align	2
+ 856              	.L54:
+ 857 00e0 00000000 		.word	PersistentRam
+ 858              		.cfi_endproc
+ 859              	.LFE30:
+ 861              		.section	.text.dateExtract,"ax",%progbits
+ 862              		.align	1
+ 863              		.p2align 2,,3
+ 864              		.syntax unified
+ 865              		.thumb
+ 866              		.thumb_func
+ 867              		.fpu fpv4-sp-d16
+ 869              	dateExtract:
+ 870              	.LVL81:
+ 871              	.LFB11:
+ 349:src/date.c    **** 	if (decNumberIsSpecial(x) || extract_date(x, y, m, d)) {
+ 872              		.loc 1 349 84 is_stmt 1 view -0
+ 873              		.cfi_startproc
+ 874              		@ args = 4, pretend = 0, frame = 0
+ 875              		@ frame_needed = 0, uses_anonymous_args = 0
+ 350:src/date.c    **** 		set_NaN(res);
+ 876              		.loc 1 350 2 view .LVU263
+ 349:src/date.c    **** 	if (decNumberIsSpecial(x) || extract_date(x, y, m, d)) {
+ 877              		.loc 1 349 84 is_stmt 0 view .LVU264
+ 878 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 879              		.cfi_def_cfa_offset 24
+ 880              		.cfi_offset 3, -24
+ 881              		.cfi_offset 4, -20
+ 882              		.cfi_offset 5, -16
+ARM GAS  /tmp/ccnqma1I.s 			page 28
+
+
+ 883              		.cfi_offset 6, -12
+ 884              		.cfi_offset 7, -8
+ 885              		.cfi_offset 14, -4
+ 349:src/date.c    **** 	if (decNumberIsSpecial(x) || extract_date(x, y, m, d)) {
+ 886              		.loc 1 349 84 view .LVU265
+ 887 0002 0C46     		mov	r4, r1
+ 888              	.LVL82:
+ 889              	.LBB55:
+ 890              	.LBB56:
+ 206:src/date.c    **** 		return 1;
+ 891              		.loc 1 206 6 view .LVU266
+ 892 0004 0C49     		ldr	r1, .L61
+ 893              	.LVL83:
+ 206:src/date.c    **** 		return 1;
+ 894              		.loc 1 206 5 view .LVU267
+ 895 0006 257A     		ldrb	r5, [r4, #8]	@ zero_extendqisi2
+ 206:src/date.c    **** 		return 1;
+ 896              		.loc 1 206 6 view .LVU268
+ 897 0008 91F8E867 		ldrb	r6, [r1, #2024]	@ zero_extendqisi2
+ 206:src/date.c    **** 		return 1;
+ 898              		.loc 1 206 5 view .LVU269
+ 899 000c 05F07005 		and	r5, r5, #112
+ 206:src/date.c    **** 		return 1;
+ 900              		.loc 1 206 6 view .LVU270
+ 901 0010 06F00106 		and	r6, r6, #1
+ 902              	.LBE56:
+ 903              	.LBE55:
+ 349:src/date.c    **** 	if (decNumberIsSpecial(x) || extract_date(x, y, m, d)) {
+ 904              		.loc 1 349 84 view .LVU271
+ 905 0014 1146     		mov	r1, r2
+ 906              	.LVL84:
+ 349:src/date.c    **** 	if (decNumberIsSpecial(x) || extract_date(x, y, m, d)) {
+ 907              		.loc 1 349 84 view .LVU272
+ 908 0016 1A46     		mov	r2, r3
+ 909              	.LVL85:
+ 910              	.LBB59:
+ 911              	.LBI55:
+ 201:src/date.c    **** 	int ip, fp, y, m, d;
+ 912              		.loc 1 201 12 is_stmt 1 view .LVU273
+ 913              	.LBB57:
+ 202:src/date.c    **** 	decNumber z, a;
+ 914              		.loc 1 202 2 view .LVU274
+ 203:src/date.c    ****     int neg = 1;
+ 915              		.loc 1 203 2 view .LVU275
+ 204:src/date.c    **** 
+ 916              		.loc 1 204 5 view .LVU276
+ 206:src/date.c    **** 		return 1;
+ 917              		.loc 1 206 2 view .LVU277
+ 206:src/date.c    **** 		return 1;
+ 918              		.loc 1 206 5 is_stmt 0 view .LVU278
+ 919 0018 56EA0503 		orrs	r3, r6, r5
+ 920              	.LVL86:
+ 206:src/date.c    **** 		return 1;
+ 921              		.loc 1 206 5 view .LVU279
+ 922              	.LBE57:
+ 923              	.LBE59:
+ 349:src/date.c    **** 	if (decNumberIsSpecial(x) || extract_date(x, y, m, d)) {
+ARM GAS  /tmp/ccnqma1I.s 			page 29
+
+
+ 924              		.loc 1 349 84 view .LVU280
+ 925 001c 0746     		mov	r7, r0
+ 926              	.LBB60:
+ 927              	.LBB58:
+ 206:src/date.c    **** 		return 1;
+ 928              		.loc 1 206 5 view .LVU281
+ 929 001e 06D1     		bne	.L59
+ 930 0020 069B     		ldr	r3, [sp, #24]
+ 931 0022 2046     		mov	r0, r4
+ 932              	.LVL87:
+ 206:src/date.c    **** 		return 1;
+ 933              		.loc 1 206 5 view .LVU282
+ 934 0024 FFF7FEFF 		bl	extract_date.part.0
+ 935              	.LVL88:
+ 206:src/date.c    **** 		return 1;
+ 936              		.loc 1 206 5 view .LVU283
+ 937              	.LBE58:
+ 938              	.LBE60:
+ 350:src/date.c    **** 		set_NaN(res);
+ 939              		.loc 1 350 28 view .LVU284
+ 940 0028 08B9     		cbnz	r0, .L59
+ 354:src/date.c    **** }
+ 941              		.loc 1 354 9 view .LVU285
+ 942 002a 0120     		movs	r0, #1
+ 355:src/date.c    **** 
+ 943              		.loc 1 355 1 view .LVU286
+ 944 002c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 945              	.LVL89:
+ 946              	.L59:
+ 351:src/date.c    **** 		return 0;
+ 947              		.loc 1 351 3 is_stmt 1 view .LVU287
+ 948 002e 3846     		mov	r0, r7
+ 949 0030 FFF7FEFF 		bl	set_NaN
+ 950              	.LVL90:
+ 352:src/date.c    **** 	}
+ 951              		.loc 1 352 3 view .LVU288
+ 352:src/date.c    **** 	}
+ 952              		.loc 1 352 10 is_stmt 0 view .LVU289
+ 953 0034 0020     		movs	r0, #0
+ 355:src/date.c    **** 
+ 954              		.loc 1 355 1 view .LVU290
+ 955 0036 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 956              	.LVL91:
+ 957              	.L62:
+ 355:src/date.c    **** 
+ 958              		.loc 1 355 1 view .LVU291
+ 959              		.align	2
+ 960              	.L61:
+ 961 0038 00000000 		.word	PersistentRam
+ 962              		.cfi_endproc
+ 963              	.LFE11:
+ 965              		.section	.text.day_of_week.constprop.0,"ax",%progbits
+ 966              		.align	1
+ 967              		.p2align 2,,3
+ 968              		.syntax unified
+ 969              		.thumb
+ 970              		.thumb_func
+ARM GAS  /tmp/ccnqma1I.s 			page 30
+
+
+ 971              		.fpu fpv4-sp-d16
+ 973              	day_of_week.constprop.0:
+ 974              	.LVL92:
+ 975              	.LFB31:
+ 139:src/date.c    **** 	int h;
+ 976              		.loc 1 139 12 is_stmt 1 view -0
+ 977              		.cfi_startproc
+ 978              		@ args = 0, pretend = 0, frame = 0
+ 979              		@ frame_needed = 0, uses_anonymous_args = 0
+ 140:src/date.c    **** 	const char *const days = "\007\016\025\035\047\060\067"
+ 980              		.loc 1 140 2 view .LVU293
+ 141:src/date.c    **** 				"Sunday\0Monday\0Tuesday\0Wednesday\0"
+ 981              		.loc 1 141 2 view .LVU294
+ 144:src/date.c    **** 	if (msg != NULL && ! Running)
+ 982              		.loc 1 144 2 view .LVU295
+ 139:src/date.c    **** 	int h;
+ 983              		.loc 1 139 12 is_stmt 0 view .LVU296
+ 984 0000 08B5     		push	{r3, lr}
+ 985              		.cfi_def_cfa_offset 8
+ 986              		.cfi_offset 3, -8
+ 987              		.cfi_offset 14, -4
+ 144:src/date.c    **** 	if (msg != NULL && ! Running)
+ 988              		.loc 1 144 7 view .LVU297
+ 989 0002 FFF7FEFF 		bl	JDN
+ 990              	.LVL93:
+ 144:src/date.c    **** 	if (msg != NULL && ! Running)
+ 991              		.loc 1 144 4 view .LVU298
+ 992 0006 0C4B     		ldr	r3, .L67
+ 145:src/date.c    **** 		*msg = days + ((unsigned char *)days)[h];
+ 993              		.loc 1 145 21 view .LVU299
+ 994 0008 0C49     		ldr	r1, .L67+4
+ 144:src/date.c    **** 	if (msg != NULL && ! Running)
+ 995              		.loc 1 144 28 view .LVU300
+ 996 000a 0130     		adds	r0, r0, #1
+ 144:src/date.c    **** 	if (msg != NULL && ! Running)
+ 997              		.loc 1 144 4 view .LVU301
+ 998 000c 83FB0023 		smull	r2, r3, r3, r0
+ 999 0010 1A18     		adds	r2, r3, r0
+ 1000 0012 C317     		asrs	r3, r0, #31
+ 1001 0014 C3EBA203 		rsb	r3, r3, r2, asr #2
+ 145:src/date.c    **** 		*msg = days + ((unsigned char *)days)[h];
+ 1002              		.loc 1 145 18 view .LVU302
+ 1003 0018 0A68     		ldr	r2, [r1]
+ 144:src/date.c    **** 	if (msg != NULL && ! Running)
+ 1004              		.loc 1 144 4 view .LVU303
+ 1005 001a C3EBC303 		rsb	r3, r3, r3, lsl #3
+ 1006 001e C31A     		subs	r3, r0, r3
+ 1007              	.LVL94:
+ 145:src/date.c    **** 		*msg = days + ((unsigned char *)days)[h];
+ 1008              		.loc 1 145 2 is_stmt 1 view .LVU304
+ 145:src/date.c    **** 		*msg = days + ((unsigned char *)days)[h];
+ 1009              		.loc 1 145 18 is_stmt 0 view .LVU305
+ 1010 0020 22B9     		cbnz	r2, .L64
+ 146:src/date.c    **** 	return h != 0 ? h : 7;
+ 1011              		.loc 1 146 3 is_stmt 1 view .LVU306
+ 146:src/date.c    **** 	return h != 0 ? h : 7;
+ 1012              		.loc 1 146 15 is_stmt 0 view .LVU307
+ARM GAS  /tmp/ccnqma1I.s 			page 31
+
+
+ 1013 0022 074A     		ldr	r2, .L67+8
+ 146:src/date.c    **** 	return h != 0 ? h : 7;
+ 1014              		.loc 1 146 8 view .LVU308
+ 1015 0024 0749     		ldr	r1, .L67+12
+ 146:src/date.c    **** 	return h != 0 ? h : 7;
+ 1016              		.loc 1 146 40 view .LVU309
+ 1017 0026 D05C     		ldrb	r0, [r2, r3]	@ zero_extendqisi2
+ 146:src/date.c    **** 	return h != 0 ? h : 7;
+ 1018              		.loc 1 146 15 view .LVU310
+ 1019 0028 0244     		add	r2, r2, r0
+ 146:src/date.c    **** 	return h != 0 ? h : 7;
+ 1020              		.loc 1 146 8 view .LVU311
+ 1021 002a 0A60     		str	r2, [r1]
+ 1022              	.L64:
+ 147:src/date.c    **** }
+ 1023              		.loc 1 147 2 is_stmt 1 view .LVU312
+ 147:src/date.c    **** }
+ 1024              		.loc 1 147 20 is_stmt 0 view .LVU313
+ 1025 002c 002B     		cmp	r3, #0
+ 148:src/date.c    **** 
+ 1026              		.loc 1 148 1 view .LVU314
+ 1027 002e 14BF     		ite	ne
+ 1028 0030 1846     		movne	r0, r3
+ 1029 0032 0720     		moveq	r0, #7
+ 1030 0034 08BD     		pop	{r3, pc}
+ 1031              	.LVL95:
+ 1032              	.L68:
+ 148:src/date.c    **** 
+ 1033              		.loc 1 148 1 view .LVU315
+ 1034 0036 00BF     		.align	2
+ 1035              	.L67:
+ 1036 0038 93244992 		.word	-1840700269
+ 1037 003c 00000000 		.word	Running
+ 1038 0040 00000000 		.word	.LANCHOR0
+ 1039 0044 00000000 		.word	DispMsg
+ 1040              		.cfi_endproc
+ 1041              	.LFE31:
+ 1043              		.section	.text.build_date,"ax",%progbits
+ 1044              		.align	1
+ 1045              		.p2align 2,,3
+ 1046              		.syntax unified
+ 1047              		.thumb
+ 1048              		.thumb_func
+ 1049              		.fpu fpv4-sp-d16
+ 1051              	build_date:
+ 1052              	.LVL96:
+ 1053              	.LFB6:
+ 154:src/date.c    **** 	int sign = 1, shift = -6, r = 0;
+ 1054              		.loc 1 154 76 is_stmt 1 view -0
+ 1055              		.cfi_startproc
+ 1056              		@ args = 0, pretend = 0, frame = 0
+ 1057              		@ frame_needed = 0, uses_anonymous_args = 0
+ 155:src/date.c    **** 
+ 1058              		.loc 1 155 2 view .LVU317
+ 157:src/date.c    **** 		set_NaN(res);
+ 1059              		.loc 1 157 2 view .LVU318
+ 154:src/date.c    **** 	int sign = 1, shift = -6, r = 0;
+ARM GAS  /tmp/ccnqma1I.s 			page 32
+
+
+ 1060              		.loc 1 154 76 is_stmt 0 view .LVU319
+ 1061 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 1062              		.cfi_def_cfa_offset 24
+ 1063              		.cfi_offset 4, -24
+ 1064              		.cfi_offset 5, -20
+ 1065              		.cfi_offset 6, -16
+ 1066              		.cfi_offset 7, -12
+ 1067              		.cfi_offset 8, -8
+ 1068              		.cfi_offset 14, -4
+ 154:src/date.c    **** 	int sign = 1, shift = -6, r = 0;
+ 1069              		.loc 1 154 76 view .LVU320
+ 1070 0004 0E46     		mov	r6, r1
+ 1071 0006 1746     		mov	r7, r2
+ 1072 0008 0546     		mov	r5, r0
+ 157:src/date.c    **** 		set_NaN(res);
+ 1073              		.loc 1 157 6 view .LVU321
+ 1074 000a 1A46     		mov	r2, r3
+ 1075              	.LVL97:
+ 157:src/date.c    **** 		set_NaN(res);
+ 1076              		.loc 1 157 6 view .LVU322
+ 1077 000c 3946     		mov	r1, r7
+ 1078              	.LVL98:
+ 157:src/date.c    **** 		set_NaN(res);
+ 1079              		.loc 1 157 6 view .LVU323
+ 1080 000e 3046     		mov	r0, r6
+ 1081              	.LVL99:
+ 154:src/date.c    **** 	int sign = 1, shift = -6, r = 0;
+ 1082              		.loc 1 154 76 view .LVU324
+ 1083 0010 9846     		mov	r8, r3
+ 157:src/date.c    **** 		set_NaN(res);
+ 1084              		.loc 1 157 6 view .LVU325
+ 1085 0012 FFF7FEFF 		bl	check_date
+ 1086              	.LVL100:
+ 157:src/date.c    **** 		set_NaN(res);
+ 1087              		.loc 1 157 5 view .LVU326
+ 1088 0016 18BB     		cbnz	r0, .L80
+ 161:src/date.c    **** 		year = -year;
+ 1089              		.loc 1 161 2 is_stmt 1 view .LVU327
+ 166:src/date.c    **** 	case DATE_YMD:
+ 1090              		.loc 1 166 16 is_stmt 0 view .LVU328
+ 1091 0018 244A     		ldr	r2, .L81
+ 1092 001a 92F8EA27 		ldrb	r2, [r2, #2026]	@ zero_extendqisi2
+ 161:src/date.c    **** 		year = -year;
+ 1093              		.loc 1 161 5 view .LVU329
+ 1094 001e 002E     		cmp	r6, #0
+ 162:src/date.c    **** 		sign = -1;
+ 1095              		.loc 1 162 3 is_stmt 1 view .LVU330
+ 166:src/date.c    **** 	case DATE_YMD:
+ 1096              		.loc 1 166 16 is_stmt 0 view .LVU331
+ 1097 0020 C2F30112 		ubfx	r2, r2, #4, #2
+ 162:src/date.c    **** 		sign = -1;
+ 1098              		.loc 1 162 8 view .LVU332
+ 1099 0024 B9BF     		ittee	lt
+ 1100 0026 7142     		rsblt	r1, r6, #0
+ 1101              	.LVL101:
+ 163:src/date.c    **** 	}
+ 1102              		.loc 1 163 3 is_stmt 1 view .LVU333
+ARM GAS  /tmp/ccnqma1I.s 			page 33
+
+
+ 163:src/date.c    **** 	}
+ 1103              		.loc 1 163 8 is_stmt 0 view .LVU334
+ 1104 0028 4FF0FF33 		movlt	r3, #-1
+ 1105 002c 3146     		movge	r1, r6
+ 1106              	.LVL102:
+ 155:src/date.c    **** 
+ 1107              		.loc 1 155 6 view .LVU335
+ 1108 002e 0123     		movge	r3, #1
+ 1109              	.LVL103:
+ 166:src/date.c    **** 	case DATE_YMD:
+ 1110              		.loc 1 166 2 is_stmt 1 view .LVU336
+ 1111 0030 012A     		cmp	r2, #1
+ 1112 0032 27D0     		beq	.L73
+ 1113 0034 022A     		cmp	r2, #2
+ 1114 0036 2FD0     		beq	.L74
+ 1115 0038 C2B1     		cbz	r2, .L75
+ 1116              	.LVL104:
+ 1117              	.L79:
+ 155:src/date.c    **** 
+ 1118              		.loc 1 155 16 is_stmt 0 view .LVU337
+ 1119 003a 6FF00504 		mvn	r4, #5
+ 1120              	.LVL105:
+ 1121              	.L76:
+ 180:src/date.c    **** 	dn_mulpow10(res, res, shift);
+ 1122              		.loc 1 180 2 is_stmt 1 view .LVU338
+ 1123 003e 0146     		mov	r1, r0
+ 1124              	.LVL106:
+ 180:src/date.c    **** 	dn_mulpow10(res, res, shift);
+ 1125              		.loc 1 180 2 is_stmt 0 view .LVU339
+ 1126 0040 2846     		mov	r0, r5
+ 1127 0042 FFF7FEFF 		bl	int_to_dn
+ 1128              	.LVL107:
+ 181:src/date.c    **** 	day_of_week(sign * year, month, day, &DispMsg);
+ 1129              		.loc 1 181 2 is_stmt 1 view .LVU340
+ 1130 0046 2246     		mov	r2, r4
+ 1131 0048 2946     		mov	r1, r5
+ 1132 004a 2846     		mov	r0, r5
+ 1133 004c FFF7FEFF 		bl	dn_mulpow10
+ 1134              	.LVL108:
+ 182:src/date.c    **** 	return res;
+ 1135              		.loc 1 182 2 view .LVU341
+ 1136 0050 4246     		mov	r2, r8
+ 1137 0052 3946     		mov	r1, r7
+ 1138 0054 3046     		mov	r0, r6
+ 1139 0056 FFF7FEFF 		bl	day_of_week.constprop.0
+ 1140              	.LVL109:
+ 183:src/date.c    **** }
+ 1141              		.loc 1 183 2 view .LVU342
+ 184:src/date.c    **** 
+ 1142              		.loc 1 184 1 is_stmt 0 view .LVU343
+ 1143 005a 2846     		mov	r0, r5
+ 1144 005c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 1145              	.LVL110:
+ 1146              	.L80:
+ 158:src/date.c    **** 		return res;
+ 1147              		.loc 1 158 3 is_stmt 1 view .LVU344
+ 1148 0060 2846     		mov	r0, r5
+ARM GAS  /tmp/ccnqma1I.s 			page 34
+
+
+ 1149 0062 FFF7FEFF 		bl	set_NaN
+ 1150              	.LVL111:
+ 159:src/date.c    **** 	}
+ 1151              		.loc 1 159 3 view .LVU345
+ 184:src/date.c    **** 
+ 1152              		.loc 1 184 1 is_stmt 0 view .LVU346
+ 1153 0066 2846     		mov	r0, r5
+ 1154 0068 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 1155              	.LVL112:
+ 1156              	.L75:
+ 173:src/date.c    **** 		break;
+ 1157              		.loc 1 173 3 is_stmt 1 view .LVU347
+ 174:src/date.c    **** 
+ 1158              		.loc 1 174 3 view .LVU348
+ 173:src/date.c    **** 		break;
+ 1159              		.loc 1 173 13 is_stmt 0 view .LVU349
+ 1160 006c 6420     		movs	r0, #100
+ 173:src/date.c    **** 		break;
+ 1161              		.loc 1 173 28 view .LVU350
+ 1162 006e 42F21074 		movw	r4, #10000
+ 173:src/date.c    **** 		break;
+ 1163              		.loc 1 173 20 view .LVU351
+ 1164 0072 00FB0870 		mla	r0, r0, r8, r7
+ 173:src/date.c    **** 		break;
+ 1165              		.loc 1 173 5 view .LVU352
+ 1166 0076 04FB0010 		mla	r0, r4, r0, r1
+ 1167              	.LVL113:
+ 173:src/date.c    **** 		break;
+ 1168              		.loc 1 173 5 view .LVU353
+ 1169 007a 03FB00F0 		mul	r0, r3, r0
+ 1170              	.LVL114:
+ 155:src/date.c    **** 
+ 1171              		.loc 1 155 16 view .LVU354
+ 1172 007e 6FF00504 		mvn	r4, #5
+ 174:src/date.c    **** 
+ 1173              		.loc 1 174 3 view .LVU355
+ 1174 0082 DCE7     		b	.L76
+ 1175              	.LVL115:
+ 1176              	.L73:
+ 168:src/date.c    **** 		shift = -4;
+ 1177              		.loc 1 168 3 is_stmt 1 view .LVU356
+ 169:src/date.c    **** 		break;
+ 1178              		.loc 1 169 3 view .LVU357
+ 170:src/date.c    **** 
+ 1179              		.loc 1 170 3 view .LVU358
+ 168:src/date.c    **** 		shift = -4;
+ 1180              		.loc 1 168 14 is_stmt 0 view .LVU359
+ 1181 0084 6424     		movs	r4, #100
+ 168:src/date.c    **** 		shift = -4;
+ 1182              		.loc 1 168 21 view .LVU360
+ 1183 0086 04FB0170 		mla	r0, r4, r1, r7
+ 168:src/date.c    **** 		shift = -4;
+ 1184              		.loc 1 168 5 view .LVU361
+ 1185 008a 04FB0080 		mla	r0, r4, r0, r8
+ 1186              	.LVL116:
+ 168:src/date.c    **** 		shift = -4;
+ 1187              		.loc 1 168 5 view .LVU362
+ARM GAS  /tmp/ccnqma1I.s 			page 35
+
+
+ 1188 008e 03FB00F0 		mul	r0, r3, r0
+ 1189              	.LVL117:
+ 169:src/date.c    **** 		break;
+ 1190              		.loc 1 169 9 view .LVU363
+ 1191 0092 6FF00304 		mvn	r4, #3
+ 170:src/date.c    **** 
+ 1192              		.loc 1 170 3 view .LVU364
+ 1193 0096 D2E7     		b	.L76
+ 1194              	.LVL118:
+ 1195              	.L74:
+ 177:src/date.c    **** 		break;
+ 1196              		.loc 1 177 3 is_stmt 1 view .LVU365
+ 178:src/date.c    **** 	}
+ 1197              		.loc 1 178 3 view .LVU366
+ 177:src/date.c    **** 		break;
+ 1198              		.loc 1 177 15 is_stmt 0 view .LVU367
+ 1199 0098 6424     		movs	r4, #100
+ 177:src/date.c    **** 		break;
+ 1200              		.loc 1 177 28 view .LVU368
+ 1201 009a 42F21070 		movw	r0, #10000
+ 177:src/date.c    **** 		break;
+ 1202              		.loc 1 177 22 view .LVU369
+ 1203 009e 04FB0784 		mla	r4, r4, r7, r8
+ 177:src/date.c    **** 		break;
+ 1204              		.loc 1 177 5 view .LVU370
+ 1205 00a2 00FB0414 		mla	r4, r0, r4, r1
+ 1206              	.LVL119:
+ 177:src/date.c    **** 		break;
+ 1207              		.loc 1 177 5 view .LVU371
+ 1208 00a6 03FB04F0 		mul	r0, r3, r4
+ 1209 00aa C6E7     		b	.L79
+ 1210              	.L82:
+ 1211              		.align	2
+ 1212              	.L81:
+ 1213 00ac 00000000 		.word	PersistentRam
+ 1214              		.cfi_endproc
+ 1215              	.LFE6:
+ 1217              		.section	.text.dateFromYMD,"ax",%progbits
+ 1218              		.align	1
+ 1219              		.p2align 2,,3
+ 1220              		.global	dateFromYMD
+ 1221              		.syntax unified
+ 1222              		.thumb
+ 1223              		.thumb_func
+ 1224              		.fpu fpv4-sp-d16
+ 1226              	dateFromYMD:
+ 1227              	.LVL120:
+ 1228              	.LFB7:
+ 189:src/date.c    **** 	if (decNumberIsSpecial(x) || decNumberIsSpecial(y) || decNumberIsSpecial(z))
+ 1229              		.loc 1 189 100 is_stmt 1 view -0
+ 1230              		.cfi_startproc
+ 1231              		@ args = 0, pretend = 0, frame = 8
+ 1232              		@ frame_needed = 0, uses_anonymous_args = 0
+ 190:src/date.c    **** 		return set_NaN(res);
+ 1233              		.loc 1 190 2 view .LVU373
+ 189:src/date.c    **** 	if (decNumberIsSpecial(x) || decNumberIsSpecial(y) || decNumberIsSpecial(z))
+ 1234              		.loc 1 189 100 is_stmt 0 view .LVU374
+ARM GAS  /tmp/ccnqma1I.s 			page 36
+
+
+ 1235 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1236              		.cfi_def_cfa_offset 20
+ 1237              		.cfi_offset 4, -20
+ 1238              		.cfi_offset 5, -16
+ 1239              		.cfi_offset 6, -12
+ 1240              		.cfi_offset 7, -8
+ 1241              		.cfi_offset 14, -4
+ 190:src/date.c    **** 		return set_NaN(res);
+ 1242              		.loc 1 190 5 view .LVU375
+ 1243 0002 1D7A     		ldrb	r5, [r3, #8]	@ zero_extendqisi2
+ 1244 0004 15F0700F 		tst	r5, #112
+ 189:src/date.c    **** 	if (decNumberIsSpecial(x) || decNumberIsSpecial(y) || decNumberIsSpecial(z))
+ 1245              		.loc 1 189 100 view .LVU376
+ 1246 0008 83B0     		sub	sp, sp, #12
+ 1247              		.cfi_def_cfa_offset 32
+ 189:src/date.c    **** 	if (decNumberIsSpecial(x) || decNumberIsSpecial(y) || decNumberIsSpecial(z))
+ 1248              		.loc 1 189 100 view .LVU377
+ 1249 000a 0646     		mov	r6, r0
+ 190:src/date.c    **** 		return set_NaN(res);
+ 1250              		.loc 1 190 5 view .LVU378
+ 1251 000c 08D1     		bne	.L84
+ 1252 000e 1446     		mov	r4, r2
+ 190:src/date.c    **** 		return set_NaN(res);
+ 1253              		.loc 1 190 28 discriminator 1 view .LVU379
+ 1254 0010 127A     		ldrb	r2, [r2, #8]	@ zero_extendqisi2
+ 1255              	.LVL121:
+ 190:src/date.c    **** 		return set_NaN(res);
+ 1256              		.loc 1 190 28 discriminator 1 view .LVU380
+ 1257 0012 12F0700F 		tst	r2, #112
+ 1258 0016 03D1     		bne	.L84
+ 190:src/date.c    **** 		return set_NaN(res);
+ 1259              		.loc 1 190 53 discriminator 2 view .LVU381
+ 1260 0018 0A7A     		ldrb	r2, [r1, #8]	@ zero_extendqisi2
+ 1261 001a 12F0700F 		tst	r2, #112
+ 1262 001e 05D0     		beq	.L85
+ 1263              	.LVL122:
+ 1264              	.L84:
+ 191:src/date.c    **** 	else {
+ 1265              		.loc 1 191 3 is_stmt 1 view .LVU382
+ 191:src/date.c    **** 	else {
+ 1266              		.loc 1 191 10 is_stmt 0 view .LVU383
+ 1267 0020 3046     		mov	r0, r6
+ 1268              	.LVL123:
+ 195:src/date.c    **** 
+ 1269              		.loc 1 195 1 view .LVU384
+ 1270 0022 03B0     		add	sp, sp, #12
+ 1271              		.cfi_remember_state
+ 1272              		.cfi_def_cfa_offset 20
+ 1273              		@ sp needed
+ 1274 0024 BDE8F040 		pop	{r4, r5, r6, r7, lr}
+ 1275              		.cfi_restore 14
+ 1276              		.cfi_restore 7
+ 1277              		.cfi_restore 6
+ 1278              		.cfi_restore 5
+ 1279              		.cfi_restore 4
+ 1280              		.cfi_def_cfa_offset 0
+ 1281              	.LVL124:
+ARM GAS  /tmp/ccnqma1I.s 			page 37
+
+
+ 191:src/date.c    **** 	else {
+ 1282              		.loc 1 191 10 view .LVU385
+ 1283 0028 FFF7FEBF 		b	set_NaN
+ 1284              	.LVL125:
+ 1285              	.L85:
+ 1286              		.cfi_restore_state
+ 193:src/date.c    **** 	}
+ 1287              		.loc 1 193 3 is_stmt 1 view .LVU386
+ 193:src/date.c    **** 	}
+ 1288              		.loc 1 193 10 is_stmt 0 view .LVU387
+ 1289 002c 0846     		mov	r0, r1
+ 1290              	.LVL126:
+ 193:src/date.c    **** 	}
+ 1291              		.loc 1 193 10 view .LVU388
+ 1292 002e 1F46     		mov	r7, r3
+ 1293 0030 FFF7FEFF 		bl	dn_to_int
+ 1294              	.LVL127:
+ 193:src/date.c    **** 	}
+ 1295              		.loc 1 193 10 view .LVU389
+ 1296 0034 0146     		mov	r1, r0
+ 1297 0036 2046     		mov	r0, r4
+ 1298 0038 0191     		str	r1, [sp, #4]
+ 1299 003a FFF7FEFF 		bl	dn_to_int
+ 1300              	.LVL128:
+ 1301 003e 0090     		str	r0, [sp]
+ 1302 0040 3846     		mov	r0, r7
+ 1303 0042 FFF7FEFF 		bl	dn_to_int
+ 1304              	.LVL129:
+ 1305 0046 DDE90021 		ldrd	r2, r1, [sp]
+ 1306 004a 0346     		mov	r3, r0
+ 1307 004c 3046     		mov	r0, r6
+ 195:src/date.c    **** 
+ 1308              		.loc 1 195 1 view .LVU390
+ 1309 004e 03B0     		add	sp, sp, #12
+ 1310              		.cfi_def_cfa_offset 20
+ 1311              		@ sp needed
+ 1312 0050 BDE8F040 		pop	{r4, r5, r6, r7, lr}
+ 1313              		.cfi_restore 14
+ 1314              		.cfi_restore 7
+ 1315              		.cfi_restore 6
+ 1316              		.cfi_restore 5
+ 1317              		.cfi_restore 4
+ 1318              		.cfi_def_cfa_offset 0
+ 1319              	.LVL130:
+ 193:src/date.c    **** 	}
+ 1320              		.loc 1 193 10 view .LVU391
+ 1321 0054 FFF7FEBF 		b	build_date
+ 1322              	.LVL131:
+ 193:src/date.c    **** 	}
+ 1323              		.loc 1 193 10 view .LVU392
+ 1324              		.cfi_endproc
+ 1325              	.LFE7:
+ 1327              		.section	.text.date_isleap,"ax",%progbits
+ 1328              		.align	1
+ 1329              		.p2align 2,,3
+ 1330              		.global	date_isleap
+ 1331              		.syntax unified
+ARM GAS  /tmp/ccnqma1I.s 			page 38
+
+
+ 1332              		.thumb
+ 1333              		.thumb_func
+ 1334              		.fpu fpv4-sp-d16
+ 1336              	date_isleap:
+ 1337              	.LVL132:
+ 1338              	.LFB10:
+ 336:src/date.c    **** 	int y, t = 0;
+ 1339              		.loc 1 336 33 is_stmt 1 view -0
+ 1340              		.cfi_startproc
+ 1341              		@ args = 0, pretend = 0, frame = 40
+ 1342              		@ frame_needed = 0, uses_anonymous_args = 0
+ 337:src/date.c    **** 	decNumber x;
+ 1343              		.loc 1 337 2 view .LVU394
+ 338:src/date.c    **** 
+ 1344              		.loc 1 338 2 view .LVU395
+ 340:src/date.c    **** 	if (! find_year(&x, &y))
+ 1345              		.loc 1 340 2 view .LVU396
+ 336:src/date.c    **** 	int y, t = 0;
+ 1346              		.loc 1 336 33 is_stmt 0 view .LVU397
+ 1347 0000 00B5     		push	{lr}
+ 1348              		.cfi_def_cfa_offset 4
+ 1349              		.cfi_offset 14, -4
+ 1350 0002 8BB0     		sub	sp, sp, #44
+ 1351              		.cfi_def_cfa_offset 48
+ 340:src/date.c    **** 	if (! find_year(&x, &y))
+ 1352              		.loc 1 340 2 view .LVU398
+ 1353 0004 01A8     		add	r0, sp, #4
+ 1354              	.LVL133:
+ 340:src/date.c    **** 	if (! find_year(&x, &y))
+ 1355              		.loc 1 340 2 view .LVU399
+ 1356 0006 FFF7FEFF 		bl	getX
+ 1357              	.LVL134:
+ 341:src/date.c    **** 		t = isleap(y);
+ 1358              		.loc 1 341 2 is_stmt 1 view .LVU400
+ 1359              	.LBB69:
+ 1360              	.LBI69:
+ 263:src/date.c    **** 	int y;
+ 1361              		.loc 1 263 12 view .LVU401
+ 1362              	.LBB70:
+ 264:src/date.c    **** 
+ 1363              		.loc 1 264 2 view .LVU402
+ 266:src/date.c    **** 		return -1;
+ 1364              		.loc 1 266 2 view .LVU403
+ 266:src/date.c    **** 		return -1;
+ 1365              		.loc 1 266 5 is_stmt 0 view .LVU404
+ 1366 000a 9DF80C30 		ldrb	r3, [sp, #12]	@ zero_extendqisi2
+ 1367 000e 13F0700F 		tst	r3, #112
+ 1368 0012 2DD1     		bne	.L99
+ 268:src/date.c    **** 		y = dn_to_int(x);
+ 1369              		.loc 1 268 2 is_stmt 1 view .LVU405
+ 268:src/date.c    **** 		y = dn_to_int(x);
+ 1370              		.loc 1 268 6 is_stmt 0 view .LVU406
+ 1371 0014 01A8     		add	r0, sp, #4
+ 1372              	.LVL135:
+ 268:src/date.c    **** 		y = dn_to_int(x);
+ 1373              		.loc 1 268 6 view .LVU407
+ 1374 0016 FFF7FEFF 		bl	is_int
+ARM GAS  /tmp/ccnqma1I.s 			page 39
+
+
+ 1375              	.LVL136:
+ 268:src/date.c    **** 		y = dn_to_int(x);
+ 1376              		.loc 1 268 5 view .LVU408
+ 1377 001a F8B9     		cbnz	r0, .L100
+ 272:src/date.c    **** 		return -1;
+ 1378              		.loc 1 272 9 is_stmt 1 view .LVU409
+ 1379              	.LVL137:
+ 1380              	.LBB71:
+ 1381              	.LBI71:
+ 201:src/date.c    **** 	int ip, fp, y, m, d;
+ 1382              		.loc 1 201 12 view .LVU410
+ 1383              	.LBB72:
+ 202:src/date.c    **** 	decNumber z, a;
+ 1384              		.loc 1 202 2 view .LVU411
+ 203:src/date.c    ****     int neg = 1;
+ 1385              		.loc 1 203 2 view .LVU412
+ 204:src/date.c    **** 
+ 1386              		.loc 1 204 5 view .LVU413
+ 206:src/date.c    **** 		return 1;
+ 1387              		.loc 1 206 2 view .LVU414
+ 206:src/date.c    **** 		return 1;
+ 1388              		.loc 1 206 6 is_stmt 0 view .LVU415
+ 1389 001c 1F4B     		ldr	r3, .L102
+ 1390 001e 93F8E837 		ldrb	r3, [r3, #2024]	@ zero_extendqisi2
+ 206:src/date.c    **** 		return 1;
+ 1391              		.loc 1 206 5 view .LVU416
+ 1392 0022 13F00103 		ands	r3, r3, #1
+ 1393 0026 23D1     		bne	.L99
+ 1394 0028 01A8     		add	r0, sp, #4
+ 1395              	.LVL138:
+ 206:src/date.c    **** 		return 1;
+ 1396              		.loc 1 206 5 view .LVU417
+ 1397 002a 1A46     		mov	r2, r3
+ 1398 002c 6946     		mov	r1, sp
+ 1399 002e FFF7FEFF 		bl	extract_date.part.0
+ 1400              	.LVL139:
+ 206:src/date.c    **** 		return 1;
+ 1401              		.loc 1 206 5 view .LVU418
+ 1402              	.LBE72:
+ 1403              	.LBE71:
+ 272:src/date.c    **** 		return -1;
+ 1404              		.loc 1 272 12 view .LVU419
+ 1405 0032 E8B9     		cbnz	r0, .L99
+ 1406              	.LVL140:
+ 1407              	.L93:
+ 274:src/date.c    **** 	return 0;
+ 1408              		.loc 1 274 2 is_stmt 1 view .LVU420
+ 274:src/date.c    **** 	return 0;
+ 1409              		.loc 1 274 8 is_stmt 0 view .LVU421
+ 1410 0034 009B     		ldr	r3, [sp]
+ 1411              	.LVL141:
+ 275:src/date.c    **** }
+ 1412              		.loc 1 275 2 is_stmt 1 view .LVU422
+ 275:src/date.c    **** }
+ 1413              		.loc 1 275 2 is_stmt 0 view .LVU423
+ 1414              	.LBE70:
+ 1415              	.LBE69:
+ARM GAS  /tmp/ccnqma1I.s 			page 40
+
+
+ 342:src/date.c    **** 	fin_tst(t);
+ 1416              		.loc 1 342 3 is_stmt 1 view .LVU424
+ 1417              	.LBB74:
+ 1418              	.LBI74:
+ 106:src/date.c    **** 	if ((year & 3) == 0) {		// leap year candidate
+ 1419              		.loc 1 106 12 view .LVU425
+ 1420              	.LBB75:
+ 107:src/date.c    **** 		if (isGregorian(year, 1, 1)) {
+ 1421              		.loc 1 107 2 view .LVU426
+ 107:src/date.c    **** 		if (isGregorian(year, 1, 1)) {
+ 1422              		.loc 1 107 5 is_stmt 0 view .LVU427
+ 1423 0036 9A07     		lsls	r2, r3, #30
+ 1424 0038 1AD1     		bne	.L99
+ 108:src/date.c    **** 			// Gregorian is leap if not divisible by 100 or if devisible by 400
+ 1425              		.loc 1 108 3 is_stmt 1 view .LVU428
+ 1426              	.LVL142:
+ 1427              	.LBB76:
+ 1428              	.LBI76:
+  35:src/date.c    **** 	int y, m, d;
+ 1429              		.loc 1 35 12 view .LVU429
+ 1430              	.LBB77:
+  36:src/date.c    **** 	if (UState.jg1582) {
+ 1431              		.loc 1 36 2 view .LVU430
+  37:src/date.c    **** 		y = 1582;
+ 1432              		.loc 1 37 2 view .LVU431
+  37:src/date.c    **** 		y = 1582;
+ 1433              		.loc 1 37 6 is_stmt 0 view .LVU432
+ 1434 003a 184A     		ldr	r2, .L102
+  37:src/date.c    **** 		y = 1582;
+ 1435              		.loc 1 37 5 view .LVU433
+ 1436 003c 92F9EB17 		ldrsb	r1, [r2, #2027]
+  42:src/date.c    **** 		m = 9;
+ 1437              		.loc 1 42 5 view .LVU434
+ 1438 0040 0029     		cmp	r1, #0
+ 1439 0042 40F22E62 		movw	r2, #1582
+ 1440 0046 A8BF     		it	ge
+ 1441 0048 4FF4DB62 		movge	r2, #1752
+ 1442              	.LVL143:
+  46:src/date.c    **** 		return 1;
+ 1443              		.loc 1 46 2 is_stmt 1 view .LVU435
+  46:src/date.c    **** 		return 1;
+ 1444              		.loc 1 46 5 is_stmt 0 view .LVU436
+ 1445 004c 9A42     		cmp	r2, r3
+ 1446 004e 15DB     		blt	.L101
+ 1447              	.LVL144:
+ 1448              	.L97:
+  46:src/date.c    **** 		return 1;
+ 1449              		.loc 1 46 5 view .LVU437
+ 1450              	.LBE77:
+ 1451              	.LBE76:
+ 116:src/date.c    **** 	}
+ 1452              		.loc 1 116 10 view .LVU438
+ 1453 0050 0120     		movs	r0, #1
+ 1454              	.LVL145:
+ 116:src/date.c    **** 	}
+ 1455              		.loc 1 116 10 view .LVU439
+ 1456              	.LBE75:
+ARM GAS  /tmp/ccnqma1I.s 			page 41
+
+
+ 1457              	.LBE74:
+ 343:src/date.c    **** }
+ 1458              		.loc 1 343 2 is_stmt 1 view .LVU440
+ 1459 0052 FFF7FEFF 		bl	fin_tst
+ 1460              	.LVL146:
+ 344:src/date.c    **** 
+ 1461              		.loc 1 344 1 is_stmt 0 view .LVU441
+ 1462 0056 0BB0     		add	sp, sp, #44
+ 1463              		.cfi_remember_state
+ 1464              		.cfi_def_cfa_offset 4
+ 1465              		@ sp needed
+ 1466 0058 5DF804FB 		ldr	pc, [sp], #4
+ 1467              	.LVL147:
+ 1468              	.L100:
+ 1469              		.cfi_restore_state
+ 1470              	.LBB84:
+ 1471              	.LBB73:
+ 269:src/date.c    **** 		if (check_date(y, 1, 1))
+ 1472              		.loc 1 269 3 is_stmt 1 view .LVU442
+ 269:src/date.c    **** 		if (check_date(y, 1, 1))
+ 1473              		.loc 1 269 7 is_stmt 0 view .LVU443
+ 1474 005c 01A8     		add	r0, sp, #4
+ 1475              	.LVL148:
+ 269:src/date.c    **** 		if (check_date(y, 1, 1))
+ 1476              		.loc 1 269 7 view .LVU444
+ 1477 005e FFF7FEFF 		bl	dn_to_int
+ 1478              	.LVL149:
+ 270:src/date.c    **** 			return -1;
+ 1479              		.loc 1 270 7 view .LVU445
+ 1480 0062 0122     		movs	r2, #1
+ 1481 0064 1146     		mov	r1, r2
+ 269:src/date.c    **** 		if (check_date(y, 1, 1))
+ 1482              		.loc 1 269 5 view .LVU446
+ 1483 0066 0090     		str	r0, [sp]
+ 270:src/date.c    **** 			return -1;
+ 1484              		.loc 1 270 3 is_stmt 1 view .LVU447
+ 270:src/date.c    **** 			return -1;
+ 1485              		.loc 1 270 7 is_stmt 0 view .LVU448
+ 1486 0068 FFF7FEFF 		bl	check_date
+ 1487              	.LVL150:
+ 270:src/date.c    **** 			return -1;
+ 1488              		.loc 1 270 6 view .LVU449
+ 1489 006c 0028     		cmp	r0, #0
+ 1490 006e E1D0     		beq	.L93
+ 1491              	.LVL151:
+ 1492              	.L99:
+ 270:src/date.c    **** 			return -1;
+ 1493              		.loc 1 270 6 view .LVU450
+ 1494              	.LBE73:
+ 1495              	.LBE84:
+ 1496              	.LBB85:
+ 1497              	.LBB82:
+ 118:src/date.c    **** }
+ 1498              		.loc 1 118 9 view .LVU451
+ 1499 0070 0020     		movs	r0, #0
+ 1500              	.L89:
+ 1501              	.LVL152:
+ARM GAS  /tmp/ccnqma1I.s 			page 42
+
+
+ 118:src/date.c    **** }
+ 1502              		.loc 1 118 9 view .LVU452
+ 1503              	.LBE82:
+ 1504              	.LBE85:
+ 343:src/date.c    **** }
+ 1505              		.loc 1 343 2 is_stmt 1 view .LVU453
+ 1506 0072 FFF7FEFF 		bl	fin_tst
+ 1507              	.LVL153:
+ 344:src/date.c    **** 
+ 1508              		.loc 1 344 1 is_stmt 0 view .LVU454
+ 1509 0076 0BB0     		add	sp, sp, #44
+ 1510              		.cfi_remember_state
+ 1511              		.cfi_def_cfa_offset 4
+ 1512              		@ sp needed
+ 1513 0078 5DF804FB 		ldr	pc, [sp], #4
+ 1514              	.LVL154:
+ 1515              	.L101:
+ 1516              		.cfi_restore_state
+ 1517              	.LBB86:
+ 1518              	.LBB83:
+ 110:src/date.c    **** 				if (year % 400 == 0)
+ 1519              		.loc 1 110 4 is_stmt 1 view .LVU455
+ 1520              	.LBB80:
+ 1521              	.LBB78:
+ 1522 007c 0848     		ldr	r0, .L102+4
+ 1523 007e 0949     		ldr	r1, .L102+8
+ 1524              	.LBE78:
+ 1525              	.LBE80:
+ 110:src/date.c    **** 				if (year % 400 == 0)
+ 1526              		.loc 1 110 7 is_stmt 0 view .LVU456
+ 1527 0080 094A     		ldr	r2, .L102+12
+ 1528              	.LBB81:
+ 1529              	.LBB79:
+ 1530 0082 00FB0313 		mla	r3, r0, r3, r1
+ 1531              	.LVL155:
+ 110:src/date.c    **** 				if (year % 400 == 0)
+ 1532              		.loc 1 110 7 view .LVU457
+ 1533              	.LBE79:
+ 1534              	.LBE81:
+ 1535 0086 B2EBB30F 		cmp	r2, r3, ror #2
+ 1536 008a E1D3     		bcc	.L97
+ 111:src/date.c    **** 					return 1;
+ 1537              		.loc 1 111 5 is_stmt 1 view .LVU458
+ 111:src/date.c    **** 					return 1;
+ 1538              		.loc 1 111 8 is_stmt 0 view .LVU459
+ 1539 008c 074A     		ldr	r2, .L102+16
+ 1540 008e B2EB331F 		cmp	r2, r3, ror #4
+ 1541 0092 2CBF     		ite	cs
+ 1542 0094 0120     		movcs	r0, #1
+ 1543 0096 0020     		movcc	r0, #0
+ 1544 0098 EBE7     		b	.L89
+ 1545              	.L103:
+ 1546 009a 00BF     		.align	2
+ 1547              	.L102:
+ 1548 009c 00000000 		.word	PersistentRam
+ 1549 00a0 295C8FC2 		.word	-1030792151
+ 1550 00a4 50B81E05 		.word	85899344
+ARM GAS  /tmp/ccnqma1I.s 			page 43
+
+
+ 1551 00a8 285C8F02 		.word	42949672
+ 1552 00ac 0AD7A300 		.word	10737418
+ 1553              	.LBE83:
+ 1554              	.LBE86:
+ 1555              		.cfi_endproc
+ 1556              	.LFE10:
+ 1558              		.section	.text.dateDayOfWeek,"ax",%progbits
+ 1559              		.align	1
+ 1560              		.p2align 2,,3
+ 1561              		.global	dateDayOfWeek
+ 1562              		.syntax unified
+ 1563              		.thumb
+ 1564              		.thumb_func
+ 1565              		.fpu fpv4-sp-d16
+ 1567              	dateDayOfWeek:
+ 1568              	.LVL156:
+ 1569              	.LFB12:
+ 357:src/date.c    **** 	int y, m, d;
+ 1570              		.loc 1 357 62 is_stmt 1 view -0
+ 1571              		.cfi_startproc
+ 1572              		@ args = 0, pretend = 0, frame = 16
+ 1573              		@ frame_needed = 0, uses_anonymous_args = 0
+ 358:src/date.c    **** 
+ 1574              		.loc 1 358 2 view .LVU461
+ 360:src/date.c    **** 		int_to_dn(res, day_of_week(y, m, d, &DispMsg));
+ 1575              		.loc 1 360 2 view .LVU462
+ 357:src/date.c    **** 	int y, m, d;
+ 1576              		.loc 1 357 62 is_stmt 0 view .LVU463
+ 1577 0000 10B5     		push	{r4, lr}
+ 1578              		.cfi_def_cfa_offset 8
+ 1579              		.cfi_offset 4, -8
+ 1580              		.cfi_offset 14, -4
+ 1581 0002 86B0     		sub	sp, sp, #24
+ 1582              		.cfi_def_cfa_offset 32
+ 360:src/date.c    **** 		int_to_dn(res, day_of_week(y, m, d, &DispMsg));
+ 1583              		.loc 1 360 6 view .LVU464
+ 1584 0004 05AB     		add	r3, sp, #20
+ 1585 0006 0093     		str	r3, [sp]
+ 1586 0008 03AA     		add	r2, sp, #12
+ 1587 000a 04AB     		add	r3, sp, #16
+ 357:src/date.c    **** 	int y, m, d;
+ 1588              		.loc 1 357 62 view .LVU465
+ 1589 000c 0446     		mov	r4, r0
+ 360:src/date.c    **** 		int_to_dn(res, day_of_week(y, m, d, &DispMsg));
+ 1590              		.loc 1 360 6 view .LVU466
+ 1591 000e FFF7FEFF 		bl	dateExtract
+ 1592              	.LVL157:
+ 360:src/date.c    **** 		int_to_dn(res, day_of_week(y, m, d, &DispMsg));
+ 1593              		.loc 1 360 5 view .LVU467
+ 1594 0012 10B9     		cbnz	r0, .L110
+ 362:src/date.c    **** }
+ 1595              		.loc 1 362 2 is_stmt 1 view .LVU468
+ 363:src/date.c    **** 
+ 1596              		.loc 1 363 1 is_stmt 0 view .LVU469
+ 1597 0014 2046     		mov	r0, r4
+ 1598 0016 06B0     		add	sp, sp, #24
+ 1599              		.cfi_remember_state
+ARM GAS  /tmp/ccnqma1I.s 			page 44
+
+
+ 1600              		.cfi_def_cfa_offset 8
+ 1601              		@ sp needed
+ 1602 0018 10BD     		pop	{r4, pc}
+ 1603              	.LVL158:
+ 1604              	.L110:
+ 1605              		.cfi_restore_state
+ 361:src/date.c    **** 	return res;
+ 1606              		.loc 1 361 3 is_stmt 1 view .LVU470
+ 1607 001a DDE90412 		ldrd	r1, r2, [sp, #16]
+ 1608 001e 0398     		ldr	r0, [sp, #12]
+ 1609 0020 FFF7FEFF 		bl	day_of_week.constprop.0
+ 1610              	.LVL159:
+ 1611 0024 0146     		mov	r1, r0
+ 1612 0026 2046     		mov	r0, r4
+ 1613 0028 FFF7FEFF 		bl	int_to_dn
+ 1614              	.LVL160:
+ 362:src/date.c    **** }
+ 1615              		.loc 1 362 2 view .LVU471
+ 363:src/date.c    **** 
+ 1616              		.loc 1 363 1 is_stmt 0 view .LVU472
+ 1617 002c 2046     		mov	r0, r4
+ 1618 002e 06B0     		add	sp, sp, #24
+ 1619              		.cfi_def_cfa_offset 8
+ 1620              		@ sp needed
+ 1621 0030 10BD     		pop	{r4, pc}
+ 363:src/date.c    **** 
+ 1622              		.loc 1 363 1 view .LVU473
+ 1623              		.cfi_endproc
+ 1624              	.LFE12:
+ 1626 0032 00BF     		.section	.text.dateExtraction,"ax",%progbits
+ 1627              		.align	1
+ 1628              		.p2align 2,,3
+ 1629              		.global	dateExtraction
+ 1630              		.syntax unified
+ 1631              		.thumb
+ 1632              		.thumb_func
+ 1633              		.fpu fpv4-sp-d16
+ 1635              	dateExtraction:
+ 1636              	.LVL161:
+ 1637              	.LFB13:
+ 368:src/date.c    **** 	int z[3];
+ 1638              		.loc 1 368 63 is_stmt 1 view -0
+ 1639              		.cfi_startproc
+ 1640              		@ args = 0, pretend = 0, frame = 16
+ 1641              		@ frame_needed = 0, uses_anonymous_args = 0
+ 369:src/date.c    **** 
+ 1642              		.loc 1 369 2 view .LVU475
+ 371:src/date.c    **** 		int_to_dn(res, z[argKIND(XeqOpCode) - OP_DATE_YEAR]);
+ 1643              		.loc 1 371 2 view .LVU476
+ 368:src/date.c    **** 	int z[3];
+ 1644              		.loc 1 368 63 is_stmt 0 view .LVU477
+ 1645 0000 10B5     		push	{r4, lr}
+ 1646              		.cfi_def_cfa_offset 8
+ 1647              		.cfi_offset 4, -8
+ 1648              		.cfi_offset 14, -4
+ 1649 0002 86B0     		sub	sp, sp, #24
+ 1650              		.cfi_def_cfa_offset 32
+ARM GAS  /tmp/ccnqma1I.s 			page 45
+
+
+ 371:src/date.c    **** 		int_to_dn(res, z[argKIND(XeqOpCode) - OP_DATE_YEAR]);
+ 1651              		.loc 1 371 6 view .LVU478
+ 1652 0004 05AB     		add	r3, sp, #20
+ 1653 0006 0093     		str	r3, [sp]
+ 1654 0008 03AA     		add	r2, sp, #12
+ 1655 000a 04AB     		add	r3, sp, #16
+ 368:src/date.c    **** 	int z[3];
+ 1656              		.loc 1 368 63 view .LVU479
+ 1657 000c 0446     		mov	r4, r0
+ 371:src/date.c    **** 		int_to_dn(res, z[argKIND(XeqOpCode) - OP_DATE_YEAR]);
+ 1658              		.loc 1 371 6 view .LVU480
+ 1659 000e FFF7FEFF 		bl	dateExtract
+ 1660              	.LVL162:
+ 371:src/date.c    **** 		int_to_dn(res, z[argKIND(XeqOpCode) - OP_DATE_YEAR]);
+ 1661              		.loc 1 371 5 view .LVU481
+ 1662 0012 10B9     		cbnz	r0, .L117
+ 373:src/date.c    **** }
+ 1663              		.loc 1 373 2 is_stmt 1 view .LVU482
+ 374:src/date.c    **** 
+ 1664              		.loc 1 374 1 is_stmt 0 view .LVU483
+ 1665 0014 2046     		mov	r0, r4
+ 1666 0016 06B0     		add	sp, sp, #24
+ 1667              		.cfi_remember_state
+ 1668              		.cfi_def_cfa_offset 8
+ 1669              		@ sp needed
+ 1670 0018 10BD     		pop	{r4, pc}
+ 1671              	.LVL163:
+ 1672              	.L117:
+ 1673              		.cfi_restore_state
+ 372:src/date.c    **** 	return res;
+ 1674              		.loc 1 372 3 is_stmt 1 view .LVU484
+ 372:src/date.c    **** 	return res;
+ 1675              		.loc 1 372 20 is_stmt 0 view .LVU485
+ 1676 001a 074B     		ldr	r3, .L118
+ 1677 001c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 372:src/date.c    **** 	return res;
+ 1678              		.loc 1 372 3 view .LVU486
+ 1679 001e 06AA     		add	r2, sp, #24
+ 1680 0020 8B3B     		subs	r3, r3, #139
+ 1681 0022 02EB8303 		add	r3, r2, r3, lsl #2
+ 1682 0026 2046     		mov	r0, r4
+ 1683 0028 53F80C1C 		ldr	r1, [r3, #-12]
+ 1684 002c FFF7FEFF 		bl	int_to_dn
+ 1685              	.LVL164:
+ 373:src/date.c    **** }
+ 1686              		.loc 1 373 2 is_stmt 1 view .LVU487
+ 374:src/date.c    **** 
+ 1687              		.loc 1 374 1 is_stmt 0 view .LVU488
+ 1688 0030 2046     		mov	r0, r4
+ 1689 0032 06B0     		add	sp, sp, #24
+ 1690              		.cfi_def_cfa_offset 8
+ 1691              		@ sp needed
+ 1692 0034 10BD     		pop	{r4, pc}
+ 1693              	.LVL165:
+ 1694              	.L119:
+ 374:src/date.c    **** 
+ 1695              		.loc 1 374 1 view .LVU489
+ARM GAS  /tmp/ccnqma1I.s 			page 46
+
+
+ 1696 0036 00BF     		.align	2
+ 1697              	.L118:
+ 1698 0038 00000000 		.word	XeqOpCode
+ 1699              		.cfi_endproc
+ 1700              	.LFE13:
+ 1702              		.section	.rodata.date_alphaday.str1.4,"aMS",%progbits,1
+ 1703              		.align	2
+ 1704              	.LC1:
+ 1705 0000 4D4F4E54 		.ascii	"MONTUEWEDTHUFRISATSUN\000"
+ 1705      55455745 
+ 1705      44544855 
+ 1705      46524953 
+ 1705      41545355 
+ 1706              		.section	.text.date_alphaday,"ax",%progbits
+ 1707              		.align	1
+ 1708              		.p2align 2,,3
+ 1709              		.global	date_alphaday
+ 1710              		.syntax unified
+ 1711              		.thumb
+ 1712              		.thumb_func
+ 1713              		.fpu fpv4-sp-d16
+ 1715              	date_alphaday:
+ 1716              	.LVL166:
+ 1717              	.LFB15:
+ 387:src/date.c    **** 	decNumber x;
+ 1718              		.loc 1 387 35 is_stmt 1 view -0
+ 1719              		.cfi_startproc
+ 1720              		@ args = 0, pretend = 0, frame = 56
+ 1721              		@ frame_needed = 0, uses_anonymous_args = 0
+ 388:src/date.c    **** 	int y, m, d, dow;
+ 1722              		.loc 1 388 2 view .LVU491
+ 389:src/date.c    **** 
+ 1723              		.loc 1 389 2 view .LVU492
+ 391:src/date.c    **** 	if (decNumberIsSpecial(&x) || extract_date(&x, &y, &m, &d))
+ 1724              		.loc 1 391 2 view .LVU493
+ 387:src/date.c    **** 	decNumber x;
+ 1725              		.loc 1 387 35 is_stmt 0 view .LVU494
+ 1726 0000 00B5     		push	{lr}
+ 1727              		.cfi_def_cfa_offset 4
+ 1728              		.cfi_offset 14, -4
+ 1729 0002 8FB0     		sub	sp, sp, #60
+ 1730              		.cfi_def_cfa_offset 64
+ 391:src/date.c    **** 	if (decNumberIsSpecial(&x) || extract_date(&x, &y, &m, &d))
+ 1731              		.loc 1 391 2 view .LVU495
+ 1732 0004 05A8     		add	r0, sp, #20
+ 1733              	.LVL167:
+ 391:src/date.c    **** 	if (decNumberIsSpecial(&x) || extract_date(&x, &y, &m, &d))
+ 1734              		.loc 1 391 2 view .LVU496
+ 1735 0006 FFF7FEFF 		bl	getX
+ 1736              	.LVL168:
+ 392:src/date.c    **** 		report_err(ERR_BAD_DATE);
+ 1737              		.loc 1 392 2 is_stmt 1 view .LVU497
+ 1738              	.LBB87:
+ 1739              	.LBI87:
+ 201:src/date.c    **** 	int ip, fp, y, m, d;
+ 1740              		.loc 1 201 12 view .LVU498
+ 1741              	.LBB88:
+ARM GAS  /tmp/ccnqma1I.s 			page 47
+
+
+ 202:src/date.c    **** 	decNumber z, a;
+ 1742              		.loc 1 202 2 view .LVU499
+ 203:src/date.c    ****     int neg = 1;
+ 1743              		.loc 1 203 2 view .LVU500
+ 204:src/date.c    **** 
+ 1744              		.loc 1 204 5 view .LVU501
+ 206:src/date.c    **** 		return 1;
+ 1745              		.loc 1 206 2 view .LVU502
+ 206:src/date.c    **** 		return 1;
+ 1746              		.loc 1 206 6 is_stmt 0 view .LVU503
+ 1747 000a 224A     		ldr	r2, .L128
+ 206:src/date.c    **** 		return 1;
+ 1748              		.loc 1 206 5 view .LVU504
+ 1749 000c 9DF81C30 		ldrb	r3, [sp, #28]	@ zero_extendqisi2
+ 206:src/date.c    **** 		return 1;
+ 1750              		.loc 1 206 6 view .LVU505
+ 1751 0010 92F8E827 		ldrb	r2, [r2, #2024]	@ zero_extendqisi2
+ 206:src/date.c    **** 		return 1;
+ 1752              		.loc 1 206 5 view .LVU506
+ 1753 0014 03F07003 		and	r3, r3, #112
+ 206:src/date.c    **** 		return 1;
+ 1754              		.loc 1 206 6 view .LVU507
+ 1755 0018 02F00102 		and	r2, r2, #1
+ 206:src/date.c    **** 		return 1;
+ 1756              		.loc 1 206 5 view .LVU508
+ 1757 001c 1343     		orrs	r3, r2, r3
+ 1758 001e 06D1     		bne	.L123
+ 1759 0020 05A8     		add	r0, sp, #20
+ 1760              	.LVL169:
+ 206:src/date.c    **** 		return 1;
+ 1761              		.loc 1 206 5 view .LVU509
+ 1762 0022 03AB     		add	r3, sp, #12
+ 1763              	.LVL170:
+ 206:src/date.c    **** 		return 1;
+ 1764              		.loc 1 206 5 view .LVU510
+ 1765 0024 02AA     		add	r2, sp, #8
+ 1766              	.LVL171:
+ 206:src/date.c    **** 		return 1;
+ 1767              		.loc 1 206 5 view .LVU511
+ 1768 0026 01A9     		add	r1, sp, #4
+ 1769              	.LVL172:
+ 206:src/date.c    **** 		return 1;
+ 1770              		.loc 1 206 5 view .LVU512
+ 1771 0028 FFF7FEFF 		bl	extract_date.part.0
+ 1772              	.LVL173:
+ 206:src/date.c    **** 		return 1;
+ 1773              		.loc 1 206 5 view .LVU513
+ 1774              	.LBE88:
+ 1775              	.LBE87:
+ 392:src/date.c    **** 		report_err(ERR_BAD_DATE);
+ 1776              		.loc 1 392 29 view .LVU514
+ 1777 002c 28B1     		cbz	r0, .L127
+ 1778              	.L123:
+ 393:src/date.c    **** 	else {
+ 1779              		.loc 1 393 3 is_stmt 1 view .LVU515
+ 1780 002e 0220     		movs	r0, #2
+ 1781 0030 FFF7FEFF 		bl	report_err
+ARM GAS  /tmp/ccnqma1I.s 			page 48
+
+
+ 1782              	.LVL174:
+ 398:src/date.c    **** 
+ 1783              		.loc 1 398 1 is_stmt 0 view .LVU516
+ 1784 0034 0FB0     		add	sp, sp, #60
+ 1785              		.cfi_remember_state
+ 1786              		.cfi_def_cfa_offset 4
+ 1787              		@ sp needed
+ 1788 0036 5DF804FB 		ldr	pc, [sp], #4
+ 1789              	.L127:
+ 1790              		.cfi_restore_state
+ 395:src/date.c    **** 		copy3(&("MONTUEWEDTHUFRISATSUN"[3*(dow-1)]));
+ 1791              		.loc 1 395 3 is_stmt 1 view .LVU517
+ 1792              	.LVL175:
+ 1793              	.LBB89:
+ 1794              	.LBI89:
+ 139:src/date.c    **** 	int h;
+ 1795              		.loc 1 139 12 view .LVU518
+ 1796              	.LBB90:
+ 140:src/date.c    **** 	const char *const days = "\007\016\025\035\047\060\067"
+ 1797              		.loc 1 140 2 view .LVU519
+ 141:src/date.c    **** 				"Sunday\0Monday\0Tuesday\0Wednesday\0"
+ 1798              		.loc 1 141 2 view .LVU520
+ 144:src/date.c    **** 	if (msg != NULL && ! Running)
+ 1799              		.loc 1 144 2 view .LVU521
+ 144:src/date.c    **** 	if (msg != NULL && ! Running)
+ 1800              		.loc 1 144 7 is_stmt 0 view .LVU522
+ 1801 003a DDE90212 		ldrd	r1, r2, [sp, #8]
+ 1802 003e 0198     		ldr	r0, [sp, #4]
+ 1803 0040 FFF7FEFF 		bl	JDN
+ 1804              	.LVL176:
+ 144:src/date.c    **** 	if (msg != NULL && ! Running)
+ 1805              		.loc 1 144 4 view .LVU523
+ 1806 0044 144B     		ldr	r3, .L128+4
+ 144:src/date.c    **** 	if (msg != NULL && ! Running)
+ 1807              		.loc 1 144 28 view .LVU524
+ 1808 0046 0130     		adds	r0, r0, #1
+ 144:src/date.c    **** 	if (msg != NULL && ! Running)
+ 1809              		.loc 1 144 4 view .LVU525
+ 1810 0048 83FB0023 		smull	r2, r3, r3, r0
+ 1811 004c 1A18     		adds	r2, r3, r0
+ 1812 004e C317     		asrs	r3, r0, #31
+ 1813 0050 C3EBA203 		rsb	r3, r3, r2, asr #2
+ 1814 0054 C3EBC303 		rsb	r3, r3, r3, lsl #3
+ 1815              	.LVL177:
+ 145:src/date.c    **** 		*msg = days + ((unsigned char *)days)[h];
+ 1816              		.loc 1 145 2 is_stmt 1 view .LVU526
+ 147:src/date.c    **** }
+ 1817              		.loc 1 147 2 view .LVU527
+ 147:src/date.c    **** }
+ 1818              		.loc 1 147 20 is_stmt 0 view .LVU528
+ 1819 0058 C31A     		subs	r3, r0, r3
+ 1820              	.LVL178:
+ 147:src/date.c    **** }
+ 1821              		.loc 1 147 20 view .LVU529
+ 1822 005a 17D0     		beq	.L125
+ 1823 005c 013B     		subs	r3, r3, #1
+ 1824              	.LVL179:
+ARM GAS  /tmp/ccnqma1I.s 			page 49
+
+
+ 147:src/date.c    **** }
+ 1825              		.loc 1 147 20 view .LVU530
+ 1826 005e 03EB4303 		add	r3, r3, r3, lsl #1
+ 1827              	.LVL180:
+ 147:src/date.c    **** }
+ 1828              		.loc 1 147 20 view .LVU531
+ 1829 0062 1A46     		mov	r2, r3
+ 1830              	.LVL181:
+ 1831              	.L124:
+ 147:src/date.c    **** }
+ 1832              		.loc 1 147 20 view .LVU532
+ 1833              	.LBE90:
+ 1834              	.LBE89:
+ 396:src/date.c    **** 	}
+ 1835              		.loc 1 396 3 is_stmt 1 view .LVU533
+ 396:src/date.c    **** 	}
+ 1836              		.loc 1 396 9 is_stmt 0 view .LVU534
+ 1837 0064 0D49     		ldr	r1, .L128+8
+ 1838 0066 0A44     		add	r2, r2, r1
+ 1839              	.LVL182:
+ 1840              	.LBB92:
+ 1841              	.LBI92:
+ 377:src/date.c    **** 	char buf[4];
+ 1842              		.loc 1 377 13 is_stmt 1 view .LVU535
+ 1843              	.LBB93:
+ 381:src/date.c    **** 		buf[i] = p[i];
+ 1844              		.loc 1 381 12 view .LVU536
+ 382:src/date.c    **** 	buf[3] = '\0';
+ 1845              		.loc 1 382 3 view .LVU537
+ 382:src/date.c    **** 	buf[3] = '\0';
+ 1846              		.loc 1 382 10 is_stmt 0 view .LVU538
+ 1847 0068 CB5C     		ldrb	r3, [r1, r3]	@ zero_extendqisi2
+ 1848 006a 8DF81030 		strb	r3, [sp, #16]
+ 381:src/date.c    **** 		buf[i] = p[i];
+ 1849              		.loc 1 381 17 is_stmt 1 view .LVU539
+ 1850              	.LVL183:
+ 381:src/date.c    **** 		buf[i] = p[i];
+ 1851              		.loc 1 381 12 view .LVU540
+ 382:src/date.c    **** 	buf[3] = '\0';
+ 1852              		.loc 1 382 3 view .LVU541
+ 382:src/date.c    **** 	buf[3] = '\0';
+ 1853              		.loc 1 382 10 is_stmt 0 view .LVU542
+ 1854 006e 5178     		ldrb	r1, [r2, #1]	@ zero_extendqisi2
+ 1855 0070 9278     		ldrb	r2, [r2, #2]	@ zero_extendqisi2
+ 1856              	.LVL184:
+ 382:src/date.c    **** 	buf[3] = '\0';
+ 1857              		.loc 1 382 10 view .LVU543
+ 1858 0072 8DF81110 		strb	r1, [sp, #17]
+ 381:src/date.c    **** 		buf[i] = p[i];
+ 1859              		.loc 1 381 17 is_stmt 1 view .LVU544
+ 1860              	.LVL185:
+ 381:src/date.c    **** 		buf[i] = p[i];
+ 1861              		.loc 1 381 12 view .LVU545
+ 382:src/date.c    **** 	buf[3] = '\0';
+ 1862              		.loc 1 382 3 view .LVU546
+ 383:src/date.c    **** 	add_string(buf);
+ 1863              		.loc 1 383 9 is_stmt 0 view .LVU547
+ARM GAS  /tmp/ccnqma1I.s 			page 50
+
+
+ 1864 0076 0023     		movs	r3, #0
+ 384:src/date.c    **** }
+ 1865              		.loc 1 384 2 view .LVU548
+ 1866 0078 04A8     		add	r0, sp, #16
+ 382:src/date.c    **** 	buf[3] = '\0';
+ 1867              		.loc 1 382 10 view .LVU549
+ 1868 007a 8DF81220 		strb	r2, [sp, #18]
+ 381:src/date.c    **** 		buf[i] = p[i];
+ 1869              		.loc 1 381 17 is_stmt 1 view .LVU550
+ 1870              	.LVL186:
+ 381:src/date.c    **** 		buf[i] = p[i];
+ 1871              		.loc 1 381 12 view .LVU551
+ 383:src/date.c    **** 	add_string(buf);
+ 1872              		.loc 1 383 2 view .LVU552
+ 383:src/date.c    **** 	add_string(buf);
+ 1873              		.loc 1 383 9 is_stmt 0 view .LVU553
+ 1874 007e 8DF81330 		strb	r3, [sp, #19]
+ 384:src/date.c    **** }
+ 1875              		.loc 1 384 2 is_stmt 1 view .LVU554
+ 1876 0082 FFF7FEFF 		bl	add_string
+ 1877              	.LVL187:
+ 384:src/date.c    **** }
+ 1878              		.loc 1 384 2 is_stmt 0 view .LVU555
+ 1879              	.LBE93:
+ 1880              	.LBE92:
+ 398:src/date.c    **** 
+ 1881              		.loc 1 398 1 view .LVU556
+ 1882 0086 0FB0     		add	sp, sp, #60
+ 1883              		.cfi_remember_state
+ 1884              		.cfi_def_cfa_offset 4
+ 1885              		@ sp needed
+ 1886 0088 5DF804FB 		ldr	pc, [sp], #4
+ 1887              	.LVL188:
+ 1888              	.L125:
+ 1889              		.cfi_restore_state
+ 1890              	.LBB94:
+ 1891              	.LBB91:
+ 398:src/date.c    **** 
+ 1892              		.loc 1 398 1 view .LVU557
+ 1893 008c 1222     		movs	r2, #18
+ 1894 008e 1346     		mov	r3, r2
+ 1895              	.LVL189:
+ 398:src/date.c    **** 
+ 1896              		.loc 1 398 1 view .LVU558
+ 1897 0090 E8E7     		b	.L124
+ 1898              	.L129:
+ 1899 0092 00BF     		.align	2
+ 1900              	.L128:
+ 1901 0094 00000000 		.word	PersistentRam
+ 1902 0098 93244992 		.word	-1840700269
+ 1903 009c 00000000 		.word	.LC1
+ 1904              	.LBE91:
+ 1905              	.LBE94:
+ 1906              		.cfi_endproc
+ 1907              	.LFE15:
+ 1909              		.section	.text.date_alphamonth,"ax",%progbits
+ 1910              		.align	1
+ARM GAS  /tmp/ccnqma1I.s 			page 51
+
+
+ 1911              		.p2align 2,,3
+ 1912              		.global	date_alphamonth
+ 1913              		.syntax unified
+ 1914              		.thumb
+ 1915              		.thumb_func
+ 1916              		.fpu fpv4-sp-d16
+ 1918              	date_alphamonth:
+ 1919              	.LVL190:
+ 1920              	.LFB16:
+ 400:src/date.c    **** 	decNumber x;
+ 1921              		.loc 1 400 37 is_stmt 1 view -0
+ 1922              		.cfi_startproc
+ 1923              		@ args = 0, pretend = 0, frame = 56
+ 1924              		@ frame_needed = 0, uses_anonymous_args = 0
+ 401:src/date.c    **** 	int y, m, d;
+ 1925              		.loc 1 401 2 view .LVU560
+ 402:src/date.c    **** 	static const char mons[12*3] = "JANFEBMARAPRMAYJUNJULAUGSEPOCTNOVDEC";
+ 1926              		.loc 1 402 2 view .LVU561
+ 403:src/date.c    **** 
+ 1927              		.loc 1 403 2 view .LVU562
+ 405:src/date.c    **** 	if (decNumberIsSpecial(&x) || extract_date(&x, &y, &m, &d))
+ 1928              		.loc 1 405 2 view .LVU563
+ 400:src/date.c    **** 	decNumber x;
+ 1929              		.loc 1 400 37 is_stmt 0 view .LVU564
+ 1930 0000 00B5     		push	{lr}
+ 1931              		.cfi_def_cfa_offset 4
+ 1932              		.cfi_offset 14, -4
+ 1933 0002 8FB0     		sub	sp, sp, #60
+ 1934              		.cfi_def_cfa_offset 64
+ 405:src/date.c    **** 	if (decNumberIsSpecial(&x) || extract_date(&x, &y, &m, &d))
+ 1935              		.loc 1 405 2 view .LVU565
+ 1936 0004 05A8     		add	r0, sp, #20
+ 1937              	.LVL191:
+ 405:src/date.c    **** 	if (decNumberIsSpecial(&x) || extract_date(&x, &y, &m, &d))
+ 1938              		.loc 1 405 2 view .LVU566
+ 1939 0006 FFF7FEFF 		bl	getX
+ 1940              	.LVL192:
+ 406:src/date.c    **** 		report_err(ERR_BAD_DATE);
+ 1941              		.loc 1 406 2 is_stmt 1 view .LVU567
+ 1942              	.LBB95:
+ 1943              	.LBI95:
+ 201:src/date.c    **** 	int ip, fp, y, m, d;
+ 1944              		.loc 1 201 12 view .LVU568
+ 1945              	.LBB96:
+ 202:src/date.c    **** 	decNumber z, a;
+ 1946              		.loc 1 202 2 view .LVU569
+ 203:src/date.c    ****     int neg = 1;
+ 1947              		.loc 1 203 2 view .LVU570
+ 204:src/date.c    **** 
+ 1948              		.loc 1 204 5 view .LVU571
+ 206:src/date.c    **** 		return 1;
+ 1949              		.loc 1 206 2 view .LVU572
+ 206:src/date.c    **** 		return 1;
+ 1950              		.loc 1 206 6 is_stmt 0 view .LVU573
+ 1951 000a 174A     		ldr	r2, .L136
+ 206:src/date.c    **** 		return 1;
+ 1952              		.loc 1 206 5 view .LVU574
+ARM GAS  /tmp/ccnqma1I.s 			page 52
+
+
+ 1953 000c 9DF81C30 		ldrb	r3, [sp, #28]	@ zero_extendqisi2
+ 206:src/date.c    **** 		return 1;
+ 1954              		.loc 1 206 6 view .LVU575
+ 1955 0010 92F8E827 		ldrb	r2, [r2, #2024]	@ zero_extendqisi2
+ 206:src/date.c    **** 		return 1;
+ 1956              		.loc 1 206 5 view .LVU576
+ 1957 0014 03F07003 		and	r3, r3, #112
+ 206:src/date.c    **** 		return 1;
+ 1958              		.loc 1 206 6 view .LVU577
+ 1959 0018 02F00102 		and	r2, r2, #1
+ 206:src/date.c    **** 		return 1;
+ 1960              		.loc 1 206 5 view .LVU578
+ 1961 001c 1343     		orrs	r3, r2, r3
+ 1962 001e 06D1     		bne	.L133
+ 1963 0020 05A8     		add	r0, sp, #20
+ 1964              	.LVL193:
+ 206:src/date.c    **** 		return 1;
+ 1965              		.loc 1 206 5 view .LVU579
+ 1966 0022 03AB     		add	r3, sp, #12
+ 1967              	.LVL194:
+ 206:src/date.c    **** 		return 1;
+ 1968              		.loc 1 206 5 view .LVU580
+ 1969 0024 02AA     		add	r2, sp, #8
+ 1970              	.LVL195:
+ 206:src/date.c    **** 		return 1;
+ 1971              		.loc 1 206 5 view .LVU581
+ 1972 0026 01A9     		add	r1, sp, #4
+ 1973              	.LVL196:
+ 206:src/date.c    **** 		return 1;
+ 1974              		.loc 1 206 5 view .LVU582
+ 1975 0028 FFF7FEFF 		bl	extract_date.part.0
+ 1976              	.LVL197:
+ 206:src/date.c    **** 		return 1;
+ 1977              		.loc 1 206 5 view .LVU583
+ 1978              	.LBE96:
+ 1979              	.LBE95:
+ 406:src/date.c    **** 		report_err(ERR_BAD_DATE);
+ 1980              		.loc 1 406 29 view .LVU584
+ 1981 002c 28B1     		cbz	r0, .L135
+ 1982              	.L133:
+ 407:src/date.c    **** 	else {
+ 1983              		.loc 1 407 3 is_stmt 1 view .LVU585
+ 1984 002e 0220     		movs	r0, #2
+ 1985 0030 FFF7FEFF 		bl	report_err
+ 1986              	.LVL198:
+ 411:src/date.c    **** 
+ 1987              		.loc 1 411 1 is_stmt 0 view .LVU586
+ 1988 0034 0FB0     		add	sp, sp, #60
+ 1989              		.cfi_remember_state
+ 1990              		.cfi_def_cfa_offset 4
+ 1991              		@ sp needed
+ 1992 0036 5DF804FB 		ldr	pc, [sp], #4
+ 1993              	.L135:
+ 1994              		.cfi_restore_state
+ 409:src/date.c    **** 	}
+ 1995              		.loc 1 409 3 is_stmt 1 view .LVU587
+ 409:src/date.c    **** 	}
+ARM GAS  /tmp/ccnqma1I.s 			page 53
+
+
+ 1996              		.loc 1 409 20 is_stmt 0 view .LVU588
+ 1997 003a 029B     		ldr	r3, [sp, #8]
+ 409:src/date.c    **** 	}
+ 1998              		.loc 1 409 3 view .LVU589
+ 1999 003c 0B49     		ldr	r1, .L136+4
+ 2000              	.LBB97:
+ 2001              	.LBB98:
+ 383:src/date.c    **** 	add_string(buf);
+ 2002              		.loc 1 383 9 view .LVU590
+ 2003 003e 8DF81300 		strb	r0, [sp, #19]
+ 2004              	.LBE98:
+ 2005              	.LBE97:
+ 409:src/date.c    **** 	}
+ 2006              		.loc 1 409 20 view .LVU591
+ 2007 0042 013B     		subs	r3, r3, #1
+ 2008 0044 03EB4303 		add	r3, r3, r3, lsl #1
+ 409:src/date.c    **** 	}
+ 2009              		.loc 1 409 3 view .LVU592
+ 2010 0048 CA18     		adds	r2, r1, r3
+ 2011              	.LVL199:
+ 2012              	.LBB100:
+ 2013              	.LBI97:
+ 377:src/date.c    **** 	char buf[4];
+ 2014              		.loc 1 377 13 is_stmt 1 view .LVU593
+ 2015              	.LBB99:
+ 378:src/date.c    **** 	int i;
+ 2016              		.loc 1 378 2 view .LVU594
+ 379:src/date.c    **** 
+ 2017              		.loc 1 379 2 view .LVU595
+ 381:src/date.c    **** 		buf[i] = p[i];
+ 2018              		.loc 1 381 2 view .LVU596
+ 381:src/date.c    **** 		buf[i] = p[i];
+ 2019              		.loc 1 381 12 view .LVU597
+ 382:src/date.c    **** 	buf[3] = '\0';
+ 2020              		.loc 1 382 3 view .LVU598
+ 382:src/date.c    **** 	buf[3] = '\0';
+ 2021              		.loc 1 382 10 is_stmt 0 view .LVU599
+ 2022 004a C85C     		ldrb	r0, [r1, r3]	@ zero_extendqisi2
+ 2023 004c 8DF81000 		strb	r0, [sp, #16]
+ 381:src/date.c    **** 		buf[i] = p[i];
+ 2024              		.loc 1 381 17 is_stmt 1 view .LVU600
+ 2025              	.LVL200:
+ 381:src/date.c    **** 		buf[i] = p[i];
+ 2026              		.loc 1 381 12 view .LVU601
+ 382:src/date.c    **** 	buf[3] = '\0';
+ 2027              		.loc 1 382 3 view .LVU602
+ 382:src/date.c    **** 	buf[3] = '\0';
+ 2028              		.loc 1 382 10 is_stmt 0 view .LVU603
+ 2029 0050 5178     		ldrb	r1, [r2, #1]	@ zero_extendqisi2
+ 2030 0052 9378     		ldrb	r3, [r2, #2]	@ zero_extendqisi2
+ 2031 0054 8DF81110 		strb	r1, [sp, #17]
+ 381:src/date.c    **** 		buf[i] = p[i];
+ 2032              		.loc 1 381 17 is_stmt 1 view .LVU604
+ 2033              	.LVL201:
+ 381:src/date.c    **** 		buf[i] = p[i];
+ 2034              		.loc 1 381 12 view .LVU605
+ 382:src/date.c    **** 	buf[3] = '\0';
+ARM GAS  /tmp/ccnqma1I.s 			page 54
+
+
+ 2035              		.loc 1 382 3 view .LVU606
+ 384:src/date.c    **** }
+ 2036              		.loc 1 384 2 is_stmt 0 view .LVU607
+ 2037 0058 04A8     		add	r0, sp, #16
+ 382:src/date.c    **** 	buf[3] = '\0';
+ 2038              		.loc 1 382 10 view .LVU608
+ 2039 005a 8DF81230 		strb	r3, [sp, #18]
+ 381:src/date.c    **** 		buf[i] = p[i];
+ 2040              		.loc 1 381 17 is_stmt 1 view .LVU609
+ 2041              	.LVL202:
+ 381:src/date.c    **** 		buf[i] = p[i];
+ 2042              		.loc 1 381 12 view .LVU610
+ 383:src/date.c    **** 	add_string(buf);
+ 2043              		.loc 1 383 2 view .LVU611
+ 384:src/date.c    **** }
+ 2044              		.loc 1 384 2 view .LVU612
+ 2045 005e FFF7FEFF 		bl	add_string
+ 2046              	.LVL203:
+ 384:src/date.c    **** }
+ 2047              		.loc 1 384 2 is_stmt 0 view .LVU613
+ 2048              	.LBE99:
+ 2049              	.LBE100:
+ 411:src/date.c    **** 
+ 2050              		.loc 1 411 1 view .LVU614
+ 2051 0062 0FB0     		add	sp, sp, #60
+ 2052              		.cfi_def_cfa_offset 4
+ 2053              		@ sp needed
+ 2054 0064 5DF804FB 		ldr	pc, [sp], #4
+ 2055              	.L137:
+ 2056              		.align	2
+ 2057              	.L136:
+ 2058 0068 00000000 		.word	PersistentRam
+ 2059 006c 00000000 		.word	.LANCHOR1
+ 2060              		.cfi_endproc
+ 2061              	.LFE16:
+ 2063              		.section	.text.dateToJ,"ax",%progbits
+ 2064              		.align	1
+ 2065              		.p2align 2,,3
+ 2066              		.global	dateToJ
+ 2067              		.syntax unified
+ 2068              		.thumb
+ 2069              		.thumb_func
+ 2070              		.fpu fpv4-sp-d16
+ 2072              	dateToJ:
+ 2073              	.LVL204:
+ 2074              	.LFB17:
+ 415:src/date.c    **** 	if (decNumberIsSpecial(x))
+ 2075              		.loc 1 415 56 is_stmt 1 view -0
+ 2076              		.cfi_startproc
+ 2077              		@ args = 0, pretend = 0, frame = 16
+ 2078              		@ frame_needed = 0, uses_anonymous_args = 0
+ 416:src/date.c    **** err:		set_NaN(res);
+ 2079              		.loc 1 416 2 view .LVU616
+ 415:src/date.c    **** 	if (decNumberIsSpecial(x))
+ 2080              		.loc 1 415 56 is_stmt 0 view .LVU617
+ 2081 0000 10B5     		push	{r4, lr}
+ 2082              		.cfi_def_cfa_offset 8
+ARM GAS  /tmp/ccnqma1I.s 			page 55
+
+
+ 2083              		.cfi_offset 4, -8
+ 2084              		.cfi_offset 14, -4
+ 416:src/date.c    **** err:		set_NaN(res);
+ 2085              		.loc 1 416 5 view .LVU618
+ 2086 0002 0B7A     		ldrb	r3, [r1, #8]	@ zero_extendqisi2
+ 2087 0004 13F0700F 		tst	r3, #112
+ 415:src/date.c    **** 	if (decNumberIsSpecial(x))
+ 2088              		.loc 1 415 56 view .LVU619
+ 2089 0008 84B0     		sub	sp, sp, #16
+ 2090              		.cfi_def_cfa_offset 24
+ 415:src/date.c    **** 	if (decNumberIsSpecial(x))
+ 2091              		.loc 1 415 56 view .LVU620
+ 2092 000a 0446     		mov	r4, r0
+ 416:src/date.c    **** err:		set_NaN(res);
+ 2093              		.loc 1 416 5 view .LVU621
+ 2094 000c 17D1     		bne	.L140
+ 2095              	.LBB101:
+ 419:src/date.c    **** 
+ 2096              		.loc 1 419 3 is_stmt 1 view .LVU622
+ 421:src/date.c    **** 			goto err;
+ 2097              		.loc 1 421 3 view .LVU623
+ 2098              	.LVL205:
+ 2099              	.LBB102:
+ 2100              	.LBI102:
+ 201:src/date.c    **** 	int ip, fp, y, m, d;
+ 2101              		.loc 1 201 12 view .LVU624
+ 2102              	.LBB103:
+ 202:src/date.c    **** 	decNumber z, a;
+ 2103              		.loc 1 202 2 view .LVU625
+ 203:src/date.c    ****     int neg = 1;
+ 2104              		.loc 1 203 2 view .LVU626
+ 204:src/date.c    **** 
+ 2105              		.loc 1 204 5 view .LVU627
+ 206:src/date.c    **** 		return 1;
+ 2106              		.loc 1 206 2 view .LVU628
+ 206:src/date.c    **** 		return 1;
+ 2107              		.loc 1 206 6 is_stmt 0 view .LVU629
+ 2108 000e 0F4B     		ldr	r3, .L145
+ 2109 0010 93F8E837 		ldrb	r3, [r3, #2024]	@ zero_extendqisi2
+ 206:src/date.c    **** 		return 1;
+ 2110              		.loc 1 206 5 view .LVU630
+ 2111 0014 DB07     		lsls	r3, r3, #31
+ 2112 0016 12D4     		bmi	.L140
+ 2113 0018 0846     		mov	r0, r1
+ 2114              	.LVL206:
+ 206:src/date.c    **** 		return 1;
+ 2115              		.loc 1 206 5 view .LVU631
+ 2116 001a 03AB     		add	r3, sp, #12
+ 2117              	.LVL207:
+ 206:src/date.c    **** 		return 1;
+ 2118              		.loc 1 206 5 view .LVU632
+ 2119 001c 02AA     		add	r2, sp, #8
+ 2120              	.LVL208:
+ 206:src/date.c    **** 		return 1;
+ 2121              		.loc 1 206 5 view .LVU633
+ 2122 001e 01A9     		add	r1, sp, #4
+ 2123              	.LVL209:
+ARM GAS  /tmp/ccnqma1I.s 			page 56
+
+
+ 206:src/date.c    **** 		return 1;
+ 2124              		.loc 1 206 5 view .LVU634
+ 2125 0020 FFF7FEFF 		bl	extract_date.part.0
+ 2126              	.LVL210:
+ 206:src/date.c    **** 		return 1;
+ 2127              		.loc 1 206 5 view .LVU635
+ 2128              	.LBE103:
+ 2129              	.LBE102:
+ 421:src/date.c    **** 			goto err;
+ 2130              		.loc 1 421 6 view .LVU636
+ 2131 0024 58B9     		cbnz	r0, .L140
+ 423:src/date.c    **** 	}
+ 2132              		.loc 1 423 3 is_stmt 1 view .LVU637
+ 2133 0026 DDE90212 		ldrd	r1, r2, [sp, #8]
+ 2134 002a 0198     		ldr	r0, [sp, #4]
+ 2135 002c FFF7FEFF 		bl	JDN
+ 2136              	.LVL211:
+ 2137 0030 0146     		mov	r1, r0
+ 2138 0032 2046     		mov	r0, r4
+ 2139 0034 FFF7FEFF 		bl	int_to_dn
+ 2140              	.LVL212:
+ 2141              	.LBE101:
+ 425:src/date.c    **** }
+ 2142              		.loc 1 425 2 view .LVU638
+ 426:src/date.c    **** 
+ 2143              		.loc 1 426 1 is_stmt 0 view .LVU639
+ 2144 0038 2046     		mov	r0, r4
+ 2145 003a 04B0     		add	sp, sp, #16
+ 2146              		.cfi_remember_state
+ 2147              		.cfi_def_cfa_offset 8
+ 2148              		@ sp needed
+ 2149 003c 10BD     		pop	{r4, pc}
+ 2150              	.LVL213:
+ 2151              	.L140:
+ 2152              		.cfi_restore_state
+ 417:src/date.c    **** 	else {
+ 2153              		.loc 1 417 7 is_stmt 1 view .LVU640
+ 2154 003e 2046     		mov	r0, r4
+ 2155 0040 FFF7FEFF 		bl	set_NaN
+ 2156              	.LVL214:
+ 425:src/date.c    **** }
+ 2157              		.loc 1 425 2 view .LVU641
+ 426:src/date.c    **** 
+ 2158              		.loc 1 426 1 is_stmt 0 view .LVU642
+ 2159 0044 2046     		mov	r0, r4
+ 2160 0046 04B0     		add	sp, sp, #16
+ 2161              		.cfi_def_cfa_offset 8
+ 2162              		@ sp needed
+ 2163 0048 10BD     		pop	{r4, pc}
+ 2164              	.LVL215:
+ 2165              	.L146:
+ 426:src/date.c    **** 
+ 2166              		.loc 1 426 1 view .LVU643
+ 2167 004a 00BF     		.align	2
+ 2168              	.L145:
+ 2169 004c 00000000 		.word	PersistentRam
+ 2170              		.cfi_endproc
+ARM GAS  /tmp/ccnqma1I.s 			page 57
+
+
+ 2171              	.LFE17:
+ 2173              		.section	.text.dateFromJ,"ax",%progbits
+ 2174              		.align	1
+ 2175              		.p2align 2,,3
+ 2176              		.global	dateFromJ
+ 2177              		.syntax unified
+ 2178              		.thumb
+ 2179              		.thumb_func
+ 2180              		.fpu fpv4-sp-d16
+ 2182              	dateFromJ:
+ 2183              	.LVL216:
+ 2184              	.LFB18:
+ 428:src/date.c    **** 	if (decNumberIsSpecial(x) || dn_lt0(x))
+ 2185              		.loc 1 428 58 is_stmt 1 view -0
+ 2186              		.cfi_startproc
+ 2187              		@ args = 0, pretend = 0, frame = 16
+ 2188              		@ frame_needed = 0, uses_anonymous_args = 0
+ 429:src/date.c    **** 		set_NaN(res);
+ 2189              		.loc 1 429 2 view .LVU645
+ 428:src/date.c    **** 	if (decNumberIsSpecial(x) || dn_lt0(x))
+ 2190              		.loc 1 428 58 is_stmt 0 view .LVU646
+ 2191 0000 30B5     		push	{r4, r5, lr}
+ 2192              		.cfi_def_cfa_offset 12
+ 2193              		.cfi_offset 4, -12
+ 2194              		.cfi_offset 5, -8
+ 2195              		.cfi_offset 14, -4
+ 429:src/date.c    **** 		set_NaN(res);
+ 2196              		.loc 1 429 5 view .LVU647
+ 2197 0002 0B7A     		ldrb	r3, [r1, #8]	@ zero_extendqisi2
+ 2198 0004 13F0700F 		tst	r3, #112
+ 428:src/date.c    **** 	if (decNumberIsSpecial(x) || dn_lt0(x))
+ 2199              		.loc 1 428 58 view .LVU648
+ 2200 0008 85B0     		sub	sp, sp, #20
+ 2201              		.cfi_def_cfa_offset 32
+ 428:src/date.c    **** 	if (decNumberIsSpecial(x) || dn_lt0(x))
+ 2202              		.loc 1 428 58 view .LVU649
+ 2203 000a 0446     		mov	r4, r0
+ 429:src/date.c    **** 		set_NaN(res);
+ 2204              		.loc 1 429 5 view .LVU650
+ 2205 000c 04D1     		bne	.L150
+ 429:src/date.c    **** 		set_NaN(res);
+ 2206              		.loc 1 429 31 discriminator 1 view .LVU651
+ 2207 000e 0846     		mov	r0, r1
+ 2208              	.LVL217:
+ 429:src/date.c    **** 		set_NaN(res);
+ 2209              		.loc 1 429 31 discriminator 1 view .LVU652
+ 2210 0010 0D46     		mov	r5, r1
+ 2211 0012 FFF7FEFF 		bl	dn_lt0
+ 2212              	.LVL218:
+ 429:src/date.c    **** 		set_NaN(res);
+ 2213              		.loc 1 429 28 discriminator 1 view .LVU653
+ 2214 0016 28B1     		cbz	r0, .L152
+ 2215              	.LVL219:
+ 2216              	.L150:
+ 430:src/date.c    **** 	else {
+ 2217              		.loc 1 430 3 is_stmt 1 view .LVU654
+ 2218 0018 2046     		mov	r0, r4
+ARM GAS  /tmp/ccnqma1I.s 			page 58
+
+
+ 2219 001a FFF7FEFF 		bl	set_NaN
+ 2220              	.LVL220:
+ 438:src/date.c    **** }
+ 2221              		.loc 1 438 2 view .LVU655
+ 438:src/date.c    **** }
+ 2222              		.loc 1 438 9 is_stmt 0 view .LVU656
+ 2223 001e 2046     		mov	r0, r4
+ 439:src/date.c    **** 
+ 2224              		.loc 1 439 1 view .LVU657
+ 2225 0020 05B0     		add	sp, sp, #20
+ 2226              		.cfi_remember_state
+ 2227              		.cfi_def_cfa_offset 12
+ 2228              		@ sp needed
+ 2229 0022 30BD     		pop	{r4, r5, pc}
+ 2230              	.LVL221:
+ 2231              	.L152:
+ 2232              		.cfi_restore_state
+ 2233              	.LBB104:
+ 432:src/date.c    **** 		int y, m, d;
+ 2234              		.loc 1 432 3 is_stmt 1 view .LVU658
+ 432:src/date.c    **** 		int y, m, d;
+ 2235              		.loc 1 432 17 is_stmt 0 view .LVU659
+ 2236 0024 2846     		mov	r0, r5
+ 2237 0026 FFF7FEFF 		bl	dn_to_int
+ 2238              	.LVL222:
+ 433:src/date.c    **** 
+ 2239              		.loc 1 433 3 is_stmt 1 view .LVU660
+ 435:src/date.c    **** 		return build_date(res, y, m, d);
+ 2240              		.loc 1 435 3 view .LVU661
+ 2241 002a 03AB     		add	r3, sp, #12
+ 2242 002c 02AA     		add	r2, sp, #8
+ 2243 002e 01A9     		add	r1, sp, #4
+ 2244 0030 FFF7FEFF 		bl	JDN2
+ 2245              	.LVL223:
+ 436:src/date.c    **** 	}
+ 2246              		.loc 1 436 3 view .LVU662
+ 436:src/date.c    **** 	}
+ 2247              		.loc 1 436 10 is_stmt 0 view .LVU663
+ 2248 0034 DDE90223 		ldrd	r2, r3, [sp, #8]
+ 2249 0038 0199     		ldr	r1, [sp, #4]
+ 2250 003a 2046     		mov	r0, r4
+ 2251 003c FFF7FEFF 		bl	build_date
+ 2252              	.LVL224:
+ 2253              	.LBE104:
+ 439:src/date.c    **** 
+ 2254              		.loc 1 439 1 view .LVU664
+ 2255 0040 05B0     		add	sp, sp, #20
+ 2256              		.cfi_def_cfa_offset 12
+ 2257              		@ sp needed
+ 2258 0042 30BD     		pop	{r4, r5, pc}
+ 439:src/date.c    **** 
+ 2259              		.loc 1 439 1 view .LVU665
+ 2260              		.cfi_endproc
+ 2261              	.LFE18:
+ 2263              		.section	.text.date_alphadate,"ax",%progbits
+ 2264              		.align	1
+ 2265              		.p2align 2,,3
+ARM GAS  /tmp/ccnqma1I.s 			page 59
+
+
+ 2266              		.global	date_alphadate
+ 2267              		.syntax unified
+ 2268              		.thumb
+ 2269              		.thumb_func
+ 2270              		.fpu fpv4-sp-d16
+ 2272              	date_alphadate:
+ 2273              	.LVL225:
+ 2274              	.LFB19:
+ 443:src/date.c    **** 	decNumber x;
+ 2275              		.loc 1 443 36 is_stmt 1 view -0
+ 2276              		.cfi_startproc
+ 2277              		@ args = 0, pretend = 0, frame = 64
+ 2278              		@ frame_needed = 0, uses_anonymous_args = 0
+ 444:src/date.c    **** 	int d, m, y;
+ 2279              		.loc 1 444 2 view .LVU667
+ 445:src/date.c    **** 	char buf[16];
+ 2280              		.loc 1 445 2 view .LVU668
+ 446:src/date.c    **** 	char *p;
+ 2281              		.loc 1 446 2 view .LVU669
+ 447:src/date.c    **** 
+ 2282              		.loc 1 447 2 view .LVU670
+ 449:src/date.c    **** 	xset(buf, '\0', sizeof(buf));
+ 2283              		.loc 1 449 2 view .LVU671
+ 443:src/date.c    **** 	decNumber x;
+ 2284              		.loc 1 443 36 is_stmt 0 view .LVU672
+ 2285 0000 30B5     		push	{r4, r5, lr}
+ 2286              		.cfi_def_cfa_offset 12
+ 2287              		.cfi_offset 4, -12
+ 2288              		.cfi_offset 5, -8
+ 2289              		.cfi_offset 14, -4
+ 2290 0002 91B0     		sub	sp, sp, #68
+ 2291              		.cfi_def_cfa_offset 80
+ 2292              	.LBB105:
+ 2293              	.LBB106:
+ 206:src/date.c    **** 		return 1;
+ 2294              		.loc 1 206 6 view .LVU673
+ 2295 0004 2D4C     		ldr	r4, .L161
+ 2296              	.LBE106:
+ 2297              	.LBE105:
+ 449:src/date.c    **** 	xset(buf, '\0', sizeof(buf));
+ 2298              		.loc 1 449 2 view .LVU674
+ 2299 0006 07A8     		add	r0, sp, #28
+ 2300              	.LVL226:
+ 449:src/date.c    **** 	xset(buf, '\0', sizeof(buf));
+ 2301              		.loc 1 449 2 view .LVU675
+ 2302 0008 FFF7FEFF 		bl	getX
+ 2303              	.LVL227:
+ 450:src/date.c    **** 	if (extract_date(&x, &y, &m, &d)) {
+ 2304              		.loc 1 450 2 is_stmt 1 view .LVU676
+ 2305 000c 03A8     		add	r0, sp, #12
+ 2306 000e 1022     		movs	r2, #16
+ 2307 0010 0021     		movs	r1, #0
+ 2308 0012 FFF7FEFF 		bl	xset
+ 2309              	.LVL228:
+ 451:src/date.c    **** 		report_err(ERR_BAD_DATE);
+ 2310              		.loc 1 451 2 view .LVU677
+ 2311              	.LBB108:
+ARM GAS  /tmp/ccnqma1I.s 			page 60
+
+
+ 2312              	.LBI105:
+ 201:src/date.c    **** 	int ip, fp, y, m, d;
+ 2313              		.loc 1 201 12 view .LVU678
+ 2314              	.LBB107:
+ 202:src/date.c    **** 	decNumber z, a;
+ 2315              		.loc 1 202 2 view .LVU679
+ 203:src/date.c    ****     int neg = 1;
+ 2316              		.loc 1 203 2 view .LVU680
+ 204:src/date.c    **** 
+ 2317              		.loc 1 204 5 view .LVU681
+ 206:src/date.c    **** 		return 1;
+ 2318              		.loc 1 206 2 view .LVU682
+ 206:src/date.c    **** 		return 1;
+ 2319              		.loc 1 206 6 is_stmt 0 view .LVU683
+ 2320 0016 94F8E837 		ldrb	r3, [r4, #2024]	@ zero_extendqisi2
+ 206:src/date.c    **** 		return 1;
+ 2321              		.loc 1 206 5 view .LVU684
+ 2322 001a DB07     		lsls	r3, r3, #31
+ 2323 001c 25D4     		bmi	.L156
+ 2324 001e 07A8     		add	r0, sp, #28
+ 2325              	.LVL229:
+ 206:src/date.c    **** 		return 1;
+ 2326              		.loc 1 206 5 view .LVU685
+ 2327 0020 6B46     		mov	r3, sp
+ 2328 0022 01AA     		add	r2, sp, #4
+ 2329              	.LVL230:
+ 206:src/date.c    **** 		return 1;
+ 2330              		.loc 1 206 5 view .LVU686
+ 2331 0024 02A9     		add	r1, sp, #8
+ 2332              	.LVL231:
+ 206:src/date.c    **** 		return 1;
+ 2333              		.loc 1 206 5 view .LVU687
+ 2334 0026 FFF7FEFF 		bl	extract_date.part.0
+ 2335              	.LVL232:
+ 206:src/date.c    **** 		return 1;
+ 2336              		.loc 1 206 5 view .LVU688
+ 2337              	.LBE107:
+ 2338              	.LBE108:
+ 451:src/date.c    **** 		report_err(ERR_BAD_DATE);
+ 2339              		.loc 1 451 5 view .LVU689
+ 2340 002a F0B9     		cbnz	r0, .L156
+ 455:src/date.c    **** 	default:
+ 2341              		.loc 1 455 2 is_stmt 1 view .LVU690
+ 455:src/date.c    **** 	default:
+ 2342              		.loc 1 455 16 is_stmt 0 view .LVU691
+ 2343 002c 94F8EA37 		ldrb	r3, [r4, #2026]	@ zero_extendqisi2
+ 455:src/date.c    **** 	default:
+ 2344              		.loc 1 455 2 view .LVU692
+ 2345 0030 13F0300F 		tst	r3, #48
+ 455:src/date.c    **** 	default:
+ 2346              		.loc 1 455 16 view .LVU693
+ 2347 0034 C3F30114 		ubfx	r4, r3, #4, #2
+ 455:src/date.c    **** 	default:
+ 2348              		.loc 1 455 2 view .LVU694
+ 2349 0038 1CD0     		beq	.L157
+ 2350 003a 022C     		cmp	r4, #2
+ 2351 003c 2CD0     		beq	.L158
+ARM GAS  /tmp/ccnqma1I.s 			page 61
+
+
+ 457:src/date.c    **** 		*p++ = '-';
+ 2352              		.loc 1 457 3 is_stmt 1 view .LVU695
+ 457:src/date.c    **** 		*p++ = '-';
+ 2353              		.loc 1 457 7 is_stmt 0 view .LVU696
+ 2354 003e 0299     		ldr	r1, [sp, #8]
+ 2355 0040 03A8     		add	r0, sp, #12
+ 2356 0042 FFF7FEFF 		bl	num_arg
+ 2357              	.LVL233:
+ 458:src/date.c    **** 		p = num_arg_0(p, m, 2);
+ 2358              		.loc 1 458 3 is_stmt 1 view .LVU697
+ 458:src/date.c    **** 		p = num_arg_0(p, m, 2);
+ 2359              		.loc 1 458 8 is_stmt 0 view .LVU698
+ 2360 0046 2D24     		movs	r4, #45
+ 2361 0048 00F8014B 		strb	r4, [r0], #1
+ 2362              	.LVL234:
+ 459:src/date.c    **** 		*p++ = '-';
+ 2363              		.loc 1 459 3 is_stmt 1 view .LVU699
+ 459:src/date.c    **** 		*p++ = '-';
+ 2364              		.loc 1 459 7 is_stmt 0 view .LVU700
+ 2365 004c 0199     		ldr	r1, [sp, #4]
+ 2366 004e 0222     		movs	r2, #2
+ 2367 0050 FFF7FEFF 		bl	num_arg_0
+ 2368              	.LVL235:
+ 460:src/date.c    **** 		num_arg_0(p, d, 2);
+ 2369              		.loc 1 460 3 is_stmt 1 view .LVU701
+ 460:src/date.c    **** 		num_arg_0(p, d, 2);
+ 2370              		.loc 1 460 8 is_stmt 0 view .LVU702
+ 2371 0054 00F8014B 		strb	r4, [r0], #1
+ 2372              	.LVL236:
+ 461:src/date.c    **** 		break;
+ 2373              		.loc 1 461 3 is_stmt 1 view .LVU703
+ 2374 0058 0099     		ldr	r1, [sp]
+ 2375 005a 0222     		movs	r2, #2
+ 2376 005c FFF7FEFF 		bl	num_arg_0
+ 2377              	.LVL237:
+ 462:src/date.c    **** 
+ 2378              		.loc 1 462 3 view .LVU704
+ 2379              	.L159:
+ 480:src/date.c    **** }
+ 2380              		.loc 1 480 2 view .LVU705
+ 2381 0060 03A8     		add	r0, sp, #12
+ 2382 0062 FFF7FEFF 		bl	add_string
+ 2383              	.LVL238:
+ 481:src/date.c    **** 
+ 2384              		.loc 1 481 1 is_stmt 0 view .LVU706
+ 2385 0066 11B0     		add	sp, sp, #68
+ 2386              		.cfi_remember_state
+ 2387              		.cfi_def_cfa_offset 12
+ 2388              		@ sp needed
+ 2389 0068 30BD     		pop	{r4, r5, pc}
+ 2390              	.L156:
+ 2391              		.cfi_restore_state
+ 452:src/date.c    **** 		return;
+ 2392              		.loc 1 452 3 is_stmt 1 view .LVU707
+ 2393 006a 0220     		movs	r0, #2
+ 2394 006c FFF7FEFF 		bl	report_err
+ 2395              	.LVL239:
+ARM GAS  /tmp/ccnqma1I.s 			page 62
+
+
+ 453:src/date.c    **** 	}
+ 2396              		.loc 1 453 3 view .LVU708
+ 481:src/date.c    **** 
+ 2397              		.loc 1 481 1 is_stmt 0 view .LVU709
+ 2398 0070 11B0     		add	sp, sp, #68
+ 2399              		.cfi_remember_state
+ 2400              		.cfi_def_cfa_offset 12
+ 2401              		@ sp needed
+ 2402 0072 30BD     		pop	{r4, r5, pc}
+ 2403              	.L157:
+ 2404              		.cfi_restore_state
+ 465:src/date.c    **** 		*p++ = '.';
+ 2405              		.loc 1 465 3 is_stmt 1 view .LVU710
+ 465:src/date.c    **** 		*p++ = '.';
+ 2406              		.loc 1 465 7 is_stmt 0 view .LVU711
+ 2407 0074 0099     		ldr	r1, [sp]
+ 2408 0076 03A8     		add	r0, sp, #12
+ 2409 0078 FFF7FEFF 		bl	num_arg
+ 2410              	.LVL240:
+ 466:src/date.c    **** 		p = num_arg_0(p, m, 2);
+ 2411              		.loc 1 466 3 is_stmt 1 view .LVU712
+ 466:src/date.c    **** 		p = num_arg_0(p, m, 2);
+ 2412              		.loc 1 466 8 is_stmt 0 view .LVU713
+ 2413 007c 2E24     		movs	r4, #46
+ 2414 007e 00F8014B 		strb	r4, [r0], #1
+ 2415              	.LVL241:
+ 467:src/date.c    **** 		*p++ = '.';
+ 2416              		.loc 1 467 3 is_stmt 1 view .LVU714
+ 467:src/date.c    **** 		*p++ = '.';
+ 2417              		.loc 1 467 7 is_stmt 0 view .LVU715
+ 2418 0082 0199     		ldr	r1, [sp, #4]
+ 2419 0084 0222     		movs	r2, #2
+ 2420 0086 FFF7FEFF 		bl	num_arg_0
+ 2421              	.LVL242:
+ 468:src/date.c    **** 		num_arg_0(p, y, 4);
+ 2422              		.loc 1 468 3 is_stmt 1 view .LVU716
+ 468:src/date.c    **** 		num_arg_0(p, y, 4);
+ 2423              		.loc 1 468 8 is_stmt 0 view .LVU717
+ 2424 008a 00F8014B 		strb	r4, [r0], #1
+ 2425              	.LVL243:
+ 469:src/date.c    **** 		break;
+ 2426              		.loc 1 469 3 is_stmt 1 view .LVU718
+ 2427 008e 0299     		ldr	r1, [sp, #8]
+ 2428 0090 0422     		movs	r2, #4
+ 2429 0092 FFF7FEFF 		bl	num_arg_0
+ 2430              	.LVL244:
+ 470:src/date.c    **** 
+ 2431              		.loc 1 470 3 view .LVU719
+ 2432 0096 E3E7     		b	.L159
+ 2433              	.L158:
+ 473:src/date.c    **** 		*p++ = '/';
+ 2434              		.loc 1 473 3 view .LVU720
+ 473:src/date.c    **** 		*p++ = '/';
+ 2435              		.loc 1 473 7 is_stmt 0 view .LVU721
+ 2436 0098 0199     		ldr	r1, [sp, #4]
+ 2437 009a 03A8     		add	r0, sp, #12
+ 2438 009c FFF7FEFF 		bl	num_arg
+ARM GAS  /tmp/ccnqma1I.s 			page 63
+
+
+ 2439              	.LVL245:
+ 474:src/date.c    **** 		p = num_arg_0(p, d, 2);
+ 2440              		.loc 1 474 3 is_stmt 1 view .LVU722
+ 474:src/date.c    **** 		p = num_arg_0(p, d, 2);
+ 2441              		.loc 1 474 8 is_stmt 0 view .LVU723
+ 2442 00a0 2F25     		movs	r5, #47
+ 2443 00a2 00F8015B 		strb	r5, [r0], #1
+ 2444              	.LVL246:
+ 475:src/date.c    **** 		*p++ ='/';
+ 2445              		.loc 1 475 3 is_stmt 1 view .LVU724
+ 475:src/date.c    **** 		*p++ ='/';
+ 2446              		.loc 1 475 7 is_stmt 0 view .LVU725
+ 2447 00a6 0099     		ldr	r1, [sp]
+ 2448 00a8 2246     		mov	r2, r4
+ 2449 00aa FFF7FEFF 		bl	num_arg_0
+ 2450              	.LVL247:
+ 476:src/date.c    **** 		num_arg_0(p, y, 4);
+ 2451              		.loc 1 476 3 is_stmt 1 view .LVU726
+ 476:src/date.c    **** 		num_arg_0(p, y, 4);
+ 2452              		.loc 1 476 8 is_stmt 0 view .LVU727
+ 2453 00ae 00F8015B 		strb	r5, [r0], #1
+ 2454              	.LVL248:
+ 477:src/date.c    **** 		break;
+ 2455              		.loc 1 477 3 is_stmt 1 view .LVU728
+ 2456 00b2 0299     		ldr	r1, [sp, #8]
+ 2457 00b4 0422     		movs	r2, #4
+ 2458 00b6 FFF7FEFF 		bl	num_arg_0
+ 2459              	.LVL249:
+ 478:src/date.c    **** 	}
+ 2460              		.loc 1 478 3 view .LVU729
+ 2461 00ba D1E7     		b	.L159
+ 2462              	.L162:
+ 2463              		.align	2
+ 2464              	.L161:
+ 2465 00bc 00000000 		.word	PersistentRam
+ 2466              		.cfi_endproc
+ 2467              	.LFE19:
+ 2469              		.section	.rodata.date_alphatime.str1.4,"aMS",%progbits,1
+ 2470              		.align	2
+ 2471              	.LC2:
+ 2472 0000 20504D00 		.ascii	" PM\000"
+ 2473              		.align	2
+ 2474              	.LC3:
+ 2475 0004 20414D00 		.ascii	" AM\000"
+ 2476              		.align	2
+ 2477              	.LC4:
+ 2478 0008 00       		.ascii	"\000"
+ 2479              		.section	.text.date_alphatime,"ax",%progbits
+ 2480              		.align	1
+ 2481              		.p2align 2,,3
+ 2482              		.global	date_alphatime
+ 2483              		.syntax unified
+ 2484              		.thumb
+ 2485              		.thumb_func
+ 2486              		.fpu fpv4-sp-d16
+ 2488              	date_alphatime:
+ 2489              	.LVL250:
+ARM GAS  /tmp/ccnqma1I.s 			page 64
+
+
+ 2490              	.LFB21:
+ 503:src/date.c    **** 
+ 504:src/date.c    **** void date_alphatime(enum nilop op) {
+ 2491              		.loc 1 504 36 view -0
+ 2492              		.cfi_startproc
+ 2493              		@ args = 0, pretend = 0, frame = 32
+ 2494              		@ frame_needed = 0, uses_anonymous_args = 0
+ 505:src/date.c    **** 	char buf[16], *p;
+ 2495              		.loc 1 505 2 view .LVU731
+ 506:src/date.c    **** 	int h, m, s;
+ 2496              		.loc 1 506 2 view .LVU732
+ 507:src/date.c    **** 	const char *suffix;
+ 2497              		.loc 1 507 2 view .LVU733
+ 508:src/date.c    **** 
+ 509:src/date.c    **** 	if (extract_time(&h, &m, &s, 100))
+ 2498              		.loc 1 509 2 view .LVU734
+ 504:src/date.c    **** 	char buf[16], *p;
+ 2499              		.loc 1 504 36 is_stmt 0 view .LVU735
+ 2500 0000 30B5     		push	{r4, r5, lr}
+ 2501              		.cfi_def_cfa_offset 12
+ 2502              		.cfi_offset 4, -12
+ 2503              		.cfi_offset 5, -8
+ 2504              		.cfi_offset 14, -4
+ 2505 0002 89B0     		sub	sp, sp, #36
+ 2506              		.cfi_def_cfa_offset 48
+ 2507              		.loc 1 509 6 view .LVU736
+ 2508 0004 6423     		movs	r3, #100
+ 2509 0006 03AA     		add	r2, sp, #12
+ 2510 0008 02A9     		add	r1, sp, #8
+ 2511 000a 01A8     		add	r0, sp, #4
+ 2512              	.LVL251:
+ 2513              		.loc 1 509 6 view .LVU737
+ 2514 000c FFF7FEFF 		bl	extract_time
+ 2515              	.LVL252:
+ 2516              		.loc 1 509 5 view .LVU738
+ 2517 0010 08B1     		cbz	r0, .L172
+ 510:src/date.c    **** 		return;
+ 511:src/date.c    **** 	xset(buf, '\0', sizeof(buf));
+ 512:src/date.c    **** 	if (UState.t12) {
+ 513:src/date.c    **** 		if (h >= 12) {
+ 514:src/date.c    **** 			h -= 12;
+ 515:src/date.c    **** 			suffix = " PM";
+ 516:src/date.c    **** 		} else
+ 517:src/date.c    **** 			suffix = " AM";
+ 518:src/date.c    **** 		if (h == 0)
+ 519:src/date.c    **** 			h = 12;
+ 520:src/date.c    **** 	} else
+ 521:src/date.c    **** 		suffix = "";
+ 522:src/date.c    **** 	p = num_arg(buf, h);
+ 523:src/date.c    **** 	*p++ = ':';
+ 524:src/date.c    **** 	p = num_arg_0(p, m, 2);
+ 525:src/date.c    **** 	*p++ = ':';
+ 526:src/date.c    **** 	p = num_arg_0(p, s, 2);
+ 527:src/date.c    **** 	scopy(p, suffix);
+ 528:src/date.c    **** 	add_string(buf);
+ 529:src/date.c    **** }
+ 2518              		.loc 1 529 1 view .LVU739
+ARM GAS  /tmp/ccnqma1I.s 			page 65
+
+
+ 2519 0012 09B0     		add	sp, sp, #36
+ 2520              		.cfi_remember_state
+ 2521              		.cfi_def_cfa_offset 12
+ 2522              		@ sp needed
+ 2523 0014 30BD     		pop	{r4, r5, pc}
+ 2524              	.L172:
+ 2525              		.cfi_restore_state
+ 511:src/date.c    **** 	if (UState.t12) {
+ 2526              		.loc 1 511 2 is_stmt 1 view .LVU740
+ 2527 0016 0146     		mov	r1, r0
+ 2528 0018 1022     		movs	r2, #16
+ 2529 001a 04A8     		add	r0, sp, #16
+ 2530 001c FFF7FEFF 		bl	xset
+ 2531              	.LVL253:
+ 512:src/date.c    **** 		if (h >= 12) {
+ 2532              		.loc 1 512 2 view .LVU741
+ 512:src/date.c    **** 		if (h >= 12) {
+ 2533              		.loc 1 512 6 is_stmt 0 view .LVU742
+ 2534 0020 144B     		ldr	r3, .L173
+ 513:src/date.c    **** 			h -= 12;
+ 2535              		.loc 1 513 9 view .LVU743
+ 2536 0022 0199     		ldr	r1, [sp, #4]
+ 512:src/date.c    **** 		if (h >= 12) {
+ 2537              		.loc 1 512 5 view .LVU744
+ 2538 0024 93F9E937 		ldrsb	r3, [r3, #2025]
+ 2539 0028 002B     		cmp	r3, #0
+ 2540 002a 18DB     		blt	.L166
+ 521:src/date.c    **** 	p = num_arg(buf, h);
+ 2541              		.loc 1 521 10 view .LVU745
+ 2542 002c 124D     		ldr	r5, .L173+4
+ 2543              	.L167:
+ 2544              	.LVL254:
+ 522:src/date.c    **** 	*p++ = ':';
+ 2545              		.loc 1 522 2 is_stmt 1 discriminator 1 view .LVU746
+ 522:src/date.c    **** 	*p++ = ':';
+ 2546              		.loc 1 522 6 is_stmt 0 discriminator 1 view .LVU747
+ 2547 002e 04A8     		add	r0, sp, #16
+ 2548 0030 FFF7FEFF 		bl	num_arg
+ 2549              	.LVL255:
+ 523:src/date.c    **** 	p = num_arg_0(p, m, 2);
+ 2550              		.loc 1 523 2 is_stmt 1 discriminator 1 view .LVU748
+ 523:src/date.c    **** 	p = num_arg_0(p, m, 2);
+ 2551              		.loc 1 523 7 is_stmt 0 discriminator 1 view .LVU749
+ 2552 0034 3A24     		movs	r4, #58
+ 2553 0036 00F8014B 		strb	r4, [r0], #1
+ 2554              	.LVL256:
+ 524:src/date.c    **** 	*p++ = ':';
+ 2555              		.loc 1 524 2 is_stmt 1 discriminator 1 view .LVU750
+ 524:src/date.c    **** 	*p++ = ':';
+ 2556              		.loc 1 524 6 is_stmt 0 discriminator 1 view .LVU751
+ 2557 003a 0299     		ldr	r1, [sp, #8]
+ 2558 003c 0222     		movs	r2, #2
+ 2559 003e FFF7FEFF 		bl	num_arg_0
+ 2560              	.LVL257:
+ 525:src/date.c    **** 	p = num_arg_0(p, s, 2);
+ 2561              		.loc 1 525 2 is_stmt 1 discriminator 1 view .LVU752
+ 525:src/date.c    **** 	p = num_arg_0(p, s, 2);
+ARM GAS  /tmp/ccnqma1I.s 			page 66
+
+
+ 2562              		.loc 1 525 7 is_stmt 0 discriminator 1 view .LVU753
+ 2563 0042 00F8014B 		strb	r4, [r0], #1
+ 2564              	.LVL258:
+ 526:src/date.c    **** 	scopy(p, suffix);
+ 2565              		.loc 1 526 2 is_stmt 1 discriminator 1 view .LVU754
+ 526:src/date.c    **** 	scopy(p, suffix);
+ 2566              		.loc 1 526 6 is_stmt 0 discriminator 1 view .LVU755
+ 2567 0046 0222     		movs	r2, #2
+ 2568 0048 0399     		ldr	r1, [sp, #12]
+ 2569 004a FFF7FEFF 		bl	num_arg_0
+ 2570              	.LVL259:
+ 527:src/date.c    **** 	add_string(buf);
+ 2571              		.loc 1 527 2 is_stmt 1 discriminator 1 view .LVU756
+ 2572 004e 2946     		mov	r1, r5
+ 2573 0050 FFF7FEFF 		bl	scopy
+ 2574              	.LVL260:
+ 528:src/date.c    **** }
+ 2575              		.loc 1 528 2 discriminator 1 view .LVU757
+ 2576 0054 04A8     		add	r0, sp, #16
+ 2577 0056 FFF7FEFF 		bl	add_string
+ 2578              	.LVL261:
+ 2579              		.loc 1 529 1 is_stmt 0 discriminator 1 view .LVU758
+ 2580 005a 09B0     		add	sp, sp, #36
+ 2581              		.cfi_remember_state
+ 2582              		.cfi_def_cfa_offset 12
+ 2583              		@ sp needed
+ 2584 005c 30BD     		pop	{r4, r5, pc}
+ 2585              	.LVL262:
+ 2586              	.L166:
+ 2587              		.cfi_restore_state
+ 513:src/date.c    **** 			h -= 12;
+ 2588              		.loc 1 513 3 is_stmt 1 view .LVU759
+ 513:src/date.c    **** 			h -= 12;
+ 2589              		.loc 1 513 6 is_stmt 0 view .LVU760
+ 2590 005e 0B29     		cmp	r1, #11
+ 514:src/date.c    **** 			suffix = " PM";
+ 2591              		.loc 1 514 4 is_stmt 1 view .LVU761
+ 514:src/date.c    **** 			suffix = " PM";
+ 2592              		.loc 1 514 6 is_stmt 0 view .LVU762
+ 2593 0060 C5BF     		ittet	gt
+ 2594 0062 0C39     		subgt	r1, r1, #12
+ 515:src/date.c    **** 		} else
+ 2595              		.loc 1 515 11 view .LVU763
+ 2596 0064 054D     		ldrgt	r5, .L173+8
+ 517:src/date.c    **** 		if (h == 0)
+ 2597              		.loc 1 517 11 view .LVU764
+ 2598 0066 064D     		ldrle	r5, .L173+12
+ 514:src/date.c    **** 			suffix = " PM";
+ 2599              		.loc 1 514 6 view .LVU765
+ 2600 0068 0191     		strgt	r1, [sp, #4]
+ 515:src/date.c    **** 		} else
+ 2601              		.loc 1 515 4 is_stmt 1 view .LVU766
+ 2602              	.LVL263:
+ 518:src/date.c    **** 			h = 12;
+ 2603              		.loc 1 518 3 view .LVU767
+ 518:src/date.c    **** 			h = 12;
+ 2604              		.loc 1 518 6 is_stmt 0 view .LVU768
+ARM GAS  /tmp/ccnqma1I.s 			page 67
+
+
+ 2605 006a 0029     		cmp	r1, #0
+ 2606 006c DFD1     		bne	.L167
+ 519:src/date.c    **** 	} else
+ 2607              		.loc 1 519 4 is_stmt 1 view .LVU769
+ 519:src/date.c    **** 	} else
+ 2608              		.loc 1 519 6 is_stmt 0 view .LVU770
+ 2609 006e 0C21     		movs	r1, #12
+ 2610 0070 0191     		str	r1, [sp, #4]
+ 2611 0072 DCE7     		b	.L167
+ 2612              	.L174:
+ 2613              		.align	2
+ 2614              	.L173:
+ 2615 0074 00000000 		.word	PersistentRam
+ 2616 0078 08000000 		.word	.LC4
+ 2617 007c 00000000 		.word	.LC2
+ 2618 0080 04000000 		.word	.LC3
+ 2619              		.cfi_endproc
+ 2620              	.LFE21:
+ 2622              		.section	.text.date_date,"ax",%progbits
+ 2623              		.align	1
+ 2624              		.p2align 2,,3
+ 2625              		.global	date_date
+ 2626              		.syntax unified
+ 2627              		.thumb
+ 2628              		.thumb_func
+ 2629              		.fpu fpv4-sp-d16
+ 2631              	date_date:
+ 2632              	.LVL264:
+ 2633              	.LFB24:
+ 530:src/date.c    **** 
+ 531:src/date.c    **** 
+ 532:src/date.c    **** /* These routines get the real time and day from the RTC */
+ 533:src/date.c    **** 
+ 534:src/date.c    **** static void query_time(unsigned int *s, unsigned int *m, unsigned int *h) {
+ 535:src/date.c    **** #ifdef REALBUILD
+ 536:src/date.c    **** 	unsigned char hour, minute, second;
+ 537:src/date.c    **** 	
+ 538:src/date.c    **** 	RTC_GetTime(&hour, &minute, &second);
+ 539:src/date.c    **** 	*s = second;
+ 540:src/date.c    **** 	*m = minute;
+ 541:src/date.c    **** 	*h = hour;
+ 542:src/date.c    **** #else
+ 543:src/date.c    **** 	//	time_t now = time(NULL);
+ 544:src/date.c    **** 	//struct tm *dt = localtime(&now);
+ 545:src/date.c    **** 
+ 546:src/date.c    **** 	//*h = dt->tm_hour;
+ 547:src/date.c    **** 	//*m = dt->tm_min;
+ 548:src/date.c    **** 	//*s = dt->tm_sec;
+ 549:src/date.c    **** #endif
+ 550:src/date.c    **** }
+ 551:src/date.c    **** 
+ 552:src/date.c    **** static void query_date(unsigned int *d, unsigned int *m, unsigned int *y) {
+ 553:src/date.c    **** #ifdef REALBUILD
+ 554:src/date.c    **** 	unsigned char day, month, dow;
+ 555:src/date.c    **** 	unsigned short year;
+ 556:src/date.c    **** 	
+ 557:src/date.c    **** 	RTC_GetDate( &year, &month, &day, &dow );
+ARM GAS  /tmp/ccnqma1I.s 			page 68
+
+
+ 558:src/date.c    **** 
+ 559:src/date.c    **** 	*y = year;
+ 560:src/date.c    **** 	*m = month;
+ 561:src/date.c    **** 	*d = day;
+ 562:src/date.c    **** #else
+ 563:src/date.c    **** 	//	time_t now = time(NULL);
+ 564:src/date.c    **** 	//struct tm *dt = localtime(&now);
+ 565:src/date.c    **** 
+ 566:src/date.c    **** 	//*y = dt->tm_year + 1900;
+ 567:src/date.c    **** 	//*m = dt->tm_mon + 1;
+ 568:src/date.c    **** 	//*d = dt->tm_mday;
+ 569:src/date.c    **** #endif
+ 570:src/date.c    **** }
+ 571:src/date.c    **** 
+ 572:src/date.c    **** 
+ 573:src/date.c    **** void date_date(enum nilop op) {
+ 2634              		.loc 1 573 31 is_stmt 1 view -0
+ 2635              		.cfi_startproc
+ 2636              		@ args = 0, pretend = 0, frame = 40
+ 2637              		@ frame_needed = 0, uses_anonymous_args = 0
+ 574:src/date.c    **** 	if (Xtal) {
+ 2638              		.loc 1 574 2 view .LVU772
+ 2639              	.LBB109:
+ 575:src/date.c    **** 		unsigned int d, m, y;
+ 2640              		.loc 1 575 3 view .LVU773
+ 576:src/date.c    **** 		decNumber z;
+ 2641              		.loc 1 576 3 view .LVU774
+ 577:src/date.c    **** 
+ 578:src/date.c    **** 		query_date(&d, &m, &y);
+ 2642              		.loc 1 578 3 view .LVU775
+ 2643              		.loc 1 578 3 is_stmt 0 view .LVU776
+ 2644              	.LBE109:
+ 570:src/date.c    **** 
+ 2645              		.loc 1 570 1 is_stmt 1 view .LVU777
+ 2646              	.LBB110:
+ 579:src/date.c    **** 		build_date(&z, y, m, d);
+ 2647              		.loc 1 579 3 view .LVU778
+ 2648              	.LBE110:
+ 573:src/date.c    **** 	if (Xtal) {
+ 2649              		.loc 1 573 31 is_stmt 0 view .LVU779
+ 2650 0000 00B5     		push	{lr}
+ 2651              		.cfi_def_cfa_offset 4
+ 2652              		.cfi_offset 14, -4
+ 2653              	.LBB111:
+ 2654              		.loc 1 579 3 view .LVU780
+ 2655 0002 0023     		movs	r3, #0
+ 2656              	.LBE111:
+ 573:src/date.c    **** 	if (Xtal) {
+ 2657              		.loc 1 573 31 view .LVU781
+ 2658 0004 8BB0     		sub	sp, sp, #44
+ 2659              		.cfi_def_cfa_offset 48
+ 2660              	.LBB112:
+ 2661              		.loc 1 579 3 view .LVU782
+ 2662 0006 1A46     		mov	r2, r3
+ 2663 0008 1946     		mov	r1, r3
+ 2664 000a 01A8     		add	r0, sp, #4
+ 2665              	.LVL265:
+ARM GAS  /tmp/ccnqma1I.s 			page 69
+
+
+ 2666              		.loc 1 579 3 view .LVU783
+ 2667 000c FFF7FEFF 		bl	build_date
+ 2668              	.LVL266:
+ 580:src/date.c    **** 		setX(&z);
+ 2669              		.loc 1 580 3 is_stmt 1 view .LVU784
+ 2670 0010 01A8     		add	r0, sp, #4
+ 2671 0012 FFF7FEFF 		bl	setX
+ 2672              	.LVL267:
+ 2673              		.loc 1 580 3 is_stmt 0 view .LVU785
+ 2674              	.LBE112:
+ 581:src/date.c    **** 	} else
+ 582:src/date.c    **** 		report_err(ERR_NO_CRYSTAL);
+ 583:src/date.c    **** }
+ 2675              		.loc 1 583 1 view .LVU786
+ 2676 0016 0BB0     		add	sp, sp, #44
+ 2677              		.cfi_def_cfa_offset 4
+ 2678              		@ sp needed
+ 2679 0018 5DF804FB 		ldr	pc, [sp], #4
+ 2680              		.cfi_endproc
+ 2681              	.LFE24:
+ 2683              		.section	.text.date_time,"ax",%progbits
+ 2684              		.align	1
+ 2685              		.p2align 2,,3
+ 2686              		.global	date_time
+ 2687              		.syntax unified
+ 2688              		.thumb
+ 2689              		.thumb_func
+ 2690              		.fpu fpv4-sp-d16
+ 2692              	date_time:
+ 2693              	.LVL268:
+ 2694              	.LFB25:
+ 584:src/date.c    **** 
+ 585:src/date.c    **** void date_time(enum nilop op) {
+ 2695              		.loc 1 585 31 is_stmt 1 view -0
+ 2696              		.cfi_startproc
+ 2697              		@ args = 0, pretend = 0, frame = 72
+ 2698              		@ frame_needed = 0, uses_anonymous_args = 0
+ 586:src/date.c    **** 	if (Xtal) {
+ 2699              		.loc 1 586 2 view .LVU788
+ 2700              	.LBB113:
+ 587:src/date.c    **** 		unsigned int h, m, s;
+ 2701              		.loc 1 587 3 view .LVU789
+ 588:src/date.c    **** 		decNumber a, b;
+ 2702              		.loc 1 588 3 view .LVU790
+ 589:src/date.c    **** 
+ 590:src/date.c    **** 		query_time(&s, &m, &h);
+ 2703              		.loc 1 590 3 view .LVU791
+ 2704              		.loc 1 590 3 is_stmt 0 view .LVU792
+ 2705              	.LBE113:
+ 550:src/date.c    **** 
+ 2706              		.loc 1 550 1 is_stmt 1 view .LVU793
+ 2707              	.LBB114:
+ 591:src/date.c    **** 		h = (h * 100 + m) * 100 + s;
+ 2708              		.loc 1 591 3 view .LVU794
+ 592:src/date.c    **** 		int_to_dn(&a, h);
+ 2709              		.loc 1 592 3 view .LVU795
+ 2710              	.LBE114:
+ARM GAS  /tmp/ccnqma1I.s 			page 70
+
+
+ 585:src/date.c    **** 	if (Xtal) {
+ 2711              		.loc 1 585 31 is_stmt 0 view .LVU796
+ 2712 0000 00B5     		push	{lr}
+ 2713              		.cfi_def_cfa_offset 4
+ 2714              		.cfi_offset 14, -4
+ 2715 0002 93B0     		sub	sp, sp, #76
+ 2716              		.cfi_def_cfa_offset 80
+ 2717              	.LBB115:
+ 2718              		.loc 1 592 3 view .LVU797
+ 2719 0004 6846     		mov	r0, sp
+ 2720              	.LVL269:
+ 2721              		.loc 1 592 3 view .LVU798
+ 2722 0006 0021     		movs	r1, #0
+ 2723 0008 FFF7FEFF 		bl	int_to_dn
+ 2724              	.LVL270:
+ 593:src/date.c    **** 		dn_mulpow10(&b, &a, -4);
+ 2725              		.loc 1 593 3 is_stmt 1 view .LVU799
+ 2726 000c 6946     		mov	r1, sp
+ 2727 000e 6FF00302 		mvn	r2, #3
+ 2728 0012 09A8     		add	r0, sp, #36
+ 2729 0014 FFF7FEFF 		bl	dn_mulpow10
+ 2730              	.LVL271:
+ 594:src/date.c    **** 		setX(&b);
+ 2731              		.loc 1 594 3 view .LVU800
+ 2732 0018 09A8     		add	r0, sp, #36
+ 2733 001a FFF7FEFF 		bl	setX
+ 2734              	.LVL272:
+ 2735              		.loc 1 594 3 is_stmt 0 view .LVU801
+ 2736              	.LBE115:
+ 595:src/date.c    **** 	} else
+ 596:src/date.c    **** 		report_err(ERR_NO_CRYSTAL);
+ 597:src/date.c    **** }
+ 2737              		.loc 1 597 1 view .LVU802
+ 2738 001e 13B0     		add	sp, sp, #76
+ 2739              		.cfi_def_cfa_offset 4
+ 2740              		@ sp needed
+ 2741 0020 5DF804FB 		ldr	pc, [sp], #4
+ 2742              		.cfi_endproc
+ 2743              	.LFE25:
+ 2745              		.section	.text.date_setdate,"ax",%progbits
+ 2746              		.align	1
+ 2747              		.p2align 2,,3
+ 2748              		.global	date_setdate
+ 2749              		.syntax unified
+ 2750              		.thumb
+ 2751              		.thumb_func
+ 2752              		.fpu fpv4-sp-d16
+ 2754              	date_setdate:
+ 2755              	.LVL273:
+ 2756              	.LFB26:
+ 598:src/date.c    **** 
+ 599:src/date.c    **** void date_setdate(enum nilop op) {
+ 2757              		.loc 1 599 34 is_stmt 1 view -0
+ 2758              		.cfi_startproc
+ 2759              		@ args = 0, pretend = 0, frame = 48
+ 2760              		@ frame_needed = 0, uses_anonymous_args = 0
+ 600:src/date.c    **** 	int d, m, y, dow;
+ARM GAS  /tmp/ccnqma1I.s 			page 71
+
+
+ 2761              		.loc 1 600 2 view .LVU804
+ 601:src/date.c    **** 	decNumber x;
+ 2762              		.loc 1 601 2 view .LVU805
+ 602:src/date.c    **** 
+ 603:src/date.c    **** 	getX(&x);
+ 2763              		.loc 1 603 2 view .LVU806
+ 599:src/date.c    **** 	int d, m, y, dow;
+ 2764              		.loc 1 599 34 is_stmt 0 view .LVU807
+ 2765 0000 00B5     		push	{lr}
+ 2766              		.cfi_def_cfa_offset 4
+ 2767              		.cfi_offset 14, -4
+ 2768 0002 8DB0     		sub	sp, sp, #52
+ 2769              		.cfi_def_cfa_offset 56
+ 2770              		.loc 1 603 2 view .LVU808
+ 2771 0004 03A8     		add	r0, sp, #12
+ 2772              	.LVL274:
+ 2773              		.loc 1 603 2 view .LVU809
+ 2774 0006 FFF7FEFF 		bl	getX
+ 2775              	.LVL275:
+ 604:src/date.c    **** 	if (extract_date(&x, &y, &m, &d)) {
+ 2776              		.loc 1 604 2 is_stmt 1 view .LVU810
+ 2777              	.LBB116:
+ 2778              	.LBI116:
+ 201:src/date.c    **** 	int ip, fp, y, m, d;
+ 2779              		.loc 1 201 12 view .LVU811
+ 2780              	.LBB117:
+ 202:src/date.c    **** 	decNumber z, a;
+ 2781              		.loc 1 202 2 view .LVU812
+ 203:src/date.c    ****     int neg = 1;
+ 2782              		.loc 1 203 2 view .LVU813
+ 204:src/date.c    **** 
+ 2783              		.loc 1 204 5 view .LVU814
+ 206:src/date.c    **** 		return 1;
+ 2784              		.loc 1 206 2 view .LVU815
+ 206:src/date.c    **** 		return 1;
+ 2785              		.loc 1 206 6 is_stmt 0 view .LVU816
+ 2786 000a 0C4B     		ldr	r3, .L185
+ 2787 000c 93F8E837 		ldrb	r3, [r3, #2024]	@ zero_extendqisi2
+ 206:src/date.c    **** 		return 1;
+ 2788              		.loc 1 206 5 view .LVU817
+ 2789 0010 DB07     		lsls	r3, r3, #31
+ 2790 0012 06D4     		bmi	.L182
+ 2791 0014 03A8     		add	r0, sp, #12
+ 2792              	.LVL276:
+ 206:src/date.c    **** 		return 1;
+ 2793              		.loc 1 206 5 view .LVU818
+ 2794 0016 6B46     		mov	r3, sp
+ 2795 0018 01AA     		add	r2, sp, #4
+ 2796              	.LVL277:
+ 206:src/date.c    **** 		return 1;
+ 2797              		.loc 1 206 5 view .LVU819
+ 2798 001a 02A9     		add	r1, sp, #8
+ 2799              	.LVL278:
+ 206:src/date.c    **** 		return 1;
+ 2800              		.loc 1 206 5 view .LVU820
+ 2801 001c FFF7FEFF 		bl	extract_date.part.0
+ 2802              	.LVL279:
+ARM GAS  /tmp/ccnqma1I.s 			page 72
+
+
+ 206:src/date.c    **** 		return 1;
+ 2803              		.loc 1 206 5 view .LVU821
+ 2804              	.LBE117:
+ 2805              	.LBE116:
+ 2806              		.loc 1 604 5 view .LVU822
+ 2807 0020 28B1     		cbz	r0, .L184
+ 2808              	.L182:
+ 605:src/date.c    **** 		report_err(ERR_BAD_DATE);
+ 2809              		.loc 1 605 3 is_stmt 1 view .LVU823
+ 2810 0022 0220     		movs	r0, #2
+ 2811 0024 FFF7FEFF 		bl	report_err
+ 2812              	.LVL280:
+ 606:src/date.c    **** 		return;
+ 2813              		.loc 1 606 3 view .LVU824
+ 607:src/date.c    **** 	}
+ 608:src/date.c    **** 	dow = day_of_week(y, m, d, NULL);
+ 609:src/date.c    **** #ifdef REALBUILD
+ 610:src/date.c    **** 	if (Xtal) {
+ 611:src/date.c    **** 		busy();
+ 612:src/date.c    **** 		RTC_SetDate((unsigned short) y, (unsigned char) m,
+ 613:src/date.c    **** 			    (unsigned char) d, (unsigned char) dow);
+ 614:src/date.c    **** 	} else
+ 615:src/date.c    **** 		report_err(ERR_NO_CRYSTAL);
+ 616:src/date.c    **** #else
+ 617:src/date.c    **** 	// So that very strict compilers (i.e. gcc4.6 do not complain that dow is unused with -Wall)
+ 618:src/date.c    **** 	(void) dow;
+ 619:src/date.c    **** 	report_err(ERR_ILLEGAL);
+ 620:src/date.c    **** #endif
+ 621:src/date.c    **** }
+ 2814              		.loc 1 621 1 is_stmt 0 view .LVU825
+ 2815 0028 0DB0     		add	sp, sp, #52
+ 2816              		.cfi_remember_state
+ 2817              		.cfi_def_cfa_offset 4
+ 2818              		@ sp needed
+ 2819 002a 5DF804FB 		ldr	pc, [sp], #4
+ 2820              	.L184:
+ 2821              		.cfi_restore_state
+ 608:src/date.c    **** #ifdef REALBUILD
+ 2822              		.loc 1 608 2 is_stmt 1 view .LVU826
+ 2823              	.LVL281:
+ 140:src/date.c    **** 	const char *const days = "\007\016\025\035\047\060\067"
+ 2824              		.loc 1 140 2 view .LVU827
+ 141:src/date.c    **** 				"Sunday\0Monday\0Tuesday\0Wednesday\0"
+ 2825              		.loc 1 141 2 view .LVU828
+ 144:src/date.c    **** 	if (msg != NULL && ! Running)
+ 2826              		.loc 1 144 2 view .LVU829
+ 145:src/date.c    **** 		*msg = days + ((unsigned char *)days)[h];
+ 2827              		.loc 1 145 2 view .LVU830
+ 147:src/date.c    **** }
+ 2828              		.loc 1 147 2 view .LVU831
+ 618:src/date.c    **** 	report_err(ERR_ILLEGAL);
+ 2829              		.loc 1 618 2 view .LVU832
+ 619:src/date.c    **** #endif
+ 2830              		.loc 1 619 2 view .LVU833
+ 2831 002e 0720     		movs	r0, #7
+ 2832 0030 FFF7FEFF 		bl	report_err
+ 2833              	.LVL282:
+ARM GAS  /tmp/ccnqma1I.s 			page 73
+
+
+ 2834              		.loc 1 621 1 is_stmt 0 view .LVU834
+ 2835 0034 0DB0     		add	sp, sp, #52
+ 2836              		.cfi_def_cfa_offset 4
+ 2837              		@ sp needed
+ 2838 0036 5DF804FB 		ldr	pc, [sp], #4
+ 2839              	.L186:
+ 2840 003a 00BF     		.align	2
+ 2841              	.L185:
+ 2842 003c 00000000 		.word	PersistentRam
+ 2843              		.cfi_endproc
+ 2844              	.LFE26:
+ 2846              		.section	.text.date_settime,"ax",%progbits
+ 2847              		.align	1
+ 2848              		.p2align 2,,3
+ 2849              		.global	date_settime
+ 2850              		.syntax unified
+ 2851              		.thumb
+ 2852              		.thumb_func
+ 2853              		.fpu fpv4-sp-d16
+ 2855              	date_settime:
+ 2856              	.LVL283:
+ 2857              	.LFB27:
+ 622:src/date.c    **** 
+ 623:src/date.c    **** void date_settime(enum nilop op) {
+ 2858              		.loc 1 623 34 is_stmt 1 view -0
+ 2859              		.cfi_startproc
+ 2860              		@ args = 0, pretend = 0, frame = 16
+ 2861              		@ frame_needed = 0, uses_anonymous_args = 0
+ 624:src/date.c    **** 	int h, m, s;
+ 2862              		.loc 1 624 2 view .LVU836
+ 625:src/date.c    **** 	if (extract_time(&h, &m, &s, 24))
+ 2863              		.loc 1 625 2 view .LVU837
+ 623:src/date.c    **** 	int h, m, s;
+ 2864              		.loc 1 623 34 is_stmt 0 view .LVU838
+ 2865 0000 00B5     		push	{lr}
+ 2866              		.cfi_def_cfa_offset 4
+ 2867              		.cfi_offset 14, -4
+ 2868 0002 85B0     		sub	sp, sp, #20
+ 2869              		.cfi_def_cfa_offset 24
+ 2870              		.loc 1 625 6 view .LVU839
+ 2871 0004 1823     		movs	r3, #24
+ 2872 0006 03AA     		add	r2, sp, #12
+ 2873 0008 02A9     		add	r1, sp, #8
+ 2874 000a 01A8     		add	r0, sp, #4
+ 2875              	.LVL284:
+ 2876              		.loc 1 625 6 view .LVU840
+ 2877 000c FFF7FEFF 		bl	extract_time
+ 2878              	.LVL285:
+ 2879              		.loc 1 625 5 view .LVU841
+ 2880 0010 10B9     		cbnz	r0, .L187
+ 626:src/date.c    **** 		return;
+ 627:src/date.c    **** #ifdef REALBUILD
+ 628:src/date.c    **** 	if (Xtal) {
+ 629:src/date.c    **** 		busy();
+ 630:src/date.c    **** 		RTC_SetTime((unsigned char) h, (unsigned char) m, (unsigned char) s);
+ 631:src/date.c    **** 	} else
+ 632:src/date.c    **** 		report_err(ERR_NO_CRYSTAL);
+ARM GAS  /tmp/ccnqma1I.s 			page 74
+
+
+ 633:src/date.c    **** #else
+ 634:src/date.c    **** 	report_err(ERR_ILLEGAL);
+ 2881              		.loc 1 634 2 is_stmt 1 view .LVU842
+ 2882 0012 0720     		movs	r0, #7
+ 2883 0014 FFF7FEFF 		bl	report_err
+ 2884              	.LVL286:
+ 2885              	.L187:
+ 635:src/date.c    **** #endif
+ 636:src/date.c    **** }
+ 2886              		.loc 1 636 1 is_stmt 0 view .LVU843
+ 2887 0018 05B0     		add	sp, sp, #20
+ 2888              		.cfi_def_cfa_offset 4
+ 2889              		@ sp needed
+ 2890 001a 5DF804FB 		ldr	pc, [sp], #4
+ 2891              		.cfi_endproc
+ 2892              	.LFE27:
+ 2894 001e 00BF     		.section	.rodata
+ 2895              		.align	2
+ 2896              		.set	.LANCHOR0,. + 0
+ 2897              	.LC0:
+ 2898 0000 070E151D 		.ascii	"\007\016\025\035'07Sunday\000Monday\000Tuesday\000W"
+ 2898      27303753 
+ 2898      756E6461 
+ 2898      79004D6F 
+ 2898      6E646179 
+ 2899 001e 65646E65 		.ascii	"ednesday\000Thursday\000Friday\000Saturday\000"
+ 2899      73646179 
+ 2899      00546875 
+ 2899      72736461 
+ 2899      79004672 
+ 2900              		.section	.rodata.mons.8918,"a"
+ 2901              		.align	2
+ 2902              		.set	.LANCHOR1,. + 0
+ 2905              	mons.8918:
+ 2906 0000 4A414E46 		.ascii	"JANFEBMARAPRMAYJUNJULAUGSEPOCTNOVDEC"
+ 2906      45424D41 
+ 2906      52415052 
+ 2906      4D41594A 
+ 2906      554E4A55 
+ 2907              		.text
+ 2908              	.Letext0:
+ 2909              		.file 2 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h"
+ 2910              		.file 3 "dmcp/dmcp.h"
+ 2911              		.file 4 "src/decNumber/decContext.h"
+ 2912              		.file 5 "src/decNumber/decNumber.h"
+ 2913              		.file 6 "src/decNumber/decimal64.h"
+ 2914              		.file 7 "src/decNumber/decimal128.h"
+ 2915              		.file 8 "src/xeq.h"
+ 2916              		.file 9 "src/data.h"
+ 2917              		.file 10 "src/consts.h"
+ 2918              		.file 11 "src/decn.h"
+ 2919              		.file 12 "src/alpha.h"
+ARM GAS  /tmp/ccnqma1I.s 			page 75
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 date.c
+     /tmp/ccnqma1I.s:18     .text.JDN:0000000000000000 $t
+     /tmp/ccnqma1I.s:26     .text.JDN:0000000000000000 JDN
+     /tmp/ccnqma1I.s:209    .text.JDN:00000000000000b0 $d
+     /tmp/ccnqma1I.s:218    .text.JDN2:0000000000000000 $t
+     /tmp/ccnqma1I.s:225    .text.JDN2:0000000000000000 JDN2
+     /tmp/ccnqma1I.s:409    .text.JDN2:00000000000000d4 $d
+     /tmp/ccnqma1I.s:422    .text.check_date:0000000000000000 $t
+     /tmp/ccnqma1I.s:429    .text.check_date:0000000000000000 check_date
+     /tmp/ccnqma1I.s:500    .text.extract_time:0000000000000000 $t
+     /tmp/ccnqma1I.s:507    .text.extract_time:0000000000000000 extract_time
+     /tmp/ccnqma1I.s:631    .text.extract_time:000000000000007c $d
+     /tmp/ccnqma1I.s:636    .text.extract_date.part.0:0000000000000000 $t
+     /tmp/ccnqma1I.s:643    .text.extract_date.part.0:0000000000000000 extract_date.part.0
+     /tmp/ccnqma1I.s:857    .text.extract_date.part.0:00000000000000e0 $d
+     /tmp/ccnqma1I.s:862    .text.dateExtract:0000000000000000 $t
+     /tmp/ccnqma1I.s:869    .text.dateExtract:0000000000000000 dateExtract
+     /tmp/ccnqma1I.s:961    .text.dateExtract:0000000000000038 $d
+     /tmp/ccnqma1I.s:966    .text.day_of_week.constprop.0:0000000000000000 $t
+     /tmp/ccnqma1I.s:973    .text.day_of_week.constprop.0:0000000000000000 day_of_week.constprop.0
+     /tmp/ccnqma1I.s:1036   .text.day_of_week.constprop.0:0000000000000038 $d
+     /tmp/ccnqma1I.s:1044   .text.build_date:0000000000000000 $t
+     /tmp/ccnqma1I.s:1051   .text.build_date:0000000000000000 build_date
+     /tmp/ccnqma1I.s:1213   .text.build_date:00000000000000ac $d
+     /tmp/ccnqma1I.s:1218   .text.dateFromYMD:0000000000000000 $t
+     /tmp/ccnqma1I.s:1226   .text.dateFromYMD:0000000000000000 dateFromYMD
+     /tmp/ccnqma1I.s:1328   .text.date_isleap:0000000000000000 $t
+     /tmp/ccnqma1I.s:1336   .text.date_isleap:0000000000000000 date_isleap
+     /tmp/ccnqma1I.s:1548   .text.date_isleap:000000000000009c $d
+     /tmp/ccnqma1I.s:1559   .text.dateDayOfWeek:0000000000000000 $t
+     /tmp/ccnqma1I.s:1567   .text.dateDayOfWeek:0000000000000000 dateDayOfWeek
+     /tmp/ccnqma1I.s:1627   .text.dateExtraction:0000000000000000 $t
+     /tmp/ccnqma1I.s:1635   .text.dateExtraction:0000000000000000 dateExtraction
+     /tmp/ccnqma1I.s:1698   .text.dateExtraction:0000000000000038 $d
+     /tmp/ccnqma1I.s:1703   .rodata.date_alphaday.str1.4:0000000000000000 $d
+     /tmp/ccnqma1I.s:1707   .text.date_alphaday:0000000000000000 $t
+     /tmp/ccnqma1I.s:1715   .text.date_alphaday:0000000000000000 date_alphaday
+     /tmp/ccnqma1I.s:1901   .text.date_alphaday:0000000000000094 $d
+     /tmp/ccnqma1I.s:1910   .text.date_alphamonth:0000000000000000 $t
+     /tmp/ccnqma1I.s:1918   .text.date_alphamonth:0000000000000000 date_alphamonth
+     /tmp/ccnqma1I.s:2058   .text.date_alphamonth:0000000000000068 $d
+     /tmp/ccnqma1I.s:2064   .text.dateToJ:0000000000000000 $t
+     /tmp/ccnqma1I.s:2072   .text.dateToJ:0000000000000000 dateToJ
+     /tmp/ccnqma1I.s:2169   .text.dateToJ:000000000000004c $d
+     /tmp/ccnqma1I.s:2174   .text.dateFromJ:0000000000000000 $t
+     /tmp/ccnqma1I.s:2182   .text.dateFromJ:0000000000000000 dateFromJ
+     /tmp/ccnqma1I.s:2264   .text.date_alphadate:0000000000000000 $t
+     /tmp/ccnqma1I.s:2272   .text.date_alphadate:0000000000000000 date_alphadate
+     /tmp/ccnqma1I.s:2465   .text.date_alphadate:00000000000000bc $d
+     /tmp/ccnqma1I.s:2470   .rodata.date_alphatime.str1.4:0000000000000000 $d
+     /tmp/ccnqma1I.s:2480   .text.date_alphatime:0000000000000000 $t
+     /tmp/ccnqma1I.s:2488   .text.date_alphatime:0000000000000000 date_alphatime
+     /tmp/ccnqma1I.s:2615   .text.date_alphatime:0000000000000074 $d
+     /tmp/ccnqma1I.s:2623   .text.date_date:0000000000000000 $t
+     /tmp/ccnqma1I.s:2631   .text.date_date:0000000000000000 date_date
+     /tmp/ccnqma1I.s:2684   .text.date_time:0000000000000000 $t
+ARM GAS  /tmp/ccnqma1I.s 			page 76
+
+
+     /tmp/ccnqma1I.s:2692   .text.date_time:0000000000000000 date_time
+     /tmp/ccnqma1I.s:2746   .text.date_setdate:0000000000000000 $t
+     /tmp/ccnqma1I.s:2754   .text.date_setdate:0000000000000000 date_setdate
+     /tmp/ccnqma1I.s:2842   .text.date_setdate:000000000000003c $d
+     /tmp/ccnqma1I.s:2847   .text.date_settime:0000000000000000 $t
+     /tmp/ccnqma1I.s:2855   .text.date_settime:0000000000000000 date_settime
+     /tmp/ccnqma1I.s:2895   .rodata:0000000000000000 $d
+     /tmp/ccnqma1I.s:2901   .rodata.mons.8918:0000000000000000 $d
+     /tmp/ccnqma1I.s:2905   .rodata.mons.8918:0000000000000000 mons.8918
+
+UNDEFINED SYMBOLS
+PersistentRam
+getX
+dn_mulpow10
+decNumberRound
+dn_to_int
+report_err
+decNumberCopy
+decNumberTrunc
+dn_subtract
+dn_mul100
+dn_minus
+set_NaN
+Running
+DispMsg
+int_to_dn
+is_int
+fin_tst
+XeqOpCode
+add_string
+dn_lt0
+xset
+num_arg
+num_arg_0
+scopy
+setX
