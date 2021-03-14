@@ -16,6 +16,7 @@
 
 #include "int.h"
 #include "xeq.h"
+#include "storage.h"
 #ifndef DM42
 #include "serial.h"
 #endif

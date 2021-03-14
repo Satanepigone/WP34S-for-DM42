@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccuXTVNe.s 			page 1
+ARM GAS  /tmp/ccX9LC5Q.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
   49 003c 52434C4D 		.ascii	"RCLMIN\000"
   49      494E00
   50 0043 00       		.align	2
-ARM GAS  /tmp/ccuXTVNe.s 			page 2
+ARM GAS  /tmp/ccX9LC5Q.s 			page 2
 
 
   51              	.LC10:
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
   94      2F00
   95 00aa 0000     		.align	2
   96              	.LC25:
-ARM GAS  /tmp/ccuXTVNe.s 			page 3
+ARM GAS  /tmp/ccX9LC5Q.s 			page 3
 
 
   97 00ac 63783C3E 		.ascii	"cx<>\000"
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  142 010c 6378213D 		.ascii	"cx!=?\000"
  142      3F00
  143 0112 0000     		.align	2
-ARM GAS  /tmp/ccuXTVNe.s 			page 4
+ARM GAS  /tmp/ccX9LC5Q.s 			page 4
 
 
  144              	.LC41:
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  187              	.LC55:
  188 0178 52444E00 		.ascii	"RDN\000"
  189              		.align	2
-ARM GAS  /tmp/ccuXTVNe.s 			page 5
+ARM GAS  /tmp/ccX9LC5Q.s 			page 5
 
 
  190              	.LC56:
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  231              		.align	2
  232              	.LC70:
  233 01e8 53554D6C 		.ascii	"SUMlny\000"
-ARM GAS  /tmp/ccuXTVNe.s 			page 6
+ARM GAS  /tmp/ccX9LC5Q.s 			page 6
 
 
  233      6E7900
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  272      6D00
  273 025e 0000     		.align	2
  274              	.LC84:
-ARM GAS  /tmp/ccuXTVNe.s 			page 7
+ARM GAS  /tmp/ccX9LC5Q.s 			page 7
 
 
  275 0260 73787900 		.ascii	"sxy\000"
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  317 02c8 613E7800 		.ascii	"a>x\000"
  318              		.align	2
  319              	.LC99:
-ARM GAS  /tmp/ccuXTVNe.s 			page 8
+ARM GAS  /tmp/ccX9LC5Q.s 			page 8
 
 
  320 02cc 783E6100 		.ascii	"x>a\000"
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  362      4F4700
  363 0337 00       		.align	2
  364              	.LC114:
-ARM GAS  /tmp/ccuXTVNe.s 			page 9
+ARM GAS  /tmp/ccX9LC5Q.s 			page 9
 
 
  365 0338 502E5245 		.ascii	"P.REGS\000"
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  408              	.LC128:
  409 039c 795E7800 		.ascii	"y^x\000"
  410              		.align	2
-ARM GAS  /tmp/ccuXTVNe.s 			page 10
+ARM GAS  /tmp/ccX9LC5Q.s 			page 10
 
 
  411              	.LC129:
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  457 03fc 58524F4F 		.ascii	"XROOT\000"
  457      5400
  458              		.global	monfuncs
-ARM GAS  /tmp/ccuXTVNe.s 			page 11
+ARM GAS  /tmp/ccX9LC5Q.s 			page 11
 
 
  459 0402 0000     		.align	2
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  506      00
  507 045d 000000   		.align	2
  508              	.LC161:
-ARM GAS  /tmp/ccuXTVNe.s 			page 12
+ARM GAS  /tmp/ccX9LC5Q.s 			page 12
 
 
  509 0460 3E524144 		.ascii	">RAD\000"
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  548      47524144 
  548      00
  549 04d5 000000   		.align	2
-ARM GAS  /tmp/ccuXTVNe.s 			page 13
+ARM GAS  /tmp/ccX9LC5Q.s 			page 13
 
 
  550              	.LC175:
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  589              	.LC188:
  590 0548 57656962 		.ascii	"Weibl-p\000"
  590      6C2D7000 
-ARM GAS  /tmp/ccuXTVNe.s 			page 14
+ARM GAS  /tmp/ccX9LC5Q.s 			page 14
 
 
  591              		.align	2
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  628              	.LC201:
  629 05c4 494E562D 		.ascii	"INV-Geom\000"
  629      47656F6D 
-ARM GAS  /tmp/ccuXTVNe.s 			page 15
+ARM GAS  /tmp/ccX9LC5Q.s 			page 15
 
 
  629      00
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  668      6C2D7500 
  669              		.align	2
  670              	.LC215:
-ARM GAS  /tmp/ccuXTVNe.s 			page 16
+ARM GAS  /tmp/ccX9LC5Q.s 			page 16
 
 
  671 0640 4578706F 		.ascii	"Expon-u\000"
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  713 06a8 3E482E4D 		.ascii	">H.MS\000"
  713      5300
  714 06ae 0000     		.align	2
-ARM GAS  /tmp/ccuXTVNe.s 			page 17
+ARM GAS  /tmp/ccX9LC5Q.s 			page 17
 
 
  715              	.LC230:
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  766 0025 01       		.byte	1
  767 0026 45525200 		.ascii	"ERR\000"
  768 002a 0000     		.space	2
-ARM GAS  /tmp/ccuXTVNe.s 			page 18
+ARM GAS  /tmp/ccX9LC5Q.s 			page 18
 
 
  769 002c 00000000 		.word	0
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  817 00ac 00000000 		.word	0
  818 00b0 00000000 		.word	cmdrcl
  819 00b4 FF       		.byte	-1
-ARM GAS  /tmp/ccuXTVNe.s 			page 19
+ARM GAS  /tmp/ccX9LC5Q.s 			page 19
 
 
  820 00b5 0F       		.byte	15
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  868 0135 0F       		.byte	15
  869 0136 7A1700   		.ascii	"z\027\000"
  870 0139 000000   		.space	3
-ARM GAS  /tmp/ccuXTVNe.s 			page 20
+ARM GAS  /tmp/ccX9LC5Q.s 			page 20
 
 
  871 013c 54000000 		.word	.LC13
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  918 01c6 1452434C 		.ascii	"\024RCL-\000"
  918      2D00
  919 01cc 94000000 		.word	.LC22
-ARM GAS  /tmp/ccuXTVNe.s 			page 21
+ARM GAS  /tmp/ccX9LC5Q.s 			page 21
 
 
  920 01d0 00000000 		.word	cmdcrcl
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  968 0255 0F       		.byte	15
  969 0256 A0524323 		.ascii	"\240RC#\000"
  969      00
-ARM GAS  /tmp/ccuXTVNe.s 			page 22
+ARM GAS  /tmp/ccX9LC5Q.s 			page 22
 
 
  970 025b 00       		.space	1
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  1022 02e5 0F       		.byte	15
  1023 02e6 780B3F00 		.ascii	"x\013?\000"
  1024 02ea 0000     		.space	2
-ARM GAS  /tmp/ccuXTVNe.s 			page 23
+ARM GAS  /tmp/ccX9LC5Q.s 			page 23
 
 
  1025 02ec E8000000 		.word	.LC35
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  1076 0375 00       		.byte	0
  1077 0376 4241434B 		.ascii	"BACK\000"
  1077      00
-ARM GAS  /tmp/ccuXTVNe.s 			page 24
+ARM GAS  /tmp/ccX9LC5Q.s 			page 24
 
 
  1078 037b 00       		.space	1
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  1130 0405 0F       		.byte	15
  1131 0406 44454300 		.ascii	"DEC\000"
  1132 040a 0000     		.space	2
-ARM GAS  /tmp/ccuXTVNe.s 			page 25
+ARM GAS  /tmp/ccX9LC5Q.s 			page 25
 
 
  1133 040c 00000000 		.word	0
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  1185      2900
  1186 049c 00000000 		.word	0
  1187 04a0 90040000 		.word	xrom+1168
-ARM GAS  /tmp/ccuXTVNe.s 			page 26
+ARM GAS  /tmp/ccX9LC5Q.s 			page 26
 
 
  1188 04a4 67       		.byte	103
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  1240 0530 00000000 		.word	cmdflag
  1241 0534 7F       		.byte	127
  1242 0535 4D       		.byte	77
-ARM GAS  /tmp/ccuXTVNe.s 			page 27
+ARM GAS  /tmp/ccX9LC5Q.s 			page 27
 
 
  1243 0536 464600   		.ascii	"FF\000"
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  1291      00
  1292 05bb 00       		.space	1
  1293 05bc 00000000 		.word	0
-ARM GAS  /tmp/ccuXTVNe.s 			page 28
+ARM GAS  /tmp/ccX9LC5Q.s 			page 28
 
 
  1294 05c0 00000000 		.word	intws
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  1347 0650 00000000 		.word	intbits
  1348 0654 3F       		.byte	63
  1349 0655 01       		.byte	1
-ARM GAS  /tmp/ccuXTVNe.s 			page 29
+ARM GAS  /tmp/ccX9LC5Q.s 			page 29
 
 
  1350 0656 434200   		.ascii	"CB\000"
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  1400 06e4 FF       		.byte	-1
  1401 06e5 0F       		.byte	15
  1402 06e6 4B45593F 		.ascii	"KEY?\000"
-ARM GAS  /tmp/ccuXTVNe.s 			page 30
+ARM GAS  /tmp/ccX9LC5Q.s 			page 30
 
 
  1402      00
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  1453 0770 00000000 		.word	cmdsavem
  1454 0774 FF       		.byte	-1
  1455 0775 0F       		.byte	15
-ARM GAS  /tmp/ccuXTVNe.s 			page 31
+ARM GAS  /tmp/ccX9LC5Q.s 			page 31
 
 
  1456 0776 53544F4D 		.ascii	"STOM\000"
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  1503 07f5 0F       		.byte	15
  1504 07f6 7352434C 		.ascii	"sRCL\000"
  1504      00
-ARM GAS  /tmp/ccuXTVNe.s 			page 32
+ARM GAS  /tmp/ccX9LC5Q.s 			page 32
 
 
  1505 07fb 00       		.space	1
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  1554 0885 00       		.byte	0
  1555 0886 142300   		.ascii	"\024#\000"
  1556 0889 000000   		.space	3
-ARM GAS  /tmp/ccuXTVNe.s 			page 33
+ARM GAS  /tmp/ccX9LC5Q.s 			page 33
 
 
  1557 088c 18000000 		.word	.LC4
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  1605 0915 1F       		.byte	31
  1606 0916 9214728B 		.ascii	"\222\024r\213\214\000"
  1606      8C00
-ARM GAS  /tmp/ccuXTVNe.s 			page 34
+ARM GAS  /tmp/ccX9LC5Q.s 			page 34
 
 
  1607 091c 60010000 		.word	.LC52
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  1653 09a4 FF       		.byte	-1
  1654 09a5 0F       		.byte	15
  1655 09a6 43415345 		.ascii	"CASE\000"
-ARM GAS  /tmp/ccuXTVNe.s 			page 35
+ARM GAS  /tmp/ccX9LC5Q.s 			page 35
 
 
  1655      00
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  1709 008c 00000000 		.word	0
  1710 0090 00000000 		.word	decNumberBigMod
  1711 0094 00000000 		.word	0
-ARM GAS  /tmp/ccuXTVNe.s 			page 36
+ARM GAS  /tmp/ccX9LC5Q.s 			page 36
 
 
  1712 0098 00000000 		.word	intMod
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  1763 014a 0000     		.space	2
  1764 014c B4030000 		.word	.LC132
  1765 0150 00000000 		.word	decNumberGammap
-ARM GAS  /tmp/ccuXTVNe.s 			page 37
+ARM GAS  /tmp/ccX9LC5Q.s 			page 37
 
 
  1766 0154 00000000 		.word	0
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  1817 0204 254D4700 		.ascii	"%MG\000"
  1818 0208 0000     		.space	2
  1819 020a 0000     		.space	2
-ARM GAS  /tmp/ccuXTVNe.s 			page 38
+ARM GAS  /tmp/ccX9LC5Q.s 			page 38
 
 
  1820 020c 00000000 		.word	0
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  1872 02c7 000000   		.space	3
  1873 02ca 0000     		.space	2
  1874 02cc 00000000 		.word	0
-ARM GAS  /tmp/ccuXTVNe.s 			page 39
+ARM GAS  /tmp/ccX9LC5Q.s 			page 39
 
 
  1875 02d0 00000000 		.word	decNumberBooleanOp
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  1925 0384 54BD00   		.ascii	"T\275\000"
  1926 0387 000000   		.space	3
  1927 038a 0000     		.space	2
-ARM GAS  /tmp/ccuXTVNe.s 			page 40
+ARM GAS  /tmp/ccX9LC5Q.s 			page 40
 
 
  1928 038c E8030000 		.word	.LC139
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  1979      5059
  1980 044a 0000     		.space	2
  1981 044c 00000000 		.word	0
-ARM GAS  /tmp/ccuXTVNe.s 			page 41
+ARM GAS  /tmp/ccX9LC5Q.s 			page 41
 
 
  1982 0450 00000000 		.word	decNumberNeighbour
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  2034 0094 88170000 		.word	xrom+6024
  2035 0098 00000000 		.word	mask_value
  2036 009c 524F554E 		.ascii	"ROUND\000"
-ARM GAS  /tmp/ccuXTVNe.s 			page 42
+ARM GAS  /tmp/ccX9LC5Q.s 			page 42
 
 
  2036      4400
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  2087 0154 B8180000 		.word	xrom+6328
  2088 0158 00000000 		.word	intLog2
  2089 015c 4C4F47BA 		.ascii	"LOG\272\000"
-ARM GAS  /tmp/ccuXTVNe.s 			page 43
+ARM GAS  /tmp/ccX9LC5Q.s 			page 43
 
 
  2089      00
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  2141 0210 00000000 		.word	decNumberSquare
  2142 0214 0A180000 		.word	xrom+6154
  2143 0218 00000000 		.word	intSqr
-ARM GAS  /tmp/ccuXTVNe.s 			page 44
+ARM GAS  /tmp/ccX9LC5Q.s 			page 44
 
 
  2144 021c 789A00   		.ascii	"x\232\000"
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  2194 02ca 0000     		.space	2
  2195 02cc 70040000 		.word	.LC163
  2196 02d0 00000000 		.word	decNumberDRG
-ARM GAS  /tmp/ccuXTVNe.s 			page 45
+ARM GAS  /tmp/ccX9LC5Q.s 			page 45
 
 
  2197 02d4 00000000 		.word	0
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  2247 0384 4154414E 		.ascii	"ATAN\000"
  2247      00
  2248 0389 00       		.space	1
-ARM GAS  /tmp/ccuXTVNe.s 			page 46
+ARM GAS  /tmp/ccX9LC5Q.s 			page 46
 
 
  2249 038a 0000     		.space	2
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  2296 0434 00000000 		.word	0
  2297 0438 78080000 		.word	xrom+2168
  2298 043c 86080000 		.word	xrom+2182
-ARM GAS  /tmp/ccuXTVNe.s 			page 47
+ARM GAS  /tmp/ccX9LC5Q.s 			page 47
 
 
  2299 0440 00000000 		.word	0
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  2351 04f8 00000000 		.word	decNumberG2D
  2352 04fc 00000000 		.word	0
  2353 0500 00000000 		.word	0
-ARM GAS  /tmp/ccuXTVNe.s 			page 48
+ARM GAS  /tmp/ccX9LC5Q.s 			page 48
 
 
  2354 0504 470D0500 		.ascii	"G\015\005\000"
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  2402 05b2 0000     		.space	2
  2403 05b4 F4040000 		.word	.LC178
  2404 05b8 300B0000 		.word	xrom+2864
-ARM GAS  /tmp/ccuXTVNe.s 			page 49
+ARM GAS  /tmp/ccX9LC5Q.s 			page 49
 
 
  2405 05bc 00000000 		.word	0
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  2453      2900
  2454 0672 0000     		.space	2
  2455 0674 30050000 		.word	.LC185
-ARM GAS  /tmp/ccuXTVNe.s 			page 50
+ARM GAS  /tmp/ccX9LC5Q.s 			page 50
 
 
  2456 0678 F2100000 		.word	xrom+4338
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  2502      6E00
  2503 0732 0000     		.space	2
  2504 0734 00000000 		.word	0
-ARM GAS  /tmp/ccuXTVNe.s 			page 51
+ARM GAS  /tmp/ccX9LC5Q.s 			page 51
 
 
  2505 0738 7E090000 		.word	xrom+2430
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  2551 07f2 0000     		.space	2
  2552 07f4 A0050000 		.word	.LC197
  2553 07f8 F00E0000 		.word	xrom+3824
-ARM GAS  /tmp/ccuXTVNe.s 			page 52
+ARM GAS  /tmp/ccX9LC5Q.s 			page 52
 
 
  2554 07fc 00000000 		.word	0
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  2600 08b2 0000     		.space	2
  2601 08b4 D8050000 		.word	.LC203
  2602 08b8 840A0000 		.word	xrom+2692
-ARM GAS  /tmp/ccuXTVNe.s 			page 53
+ARM GAS  /tmp/ccX9LC5Q.s 			page 53
 
 
  2603 08bc 00000000 		.word	0
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  2649 0974 00000000 		.word	0
  2650 0978 28090000 		.word	xrom+2344
  2651 097c 00000000 		.word	0
-ARM GAS  /tmp/ccuXTVNe.s 			page 54
+ARM GAS  /tmp/ccX9LC5Q.s 			page 54
 
 
  2652 0980 00000000 		.word	0
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  2699 0a38 8C0E0000 		.word	xrom+3724
  2700 0a3c 00000000 		.word	0
  2701 0a40 00000000 		.word	0
-ARM GAS  /tmp/ccuXTVNe.s 			page 55
+ARM GAS  /tmp/ccX9LC5Q.s 			page 55
 
 
  2702 0a44 506F6973 		.ascii	"Pois\252\277"
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  2749 0afc 00000000 		.word	0
  2750 0b00 00000000 		.word	0
  2751 0b04 1A00     		.ascii	"\032\000"
-ARM GAS  /tmp/ccuXTVNe.s 			page 56
+ARM GAS  /tmp/ccX9LC5Q.s 			page 56
 
 
  2752 0b06 00000000 		.space	4
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  2805 0bc0 00000000 		.word	intNumBits
  2806 0bc4 6E424954 		.ascii	"nBITS\000"
  2806      5300
-ARM GAS  /tmp/ccuXTVNe.s 			page 57
+ARM GAS  /tmp/ccX9LC5Q.s 			page 57
 
 
  2807 0bca 0000     		.space	2
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  2856 0c80 00000000 		.word	0
  2857 0c84 61722E0D 		.ascii	"ar.\015dB"
  2857      6442
-ARM GAS  /tmp/ccuXTVNe.s 			page 58
+ARM GAS  /tmp/ccX9LC5Q.s 			page 58
 
 
  2858 0c8a 0000     		.space	2
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  2908 0d40 00000000 		.word	0
  2909 0d44 44415900 		.ascii	"DAY\000"
  2910 0d48 0000     		.space	2
-ARM GAS  /tmp/ccuXTVNe.s 			page 59
+ARM GAS  /tmp/ccX9LC5Q.s 			page 59
 
 
  2911 0d4a 0000     		.space	2
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  2959 0df8 00000000 		.word	matrix_colq
  2960 0dfc 00000000 		.word	0
  2961 0e00 00000000 		.word	0
-ARM GAS  /tmp/ccuXTVNe.s 			page 60
+ARM GAS  /tmp/ccX9LC5Q.s 			page 60
 
 
  2962 0e04 6E434F4C 		.ascii	"nCOL\000"
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  3014 0046 00000000 		.space	4
  3015 004a 0000     		.space	2
  3016 004c 00000000 		.word	.LC0
-ARM GAS  /tmp/ccuXTVNe.s 			page 61
+ARM GAS  /tmp/ccX9LC5Q.s 			page 61
 
 
  3017 0050 38060000 		.word	xrom+1592
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  3070 0035 5353495A 		.ascii	"SSIZE?"
  3070      453F
  3071 003b 00       		.space	1
-ARM GAS  /tmp/ccuXTVNe.s 			page 62
+ARM GAS  /tmp/ccX9LC5Q.s 			page 62
 
 
  3072 003c 00000000 		.word	0
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  3121 00cb 00       		.space	1
  3122 00cc 00000000 		.word	0
  3123 00d0 00000000 		.word	cpx_fill
-ARM GAS  /tmp/ccuXTVNe.s 			page 63
+ARM GAS  /tmp/ccX9LC5Q.s 			page 63
 
 
  3124 00d4 00       		.byte	0
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  3174 015c D0010000 		.word	.LC67
  3175 0160 00000000 		.word	sigma_val
  3176 0164 81       		.byte	-127
-ARM GAS  /tmp/ccuXTVNe.s 			page 64
+ARM GAS  /tmp/ccX9LC5Q.s 			page 64
 
 
  3177 0165 916C6E78 		.ascii	"\221lnx\000"
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  3224 01f0 00000000 		.word	stats_deviations
  3225 01f4 82       		.byte	-126
  3226 01f5 B100     		.ascii	"\261\000"
-ARM GAS  /tmp/ccuXTVNe.s 			page 65
+ARM GAS  /tmp/ccX9LC5Q.s 			page 65
 
 
  3227 01f7 00000000 		.space	4
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  3280 0285 4C2E522E 		.ascii	"L.R.\000"
  3280      00
  3281 028a 00       		.space	1
-ARM GAS  /tmp/ccuXTVNe.s 			page 66
+ARM GAS  /tmp/ccX9LC5Q.s 			page 66
 
 
  3282 028b 00       		.space	1
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  3331 0314 00       		.byte	0
  3332 0315 4C6F6746 		.ascii	"LogF\000"
  3332      00
-ARM GAS  /tmp/ccuXTVNe.s 			page 67
+ARM GAS  /tmp/ccX9LC5Q.s 			page 67
 
 
  3333 031a 00       		.space	1
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  3382 03a0 00000000 		.word	op_rtn
  3383 03a4 00       		.byte	0
  3384 03a5 454E4400 		.ascii	"END\000"
-ARM GAS  /tmp/ccuXTVNe.s 			page 68
+ARM GAS  /tmp/ccX9LC5Q.s 			page 68
 
 
  3385 03a9 0000     		.space	2
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  3433 0435 434C5052 		.ascii	"CLPROG"
  3433      4F47
  3434 043b 00       		.space	1
-ARM GAS  /tmp/ccuXTVNe.s 			page 69
+ARM GAS  /tmp/ccX9LC5Q.s 			page 69
 
 
  3435 043c 00000000 		.word	0
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  3480      4143
  3481 04cb 00       		.space	1
  3482 04cc 00000000 		.word	0
-ARM GAS  /tmp/ccuXTVNe.s 			page 70
+ARM GAS  /tmp/ccX9LC5Q.s 			page 70
 
 
  3483 04d0 00000000 		.word	op_fract
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  3528      5652
  3529 055b 00       		.space	1
  3530 055c 00000000 		.word	0
-ARM GAS  /tmp/ccuXTVNe.s 			page 71
+ARM GAS  /tmp/ccX9LC5Q.s 			page 71
 
 
  3531 0560 94150000 		.word	xrom+5524
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  3576 05ea 00       		.space	1
  3577 05eb 00       		.space	1
  3578 05ec 00000000 		.word	0
-ARM GAS  /tmp/ccuXTVNe.s 			page 72
+ARM GAS  /tmp/ccX9LC5Q.s 			page 72
 
 
  3579 05f0 8C150000 		.word	xrom+5516
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  3628 0675 4A473137 		.ascii	"JG1752"
  3628      3532
  3629 067b 00       		.space	1
-ARM GAS  /tmp/ccuXTVNe.s 			page 73
+ARM GAS  /tmp/ccX9LC5Q.s 			page 73
 
 
  3630 067c 00000000 		.word	0
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  3676 0705 32344800 		.ascii	"24H\000"
  3677 0709 0000     		.space	2
  3678 070b 00       		.space	1
-ARM GAS  /tmp/ccuXTVNe.s 			page 74
+ARM GAS  /tmp/ccX9LC5Q.s 			page 74
 
 
  3679 070c 00000000 		.word	0
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  3729 079c D0020000 		.word	.LC100
  3730 07a0 00000000 		.word	alpha_onoff
  3731 07a4 00       		.byte	0
-ARM GAS  /tmp/ccuXTVNe.s 			page 75
+ARM GAS  /tmp/ccX9LC5Q.s 			page 75
 
 
  3732 07a5 A04F4646 		.ascii	"\240OFF\000"
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  3777 0834 80       		.byte	-128
  3778 0835 9F3F00   		.ascii	"\237?\000"
  3779 0838 000000   		.space	3
-ARM GAS  /tmp/ccuXTVNe.s 			page 76
+ARM GAS  /tmp/ccX9LC5Q.s 			page 76
 
 
  3780 083b 00       		.space	1
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  3827 08c4 01       		.byte	1
  3828 08c5 5449434B 		.ascii	"TICKS\000"
  3828      5300
-ARM GAS  /tmp/ccuXTVNe.s 			page 77
+ARM GAS  /tmp/ccX9LC5Q.s 			page 77
 
 
  3829 08cb 00       		.space	1
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  3875 0955 5345544A 		.ascii	"SETJPN"
  3875      504E
  3876 095b 00       		.space	1
-ARM GAS  /tmp/ccuXTVNe.s 			page 78
+ARM GAS  /tmp/ccX9LC5Q.s 			page 78
 
 
  3877 095c 00000000 		.word	0
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  3925 09e0 00000000 		.word	get_sign_mode
  3926 09e4 01       		.byte	1
  3927 09e5 534D4F44 		.ascii	"SMODE?"
-ARM GAS  /tmp/ccuXTVNe.s 			page 79
+ARM GAS  /tmp/ccX9LC5Q.s 			page 79
 
 
  3927      453F
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  3973 0a78 000000   		.space	3
  3974 0a7b 00       		.space	1
  3975 0a7c 0C030000 		.word	.LC108
-ARM GAS  /tmp/ccuXTVNe.s 			page 80
+ARM GAS  /tmp/ccX9LC5Q.s 			page 80
 
 
  3976 0a80 00000000 		.word	cmdlpop
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  4022 0b05 5053544F 		.ascii	"PSTO\000"
  4022      00
  4023 0b0a 00       		.space	1
-ARM GAS  /tmp/ccuXTVNe.s 			page 81
+ARM GAS  /tmp/ccX9LC5Q.s 			page 81
 
 
  4024 0b0b 00       		.space	1
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  4071 0b95 92524547 		.ascii	"\222REGS\000"
  4071      5300
  4072 0b9b 00       		.space	1
-ARM GAS  /tmp/ccuXTVNe.s 			page 82
+ARM GAS  /tmp/ccX9LC5Q.s 			page 82
 
 
  4073 0b9c 38030000 		.word	.LC114
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  4123 0c28 000000   		.space	3
  4124 0c2b 00       		.space	1
  4125 0c2c 74030000 		.word	.LC122
-ARM GAS  /tmp/ccuXTVNe.s 			page 83
+ARM GAS  /tmp/ccX9LC5Q.s 			page 83
 
 
  4126 0c30 B2150000 		.word	xrom+5554
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  4177 0074 8C030000 		.word	.LC125
  4178 0078 00000000 		.word	matrix_genadd
  4179 007c 00000000 		.word	0
-ARM GAS  /tmp/ccuXTVNe.s 			page 84
+ARM GAS  /tmp/ccX9LC5Q.s 			page 84
 
 
  4180 0080 4D2B1C00 		.ascii	"M+\034\000"
@@ -5031,24 +5031,24 @@ ARM GAS  /tmp/ccuXTVNe.s 			page 1
  4222              		.file 10 "src/consts.h"
  4223              		.file 11 "src/storage.h"
  4224              		.file 12 "src/commands.c"
-ARM GAS  /tmp/ccuXTVNe.s 			page 85
+ARM GAS  /tmp/ccX9LC5Q.s 			page 85
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 commands.c
-     /tmp/ccuXTVNe.s:2991   .rodata.multicmds:0000000000000000 multicmds
-     /tmp/ccuXTVNe.s:19     .rodata.str1.4:0000000000000000 $d
-     /tmp/ccuXTVNe.s:751    .rodata.argcmds:0000000000000000 argcmds
-     /tmp/ccuXTVNe.s:3049   .rodata.niladics:0000000000000000 niladics
-     /tmp/ccuXTVNe.s:4141   .rodata.trifuncs:0000000000000000 trifuncs
-     /tmp/ccuXTVNe.s:1667   .rodata.dyfuncs:0000000000000000 dyfuncs
-     /tmp/ccuXTVNe.s:1992   .rodata.monfuncs:0000000000000000 monfuncs
-     /tmp/ccuXTVNe.s:748    .rodata.argcmds:0000000000000000 $d
-     /tmp/ccuXTVNe.s:1664   .rodata.dyfuncs:0000000000000000 $d
-     /tmp/ccuXTVNe.s:1989   .rodata.monfuncs:0000000000000000 $d
-     /tmp/ccuXTVNe.s:2988   .rodata.multicmds:0000000000000000 $d
-     /tmp/ccuXTVNe.s:3046   .rodata.niladics:0000000000000000 $d
-     /tmp/ccuXTVNe.s:4138   .rodata.trifuncs:0000000000000000 $d
+     /tmp/ccX9LC5Q.s:2991   .rodata.multicmds:0000000000000000 multicmds
+     /tmp/ccX9LC5Q.s:19     .rodata.str1.4:0000000000000000 $d
+     /tmp/ccX9LC5Q.s:751    .rodata.argcmds:0000000000000000 argcmds
+     /tmp/ccX9LC5Q.s:3049   .rodata.niladics:0000000000000000 niladics
+     /tmp/ccX9LC5Q.s:4141   .rodata.trifuncs:0000000000000000 trifuncs
+     /tmp/ccX9LC5Q.s:1667   .rodata.dyfuncs:0000000000000000 dyfuncs
+     /tmp/ccX9LC5Q.s:1992   .rodata.monfuncs:0000000000000000 monfuncs
+     /tmp/ccX9LC5Q.s:748    .rodata.argcmds:0000000000000000 $d
+     /tmp/ccX9LC5Q.s:1664   .rodata.dyfuncs:0000000000000000 $d
+     /tmp/ccX9LC5Q.s:1989   .rodata.monfuncs:0000000000000000 $d
+     /tmp/ccX9LC5Q.s:2988   .rodata.multicmds:0000000000000000 $d
+     /tmp/ccX9LC5Q.s:3046   .rodata.niladics:0000000000000000 $d
+     /tmp/ccX9LC5Q.s:4138   .rodata.trifuncs:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 cmdconst
@@ -5091,7 +5091,7 @@ cmdpause
 cmdkeyp
 cmdalphagto
 op_shift_digit
-ARM GAS  /tmp/ccuXTVNe.s 			page 86
+ARM GAS  /tmp/ccX9LC5Q.s 			page 86
 
 
 alpha_view_reg
@@ -5151,7 +5151,7 @@ decNumberLCM
 intLCM
 decNumberBooleanOp
 intBooleanOp
-ARM GAS  /tmp/ccuXTVNe.s 			page 87
+ARM GAS  /tmp/ccX9LC5Q.s 			page 87
 
 
 decNumberXRoot
@@ -5211,7 +5211,7 @@ decNumberTan
 cmplxTan
 decNumberArcSin
 decNumberArcCos
-ARM GAS  /tmp/ccuXTVNe.s 			page 88
+ARM GAS  /tmp/ccX9LC5Q.s 			page 88
 
 
 decNumberArcTan
@@ -5271,7 +5271,7 @@ matrix_lu_decomp
 cmdmultilblp
 cmdmultigto
 multialpha
-ARM GAS  /tmp/ccuXTVNe.s 			page 89
+ARM GAS  /tmp/ccX9LC5Q.s 			page 89
 
 
 version
@@ -5331,7 +5331,7 @@ alpha_tox
 alpha_fromx
 alpha_onoff
 op_regcopy
-ARM GAS  /tmp/ccuXTVNe.s 			page 90
+ARM GAS  /tmp/ccX9LC5Q.s 			page 90
 
 
 op_regswap

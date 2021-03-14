@@ -223,8 +223,7 @@ unsigned int keycode_to_digit_or_register(const keycode c)
     // K50 - K54
     NO_REG, NO_SHORT | regX_idx, NO_SHORT | regY_idx, NO_SHORT | regZ_idx, NO_REG,
     // K60 - K64
-    NO_SHORT | NO_REG, 0, NO_SHORT | LOCAL_REG_BASE,
-    regY_idx, regZ_idx,
+    NO_SHORT | NO_REG, 0, NO_SHORT | LOCAL_REG_BASE, NO_REG, NO_REG,
     // Shifts
     NO_REG
   };

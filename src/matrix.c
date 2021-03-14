@@ -18,6 +18,7 @@
 #include "decn.h"
 #include "consts.h"
 #include "decNumber/decimal128.h"
+#include "storage.h"
 
 #define MAX_DIMENSION	100
 #define MAX_SQUARE	10

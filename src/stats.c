@@ -17,6 +17,7 @@
 // New version with variable register block
 
 #include "xeq.h"
+#include "storage.h"
 #include "decn.h"
 #include "stats.h"
 #include "consts.h"

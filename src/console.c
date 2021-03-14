@@ -148,7 +148,7 @@ void shutdown( void )
   save_statefile( NULL );
   exit( 0 );
 #else
-  save_statefile(1);
+  save_ram_file(0);
   SET_ST(STAT_PGM_END);
 #endif
 }
@@ -292,7 +292,26 @@ void print_debug (int i, int j) {
   moveto (3, 1);
   lcd_print (fReg , (const char*) print_string );
   lcd_refresh();
-  sys_delay (1500);
+  sys_delay (2500);
+  /* wait_for_key_press(); */
+  //  key_pop_all();
+  // while ((key_pop()<=0) || (key_pop()==K_HEARTBEAT));;
+  // key_pop_all();
+  strcpy( print_string, spaces );
+  moveto (3, 1);
+  lcd_print (fReg , (const char*) print_string );
+  lcd_refresh();
+  // while (key_empty()<=0);; // wait for release
+  // key_pop_all();
+}
+
+void print_debug2 (int i, char* j) {
+  strcpy( print_string, spaces );
+  sprintf ( print_string, "D:%4i,%13s", i, j);
+  moveto (3, 1);
+  lcd_print (fReg , (const char*) print_string );
+  lcd_refresh();
+  sys_delay (2500);
   /* wait_for_key_press(); */
   //  key_pop_all();
   // while ((key_pop()<=0) || (key_pop()==K_HEARTBEAT));;
@@ -330,23 +349,27 @@ struct _ndmap do_multi (struct _ndmap r) {
     r = no_key;
     break;
   case WRLIB: // save library file
-    save_libraryfile();
+    save_lib_file(1);
     r = no_key;
     break;
   case LLIB: // load library file
-    load_statefile_library();
+    load_lib_file(1);
     r = no_key;
     break;
   case WRTST: // save state file
-    save_statefile(0);
+    save_ram_file(1);
     r = no_key;
     break;
   case LDST:
-    load_statefile_state(0);
+    load_ram_file(1);
     r = no_key;
     break;
   case LDPRG:
-    import_program();
+    load_prog_file();
+    r = no_key;
+    break;
+  case SVPRG:
+    save_prog_file();
     r = no_key;
     break;
   default:
@@ -361,10 +384,14 @@ void program_main(){
 
   //  init_graphics();
   //  xeq_init_contexts();
+  init_mem();
+  init_RegionTab();
   init_34s();
   DispMsg = "";
   State2.flags = 1;
-  load_statefile_state(1);
+  load_ram_file(0);
+  load_backup_file(0);
+  load_lib_file(0);
   display();
   display_current_menu();
   lcd_refresh();
@@ -470,10 +497,12 @@ void program_main(){
 	handle_menu(&MID_MENU, MENU_RESET, 0); // App menu
 	CLR_ST(STAT_MENU);
 	remapped =  no_key;
-	display_menu (current_menu);
+	display_current_menu();
       }
-      if (remapped.key_34s == K_MULTI) remapped = do_multi (remapped);
-
+      if (remapped.key_34s == K_MULTI) {
+	remapped = do_multi (remapped);
+	display_current_menu();
+      }
       process_keycode_with_shift(remapped);
     }
   }

@@ -60,11 +60,6 @@
 #define STATE_FILE "wp34s/wp34s.dat"
 #define BACKUP_FILE "wp34s/wp34s-backup.dat"
 #define LIBRARY_FILE "wp34s/wp34s-lib.dat"
-#define SAVED_STATE_FILE "wp34s/wp34s_saved.dat"
-// This one is saved and loaded at off and on (before main loop).
-// This means that even though state isn't automatically saved
-// when going out via system menu
-// a reasonably recent state should be available.
 #define FPT ppgm_fp //use this as the file pointer
 
 #else
@@ -84,17 +79,32 @@
 #include "alpha.h"
 #undef DM42SAFE
 
-#ifdef DM42
-#define PAGE_SIZE	 2048
-#else
 #define PAGE_SIZE	 256
-#endif
 
 /*
  *  Setup the persistent RAM
  */
-PERSISTENT_RAM TPersistentRam PersistentRam;
+#ifdef DM42
+TPersistentRam *main_ram, *backup_ram;
+FLASH_REGION *library_ram;
 
+void init_mem () {
+  char *v;
+
+  v = (char *) calloc(RAM_SIZE + RAM_SIZE + LIBRARY_SIZE,1);
+  if (v == NULL) {
+    perror("calloc failed");
+    return;
+  }
+  main_ram = (TPersistentRam *) v;
+  v += RAM_SIZE;
+  backup_ram = (TPersistentRam *) v;
+  v += RAM_SIZE;
+  library_ram = (FLASH_REGION *) v;
+}
+#else
+PERSISTENT_RAM TPersistentRam PersistentRam;
+#endif
 /*
  *  Data that is saved in the SLCD controller during deep sleep
  */
@@ -122,8 +132,6 @@ VOLATILE_RAM REGISTER XromA2D[4];
  *  On the device the linker takes care of this.
  */
 #ifdef DM42
-__attribute__((section(".storage"))) FLASH_REGION UserFlash;
-__attribute__((section(".storage"))) BACKUP_FLASH TPersistentRam BackupFlash;
 #else
 BACKUP_FLASH TPersistentRam BackupFlash;
 FLASH_REGION UserFlash;
@@ -296,7 +304,7 @@ void clrall(void)
  */
 void reset( void ) 
 {
-	xset( &PersistentRam, 0, sizeof( PersistentRam ) );
+  xset( &PersistentRam, 0, sizeof( PersistentRam ) );
 	clrall();
 	init_state();
 	UState.contrast = 6;
@@ -518,14 +526,8 @@ static int program_flash( void *destination, void *source, int count )
    *  Copy the source to the destination memory
    */
 
-  sys_flashing_init();
-	
-  sys_flash_erase_block( dest, count * PAGE_SIZE ); // start plus size in bytes to erase
-
-  sys_flash_write_block( dest, (uint8_t *) source, count * PAGE_SIZE );
-
-  sys_flashing_finish();
-
+  xcopy( dest, source, count * PAGE_SIZE ); 
+  // print_debug (400, count);
   /*
    *  Update the correct region file
    */
@@ -536,50 +538,52 @@ static int program_flash( void *destination, void *source, int count )
   else if ( dest >= (char *) &UserFlash && dest < (char *) &UserFlash + sizeof( UserFlash ) ) {
     name = get_region_path( REGION_LIBRARY );
     offset = dest - (char *) &UserFlash;
+    // print_debug(401,offset);
+    // print_debug2(401, name);
   }
   else {
     // Bad address
     report_err( ERR_ILLEGAL );
     return 1;
   }
-
+  // print_debug(402,0);
   FRESULT f;
 
   sys_disk_write_enable(1);
 
   f = check_create_dir ("/wp34s");
   if ( f != FR_OK ) {
-    DispMsg = "FiOp.pf";
     sys_disk_write_enable(0);
     return 1;
   }
-    f = f_open( FPT, name, FA_READ | FA_WRITE );
-    if ( f != FR_OK ) {
-      f = f_open( FPT, name, FA_CREATE_ALWAYS | FA_READ | FA_WRITE );
-    }
-    if ( f != FR_OK ) {
-      DispMsg = "FiOp.pf2";
-      sys_disk_write_enable(0);
-      return 1;
-    }
-    f_lseek( FPT, offset );
-    f = f_write( FPT, dest, PAGE_SIZE*count, &x);
-    if (f != FR_OK) {
-      DispMsg = "FiOp.pf3";
-      f_close( FPT );
-      sys_disk_write_enable(0);
-      return 1;
-    }
-
-    f = f_close( FPT );
-    if ( f != FR_OK ) {
-      DispMsg = "FiOp.pf4";
-      sys_disk_write_enable(0);
-      return 1;
-    }
-    sys_disk_write_enable(0);
-    return 0;
+  // print_debug (600,0);
+  f = f_open( FPT, name, FA_READ | FA_WRITE );
+  if ( f != FR_OK ) {
+    // print_debug(700,0);
+    f = f_open( FPT, name, FA_CREATE_ALWAYS | FA_READ | FA_WRITE );
   }
+  if ( f != FR_OK ) {
+    sys_disk_write_enable(0);
+    return 1;
+  }
+  // print_debug (600,1);
+  f_lseek( FPT, offset );
+  f = f_write( FPT, dest, PAGE_SIZE*count, &x);
+  if (f != FR_OK) {
+    f_close( FPT );
+    sys_disk_write_enable(0);
+    return 1;
+  }
+  // print_debug (600,2);
+  f = f_close( FPT );
+  if ( f != FR_OK ) {
+    sys_disk_write_enable(0);
+    return 1;
+  }
+  sys_disk_write_enable(0);
+  // print_debug(403,0);
+  return 0;
+}
 
 #else //ifdef DM42 false
 
@@ -673,7 +677,7 @@ static int flash_append( int destination_step, const s_opcode *source, int count
   char buffer[ PAGE_SIZE ];
   FLASH_REGION *fr = (FLASH_REGION *) buffer;
   count <<= 1;
-  //  print_debug (101, sys_free_mem());
+  // print_debug (101, sys_free_mem());
   if ( offset_in_page != 0 ) {
     /*
      *  We are not on a page boundary
@@ -683,21 +687,22 @@ static int flash_append( int destination_step, const s_opcode *source, int count
     xcopy( buffer, dest - offset_in_page, offset_in_page );
     xcopy( buffer + offset_in_page, src, bytes );
     if ( program_flash( dest - offset_in_page, buffer, 1 ) ) {
+      // print_debug(500,1);
       return 1;
     }
     src += bytes;
     dest += bytes;
     count -= bytes;
   }
-
+  // print_debug (501,count);
   if ( count > 0 ) {
     /*
      *  Move multiples of complete pages
      */
 #ifdef DM42
-    count = ( count + ( PAGE_SIZE - 1 ) ) >> 8; // seems to assume that page_size = 2^8
-#else
     count = ( count + ( PAGE_SIZE - 1 ) ) / PAGE_SIZE;
+#else
+    count = ( count + ( PAGE_SIZE - 1 ) ) >> 8; // seems to assume that page_size = 2^8
 #endif
     if ( program_flash( dest, src, count ) ) {
       return 1;
@@ -708,6 +713,8 @@ static int flash_append( int destination_step, const s_opcode *source, int count
    *  Update the library header to fix the crc and size fields.
    */
   xcopy( fr, &UserFlash, PAGE_SIZE );
+  // print_debug (300, size);
+  // print_debug (301, fr->size);
   fr->size = size;
   checksum_region( &UserFlash, fr );
   return program_flash( &UserFlash, fr, 1 );
@@ -985,85 +992,91 @@ static void ShowMessage( const char *title, const char *format, ... )
 #ifdef DM42
 extern void display_current_menu ();
 
-void import_program () {  
-  file_selection_screen ("Program File", "/wp34s", ".dat", load_program_file, 0, 0, NULL);
-  //  print_debug (100, 4);
-  display_current_menu ();
-}
+/* void import_program () {   */
+/*   file_selection_screen ("Program File", "/wp34s", ".dat", load_program_file, 0, 0, NULL); */
+/*   //  print_debug (100, 4); */
+/*   display_current_menu (); */
+/* } */
 
-int load_program_file (const char * fpath, const char * fname, void * data) {
-  FRESULT f;
-  uint x;
-  char buffer[ PAGE_SIZE ];
-  FLASH_REGION *fr = (FLASH_REGION *) buffer;
-  f_close( FPT ); // just in case!
+/* int load_program_file (const char * fpath, const char * fname, void * data) { */
+/*   FRESULT f; */
+/*   uint x; */
+/*   char buffer[ PAGE_SIZE ]; */
+/*   FLASH_REGION *fr = (FLASH_REGION *) buffer; */
+/*   f_close( FPT ); // just in case! */
 
-  f = f_open( FPT, fpath, FA_READ );
-  if (f !=0) {
-    //    DispMsg = "Open Err";
-    print_debug (100,1);
-    return 1; // Display the error message
-  }
-  f = f_read( FPT, buffer, PAGE_SIZE, &x);
-  if ( !(f_eof(FPT)) ) {
-    //    DispMsg = "Too big";
-    print_debug (100,2);
-    f_close( FPT );
-    return 1; // Display the error message
-  }
-  f_close( FPT );
-  //  print_debug (100, 3);
-  //  print_debug (100, sys_free_mem());
-  //  print_debug (100, UserFlash.size);
-  //  print_debug (100, fr->size);
-  flash_append (UserFlash.size, fr->prog, fr->size, UserFlash.size + fr->size);
-  return 1; // All done!
-}
+/*   f = f_open( FPT, fpath, FA_READ ); */
+/*   if (f !=0) { */
+/*     //    DispMsg = "Open Err"; */
+/*     // print_debug (100,1); */
+/*     return 1; // Display the error message */
+/*   } */
 
-void save_statefile(int i) // note, nothing to do with flash
-{
-	FRESULT f;
-	uint x = 0;
-	sys_disk_write_enable(1);
-	if (i==1) {
-	  f = f_open( FPT, SAVED_STATE_FILE, FA_CREATE_ALWAYS | FA_READ | FA_WRITE );
-	}
-	else {
-	  f = f_open( FPT, STATE_FILE, FA_CREATE_ALWAYS | FA_READ | FA_WRITE );
-	}
-	if ( f != FR_OK ) {
-	  sys_disk_write_enable(0);
-	  return;
-	}
-	process_cmdline_set_lift();
-	init_state();
-	checksum_all();
-	f = f_write( FPT, &PersistentRam, sizeof( PersistentRam ), &x );
-	if ( f != FR_OK ) {
-	  sys_disk_write_enable(0);
-	}
-	f_close( FPT );
-	sys_disk_write_enable(0);
-}
+/*   f = f_read( FPT, buffer, PAGE_SIZE, &x); */
+/*   // print_debug(200, PAGE_SIZE); */
+/*   // print_debug(201, x); */
+/*   // print_debug(202, UserFlash.size); */
+/*   // print_debug(203, f_eof(FPT));   */
+/*   // First four bytes are crc and size */
+/*   // So start reading from fr-prog. */
+/*   // fr->size might be greater than page_size, so read in x/2 steps. */
+/*   // print_debug(204, f_eof(FPT));   */
+
+/*   flash_append (UserFlash.size, fr->prog, x/2, UserFlash.size + x/2); */
+/*   // print_debug(205, 999); */
+/*   // Are we finished? If not, keep reading! */
+/*   while ( !(f_eof(FPT)) ) { */
+/*     flash_append (UserFlash.size, (const s_opcode*) buffer, x/2, UserFlash.size + x/2); */
+/*   } */
+/*   // print_debug(206,999); */
+/*   f_close( FPT ); */
+/*   return 1; // All done! */
+/* } */
+
+/* void save_statefile(int i) // note, nothing to do with flash */
+/* { */
+/* 	FRESULT f; */
+/* 	uint x = 0; */
+/* 	sys_disk_write_enable(1); */
+/* 	if (i==1) { */
+/* 	  f = f_open( FPT, SAVED_STATE_FILE, FA_CREATE_ALWAYS | FA_READ | FA_WRITE ); */
+/* 	} */
+/* 	else { */
+/* 	  f = f_open( FPT, STATE_FILE, FA_CREATE_ALWAYS | FA_READ | FA_WRITE ); */
+/* 	} */
+/* 	if ( f != FR_OK ) { */
+/* 	  sys_disk_write_enable(0); */
+/* 	  return; */
+/* 	} */
+/* 	process_cmdline_set_lift(); */
+/* 	init_state(); */
+/* 	checksum_all(); */
+/* 	f = f_write( FPT, (char *) &PersistentRam, sizeof( PersistentRam ), &x ); */
+/* 	if ( f != FR_OK ) { */
+/* 	  sys_disk_write_enable(0); */
+/* 	} */
+/* 	f_close( FPT ); */
+/* 	sys_disk_write_enable(0); */
+/* } */
 
 
-void save_libraryfile() // just use LIBRARY_FILE - will overwrite it!
-{
-	FRESULT f;
-	uint x = 0;
-	sys_disk_write_enable(1);
-	f = f_open( FPT, LIBRARY_FILE, FA_CREATE_ALWAYS | FA_READ | FA_WRITE );
-	if ( f != FR_OK ) {
-	  sys_disk_write_enable(0);
-	  return;
-	}
-	f = f_write( FPT, &UserFlash, sizeof( UserFlash ), &x );
-	if ( f != FR_OK ) {
-	  sys_disk_write_enable(0);
-	}
-	f_close( FPT );
-	sys_disk_write_enable(0);
-}
+/* void save_libraryfile() // just use LIBRARY_FILE - will overwrite it! */
+/* { */
+/* 	FRESULT f; */
+/* 	uint x = 0; */
+/* 	sys_disk_write_enable(1); */
+/* 	f = f_open( FPT, LIBRARY_FILE, FA_CREATE_ALWAYS | FA_READ | FA_WRITE ); */
+/* 	if ( f != FR_OK ) { */
+/* 	  sys_disk_write_enable(0); */
+/* 	  return; */
+/* 	} */
+/* 	f = f_write( FPT, (char *) &UserFlash, sizeof( UserFlash ), &x ); */
+/* 	if ( f != FR_OK ) { */
+/* 	  sys_disk_write_enable(0); */
+/* 	} */
+/* 	f_close( FPT ); */
+/* 	sys_disk_write_enable(0); */
+/* } */
 
 #else //DM42 false..
 
@@ -1142,84 +1155,421 @@ static char *expand_filename( char *buffer, const char *filename )
 
 #ifdef DM42
 
-void load_statefile_state (int i) {
+#define DISP_NEW 1
+#define OVERWRITE_CHECK 1
+#define NO_DISP_NEW 0
+#define NO_OVERWRITE_CHECK 0
+#define WRITE 1
+#define READ 2
+
+void save_lib_file ( int i ) {
   FRESULT f;
+  int fss;
+  int data = WRITE;
   uint x=0;
 
-  if (i==1) {
-    f = f_open( FPT, SAVED_STATE_FILE, FA_READ );
+  sys_disk_write_enable(1);
+  if (i == 0) {
+    f = f_open (FPT, LIBRARY_FILE, FA_CREATE_ALWAYS | FA_READ | FA_WRITE);
+    if (f != FR_OK) {
+      f_close (FPT);
+      sys_disk_write_enable(0);
+      DispMsg = "Err slf1";
+      return;
+    }
   }
   else {
-    f = f_open( FPT, STATE_FILE, FA_READ );
+    fss = file_selection_screen ("Save Library File", "/wp34s", ".lib", open_selected_file, DISP_NEW, OVERWRITE_CHECK, &data );
+    if (fss != 1) return;
   }
-  
+  // File is now open with correct permissions
+  f = f_write (FPT, (char *) &UserFlash, sizeof (UserFlash), &x);
   if ( f != FR_OK ) {
-    DispMsg = "Not open";
+    DispMsg = "Err slf2";
+  }
+  f_close( FPT );
+  sys_disk_write_enable(0);
+}
+
+void load_lib_file ( int i ) {
+  FRESULT f;
+  int fss;
+  int data = READ;
+  uint x=0;
+
+  if (i == 0) {
+    f = f_open (FPT, LIBRARY_FILE, FA_READ);
+    if (f != FR_OK) {
+      f_close (FPT);
+      //      DispMsg = "No file?";
+      return;
+    }
   }
   else {
-    f = f_read( FPT, &PersistentRam, sizeof( PersistentRam ), &x );
+    fss = file_selection_screen ("Load Library File", "/wp34s", ".lib", open_selected_file, NO_DISP_NEW, NO_OVERWRITE_CHECK, &data );
+    if (fss != 1) return;
+  }
+  // File is now open with correct permissions
+  f = f_read (FPT, (char *) &UserFlash, sizeof (UserFlash), &x);
+  if ( f != FR_OK ) {
+    DispMsg = "Err slf2";
+  }
+  if ( !(f_eof(FPT)) ) {
+    DispMsg = "File too big";
+  }
+  f_close( FPT );
+}
+
+void save_ram_file ( int i ) {
+  FRESULT f;
+  int fss;
+  int data = WRITE;
+  uint x=0;
+
+    process_cmdline_set_lift();
+    init_state();
+    checksum_all();
+
+    sys_disk_write_enable(1);
+    if (i == 0) {
+      f = f_open (FPT, STATE_FILE, FA_CREATE_ALWAYS | FA_READ | FA_WRITE);
+      if (f != FR_OK) {
+	f_close (FPT);
+	sys_disk_write_enable(0);
+	DispMsg = "Err srf1";
+	return;
+      }
+    }
+    else {
+      fss = file_selection_screen ("Save RAM File", "/wp34s", ".dat", open_selected_file, DISP_NEW, OVERWRITE_CHECK, &data );
+      if (fss != 1) return;
+    }
+    // File is now open with correct permissions
+    f = f_write (FPT, (char *) &PersistentRam, sizeof (PersistentRam), &x);
+    if ( f != FR_OK ) {
+      DispMsg = "Err srf2";
+    }
     f_close( FPT );
-    DispMsg = "File read";
-  }
+    sys_disk_write_enable(0);
 }
 
-void load_statefile_backup () {
+void load_ram_file ( int i ) {
   FRESULT f;
-  uint x = 0;
-  char *dest = (char *) &BackupFlash;
-  char buffer[ PAGE_SIZE ];
-
-  f = f_open( FPT, BACKUP_FILE, FA_READ );
-  if ( f != FR_OK ) {
-    DispMsg = "Not open";
-    return;
-  }
-
-  sys_flashing_init();
-
-  f = f_read( FPT, buffer, PAGE_SIZE, &x ); // On the DM42, BackupFlash is currently one page in size
-  sys_flash_erase_block( dest, PAGE_SIZE ); // start plus size in bytes to erase
-  sys_flash_write_block( dest, (uint8_t *) buffer, PAGE_SIZE );
-
-  sys_flashing_finish();
-  f_close( FPT );
-  DispMsg = "File read";
-}
-
-void load_statefile_library () {
-  FRESULT f;
-  uint x = 0;
-  char *dest = (char *) &UserFlash;
-  char buffer[ PAGE_SIZE ];
-
-  f = f_open( FPT, LIBRARY_FILE, FA_READ );
-  if ( f != FR_OK ) {
-    DispMsg = "Not open";
-    return;
-  }
-
-  sys_flashing_init();
-
-  do {
-    f = f_read( FPT, buffer, PAGE_SIZE, &x );
-    sys_flash_erase_block( dest, PAGE_SIZE ); // start plus size in bytes to erase
-    sys_flash_write_block( dest, (uint8_t *) buffer, PAGE_SIZE );
-    dest += PAGE_SIZE;
-  } while ( !(f_eof(FPT)) );
-
-  sys_flashing_finish();
-  f_close( FPT );
-  DispMsg = "File read";
+  int fss;
+  int data = READ;
+  uint x=0;
   
-  //  init_library();
+  if (i == 0) {
+    f = f_open (FPT, STATE_FILE, FA_READ);
+    if (f != FR_OK) {
+      f_close (FPT);
+      //      DispMsg = "No file?";
+      return;
+    }
+  }
+  else {
+    fss = file_selection_screen ("Load RAM File", "/wp34s", ".dat", open_selected_file, NO_DISP_NEW, NO_OVERWRITE_CHECK, &data );
+    if (fss != 1) return;
+  }
+  // File is now open with correct permissions
+  f = f_read (FPT, (char *) &PersistentRam, sizeof (PersistentRam), &x);
+  if ( f != FR_OK ) {
+    DispMsg = "Err lrf2";
+  }
+  if ( !(f_eof(FPT)) ) {
+    DispMsg = "File too big";
+  }
+  f_close( FPT );
 }
 
-void load_statefile() //just use wp34s.dat
-{
-  load_statefile_state(1);
-  load_statefile_backup();
-  load_statefile_library();
+void load_backup_file ( int i ) {
+  FRESULT f;
+  int fss;
+  int data = READ;
+  uint x=0;
+
+  if (i == 0) {
+    f = f_open (FPT, BACKUP_FILE, FA_READ);
+    if (f != FR_OK) {
+      f_close (FPT);
+      //      DispMsg = "Err lbf1";
+      return;
+    }
+  }
+  else {
+    fss = file_selection_screen ("Load RAM Backup File", "/wp34s", ".dat", open_selected_file, NO_DISP_NEW, NO_OVERWRITE_CHECK, &data );
+    if (fss != 1) return;
+  }
+  // File is now open with correct permissions
+  f = f_read (FPT, (char *) &PersistentRam, sizeof (PersistentRam), &x);
+  if ( f != FR_OK ) {
+    DispMsg = "Err lbf2";
+  }
+  if ( !(f_eof(FPT)) ) {
+    DispMsg = "File too big";
+  }
+  f_close( FPT );
 }
+
+int open_selected_file (const char * fpath, const char * fname, void * data) {
+  FRESULT f;
+
+  if (*(int*)data == WRITE) {
+    // open file to write
+    f = f_open (FPT, fpath, FA_CREATE_ALWAYS | FA_READ | FA_WRITE);
+  }
+  else if (*(int*)data == READ) {
+    // open file to read
+    f = f_open (FPT, fpath, FA_READ);
+  }
+  else {
+    DispMsg = "data=3?";
+    return 3; // serious error!
+  }
+  if (f != FR_OK) {
+    f_close (FPT);
+    sys_disk_write_enable(0);
+    DispMsg = "File err";
+    return 2; // file can't be opened
+  }
+  else {
+    return 1; // file opened successfully
+  }
+}
+
+void save_prog_file () {
+  opcode lbl; 
+  unsigned int pc;
+  short steps, prog_crc;
+  FRESULT f;
+  int data = WRITE;
+  int fss;
+  uint x=0;
+  char* buffer;
+  FLASH_REGION* fr;
+
+  
+  if ( not_running() ) {
+    /*
+     *  Don't copy from library or XROM
+     */
+    pc = nLIB( state_pc() );
+    if ( pc == REGION_XROM ) {
+      report_err( ERR_ILLEGAL );
+      return;
+    }
+    /*
+     *  Check if program is labeled
+     */
+    update_program_bounds( 1 );
+    lbl = getprog( ProgBegin );
+    if ( !isDBL(lbl) || opDBL(lbl) != DBL_LBL ) {
+      report_err( ERR_NO_LBL );
+      return;
+    }
+    /*
+     *  Compute steps and crc for program
+     */
+    steps = 1 + ProgEnd - ProgBegin;
+    prog_crc = crc16( get_current_prog(), ProgEnd - ProgBegin + 1 );
+    //    print_debug(100, steps);
+    /*
+     * Get filename and open file
+     */
+    sys_disk_write_enable(1);
+
+    fss = file_selection_screen ("Save current program", "/wp34s", ".dat", open_selected_file, DISP_NEW, OVERWRITE_CHECK, &data );
+    if (fss != 1) return;
+
+    // File is now open with correct permissions
+
+    buffer = calloc (RAM_SIZE, 1);
+    if (!buffer) {// calloc failure!
+      f_close(FPT);
+      sys_disk_write_enable(0);
+      DispMsg = "Mem short";
+      return;
+    }
+
+    fr = (FLASH_REGION*) buffer;
+    fr->size = steps;
+    fr->crc = prog_crc;
+
+    xcopy (fr->prog, get_current_prog, steps << 1);
+    
+    f = f_write (FPT, buffer, 2*sizeof(short)+(steps << 1), &x);
+    free(buffer);
+    
+    if (f != FR_OK) { //odd?
+      DispMsg = "Write err";
+    }
+    else {
+      DispMsg = "Written";
+    }
+      
+    f_close(FPT);
+    sys_disk_write_enable(0);
+    
+  }
+}
+
+void load_prog_file () {
+  int fss, fsize;
+  int data = READ;
+  uint x=0;
+  FLASH_REGION* fr;
+  char* buffer;
+
+  fss = file_selection_screen ("Load RAM File", "/wp34s", ".dat", open_selected_file, NO_DISP_NEW, NO_OVERWRITE_CHECK, &data );
+  if (fss != 1) return;
+
+  // File is now open with correct permissions
+
+  fsize = f_size(FPT);
+  if (fsize > LIBRARY_SIZE) {// too big! Wrong file?
+    f_close(FPT);
+    DispMsg = "File too big";
+    return;
+  }
+  buffer = calloc (((fsize>>8)+1)<<8, 1);
+  if (!buffer) {// calloc failure!
+    f_close(FPT);
+    DispMsg = "Mem short";
+    return;
+  }
+  f_read (FPT, buffer, fsize, &x);
+  if (!f_eof(FPT)) { //odd?
+    free(buffer);
+    f_close(FPT);
+    DispMsg = "File odd";
+    return;
+  }
+  f_close(FPT);
+
+  fr = (FLASH_REGION*) buffer;
+  if (checksum_region(fr, fr)) {//crc failed - wrong filetype?
+    DispMsg = "File crc err";
+    free(buffer);
+    return;
+  }
+  
+  store_program_from_buffer (fr);
+  free(buffer);
+}
+
+void store_program_from_buffer( FLASH_REGION* fr )
+{ // buffer contains all of program file
+  unsigned int pc;
+  int space_needed, count, free;
+
+  if ( not_running() ) {
+    /*
+     *  Check if program is labeled
+     */
+
+    opcode lbl = (fr->prog)[0];
+    if ( isDBL(lbl) ) {
+      lbl |= (fr->prog)[1] << 16;
+    }
+    
+    if ( !isDBL(lbl) || opDBL(lbl) != DBL_LBL ) {
+      DispMsg = "No label";
+      return;
+    }
+    /*
+     *  Compute space needed
+     */
+    count = space_needed = fr->size;
+    free = NUMPROG_FLASH_MAX - UserFlash.size;
+
+    /*
+     *  Find a duplicate label in the library and delete the program
+     */
+    pc = find_opcode_from( addrLIB( 0, REGION_LIBRARY ), lbl, 0 );
+    if ( pc != 0 ) {
+      /*
+       *  CLP in library
+       */
+      unsigned int old_pc = state_pc();
+      set_pc( pc );
+      space_needed -= 1 + ProgEnd - ProgBegin;
+      if ( space_needed <= free ) {
+	clrprog();
+      }
+      set_pc( old_pc );
+    }
+    if ( space_needed > free ) {
+      report_err( ERR_FLASH_FULL );
+      return;
+    }
+    // 3. Append program
+    flash_append( UserFlash.size, fr->prog, count, UserFlash.size + count );
+  }
+}
+
+/* void load_statefile_state (int i) { */
+/*   FRESULT f; */
+/*   uint x=0; */
+
+/*   if (i==1) { */
+/*     f = f_open( FPT, SAVED_STATE_FILE, FA_READ ); */
+/*   } */
+/*   else { */
+/*     f = f_open( FPT, STATE_FILE, FA_READ ); */
+/*   } */
+  
+/*   if ( f != FR_OK ) { */
+/*     DispMsg = "Not open"; */
+/*   } */
+/*   else { */
+/*     f = f_read( FPT, (char *) &PersistentRam, sizeof( PersistentRam ), &x ); */
+/*     f_close( FPT ); */
+/*     DispMsg = "File read"; */
+/*   } */
+/* } */
+
+/* void load_statefile_backup () { */
+/*   FRESULT f; */
+/*   uint x = 0; */
+/*   char *dest = (char *) &BackupFlash; */
+
+/*   f = f_open( FPT, BACKUP_FILE, FA_READ ); */
+/*   if ( f != FR_OK ) { */
+/*     DispMsg = "Not open"; */
+/*     return; */
+/*   } */
+
+/*   f = f_read( FPT, dest, RAM_SIZE, &x );  */
+/*   f_close( FPT ); */
+
+/*   DispMsg = "File read"; */
+/* } */
+
+/* void load_statefile_library () { */
+/*   FRESULT f; */
+/*   uint x = 0; */
+/*   char *dest = (char *) &UserFlash; */
+/*   char buffer[ PAGE_SIZE ]; */
+
+/*   f = f_open( FPT, LIBRARY_FILE, FA_READ ); */
+/*   if ( f != FR_OK ) { */
+/*     DispMsg = "Not open"; */
+/*     return; */
+/*   } */
+
+/*   f = f_read (FPT, dest, LIBRARY_SIZE, &x); */
+/*   f_close( FPT ); */
+/*   DispMsg = "File read"; */
+  
+/*   init_library(); */
+/* } */
+
+/* void load_statefile() //just use wp34s.dat */
+/* { */
+/*   load_statefile_state(1); */
+/*   load_statefile_backup(); */
+/*   load_statefile_library(); */
+/* } */
 
 #else // if DM42 not defined ...
 

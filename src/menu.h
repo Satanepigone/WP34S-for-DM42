@@ -13,6 +13,7 @@
 #define LDST 7
 #define LDPRG 8
 #define HELP 9
+#define SVPRG 10
 
 struct _key {
   struct _ndmap unshifted;

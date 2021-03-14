@@ -16,6 +16,7 @@
 
 #include "decn.h"
 #include "xeq.h"
+#include "storage.h"
 #include "consts.h"
 #include "complex.h"
 #include "stats.h"

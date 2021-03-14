@@ -283,13 +283,26 @@ static void raw_set_pc(unsigned int pc) {
 /*
  *  Where do the program regions start?
  */
+#ifdef DM42
+static s_opcode * RegionTab[] = {
+	NULL,
+	NULL,
+	NULL,
+	xrom
+};
+void init_RegionTab (void) {
+  RegionTab[0] = (s_opcode*) Prog;
+  RegionTab[1] = (s_opcode*) UserFlash.prog;
+  RegionTab[2] = (s_opcode*) BackupFlash._prog;
+}
+#else
 static const s_opcode *const RegionTab[] = {
 	Prog,
 	UserFlash.prog,
 	BackupFlash._prog,
 	xrom
 };
-
+#endif
 /*
  *  Size of a program segment
  */

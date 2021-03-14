@@ -21,6 +21,8 @@
 // The actual size will be shorter on the device
 #ifdef DM42
 #define NUMPROG_FLASH	8190 //chosen to get length of user flash area multiple of 2k - short ints are 2 bytes, each step is 2 bytes too
+#define RAM_SIZE 2048 // in bytes
+#define LIBRARY_SIZE 16384 // in bytes
 #else
 #define NUMPROG_FLASH   9999
 #endif
@@ -38,8 +40,21 @@ typedef struct _flash_region {
         s_opcode prog[ NUMPROG_FLASH ];
 } FLASH_REGION;
 
+#ifdef DM42
+
+extern TPersistentRam *main_ram, *backup_ram;
+extern FLASH_REGION *library_ram;
+
+#define PersistentRam (*main_ram)
+#define BackupFlash (*backup_ram)
+#define UserFlash (*library_ram)
+
+#else
+
 extern FLASH_REGION UserFlash;
 extern TPersistentRam BackupFlash;
+
+#endif
 
 #ifndef REALBUILD
 // Flag for "Export Program..."
@@ -85,15 +100,27 @@ extern void set_assembler(const char* assembler);
 #endif
 
 #ifdef DM42
-extern void save_statefile( int i );
-extern void load_statefile( void );
-extern void import_textfile( const char *filename );
-extern void export_textfile( const char *filename );
+//extern void save_statefile( int i );
+//extern void load_statefile( void );
+//extern void import_textfile( const char *filename );
+//extern void export_textfile( const char *filename );
 
-extern void load_statefile_state( int i );
-extern void load_statefile_backup( void );
-extern void load_statefile_library( void );
-extern void save_libraryfile( void );
+//extern void load_statefile_state( int i );
+//extern void load_statefile_backup( void );
+//extern void load_statefile_library( void );
+//extern void save_libraryfile( void );
+
+extern void init_mem(void);
+extern void store_program_from_buffer (FLASH_REGION* fr);
+extern void load_prog_file (void);
+extern void save_prog_file (void);
+
+extern void save_lib_file(int i);
+extern void load_lib_file(int i);
+extern void save_ram_file(int i);
+extern void load_ram_file(int i);
+extern void load_backup_file(int i);
+extern int open_selected_file (const char * fpath, const char * fname, void * data); 
 
 extern void import_program (void);
 extern int load_program_file (const char * fpath, const char * fname, void * data);

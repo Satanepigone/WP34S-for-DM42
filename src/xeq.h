@@ -440,6 +440,7 @@ extern int current_catalogue_max(void);
 
 #ifdef DM42
 void print_debug (int i, int j);
+void print_debug2 (int i, char* j);
 //void print_debug (char i);
 void moveto (int line, int x);
 void start_key_timer (void);
@@ -1155,6 +1156,10 @@ extern int is_usrdblmode(void);
 extern int is_xrom(void);
 extern enum shifts cur_shift(void);
 extern enum shifts reset_shift(void);
+
+#ifdef DM42
+extern void init_RegionTab (void);
+#endif
 
 extern void init_state(void);
 extern void reset_volatile_state(void);

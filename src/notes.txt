@@ -1728,3 +1728,179 @@ Changes after the split
 
 * We need a HELP file!
 
++++++++++++++++++++++++
+
+I kept getting crashes when I increased the size of the program
+loading buffer to 2 * page_size. This is bad - although the crashes go
+away when I make the buffer smaller again, I still can't be sure that
+they won't repeat.
+
+Also, writing to flash probably isn't very sensible when there really
+is RAM available.
+
+I've made a new RAM section called RAM2, pointing at the second bank
+of RAM. I've put UserFlash and UserBackup there; the code compiles and
+loads (though since the saving and loading routines involve writing to
+Flash they don't work). So let's put the main memory there too, along
+with any buffers, and make the whole thing work.
+
+I've also got .git going.
+
+What I'm aiming for is this.
+
+* wp34s.dat written to at each "off". Read from at each full start.
+
+* wp34s-bup.dat written along with BackupFlash when OnSto pressed; BackupFlash read when
+  OnRcl pressed. wp34s-bup.dat is read into BackupFlash at each full start.
+
+* wp34s-lib.dat written as files are added to the library. Read from
+  at each full start; checked to see if valid. If not, recreated as
+  empty library on disk and in memory.
+
+* Ability to load/save named library file.
+
+* Ability to load/save named RAM state file.
+
+* No need to load/save named backup file.
+
+* Ability to load named program file into library.
+
+* Ideally, ability to save named program file.
+
+* Possibly - ability to save complete state in single file?
+
+Have routines called save_lib_file, load_ram_file, etc.
+Each needs a file selection screen with a different title, etc. That
+can be done with a function call. They then need to do different
+things. What they need from the file selection screen is really just a
+file name.
+
+So:
+
+* save_lib_file has a file selection screen command. The callback
+  simply returns the file name selected. The program then proceeds.
+
+* No - the callback function has to return 0 or 1. So: open file; if
+  this succeeds return 1 (continue with code); if not return 2 (error
+  message). The global variable FPT will have been set by the file
+  opening command.
+
+storage.c structure:
+
+* Declarations and definitions.
+
+* crc functions.
+
+* program code editing and clearing functions
+
+(Line 416)
+
+* A realbuild section.
+
+* get_region_path( int region ) defined.
+
+(line 505)
+
+* DM42 program_flash / !DM42 program flash.
+
+(l628)
+
+* init_library; flash_append, remove, flash_backup, flash_restore,
+  load_program, registers, stats, config, save program to library,
+  recall program. 
+
+(l884)
+
+* Some GUI-only definitions / functions.
+
+(l971)
+
+* DM42-only: import_program, load_program_file, save_statefile,
+  save_libraryfile;
+
+(l1018)
+
+* !DM42-only: save_statefile, filename stuff.
+
+* DM42-only: load_statefile_state, backup, library, load_statefile;
+  !DM42 - load_statefile.
+
+(L1270)
+
+* !DM42-only stuff.
+
+(end)
+
+The DM-42 stuff I actually want is:
+
+* everything up to L884: perhaps program_flash needs some changes
+  still;
+
+* The OnSto and OnRcl routines - flash_backup, flash_restore. No change.
+
+* save_lib_file; load_lib_file
+
+* save_ram_file; load_ram_file;
+
+* load_backup_file.
+
+Each of the five programs above can take an argument: 0 means use
+default filename; 1 means ask for a filename.
+
+* load_program_file.
+
+I've commented out save_statefile and save_library_file.
+Now I'm going to kill load_statefile_state ... load_statefile and
+replace with the code from temp.c.
+
+Lots has happened! With the changes above the program wouldn't even
+start without crashing. I finally worked out that my "storage" memory
+block was overwriting something that it shouldn't overwrite.
+
+To get around this I'm using calloc to allocate memory. This forces me
+to have pointers to ram, backup, and library rather than actual
+variables, but I've been able to work around this with minimal code
+changes.
+
+Right. Do I still need all the flash_append nonsense? The nice thing
+about flash_append (which calls program_flash) is that it keeps files
+and memory in sync, without the need to save. This could be undone,
+ultimately simplifying the code, but it might go wrong!
+
+One disadvantage is the need to do things in sections. flash_append
+does this internally - doesn't really matter to me. A bigger problem
+for me is that flash_append doesn't take a file as a source. So I have
+to send stuff over in sections.
+
+I can of course just read a file into flash, but that doesn't update
+the flash file.
+
+How about killing the file stuff in program flash and updating the
+disk files at the end of a command?
+
+I tried loading a long program file bit by bit and then writing it via
+flash_append bit-by-bit. This didn't work; I forgot that I can't have
+two files open. So I just use calloc to create a long buffer, fill
+this with the file, and then use flash_append to do the work. Seems
+ok.
+
+I haven't changed flash_append or program_flash (although I have made
+PAGE_SIZE smaller again - less chance of stack collision,
+perhaps?). The only buffer in normal memory is the one in
+flash_append, which seems fine.
+
+Individual programs in flash do not have crc or size associated with
+them. So if I'm writing a program out to a file, I need to make these
+myself.
+
+Check: what does report_err do? Returns a numbered error.
+
+Have stopped trying to draw a line between numbers and menu and have
+instead drawn a rectangle of depth 1. This works.
+
+Strange oversight on my part in "keycode_to_digit_or_register". How
+many more???
+
+Fixed now. A few label changes; time to make a git save thing. Commit,
+that's it!
+

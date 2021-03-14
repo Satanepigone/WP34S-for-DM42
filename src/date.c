@@ -26,6 +26,7 @@
 #include "date.h"
 #include "decn.h"
 #include "xeq.h"
+#include "storage.h"
 #include "consts.h"
 #include "alpha.h"
 #undef DM42SAFE

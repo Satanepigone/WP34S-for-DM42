@@ -123,8 +123,8 @@ static const struct _menu Menus[] = {
     { 
       { { K_SYS, 0}, NO_KEY, "System", "" },
       { { K_MULTI, HELP }, NO_KEY, "HELP", "" },
-      { { K_MULTI, ONSTO }, { K_MULTI, WRTST}, "OnSTO", "WrtSt" },
-      { { K_MULTI, ONRCL }, { K_MULTI, LDST}, "OnRCL", "LdSt" },
+      { { K_MULTI, ONSTO }, { K_MULTI, WRTST}, "OnSTO", "SaveS" },
+      { { K_MULTI, ONRCL }, { K_MULTI, LDST}, "OnRCL", "LoadS" },
       { ARROW_KEY, NO_KEY, "--\015", "" },
       { CMPLX_KEY, NO_KEY, "CPX", "" },
     }
@@ -176,10 +176,10 @@ static const struct _menu Menus[] = {
   {
     "Setup 2", // 13
     { 
-      { { K_MULTI, WRLIB}, NO_KEY, "WrtLib", "" },
-      { { K_MULTI, LLIB }, NO_KEY, "LdSt", "" },
-      { NO_KEY, NO_KEY, "", "" },
-      { { K_MULTI, LDPRG }, NO_KEY, "LdPrg", "" },
+      { { K_MULTI, WRLIB}, NO_KEY, "SaveL", "" },
+      { { K_MULTI, LLIB }, NO_KEY, "LoadL", "" },
+      { { K_MULTI, SVPRG }, NO_KEY, "SaveP", "" },
+      { { K_MULTI, LDPRG }, NO_KEY, "LoadP", "" },
       { ARROW_KEY, NO_KEY, "--\015", "" },
       { CMPLX_KEY, NO_KEY, "CPX", "" },
     }
@@ -299,10 +299,10 @@ void mdot(int i, int j, int s, int on) { // Column i, row j, state on
 
 void display_menu (int current_menu) {
   int len = 0;
-  lcd_fill_rect (0, 189, 400, 51, 0); // clear bottom 51 rows for menu 
+  lcd_fill_rect (0, 188, 400, 52, 0); // clear bottom 52 rows for menu 
   //  if (current_menu == 0) return; // Menu 0 is blank
   // Not blank now - includes arrow and cmplx like all the others.
-  lcd_fillLine (189, 0xff); // lines count from line 1?
+  lcd_fill_rect (0, 188, 400, 1, 0xff); // lines count from line 1? No. 
   //Clear previous menu
   for (int col = 0; col < 200; col++) {
     mdots[col][0] = 0;

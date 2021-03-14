@@ -16,6 +16,7 @@
 
 #include "alpha.h"
 #include "xeq.h"
+#include "storage.h"
 #include "decn.h"
 #include "display.h"
 #include "int.h"
