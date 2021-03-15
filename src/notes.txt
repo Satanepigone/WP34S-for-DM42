@@ -1904,3 +1904,47 @@ many more???
 Fixed now. A few label changes; time to make a git save thing. Commit,
 that's it!
 
+Looking at keys.c: there are comparisons between op-codes - e.g., c >=
+OP_RECV. Things like OP_RECV are enumerated in xeq.h - it is this file
+in which the order matters.
+
+Ok. I want to remove serial commands. Done - they were gone anyway!
+Print commands have gone - though one remains. I see in features.h
+that INCLUDE_PLOTTING is defined by default. mandelbrot is the only
+file in Library that uses it; let's kill it.
+
+Note that wp34s.op or something needs to be used along with the
+assembler so that the codes are correct. Well, it's there. I need to
+add in the library file along with some documentation. That can come
+later. 
+
+Got to "current_catalogue_max".
+
+What about gtodot? Doesn't work! Fixed.
+
+JustDisplayed doesn't seem to do anything - nothing sets it to 1
+except in console mode, unless the display is frozen. Leave it alone.
+
+display() takes quite a lot of work.
+finish_display just calls show_disp, so it's what's used if e.g., only
+a flag has changed. show_disp does clear the display and re-draw
+everything, so this is rather a lot too.
+
+I've done nothing dramatic. I'm assuming that display() isn't being
+over-called. What I have done is to note that a lot of the time
+finish_display is being called simply to toggle the state of RPN, so
+I've added finish_RPN which does this only. It works; it also avoids
+multiple flashes at switch-on.
+
+By redefining Ticker and Keyticks in DM42-appropriate ways I can
+remove some of the DM42 tags.
+
+Done
+
+Now for pauses. Normally Pause is a variable that counts down
+automatically. For me, it is too! I have is_paused which isn't used;
+kill it. I also have start_pause which assigns its argument to a
+variable called Pause. Pause counts down with the heartbeat.
+
+I define PAUSED as Pause, simply. It's easier to read.
+I do start_pause(0) instead of Pause=0. No reason.

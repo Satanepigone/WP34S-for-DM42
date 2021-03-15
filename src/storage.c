@@ -18,8 +18,9 @@
  * This module handles all load/save operations in the real build or emulator
  * Module written by MvC
  */
-//#define DM42
+
 #ifdef REALBUILD
+
 #define PERSISTENT_RAM __attribute__((section(".persistentram")))
 #define SLCDCMEM       __attribute__((section(".slcdcmem")))
 #define VOLATILE_RAM   __attribute__((section(".volatileram")))
@@ -29,7 +30,7 @@
 #define NULL 0
 #endif
 
-#else
+#else // not realbuild
 
 // Emulator definitions
 #include <stdio.h>
@@ -43,11 +44,13 @@
 #endif
 
 #ifndef DM42
+
 #if defined(QTGUI) || ( defined(USECURSES) && !defined(WIN32) )
 #include <errno.h>
 #include <stdlib.h>
 #include <unistd.h>
 #endif
+
 #endif
 
 #define PERSISTENT_RAM
@@ -79,16 +82,21 @@
 #include "alpha.h"
 #undef DM42SAFE
 
+#ifdef DM42
+#define PAGE_SIZE	 256 // if saving to flash need page size of 2k on DM42
+#else
 #define PAGE_SIZE	 256
+#endif
 
 /*
  *  Setup the persistent RAM
  */
 #ifdef DM42
+
 TPersistentRam *main_ram, *backup_ram;
 FLASH_REGION *library_ram;
 
-void init_mem () {
+void init_mem () { // called at start of program_main in console.c
   char *v;
 
   v = (char *) calloc(RAM_SIZE + RAM_SIZE + LIBRARY_SIZE,1);
@@ -102,9 +110,13 @@ void init_mem () {
   v += RAM_SIZE;
   library_ram = (FLASH_REGION *) v;
 }
+
 #else
+
 PERSISTENT_RAM TPersistentRam PersistentRam;
+
 #endif
+
 /*
  *  Data that is saved in the SLCD controller during deep sleep
  */
@@ -131,7 +143,7 @@ VOLATILE_RAM REGISTER XromA2D[4];
  *  We need to define the Library space here.
  *  On the device the linker takes care of this.
  */
-#ifdef DM42
+#ifdef DM42 // has already been done by init_mem above
 #else
 BACKUP_FLASH TPersistentRam BackupFlash;
 FLASH_REGION UserFlash;
@@ -497,7 +509,7 @@ void sam_ba_boot(void)
 }
 
 
-#else
+#else // below here, it's not REALBUILD
 
 /*
  *  Emulate the flash in a file wp34s-lib.dat or wp34s-backup.dat
@@ -527,10 +539,11 @@ static int program_flash( void *destination, void *source, int count )
    */
 
   xcopy( dest, source, count * PAGE_SIZE ); 
-  // print_debug (400, count);
+
   /*
    *  Update the correct region file
    */
+
   if ( dest >= (char *) &BackupFlash && dest < (char *) &BackupFlash + sizeof( BackupFlash ) ) {
     name = get_region_path( REGION_BACKUP );
     offset = dest - (char *) &BackupFlash;
@@ -538,15 +551,12 @@ static int program_flash( void *destination, void *source, int count )
   else if ( dest >= (char *) &UserFlash && dest < (char *) &UserFlash + sizeof( UserFlash ) ) {
     name = get_region_path( REGION_LIBRARY );
     offset = dest - (char *) &UserFlash;
-    // print_debug(401,offset);
-    // print_debug2(401, name);
   }
   else {
     // Bad address
     report_err( ERR_ILLEGAL );
     return 1;
   }
-  // print_debug(402,0);
   FRESULT f;
 
   sys_disk_write_enable(1);
@@ -556,17 +566,14 @@ static int program_flash( void *destination, void *source, int count )
     sys_disk_write_enable(0);
     return 1;
   }
-  // print_debug (600,0);
   f = f_open( FPT, name, FA_READ | FA_WRITE );
   if ( f != FR_OK ) {
-    // print_debug(700,0);
     f = f_open( FPT, name, FA_CREATE_ALWAYS | FA_READ | FA_WRITE );
   }
   if ( f != FR_OK ) {
     sys_disk_write_enable(0);
     return 1;
   }
-  // print_debug (600,1);
   f_lseek( FPT, offset );
   f = f_write( FPT, dest, PAGE_SIZE*count, &x);
   if (f != FR_OK) {
@@ -574,14 +581,12 @@ static int program_flash( void *destination, void *source, int count )
     sys_disk_write_enable(0);
     return 1;
   }
-  // print_debug (600,2);
   f = f_close( FPT );
   if ( f != FR_OK ) {
     sys_disk_write_enable(0);
     return 1;
   }
   sys_disk_write_enable(0);
-  // print_debug(403,0);
   return 0;
 }
 
@@ -677,7 +682,7 @@ static int flash_append( int destination_step, const s_opcode *source, int count
   char buffer[ PAGE_SIZE ];
   FLASH_REGION *fr = (FLASH_REGION *) buffer;
   count <<= 1;
-  // print_debug (101, sys_free_mem());
+
   if ( offset_in_page != 0 ) {
     /*
      *  We are not on a page boundary
@@ -687,22 +692,21 @@ static int flash_append( int destination_step, const s_opcode *source, int count
     xcopy( buffer, dest - offset_in_page, offset_in_page );
     xcopy( buffer + offset_in_page, src, bytes );
     if ( program_flash( dest - offset_in_page, buffer, 1 ) ) {
-      // print_debug(500,1);
       return 1;
     }
     src += bytes;
     dest += bytes;
     count -= bytes;
   }
-  // print_debug (501,count);
+
   if ( count > 0 ) {
     /*
      *  Move multiples of complete pages
      */
 #ifdef DM42
-    count = ( count + ( PAGE_SIZE - 1 ) ) / PAGE_SIZE;
+    count = ( count + ( PAGE_SIZE - 1 ) ) / PAGE_SIZE; // Should work for DM42 or not
 #else
-    count = ( count + ( PAGE_SIZE - 1 ) ) >> 8; // seems to assume that page_size = 2^8
+    count = ( count + ( PAGE_SIZE - 1 ) ) >> 8; // Original code seems to assume that page_size = 2^8
 #endif
     if ( program_flash( dest, src, count ) ) {
       return 1;
@@ -713,8 +717,6 @@ static int flash_append( int destination_step, const s_opcode *source, int count
    *  Update the library header to fix the crc and size fields.
    */
   xcopy( fr, &UserFlash, PAGE_SIZE );
-  // print_debug (300, size);
-  // print_debug (301, fr->size);
   fr->size = size;
   checksum_region( &UserFlash, fr );
   return program_flash( &UserFlash, fr, 1 );
@@ -736,7 +738,7 @@ int flash_remove( int step_no, int count )
 /*
  *  Simple backup / restore
  *  Started with ON+STO or ON+RCL or the SAVE/LOAD commands
- *  The backup area is the last 2KB of flash (pages 504 to 511)
+ *  The backup area is the last 2KB of flash (pages 504 to 511) // only in REALBUILD
  */
 void flash_backup( enum nilop op )
 {
@@ -984,102 +986,11 @@ static void ShowMessage( const char *title, const char *format, ... )
 #endif
 }
 
-#endif //ifndef DM42
+
 
 /*
  *  Save/Load state to a file
  */
-#ifdef DM42
-extern void display_current_menu ();
-
-/* void import_program () {   */
-/*   file_selection_screen ("Program File", "/wp34s", ".dat", load_program_file, 0, 0, NULL); */
-/*   //  print_debug (100, 4); */
-/*   display_current_menu (); */
-/* } */
-
-/* int load_program_file (const char * fpath, const char * fname, void * data) { */
-/*   FRESULT f; */
-/*   uint x; */
-/*   char buffer[ PAGE_SIZE ]; */
-/*   FLASH_REGION *fr = (FLASH_REGION *) buffer; */
-/*   f_close( FPT ); // just in case! */
-
-/*   f = f_open( FPT, fpath, FA_READ ); */
-/*   if (f !=0) { */
-/*     //    DispMsg = "Open Err"; */
-/*     // print_debug (100,1); */
-/*     return 1; // Display the error message */
-/*   } */
-
-/*   f = f_read( FPT, buffer, PAGE_SIZE, &x); */
-/*   // print_debug(200, PAGE_SIZE); */
-/*   // print_debug(201, x); */
-/*   // print_debug(202, UserFlash.size); */
-/*   // print_debug(203, f_eof(FPT));   */
-/*   // First four bytes are crc and size */
-/*   // So start reading from fr-prog. */
-/*   // fr->size might be greater than page_size, so read in x/2 steps. */
-/*   // print_debug(204, f_eof(FPT));   */
-
-/*   flash_append (UserFlash.size, fr->prog, x/2, UserFlash.size + x/2); */
-/*   // print_debug(205, 999); */
-/*   // Are we finished? If not, keep reading! */
-/*   while ( !(f_eof(FPT)) ) { */
-/*     flash_append (UserFlash.size, (const s_opcode*) buffer, x/2, UserFlash.size + x/2); */
-/*   } */
-/*   // print_debug(206,999); */
-/*   f_close( FPT ); */
-/*   return 1; // All done! */
-/* } */
-
-/* void save_statefile(int i) // note, nothing to do with flash */
-/* { */
-/* 	FRESULT f; */
-/* 	uint x = 0; */
-/* 	sys_disk_write_enable(1); */
-/* 	if (i==1) { */
-/* 	  f = f_open( FPT, SAVED_STATE_FILE, FA_CREATE_ALWAYS | FA_READ | FA_WRITE ); */
-/* 	} */
-/* 	else { */
-/* 	  f = f_open( FPT, STATE_FILE, FA_CREATE_ALWAYS | FA_READ | FA_WRITE ); */
-/* 	} */
-/* 	if ( f != FR_OK ) { */
-/* 	  sys_disk_write_enable(0); */
-/* 	  return; */
-/* 	} */
-/* 	process_cmdline_set_lift(); */
-/* 	init_state(); */
-/* 	checksum_all(); */
-/* 	f = f_write( FPT, (char *) &PersistentRam, sizeof( PersistentRam ), &x ); */
-/* 	if ( f != FR_OK ) { */
-/* 	  sys_disk_write_enable(0); */
-/* 	} */
-/* 	f_close( FPT ); */
-/* 	sys_disk_write_enable(0); */
-/* } */
-
-
-/* void save_libraryfile() // just use LIBRARY_FILE - will overwrite it! */
-/* { */
-/* 	FRESULT f; */
-/* 	uint x = 0; */
-/* 	sys_disk_write_enable(1); */
-/* 	f = f_open( FPT, LIBRARY_FILE, FA_CREATE_ALWAYS | FA_READ | FA_WRITE ); */
-/* 	if ( f != FR_OK ) { */
-/* 	  sys_disk_write_enable(0); */
-/* 	  return; */
-/* 	} */
-/* 	f = f_write( FPT, (char *) &UserFlash, sizeof( UserFlash ), &x ); */
-/* 	if ( f != FR_OK ) { */
-/* 	  sys_disk_write_enable(0); */
-/* 	} */
-/* 	f_close( FPT ); */
-/* 	sys_disk_write_enable(0); */
-/* } */
-
-#else //DM42 false..
-
 void save_statefile( const char *filename )
 {
 	FILE *f;
@@ -1107,9 +1018,6 @@ void save_statefile( const char *filename )
 #endif
 }
 
-#endif //ifdef DM42
-
-#ifndef DM42
 /*
  *  Helper to expand filenames with startup directory
  */
@@ -1150,10 +1058,12 @@ static char *expand_filename( char *buffer, const char *filename )
 #endif //ifndef DM42
 
 /*
- *  Load both the RAM file and the flash emulation images
+ *  Lots of file routines for DM42
  */
 
 #ifdef DM42
+
+extern void display_current_menu ();
 
 #define DISP_NEW 1
 #define OVERWRITE_CHECK 1
@@ -1292,7 +1202,6 @@ void load_backup_file ( int i ) {
     f = f_open (FPT, BACKUP_FILE, FA_READ);
     if (f != FR_OK) {
       f_close (FPT);
-      //      DispMsg = "Err lbf1";
       return;
     }
   }
@@ -1507,70 +1416,6 @@ void store_program_from_buffer( FLASH_REGION* fr )
   }
 }
 
-/* void load_statefile_state (int i) { */
-/*   FRESULT f; */
-/*   uint x=0; */
-
-/*   if (i==1) { */
-/*     f = f_open( FPT, SAVED_STATE_FILE, FA_READ ); */
-/*   } */
-/*   else { */
-/*     f = f_open( FPT, STATE_FILE, FA_READ ); */
-/*   } */
-  
-/*   if ( f != FR_OK ) { */
-/*     DispMsg = "Not open"; */
-/*   } */
-/*   else { */
-/*     f = f_read( FPT, (char *) &PersistentRam, sizeof( PersistentRam ), &x ); */
-/*     f_close( FPT ); */
-/*     DispMsg = "File read"; */
-/*   } */
-/* } */
-
-/* void load_statefile_backup () { */
-/*   FRESULT f; */
-/*   uint x = 0; */
-/*   char *dest = (char *) &BackupFlash; */
-
-/*   f = f_open( FPT, BACKUP_FILE, FA_READ ); */
-/*   if ( f != FR_OK ) { */
-/*     DispMsg = "Not open"; */
-/*     return; */
-/*   } */
-
-/*   f = f_read( FPT, dest, RAM_SIZE, &x );  */
-/*   f_close( FPT ); */
-
-/*   DispMsg = "File read"; */
-/* } */
-
-/* void load_statefile_library () { */
-/*   FRESULT f; */
-/*   uint x = 0; */
-/*   char *dest = (char *) &UserFlash; */
-/*   char buffer[ PAGE_SIZE ]; */
-
-/*   f = f_open( FPT, LIBRARY_FILE, FA_READ ); */
-/*   if ( f != FR_OK ) { */
-/*     DispMsg = "Not open"; */
-/*     return; */
-/*   } */
-
-/*   f = f_read (FPT, dest, LIBRARY_SIZE, &x); */
-/*   f_close( FPT ); */
-/*   DispMsg = "File read"; */
-  
-/*   init_library(); */
-/* } */
-
-/* void load_statefile() //just use wp34s.dat */
-/* { */
-/*   load_statefile_state(1); */
-/*   load_statefile_backup(); */
-/*   load_statefile_library(); */
-/* } */
-
 #else // if DM42 not defined ...
 
 void load_statefile(const char *filename )
@@ -1638,11 +1483,9 @@ void load_statefile(const char *filename )
 #endif
 }
 
-#endif //ifdef DM42
 /*
  *  Import text file
  */
-#ifndef DM42 // don't want this just yet...
 
 static void show_log( char *logname, int rc )
 {
@@ -1854,6 +1697,6 @@ extern void export_textfile( const char *filename )
 }
 #endif //ifndef DM42
 
-#endif
+#endif //if not defined REALBUILD or IOS
 
 

@@ -679,20 +679,17 @@ const struct niladic niladics[ NUM_NILADIC ] = {
 	FUNC0(OP_SENDA,		&send_all,		"SENDA",	CNULL)
 
 	FUNC0(OP_RECV,		&recv_any,		"RECV",		CNULL)
-	//	FUNC0(OP_SAVE,		&flash_backup,		"SAVE",		CNULL)
-	//	FUNC0(OP_LOAD,		&flash_restore,		"LOAD",		CNULL)
+#endif
+       	FUNC0(OP_SAVE,		&flash_backup,		"SAVE",		CNULL)
+	FUNC0(OP_LOAD,		&flash_restore,		"LOAD",		CNULL)
 	FUNC0(OP_LOADST,	&load_state,		"LOADSS",	CNULL)
 	FUNC0(OP_LOADP,		&load_program,		"LOADP",	CNULL)
-	//	FUNC0(OP_PRCL,		&recall_program,	"PRCL",		CNULL)
-	//	FUNC0(OP_PSTO,		&store_program,		"PSTO",		CNULL)
+	FUNC0(OP_PRCL,		&recall_program,	"PRCL",		CNULL)
+	FUNC0(OP_PSTO,		&store_program,		"PSTO",		CNULL)
 
 	FUNC0(OP_LOADR,		&load_registers,	"LOADR",	CNULL)
 	FUNC0(OP_LOADsigma,	&load_sigma,		"LOAD\221",	"LOADSUMS")
-#endif
-	FUNC0(OP_SAVE,		&flash_backup,		"SAVE",		CNULL)
-	FUNC0(OP_LOAD,		&flash_restore,		"LOAD",		CNULL)
-	FUNC0(OP_PRCL,		&recall_program,	"PRCL",		CNULL)
-	FUNC0(OP_PSTO,		&store_program,		"PSTO",		CNULL)
+
 	FUNC0(OP_DBLON,		&op_double,		"DBLON",	CNULL)
 	FUNC0(OP_DBLOFF,	&op_double,		"DBLOFF",	CNULL)
 	FUNC0(OP_ISDBL,		&check_dblmode,		"DBL?",		CNULL)
@@ -703,7 +700,7 @@ const struct niladic niladics[ NUM_NILADIC ] = {
 
 	FUNC0(OP_DOTPROD,	XNIL(cpx_DOT),		"\024DOT",	"cDOT")
 	FUNC0(OP_CROSSPROD,	XNIL(cpx_CROSS),	"\024CROSS",	"cCROSS")
-
+#ifndef DM42
 	/* INFRARED commands */
 	FUNC0(OP_PRINT_PGM,	IRN(print_program),	"\222PROG",	"P.PROG")
 	FUNC0(OP_PRINT_REGS,	IRN(print_registers),	"\222REGS",	"P.REGS")
@@ -715,7 +712,7 @@ const struct niladic niladics[ NUM_NILADIC ] = {
 	FUNC0(OP_PRINT_ADV,	IRN(print_lf),		"\222ADV",	"P.ADV")
 	FUNC1(OP_PRINT_WIDTH,	IRN(cmdprintwidth),	"\222WIDTH",	"P.WIDTH")
 	/* end of INFRARED commands */
-
+#endif
 	FUNC0(OP_QUERY_XTAL,	&op_query_xtal,		"XTAL?",	CNULL)
 	FUNC0(OP_QUERY_PRINT,	&op_query_print,	"\222?",	"PRT?")
 
@@ -959,6 +956,7 @@ const struct argcmd argcmds[ NUM_RARG ] = {
 	CMD(RARG_IND_CONST,	  &cmdconst,	NUM_CONSTS,		"CNST",		CNULL)
 	CMD(RARG_IND_CONST_CMPLX, &cmdconst,	NUM_CONSTS,		"\024CNST",	"cCNST")
 #endif
+#ifndef DM42
 	/* INFRARED commands */
 	CMDstk(RARG_PRINT_REG,	IRA(cmdprintreg),			"\222r",	"P.r")
 	CMD(RARG_PRINT_BYTE,	IRA(cmdprint),	256,			"\222#",	"P.#")
@@ -968,6 +966,7 @@ const struct argcmd argcmds[ NUM_RARG ] = {
 	CMD(RARG_PDELAY,	IRA(cmdprintmode),  32,			"\222DLAY",	"P.DLAY")
 	CMDcstk(RARG_PRINT_CMPLX, IRA(cmdprintcmplxreg),		"\222\024r\213\214",	"P.crect")
 	/* end of INFRARED commands */
+#endif
 #ifdef INCLUDE_PLOTTING
 	CMDplt(RARG_PLOT_INIT,    &cmdplotinit,				"gDIM",		CNULL)
 	CMDplt(RARG_PLOT_DIM,     &cmdplotdim,				"gDIM?",	CNULL)

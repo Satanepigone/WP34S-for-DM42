@@ -30,6 +30,9 @@ extern int is_dot(int n);
 extern void show_disp(void);
 extern void wait_for_display(void);
 extern void finish_display(void);
+#ifdef DM42
+extern void finish_RPN(void);
+#endif
 extern void show_flags(void);
 extern void reset_disp(void);
 extern void show_progtrace(char *buf);

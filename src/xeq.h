@@ -446,9 +446,7 @@ void moveto (int line, int x);
 void start_key_timer (void);
 int keyticks (void);
 void start_pause (int i);
-int is_paused (void);
-//#define PAUSED (start_pause(-1) == 0)
-//#define PAUSED (is_paused())
+//int is_paused (void);
 #define PAUSED Pause
 /*
 'Pause' is true if Pause is non-zero, i.e., if the pause is still running.
@@ -827,31 +825,29 @@ enum nilop {
         OP_SEND1, OP_SERIAL_OPEN, OP_SERIAL_CLOSE,
         OP_ALPHASEND, OP_ALPHARECV,
 #endif
-#ifndef DM42
+#ifndef DM42 //hide serial commands from DM42
         OP_SENDP, OP_SENDR, OP_SENDsigma, OP_SENDA,
 
         // Not programmable     
         OP_RECV,
-	//        OP_SAVE, OP_LOAD,
-        OP_LOADST, 
-        // OP_LOADP, OP_PRCL, OP_PSTO,
-
-        OP_LOADR, OP_LOADsigma,
 #endif	
         OP_SAVE, OP_LOAD,
-        OP_PRCL, OP_PSTO,
+        OP_LOADST, 
+        OP_LOADP, OP_PRCL, OP_PSTO,
+
+        OP_LOADR, OP_LOADsigma,
         OP_DBLON, OP_DBLOFF, OP_ISDBL, OP_cmplxI,
 
         OP_DATE_TO,
 
         OP_DOTPROD, OP_CROSSPROD,
-
+#ifndef DM42
         /* INFRARED commands */
         OP_PRINT_PGM, OP_PRINT_REGS, OP_PRINT_STACK, OP_PRINT_SIGMA,
         OP_PRINT_ALPHA, OP_PRINT_ALPHA_NOADV, OP_PRINT_ALPHA_JUST, OP_PRINT_ADV,
         OP_PRINT_WIDTH,
         /* end of INFRARED commands */
-
+#endif
         OP_QUERY_XTAL, OP_QUERY_PRINT,
 #if defined(INCLUDE_YREG_CODE) && !defined(YREG_ALWAYS_ON)
 	OP_SHOWY, OP_HIDEY,
@@ -966,10 +962,12 @@ enum rarg {
         RARG_IND_CONST,
         RARG_IND_CONST_CMPLX,
 #endif
+#ifndef DM42
         /* INFRARED commands */
         RARG_PRINT_REG, RARG_PRINT_BYTE, RARG_PRINT_CHAR, RARG_PRINT_TAB, 
         RARG_PMODE, RARG_PDELAY,
         RARG_PRINT_CMPLX,
+#endif
 #ifdef INCLUDE_PLOTTING
         RARG_PLOT_INIT, RARG_PLOT_DIM, 
         RARG_PLOT_SETPIX, RARG_PLOT_CLRPIX, RARG_PLOT_FLIPPIX, RARG_PLOT_ISSET,

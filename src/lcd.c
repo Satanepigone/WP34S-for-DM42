@@ -31,9 +31,8 @@
 static unsigned char dots[400];
 #endif
 
-
-static void dispreg(const char n, int index) {
 #if defined(USECURSES) && !defined(DM42)
+static void dispreg(const char n, int index) {
   char buf[64];
         if (is_intmode())
                 sprintf(buf, "%llx", (unsigned long long int)get_reg_n_int(index));
@@ -44,8 +43,8 @@ static void dispreg(const char n, int index) {
 			decimal64ToString(&(get_reg_n(index)->s), buf);
 	}
         PRINTF("%c: %s", n, buf);
-#endif
 }
+#endif
 
 #if defined(USECURSES) || defined(DM42) // want this in DM42
 /* Some wrapper routines to set segments of the display */
@@ -323,10 +322,11 @@ void show_disp(void) { // This function re-draws everything.
 	  lcd_fill_rect (235, ytop-(5+5*6)+2.5*5, 15, 4, 0xff);
 	  lcd_fill_rect (235, ytop-(5+5*6)+4.5*5, 15, 4, 0xff);
         }
-	t20->newln = 0;
-	t20->lnfill = 0;
-	t20->fixed = 1;
-	t20->xspc = -2;
+	/* t20->newln = 0; */
+	/* t20->lnfill = 0; */
+	/* t20->fixed = 1; */
+	/* t20->xspc = -2; */
+	t20->inv = 0;
 	
         if (dots[DOWN_ARR]) {
 	  lcd_fill_rect(262, ytop_exp-100,5,12,0xff);
@@ -673,6 +673,13 @@ void finish_display(void) {
   show_disp();
   lcd_refresh();
 }
+void finish_RPN(void) {//only refreshes the RPN flag
+  t20->inv = !dots[RPN];
+  lcd_setXY (t20, 350 ,130-60); //130 is ytop
+  lcd_writeText(t20, "RCL");
+  lcd_refresh();
+}
+
 #endif
 
 #ifdef CONSOLE

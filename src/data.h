@@ -341,6 +341,11 @@ extern TStateWhileOn StateWhileOn;
 #define Ticker		 (StateWhileOn._ticker)
 #define Keyticks         (StateWhileOn._keyticks)
 
+#else
+
+#define Ticker DM42_Ticker()
+#define Keyticks keyticks()
+
 #endif
 
 #define LastActiveSecond (StateWhileOn._last_active_second)

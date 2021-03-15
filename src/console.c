@@ -247,9 +247,9 @@ int keyticks () {
   return i >> 8;
 }
 
-int is_paused () {
-  return sys_timer_active(1);
-}
+/* int is_paused () { */
+/*   return sys_timer_active(1); */
+/* } */
 
 void start_pause (int i) {
   if ( i >= 0 ) {
@@ -382,8 +382,7 @@ void program_main(){
   int c;
   struct _ndmap remapped;
 
-  //  init_graphics();
-  //  xeq_init_contexts();
+
   init_mem();
   init_RegionTab();
   init_34s();
@@ -392,6 +391,13 @@ void program_main(){
   load_ram_file(0);
   load_backup_file(0);
   load_lib_file(0);
+
+  t20->newln = 0;
+  t20->lnfill = 0;
+  t20->fixed = 1;
+  t20->xspc = -2;
+  t20->bgfill = 0;
+  
   display();
   display_current_menu();
   lcd_refresh();

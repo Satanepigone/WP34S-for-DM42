@@ -738,20 +738,14 @@ static s_opcode prog_catalogue[] = {
 	NILIC(OP_ALPHASEND,	"\240SEND")
 	NILIC(OP_ALPHARECV,	"\240RECV")
 #endif
-#ifndef DM42
-	//	NILIC(OP_SAVE,		"SAVE")
-	//	NILIC(OP_LOAD,		"LOAD")
+	NILIC(OP_SAVE,		"SAVE")
+	NILIC(OP_LOAD,		"LOAD")
 	NILIC(OP_LOADP,		"LOADP")
 	NILIC(OP_LOADR,		"LOADR")
 	NILIC(OP_LOADsigma,	"LOAD\221")
 	NILIC(OP_LOADST,	"LOADSS")
-	//	NILIC(OP_PSTO,		"PSTO")
-	//	NILIC(OP_PRCL,		"PRCL")
-#endif
-	NILIC(OP_SAVE,		"SAVE")
-	NILIC(OP_LOAD,		"LOAD")
-	NILIC(OP_PRCL,		"PRCL")
 	NILIC(OP_PSTO,		"PSTO")
+	NILIC(OP_PRCL,		"PRCL")
 #ifdef INCLUDE_FLASH_RECALL
 	RARGCMD(RARG_FLRCL, 	"RCF")
 #endif
@@ -759,7 +753,7 @@ static s_opcode prog_catalogue[] = {
 
 	RARGCMD(RARG_LOCR,	"LocR")
 	NILIC(OP_POPLR,		"PopLR")
-
+#ifndef DM42
 	/* INFRARED commands */
 	RARGCMD(RARG_PRINT_REG,	    "\222r")
 	RARGCMD(RARG_PRINT_CMPLX,   "\222\024r[sub-x][sub-y]")
@@ -776,6 +770,7 @@ static s_opcode prog_catalogue[] = {
 	NILIC(OP_PRINT_STACK,	    "\222STK")
 	NILIC(OP_PRINT_WIDTH,	    "\222WIDTH")
 	/* end of INFRARED commands */
+#endif
 #ifdef INCLUDE_PLOTTING
 	RARGCMD(RARG_PLOT_INIT,     "gDIM")
 	RARGCMD(RARG_PLOT_DIM,      "gDIM?")
@@ -898,10 +893,12 @@ static s_opcode mode_catalogue[] = {
 	RARGCMD(RARG_RCLM,	"RCLM")
 	NILIC(OP_SETDATE,	"SETDAT")
 	NILIC(OP_SETTIME,	"SETTIM")
+#ifndef DM42
 	/* INFRARED commands */
 	RARGCMD(RARG_PMODE,	"PMODE")
 	RARGCMD(RARG_PDELAY,	"PDLAY")
 	/* end of INFRARED commands */
+#endif
 #ifndef INCLUDE_INTERNAL_CATALOGUE
 	NILIC(OP_DBLON,		"DBLON")
 	NILIC(OP_DBLOFF,	"DBLOFF")

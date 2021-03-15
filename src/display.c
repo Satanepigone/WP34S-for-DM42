@@ -2192,7 +2192,7 @@ void set_IO_annunciator(void) {
     int on = SerialOn
 #endif
 #ifdef DM42
-    int on = 1
+    int on = 0
 #endif
 #ifdef REALBUILD
 	  || DebugFlag
@@ -2205,7 +2205,7 @@ void set_IO_annunciator(void) {
 	if (on != IoAnnunciator) {
 		dot(LIT_EQ, on);
 		IoAnnunciator = on;
-		finish_display();
+		finish_display(); //LIT_EQ
 	}
 }
 
@@ -2754,7 +2754,7 @@ extern void message(const char *str1, const char *str2)
 			set_digits_string( str2, 0 );
 		}
 		set_status( str1 );
-		finish_display();
+		finish_display();// message
 	}
 }
 

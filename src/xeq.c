@@ -1781,10 +1781,8 @@ void get_base(enum nilop op) {
 #endif
 /* Get the current ticker value */
 void op_ticks(enum nilop op) {
-#if !defined(CONSOLE) && !defined(DM42)
+#if !defined(CONSOLE)
     setX_int_sgn(Ticker, 0);
-#elif defined(DM42)
-    setX_int_sgn(DM42_Ticker(),0);
 #else 
     struct timeval tv;
     long long int t;
@@ -3375,7 +3373,7 @@ void cmdflag(unsigned int arg, enum rarg op) {
 
 	if ( arg == A_FLAG ) {
 		dot( BIG_EQ, flg );
-		finish_display();
+		finish_display(); // BIG_EQ
 	}
 }
 
@@ -5269,17 +5267,13 @@ void xeqprog(void)
 	if (Running || Pause) {
 #endif
 #ifndef CONSOLE
-#ifdef DM42
-	  long long last_ticker = DM42_Ticker();
-#else
 		long long last_ticker = Ticker;
-#endif
 		state = ((int) last_ticker % (2*TICKS_PER_FLASH) < TICKS_PER_FLASH);
 #else
 		state = 1;
 #endif
 		dot(RCL_annun, state);
-		finish_display();
+		finish_RPN(); // RPN
 #ifdef DM42
 		while (! PAUSED && Running) {
 #else		  
@@ -5304,7 +5298,7 @@ void xeqprog(void)
 		display();
 		if (ShowRPN) {
 			set_dot(RPN);
-			finish_display();
+			finish_RPN(); // RPN
 		}
 #ifndef CONSOLE
 		// Avoid accidental restart with R/S or APD after program ends
@@ -5584,7 +5578,7 @@ void set_running_on() {
 	if (!is_xrom())
 		error_message(ERR_NONE);
 	dot(BEG, 0);
-	finish_display();
+	finish_display(); // BEG
 }
 
 /* Command to stash registers A through D into volatile RAM and to restore them

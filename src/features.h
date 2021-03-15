@@ -51,7 +51,7 @@
 //#define INTERRUPT_XROM_TICKS 10
 
 // Include the pixel plotting commands
-#define INCLUDE_PLOTTING
+// #define INCLUDE_PLOTTING
 
 // Build a tiny version of the device
 // #define TINY_BUILD

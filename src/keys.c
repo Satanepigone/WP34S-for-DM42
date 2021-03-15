@@ -50,7 +50,7 @@ extern void changed_catalog_state();
 #define STATE_WINDOWRIGHT	(OP_SPEC | OP_WINDOWRIGHT)
 //#define STATE_SHOW		(OP_SPEC | OP_SHOW)
 
-/* Define this if the key codes map rows sequentially */ //ND ???
+/* Define this if the key codes map rows sequentially */
 
 #define TEST_EQ		0
 #define TEST_NE		1
@@ -115,11 +115,6 @@ static void toggle_shift(enum shifts shift) {
  * Mapping from the key code to a linear index
  * The trick is to move the shifts and the holes in the map out of the way
  */
-// ND: understood, but not really needed I don't think given the memory available.
-// Easy to implement if / when required. Note that f, g, h all have the same index.
-// This relates to the keycode definitions in keys.h.
-// Will need to refer to dmcp.h
-
 #ifdef DM42
 static int keycode_to_linear_for_alpha(const keycode c)
 {
@@ -169,10 +164,6 @@ static int keycode_to_linear(const keycode c)
  * Mapping from the key code to a row column code ('A'=11 to '+'=75)
  * Used in KEY? and for shorthand addressing
  */
-
-// ND: will need to change this a bit. Note the advance by six per row, even when
-// there are only five keys.
-
 int keycode_to_row_column(const int c)
 {
 	return 11 + ( c / 6 ) * 10 + c % 6;
@@ -183,7 +174,6 @@ int keycode_to_row_column(const int c)
  * Used in PUTK and KTYPE.
  */
 
-// ND: see above
 int row_column_to_keycode(const int c)
 {
 	int row = c / 10 - 1;
@@ -261,13 +251,6 @@ unsigned int keycode_to_digit_or_register(const keycode c)
 /*
  *  Mapping of a keycode and shift state to a catalogue number
  */
-
-// ND:  Seems straightforward: I'll just need to re-write the contents of the _map struct
-// significantly, and remove the requirement of h-shiftedness.
-// The three entries at present correspond to normal mode, int mode, and complex mode.
-// I might need two tables - one for f, one for g.
-//
-
 static enum catalogues keycode_to_cat(const keycode c, enum shifts shift)
 {
   enum catalogues cat = CATALOGUE_NONE;
@@ -461,7 +444,6 @@ static int keycode_to_alpha(const keycode c, unsigned int shift)
  * Mapping from key position to alpha in the four key planes plus
  * the two lower case planes.
  */
-// ND: work here! K04 and K05 aren't arrow and complex here - this is nice, and helpful.
 static int keycode_to_alpha(const keycode c, unsigned int shift)
 {
 	static const unsigned char alphamap[][6] = {
@@ -641,11 +623,11 @@ static int check_confirm(int op) {
 			State2.confirm = confirm_clall + (nilop - OP_CLALL);
 			return STATE_UNFINISHED;
 		}
-#ifndef DM42		// ND: I may want to include this now. 
+#ifndef DM42		
 		if ((nilop >= OP_RECV && nilop <= OP_PSTO)
 #endif
 #ifdef DM42
-		    if (0    
+		    if ((nilop >= OP_SAVE && nilop <= OP_PSTO) // no recv in DM42
 #endif
 #ifdef INFRARED
 			|| nilop == OP_PRINT_PGM
@@ -688,8 +670,6 @@ static int intltr(int d) {
 /*
  *  Process a key code in the unshifted mode.
  */
-
-// ND: straightforward? Probably.
 static int process_normal(const keycode c)
 {
 	static const unsigned short int op_map[] = {
@@ -740,9 +720,7 @@ static int process_normal(const keycode c)
 	};
 
 	int lc = keycode_to_linear(c);
-	// print_debug (10, lc);
 	int op = op_map[lc];
-	// print_debug (11, op);
 	
 	// The switch handles all the special cases
 #ifdef DM42
@@ -784,8 +762,7 @@ static int process_normal(const keycode c)
 	  default:;
 	  }
 	}
-#endif   	    
-	// print_debug (12, lc);
+#endif  
 
 	switch (c) {
 #ifdef DM42
@@ -862,7 +839,6 @@ static int process_normal(const keycode c)
 /*
  *  Process a key code after f or g shift
  */
-// ND: if the last one has worked, this one should too:
 static int process_fg_shifted(const keycode c) {
 
 #define NO_INT 0xf000
@@ -1021,7 +997,6 @@ static int process_fg_shifted(const keycode c) {
 /*
  *  Process a key code after h shift
  */
-// ND: this has to be merged in with the above as there is no longer to be h-shift
 static int process_h_shifted(const keycode c) {
 #define _RARG    0x8000	// Must not interfere with existing opcode markers
 #define NO_INT   0x4000
@@ -1121,7 +1096,6 @@ static int process_h_shifted(const keycode c) {
 /*
  *  Process a key code after CPX
  */
-// ND: again, change;
 static int process_cmplx(const keycode c) {
 #define _RARG   0xFF00
 #define CSWAPXZ RARG(RARG_CSWAPX, regZ_idx)
@@ -1241,8 +1215,6 @@ static int process_cmplx(const keycode c) {
  * deal with the complex versions and the handling of that key and
  * the ON key are dealt with by our caller.
  */
-// ND: change key 1-3 to whatever (14-16?)
-// ND: leave for now - may not be needed.
 static int process_hyp(const keycode c) {
 	static const unsigned char op_map[][2] = {
 		{ OP_ASINH, OP_SINH },
@@ -1290,7 +1262,6 @@ static int process_hyp(const keycode c) {
 /*
  *  Process a key code after ->
  */
-// ND: again, key numbers to be changed:
 static int process_arrow(const keycode c) {
 	static const unsigned short int op_map[][2] = {
 		{ OP_MON | OP_2DEG,  OP_MON | OP_2HMS },
@@ -1346,7 +1317,6 @@ static int gtodot_fkey(int n) {
 	return state_pc();
 }
 
-// ND: This one has keycodes in
 static int process_gtodot(const keycode c) {
 	int pc = -1;
 	unsigned int rawpc = keycode_to_digit_or_register(c);
@@ -1355,6 +1325,12 @@ static int process_gtodot(const keycode c) {
 		// Digit 0 - 9
 		pc = gtodot_digit(rawpc);
 	}
+#ifdef DM42
+	else if ((rawpc & ~NO_SHORT) == regX_idx) rawpc = gtodot_digit(1); 
+	else if ((rawpc & ~NO_SHORT) == regY_idx) rawpc = gtodot_digit(2); 
+	else if ((rawpc & ~NO_SHORT) == regZ_idx) rawpc = gtodot_digit(3); 
+	else if ((rawpc & ~NO_SHORT) == regT_idx) rawpc = gtodot_digit(4); 
+#endif
 	else if (c >= K00 && c <= K03) {
 		// A - D
 		rawpc = gtodot_fkey(c - K00);
@@ -2218,11 +2194,7 @@ static int process_catalogue(const keycode c, const enum shifts shift, const int
 			return STATE_UNFINISHED;
 
 		case K24:			// backspace
-#ifdef DM42
-		  if (CmdLineLength > 0 && keyticks() < 30) {
-#else
 		    if (CmdLineLength > 0 && Keyticks < 30) {
-#endif
 		      if (--CmdLineLength > 0)
 					goto search;
 				pos = 0;
@@ -2849,13 +2821,8 @@ static int process(const int c) {
 	/*  Handle the keyboard timeout for catalogue navigation
 	 *  Must be done early in the process to capture the shifts correctly
 	 */
-#ifdef DM42
-	if (State2.catalogue && keyticks() > 30)	
-#else	
 	if (State2.catalogue && Keyticks > 30)
-#endif
 		CmdLineLength = 0;
-	// print_debug (1, c);
 	/*
 	 *  Process the various cases
 	 *  The handlers in this block here do not handle shifts at all or do it themselves
@@ -2996,11 +2963,7 @@ void process_keycode(int c)
      *  Heartbeat processing goes here.
      *  This is totally thread safe!
      */
-#ifdef DM42
-    if (keyticks() >=2 ) {
-#else
     if (Keyticks >= 2) {
-#endif
       /*
        *  Some time has passed after last key press
        */
@@ -3023,12 +2986,7 @@ void process_keycode(int c)
 	  display();
 	  ShowRPN = 1;	// Off because of DispMsg setting
 	}
-#ifdef DM42
-    else if (keyticks() > 12 ) {
-#else
     else if (Keyticks > 12) {
-#endif
-	  
 	  /*
 	   *  Key is too long held down
 	   */
@@ -3038,11 +2996,7 @@ void process_keycode(int c)
 	  State2.disp_temp = 0;
 	}
       }
-#ifdef DM42
-	if (keyticks() > 12 && shift_down() != SHIFT_N) {
-#else
       if (Keyticks > 12 && shift_down() != SHIFT_N) {
-#endif
 	// Rely on the held shift key instead of the toggle
 	State2.shifts = SHIFT_N;
       }
@@ -3084,7 +3038,7 @@ void process_keycode(int c)
        * Turn off the RPN annunciator as a visual feedback
        */
       clr_dot(RPN);
-      finish_display();
+      finish_RPN(); // RPN
     }
 
 #ifndef CONSOLE
@@ -3136,7 +3090,7 @@ void process_keycode(int c)
 	  display();
 	}
 	else {
-	  finish_display(); // Update the RPN annunciator
+	  finish_RPN(); // Update the RPN annunciator
 	}
       }
 #endif
@@ -3147,7 +3101,7 @@ void process_keycode(int c)
      *  Turn on the RPN symbol if desired
      */
     if (ShowRPN) {
-      finish_display();
+      finish_RPN(); // RPN
     }
   }
   else {
@@ -3211,7 +3165,7 @@ void process_keycode(int c)
 	  // Save the op-code for execution on key-up
 	  OpCode = c;
 	  OpCodeDisplayPending = 1;
-	  finish_display(); // Update the RPN annunciator
+	  finish_RPN(); // Update the RPN annunciator
 	  goto no_display; // No need to update the display before the command is executed
 	}
       }
