@@ -24,6 +24,7 @@
 #define strtoull _strtoui64
 
 #else
+
 #ifdef DM42
 #include "dmcp.h"
 #else
@@ -251,7 +252,7 @@ unsigned int global_regs(void) {
 }
 
 
-#if defined(CONSOLE) && !defined(DM42)
+#if defined(CONSOLE)
 // Console screen only
 unsigned int get_local_flags(void) {
 	if (LocalRegs == 0)
@@ -579,7 +580,7 @@ void cmdmsg(unsigned int arg, enum rarg op) {
 }
 
 
-#if defined(DEBUG) && defined(CONSOLE) && !defined(DM42)
+#if defined(DEBUG) && defined(CONSOLE)
 #include <stdlib.h>
 static void error(const char *fmt, ...) {
 	va_list ap;
@@ -3896,7 +3897,7 @@ void cmdpause(unsigned int arg, enum rarg op) {
 	// decremented in the low level heartbeat
 	Pause = arg;
 	GoFast = (arg == 0);
-#elif (defined) DM42
+#elif 0
 	start_pause(arg);
 #else	
 #if defined(WIN32) && !defined(__GNUC__)
@@ -5074,7 +5075,7 @@ void xeq(opcode op)
 #endif
 
 	xcopy(save, StackBase, sizeof(save));
-#if defined(CONSOLE) && !defined(DM42)
+#if defined(CONSOLE)
 	instruction_count++;
 #endif
 #ifndef REALBUILD
@@ -5218,25 +5219,17 @@ static void xeq_xrom2(void) {
 	/* Now if we've stepped into the XROM area, keep going until
 	 * we break free.
 	 */
-#ifdef DM42
-	while ( !PAUSED && is_xrom() && RetStkPtr != 0) {
-#else
 	  while (!Pause && is_xrom() && RetStkPtr != 0) {
-#endif
 		XromRunning = 1;
 		xeq_single();
 		XromRunning = 0;
 		if ((++count & 31) == 0)
 			busy();
-#ifdef DM42
-		if (PAUSED) {
-#else
 		  if (Pause)
-#endif		  
 			// Special case: WHO has a PSE built in.
 			// Switch to Running mode to force continued execution.
 			Running = 1;
-		}
+		
 	}
 }
 
@@ -5248,24 +5241,18 @@ void xeq_xrom(void) {
 }
 #endif
 
-	/* Check to see if we're running a program and if so execute it
+/* Check to see if we're running a program and if so execute it
  * for a while.
  *
  */
 
 /*
-//#define PAUSED (start_pause(-1) == 0) (definition in xeq.h)
 'Pause' is true if Pause is non-zero, i.e., if the pause is still running.
-PAUSED is true if the timer is not expired.
 */
 void xeqprog(void) 
 {
 	int state = 0;
-#ifdef DM42
-	if ( Running || PAUSED ) {
-#else
 	if (Running || Pause) {
-#endif
 #ifndef CONSOLE
 		long long last_ticker = Ticker;
 		state = ((int) last_ticker % (2*TICKS_PER_FLASH) < TICKS_PER_FLASH);
@@ -5274,11 +5261,8 @@ void xeqprog(void)
 #endif
 		dot(RCL_annun, state);
 		finish_RPN(); // RPN
-#ifdef DM42
-		while (! PAUSED && Running) {
-#else		  
+
 		while (! Pause && Running) {
-#endif
 		  xeq_single();
 			if (is_key_pressed()) {
 				// Key press or heart beat
@@ -5287,11 +5271,7 @@ void xeqprog(void)
 			}
 		}
 	}
-#ifdef DM42
-	if (! Running && ! PAUSED ) {
-#else
 	if (! Running && ! Pause) {	  
-#endif
 	  // Program has terminated
 		clr_dot(RCL_annun);
 		ShowRPN = 1;	// display() may turn it off again

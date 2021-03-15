@@ -1948,3 +1948,10 @@ variable called Pause. Pause counts down with the heartbeat.
 
 I define PAUSED as Pause, simply. It's easier to read.
 I do start_pause(0) instead of Pause=0. No reason.
+
+I've got rid of it and things seem fine.
+
+Quite a lot of DM42 references are things like ifdef CONSOLE && !def
+DM42.
+I'm pretty sure that console isn't defined. It only appears in
+features.h, and here it is only defined if DM42 isn't.

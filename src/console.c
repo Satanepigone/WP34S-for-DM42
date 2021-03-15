@@ -234,6 +234,7 @@ void flush_comm( void )
 #ifdef DM42
 void start_key_timer (void);
 int keyticks (void);
+void moveto (int line, int x);
 
 static int start_ticks;
 
@@ -247,44 +248,15 @@ int keyticks () {
   return i >> 8;
 }
 
-/* int is_paused () { */
-/*   return sys_timer_active(1); */
-/* } */
-
-void start_pause (int i) {
-  if ( i >= 0 ) {
-    Pause = i;
-  }
-  return;
-}
-    
-  
 char spaces[22] = "                     ";	//21 spaces.
 char print_string[22];
 int n_p = 0;
 
-void init_graphics() {
-  lcd_switchFont(fReg,3); //Font number 3
-  fReg->newln = 0;//no newline after printing
-  fReg->fixed = 1;//fixed width characters
-  strcpy (print_string,spaces);
-  //  lcd_clear_buf();//clear buffer
-  lcd_refresh();
-}
 
 void moveto(int line, int x) {//These are line number and character positions
   lcd_setLine(fReg, line-1); //line 0 is the top line
   lcd_setXY(fReg, 20 + (fReg->f)->width*(x-1), fReg->y);
 }
-
-//print_debug(is_dot(RPN) ? 'X' : 'x');
-
-//void print_debug (char i) {
-//  if (n_p < 21) {
-//    print_string[n_p] = i;
-//    n_p++;
-//  }
-//}
 
 void print_debug (int i, int j) {
   strcpy( print_string, spaces );
@@ -382,16 +354,13 @@ void program_main(){
   int c;
   struct _ndmap remapped;
 
-
   init_mem();
   init_RegionTab();
   init_34s();
-  DispMsg = "";
   State2.flags = 1;
-  load_ram_file(0);
+  if (!load_ram_file(0)) DispMsg = CNULL; // no message if it loads ok
   load_backup_file(0);
   load_lib_file(0);
-
   t20->newln = 0;
   t20->lnfill = 0;
   t20->fixed = 1;

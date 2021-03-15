@@ -441,17 +441,7 @@ extern int current_catalogue_max(void);
 #ifdef DM42
 void print_debug (int i, int j);
 void print_debug2 (int i, char* j);
-//void print_debug (char i);
-void moveto (int line, int x);
-void start_key_timer (void);
 int keyticks (void);
-void start_pause (int i);
-//int is_paused (void);
-#define PAUSED Pause
-/*
-'Pause' is true if Pause is non-zero, i.e., if the pause is still running.
-PAUSED is true if the timer is not expired.
-*/
 #endif
 
 /* Allow the number of registers and the size of the stack to be changed

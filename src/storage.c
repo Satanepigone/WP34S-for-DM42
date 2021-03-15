@@ -1163,7 +1163,7 @@ void save_ram_file ( int i ) {
     sys_disk_write_enable(0);
 }
 
-void load_ram_file ( int i ) {
+int load_ram_file ( int i ) {
   FRESULT f;
   int fss;
   int data = READ;
@@ -1174,22 +1174,27 @@ void load_ram_file ( int i ) {
     if (f != FR_OK) {
       f_close (FPT);
       //      DispMsg = "No file?";
-      return;
+      return 1;
     }
   }
   else {
     fss = file_selection_screen ("Load RAM File", "/wp34s", ".dat", open_selected_file, NO_DISP_NEW, NO_OVERWRITE_CHECK, &data );
-    if (fss != 1) return;
+    if (fss != 1) return 1;
   }
   // File is now open with correct permissions
   f = f_read (FPT, (char *) &PersistentRam, sizeof (PersistentRam), &x);
   if ( f != FR_OK ) {
     DispMsg = "Err lrf2";
+      f_close( FPT );
+      return 1;
   }
   if ( !(f_eof(FPT)) ) {
     DispMsg = "File too big";
+      f_close( FPT );
+      return 1;
   }
   f_close( FPT );
+  return 0;
 }
 
 void load_backup_file ( int i ) {

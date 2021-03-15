@@ -2754,31 +2754,6 @@ static int process(const int c) {
   const enum shifts shift = cur_shift();
   enum catalogues cat;
 
-#ifdef DM42
-  // print_debug (0, c);
-  if (Running || PAUSED) {
-    /*
-     *  Abort a running program with R/S or EXIT
-     */
-    if (c == K60 || c == K63) {
-      if (PAUSED && isXROM(state_pc()))
-	set_pc(0);
-      start_pause (0); //end the pause
-      xeq_xrom();
-      set_running_off();
-      DispMsg = "Stopped";
-      State2.disp_freeze = 0;
-      return STATE_UNFINISHED;
-    }
-    if ( c != K_HEARTBEAT ) {
-      LastKey = (char) (c + 1);	// Store for KEY?
-      start_pause(0);			// leave PSE statement
-      GoFast = 1;
-    }
-    // continue execution if really running, else ignore (PSE)
-    return STATE_RUNNING;
-  }
-#else
   if (Running || Pause) {
     /*
      *  Abort a running program with R/S or EXIT
@@ -2801,7 +2776,7 @@ static int process(const int c) {
     // continue execution if really running, else ignore (PSE)
     return STATE_RUNNING;
   }
-#endif
+
   /* Check for ON in the unshifted state -- this is a reset sequence
    * common across all modes.  Shifted modes need to check this themselves
    * if required.
@@ -2941,15 +2916,6 @@ void process_keycode(int c)
   static int was_paused;
   //volatile int cmdline_empty; // volatile because it's uninitialized in some cases
   int cmdline_empty = 0;        // Visual studio chokes in debug mode over the above
-#ifdef DM42
-  if (was_paused && ! PAUSED) {
-    /*
-     *  Continue XROM execution after a pause
-     */
-    xeq_xrom();
-  }
-  was_paused = PAUSED;
-#else
   if (was_paused && Pause == 0) {
     /*
      *  Continue XROM execution after a pause
@@ -2957,7 +2923,6 @@ void process_keycode(int c)
     xeq_xrom();
   }
   was_paused = Pause;
-#endif
   if (c == K_HEARTBEAT) {
     /*
      *  Heartbeat processing goes here.
@@ -3019,11 +2984,7 @@ void process_keycode(int c)
     /*
      *  Do nothing if not running a program
      */
-#ifdef DM42
-    if (!Running && ! PAUSED)
-#else
     if (!Running && ! Pause)
-#endif
       return;
   }
   else {
@@ -3070,11 +3031,7 @@ void process_keycode(int c)
       else {
 	if (c == (OP_NIL | OP_OFF) || c == (OP_NIL | OP_rCLX) || !is_bad_cmdline()) {
 	  xeq(c);
-#ifdef DM42
-	  if (Running || PAUSED)
-#else
 	  if (Running || Pause)
-#endif
 	    xeqprog();
 	}
       }
@@ -3174,11 +3131,7 @@ void process_keycode(int c)
       }
     }
   }
-#ifdef DM42
-  if (! Running && ! PAUSED
-#else
   if (! Running && ! Pause
-#endif
 #ifndef CONSOLE
       && ! JustStopped
 #endif

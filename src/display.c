@@ -38,7 +38,8 @@ static void set_status(const char *);
 static void set_status_right(const char *);
 static void set_status_graphic(const unsigned char *);
 
-const char *DispMsg;	   // What to display in message area
+const char *DispMsg; // What to display in message area
+
 short int DispPlot;
 #ifndef REALBUILD
 char LastDisplayedText[NUMALPHA + 1];	   // For clipboard export
@@ -2395,7 +2396,7 @@ void display(void) {
 		set_status(alpha_rcl_s(regX_idx, buf));
 #endif
 	} else if (State2.runmode) {
-		if (DispMsg) {
+	  if (DispMsg) { 
 			set_status(DispMsg);
 		} else if (DispPlot) {
 			set_status_graphic((const unsigned char *)get_reg_n(DispPlot-1));

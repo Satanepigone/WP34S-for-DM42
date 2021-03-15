@@ -118,7 +118,7 @@ extern void save_prog_file (void);
 extern void save_lib_file(int i);
 extern void load_lib_file(int i);
 extern void save_ram_file(int i);
-extern void load_ram_file(int i);
+extern int  load_ram_file(int i);
 extern void load_backup_file(int i);
 extern int open_selected_file (const char * fpath, const char * fname, void * data); 
 
