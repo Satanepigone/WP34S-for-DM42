@@ -178,6 +178,7 @@ static int test_checksum( const void *data, unsigned int length, unsigned short 
 {
 	unsigned short crc;
 	crc = crc16( data, length );
+	
 	if ( pcrc != NULL ) {
 		*pcrc = crc;
 	}
@@ -192,6 +193,7 @@ short unsigned int checksum_program( void )
 {
 	update_program_bounds( 1 );
 	return crc16( get_current_prog(), ProgEnd - ProgBegin + 1 );
+	// Size surely needs doubling - bytes, not steps. ND.
 }
 
 
@@ -224,6 +226,7 @@ int checksum_backup( void )
 static int checksum_region( FLASH_REGION *fr, FLASH_REGION *header )
 {
 	unsigned int l = header->size * sizeof( s_opcode );
+	
 	return l > sizeof( fr->prog ) || test_checksum( fr->prog, l, fr->crc, &(header->crc ) );
 }
 
@@ -1254,7 +1257,7 @@ int open_selected_file (const char * fpath, const char * fname, void * data) {
 void save_prog_file () {
   opcode lbl; 
   unsigned int pc;
-  short steps, prog_crc;
+  unsigned short steps, prog_crc;
   FRESULT f;
   int data = WRITE;
   int fss;
@@ -1285,8 +1288,7 @@ void save_prog_file () {
      *  Compute steps and crc for program
      */
     steps = 1 + ProgEnd - ProgBegin;
-    prog_crc = crc16( get_current_prog(), ProgEnd - ProgBegin + 1 );
-    //    print_debug(100, steps);
+    prog_crc = crc16( get_current_prog(), steps << 1 );
     /*
      * Get filename and open file
      */
@@ -1309,8 +1311,8 @@ void save_prog_file () {
     fr->size = steps;
     fr->crc = prog_crc;
 
-    xcopy (fr->prog, get_current_prog, steps << 1);
-    
+    xcopy (fr->prog, get_current_prog(), steps << 1);
+   
     f = f_write (FPT, buffer, 2*sizeof(short)+(steps << 1), &x);
     free(buffer);
     
@@ -1351,6 +1353,7 @@ void load_prog_file () {
     DispMsg = "Mem short";
     return;
   }
+
   f_read (FPT, buffer, fsize, &x);
   if (!f_eof(FPT)) { //odd?
     free(buffer);
@@ -1361,12 +1364,13 @@ void load_prog_file () {
   f_close(FPT);
 
   fr = (FLASH_REGION*) buffer;
+    
   if (checksum_region(fr, fr)) {//crc failed - wrong filetype?
     DispMsg = "File crc err";
-    free(buffer);
+        free(buffer);
     return;
   }
-  
+
   store_program_from_buffer (fr);
   free(buffer);
 }
@@ -1380,7 +1384,6 @@ void store_program_from_buffer( FLASH_REGION* fr )
     /*
      *  Check if program is labeled
      */
-
     opcode lbl = (fr->prog)[0];
     if ( isDBL(lbl) ) {
       lbl |= (fr->prog)[1] << 16;
@@ -1395,7 +1398,7 @@ void store_program_from_buffer( FLASH_REGION* fr )
      */
     count = space_needed = fr->size;
     free = NUMPROG_FLASH_MAX - UserFlash.size;
-
+    
     /*
      *  Find a duplicate label in the library and delete the program
      */
@@ -1417,7 +1420,7 @@ void store_program_from_buffer( FLASH_REGION* fr )
       return;
     }
     // 3. Append program
-    flash_append( UserFlash.size, fr->prog, count, UserFlash.size + count );
+    int i = flash_append( UserFlash.size, fr->prog, count, UserFlash.size + count );
   }
 }
 

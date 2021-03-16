@@ -2905,6 +2905,7 @@ static int process(const int c) {
 
  void process_keycode_with_shift ( struct _ndmap remapped ) {
    if (remapped.shift >= 0) set_shift ( remapped.shift );
+   if (remapped.key_34s == K_NOP) return;
    process_keycode ( remapped.key_34s );
  }
  
@@ -2923,7 +2924,10 @@ void process_keycode(int c)
     xeq_xrom();
   }
   was_paused = Pause;
-  if (c == K_HEARTBEAT) {
+  if (c == K_NOP) {
+    OpCode = 0;
+  }
+  else if (c == K_HEARTBEAT) {
     /*
      *  Heartbeat processing goes here.
      *  This is totally thread safe!

@@ -21,13 +21,14 @@ DM42 := 1
 
 # These are:
 #	charmap.c
+#	consts.c
 #	font.c
 #	translate.c
 #	catalogues.h
 #	charset7.h
-#	license.h
 #	pretty.h
 #	revision.h
+#	user_consts.h
 
 ###################################
 ###################################
@@ -64,7 +65,8 @@ LDCTRL :=
 HOSTCC := $(CC)
 HOSTAR := $(AR)
 HOSTRANLIB := $(RANLIB)
-HOSTCFLAGS := -Wall -O1 -g -DHOSTBUILD=1 -DDM42=1
+#HOSTCFLAGS := -Wall -O1 -g -DHOSTBUILD=1 -DDM42=1
+HOSTCFLAGS := -w -O1 -g -DHOSTBUILD=1 -DDM42=1
 
 OUTPUTDIR := $(SYSTEM)
 UTILITIES := $(SYSTEM)
@@ -76,19 +78,15 @@ DNOPTS := -DNEED_D128TOSTRING=1
 # Files and libraries
 
 SRCS := keys.c display.c xeq.c prt.c decn.c complex.c stats.c \
-		lcd.c int.c date.c consts.c alpha.c charmap.c \
-		commands.c string.c storage.c matrix.c \
-		font.c 
+		lcd.c int.c date.c alpha.c\
+		commands.c string.c storage.c matrix.c
 
-HEADERS := alpha.h charset7.h complex.h consts.h data.h \
+HEADERS := alpha.h complex.h consts.h data.h \
 		date.h decn.h display.h features.h int.h keys.h lcd.h \
 		stats.h xeq.h xrom.h storage.h matrix.h
 
 # wildcard is a built-in make function. There are others.
 XROM := $(wildcard xrom/*.wp34s) $(wildcard xrom/distributions/*.wp34s)
-
-# Makes a list of object files to make in OBJECTDIR, one for each file in SRCS
-OBJS := $(SRCS:%.c=$(OBJECTDIR)/%.o)
 
 #CNSTS := $(OBJECTDIR)/libconsts.a
 #LIBS += -L$(OBJECTDIR) -lconsts
@@ -126,7 +124,7 @@ cats:	catalogues.h $(OPCODES)
 
 xrom:	xrom.c xrom_labels.h
 
-consts: $(UTILITIES)/compile_consts$(EXE) consts.c consts.h $(SYSTEM)/consts/const_10.c
+consts: consts.c consts.h $(SYSTEM)/consts/const_10.c
 
 decNum:	$(OBJECTDIR)/libdecNum34s.a
 
@@ -156,6 +154,20 @@ revision.h: $(UTILITIES)/create_revision$(EXE) $(HEADERS) $(SRCS) Makefile
 $(UTILITIES)/create_revision$(EXE): create_revision.c licence.h Makefile
 	$(HOSTCC) $(HOSTCFLAGS) -o $@ $<
 
+##################
+
+# Now consts - note that object files are not created, as we don't need them here.
+# The "touch" is needed as compile_consts doesn't overwrite files that are already there
+
+consts.c consts.h $(SYSTEM)/consts/const_10.c : $(UTILITIES)/compile_consts$(EXE) \
+		$(DNHDRS) Makefile
+	cd $(UTILITIES) && ./compile_consts$(EXE) "../" "../$(OBJECTDIR)/" && touch ./consts/const_10.c
+
+$(UTILITIES)/compile_consts$(EXE): compile_consts.c $(DNSRCS) Makefile features.h \
+	licence.h charmap.c pretty.h pretty.c translate.c font_alias.inc
+	$(HOSTCC) $(HOSTCFLAGS) -IdecNumber -DNEED_D64FROMSTRING=1 \
+	-DNEED_D128FROMSTRING=1 -o $@ $< $(DNSRCS)
+
 #################
 
 # Now cats
@@ -179,19 +191,6 @@ xrom.c xrom_labels.h: xrom.wp34s $(XROM) $(OPCODES) Makefile features.h data.h e
 
 ##################
 
-# Now consts - note that object files are not created, as we don't need them here.
-
-consts.c consts.h $(SYSTEM)/consts/const_10.c : $(UTILITIES)/compile_consts$(EXE) \
-		$(DNHDRS) Makefile
-	cd $(UTILITIES) && ./compile_consts$(EXE) "../" "../$(OBJECTDIR)/"
-
-$(UTILITIES)/compile_consts$(EXE): compile_consts.c $(DNSRCS) Makefile features.h \
-	licence.h charmap.c pretty.h pretty.c translate.c font_alias.inc
-	$(HOSTCC) $(HOSTCFLAGS) -IdecNumber -DNEED_D64FROMSTRING=1 \
-	-DNEED_D128FROMSTRING=1 -o $@ $< $(DNSRCS)
-
-##################
-
 # Now decNum
 
 # This makes a decNumber archive, by compiling decNumber source files.
@@ -205,8 +204,4 @@ $(OBJECTDIR)/libdecNum34s.a: $(DNSRCS) $(DNHDRS) features.h decNumber/Makefile M
 # Rule to make any object file that is supposed to be in objectdir.
 #$(OBJECTDIR)/%.o: %.c
 #	$(CC) -c $(CFLAGS) -o $@ $<
-
-
-
-
 

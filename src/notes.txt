@@ -1955,3 +1955,55 @@ Quite a lot of DM42 references are things like ifdef CONSOLE && !def
 DM42.
 I'm pretty sure that console isn't defined. It only appears in
 features.h, and here it is only defined if DM42 isn't.
+
+I've done some simplifications along these lines.
+
+I've sorted out the startup lack of y-reg display - it was my
+assignment of DispMsg="" that meant that DispMsg wasn't null, so it
+got displayed instead of y.
+
+I've fixed the lower makefile - it now ends properly. A "touch" was
+needed - comment in the makefile.
+
+Can I merge them?
+
+Suppose I have a phony target called "source" in the top makefile.
+"source" calls make in the subdirectory.
+To get "source" called first, I could have
+all: source wp34s.elf
+as the definition of all.
+To be doubly sure, I could have wp34s.elf depending on source as well.
+
+test_checksum
+
+* does checksum of what it is sent;
+
+* looks at pointer it is given - if not null, makes that crc equal to
+  the new checksum.
+
+* returns 1 only if the new crc is not equal to the old crc and the
+  oldcrc isn't the magic marker.
+
+I'm having a problem with the checksum of a loaded program file not
+matching the checksum of the saved file. The issue, I think, is that
+(ProgEnd-ProgBegin+1) is steps, not actual size. So when I calculate
+the program checksum before saving, if I'm using crc16 directly I need
+to double steps.
+
+Strangely the function checksum_program does it wrong, too. It's only
+called in a section of code in display.c that is commented out with
+#if 0 so this doesn't matter.
+
+crc fixed; program still not loading! Check store_program_from_buffer.
+
+File stuff working perfectly. The problem was that I was writing the
+file not from get_current_prog(), but from get_current_prog. See the
+difference?
+
+This took me waaaaaaay too long to spot. It's another thing to look
+out for, though!
+
+
+I've also changed things so that process_keycode_with_shift returns
+immediately if the keycode is K_NOP. This means an extra K_RELEASE
+gets through but it's not a problem.

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccpte7aj.s 			page 1
+ARM GAS  /tmp/cc2luBYx.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccpte7aj.s 			page 1
   26:src/charmap.c **** 
   27:src/charmap.c **** /* Maximum distinguished value is 152 */
   28:src/charmap.c **** 
-ARM GAS  /tmp/ccpte7aj.s 			page 2
+ARM GAS  /tmp/cc2luBYx.s 			page 2
 
 
   29:src/charmap.c **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccpte7aj.s 			page 1
   41              	.LVL1:
   42              		.loc 1 72 1 view .LVU4
   43 0004 7047     		bx	lr
-ARM GAS  /tmp/ccpte7aj.s 			page 3
+ARM GAS  /tmp/cc2luBYx.s 			page 3
 
 
   44              	.L4:
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccpte7aj.s 			page 1
   65      33383A0E 
   66 00dc 4147484A 		.ascii	"AGHJ\017\020\021\022\024\026\027\030\034\035\036\037"
   66      0F101112 
-ARM GAS  /tmp/ccpte7aj.s 			page 4
+ARM GAS  /tmp/cc2luBYx.s 			page 4
 
 
   66      14161718 
@@ -190,15 +190,15 @@ ARM GAS  /tmp/ccpte7aj.s 			page 1
   67      4147484A 
   68              		.text
   69              	.Letext0:
-ARM GAS  /tmp/ccpte7aj.s 			page 5
+ARM GAS  /tmp/cc2luBYx.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 charmap.c
-     /tmp/ccpte7aj.s:18     .text.remap_chars:0000000000000000 $t
-     /tmp/ccpte7aj.s:27     .text.remap_chars:0000000000000000 remap_chars
-     /tmp/ccpte7aj.s:47     .text.remap_chars:0000000000000008 $d
-     /tmp/ccpte7aj.s:52     .rodata.character_remapping_order:0000000000000000 $d
-     /tmp/ccpte7aj.s:56     .rodata.character_remapping_order:0000000000000000 character_remapping_order
+     /tmp/cc2luBYx.s:18     .text.remap_chars:0000000000000000 $t
+     /tmp/cc2luBYx.s:27     .text.remap_chars:0000000000000000 remap_chars
+     /tmp/cc2luBYx.s:47     .text.remap_chars:0000000000000008 $d
+     /tmp/cc2luBYx.s:52     .rodata.character_remapping_order:0000000000000000 $d
+     /tmp/cc2luBYx.s:56     .rodata.character_remapping_order:0000000000000000 character_remapping_order
 
 NO UNDEFINED SYMBOLS

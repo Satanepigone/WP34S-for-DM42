@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccQJtJ2n.s 			page 1
+ARM GAS  /tmp/ccm64MSV.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
   50              	.LC9:
   51 0038 465F616C 		.ascii	"F_alpha\000"
   51      70686100 
-ARM GAS  /tmp/ccQJtJ2n.s 			page 2
+ARM GAS  /tmp/ccm64MSV.s 			page 2
 
 
   52              		.align	2
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
   98              	.LC25:
   99 009c 6D756332 		.ascii	"muc2\000"
   99      00
-ARM GAS  /tmp/ccQJtJ2n.s 			page 3
+ARM GAS  /tmp/ccm64MSV.s 			page 3
 
 
  100 00a1 000000   		.align	2
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  145 0102 0000     		.align	2
  146              	.LC41:
  147 0104 5747535F 		.ascii	"WGS_E2\000"
-ARM GAS  /tmp/ccQJtJ2n.s 			page 4
+ARM GAS  /tmp/ccm64MSV.s 			page 4
 
 
  147      453200
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  190 016e 0000     		.align	2
  191              	.LC56:
  192 0170 6D753000 		.ascii	"mu0\000"
-ARM GAS  /tmp/ccQJtJ2n.s 			page 5
+ARM GAS  /tmp/ccm64MSV.s 			page 5
 
 
  193              		.align	2
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  237      49505F45 
  237      00
  238 01d9 000000   		.align	2
-ARM GAS  /tmp/ccQJtJ2n.s 			page 6
+ARM GAS  /tmp/ccm64MSV.s 			page 6
 
 
  239              	.LC72:
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  276 0008 00000000 		.word	.LC0
  277 000c 01       		.byte	1
  278 000d 6100     		.ascii	"a\000"
-ARM GAS  /tmp/ccQJtJ2n.s 			page 7
+ARM GAS  /tmp/ccm64MSV.s 			page 7
 
 
  279 000f 0000     		.space	2
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  333 0091 46A300   		.ascii	"F\243\000"
  334 0094 00       		.space	1
  335 0095 000000   		.space	3
-ARM GAS  /tmp/ccQJtJ2n.s 			page 8
+ARM GAS  /tmp/ccm64MSV.s 			page 8
 
 
  336 0098 40000000 		.word	.LC10
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  390 0119 000000   		.space	3
  391 011c 74000000 		.word	.LC18
  392 0120 14       		.byte	20
-ARM GAS  /tmp/ccQJtJ2n.s 			page 9
+ARM GAS  /tmp/ccm64MSV.s 			page 9
 
 
  393 0121 6DBC00   		.ascii	"m\274\000"
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  447 01a5 4E614E00 		.ascii	"NaN\000"
  448 01a9 000000   		.space	3
  449 01ac BC000000 		.word	.LC30
-ARM GAS  /tmp/ccQJtJ2n.s 			page 10
+ARM GAS  /tmp/ccm64MSV.s 			page 10
 
 
  450 01b0 20       		.byte	32
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  504 0230 FC000000 		.word	.LC40
  505 0234 2B       		.byte	43
  506 0235 53659A00 		.ascii	"Se\232\000"
-ARM GAS  /tmp/ccQJtJ2n.s 			page 11
+ARM GAS  /tmp/ccm64MSV.s 			page 11
 
 
  507 0239 000000   		.space	3
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  561 02c4 34       		.byte	52
  562 02c5 AABB00   		.ascii	"\252\273\000"
  563 02c8 00       		.space	1
-ARM GAS  /tmp/ccQJtJ2n.s 			page 12
+ARM GAS  /tmp/ccm64MSV.s 			page 12
 
 
  564 02c9 000000   		.space	3
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  618 0350 9C010000 		.word	.LC64
  619 0354 3E       		.byte	62
  620 0355 94B800   		.ascii	"\224\270\000"
-ARM GAS  /tmp/ccQJtJ2n.s 			page 13
+ARM GAS  /tmp/ccm64MSV.s 			page 13
 
 
  621 0358 00       		.space	1
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  675 03e9 000000   		.space	3
  676 03ec 00000000 		.word	0
  677 03f0 91       		.byte	-111
-ARM GAS  /tmp/ccQJtJ2n.s 			page 14
+ARM GAS  /tmp/ccm64MSV.s 			page 14
 
 
  678 03f1 4C4E329D 		.ascii	"LN2\235"
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  733 002a 63777400 		.ascii	"cwt\000"
  734 002e 0000     		.space	2
  735 0030 ED       		.byte	-19
-ARM GAS  /tmp/ccQJtJ2n.s 			page 15
+ARM GAS  /tmp/ccm64MSV.s 			page 15
 
 
  736 0031 9C       		.byte	-100
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  786 0080 50       		.byte	80
  787 0081 3A       		.byte	58
  788 0082 CD       		.byte	-51
-ARM GAS  /tmp/ccQJtJ2n.s 			page 16
+ARM GAS  /tmp/ccm64MSV.s 			page 16
 
 
  789 0083 13       		.byte	19
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  839 00d2 00       		.byte	0
  840 00d3 00       		.byte	0
  841 00d4 00       		.byte	0
-ARM GAS  /tmp/ccQJtJ2n.s 			page 17
+ARM GAS  /tmp/ccm64MSV.s 			page 17
 
 
  842 00d5 00       		.byte	0
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  891 0122 57       		.byte	87
  892 0123 64       		.byte	100
  893 0124 A9       		.byte	-87
-ARM GAS  /tmp/ccQJtJ2n.s 			page 18
+ARM GAS  /tmp/ccm64MSV.s 			page 18
 
 
  894 0125 55       		.byte	85
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  946 0174 78       		.byte	120
  947 0175 2C       		.byte	44
  948 0176 04       		.byte	4
-ARM GAS  /tmp/ccQJtJ2n.s 			page 19
+ARM GAS  /tmp/ccm64MSV.s 			page 19
 
 
  949 0177 22       		.byte	34
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  1003 01c6 38       		.byte	56
  1004 01c7 22       		.byte	34
  1005 01c8 5061     		.ascii	"Pa"
-ARM GAS  /tmp/ccQJtJ2n.s 			page 20
+ARM GAS  /tmp/ccm64MSV.s 			page 20
 
 
  1006 01ca 62617200 		.ascii	"bar\000"
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  1057 0215 C8       		.byte	-56
  1058 0216 05       		.byte	5
  1059 0217 3E       		.byte	62
-ARM GAS  /tmp/ccQJtJ2n.s 			page 21
+ARM GAS  /tmp/ccm64MSV.s 			page 21
 
 
  1060 0218 5700     		.ascii	"W\000"
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  1111 0003 00       		.byte	0
  1112 0004 00       		.byte	0
  1113 0005 00       		.byte	0
-ARM GAS  /tmp/ccQJtJ2n.s 			page 22
+ARM GAS  /tmp/ccm64MSV.s 			page 22
 
 
  1114 0006 00       		.byte	0
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  1168 003c 6E       		.byte	110
  1169 003d DF       		.byte	-33
  1170 003e FF       		.byte	-1
-ARM GAS  /tmp/ccQJtJ2n.s 			page 23
+ARM GAS  /tmp/ccm64MSV.s 			page 23
 
 
  1171 003f 29       		.byte	41
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  1225 0075 41       		.byte	65
  1226 0076 78       		.byte	120
  1227 0077 89       		.byte	-119
-ARM GAS  /tmp/ccQJtJ2n.s 			page 24
+ARM GAS  /tmp/ccm64MSV.s 			page 24
 
 
  1228 0078 D4       		.byte	-44
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  1282 00ae FF       		.byte	-1
  1283 00af 25       		.byte	37
  1284 00b0 92       		.byte	-110
-ARM GAS  /tmp/ccQJtJ2n.s 			page 25
+ARM GAS  /tmp/ccm64MSV.s 			page 25
 
 
  1285 00b1 40       		.byte	64
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  1339 00e7 2D       		.byte	45
  1340 00e8 63       		.byte	99
  1341 00e9 77       		.byte	119
-ARM GAS  /tmp/ccQJtJ2n.s 			page 26
+ARM GAS  /tmp/ccm64MSV.s 			page 26
 
 
  1342 00ea 43       		.byte	67
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  1396 0120 F7       		.byte	-9
  1397 0121 5D       		.byte	93
  1398 0122 F4       		.byte	-12
-ARM GAS  /tmp/ccQJtJ2n.s 			page 27
+ARM GAS  /tmp/ccm64MSV.s 			page 27
 
 
  1399 0123 D7       		.byte	-41
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  1455 0006 34       		.byte	52
  1456 0007 22       		.byte	34
  1457 0008 A9       		.byte	-87
-ARM GAS  /tmp/ccQJtJ2n.s 			page 28
+ARM GAS  /tmp/ccm64MSV.s 			page 28
 
 
  1458 0009 31       		.byte	49
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  1512 003f 22       		.byte	34
  1513 0040 D0       		.byte	-48
  1514 0041 F8       		.byte	-8
-ARM GAS  /tmp/ccQJtJ2n.s 			page 29
+ARM GAS  /tmp/ccm64MSV.s 			page 29
 
 
  1515 0042 5B       		.byte	91
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  1569 0078 04       		.byte	4
  1570 0079 7C       		.byte	124
  1571 007a 69       		.byte	105
-ARM GAS  /tmp/ccQJtJ2n.s 			page 30
+ARM GAS  /tmp/ccm64MSV.s 			page 30
 
 
  1572 007b 29       		.byte	41
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  1626 00b1 7D       		.byte	125
  1627 00b2 2E       		.byte	46
  1628 00b3 6A       		.byte	106
-ARM GAS  /tmp/ccQJtJ2n.s 			page 31
+ARM GAS  /tmp/ccm64MSV.s 			page 31
 
 
  1629 00b4 00       		.byte	0
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  1683 00ea 00       		.byte	0
  1684 00eb 00       		.byte	0
  1685 00ec 00       		.byte	0
-ARM GAS  /tmp/ccQJtJ2n.s 			page 32
+ARM GAS  /tmp/ccm64MSV.s 			page 32
 
 
  1686 00ed 00       		.byte	0
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  1740 0123 88       		.byte	-120
  1741 0124 40       		.byte	64
  1742 0125 00       		.byte	0
-ARM GAS  /tmp/ccQJtJ2n.s 			page 33
+ARM GAS  /tmp/ccm64MSV.s 			page 33
 
 
  1743 0126 1C       		.byte	28
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  1797 015c A7       		.byte	-89
  1798 015d 00       		.byte	0
  1799 015e 00       		.byte	0
-ARM GAS  /tmp/ccQJtJ2n.s 			page 34
+ARM GAS  /tmp/ccm64MSV.s 			page 34
 
 
  1800 015f 22       		.byte	34
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  1854 0195 00       		.byte	0
  1855 0196 04       		.byte	4
  1856 0197 22       		.byte	34
-ARM GAS  /tmp/ccQJtJ2n.s 			page 35
+ARM GAS  /tmp/ccm64MSV.s 			page 35
 
 
  1857 0198 DB       		.byte	-37
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  1911 01ce B4       		.byte	-76
  1912 01cf A1       		.byte	-95
  1913 01d0 69       		.byte	105
-ARM GAS  /tmp/ccQJtJ2n.s 			page 36
+ARM GAS  /tmp/ccm64MSV.s 			page 36
 
 
  1914 01d1 0F       		.byte	15
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  1968 0207 F8       		.byte	-8
  1969 0208 00       		.byte	0
  1970 0209 00       		.byte	0
-ARM GAS  /tmp/ccQJtJ2n.s 			page 37
+ARM GAS  /tmp/ccm64MSV.s 			page 37
 
 
  1971 020a 00       		.byte	0
@@ -2209,19 +2209,19 @@ ARM GAS  /tmp/ccQJtJ2n.s 			page 1
  2016              		.file 6 "src/data.h"
  2017              		.file 7 "src/consts.h"
  2018              		.file 8 "src/consts.c"
-ARM GAS  /tmp/ccQJtJ2n.s 			page 38
+ARM GAS  /tmp/ccm64MSV.s 			page 38
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 consts.c
-     /tmp/ccQJtJ2n.s:702    .rodata.cnsts_conv:0000000000000000 cnsts_conv
-     /tmp/ccQJtJ2n.s:1107   .rodata.cnsts_d128:0000000000000000 cnsts_d128
-     /tmp/ccQJtJ2n.s:1448   .rodata.cnsts_d64:0000000000000000 cnsts_d64
-     /tmp/ccQJtJ2n.s:272    .rodata.cnsts:0000000000000000 cnsts
-     /tmp/ccQJtJ2n.s:22     .rodata.str1.4:0000000000000000 $d
-     /tmp/ccQJtJ2n.s:269    .rodata.cnsts:0000000000000000 $d
-     /tmp/ccQJtJ2n.s:699    .rodata.cnsts_conv:0000000000000000 $d
-     /tmp/ccQJtJ2n.s:1104   .rodata.cnsts_d128:0000000000000000 $d
-     /tmp/ccQJtJ2n.s:1445   .rodata.cnsts_d64:0000000000000000 $d
+     /tmp/ccm64MSV.s:702    .rodata.cnsts_conv:0000000000000000 cnsts_conv
+     /tmp/ccm64MSV.s:1107   .rodata.cnsts_d128:0000000000000000 cnsts_d128
+     /tmp/ccm64MSV.s:1448   .rodata.cnsts_d64:0000000000000000 cnsts_d64
+     /tmp/ccm64MSV.s:272    .rodata.cnsts:0000000000000000 cnsts
+     /tmp/ccm64MSV.s:22     .rodata.str1.4:0000000000000000 $d
+     /tmp/ccm64MSV.s:269    .rodata.cnsts:0000000000000000 $d
+     /tmp/ccm64MSV.s:699    .rodata.cnsts_conv:0000000000000000 $d
+     /tmp/ccm64MSV.s:1104   .rodata.cnsts_d128:0000000000000000 $d
+     /tmp/ccm64MSV.s:1445   .rodata.cnsts_d64:0000000000000000 $d
 
 NO UNDEFINED SYMBOLS
