@@ -1,3 +1,6 @@
+This is a file from SwissMicros' SDKDemo project describing how to set
+up the build environment under Linux. It's well worth getting this
+project to build before trying anything more substantial! //ND
 
 == Prerequisites
 
