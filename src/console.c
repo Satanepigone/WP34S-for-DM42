@@ -44,6 +44,7 @@
 
 const uint8_t mid_menu[] = {
     MI_SYSTEM_ENTER,
+    MI_MSC,
     0 }; // Terminator
 
 const smenu_t MID_MENU = { "System!",  mid_menu,   NULL, NULL };
@@ -342,6 +343,10 @@ struct _ndmap do_multi (struct _ndmap r) {
     break;
   case SVPRG:
     save_prog_file();
+    r = no_key;
+    break;
+  case HELP:
+    run_help_file("/HELP/wp34s_help.html");
     r = no_key;
     break;
   default:

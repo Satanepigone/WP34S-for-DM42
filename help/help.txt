@@ -1,0 +1,336 @@
+How to get out of the calculator!
+
+Introduction
+
+Basics
+
+Menus
+
+Catalogues
+
+f-shifted keys
+
+g-shifted keys
+
+Alpha mode
+
+Working with files
+
+Introduction
+
+The WP-34s calculator was born when someone at HP provided a
+development kit and programming cables to allow the firmware of the
+HP-20b and 30b calculators to be re-flashed. This led to the
+development of an open-source RPN programmable scientific
+calculator, the WP-34s. Despite the limits of the target
+hardware - for example, just 2k of RAM and a very limited display -
+the result was extraordinary. With a programming cable, key stickers
+and an overlay, these business calculators could become what is, in
+many ways, one of the most powerful RPN calculators ever.
+<br>
+The 20b and 30b calculators are no longer produced, but the WP-34s
+lives on, with versions for desktops, iOS and Android. The aim of this
+project is to bring the WP-34s to the hardware of the
+DM42.
+<br>
+Changing a business calculator to an RPN scientific might be seen as
+an upgrade,
+but why replace the already-excellent Free42 on the DM42 with the
+WP-34s? One important point is that the change can be reversed, as 
+many times as you like. Compared to Free42 the WP34s has a far greater
+number of built-in functions, especially conversions and
+statistics. Also, it's fun!
+<br>
+The WP-34s on the DM42 still only offers 2k of RAM to the user and the
+display matches the original, so it is not an upgrade. A
+project that does aim to make full use of the DM42 hardware is the WP-43s,
+which (as its name suggests) is like the WP-34s, but 9 bigger. Although
+its keyboard layout doesn't match the DM42 keyboard there
+is a version (the WP-43C, or C43) which does. As yet this is
+incomplete, but if you need more than the WP-34s or Free42 can offer
+this will be ready soon.
+<br>
+Basics
+<br>
+WP-34s for the DM42 matches the original closely. It
+lacks printing and stopwatch functions; it also has no serial
+communications, but it does have an extended set of file functions. 
+<br>
+The WP-34s uses three shift keys; the DM42 keyboard has just one. So
+menus are used to fit the full set of WP-34s keyboard functions onto
+the DM42 keyboard.
+<br>
+**Important:** To get back to the DMCP menu (e.g., to return to the
+  Free42 firmware), press SHIFT-0. This brings up the SETUP menu;
+  press F1 (System), followed by 1, 2, 4. You can then use 3: Load
+  Program to choose a different firmware file to load, or 2: Run
+  program to return to the already-loaded WP-34s.
+<br>
+Outside of alpha mode there are two shift states, f (one press of
+SHIFT) and g (two presses). A third press cancels the shift.
+
+Menus
+
+Menus use the top row of function keys, unshifted and f-shifted, to
+make the full WP-34s keyboard available. All menus have the right-arrow
+and CPX keys on unshifted F5 and F6. Most menus are on f-shifted keys;
+a few are on g-shifted keys.
+
+Calling the same menu twice goes back to the minimal "blank menu",
+with only arrow and CPX keys.
+
+Pressing SHIFT-Hold-Down-arrow goes to the last menu.
+
+Angles menu (f-shift-MODES): angle modes, H.MS / H.d, co-ordinate
+conversions and hyperbolic prefixes. This menu is also available from
+g-shifted SIN, COS, TAN.
+
+Display menu (f-shift-DISP): display modes, fraction modes, radix
+choice, and H.MS / H.d.
+
+Clear menu (f-shift CLEAR): clear program, clear stats, clear x.
+
+Integrate menu (f-shift INTEGRATE): SLV, Integrate, SUM, and PROD.
+
+Stats menu (f-shift STATS): Xbar, Yhat, s (variance) and r
+(correlation coefficient), plus a link to the SUMS catalogue.
+
+Base menu (f-shift BASE): BIN, OCT, DEC, HEX, not, and, or, xor, and
+RMDR.
+
+Flags menu (f-shift FLAGS): SF, CF, x=? and x<>? tests.
+
+Probability menu (f-shift PROB): factorial, permutations,
+combinations, random numbers, the normal cdf and its inverse.
+
+Setup menu (f-shift SETUP): DMCP System menu, Help, save and restore
+state in "flash" memory, save state to and load state from named file.
+
+Misc. menu (f-shift-hold-down-arrow): functions that didn't fit
+anywhere else! Mod x, RND, IPart, FPart, 2^x, Log2 x, llel, delta
+percent.
+
+X<>Y menu (g-shift x<>y): Show<-, Show->, and x<>?. (These are the
+three shifted functions on the x<>y key on the real WP-34s.)
+
+Setup 2 menu (g-shift 0): More file functions; save library to and
+load library from named file; save program to and load program from
+named file.
+
+Program function menu (g-shift R/S): LBL, RTN, Pause, GTO, DSE, ISG. 
+
+Catalogues
+
+The WP-34s makes most of its functions available via catalogues. This
+is where to find them.
+
+Matrix catalogue: f-shift MATRIX.
+
+Conversions catalogue: f-shift CONVERT.
+
+P.FCN catalogue: f-shift PGM.FCN
+
+CAT catalogue: f-shift CATALOG.
+
+MODE catalogue: g-shift +/- (MODES).
+
+SUMS catalogue: g-shift 9 (MATRIX), or linked from Stats menu.
+
+STAT catalogue: g-shift (divide key) (STAT).
+
+CONST catalogue: g-shift 5 (CONVERT).
+
+TEST catalogue: g-shift 6 (FLAGS).
+
+PROB catalogue: g-shift (multiply key) (PROB).
+
+X.FCN catalogue: g-shift 3 (PGM.FCN).
+
+STATUS catalogue: g-shift (plus key) (CATALOG).
+
+Unshifted keys
+
+These all do much what you would expect given their labels.
+
+The first four keys on the top row (not the menu keys) will run code
+starting from labels
+A, B, C, and D if they are defined. The keys'
+normal functions are always available via g-shift.
+
+The Arrow key (F5) brings up a temporary menu. Choosing a base from this menu gives a
+temporary display of the x-register in that base; choosing an angular
+unit converts from the current angular mode to that unit.
+
+f-shifted keys
+
+Like the unshifted keys, these do what their labels say or at least something closely
+related.
+
+COMPLEX - same function as the CPX key (F6).
+
+LAST x - does RCL L, which is how Last X works on the WP-34s.
+
+MODES - angles menu (including angle modes).
+
+DISP - display format menu.
+
+CLEAR - a small menu of clearing operations.
+
+SOLVER - the solver function, SLV.
+
+Integral - the INTEGRATE menu.
+
+MATRIX - the MATRIX catalogue.
+
+STAT - the Stats menu.
+
+BASE - the Base menu.
+
+CONVERT - the CONV catalogue.
+
+FLAGS - the Flags menu.
+
+PROB - the Probability menu.
+
+ASSIGN and CUSTOM - no function.
+
+PGM.FCN - the P.FCN catalogue.
+
+PRINT - no function.
+
+SETUP - Setup menu.
+
+SHOW - Show<-, which shows the full precision of a number in
+single-precision mode.
+
+PGRM - toggles programming mode.
+
+CATALOG - the CAT catalogue.
+
+g-shifted keys
+
+Most of these have no function. The functions that are present have
+been chosen carefully to match with some aspect of what is actually
+printed on the keyboard.
+
+First four keys - unshifted functions of these keys, for use when
+labels A-D are defined.
+
+RCL - View.
+
+Rdown - Rup.
+
+Sin, Cos, Tan - Angles menu (also available from f-shift MODES).
+
+ENTER - Fill.
+
+X<>Y - Show left, show right, and X<>?. These are the three functions
+present on the X<>Y key on the original calculator.
+
++/- key - MODE catalogue (MODES).
+
+9 - SUMS catalogue (MATRIX).
+
+Divide - STAT catalogue (STAT).
+
+5 - CONST catalogue (CONVERT).
+
+6 - TEST catalogue (FLAGS).
+
+Multiply - PROB catalogue (PROB).
+
+3 - X.FCN catalogue (P.FCN).
+
+0 - Setup 2 menu (SETUP).
+
+R/S - Program function menu (PRGM).
+
+Plus - STATUS (CATALOGUE).
+
+Alpha mode
+
+Alpha mode is entered and exited via shift-ENTER (ALPHA).
+
+The letters to the right of the keys on the DM42 keyboard produce the
+corresponding letters in alpha-mode. (Note the extra characters
+available on the bottom row.) This difference carries over to the
+Greek letters - for example, Greek lambda is accessed from the TAN key
+(L) rather than the "E" key (which would be L on the WP-34s).
+
+I believe that alpha mode works in the same way as on the real
+WP-34s. h-shift (3 presses of the shift key) is present in alpha
+mode. The alpha catalogues are accessed from the same keyboard
+positions and shift states as on the real calculator. You are strongly
+advised to read the manual!
+
+One difference: to get the "?" character you use the R/S key, which
+has "?" printed next to it. You can get the "!" character as g-shift R/S.
+
+Working with files
+
+The memory of the original WP-34s consisted of 2k of RAM and 128k of
+flashable ROM (flash memory). The firmware filled most of the
+flash. Of the remainder, 2k was used to provide a backup space for the
+RAM and what was left was used to hold user
+programs. (Note that programs can be run from the library without the
+need to load them into RAM. Neat!)
+
+Like the desktop version, this version of the WP-34s holds an image of
+the flash memory in RAM. This is permanent unless the battery fails or
+the WP-34s firmware is exited (e.g., to re-load Free42); in
+particular, it persists when the calculator is turned off and on. To
+storage that survives when the firmware is exited, the contents of RAM and flash are
+written to a set of files. These files all live in
+wp34s/ which is created automatically if it doesn't exist. They are:
+
+* wp34s.dat - an image of the calculator's RAM which is updated
+  each time the calculator is turned off.
+
+* wp34s-backup.dat - In menu Setup (f-shift 0) the function "OnSTO"
+  writes a copy of RAM to a backup region in memory, and also to this file. (On
+  the original WP-34s pressing "On" and "STO" together had the same
+  function.) The function "OnRCL" from the same menu restores RAM from
+  the backup.
+
+* wp34s-lib.dat - the functions PSTO and PRCL in the P.FCN
+  catalogue read and write the current program to and from "flash
+  memory". When this happens, this library file is updated too.
+
+When the calculator switched off and on, nothing happens (other
+than wp34s.dat being updated). But when the WP-34s firmware is
+restarted from the DMCP menu the RAM, backup, and library regions are
+reloaded from these three files.
+
+Other commands available include:
+
+* SvRAM (Save RAM) - writes a copy of RAM to a named file (with a .dat
+  extension).
+
+* LdRAM (Load RAM) - loads a named file (with a .dat extension) into
+  RAM.
+
+* SvLib (Save Library) - writes a copy of the library region to a
+  named file (with a .lib extension).
+
+* LdLib (Load Library) - loads a named file (with a .lib extension)
+  into the library region.
+
+* SvCPRG (Save current program) - writes a copy of the current program
+  to a named file.
+
+* LdPRG (Load program) - load a named file into the flash region (from
+  where it can be copied to RAM with the PRCL command).
+
+IMPORTANT: The library and program files are not human-readable. They
+contain the opcodes that make up the program or the library, along
+with size and checksum information. To make them human-readable you
+need to disassemble them with the tremendously-versatile WP-34s
+assembler suite of tools. If you want the files to be portable to 
+other systems, this is vital: the op-codes in the WP-34s can change when
+the number of commands alters, making the files partially or
+completely unreadable. Not only are the disassembled files
+human-readable, they can be re-assembled when the op-codes change so
+they can still be used. Transferring files as source listings is the
+only reliable way to get them from one WP-34s system to another,
+unless both use the same op-codes.
+

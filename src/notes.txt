@@ -1966,7 +1966,6 @@ I've fixed the lower makefile - it now ends properly. A "touch" was
 needed - comment in the makefile.
 
 Can I merge them?
-
 Suppose I have a phony target called "source" in the top makefile.
 "source" calls make in the subdirectory.
 To get "source" called first, I could have
@@ -2009,9 +2008,13 @@ immediately if the keycode is K_NOP. This means an extra K_RELEASE
 gets through but it's not a problem.
 
 * Check: when is wp34s/ created if it doesn't exist? Should it be in startup?
+Yes. DONE.
 
 * Re-load backup file from on-rcl if backupflash fails crc? No.
 
 Have added Integral/sum/product menu to shift-8 (Integrate) as sum and
 product were missing! 
 
+* Add USB disk to menu that appears from setup, so that files can be
+  added / copied without shutting down the program. Look in SDKdemo to
+  see how? 
