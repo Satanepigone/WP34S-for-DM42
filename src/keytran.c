@@ -81,7 +81,7 @@ static const struct _ndmap mapping_none[] = {
     // Fourth row of DM42 18--22
     {K40, 0}, // up-arrow
     {K52, 1}, // SLV
-    {K52, 2}, // Integral
+    {K_SETMENU, 14}, // Integral/sum/product menu
     {K44, 3}, // MATRIX cat
     {K_SETMENU, 12}, // STATS menu
     // Fifth row of DM42 23--27
@@ -124,14 +124,14 @@ static const struct _ndmap mapping_none[] = {
     {K_NOP, 0}, // no function
     {K_NOP, 0}, // no function
     // Next row of DM42 7--12
-    {K20, 2}, // Fill
+    {K_NOP, 0}, // no function
     {K11, 3}, // View
     {K12, 3}, // Rup
     {K_SETMENU, 4}, // ANGLES menu
     {K_SETMENU, 4}, // ANGLES menu
     {K_SETMENU, 4}, // ANGLES menu
     // Third row of DM42 13--17
-    {K_NOP, 0}, // no function
+    {K20, 2}, // fill
     {K_SETMENU, 6}, // X<>Y menu
     {K05, 3}, // MODE cat
     {K_NOP, 0}, // no function
@@ -152,14 +152,14 @@ static const struct _ndmap mapping_none[] = {
     {K_G, -1}, // gshift (clears shift state)
     {K_NOP, 0}, // no function
     {K_NOP, 0}, // no function
-    {K53, 3}, // X.FCN
+    {K53, 3}, // X.FCN catalogue.
     {K_NOP, 0}, // no function
     // Last row of DM42 33--37
     {K60, 0}, // Exit
     {K_SETMENU, 13}, // SETUP2 menu
     {K_NOP, 0}, // no function
     {K_SETMENU, 7}, // P.FCN menu
-    {K_NOP, 0}, // no function
+    {K50, 3}, // Status
     // Function keys, screenshot, sh_up, sh_down
     {K_NOP, 0},
     {K_NOP, 0},

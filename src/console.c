@@ -357,7 +357,8 @@ void program_main(){
   init_mem();
   init_RegionTab();
   init_34s();
-  State2.flags = 1;
+  State2.flags = 1;  
+  check_create_wp34sdir();
   if (!load_ram_file(0)) DispMsg = CNULL; // no message if it loads ok
   load_backup_file(0);
   load_lib_file(0);

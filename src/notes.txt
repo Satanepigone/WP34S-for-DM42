@@ -2007,3 +2007,11 @@ out for, though!
 I've also changed things so that process_keycode_with_shift returns
 immediately if the keycode is K_NOP. This means an extra K_RELEASE
 gets through but it's not a problem.
+
+* Check: when is wp34s/ created if it doesn't exist? Should it be in startup?
+
+* Re-load backup file from on-rcl if backupflash fails crc? No.
+
+Have added Integral/sum/product menu to shift-8 (Integrate) as sum and
+product were missing! 
+

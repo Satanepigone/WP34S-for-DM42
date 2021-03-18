@@ -45,7 +45,7 @@ static const struct _menu Menus[] = {
     { 
       { { K24, 1 }, NO_KEY, "CLProg", "" },
       { { K24, 2 }, NO_KEY, "CL\221", "" },
-      { { K24, 3 }, NO_KEY, "CLx", "" },
+      { { K24, 3 }, NO_KEY, "CL X", "" },
       { NO_KEY, NO_KEY, "", "" },
       { ARROW_KEY, NO_KEY, "--\015", "" },
       { CMPLX_KEY, NO_KEY, "CPX", "" },
@@ -56,7 +56,7 @@ static const struct _menu Menus[] = {
     { 
       { { K00, 3 }, { K05, 1 }, "ALL", "a b/c" },
       { { K01, 3 }, { K05, 2 }, "FIX", "d/c" },
-      { { K02, 3 }, { K10, 1 }, "SCI", "H.M.S." },
+      { { K02, 3 }, { K10, 1 }, "SCI", "H.MS" },
       { { K03, 3 }, { K11, 1 }, "ENG", "H.d" },
       { ARROW_KEY, { K62, 3 }, "--\015", "./," },
       { CMPLX_KEY, NO_KEY, "CPX", "" },
@@ -123,8 +123,8 @@ static const struct _menu Menus[] = {
     { 
       { { K_SYS, 0}, NO_KEY, "System", "" },
       { { K_MULTI, HELP }, NO_KEY, "HELP", "" },
-      { { K_MULTI, ONSTO }, { K_MULTI, WRTST}, "OnSTO", "SaveS" },
-      { { K_MULTI, ONRCL }, { K_MULTI, LDST}, "OnRCL", "LoadS" },
+      { { K_MULTI, ONSTO }, { K_MULTI, WRTST}, "OnSTO", "SvRAM" },
+      { { K_MULTI, ONRCL }, { K_MULTI, LDST}, "OnRCL", "LdRAM" },
       { ARROW_KEY, NO_KEY, "--\015", "" },
       { CMPLX_KEY, NO_KEY, "CPX", "" },
     }
@@ -176,10 +176,21 @@ static const struct _menu Menus[] = {
   {
     "Setup 2", // 13
     { 
-      { { K_MULTI, WRLIB}, NO_KEY, "SaveL", "" },
-      { { K_MULTI, LLIB }, NO_KEY, "LoadL", "" },
-      { { K_MULTI, SVPRG }, NO_KEY, "SaveP", "" },
-      { { K_MULTI, LDPRG }, NO_KEY, "LoadP", "" },
+      { { K_MULTI, WRLIB}, NO_KEY, "SvLIB", "" },
+      { { K_MULTI, LLIB }, NO_KEY, "LdLIB", "" },
+      { { K_MULTI, SVPRG }, NO_KEY, "SvCPRG", "" },
+      { { K_MULTI, LDPRG }, NO_KEY, "LdPRG", "" },
+      { ARROW_KEY, NO_KEY, "--\015", "" },
+      { CMPLX_KEY, NO_KEY, "CPX", "" },
+    }
+  },
+  {
+    "Integ/Sum/Prod", // 14
+    { 
+      { { K52, 1 }, NO_KEY, "SLV", "" },
+      { { K52, 2 }, NO_KEY, "\004 dx", "" },
+      { { K53, 1 }, NO_KEY, "SUM", "" },
+      { { K53, 2 }, NO_KEY, "PROD", "" },
       { ARROW_KEY, NO_KEY, "--\015", "" },
       { CMPLX_KEY, NO_KEY, "CPX", "" },
     }

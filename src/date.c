@@ -573,7 +573,7 @@ static void query_date(unsigned int *d, unsigned int *m, unsigned int *y) {
 
 void date_date(enum nilop op) {
 	if (Xtal) {
-		unsigned int d, m, y;
+		unsigned int d=0, m=0, y=0;
 		decNumber z;
 
 		query_date(&d, &m, &y);
@@ -585,7 +585,7 @@ void date_date(enum nilop op) {
 
 void date_time(enum nilop op) {
 	if (Xtal) {
-		unsigned int h, m, s;
+		unsigned int h=0, m=0, s=0;
 		decNumber a, b;
 
 		query_time(&s, &m, &h);

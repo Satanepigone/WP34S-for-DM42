@@ -562,13 +562,11 @@ static int program_flash( void *destination, void *source, int count )
   }
   FRESULT f;
 
-  sys_disk_write_enable(1);
-
-  f = check_create_dir ("/wp34s");
+  f = check_create_wp34sdir ();
   if ( f != FR_OK ) {
-    sys_disk_write_enable(0);
-    return 1;
+    return f;
   }
+  sys_disk_write_enable(1);
   f = f_open( FPT, name, FA_READ | FA_WRITE );
   if ( f != FR_OK ) {
     f = f_open( FPT, name, FA_CREATE_ALWAYS | FA_READ | FA_WRITE );
@@ -591,6 +589,14 @@ static int program_flash( void *destination, void *source, int count )
   }
   sys_disk_write_enable(0);
   return 0;
+}
+
+int check_create_wp34sdir(void) {
+  FRESULT f;
+  sys_disk_write_enable(1);
+  f = check_create_dir ("/wp34s");
+  sys_disk_write_enable(0);
+  return f;
 }
 
 #else //ifdef DM42 false
@@ -1420,7 +1426,7 @@ void store_program_from_buffer( FLASH_REGION* fr )
       return;
     }
     // 3. Append program
-    int i = flash_append( UserFlash.size, fr->prog, count, UserFlash.size + count );
+    flash_append( UserFlash.size, fr->prog, count, UserFlash.size + count );
   }
 }
 

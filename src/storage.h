@@ -111,6 +111,7 @@ extern void set_assembler(const char* assembler);
 //extern void save_libraryfile( void );
 
 extern void init_mem(void);
+extern int check_create_wp34sdir(void);
 extern void store_program_from_buffer (FLASH_REGION* fr);
 extern void load_prog_file (void);
 extern void save_prog_file (void);
