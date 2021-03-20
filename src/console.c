@@ -149,7 +149,7 @@ void shutdown( void )
   save_statefile( NULL );
   exit( 0 );
 #else
-  save_ram_file(0);
+  //  save_ram_file(0);
   SET_ST(STAT_PGM_END);
 #endif
 }
@@ -484,9 +484,11 @@ void program_main(){
 	remapped = do_multi (remapped);
 	display_current_menu();
       }
+      if (remapped.key_34s == K_EXIT) break;
       process_keycode_with_shift(remapped);
     }
   }
+  save_ram_file(0);
   return;
 }
 #else

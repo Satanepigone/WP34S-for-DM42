@@ -57,6 +57,7 @@ typedef enum {
 	K_SETMENU = 47,
 	K_SYS = 48, // only used to trigger system menu
 	K_MULTI = 49, // used to send back "multiple" keys from remap()
+	K_EXIT = 50, // used to exit loop
 } keycode;
 
 #else

@@ -121,7 +121,7 @@ static const struct _menu Menus[] = {
   {
     "Setup 1", // 8
     { 
-      { { K_SYS, 0}, NO_KEY, "System", "" },
+      { { K_EXIT, 0}, NO_KEY, "EXIT", "" },
       { { K_MULTI, HELP }, NO_KEY, "HELP", "" },
       { { K_MULTI, ONSTO }, { K_MULTI, WRTST}, "OnSTO", "SvRAM" },
       { { K_MULTI, ONRCL }, { K_MULTI, LDST}, "OnRCL", "LdRAM" },

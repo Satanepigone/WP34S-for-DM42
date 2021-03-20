@@ -30,9 +30,8 @@ MEMORY
 /* RAM    (xrw) : ORIGIN = 0x20000000, LENGTH =   96K  */
 /* RAM0   (xrw) : ORIGIN = 0x10000000, LENGTH =   32K-256 */
 /* FLASH   (rx) : ORIGIN =  0x8050000, LENGTH =  704K */
-FLASH   (rxw) : ORIGIN =  0x8050000, LENGTH =  704K
+FLASH   (rx) : ORIGIN =  0x8050000, LENGTH =  704K
 RAM    (xrw) : ORIGIN = 0x10000000, LENGTH =    8K
-RAM2    (xrw) : ORIGIN = 0x20000000, LENGTH =   32K
 QSPI    (rx) : ORIGIN = 0x90000000, LENGTH = 2048K
 }
 
@@ -100,25 +99,6 @@ SECTIONS
     _etext = .;        /* define a global symbols at end of code */
   } >FLASH
 
-  /* The program code and other data goes into FLASH */
-  /* ND Starts here */
-  .storage (NOLOAD) :
-  {
-    . = ALIGN(2048);
-    *(.storage)           /* .text sections (code) */
-    *(.storage*)          /* .text* sections (code) */
-    *(.glue_7)         /* glue arm to thumb code */
-    *(.glue_7t)        /* glue thumb to arm code */
-    *(.eh_frame)
-
-    KEEP (*(.init))
-    KEEP (*(.fini))
-
-    . = ALIGN(8);
-    _etext = .;        /* define a global symbols at end of code */
-  } >RAM2
-
-  /* ND ends here */
   .ARM.extab   : 
   { 
   . = ALIGN(8);

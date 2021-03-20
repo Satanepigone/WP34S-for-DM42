@@ -15,19 +15,6 @@
   </head>
   <body>
     <h1>WP-34s for DM42</h1>
-    <br>
-    <h3>Navigation</h3>
-    Press <span class="button">+</span> to move one line forward<br>
-    Press <span class="button">-</span> to move one line backward<br>
-    Press <span class="button">&times;</span> to move one page forward<br>
-    Press <span class="button">&divide;</span> to move one page backward<br>
-    <br>
-
-
-    <h3>Symbols used in this guide</h3>
-    A <span class="lcd">123</span> represents a soft button or anything on the LCD<br>
-    A <span class="button">STO</span> represents a physical button<br>
-    <br>
     <h2 id="Home">Contents</h2>
     <ul>
       <li><a href="#escape">How to get out of the program!</a></li>
@@ -41,7 +28,7 @@
       <li><a href="#alpha">Alpha mode</a></li>
       <li><a href="#files">Working with files</a></li>
     </ul>
-    <br><br>
+
 
     <h2 id="intro">Introduction</h2>
     
@@ -113,14 +100,11 @@
     Free42 firmware):
     <ul>
       <li>Press <span class="button">SHIFT</span> <span class="button">0</span>. This brings up the SETUP menu.</li>
-      <li>Press <span class="button">F1</span> (System), followed by
-	<span class="button">1</span>, <span class="button">2</span>,
-	<span class="button">4</span>.</li>
+      <li>Press <span class="button">F1</span> (EXIT).</li>
       <li>You can then use <span class="lcd">3: Load Program</span> to choose a
 	different firmware file to load, or <span class="lcd">2: Run Program</span>
 	to return to the already-loaded WP-34s.</li>
     </ul>
-    <br>
 
     <h2 id="menus">Menus</h2>
     Menus use the top row of function keys, unshifted and f-shifted, to
@@ -133,7 +117,6 @@
 	with only arrow and CPX keys.</li>
       <li>Pressing SHIFT-Hold-Down-arrow goes to the last menu.</li>
     </ul>
-    <br>
     <h3>Menus on f-shifted keys</h3>
     <ul>
       <li><b>Angles</b> menu
@@ -167,7 +150,7 @@
 	combinations, random numbers, the normal cdf and its inverse.</li>
       <li><b>Setup</b> menu
 	(<span class="button">f</span> <span class="button">SETUP</span>):
-	DMCP System menu, Help, save and restore 
+	Exit to the DMCP menu, Help, save and restore 
 	state in "flash" memory, save state to and load state from named file.</li>
       <li><b>Misc.</b> menu
 	(<span class="button">f</span>-hold-<span class="button">&#9660;</span>):
@@ -175,7 +158,6 @@
 	FPart, 2^x, Log2 x, llel, delta 
 	percent.</li>
     </ul>
-    <br>
     <h3>Menus on g-shifted keys</h3>
     <ul>
       <li><b>X&lt;&gt;Y</b> menu
@@ -190,7 +172,6 @@
       <li><b>Program</b> function menu (<span class="button">g</span>
 	<span class="button">R/S</span>): LBL, RTN, Pause, GTO, DSE, ISG.</li>
     </ul>
-    <br>
 
     <h2 id="cats">Catalogues</h2>
     The WP-34s makes most of its functions available via catalogues. This
@@ -248,7 +229,6 @@
       </tr>
     </table>
 
-    <br>
     <h2 id="unshift">Unshifted keys</h2>
     These all do much what you would expect given their labels.
     <br>
@@ -297,7 +277,6 @@
       <li><span class="button">PGRM</span> - toggles programming mode.</li>
       <li><span class="button">CATALOG</span> - the CAT catalogue.</li>
     </ul>
-    <br>
     <h2 id="gshift">g-shifted keys</h2>
 
     Many of these have no function. As with the unshifted keys, these
@@ -305,8 +284,8 @@
     related.
     <br>
     <ul>
-      <li><span class="button">&sigma;+</span>;, <span class="button">1/x</span>,
-	<span class="button">U+221A&nbsp;x</span>,
+      <li><span class="button">&Sigma;+</span>;, <span class="button">1/x</span>,
+	<span class="button">&#8730;x</span>,
 	and <span class="button">LOG</span> - unshifted functions of these
 	keys, for use when labels A-D are defined.</li>
       <li><span class="button">RCL</span> - View.</li>
@@ -327,7 +306,6 @@
       <li><span class="button">R/S</span> - Program function menu (PRGM).</li>
       <li><span class="button">+</span> - STATUS (CATALOGUE).</li>  
     </ul>
-    <br>
     <h2 id="alpha">Alpha mode</h2>
 
     Alpha mode is entered and exited via <span class="button">f</span>
@@ -359,24 +337,30 @@
     flash. Of the remainder, 2k was used to provide a backup region for the
     RAM and what was left - the library - could hold user programs.
     <br>
-    (Note that programs can be run from the library without the
-    need to load them into RAM!)
+    (Note that programs can be run from the backup region or the library without the
+    need to load them into the main RAM!)
     <br>
     This version of the WP-34s holds the backup region and the library in
-    RAM rather than in flash memory. The RAM is permanent unless the battery fails or
+    RAM rather than in flash memory, along with the main RAM
+    region.
+<br>
+    The contents of RAM are permanent 
+    unless the battery fails or 
     the WP-34s firmware is exited (e.g., to re-load Free42); in
-    particular, it persists when the calculator is turned off and on.
+    particular, RAM persists when the calculator is turned off and on.
     <br>
     To provide storage that survives even when the firmware is exited, the
-    contents of RAM and the two flash regions are 
+    contents of the main RAM region and the two flash regions are 
     written to a set of files. These files live in
     wp34s/ which is created automatically if it doesn't exist. 
     <br>
     The files are:
     <br>
     <ul>
-      <li><b>wp34s.dat</b> - an image of the calculator's RAM which is updated
-	each time the calculator is turned off.</li>
+      <li><b>wp34s.dat</b> - an image of the calculator's RAM. Since
+	the RAM contents survive when the calculator is turned off, this
+	is only written when the EXIT button in the Setup
+	menu is pressed.</li> 
       <li><b>wp34s-backup.dat</b> - in the Setup menu Setup
 	(<span class="button">f</span> <span class="button">0</span>) the
 	function "<span class="lcd">OnSTO</span>"
@@ -391,20 +375,23 @@
 	memory". When this happens, this library file is updated too.</li>
     </ul>
     <br>
-    When the calculator switched off and on, nothing happens (other
-    than wp34s.dat being updated). But when the WP-34s firmware is
-    restarted from the DMCP menu the RAM, backup, and library regions are
+    When the calculator switched off and on, nothing happens.
+<br>
+    But when the WP-34s firmware is
+    loaded or run from the DMCP menu (options 3 and 2) the RAM,
+    backup, and library regions are 
     reloaded from these three files.
     <br>
     Other commands available in the Setup and Setup 2 menus include:
     <br>
     <ul>
-      <li><span class="lcd">SvRAM</span> (Save RAM) - writes a copy of RAM
+      <li><span class="lcd">SvRAM</span> (Save RAM) - writes a copy of
+	the RAM region
 	to a named file (with a .dat 
 	extension).</li>
       <li><span class="lcd">LdRAM</span> (Load RAM) - loads a named file
 	(with a .dat extension) into 
-	RAM.</li>
+	the main RAM region.</li>
       <li><span class="lcd">SvLib</span> (Save Library) - writes a copy of
 	the library region to a named file (with a .lib extension).</li> 
       <li><span class="lcd">LdLib</span> (Load Library) - loads a named file
@@ -430,6 +417,9 @@
     other systems, this is vital: the op-codes in the WP-34s can change when
     the number of commands alters, making the files partially or
     completely unreadable.
+    <br>
+    The correct opcodes for this system are found in the file
+    src/tools/wp34s.op along with the assembler.
     <br>
     Not only are the disassembled files
     human-readable, they can be re-assembled correctly when the op-codes change.
