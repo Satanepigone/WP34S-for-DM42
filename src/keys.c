@@ -756,9 +756,6 @@ static int process_normal(const keycode c)
 	    if (intltr(15)) {
 	      return op_int;
 	    }
-	    else {
-	      return check_f_key(5, op);
-	    }
 	  default:;
 	  }
 	}
@@ -809,12 +806,16 @@ static int process_normal(const keycode c)
 		break;
 
 	case K_CMPLX:
-#ifndef DM42
+#ifdef DM42
+	  if (UState.intm)
+	    break; // return nothing
+	  State2.cmplx = 1;
+#else
 	  if (UState.intm)
 	    return op;
+	  State2.cmplx = 1;
 #endif
-		State2.cmplx = 1;
-		break;
+	  break;
 
 	case K24:				// <-
 		if (State2.disp_temp)
@@ -2579,12 +2580,12 @@ static int process_labellist(const keycode c) {
 
 	case K10:				// STO
 	case K11:				// RCL
-#ifndef DM42	
+	  //#ifndef DM42	
 		op = c == K10 ? (OP_NIL | OP_PSTO) : (OP_NIL | OP_PRCL);
-#endif
-#ifdef DM42
-	        op = OP_NIL;
-#endif	    
+	  //#endif
+/* #ifdef DM42 */
+/* 	        op = OP_NIL; */
+/* #endif	     */
 	  goto set_pc_and_exit;
 #ifdef DM42
 	case K05:				// XEQ

@@ -1172,7 +1172,7 @@ void save_ram_file ( int i ) {
     sys_disk_write_enable(0);
 }
 
-int load_ram_file ( int i ) {
+int load_ram_file ( int i ) { // this will load backup files too!
   FRESULT f;
   int fss;
   int data = READ;
@@ -1206,7 +1206,7 @@ int load_ram_file ( int i ) {
   return 0;
 }
 
-void load_backup_file ( int i ) {
+void load_backup_file ( int i ) { // goes into backup!
   FRESULT f;
   int fss;
   int data = READ;
@@ -1224,7 +1224,7 @@ void load_backup_file ( int i ) {
     if (fss != 1) return;
   }
   // File is now open with correct permissions
-  f = f_read (FPT, (char *) &PersistentRam, sizeof (PersistentRam), &x);
+  f = f_read (FPT, (char *) &BackupFlash, sizeof (BackupFlash), &x);
   if ( f != FR_OK ) {
     DispMsg = "Err lbf2";
   }

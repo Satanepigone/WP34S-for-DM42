@@ -675,8 +675,8 @@ void finish_display(void) {
 }
 void finish_RPN(void) {//only refreshes the RPN flag
   t20->inv = !dots[RPN];
-  lcd_setXY (t20, 350 ,130-60); //130 is ytop
-  lcd_writeText(t20, "RCL");
+  lcd_setXY (t20, 350, 130-30); // 130 is ytop_exp
+  lcd_writeText(t20, "RPN");
   lcd_refresh();
 }
 

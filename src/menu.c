@@ -70,7 +70,7 @@ static const struct _menu Menus[] = {
       { { K23, 1 }, { K32, 3 }, "DEC", "or" },
       { { K23, 2 }, { K33, 3 }, "HEX", "xor" },
       { ARROW_KEY, { K34, 3}, "--\015", "RMDR" },
-      { CMPLX_KEY, NO_KEY, "CPX", "" },
+      { CMPLX_KEY, { K11, 1}, "CPX", "H.d" },
     }
   },
   {
