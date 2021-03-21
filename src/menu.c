@@ -121,7 +121,7 @@ static const struct _menu Menus[] = {
   {
     "Setup 1", // 8
     { 
-      { { K_EXIT, 0}, NO_KEY, "EXIT", "" },
+      { { K_EXIT, 0}, { K_SYS, 0 }, "EXIT", "System" },
       { { K_MULTI, HELP }, NO_KEY, "HELP", "" },
       { { K_MULTI, ONSTO }, { K_MULTI, WRTST}, "OnSTO", "SvRAM" },
       { { K_MULTI, ONRCL }, { K_MULTI, LDST}, "OnRCL", "LdRAM" },
@@ -170,7 +170,7 @@ static const struct _menu Menus[] = {
       { { K42, 2 }, NO_KEY, "s", "" },
       { { K43, 2 }, NO_KEY, "r", "" },
       { ARROW_KEY, NO_KEY, "--\015", "" },
-      { CMPLX_KEY, NO_KEY, "CPX", "" },
+      { CMPLX_KEY, { K_MULTI, DOTS }, "CPX", "" },
     }
   },
   {
@@ -311,8 +311,6 @@ void mdot(int i, int j, int s, int on) { // Column i, row j, state on
 void display_menu (int current_menu) {
   int len = 0;
   lcd_fill_rect (0, 188, 400, 52, 0); // clear bottom 52 rows for menu 
-  //  if (current_menu == 0) return; // Menu 0 is blank
-  // Not blank now - includes arrow and cmplx like all the others.
   lcd_fill_rect (0, 188, 400, 1, 0xff); // lines count from line 1? No. 
   //Clear previous menu
   for (int col = 0; col < 200; col++) {
@@ -323,12 +321,12 @@ void display_menu (int current_menu) {
   // Draw menu items
   // 
   for (int item = 0; item < 6; item++ ) {
-    // Label is Menus[current.menu].keys[item].unshifted_label
-    // Unshifted first
-    len = pixel_length (Menus[current_menu].keys[item].unshifted_label, 0); // 0 means not small font
     /*
       Starting dot in the row of 200 is item*32 - no gaps; gaps will be inserted when drawing
     */
+    // Label is Menus[current.menu].keys[item].unshifted_label
+    // Unshifted first
+    len = pixel_length (Menus[current_menu].keys[item].unshifted_label, 0); // 0 means not small font
     set_menu_label ( Menus[current_menu].keys[item].unshifted_label, 0, item*32 + (32 - len)/2, 0 );
     // Now shifted ...	
     len = pixel_length (Menus[current_menu].keys[item].shifted_label, 0); // 0 means not small font
@@ -338,18 +336,26 @@ void display_menu (int current_menu) {
     set_menu_label ( Menus[current_menu].keys[item].shifted_label, 0, len, 1 );
   }
 
-  for (int col = 0; col < 200; col++) {
+  for (int col = 0; col < 196; col++) {
     for (int row = 0; row < 6; row++) {
       if ((mdots[col][0] & (1 << row)) != 0) 
 	//	lcd_fill_rect( col*2-1, 230 - row*3, 3, 3, 0xff);
-	lcd_fill_rect( col*2, 233 - row*3, 3, 3, 0xff);
+	lcd_fill_rect( 4+col*2, 233 - row*3, 3, 3, 0xff);
       if ((mdots[col][1] & (1 << row)) != 0) 
 	//	lcd_fill_rect( col*2-1, 230 - 5*3 -10 - row*3, 3, 3, 0xff);
-	lcd_fill_rect( col*2, 233 - 5*3 -10 - row*3, 3, 3, 0xff);
+	lcd_fill_rect( 4+col*2, 233 - 5*3 -10 - row*3, 3, 3, 0xff);
     }
   }
 }
 
+void all_menu_dots () {
+  for (int col = 0; col < 200; col++) {
+    for (int row = 0; row < 6; row++) {
+	lcd_fill_rect( col*2, 233 - row*3, 3, 3, 0xff);
+	lcd_fill_rect( col*2, 233 - 5*3 -10 - row*3, 3, 3, 0xff);
+    }
+  }
+}  
 /*
 dots is a char array.
 

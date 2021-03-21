@@ -14,6 +14,7 @@
 #define LDPRG 8
 #define HELP 9
 #define SVPRG 10
+#define DOTS 11
 
 struct _key {
   struct _ndmap unshifted;
@@ -34,4 +35,4 @@ static int last_menu = 0;
 
 static void set_menu_label (const char *str, int smallp, int dotcol, int shifted);
 void mdot(int i, int j, int s, int on);
-
+extern void all_menu_dots ( void );

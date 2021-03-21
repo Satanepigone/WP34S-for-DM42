@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccIRAJ2l.s 			page 1
+ARM GAS  /tmp/ccNux4Ah.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
   28:src/display.c **** #ifndef DM42
   29:src/display.c **** #include "printer.h"
   30:src/display.c **** #include "serial.h"
-ARM GAS  /tmp/ccIRAJ2l.s 			page 2
+ARM GAS  /tmp/ccNux4Ah.s 			page 2
 
 
   31:src/display.c **** #endif
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
   85:src/display.c **** 	"roMm"
   86:src/display.c **** #endif
   87:src/display.c **** };
-ARM GAS  /tmp/ccIRAJ2l.s 			page 3
+ARM GAS  /tmp/ccNux4Ah.s 			page 3
 
 
   88:src/display.c **** 
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
   55 0014 92F8E827 		ldrb	r2, [r2, #2024]	@ zero_extendqisi2
  105:src/display.c **** 		DecimalMode = DECIMAL_COMMA;
   56              		.loc 1 105 15 view .LVU11
-ARM GAS  /tmp/ccIRAJ2l.s 			page 4
+ARM GAS  /tmp/ccNux4Ah.s 			page 4
 
 
   57 0018 0124     		movs	r4, #1
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
   99 003a D007     		lsls	r0, r2, #31
  108:src/display.c **** 		DecimalMode = DECIMAL_DOT;
  100              		.loc 1 108 17 view .LVU29
-ARM GAS  /tmp/ccIRAJ2l.s 			page 5
+ARM GAS  /tmp/ccNux4Ah.s 			page 5
 
 
  101 003c 0D70     		strb	r5, [r1]
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  131:src/display.c **** 		MSG1("Domain"),
  132:src/display.c **** 		MSG2("Bad time", "or dAtE"),
  133:src/display.c **** 		MSG2("Undefined", "Op-COdE"),
-ARM GAS  /tmp/ccIRAJ2l.s 			page 6
+ARM GAS  /tmp/ccNux4Ah.s 			page 6
 
 
  134:src/display.c **** 		MSG1("+\237"),
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  188:src/display.c **** 		"",
  189:src/display.c **** 		" o r   d a t e ",
  190:src/display.c **** 		" O p - c o d e ",
-ARM GAS  /tmp/ccIRAJ2l.s 			page 7
+ARM GAS  /tmp/ccNux4Ah.s 			page 7
 
 
  191:src/display.c **** 		"",
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  245:src/display.c **** 				print_tab(0);
  246:src/display.c **** 				print_line(p, 0);
  247:src/display.c **** 				print(' ');
-ARM GAS  /tmp/ccIRAJ2l.s 			page 8
+ARM GAS  /tmp/ccNux4Ah.s 			page 8
 
 
  248:src/display.c **** 				while (*q != '\0') {
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  302:src/display.c **** static void clr_exp_sign_dot()
  303:src/display.c **** {
  304:src/display.c **** 	LastDisplayedExponent[0]=' ';
-ARM GAS  /tmp/ccIRAJ2l.s 			page 9
+ARM GAS  /tmp/ccNux4Ah.s 			page 9
 
 
  305:src/display.c **** 	clr_dot(EXP_SIGN);
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  359:src/display.c **** 		if (sep == SEP_COMMA) *res++ = ',';
  360:src/display.c **** 		else *res++ = '.';
  361:src/display.c **** 	} else {
-ARM GAS  /tmp/ccIRAJ2l.s 			page 10
+ARM GAS  /tmp/ccNux4Ah.s 			page 10
 
 
  362:src/display.c **** 		posn -= SEGS_PER_DIGIT;
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  166              	.LVL1:
  324:src/display.c **** }
  167              		.loc 1 324 15 view .LVU45
-ARM GAS  /tmp/ccIRAJ2l.s 			page 11
+ARM GAS  /tmp/ccNux4Ah.s 			page 11
 
 
  168              	.LBE130:
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  207              	.L22:
  388:src/display.c **** 		else
  208              		.loc 1 388 4 is_stmt 1 view .LVU59
-ARM GAS  /tmp/ccIRAJ2l.s 			page 12
+ARM GAS  /tmp/ccNux4Ah.s 			page 12
 
 
  390:src/display.c **** 		base++;
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  246              		.loc 1 382 51 view .LVU76
  247 005c 04EB9303 		add	r3, r4, r3, lsr #2
  248 0060 5970     		strb	r1, [r3, #1]
-ARM GAS  /tmp/ccIRAJ2l.s 			page 13
+ARM GAS  /tmp/ccNux4Ah.s 			page 13
 
 
  249 0062 E0E7     		b	.L19
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  427:src/display.c ****  *                     LARGE_EXPONENT_ENTRY is enabled;
  428:src/display.c ****  *            4:       The mantissa is too long, cut off the last three digits.
  429:src/display.c ****  */
-ARM GAS  /tmp/ccIRAJ2l.s 			page 14
+ARM GAS  /tmp/ccNux4Ah.s 			page 14
 
 
  430:src/display.c **** static void set_exp(int exp, int flags, char *res) {
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  484:src/display.c **** #ifdef LARGE_EXPONENT_ENTRY
  485:src/display.c **** 			                         && (flags & 8) == 0
  486:src/display.c **** #endif
-ARM GAS  /tmp/ccIRAJ2l.s 			page 15
+ARM GAS  /tmp/ccNux4Ah.s 			page 15
 
 
  487:src/display.c **** 			                                            ) {
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  541:src/display.c **** 		}
  542:src/display.c **** #endif
  543:src/display.c **** 	}
-ARM GAS  /tmp/ccIRAJ2l.s 			page 16
+ARM GAS  /tmp/ccNux4Ah.s 			page 16
 
 
  544:src/display.c **** 	else
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  598:src/display.c **** #  ifdef YREG_ALWAYS_ON
  599:src/display.c **** 	const int yreg_enabled = 1;
  600:src/display.c **** #  else
-ARM GAS  /tmp/ccIRAJ2l.s 			page 17
+ARM GAS  /tmp/ccNux4Ah.s 			page 17
 
 
  601:src/display.c **** 	const int yreg_enabled = UState.show_y;
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  655:src/display.c **** 		q = scopy(p, q);
  656:src/display.c **** 		*q++ = '\006';
  657:src/display.c **** 		p = num_arg_0(q, word_size(), 2);
-ARM GAS  /tmp/ccIRAJ2l.s 			page 18
+ARM GAS  /tmp/ccNux4Ah.s 			page 18
 
 
  658:src/display.c **** 
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  712:src/display.c **** 			}
  713:src/display.c **** 			else if (rp_prefix) {
  714:src/display.c **** 				if (RectPolConv == 1) {
-ARM GAS  /tmp/ccIRAJ2l.s 			page 19
+ARM GAS  /tmp/ccNux4Ah.s 			page 19
 
 
  715:src/display.c **** 					q = "\007\306<";
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  769:src/display.c **** 			q = "\007\207i";
  770:src/display.c **** 		}
  771:src/display.c **** 		else if (rp_prefix && RectPolConv == 1) {
-ARM GAS  /tmp/ccIRAJ2l.s 			page 20
+ARM GAS  /tmp/ccNux4Ah.s 			page 20
 
 
  772:src/display.c **** 			q = "\007\307<";
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  826:src/display.c **** 					// then remove the fractional part of the seconds.
  827:src/display.c **** 					p = "@\005 \006\"\0.\0";
  828:src/display.c **** 					while (*p) {
-ARM GAS  /tmp/ccIRAJ2l.s 			page 21
+ARM GAS  /tmp/ccNux4Ah.s 			page 21
 
 
  829:src/display.c **** 						replace_char(buf, p[0], p[1]);
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  883:src/display.c **** }
  884:src/display.c **** 
  885:src/display.c **** static void disp_x(const char *p) {
-ARM GAS  /tmp/ccIRAJ2l.s 			page 22
+ARM GAS  /tmp/ccNux4Ah.s 			page 22
 
 
  886:src/display.c **** 	int i;
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  940:src/display.c **** 						i = 2*SEGS_PER_DIGIT;
  941:src/display.c **** 				}
  942:src/display.c **** 				else gotdot = -1;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 23
+ARM GAS  /tmp/ccNux4Ah.s 			page 23
 
 
  943:src/display.c **** 				set_dig(0, '<');
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  997:src/display.c **** 
  998:src/display.c **** 		/* Implement a floating comma */
  999:src/display.c **** 		if (gotdot < 0)
-ARM GAS  /tmp/ccIRAJ2l.s 			page 24
+ARM GAS  /tmp/ccNux4Ah.s 			page 24
 
 
 1000:src/display.c **** 			gotdot = i;
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1054:src/display.c **** 	case SDISP_OCT:	b = 8;		break;
 1055:src/display.c **** 	case SDISP_DEC:	b = 10;		break;
 1056:src/display.c **** 	case SDISP_HEX:	b = 16;		break;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 25
+ARM GAS  /tmp/ccNux4Ah.s 			page 25
 
 
 1057:src/display.c **** 	default:	b = int_base();	break;
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1111:src/display.c **** 		}
 1112:src/display.c **** 	}
 1113:src/display.c **** 
-ARM GAS  /tmp/ccIRAJ2l.s 			page 26
+ARM GAS  /tmp/ccNux4Ah.s 			page 26
 
 
 1114:src/display.c **** 	/* At this point i is the number of digits in the output */
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1168:src/display.c ****  */
 1169:src/display.c **** static int check_special_dn(const decNumber *x, char *res) {
 1170:src/display.c **** 	if (decNumberIsSpecial(x)) {
-ARM GAS  /tmp/ccIRAJ2l.s 			page 27
+ARM GAS  /tmp/ccNux4Ah.s 			page 27
 
 
 1171:src/display.c **** 		if (decNumberIsNaN(x)) {
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  276              		.loc 1 1220 2 view .LVU78
 1221:src/display.c **** 	int i, j;
  277              		.loc 1 1221 2 view .LVU79
-ARM GAS  /tmp/ccIRAJ2l.s 			page 28
+ARM GAS  /tmp/ccNux4Ah.s 			page 28
 
 
 1222:src/display.c **** 
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  317              		.loc 1 1224 6 view .LVU93
  318 0024 30B1     		cbz	r0, .L44
 1223:src/display.c **** 		if (v == 0)
-ARM GAS  /tmp/ccIRAJ2l.s 			page 29
+ARM GAS  /tmp/ccNux4Ah.s 			page 29
 
 
  319              		.loc 1 1223 2 view .LVU94
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1223:src/display.c **** 		if (v == 0)
  360              		.loc 1 1223 2 is_stmt 0 view .LVU110
  361 004c FADC     		bgt	.L31
-ARM GAS  /tmp/ccIRAJ2l.s 			page 30
+ARM GAS  /tmp/ccNux4Ah.s 			page 30
 
 
  362 004e 5A1E     		subs	r2, r3, #1
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  400              		.loc 1 1239 23 is_stmt 0 view .LVU125
  401 006e 1DF80410 		ldrb	r1, [sp, r4]	@ zero_extendqisi2
  402              	.LBB137:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 31
+ARM GAS  /tmp/ccNux4Ah.s 			page 31
 
 
  403              	.LBB134:
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1243:src/display.c **** 	return str;
 1244:src/display.c **** }
  443              		.loc 1 1244 1 view .LVU142
-ARM GAS  /tmp/ccIRAJ2l.s 			page 32
+ARM GAS  /tmp/ccNux4Ah.s 			page 32
 
 
  444 0092 2846     		mov	r0, r5
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  492 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
  493              		.cfi_def_cfa_offset 24
  494              		.cfi_offset 3, -24
-ARM GAS  /tmp/ccIRAJ2l.s 			page 33
+ARM GAS  /tmp/ccNux4Ah.s 			page 33
 
 
  495              		.cfi_offset 4, -20
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  537              		.loc 1 417 12 view .LVU163
  417:src/display.c **** 		res = set_dig_s(SEGS_EXP_BASE + i * SEGS_PER_EXP_DIGIT, msg[i], res);
  538              		.loc 1 417 2 is_stmt 0 view .LVU164
-ARM GAS  /tmp/ccIRAJ2l.s 			page 34
+ARM GAS  /tmp/ccNux4Ah.s 			page 34
 
 
  539 0020 0CD0     		beq	.L47
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  580              	.LBE145:
  581              	.LBE149:
  417:src/display.c **** 		res = set_dig_s(SEGS_EXP_BASE + i * SEGS_PER_EXP_DIGIT, msg[i], res);
-ARM GAS  /tmp/ccIRAJ2l.s 			page 35
+ARM GAS  /tmp/ccNux4Ah.s 			page 35
 
 
  582              		.loc 1 417 35 is_stmt 1 view .LVU178
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  627              		.loc 1 1213 2 view .LVU189
  628 000a 0A4A     		ldr	r2, .L60
  629              	.LVL50:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 36
+ARM GAS  /tmp/ccNux4Ah.s 			page 36
 
 
 1210:src/display.c **** 	decNumber n;
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  676              	set_status_sized:
  677              	.LVL56:
  678              	.LFB37:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 37
+ARM GAS  /tmp/ccNux4Ah.s 			page 37
 
 
 1245:src/display.c **** 
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1299:src/display.c **** 	res = hms_render(fs, res, &j, 2, 0);
 1300:src/display.c **** 
 1301:src/display.c **** 	// We're now pointing at the exponent's first digit...
-ARM GAS  /tmp/ccIRAJ2l.s 			page 38
+ARM GAS  /tmp/ccNux4Ah.s 			page 38
 
 
 1302:src/display.c **** 	res = set_dig_s(j, '"', res);
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1356:src/display.c **** 	*p++ = '/';
 1357:src/display.c **** 	p = num_arg(p, dn_to_int(&d));
 1358:src/display.c **** 	*p = '\0';
-ARM GAS  /tmp/ccIRAJ2l.s 			page 39
+ARM GAS  /tmp/ccNux4Ah.s 			page 39
 
 
 1359:src/display.c **** 	if ((p - 12) > buf) {
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1413:src/display.c **** 		return MODE_STD;
 1414:src/display.c **** 	}
 1415:src/display.c ****  }
-ARM GAS  /tmp/ccIRAJ2l.s 			page 40
+ARM GAS  /tmp/ccNux4Ah.s 			page 40
 
 
 1416:src/display.c **** #else
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1470:src/display.c **** 		decimal_mark = '.';
 1471:src/display.c **** 		thousands_sep = ',';
 1472:src/display.c **** 	}
-ARM GAS  /tmp/ccIRAJ2l.s 			page 41
+ARM GAS  /tmp/ccNux4Ah.s 			page 41
 
 
 1473:src/display.c **** 	else {
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1527:src/display.c **** 			x[9] = '\0';
 1528:src/display.c **** 			x[10] = '\0';
 1529:src/display.c **** 		}
-ARM GAS  /tmp/ccIRAJ2l.s 			page 42
+ARM GAS  /tmp/ccNux4Ah.s 			page 42
 
 
 1530:src/display.c **** 		xcopy(x + 1, x, 11);
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1584:src/display.c **** 	int c;
 1585:src/display.c **** 	int negative = 0;
 1586:src/display.c **** 	int trimzeros = 0;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 43
+ARM GAS  /tmp/ccNux4Ah.s 			page 43
 
 
 1587:src/display.c **** #if SHOW_LARGE_EXPONENT <= 0
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1641:src/display.c **** 	} else
 1642:src/display.c **** 		decNumberToString(z, x);
 1643:src/display.c **** 
-ARM GAS  /tmp/ccIRAJ2l.s 			page 44
+ARM GAS  /tmp/ccNux4Ah.s 			page 44
 
 
 1644:src/display.c **** 	if (State2.smode == SDISP_SHOW) {
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1698:src/display.c **** 	if (*q == '-') {
 1699:src/display.c **** 		negative = 1;
 1700:src/display.c **** 		q++;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 45
+ARM GAS  /tmp/ccNux4Ah.s 			page 45
 
 
 1701:src/display.c **** 	} else if (*q == '+')
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1755:src/display.c **** 	}
 1756:src/display.c **** 
 1757:src/display.c **** 	// Zap what is left
-ARM GAS  /tmp/ccIRAJ2l.s 			page 46
+ARM GAS  /tmp/ccNux4Ah.s 			page 46
 
 
 1758:src/display.c **** 	for (p = mantissa + dd + extra_digits + 1; *p != '\0'; *p++ = '0');
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1812:src/display.c **** 				*obp++ = '0';
 1813:src/display.c **** 				odig++;
 1814:src/display.c **** 			}
-ARM GAS  /tmp/ccIRAJ2l.s 			page 47
+ARM GAS  /tmp/ccNux4Ah.s 			page 47
 
 
 1815:src/display.c **** 			for (i=0; i<count; i++) {
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1869:src/display.c **** 			*obp++ = *p++;
 1870:src/display.c **** 			odig++;
 1871:src/display.c **** 			dd--;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 48
+ARM GAS  /tmp/ccNux4Ah.s 			page 48
 
 
 1872:src/display.c **** 			exp--;
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1926:src/display.c **** 	}
 1927:src/display.c **** #if defined(INCLUDE_RIGHT_EXP)
 1928:src/display.c **** 	if (show_exp) { // ND change: leading zeros in exponent in seven-segment display
-ARM GAS  /tmp/ccIRAJ2l.s 			page 49
+ARM GAS  /tmp/ccNux4Ah.s 			page 49
 
 
 1929:src/display.c **** 		if ( !res ) {
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1983:src/display.c **** 	}
 1984:src/display.c **** #endif
 1985:src/display.c **** 	else
-ARM GAS  /tmp/ccIRAJ2l.s 			page 50
+ARM GAS  /tmp/ccNux4Ah.s 			page 50
 
 
 1986:src/display.c **** 		set_x(r, buf, UState.mode_double);
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2040:src/display.c **** 			start = 3;
 2041:src/display.c **** 			group = 4;
 2042:src/display.c **** 			set_status("XYZT\006A:D\006LIJK");
-ARM GAS  /tmp/ccIRAJ2l.s 			page 51
+ARM GAS  /tmp/ccNux4Ah.s 			page 51
 
 
 2043:src/display.c **** 		}
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2097:src/display.c **** 	unsigned short int lblpc;
 2098:src/display.c **** 
 2099:src/display.c **** 	set_status(prt((opcode)op, buf));
-ARM GAS  /tmp/ccIRAJ2l.s 			page 52
+ARM GAS  /tmp/ccNux4Ah.s 			page 52
 
 
 2100:src/display.c **** 	set_digits_string(libname[n], 0);
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2154:src/display.c **** 			bp = num_arg_0(bp, n, 2);
 2155:src/display.c **** 		else
 2156:src/display.c **** 			*bp++ = REGNAMES[n - regX_idx];
-ARM GAS  /tmp/ccIRAJ2l.s 			page 53
+ARM GAS  /tmp/ccNux4Ah.s 			page 53
 
 
 2157:src/display.c **** 		set_status(buf);
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2211:src/display.c **** }
 2212:src/display.c **** 
 2213:src/display.c **** /*
-ARM GAS  /tmp/ccIRAJ2l.s 			page 54
+ARM GAS  /tmp/ccNux4Ah.s 			page 54
 
 
 2214:src/display.c ****  *  Update the display
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2268:src/display.c **** 		scopy(LastDisplayedExponent, " ");
 2269:src/display.c **** #endif
 2270:src/display.c **** 		xcopy( vers + VERS_SVN_OFFSET, SvnRevision, 4 );
-ARM GAS  /tmp/ccIRAJ2l.s 			page 55
+ARM GAS  /tmp/ccNux4Ah.s 			page 55
 
 
 2271:src/display.c **** 		set_status(vers);
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2325:src/display.c **** 		set_status(buf);
 2326:src/display.c **** 	} else if (cata) {
 2327:src/display.c **** 		const opcode op = current_catalogue(State.catpos);
-ARM GAS  /tmp/ccIRAJ2l.s 			page 56
+ARM GAS  /tmp/ccNux4Ah.s 			page 56
 
 
 2328:src/display.c **** 		char b2[16];
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2382:src/display.c **** 	} else if (State2.status) {
 2383:src/display.c **** 		show_status();
 2384:src/display.c **** 		skip = 1;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 57
+ARM GAS  /tmp/ccNux4Ah.s 			page 57
 
 
 2385:src/display.c **** 	} else if (State2.labellist) {
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2439:src/display.c **** #if 0
 2440:src/display.c **** 		if (State2.smode == SDISP_SHOW) {
 2441:src/display.c **** 			unsigned short int crc;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 58
+ARM GAS  /tmp/ccNux4Ah.s 			page 58
 
 
 2442:src/display.c **** 			crc = checksum_program();
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2496:src/display.c **** 				  *l++=*b++;
 2497:src/display.c **** 				  *l++=' ';
 2498:src/display.c **** 			  }
-ARM GAS  /tmp/ccIRAJ2l.s 			page 59
+ARM GAS  /tmp/ccNux4Ah.s 			page 59
 
 
 2499:src/display.c **** 			  *l=0;
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2553:src/display.c **** 	int i, j;
 2554:src/display.c **** #if !defined(CONSOLE) && !defined(DM42)
 2555:src/display.c **** 	unsigned long long int mat[6];
-ARM GAS  /tmp/ccIRAJ2l.s 			page 60
+ARM GAS  /tmp/ccNux4Ah.s 			page 60
 
 
 2556:src/display.c **** 
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  694              		.cfi_offset 7, -24
  695              		.cfi_offset 8, -20
  696              		.cfi_offset 9, -16
-ARM GAS  /tmp/ccIRAJ2l.s 			page 61
+ARM GAS  /tmp/ccNux4Ah.s 			page 61
 
 
  697              		.cfi_offset 10, -12
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  737              		.loc 1 2602 2 is_stmt 0 discriminator 1 view .LVU221
  738 002a 2BB1     		cbz	r3, .L68
  739              	.L70:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 62
+ARM GAS  /tmp/ccNux4Ah.s 			page 62
 
 
  740              	.LVL62:
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2623:src/display.c **** 		int width;
 2624:src/display.c **** 		unsigned char cmap[6];
 2625:src/display.c **** #ifdef INCLUDE_FONT_ESCAPE
-ARM GAS  /tmp/ccIRAJ2l.s 			page 63
+ARM GAS  /tmp/ccNux4Ah.s 			page 63
 
 
 2626:src/display.c **** 		int real_width;
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2680:src/display.c **** 				if (x+j >= BITMAP_WIDTH)
 2681:src/display.c **** 					break;
 2682:src/display.c **** #if !defined(CONSOLE) && !defined(DM42)
-ARM GAS  /tmp/ccIRAJ2l.s 			page 64
+ARM GAS  /tmp/ccNux4Ah.s 			page 64
 
 
 2683:src/display.c **** 				if (cmap[i] & (1 << j))
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  798 0056 5E78     		ldrb	r6, [r3, #1]	@ zero_extendqisi2
  799 0058 06F06003 		and	r3, r6, #96
 2638:src/display.c **** 			default:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 65
+ARM GAS  /tmp/ccNux4Ah.s 			page 65
 
 
  800              		.loc 1 2638 4 view .LVU251
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2657:src/display.c **** 			break;
  840              		.loc 1 2657 6 is_stmt 0 discriminator 4 view .LVU266
  841 008a 55D8     		bhi	.L87
-ARM GAS  /tmp/ccIRAJ2l.s 			page 66
+ARM GAS  /tmp/ccNux4Ah.s 			page 66
 
 
  842              	.L112:
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2680:src/display.c **** 					break;
  883              		.loc 1 2680 5 is_stmt 1 view .LVU280
 2680:src/display.c **** 					break;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 67
+ARM GAS  /tmp/ccNux4Ah.s 			page 67
 
 
  884              		.loc 1 2680 8 is_stmt 0 view .LVU281
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  924              		.loc 1 329 7 discriminator 2 view .LVU295
  925              	.LBE153:
  926              	.LBE156:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 68
+ARM GAS  /tmp/ccNux4Ah.s 			page 68
 
 
 2686:src/display.c **** #endif
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  966 0100 B4F5CB7F 		cmp	r4, #406
  967 0104 05F10105 		add	r5, r5, #1
  968 0108 D7D1     		bne	.L79
-ARM GAS  /tmp/ccIRAJ2l.s 			page 69
+ARM GAS  /tmp/ccNux4Ah.s 			page 69
 
 
 2689:src/display.c **** 	}
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  1006              		.loc 1 2652 6 view .LVU327
  1007 011e 1D44     		add	r5, r5, r3
 2653:src/display.c **** 			current_smallp = smallp;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 70
+ARM GAS  /tmp/ccNux4Ah.s 			page 70
 
 
  1008              		.loc 1 2653 25 view .LVU328
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2696:src/display.c **** 		clr_dot(i);
  1050              		.loc 1 2696 36 is_stmt 0 discriminator 3 view .LVU346
  1051 0148 0134     		adds	r4, r4, #1
-ARM GAS  /tmp/ccIRAJ2l.s 			page 71
+ARM GAS  /tmp/ccNux4Ah.s 			page 71
 
 
  1052              	.LVL95:
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  1091 0168 9878     		ldrb	r0, [r3, #2]	@ zero_extendqisi2
 2644:src/display.c **** 					break;
  1092              		.loc 1 2644 30 view .LVU363
-ARM GAS  /tmp/ccIRAJ2l.s 			page 72
+ARM GAS  /tmp/ccNux4Ah.s 			page 72
 
 
  1093 016a 4FF0010A 		mov	r10, #1
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  1143              		.loc 1 430 52 is_stmt 1 view -0
  1144              		.cfi_startproc
  1145              		@ args = 0, pretend = 0, frame = 8
-ARM GAS  /tmp/ccIRAJ2l.s 			page 73
+ARM GAS  /tmp/ccNux4Ah.s 			page 73
 
 
  1146              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  467:src/display.c **** 			// No exponent separator for large -ve exponents
  1183              		.loc 1 467 7 is_stmt 0 view .LVU387
  1184 0018 73BB     		cbnz	r3, .L126
-ARM GAS  /tmp/ccIRAJ2l.s 			page 74
+ARM GAS  /tmp/ccNux4Ah.s 			page 74
 
 
  467:src/display.c **** 			// No exponent separator for large -ve exponents
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  1224 003a 0422     		movs	r2, #4
  1225 003c FFF7FEFF 		bl	xset
  1226              	.LVL114:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 75
+ARM GAS  /tmp/ccNux4Ah.s 			page 75
 
 
  524:src/display.c **** 		num_arg_0(u.buf, exp, 3);
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  1271              	.L121:
  1272              		.cfi_restore_state
  470:src/display.c **** #else
-ARM GAS  /tmp/ccIRAJ2l.s 			page 76
+ARM GAS  /tmp/ccNux4Ah.s 			page 76
 
 
  1273              		.loc 1 470 8 is_stmt 1 view .LVU413
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  1313              	.LVL129:
  1314              	.L141:
  474:src/display.c **** 	}
-ARM GAS  /tmp/ccIRAJ2l.s 			page 77
+ARM GAS  /tmp/ccNux4Ah.s 			page 77
 
 
  1315              		.loc 1 474 3 is_stmt 0 view .LVU428
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  1355              	.LVL135:
  493:src/display.c **** 			}
  1356              		.loc 1 493 5 is_stmt 0 view .LVU443
-ARM GAS  /tmp/ccIRAJ2l.s 			page 78
+ARM GAS  /tmp/ccNux4Ah.s 			page 78
 
 
  1357 00ae CFE7     		b	.L124
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  364:src/display.c **** 			set_dot(posn+8);
  1404              		.loc 1 364 3 view .LVU453
  364:src/display.c **** 			set_dot(posn+8);
-ARM GAS  /tmp/ccIRAJ2l.s 			page 79
+ARM GAS  /tmp/ccNux4Ah.s 			page 79
 
 
  1405              		.loc 1 364 6 is_stmt 0 view .LVU454
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  1448              		.align	1
  1449              		.p2align 2,,3
  1450              		.syntax unified
-ARM GAS  /tmp/ccIRAJ2l.s 			page 80
+ARM GAS  /tmp/ccNux4Ah.s 			page 80
 
 
  1451              		.thumb
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  1494 001a 0191     		str	r1, [sp, #4]
  1495 001c FFF7FEFF 		bl	set_dot
  1496              	.LVL149:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 81
+ARM GAS  /tmp/ccNux4Ah.s 			page 81
 
 
  342:src/display.c **** 			set_dot(posn+8);
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  1537 0040 04F10800 		add	r0, r4, #8
  1538 0044 FFF7FEFF 		bl	set_dot
  1539              	.LVL153:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 82
+ARM GAS  /tmp/ccNux4Ah.s 			page 82
 
 
  1540              	.LBB172:
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  1587 0008 0C46     		mov	r4, r1
  1588 000a 06E0     		b	.L169
  1589              	.LVL155:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 83
+ARM GAS  /tmp/ccNux4Ah.s 			page 83
 
 
  1590              	.L167:
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  405:src/display.c **** 		else {
  1628              		.loc 1 405 4 view .LVU518
  1629 0020 A4F10900 		sub	r0, r4, #9
-ARM GAS  /tmp/ccIRAJ2l.s 			page 84
+ARM GAS  /tmp/ccNux4Ah.s 			page 84
 
 
  1630 0024 4FF00002 		mov	r2, #0
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1170:src/display.c **** 		if (decNumberIsNaN(x)) {
  1678              		.loc 1 1170 2 view .LVU527
 1169:src/display.c **** 	if (decNumberIsSpecial(x)) {
-ARM GAS  /tmp/ccIRAJ2l.s 			page 85
+ARM GAS  /tmp/ccNux4Ah.s 			page 85
 
 
  1679              		.loc 1 1169 12 is_stmt 0 view .LVU528
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  1720              		.loc 1 1205 1 view .LVU541
  1721 0020 38BD     		pop	{r3, r4, r5, pc}
  1722              	.LVL168:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 86
+ARM GAS  /tmp/ccNux4Ah.s 			page 86
 
 
  1723              	.L177:
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  1762              		.loc 1 1177 5 view .LVU556
  1763 0040 1049     		ldr	r1, .L191+8
  1764 0042 1148     		ldr	r0, .L191+12
-ARM GAS  /tmp/ccIRAJ2l.s 			page 87
+ARM GAS  /tmp/ccNux4Ah.s 			page 87
 
 
  1765 0044 FFF7FEFF 		bl	scopy
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1198:src/display.c **** #endif
  1806              		.loc 1 1198 5 view .LVU570
 1198:src/display.c **** #endif
-ARM GAS  /tmp/ccIRAJ2l.s 			page 88
+ARM GAS  /tmp/ccNux4Ah.s 			page 88
 
 
  1807              		.loc 1 1198 18 is_stmt 0 view .LVU571
@@ -5278,7 +5278,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1252:src/display.c **** 	const int exp_last = SEGS_EXP_BASE + 2*SEGS_PER_EXP_DIGIT;
  1856              		.loc 1 1252 6 view .LVU579
  1857 0006 0023     		movs	r3, #0
-ARM GAS  /tmp/ccIRAJ2l.s 			page 89
+ARM GAS  /tmp/ccNux4Ah.s 			page 89
 
 
 1256:src/display.c **** 		if (decNumberIsInfinite(rgx))
@@ -5338,7 +5338,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  396:src/display.c **** 	else	set_dig(base, ch);
  1896              		.loc 1 396 18 view .LVU596
  1897              	.LBE186:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 90
+ARM GAS  /tmp/ccNux4Ah.s 			page 90
 
 
  1898              	.LBE185:
@@ -5398,7 +5398,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  1943              	.LVL194:
 1277:src/display.c **** 	hms_step(&u, &t, &sec);
  1944              		.loc 1 1277 2 view .LVU606
-ARM GAS  /tmp/ccIRAJ2l.s 			page 91
+ARM GAS  /tmp/ccNux4Ah.s 			page 91
 
 
  1945 0060 2BA9     		add	r1, sp, #172
@@ -5458,7 +5458,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1282:src/display.c **** 
  1986              		.loc 1 1282 30 is_stmt 1 discriminator 1 view .LVU620
 1282:src/display.c **** 
-ARM GAS  /tmp/ccIRAJ2l.s 			page 92
+ARM GAS  /tmp/ccNux4Ah.s 			page 92
 
 
  1987              		.loc 1 1282 32 is_stmt 0 discriminator 1 view .LVU621
@@ -5518,7 +5518,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2027 00ba DDE90330 		ldrd	r3, r0, [sp, #12]
  2028 00be 0122     		movs	r2, #1
 1287:src/display.c **** 
-ARM GAS  /tmp/ccIRAJ2l.s 			page 93
+ARM GAS  /tmp/ccNux4Ah.s 			page 93
 
 
  2029              		.loc 1 1287 4 view .LVU636
@@ -5578,7 +5578,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2067              		.loc 1 1295 8 view .LVU652
  2068 00e0 0598     		ldr	r0, [sp, #20]
  2069 00e2 0122     		movs	r2, #1
-ARM GAS  /tmp/ccIRAJ2l.s 			page 94
+ARM GAS  /tmp/ccNux4Ah.s 			page 94
 
 
 1292:src/display.c **** 
@@ -5638,7 +5638,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2109 010e FFF7FEFF 		bl	hms_render
  2110              	.LVL213:
 1302:src/display.c **** 	// j += SEGS_PER_EXP_DIGIT;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 95
+ARM GAS  /tmp/ccNux4Ah.s 			page 95
 
 
  2111              		.loc 1 1302 2 is_stmt 1 view .LVU668
@@ -5698,7 +5698,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2149 0124 6F23     		movs	r3, #111
  2150 0126 6370     		strb	r3, [r4, #1]
  2151              	.LBE199:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 96
+ARM GAS  /tmp/ccNux4Ah.s 			page 96
 
 
  2152              	.LBE198:
@@ -5758,7 +5758,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2195              	.LBE200:
 1308:src/display.c **** 		if (dn_le(&a, &const_hms_threshold)) {
  2196              		.loc 1 1308 9 is_stmt 1 view .LVU696
-ARM GAS  /tmp/ccIRAJ2l.s 			page 97
+ARM GAS  /tmp/ccNux4Ah.s 			page 97
 
 
 1308:src/display.c **** 		if (dn_le(&a, &const_hms_threshold)) {
@@ -5818,7 +5818,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2237              	.LBB205:
  286:src/display.c **** 	set_dot(MANT_SIGN);
  2238              		.loc 1 286 2 view .LVU711
-ARM GAS  /tmp/ccIRAJ2l.s 			page 98
+ARM GAS  /tmp/ccNux4Ah.s 			page 98
 
 
  286:src/display.c **** 	set_dot(MANT_SIGN);
@@ -5878,7 +5878,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2280              	.LBB207:
  2281              	.LBB187:
  397:src/display.c **** 	return res;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 99
+ARM GAS  /tmp/ccNux4Ah.s 			page 99
 
 
  2282              		.loc 1 397 7 is_stmt 1 view .LVU725
@@ -5938,7 +5938,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2327              	.LBB210:
  2328              	.LBB203:
  397:src/display.c **** 	return res;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 100
+ARM GAS  /tmp/ccNux4Ah.s 			page 100
 
 
  2329              		.loc 1 397 7 is_stmt 1 view .LVU735
@@ -5998,7 +5998,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2378 0006 0830     		adds	r0, r0, #8
  2379              	.LVL247:
 1316:src/display.c **** 	decNumber x, w, n, d, t;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 101
+ARM GAS  /tmp/ccNux4Ah.s 			page 101
 
 
  2380              		.loc 1 1316 57 view .LVU743
@@ -6058,7 +6058,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2423 002e 5B49     		ldr	r1, .L262+4
  2424 0030 09A8     		add	r0, sp, #36
  2425 0032 FFF7FEFF 		bl	dn_lt
-ARM GAS  /tmp/ccIRAJ2l.s 			page 102
+ARM GAS  /tmp/ccNux4Ah.s 			page 102
 
 
  2426              	.LVL253:
@@ -6118,7 +6118,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2470 0078 FFF7FEFF 		bl	dn_eq
  2471              	.LVL260:
 1341:src/display.c **** 		dn_inc(&w);
-ARM GAS  /tmp/ccIRAJ2l.s 			page 103
+ARM GAS  /tmp/ccNux4Ah.s 			page 103
 
 
  2472              		.loc 1 1341 5 view .LVU765
@@ -6178,7 +6178,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1356:src/display.c **** 	p = num_arg(p, dn_to_int(&d));
  2513              		.loc 1 1356 7 view .LVU779
  2514 00aa 2F23     		movs	r3, #47
-ARM GAS  /tmp/ccIRAJ2l.s 			page 104
+ARM GAS  /tmp/ccNux4Ah.s 			page 104
 
 
  2515 00ac 05F8013B 		strb	r3, [r5], #1
@@ -6238,7 +6238,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2554              	.LVL272:
  396:src/display.c **** 	else	set_dig(base, ch);
  2555              		.loc 1 396 5 view .LVU795
-ARM GAS  /tmp/ccIRAJ2l.s 			page 105
+ARM GAS  /tmp/ccNux4Ah.s 			page 105
 
 
  2556 00d4 34B3     		cbz	r4, .L239
@@ -6298,7 +6298,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2594 00f2 2C4D     		ldr	r5, .L262+12
  2595 00f4 2C4B     		ldr	r3, .L262+16
  2596 00f6 15EA2205 		ands	r5, r5, r2, asr #32
-ARM GAS  /tmp/ccIRAJ2l.s 			page 106
+ARM GAS  /tmp/ccNux4Ah.s 			page 106
 
 
  2597 00fa 38BF     		it	cc
@@ -6358,7 +6358,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2638              	.LVL286:
  2639              	.L245:
 1375:src/display.c **** 		j += SEGS_PER_EXP_DIGIT;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 107
+ARM GAS  /tmp/ccNux4Ah.s 			page 107
 
 
  2640              		.loc 1 1375 3 is_stmt 1 view .LVU825
@@ -6418,7 +6418,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2682              	.L236:
 1360:src/display.c **** 		*p = '<';
  2683              		.loc 1 1360 3 is_stmt 1 view .LVU838
-ARM GAS  /tmp/ccIRAJ2l.s 			page 108
+ARM GAS  /tmp/ccNux4Ah.s 			page 108
 
 
 1361:src/display.c **** 	} else	p = buf;
@@ -6478,7 +6478,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2724              		.loc 1 1330 11 view .LVU852
  2725 015a 2D32     		adds	r2, r2, #45
  2726 015c 2270     		strb	r2, [r4]
-ARM GAS  /tmp/ccIRAJ2l.s 			page 109
+ARM GAS  /tmp/ccNux4Ah.s 			page 109
 
 
 1330:src/display.c **** 		else
@@ -6538,7 +6538,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2768              	.LVL311:
  2769              	.L232:
 1332:src/display.c **** 	}
-ARM GAS  /tmp/ccIRAJ2l.s 			page 110
+ARM GAS  /tmp/ccNux4Ah.s 			page 110
 
 
  2770              		.loc 1 1332 4 is_stmt 1 view .LVU866
@@ -6598,7 +6598,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2815              		.fpu fpv4-sp-d16
  2817              	carry_overflow:
  2818              	.LFB15:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 111
+ARM GAS  /tmp/ccNux4Ah.s 			page 111
 
 
  550:src/display.c **** 	const int base = SEGS_EXP_BASE;
@@ -6658,7 +6658,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2859 0022 14F8021C 		ldrb	r1, [r4, #-2]	@ zero_extendqisi2
  2860 0026 FFF7FEFF 		bl	set_dig
  2861              	.LVL317:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 112
+ARM GAS  /tmp/ccNux4Ah.s 			page 112
 
 
  571:src/display.c **** 		set_dig(base + SEGS_PER_EXP_DIGIT, 'c');
@@ -6718,7 +6718,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2900              	.LBB240:
  298:src/display.c **** 	set_dot(EXP_SIGN);
  2901              		.loc 1 298 2 view .LVU904
-ARM GAS  /tmp/ccIRAJ2l.s 			page 113
+ARM GAS  /tmp/ccNux4Ah.s 			page 113
 
 
  298:src/display.c **** 	set_dot(EXP_SIGN);
@@ -6778,7 +6778,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  572:src/display.c **** 	if (get_overflow())
  2945              		.loc 1 572 3 is_stmt 1 view .LVU916
  2946 0066 6321     		movs	r1, #99
-ARM GAS  /tmp/ccIRAJ2l.s 			page 114
+ARM GAS  /tmp/ccNux4Ah.s 			page 114
 
 
  2947 0068 7320     		movs	r0, #115
@@ -6838,7 +6838,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  2998 000c FFF7FEFF 		bl	word_size
  2999              	.LVL328:
 1043:src/display.c **** 	unsigned int b;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 115
+ARM GAS  /tmp/ccNux4Ah.s 			page 115
 
 
  3000              		.loc 1 1043 17 view .LVU922
@@ -6898,7 +6898,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1065:src/display.c **** 		v = extract_value(value, &sign);
  3038              		.loc 1 1065 5 view .LVU939
  3039 003a 14F00104 		ands	r4, r4, #1
-ARM GAS  /tmp/ccIRAJ2l.s 			page 116
+ARM GAS  /tmp/ccNux4Ah.s 			page 116
 
 
  3040 003e 40F0F080 		bne	.L360
@@ -6958,7 +6958,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  3079              		.loc 1 1089 7 is_stmt 0 view .LVU954
  3080 007a B54B     		ldr	r3, .L368+8
  3081 007c 1B68     		ldr	r3, [r3]
-ARM GAS  /tmp/ccIRAJ2l.s 			page 117
+ARM GAS  /tmp/ccNux4Ah.s 			page 117
 
 
  3082 007e 93F8E837 		ldrb	r3, [r3, #2024]	@ zero_extendqisi2
@@ -7018,7 +7018,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  3120              		.loc 1 1106 4 discriminator 4 view .LVU970
 1106:src/display.c **** 				const int r = v % b;
  3121              		.loc 1 1106 14 discriminator 4 view .LVU971
-ARM GAS  /tmp/ccIRAJ2l.s 			page 118
+ARM GAS  /tmp/ccNux4Ah.s 			page 118
 
 
 1106:src/display.c **** 				const int r = v % b;
@@ -7078,7 +7078,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  3162              		.loc 1 1116 3 is_stmt 1 view .LVU985
 1116:src/display.c **** 		while (--i >= 0)
  3163              		.loc 1 1116 6 is_stmt 0 view .LVU986
-ARM GAS  /tmp/ccIRAJ2l.s 			page 119
+ARM GAS  /tmp/ccNux4Ah.s 			page 119
 
 
  3164 00d8 049B     		ldr	r3, [sp, #16]
@@ -7138,7 +7138,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  3207 010a 00F0C680 		beq	.L287
 1092:src/display.c **** 			v = (unsigned long long int)vs;
  3208              		.loc 1 1092 10 is_stmt 1 view .LVU998
-ARM GAS  /tmp/ccIRAJ2l.s 			page 120
+ARM GAS  /tmp/ccNux4Ah.s 			page 120
 
 
 1093:src/display.c **** 			for (i=0; v != 0; i++) {
@@ -7198,7 +7198,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  3252 013e 1BF80C70 		ldrb	r7, [fp, ip]	@ zero_extendqisi2
  3253              	.LVL361:
 1097:src/display.c **** 			}
-ARM GAS  /tmp/ccIRAJ2l.s 			page 121
+ARM GAS  /tmp/ccNux4Ah.s 			page 121
 
 
  3254              		.loc 1 1097 12 discriminator 3 view .LVU1010
@@ -7258,7 +7258,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  3293              		.loc 1 1135 32 view .LVU1025
  3294 0168 102D     		cmp	r5, #16
  3295 016a 0CBF     		ite	eq
-ARM GAS  /tmp/ccIRAJ2l.s 			page 122
+ARM GAS  /tmp/ccNux4Ah.s 			page 122
 
 
  3296 016c 0225     		moveq	r5, #2
@@ -7318,7 +7318,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1146:src/display.c **** 			if (buf[j + k] == '\0')
  3336              		.loc 1 1146 3 view .LVU1040
 1146:src/display.c **** 			if (buf[j + k] == '\0')
-ARM GAS  /tmp/ccIRAJ2l.s 			page 123
+ARM GAS  /tmp/ccNux4Ah.s 			page 123
 
 
  3337              		.loc 1 1146 15 view .LVU1041
@@ -7378,7 +7378,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  3378 01ca 09B1     		cbz	r1, .L315
  356:src/display.c **** 		return res;
  3379              		.loc 1 356 5 view .LVU1055
-ARM GAS  /tmp/ccIRAJ2l.s 			page 124
+ARM GAS  /tmp/ccNux4Ah.s 			page 124
 
 
  3380 01cc FFF7FEFF 		bl	set_separator.part.0
@@ -7438,7 +7438,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  3418 01ea A8BF     		it	ge
  3419 01ec 1839     		subge	r1, r1, #24
  3420              	.LVL380:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 125
+ARM GAS  /tmp/ccNux4Ah.s 			page 125
 
 
 1153:src/display.c **** 			if ((j % group) == 0 && k != 0)
@@ -7498,7 +7498,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  3459              	.LVL383:
  3460              	.L320:
 1160:src/display.c **** 			else	SET_MANT_SIGN;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 126
+ARM GAS  /tmp/ccNux4Ah.s 			page 126
 
 
  3461              		.loc 1 1160 5 is_stmt 1 view .LVU1088
@@ -7558,7 +7558,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  3505 0254 AA46     		mov	r10, r5
  3506              	.LVL391:
 1042:src/display.c **** 	const int ws = word_size();
-ARM GAS  /tmp/ccIRAJ2l.s 			page 127
+ARM GAS  /tmp/ccNux4Ah.s 			page 127
 
 
  3507              		.loc 1 1042 61 discriminator 3 view .LVU1099
@@ -7618,7 +7618,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  3549 0286 DDF80CA0 		ldr	r10, [sp, #12]
  3550 028a 9946     		mov	r9, r3
  3551 028c 21E7     		b	.L292
-ARM GAS  /tmp/ccIRAJ2l.s 			page 128
+ARM GAS  /tmp/ccNux4Ah.s 			page 128
 
 
  3552              	.LVL398:
@@ -7678,7 +7678,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  3593 02ac FFF7FEFF 		bl	int_base
  3594              	.LVL402:
 1057:src/display.c **** 	}
-ARM GAS  /tmp/ccIRAJ2l.s 			page 129
+ARM GAS  /tmp/ccNux4Ah.s 			page 129
 
 
  3595              		.loc 1 1057 15 view .LVU1125
@@ -7738,7 +7738,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  3638 02f8 41EA0903 		orr	r3, r1, r9
  3639              	.LVL408:
 1086:src/display.c **** 		}
-ARM GAS  /tmp/ccIRAJ2l.s 			page 130
+ARM GAS  /tmp/ccNux4Ah.s 			page 130
 
 
  3640              		.loc 1 1086 8 view .LVU1137
@@ -7798,7 +7798,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  3681              	.LVL414:
  3682              	.L286:
 1071:src/display.c **** 			set_dig_s(dig, '0', res);
-ARM GAS  /tmp/ccIRAJ2l.s 			page 131
+ARM GAS  /tmp/ccNux4Ah.s 			page 131
 
 
  3683              		.loc 1 1071 5 is_stmt 1 view .LVU1151
@@ -7858,7 +7858,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  3725              	.L369:
  3726              		.align	2
  3727              	.L368:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 132
+ARM GAS  /tmp/ccNux4Ah.s 			page 132
 
 
  3728 0348 00000000 		.word	StateWhileOn
@@ -7918,7 +7918,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  287:src/display.c **** }
  3770              		.loc 1 287 2 is_stmt 1 view .LVU1176
  3771 0384 FFF7FEFF 		bl	set_dot
-ARM GAS  /tmp/ccIRAJ2l.s 			page 133
+ARM GAS  /tmp/ccNux4Ah.s 			page 133
 
 
  3772              	.LVL422:
@@ -7978,7 +7978,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2174:src/display.c **** #endif
  3820              		.loc 1 2174 11 view .LVU1185
  3821 0008 3368     		ldr	r3, [r6]
-ARM GAS  /tmp/ccIRAJ2l.s 			page 134
+ARM GAS  /tmp/ccNux4Ah.s 			page 134
 
 
 2174:src/display.c **** #endif
@@ -8038,7 +8038,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  3862              	.LBB296:
  3863              	.LBB297:
  328:src/display.c **** 	else	clr_dot(n);
-ARM GAS  /tmp/ccIRAJ2l.s 			page 135
+ARM GAS  /tmp/ccNux4Ah.s 			page 135
 
 
  3864              		.loc 1 328 10 view .LVU1200
@@ -8098,7 +8098,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  3907              	.LBB305:
  3908              	.LBI301:
  327:src/display.c **** 	if (on)	set_dot(n);
-ARM GAS  /tmp/ccIRAJ2l.s 			page 136
+ARM GAS  /tmp/ccNux4Ah.s 			page 136
 
 
  3909              		.loc 1 327 6 is_stmt 1 view .LVU1212
@@ -8158,7 +8158,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  3950              		.loc 1 2179 2 is_stmt 1 view .LVU1225
  3951              	.LBB321:
  3952              	.LBI311:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 137
+ARM GAS  /tmp/ccNux4Ah.s 			page 137
 
 
 2191:src/display.c **** #ifndef DM42
@@ -8218,7 +8218,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  3993              	.LBB327:
  3994              	.LBI327:
  327:src/display.c **** 	if (on)	set_dot(n);
-ARM GAS  /tmp/ccIRAJ2l.s 			page 138
+ARM GAS  /tmp/ccNux4Ah.s 			page 138
 
 
  3995              		.loc 1 327 6 view .LVU1240
@@ -8278,7 +8278,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  4037 0094 F3D4     		bmi	.L385
 2184:src/display.c **** }
  4038              		.loc 1 2184 2 discriminator 1 view .LVU1253
-ARM GAS  /tmp/ccIRAJ2l.s 			page 139
+ARM GAS  /tmp/ccNux4Ah.s 			page 139
 
 
  4039 0096 012C     		cmp	r4, #1
@@ -8338,7 +8338,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  4084              	.LVL442:
  329:src/display.c **** }
  4085              		.loc 1 329 7 view .LVU1263
-ARM GAS  /tmp/ccIRAJ2l.s 			page 140
+ARM GAS  /tmp/ccNux4Ah.s 			page 140
 
 
  4086 00a8 FFF7FEFF 		bl	clr_dot
@@ -8398,7 +8398,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  4125 00bc FFF7FEFF 		bl	finish_display
  4126              	.LVL446:
 2211:src/display.c **** 
-ARM GAS  /tmp/ccIRAJ2l.s 			page 141
+ARM GAS  /tmp/ccNux4Ah.s 			page 141
 
 
  4127              		.loc 1 2211 1 is_stmt 0 view .LVU1279
@@ -8458,7 +8458,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  4169              	.LVL452:
  4170 00d2 A7E7     		b	.L374
  4171              	.L399:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 142
+ARM GAS  /tmp/ccNux4Ah.s 			page 142
 
 
  4172              		.align	2
@@ -8518,7 +8518,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  4224              		.thumb_func
  4225              		.fpu fpv4-sp-d16
  4227              	dot:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 143
+ARM GAS  /tmp/ccNux4Ah.s 			page 143
 
 
  4228              	.LVL455:
@@ -8578,7 +8578,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  4273              		.loc 1 1417 54 view .LVU1307
  4274 0004 0146     		mov	r1, r0
 1420:src/display.c **** 	b.exponent -= UState.dispdigs;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 144
+ARM GAS  /tmp/ccNux4Ah.s 			page 144
 
 
  4275              		.loc 1 1420 2 view .LVU1308
@@ -8638,7 +8638,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  4313 0032 15B0     		add	sp, sp, #84
  4314              		.cfi_remember_state
  4315              		.cfi_def_cfa_offset 4
-ARM GAS  /tmp/ccIRAJ2l.s 			page 145
+ARM GAS  /tmp/ccNux4Ah.s 			page 145
 
 
  4316              		@ sp needed
@@ -8698,7 +8698,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  4364 0000 10B5     		push	{r4, lr}
  4365              		.cfi_def_cfa_offset 8
  4366              		.cfi_offset 4, -8
-ARM GAS  /tmp/ccIRAJ2l.s 			page 146
+ARM GAS  /tmp/ccNux4Ah.s 			page 146
 
 
  4367              		.cfi_offset 14, -4
@@ -8758,7 +8758,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2209:src/display.c **** 	}
  4408              		.loc 1 2209 3 view .LVU1346
  4409 0018 FFF7FEBF 		b	finish_display
-ARM GAS  /tmp/ccIRAJ2l.s 			page 147
+ARM GAS  /tmp/ccNux4Ah.s 			page 147
 
 
  4410              	.LVL469:
@@ -8818,7 +8818,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  4454              	.LVL472:
  4455              		.loc 1 2708 2 is_stmt 1 view .LVU1354
  4456              		.loc 1 2708 8 view .LVU1355
-ARM GAS  /tmp/ccIRAJ2l.s 			page 148
+ARM GAS  /tmp/ccNux4Ah.s 			page 148
 
 
  4457 000e A0B1     		cbz	r0, .L425
@@ -8878,7 +8878,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  4492              		.loc 1 2712 6 view .LVU1370
  4493 002e 0334     		adds	r4, r4, #3
  4494              	.LVL478:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 149
+ARM GAS  /tmp/ccNux4Ah.s 			page 149
 
 
 2711:src/display.c **** 			s += 3;
@@ -8938,7 +8938,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2732:src/display.c **** static void set_status(const char *str) {
  4530              		.loc 1 2732 41 is_stmt 1 view -0
  4531              		.cfi_startproc
-ARM GAS  /tmp/ccIRAJ2l.s 			page 150
+ARM GAS  /tmp/ccNux4Ah.s 			page 150
 
 
  4532              		@ args = 0, pretend = 0, frame = 0
@@ -8998,7 +8998,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  4576 0020 2C28     		cmp	r0, #44
  4577 0022 D8BF     		it	le
  4578 0024 0021     		movle	r1, #0
-ARM GAS  /tmp/ccIRAJ2l.s 			page 151
+ARM GAS  /tmp/ccNux4Ah.s 			page 151
 
 
  4579 0026 2046     		mov	r0, r4
@@ -9058,7 +9058,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  4629 0004 C84B     		ldr	r3, .L670
  4630 0006 1B68     		ldr	r3, [r3]
 1564:src/display.c **** 	char x[50], *obp = x;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 152
+ARM GAS  /tmp/ccNux4Ah.s 			page 152
 
 
  4631              		.loc 1 1564 61 view .LVU1402
@@ -9118,7 +9118,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  4664              		.loc 1 1588 2 view .LVU1423
 1597:src/display.c **** #if defined(INCLUDE_YREG_CODE)
  4665              		.loc 1 1597 2 view .LVU1424
-ARM GAS  /tmp/ccIRAJ2l.s 			page 153
+ARM GAS  /tmp/ccNux4Ah.s 			page 153
 
 
  4666 001e FFF7FEFF 		bl	set_separator_decimal_modes
@@ -9178,7 +9178,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  4707              	.LVL495:
 1635:src/display.c **** 		if (decNumberIsNegative(z) && get_user_flag(NAN_FLAG)) {
  4708              		.loc 1 1635 5 view .LVU1438
-ARM GAS  /tmp/ccIRAJ2l.s 			page 154
+ARM GAS  /tmp/ccNux4Ah.s 			page 154
 
 
  4709 005e 0028     		cmp	r0, #0
@@ -9238,7 +9238,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  4747              	.LVL496:
  4748              	.L458:
 1676:src/display.c **** 	mantissa[sizeof(mantissa)-1] = '\0';
-ARM GAS  /tmp/ccIRAJ2l.s 			page 155
+ARM GAS  /tmp/ccNux4Ah.s 			page 155
 
 
  4749              		.loc 1 1676 2 is_stmt 1 view .LVU1455
@@ -9298,7 +9298,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  4787              		.loc 1 1693 2 is_stmt 0 view .LVU1471
  4788 00c2 9DF81430 		ldrb	r3, [sp, #20]	@ zero_extendqisi2
  4789 00c6 202B     		cmp	r3, #32
-ARM GAS  /tmp/ccIRAJ2l.s 			page 156
+ARM GAS  /tmp/ccNux4Ah.s 			page 156
 
 
 1693:src/display.c **** 	if (!res) {
@@ -9358,7 +9358,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1703:src/display.c **** 	if (*q == '.') {
  4828              		.loc 1 1703 2 is_stmt 0 discriminator 1 view .LVU1488
  4829 00ec 302B     		cmp	r3, #48
-ARM GAS  /tmp/ccIRAJ2l.s 			page 157
+ARM GAS  /tmp/ccNux4Ah.s 			page 157
 
 
  4830 00ee 03D1     		bne	.L466
@@ -9418,7 +9418,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1713:src/display.c **** 			*p++ = *q++;
  4869              		.loc 1 1713 9 is_stmt 1 view .LVU1504
  4870 011a 092B     		cmp	r3, #9
-ARM GAS  /tmp/ccIRAJ2l.s 			page 158
+ARM GAS  /tmp/ccNux4Ah.s 			page 158
 
 
  4871 011c 0CD8     		bhi	.L472
@@ -9478,7 +9478,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  4911 0148 0022     		movs	r2, #0
  4912              	.LVL521:
  4913              	.L475:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 159
+ARM GAS  /tmp/ccNux4Ah.s 			page 159
 
 
 1738:src/display.c **** 	if (*p >= '5') {	// Round up
@@ -9538,7 +9538,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  4950 0170 BCF1390F 		cmp	ip, #57
  4951 0174 FAD0     		beq	.L481
 1742:src/display.c **** 			for (r = mantissa; *r == '9'; *r++ = '0');
-ARM GAS  /tmp/ccIRAJ2l.s 			page 160
+ARM GAS  /tmp/ccNux4Ah.s 			page 160
 
 
  4952              		.loc 1 1742 3 is_stmt 1 view .LVU1537
@@ -9598,7 +9598,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  4991              		.loc 1 1758 2 is_stmt 1 view .LVU1552
  4992              	.LVL531:
 1758:src/display.c **** 
-ARM GAS  /tmp/ccIRAJ2l.s 			page 161
+ARM GAS  /tmp/ccNux4Ah.s 			page 161
 
 
  4993              		.loc 1 1758 45 view .LVU1553
@@ -9658,7 +9658,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1764:src/display.c **** 		if (count != *display_digits)
  5034              		.loc 1 1764 14 view .LVU1567
  5035 01ce 3346     		mov	r3, r6
-ARM GAS  /tmp/ccIRAJ2l.s 			page 162
+ARM GAS  /tmp/ccNux4Ah.s 			page 162
 
 
  5036              	.LVL537:
@@ -9718,7 +9718,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  5074 01fe 0293     		str	r3, [sp, #8]
  5075 0200 09EB0300 		add	r0, r9, r3
 1760:src/display.c **** 	switch (mode) {
-ARM GAS  /tmp/ccIRAJ2l.s 			page 163
+ARM GAS  /tmp/ccNux4Ah.s 			page 163
 
 
  5076              		.loc 1 1760 4 view .LVU1584
@@ -9778,7 +9778,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  5115 0228 A7EBE377 		sub	r7, r7, r3, asr #31
  5116 022c 07EB4707 		add	r7, r7, r7, lsl #1
 1794:src/display.c **** 				if (i > 0 && (exp - i) % 3 == 2)
-ARM GAS  /tmp/ccIRAJ2l.s 			page 164
+ARM GAS  /tmp/ccNux4Ah.s 			page 164
 
 
  5117              		.loc 1 1794 4 discriminator 2 view .LVU1600
@@ -9838,7 +9838,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  5154              		.loc 1 1802 5 is_stmt 0 discriminator 3 view .LVU1617
  5155 0258 8C45     		cmp	ip, r1
  5156 025a F9D1     		bne	.L510
-ARM GAS  /tmp/ccIRAJ2l.s 			page 165
+ARM GAS  /tmp/ccNux4Ah.s 			page 165
 
 
  5157 025c E943     		mvns	r1, r5
@@ -9898,7 +9898,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1883:src/display.c **** 			*obp++ = *p++;
  5196              		.loc 1 1883 9 view .LVU1633
 1883:src/display.c **** 			*obp++ = *p++;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 166
+ARM GAS  /tmp/ccNux4Ah.s 			page 166
 
 
  5197              		.loc 1 1883 9 is_stmt 0 view .LVU1634
@@ -9958,7 +9958,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  5236              		.loc 1 1903 2 is_stmt 1 view .LVU1649
  5237              	.LVL561:
 1905:src/display.c **** 	if (show_large_exponent && j > 0 && exp < -999)
-ARM GAS  /tmp/ccIRAJ2l.s 			page 167
+ARM GAS  /tmp/ccNux4Ah.s 			page 167
 
 
  5238              		.loc 1 1905 2 view .LVU1650
@@ -10018,7 +10018,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  360:src/display.c **** 	} else {
  5278              		.loc 1 360 15 view .LVU1665
  5279 02d6 1F46     		mov	r7, r3
-ARM GAS  /tmp/ccIRAJ2l.s 			page 168
+ARM GAS  /tmp/ccNux4Ah.s 			page 168
 
 
  5280              	.LVL566:
@@ -10078,7 +10078,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  5318 02f0 18F8012F 		ldrb	r2, [r8, #1]!	@ zero_extendqisi2
  5319              	.LVL571:
 1924:src/display.c **** 		}
-ARM GAS  /tmp/ccIRAJ2l.s 			page 169
+ARM GAS  /tmp/ccNux4Ah.s 			page 169
 
 
  5320              		.loc 1 1924 6 view .LVU1682
@@ -10138,7 +10138,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1943:src/display.c **** 
  5361              		.loc 1 1943 1 view .LVU1696
  5362              		@ sp needed
-ARM GAS  /tmp/ccIRAJ2l.s 			page 170
+ARM GAS  /tmp/ccNux4Ah.s 			page 170
 
 
  5363 031a BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
@@ -10198,7 +10198,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  5405              		.loc 1 1605 12 view .LVU1708
  5406 035c 9B06     		lsls	r3, r3, #26
  5407 035e 7FF563AE 		bpl	.L439
-ARM GAS  /tmp/ccIRAJ2l.s 			page 171
+ARM GAS  /tmp/ccNux4Ah.s 			page 171
 
 
 1606:src/display.c **** 					return;
@@ -10258,7 +10258,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1745:src/display.c **** 			if (mode == MODE_FIX && exp > (*display_digits - 1)) {
  5448              		.loc 1 1745 7 view .LVU1723
  5449 038a 05F10105 		add	r5, r5, #1
-ARM GAS  /tmp/ccIRAJ2l.s 			page 172
+ARM GAS  /tmp/ccNux4Ah.s 			page 172
 
 
  5450              	.LVL586:
@@ -10318,7 +10318,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  5487 03ba 7FF4F1AE 		bne	.L550
  5488              	.LVL592:
  5489              	.L493:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 173
+ARM GAS  /tmp/ccNux4Ah.s 			page 173
 
 
 1860:src/display.c **** 		case -1:
@@ -10378,7 +10378,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  5532 0410 0233     		adds	r3, r3, #2
  5533 0412 042B     		cmp	r3, #4
  5534 0414 00F24282 		bhi	.L568
-ARM GAS  /tmp/ccIRAJ2l.s 			page 174
+ARM GAS  /tmp/ccNux4Ah.s 			page 174
 
 
  5535 0418 DFE813F0 		tbh	[pc, r3, lsl #1]
@@ -10438,7 +10438,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  5578              	.LVL597:
 1707:src/display.c **** 		while (*q >= '0' && *q <= '9')
  5579              		.loc 1 1707 9 discriminator 1 view .LVU1764
-ARM GAS  /tmp/ccIRAJ2l.s 			page 175
+ARM GAS  /tmp/ccNux4Ah.s 			page 175
 
 
 1707:src/display.c **** 		while (*q >= '0' && *q <= '9')
@@ -10498,7 +10498,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1668:src/display.c **** 		trimzeros = 1;
  5620              		.loc 1 1668 3 is_stmt 1 view .LVU1779
 1668:src/display.c **** 		trimzeros = 1;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 176
+ARM GAS  /tmp/ccNux4Ah.s 			page 176
 
 
  5621              		.loc 1 1668 10 is_stmt 0 view .LVU1780
@@ -10558,7 +10558,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  5661              		.loc 1 1917 18 is_stmt 0 view .LVU1794
  5662 04aa 18F8012F 		ldrb	r2, [r8, #1]!	@ zero_extendqisi2
  5663              	.LVL612:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 177
+ARM GAS  /tmp/ccNux4Ah.s 			page 177
 
 
 1917:src/display.c **** 		if (c == '.') {
@@ -10618,7 +10618,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  5702              		.loc 1 360 15 view .LVU1810
  5703              	.LBE374:
  5704              	.LBE380:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 178
+ARM GAS  /tmp/ccNux4Ah.s 			page 178
 
 
  5705              	.LBB381:
@@ -10678,7 +10678,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  5747 0502 FFF7FEFF 		bl	set_exp
  5748              	.LVL621:
  5749 0506 019B     		ldr	r3, [sp, #4]
-ARM GAS  /tmp/ccIRAJ2l.s 			page 179
+ARM GAS  /tmp/ccNux4Ah.s 			page 179
 
 
  5750 0508 FFE6     		b	.L547
@@ -10738,7 +10738,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  5788              		.loc 1 1824 6 is_stmt 0 view .LVU1838
  5789 0528 002D     		cmp	r5, #0
  5790 052a C0F21081 		blt	.L514
-ARM GAS  /tmp/ccIRAJ2l.s 			page 180
+ARM GAS  /tmp/ccNux4Ah.s 			page 180
 
 
 1824:src/display.c **** 			for (i=0; i<=exp; i++) {
@@ -10798,7 +10798,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  5829              		.loc 1 1825 14 discriminator 2 view .LVU1854
 1826:src/display.c **** 					*obp++ = ',';
  5830              		.loc 1 1826 28 is_stmt 0 discriminator 2 view .LVU1855
-ARM GAS  /tmp/ccIRAJ2l.s 			page 181
+ARM GAS  /tmp/ccNux4Ah.s 			page 181
 
 
  5831 0554 A9EB0703 		sub	r3, r9, r7
@@ -10858,7 +10858,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1832:src/display.c **** 				*obp++ = *p++;
  5870              		.loc 1 1832 41 discriminator 4 view .LVU1871
 1832:src/display.c **** 				*obp++ = *p++;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 182
+ARM GAS  /tmp/ccNux4Ah.s 			page 182
 
 
  5871              		.loc 1 1832 14 discriminator 4 view .LVU1872
@@ -10918,7 +10918,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  5913              	.L657:
 1702:src/display.c **** 	for (; *q == '0'; q++);
  5914              		.loc 1 1702 3 view .LVU1885
-ARM GAS  /tmp/ccIRAJ2l.s 			page 183
+ARM GAS  /tmp/ccNux4Ah.s 			page 183
 
 
 1702:src/display.c **** 	for (; *q == '0'; q++);
@@ -10978,7 +10978,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1636:src/display.c **** 			x[0] = '-';
  5954              		.loc 1 1636 33 discriminator 1 view .LVU1901
  5955 05f0 6B20     		movs	r0, #107
-ARM GAS  /tmp/ccIRAJ2l.s 			page 184
+ARM GAS  /tmp/ccNux4Ah.s 			page 184
 
 
  5956 05f2 FFF7FEFF 		bl	get_user_flag
@@ -11038,7 +11038,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  5994              		.loc 1 292 2 view .LVU1917
  292:src/display.c **** 	clr_dot(MANT_SIGN);
  5995              		.loc 1 292 24 is_stmt 0 view .LVU1918
-ARM GAS  /tmp/ccIRAJ2l.s 			page 185
+ARM GAS  /tmp/ccNux4Ah.s 			page 185
 
 
  5996 0612 124B     		ldr	r3, .L672+24
@@ -11098,7 +11098,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  6035              	.LBE386:
 1917:src/display.c **** 		if (c == '.') {
  6036              		.loc 1 1917 12 is_stmt 1 view .LVU1934
-ARM GAS  /tmp/ccIRAJ2l.s 			page 186
+ARM GAS  /tmp/ccNux4Ah.s 			page 186
 
 
 1917:src/display.c **** 		if (c == '.') {
@@ -11158,7 +11158,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  6077              		.loc 1 1440 2 view .LVU1948
 1446:src/display.c **** #endif
  6078              		.loc 1 1446 2 view .LVU1949
-ARM GAS  /tmp/ccIRAJ2l.s 			page 187
+ARM GAS  /tmp/ccNux4Ah.s 			page 187
 
 
 1448:src/display.c **** 
@@ -11218,7 +11218,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  6118 06a0 2C25     		movne	r5, #44
  6119              	.LVL665:
 1479:src/display.c **** #ifdef INCLUDE_FONT_ESCAPE
-ARM GAS  /tmp/ccIRAJ2l.s 			page 188
+ARM GAS  /tmp/ccNux4Ah.s 			page 188
 
 
  6120              		.loc 1 1479 2 is_stmt 1 view .LVU1965
@@ -11278,7 +11278,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1524:src/display.c **** 		}
  6158              		.loc 1 1524 16 view .LVU1982
  6159 06da 9E49     		ldr	r1, .L674+4
-ARM GAS  /tmp/ccIRAJ2l.s 			page 189
+ARM GAS  /tmp/ccNux4Ah.s 			page 189
 
 
 1516:src/display.c **** 				x[9] = '-';
@@ -11338,7 +11338,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  6198              		.loc 1 1530 3 view .LVU1998
  6199 0708 0B22     		movs	r2, #11
  6200 070a 2946     		mov	r1, r5
-ARM GAS  /tmp/ccIRAJ2l.s 			page 190
+ARM GAS  /tmp/ccNux4Ah.s 			page 190
 
 
  6201 070c 08F10A00 		add	r0, r8, #10
@@ -11398,7 +11398,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  6241              		.loc 1 1854 5 is_stmt 1 discriminator 1 view .LVU2012
 1852:src/display.c **** 				obp--;
  6242              		.loc 1 1852 19 is_stmt 0 discriminator 1 view .LVU2013
-ARM GAS  /tmp/ccIRAJ2l.s 			page 191
+ARM GAS  /tmp/ccNux4Ah.s 			page 191
 
 
  6243 0738 13F8011C 		ldrb	r1, [r3, #-1]	@ zero_extendqisi2
@@ -11458,7 +11458,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  6282              		.loc 1 1841 5 is_stmt 1 discriminator 3 view .LVU2028
 1841:src/display.c **** 				odig++;
  6283              		.loc 1 1841 12 is_stmt 0 discriminator 3 view .LVU2029
-ARM GAS  /tmp/ccIRAJ2l.s 			page 192
+ARM GAS  /tmp/ccNux4Ah.s 			page 192
 
 
  6284 076a 02F8010B 		strb	r0, [r2], #1
@@ -11518,7 +11518,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  6323 079a 8342     		cmp	r3, r0
  6324 079c F9D1     		bne	.L524
  6325              	.LVL695:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 193
+ARM GAS  /tmp/ccNux4Ah.s 			page 193
 
 
 1845:src/display.c **** 				*obp++ = *p++;
@@ -11578,7 +11578,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  6364 07c4 9E42     		cmp	r6, r3
 1733:src/display.c **** 		}
  6365              		.loc 1 1733 5 is_stmt 1 view .LVU2061
-ARM GAS  /tmp/ccIRAJ2l.s 			page 194
+ARM GAS  /tmp/ccNux4Ah.s 			page 194
 
 
 1733:src/display.c **** 		}
@@ -11638,7 +11638,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  6404 07e4 0346     		mov	r3, r0
  6405 07e6 11F801CB 		ldrb	ip, [r1], #1	@ zero_extendqisi2
  6406              	.LVL711:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 195
+ARM GAS  /tmp/ccNux4Ah.s 			page 195
 
 
 1785:src/display.c **** 			odig++;
@@ -11698,7 +11698,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1792:src/display.c **** 		} else if (exp >= 0) {  // Some digits to left of decimal point
  6444              		.loc 1 1792 13 view .LVU2095
  6445 0810 4FF0010B 		mov	fp, #1
-ARM GAS  /tmp/ccIRAJ2l.s 			page 196
+ARM GAS  /tmp/ccNux4Ah.s 			page 196
 
 
  6446 0814 44E5     		b	.L503
@@ -11758,7 +11758,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  6486              		.loc 1 1484 13 is_stmt 0 view .LVU2109
  6487 083a 08F10306 		add	r6, r8, #3
  6488              	.LVL725:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 197
+ARM GAS  /tmp/ccNux4Ah.s 			page 197
 
 
 1485:src/display.c **** 		if (grouping) {
@@ -11818,7 +11818,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  6528              	.LBE391:
 1536:src/display.c **** 			set_separator(i, separator_mode, CNULL);
  6529              		.loc 1 1536 37 is_stmt 0 view .LVU2125
-ARM GAS  /tmp/ccIRAJ2l.s 			page 198
+ARM GAS  /tmp/ccNux4Ah.s 			page 198
 
 
  6530 0864 1B34     		adds	r4, r4, #27
@@ -11878,7 +11878,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1545:src/display.c **** }
  6569              		.loc 1 1545 2 is_stmt 1 view .LVU2141
  6570 088a FFF7FEFF 		bl	set_status
-ARM GAS  /tmp/ccIRAJ2l.s 			page 199
+ARM GAS  /tmp/ccNux4Ah.s 			page 199
 
 
  6571              	.LVL736:
@@ -11938,7 +11938,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  6615 08b4 F9E5     		b	.L540
  6616              	.LVL745:
  6617              	.L480:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 200
+ARM GAS  /tmp/ccNux4Ah.s 			page 200
 
 
 1792:src/display.c **** 		} else if (exp >= 0) {  // Some digits to left of decimal point
@@ -11998,7 +11998,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  6658              		.loc 1 1457 12 view .LVU2165
  6659 08de 0426     		movs	r6, #4
  6660              	.LVL752:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 201
+ARM GAS  /tmp/ccNux4Ah.s 			page 201
 
 
 1457:src/display.c **** #else
@@ -12058,7 +12058,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 1813:src/display.c **** 			}
  6699              		.loc 1 1813 5 is_stmt 1 discriminator 3 view .LVU2182
 1811:src/display.c **** 				*obp++ = '0';
-ARM GAS  /tmp/ccIRAJ2l.s 			page 202
+ARM GAS  /tmp/ccNux4Ah.s 			page 202
 
 
  6700              		.loc 1 1811 23 discriminator 3 view .LVU2183
@@ -12118,7 +12118,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  6740 0928 BAE4     		b	.L503
  6741              	.LVL766:
  6742              	.L667:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 203
+ARM GAS  /tmp/ccNux4Ah.s 			page 203
 
 
 1758:src/display.c **** 
@@ -12178,7 +12178,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  6786              		.section	.text.set_x,"ax",%progbits
  6787              		.align	1
  6788              		.p2align 2,,3
-ARM GAS  /tmp/ccIRAJ2l.s 			page 204
+ARM GAS  /tmp/ccNux4Ah.s 			page 204
 
 
  6789              		.syntax unified
@@ -12238,7 +12238,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  6831 0018 6A46     		mov	r2, sp
  6832 001a FFF7FEFF 		bl	set_x_dn
  6833              	.LVL775:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 205
+ARM GAS  /tmp/ccNux4Ah.s 			page 205
 
 
 1562:src/display.c **** 
@@ -12298,7 +12298,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  6882              		.cfi_offset 5, -8
  6883              		.cfi_offset 14, -4
  6884 0002 8BB0     		sub	sp, sp, #44
-ARM GAS  /tmp/ccIRAJ2l.s 			page 206
+ARM GAS  /tmp/ccNux4Ah.s 			page 206
 
 
  6885              		.cfi_def_cfa_offset 56
@@ -12358,7 +12358,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  6926 0030 012A     		cmp	r2, #1
  6927 0032 F2D9     		bls	.L683
  6928              	.LVL784:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 207
+ARM GAS  /tmp/ccNux4Ah.s 			page 207
 
 
  6929              	.LBB404:
@@ -12418,7 +12418,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  6971 0054 2846     		mov	r0, r5
  6972              	.LVL791:
 1973:src/display.c **** #ifndef HP16C_MODE_CHANGE
-ARM GAS  /tmp/ccIRAJ2l.s 			page 208
+ARM GAS  /tmp/ccNux4Ah.s 			page 208
 
 
  6973              		.loc 1 1973 3 is_stmt 0 view .LVU2256
@@ -12478,7 +12478,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2757:src/display.c **** 		set_status( str1 );
 2758:src/display.c **** 		finish_display();// message
 2759:src/display.c **** 	}
-ARM GAS  /tmp/ccIRAJ2l.s 			page 209
+ARM GAS  /tmp/ccNux4Ah.s 			page 209
 
 
 2760:src/display.c **** }
@@ -12538,7 +12538,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  7019              		.cfi_offset 7, -16
  7020              		.cfi_offset 8, -12
  7021              		.cfi_offset 9, -8
-ARM GAS  /tmp/ccIRAJ2l.s 			page 210
+ARM GAS  /tmp/ccNux4Ah.s 			page 210
 
 
  7022              		.cfi_offset 14, -4
@@ -12598,7 +12598,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  7067 002c 3844     		add	r0, r0, r7
  7068 002e FFF7FEFF 		bl	charlengths
  7069              	.LVL801:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 211
+ARM GAS  /tmp/ccNux4Ah.s 			page 211
 
 
  7070              		.loc 1 2805 5 view .LVU2281
@@ -12658,7 +12658,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  7112 0048 FFF7FEBF 		b	set_status_sized
  7113              	.LVL807:
  7114              	.L702:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 212
+ARM GAS  /tmp/ccNux4Ah.s 			page 212
 
 
  7115              		.cfi_restore_state
@@ -12718,7 +12718,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  7162 001b 00       		.align	2
  7163              	.LC9:
  7164 001c 6D2E6479 		.ascii	"m.dy\006\006\000"
-ARM GAS  /tmp/ccIRAJ2l.s 			page 213
+ARM GAS  /tmp/ccNux4Ah.s 			page 213
 
 
  7164      060600
@@ -12778,7 +12778,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  7214              		.cfi_offset 8, -12
  7215              		.cfi_offset 9, -8
  7216              		.cfi_offset 14, -4
-ARM GAS  /tmp/ccIRAJ2l.s 			page 214
+ARM GAS  /tmp/ccNux4Ah.s 			page 214
 
 
  601:src/display.c **** #  endif
@@ -12838,7 +12838,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  632:src/display.c **** 
  7253              		.loc 1 632 2 view .LVU2321
  7254 0026 FFF7FEFF 		bl	xset
-ARM GAS  /tmp/ccIRAJ2l.s 			page 215
+ARM GAS  /tmp/ccNux4Ah.s 			page 215
 
 
  7255              	.LVL814:
@@ -12898,7 +12898,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  7292              		.loc 1 703 3 is_stmt 1 view .LVU2338
  703:src/display.c **** 			*p++ = ' ';
  7293              		.loc 1 703 6 is_stmt 0 view .LVU2339
-ARM GAS  /tmp/ccIRAJ2l.s 			page 216
+ARM GAS  /tmp/ccNux4Ah.s 			page 216
 
 
  7294 0058 5907     		lsls	r1, r3, #29
@@ -12958,7 +12958,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  883:src/display.c **** 
  7336              		.loc 1 883 1 is_stmt 0 view .LVU2352
  7337 0096 17B0     		add	sp, sp, #92
-ARM GAS  /tmp/ccIRAJ2l.s 			page 217
+ARM GAS  /tmp/ccNux4Ah.s 			page 217
 
 
  7338              		.cfi_remember_state
@@ -13018,7 +13018,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  7376 00be 00F1DD80 		bmi	.L798
  7377              	.LVL828:
  7378              	.L731:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 218
+ARM GAS  /tmp/ccNux4Ah.s 			page 218
 
 
  804:src/display.c **** 			decNumber y;
@@ -13078,7 +13078,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  7417              		.loc 1 816 8 view .LVU2384
  7418 00f2 40F02B81 		bne	.L800
  837:src/display.c **** #ifndef SHIFT_AND_CMPLX_SUPPRESS_YREG
-ARM GAS  /tmp/ccIRAJ2l.s 			page 219
+ARM GAS  /tmp/ccNux4Ah.s 			page 219
 
 
  7419              		.loc 1 837 5 is_stmt 1 view .LVU2385
@@ -13138,7 +13138,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  850:src/display.c **** 					case 'G':	ltgteq = '>'; break;
  7459              		.loc 1 850 6 is_stmt 1 view .LVU2400
  7460 0128 472F     		cmp	r7, #71
-ARM GAS  /tmp/ccIRAJ2l.s 			page 220
+ARM GAS  /tmp/ccNux4Ah.s 			page 220
 
 
  7461 012a 00F07681 		beq	.L758
@@ -13198,7 +13198,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  7500              		.loc 1 864 37 is_stmt 0 view .LVU2415
  7501 015a 721B     		subs	r2, r6, r5
  864:src/display.c **** 				}
-ARM GAS  /tmp/ccIRAJ2l.s 			page 221
+ARM GAS  /tmp/ccNux4Ah.s 			page 221
 
 
  7502              		.loc 1 864 6 view .LVU2416
@@ -13258,7 +13258,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  867:src/display.c **** 				int extra_pixels;
  7543              		.loc 1 867 4 is_stmt 0 view .LVU2430
  7544 018a 81DD     		ble	.L709
-ARM GAS  /tmp/ccIRAJ2l.s 			page 222
+ARM GAS  /tmp/ccNux4Ah.s 			page 222
 
 
  7545              	.LVL842:
@@ -13318,7 +13318,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  7585 01ae 8DF82D30 		strb	r3, [sp, #45]
  644:src/display.c **** 			*p++ = '\006';
  7586              		.loc 1 644 9 view .LVU2445
-ARM GAS  /tmp/ccIRAJ2l.s 			page 223
+ARM GAS  /tmp/ccNux4Ah.s 			page 223
 
 
  7587 01b2 8DF82C60 		strb	r6, [sp, #44]
@@ -13378,7 +13378,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  657:src/display.c **** 
  7628              		.loc 1 657 7 view .LVU2459
  7629 01e6 0222     		movs	r2, #2
-ARM GAS  /tmp/ccIRAJ2l.s 			page 224
+ARM GAS  /tmp/ccNux4Ah.s 			page 224
 
 
  7630 01e8 FFF7FEFF 		bl	num_arg_0
@@ -13438,7 +13438,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  665:src/display.c **** 				*p++ = '\006';
  7667              		.loc 1 665 12 view .LVU2477
  7668 0212 0191     		str	r1, [sp, #4]
-ARM GAS  /tmp/ccIRAJ2l.s 			page 225
+ARM GAS  /tmp/ccNux4Ah.s 			page 225
 
 
  665:src/display.c **** 				*p++ = '\006';
@@ -13498,7 +13498,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  7706              		.loc 1 669 10 view .LVU2494
  7707 023a 9A42     		cmp	r2, r3
  7708 023c 0CBF     		ite	eq
-ARM GAS  /tmp/ccIRAJ2l.s 			page 226
+ARM GAS  /tmp/ccNux4Ah.s 			page 226
 
 
  7709 023e 7C23     		moveq	r3, #124
@@ -13558,7 +13558,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  7748 0262 8DF82E60 		strb	r6, [sp, #46]
  755:src/display.c **** 			*p++ = '\344';
  7749              		.loc 1 755 9 view .LVU2510
-ARM GAS  /tmp/ccIRAJ2l.s 			page 227
+ARM GAS  /tmp/ccNux4Ah.s 			page 227
 
 
  7750 0266 ADF82C30 		strh	r3, [sp, #44]	@ movhi
@@ -13618,7 +13618,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  7791              		.loc 1 704 4 is_stmt 1 view .LVU2523
  704:src/display.c **** 			*p = '\015';
  7792              		.loc 1 704 9 is_stmt 0 view .LVU2524
-ARM GAS  /tmp/ccIRAJ2l.s 			page 228
+ARM GAS  /tmp/ccNux4Ah.s 			page 228
 
 
  7793 0290 2022     		movs	r2, #32
@@ -13678,7 +13678,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  7831              		.loc 1 768 3 is_stmt 1 view .LVU2540
  768:src/display.c **** 			q = "\007\207i";
  7832              		.loc 1 768 7 is_stmt 0 view .LVU2541
-ARM GAS  /tmp/ccIRAJ2l.s 			page 229
+ARM GAS  /tmp/ccNux4Ah.s 			page 229
 
 
  7833 02ae 237D     		ldrb	r3, [r4, #20]	@ zero_extendqisi2
@@ -13738,7 +13738,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  7873 02e8 3FF4AAAE 		beq	.L720
  695:src/display.c **** 		}
  7874              		.loc 1 695 4 is_stmt 1 view .LVU2556
-ARM GAS  /tmp/ccIRAJ2l.s 			page 230
+ARM GAS  /tmp/ccNux4Ah.s 			page 230
 
 
  7875              	.LVL883:
@@ -13798,7 +13798,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  817:src/display.c **** 
  7923              		.loc 1 817 6 view .LVU2563
  819:src/display.c **** 					UState.nothousands = 1;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 231
+ARM GAS  /tmp/ccNux4Ah.s 			page 231
 
 
  7924              		.loc 1 819 6 is_stmt 0 view .LVU2564
@@ -13858,7 +13858,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  7962              		.loc 1 828 13 is_stmt 0 view .LVU2580
  7963 0386 4021     		movs	r1, #64
  822:src/display.c **** 					// First replace the '@' character with the degree symbol
-ARM GAS  /tmp/ccIRAJ2l.s 			page 232
+ARM GAS  /tmp/ccNux4Ah.s 			page 232
 
 
  7964              		.loc 1 822 25 view .LVU2581
@@ -13918,7 +13918,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8006 03b6 1B68     		ldr	r3, [r3]
  709:src/display.c **** 			if (State2.wascomplex) {
  8007              		.loc 1 709 47 discriminator 2 view .LVU2594
-ARM GAS  /tmp/ccIRAJ2l.s 			page 233
+ARM GAS  /tmp/ccNux4Ah.s 			page 233
 
 
  8008 03b8 002B     		cmp	r3, #0
@@ -13978,7 +13978,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8048              		.loc 1 812 88 discriminator 4 view .LVU2608
  8049 03e6 18B1     		cbz	r0, .L735
  813:src/display.c **** 					) ? ShowRegister : ShowRegister+1);
-ARM GAS  /tmp/ccIRAJ2l.s 			page 234
+ARM GAS  /tmp/ccNux4Ah.s 			page 234
 
 
  8050              		.loc 1 813 7 view .LVU2609
@@ -14038,7 +14038,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8092              	.LVL911:
  8093              	.L734:
  8094              	.LBB421:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 235
+ARM GAS  /tmp/ccNux4Ah.s 			page 235
 
 
  812:src/display.c **** 					 && !(yreg_enabled && !State2.state_lift) // unless stack lift is disabled...
@@ -14098,7 +14098,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8142      77414C74 
  8142      4500
  8143 0016 0000     		.align	2
-ARM GAS  /tmp/ccIRAJ2l.s 			page 236
+ARM GAS  /tmp/ccNux4Ah.s 			page 236
 
 
  8144              	.LC24:
@@ -14158,7 +14158,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8181      3500
  8182 0096 0000     		.align	2
  8183              	.LC39:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 237
+ARM GAS  /tmp/ccNux4Ah.s 			page 237
 
 
  8184 0098 43414C4C 		.ascii	"CALLS\000"
@@ -14218,7 +14218,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8228              		.cfi_offset 14, -4
 2221:src/display.c **** 	int skip = 0;
  8229              		.loc 1 2221 24 view .LVU2632
-ARM GAS  /tmp/ccIRAJ2l.s 			page 238
+ARM GAS  /tmp/ccNux4Ah.s 			page 238
 
 
  8230 0004 BE4C     		ldr	r4, .L1099
@@ -14278,7 +14278,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8267              	.LVL920:
 2257:src/display.c **** 	if (State2.cmplx  && !cata) {
  8268              		.loc 1 2257 2 is_stmt 0 view .LVU2650
-ARM GAS  /tmp/ccIRAJ2l.s 			page 239
+ARM GAS  /tmp/ccNux4Ah.s 			page 239
 
 
  8269 002a 2822     		movs	r2, #40
@@ -14338,7 +14338,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8307 005e A17D     		ldrb	r1, [r4, #22]	@ zero_extendqisi2
 2289:src/display.c **** 		/* Commands with arguments */
  8308              		.loc 1 2289 12 view .LVU2667
-ARM GAS  /tmp/ccIRAJ2l.s 			page 240
+ARM GAS  /tmp/ccNux4Ah.s 			page 240
 
 
  8309 0060 8806     		lsls	r0, r1, #26
@@ -14398,7 +14398,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8345              		.loc 1 2399 4 is_stmt 1 view .LVU2685
 2399:src/display.c **** 			set_status(DispMsg);
  8346              		.loc 1 2399 8 is_stmt 0 view .LVU2686
-ARM GAS  /tmp/ccIRAJ2l.s 			page 241
+ARM GAS  /tmp/ccNux4Ah.s 			page 241
 
 
  8347 0098 9B4E     		ldr	r6, .L1099+8
@@ -14458,7 +14458,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8386 00c6 832E     		cmp	r6, #131
  8387 00c8 F9D1     		bne	.L811
  8388 00ca 8F4E     		ldr	r6, .L1099+8
-ARM GAS  /tmp/ccIRAJ2l.s 			page 242
+ARM GAS  /tmp/ccNux4Ah.s 			page 242
 
 
  8389              	.LVL931:
@@ -14518,7 +14518,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2474:src/display.c **** 				goto finish;
  8428              		.loc 1 2474 7 is_stmt 0 view .LVU2717
  8429 00fa 3B68     		ldr	r3, [r7]
-ARM GAS  /tmp/ccIRAJ2l.s 			page 243
+ARM GAS  /tmp/ccNux4Ah.s 			page 243
 
 
  8430 00fc 002B     		cmp	r3, #0
@@ -14578,7 +14578,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8466              		.cfi_def_cfa_offset 36
  8467              		@ sp needed
  8468 0124 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
-ARM GAS  /tmp/ccIRAJ2l.s 			page 244
+ARM GAS  /tmp/ccNux4Ah.s 			page 244
 
 
  8469              	.LVL939:
@@ -14638,7 +14638,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  896:src/display.c **** 		SET_MANT_SIGN;
  8506              		.loc 1 896 5 is_stmt 0 view .LVU2753
  8507 013e 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
-ARM GAS  /tmp/ccIRAJ2l.s 			page 245
+ARM GAS  /tmp/ccNux4Ah.s 			page 245
 
 
  8508 0140 2D2B     		cmp	r3, #45
@@ -14698,7 +14698,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8548              	.L905:
  906:src/display.c **** 	} else {
  8549              		.loc 1 906 3 is_stmt 1 view .LVU2768
-ARM GAS  /tmp/ccIRAJ2l.s 			page 246
+ARM GAS  /tmp/ccNux4Ah.s 			page 246
 
 
  8550 0172 FFF7FEFF 		bl	carry_overflow
@@ -14758,7 +14758,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8591              		.loc 1 328 2 view .LVU2781
  329:src/display.c **** }
  8592              		.loc 1 329 7 view .LVU2782
-ARM GAS  /tmp/ccIRAJ2l.s 			page 247
+ARM GAS  /tmp/ccNux4Ah.s 			page 247
 
 
  8593 0194 FFF7FEFF 		bl	clr_dot
@@ -14818,7 +14818,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8634              	.L935:
 2515:src/display.c ****  	State2.hms = 0;
  8635              		.loc 1 2515 4 is_stmt 1 view .LVU2796
-ARM GAS  /tmp/ccIRAJ2l.s 			page 248
+ARM GAS  /tmp/ccNux4Ah.s 			page 248
 
 
  8636 01ce FFF7FEFF 		bl	annunciators
@@ -14878,7 +14878,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8678              	.LVL963:
  8679              	.L1072:
 2465:src/display.c **** 					format_reg(ShowRegister, CNULL);
-ARM GAS  /tmp/ccIRAJ2l.s 			page 249
+ARM GAS  /tmp/ccNux4Ah.s 			page 249
 
 
  8680              		.loc 1 2465 45 is_stmt 0 discriminator 1 view .LVU2809
@@ -14938,7 +14938,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8722 0238 BEE7     		b	.L933
  8723              	.LVL970:
  8724              	.L1062:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 250
+ARM GAS  /tmp/ccNux4Ah.s 			page 250
 
 
 2275:src/display.c **** 	} else if (State2.hyp) {
@@ -14998,7 +14998,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2481:src/display.c **** 			set_exp(ProgFree, 1, CNULL);
  8764              		.loc 1 2481 4 view .LVU2837
  8765 026a 2822     		movs	r2, #40
-ARM GAS  /tmp/ccIRAJ2l.s 			page 251
+ARM GAS  /tmp/ccNux4Ah.s 			page 251
 
 
  8766 026c 5146     		mov	r1, r10
@@ -15058,7 +15058,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8810 02b4 FFF7FEFF 		bl	set_exp
  8811              	.LVL985:
 2489:src/display.c **** 				  upc, 3 + (n & 1));  // 4 digits in ROM and Library
-ARM GAS  /tmp/ccIRAJ2l.s 			page 252
+ARM GAS  /tmp/ccNux4Ah.s 			page 252
 
 
  8812              		.loc 1 2489 4 view .LVU2848
@@ -15118,7 +15118,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8852              	.LVL991:
 2497:src/display.c **** 			  }
  8853              		.loc 1 2497 11 view .LVU2863
-ARM GAS  /tmp/ccIRAJ2l.s 			page 253
+ARM GAS  /tmp/ccNux4Ah.s 			page 253
 
 
  8854 02e6 03F8017C 		strb	r7, [r3, #-1]
@@ -15178,7 +15178,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8899              		.loc 1 2263 3 view .LVU2872
 2263:src/display.c **** 		set_digits_string("pAULI, WwALtE", 0);
  8900              		.loc 1 2263 8 is_stmt 0 view .LVU2873
-ARM GAS  /tmp/ccIRAJ2l.s 			page 254
+ARM GAS  /tmp/ccNux4Ah.s 			page 254
 
 
  8901 0334 C14B     		ldr	r3, .L1101
@@ -15238,7 +15238,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8942 0366 BA49     		ldr	r1, .L1101+20
  8943 0368 BA48     		ldr	r0, .L1101+24
  8944 036a FFF7FEFF 		bl	scopy
-ARM GAS  /tmp/ccIRAJ2l.s 			page 255
+ARM GAS  /tmp/ccNux4Ah.s 			page 255
 
 
  8945              	.LVL1002:
@@ -15298,7 +15298,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  8986 039c B1E6     		b	.L899
  8987              	.LVL1010:
  8988              	.L1074:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 256
+ARM GAS  /tmp/ccNux4Ah.s 			page 256
 
 
 2505:src/display.c **** 		ShowRPN = 0;
@@ -15358,7 +15358,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  9031 03d2 FFF7FEFF 		bl	set_status
  9032              	.LVL1016:
 2373:src/display.c **** 	} else if (State2.multi) {
-ARM GAS  /tmp/ccIRAJ2l.s 			page 257
+ARM GAS  /tmp/ccNux4Ah.s 			page 257
 
 
  9033              		.loc 1 2373 3 is_stmt 0 view .LVU2912
@@ -15418,7 +15418,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  9078              	.LVL1024:
 2487:src/display.c **** 			set_exp(ProgFree, 1, CNULL);
  9079              		.loc 1 2487 4 discriminator 1 view .LVU2922
-ARM GAS  /tmp/ccIRAJ2l.s 			page 258
+ARM GAS  /tmp/ccNux4Ah.s 			page 258
 
 
  9080 0418 2822     		movs	r2, #40
@@ -15478,7 +15478,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  9120              		.loc 1 2324 3 is_stmt 1 view .LVU2936
  9121              	.LVL1029:
 2324:src/display.c **** 		set_status(buf);
-ARM GAS  /tmp/ccIRAJ2l.s 			page 259
+ARM GAS  /tmp/ccNux4Ah.s 			page 259
 
 
  9122              		.loc 1 2324 9 is_stmt 0 view .LVU2937
@@ -15538,7 +15538,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2296:src/display.c **** 		if (State2.dot) {
  9164              		.loc 1 2296 3 is_stmt 1 view .LVU2950
 2296:src/display.c **** 		if (State2.dot) {
-ARM GAS  /tmp/ccIRAJ2l.s 			page 260
+ARM GAS  /tmp/ccNux4Ah.s 			page 260
 
 
  9165              		.loc 1 2296 8 is_stmt 0 view .LVU2951
@@ -15598,7 +15598,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  9206              		.loc 1 912 6 is_stmt 0 view .LVU2964
  9207 04b2 A37F     		ldrb	r3, [r4, #30]	@ zero_extendqisi2
  9208              	.LBB468:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 261
+ARM GAS  /tmp/ccNux4Ah.s 			page 261
 
 
  919:src/display.c **** 				if (p[j] == '.' && gotdot < 0) {
@@ -15658,7 +15658,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  927:src/display.c **** 			if (j > 0) {
  9250              		.loc 1 927 4 is_stmt 1 view .LVU2978
  927:src/display.c **** 			if (j > 0) {
-ARM GAS  /tmp/ccIRAJ2l.s 			page 262
+ARM GAS  /tmp/ccNux4Ah.s 			page 262
 
 
  9251              		.loc 1 927 6 is_stmt 0 view .LVU2979
@@ -15718,7 +15718,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  950:src/display.c **** #ifdef LARGE_EXPONENT_ENTRY
  9288              		.loc 1 950 3 is_stmt 0 view .LVU2997
  9289 0512 BCF1000F 		cmp	ip, #0
-ARM GAS  /tmp/ccIRAJ2l.s 			page 263
+ARM GAS  /tmp/ccNux4Ah.s 			page 263
 
 
  9290 0516 48D0     		beq	.L907
@@ -15778,7 +15778,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  9332              	.LVL1061:
  950:src/display.c **** #ifdef LARGE_EXPONENT_ENTRY
  9333              		.loc 1 950 3 is_stmt 0 view .LVU3010
-ARM GAS  /tmp/ccIRAJ2l.s 			page 264
+ARM GAS  /tmp/ccNux4Ah.s 			page 264
 
 
  9334 0542 8AB1     		cbz	r2, .L1051
@@ -15838,7 +15838,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  972:src/display.c **** 					}
  9372              		.loc 1 972 9 view .LVU3027
  9373 0566 EAE7     		b	.L915
-ARM GAS  /tmp/ccIRAJ2l.s 			page 265
+ARM GAS  /tmp/ccNux4Ah.s 			page 265
 
 
  9374              	.LVL1066:
@@ -15898,7 +15898,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  9415 0592 09D0     		beq	.L1046
  9416              	.L924:
 1009:src/display.c **** 		}
-ARM GAS  /tmp/ccIRAJ2l.s 			page 266
+ARM GAS  /tmp/ccNux4Ah.s 			page 266
 
 
  9417              		.loc 1 1009 4 view .LVU3041
@@ -15958,7 +15958,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2474:src/display.c **** 				goto finish;
  9458              		.loc 1 2474 4 is_stmt 1 view .LVU3055
 2474:src/display.c **** 				goto finish;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 267
+ARM GAS  /tmp/ccNux4Ah.s 			page 267
 
 
  9459              		.loc 1 2474 7 is_stmt 0 view .LVU3056
@@ -16018,7 +16018,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  9501              	.LBE484:
  9502              	.LBE511:
 2300:src/display.c **** 			*bp++ = '\021';
-ARM GAS  /tmp/ccIRAJ2l.s 			page 268
+ARM GAS  /tmp/ccNux4Ah.s 			page 268
 
 
  9503              		.loc 1 2300 10 is_stmt 1 view .LVU3069
@@ -16078,7 +16078,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2312:src/display.c **** 				else
  9541              		.loc 1 2312 7 is_stmt 1 discriminator 3 view .LVU3086
 2312:src/display.c **** 				else
-ARM GAS  /tmp/ccIRAJ2l.s 			page 269
+ARM GAS  /tmp/ccNux4Ah.s 			page 269
 
 
  9542              		.loc 1 2312 26 is_stmt 0 discriminator 3 view .LVU3087
@@ -16138,7 +16138,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  9584 0628 5D46     		mov	r5, fp
  9585 062a 88E7     		b	.L915
  9586              	.LVL1093:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 270
+ARM GAS  /tmp/ccNux4Ah.s 			page 270
 
 
  9587              	.L906:
@@ -16198,7 +16198,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  9633              		.loc 1 2327 21 view .LVU3107
  9634 069c C0F34610 		ubfx	r0, r0, #5, #7
  9635 06a0 FFF7FEFF 		bl	current_catalogue
-ARM GAS  /tmp/ccIRAJ2l.s 			page 271
+ARM GAS  /tmp/ccNux4Ah.s 			page 271
 
 
  9636              	.LVL1095:
@@ -16258,7 +16258,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  9673 06c2 9807     		lsls	r0, r3, #30
  9674              	.LVL1102:
 2334:src/display.c **** 		bp = scopy(bp, p);
-ARM GAS  /tmp/ccIRAJ2l.s 			page 272
+ARM GAS  /tmp/ccNux4Ah.s 			page 272
 
 
  9675              		.loc 1 2334 4 is_stmt 1 discriminator 1 view .LVU3125
@@ -16318,7 +16318,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2366:src/display.c **** 				sigma_val((enum nilop) argKIND(op));
  9714              		.loc 1 2366 5 is_stmt 1 discriminator 3 view .LVU3141
  9715 06f8 15A8     		add	r0, sp, #84
-ARM GAS  /tmp/ccIRAJ2l.s 			page 273
+ARM GAS  /tmp/ccNux4Ah.s 			page 273
 
 
  9716 06fa 3146     		mov	r1, r6
@@ -16378,7 +16378,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  9758 0732 DFF8BC82 		ldr	r8, .L1103+40
  9759 0736 DFF8BC92 		ldr	r9, .L1103+44
  9760 073a 27E5     		b	.L815
-ARM GAS  /tmp/ccIRAJ2l.s 			page 274
+ARM GAS  /tmp/ccNux4Ah.s 			page 274
 
 
  9761              	.LVL1115:
@@ -16438,7 +16438,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  9802              	.LBB496:
 2494:src/display.c **** 			  while(*b) {
  9803              		.loc 1 2494 8 view .LVU3167
-ARM GAS  /tmp/ccIRAJ2l.s 			page 275
+ARM GAS  /tmp/ccNux4Ah.s 			page 275
 
 
  9804 0768 5A1C     		adds	r2, r3, #1
@@ -16498,7 +16498,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  946:src/display.c **** 		}
  9848              		.loc 1 946 16 view .LVU3178
  9849 0790 4FF0FF33 		mov	r3, #-1
-ARM GAS  /tmp/ccIRAJ2l.s 			page 276
+ARM GAS  /tmp/ccNux4Ah.s 			page 276
 
 
  9850              	.LVL1127:
@@ -16558,7 +16558,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  9891              	.LBE517:
 2457:src/display.c **** nostk:	show_flags();
  9892              		.loc 1 2457 2 is_stmt 1 discriminator 1 view .LVU3192
-ARM GAS  /tmp/ccIRAJ2l.s 			page 277
+ARM GAS  /tmp/ccNux4Ah.s 			page 277
 
 
  9893 07be FFF7FEFF 		bl	show_stack
@@ -16618,7 +16618,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  9934              		.loc 1 2092 13 view .LVU3205
  9935              	.LBB520:
 2093:src/display.c **** 	unsigned short int pc = State2.digval;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 278
+ARM GAS  /tmp/ccNux4Ah.s 			page 278
 
 
  9936              		.loc 1 2093 2 view .LVU3206
@@ -16678,7 +16678,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  9974 0812 7348     		ldr	r0, .L1103+24
  9975 0814 07EB4601 		add	r1, r7, r6, lsl #1
  9976 0818 FFF7FEFF 		bl	scopy
-ARM GAS  /tmp/ccIRAJ2l.s 			page 279
+ARM GAS  /tmp/ccNux4Ah.s 			page 279
 
 
  9977              	.LVL1146:
@@ -16738,7 +16738,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  10016              	.LVL1152:
  10017 084c B7E7     		b	.L1054
  10018              	.LVL1153:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 280
+ARM GAS  /tmp/ccNux4Ah.s 			page 280
 
 
  10019              	.L1069:
@@ -16798,7 +16798,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  10053 085e 092F     		cmp	r7, #9
  10054 0860 40F32C82 		ble	.L1086
 2037:src/display.c **** 			base = regX_idx;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 281
+ARM GAS  /tmp/ccNux4Ah.s 			page 281
 
 
  10055              		.loc 1 2037 8 is_stmt 1 view .LVU3258
@@ -16858,7 +16858,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  10094              	.LVL1161:
  342:src/display.c **** 			set_dot(posn+8);
  10095              		.loc 1 342 3 view .LVU3274
-ARM GAS  /tmp/ccIRAJ2l.s 			page 282
+ARM GAS  /tmp/ccNux4Ah.s 			page 282
 
 
  10096              	.LBB527:
@@ -16918,7 +16918,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2053:src/display.c **** 			int l = get_user_flag(k);
  10138              		.loc 1 2053 4 is_stmt 1 view .LVU3287
 2054:src/display.c **** 			k += group;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 283
+ARM GAS  /tmp/ccNux4Ah.s 			page 283
 
 
  10139              		.loc 1 2054 4 view .LVU3288
@@ -16978,7 +16978,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  10178              		.loc 1 345 2 view .LVU3303
  345:src/display.c **** #endif
  10179              		.loc 1 345 2 is_stmt 0 view .LVU3304
-ARM GAS  /tmp/ccIRAJ2l.s 			page 284
+ARM GAS  /tmp/ccNux4Ah.s 			page 284
 
 
  10180              	.LBE534:
@@ -17038,7 +17038,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  10222              	.LBE545:
 2064:src/display.c **** 			if (i == 4) {
  10223              		.loc 1 2064 4 is_stmt 1 view .LVU3317
-ARM GAS  /tmp/ccIRAJ2l.s 			page 285
+ARM GAS  /tmp/ccNux4Ah.s 			page 285
 
 
 2065:src/display.c **** 				set_dig(j, 8);
@@ -17098,7 +17098,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2076:src/display.c **** 	for (n=i=0; i<4; i++) {
  10262              		.loc 1 2076 6 view .LVU3334
  10263 0902 032B     		cmp	r3, #3
-ARM GAS  /tmp/ccIRAJ2l.s 			page 286
+ARM GAS  /tmp/ccNux4Ah.s 			page 286
 
 
  10264 0904 08BF     		it	eq
@@ -17158,7 +17158,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  10302 0932 08F10708 		add	r8, r8, #7
  10303              	.LVL1179:
  10304              	.L859:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 287
+ARM GAS  /tmp/ccNux4Ah.s 			page 287
 
 
 2077:src/display.c **** 		if (find_label_from(pc, 100+i, FIND_OP_ENDS)) {
@@ -17218,7 +17218,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2060:src/display.c **** 			}
  10344              		.loc 1 2060 8 view .LVU3366
  10345 095c AFE7     		b	.L854
-ARM GAS  /tmp/ccIRAJ2l.s 			page 288
+ARM GAS  /tmp/ccNux4Ah.s 			page 288
 
 
  10346              	.LVL1187:
@@ -17278,7 +17278,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  10388              		.loc 1 345 2 view .LVU3378
  345:src/display.c **** #endif
  10389              		.loc 1 345 27 is_stmt 0 view .LVU3379
-ARM GAS  /tmp/ccIRAJ2l.s 			page 289
+ARM GAS  /tmp/ccNux4Ah.s 			page 289
 
 
  10390 0980 1A4B     		ldr	r3, .L1103+36
@@ -17338,7 +17338,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  10429 0998 4FF0050B 		mov	fp, #5
  10430              	.LVL1196:
 2045:src/display.c **** 			end = LOCAL_FLAG_BASE + 15;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 290
+ARM GAS  /tmp/ccNux4Ah.s 			page 290
 
 
  10431              		.loc 1 2045 9 view .LVU3395
@@ -17398,7 +17398,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  10471              	.LVL1203:
 2459:src/display.c **** 		if (State2.runmode) {
  10472              		.loc 1 2459 2 is_stmt 1 view .LVU3410
-ARM GAS  /tmp/ccIRAJ2l.s 			page 291
+ARM GAS  /tmp/ccNux4Ah.s 			page 291
 
 
  10473 09c6 42E4     		b	.L817
@@ -17458,7 +17458,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  10518 0a1c FFF7FEFF 		bl	cur_shift
  10519              	.LVL1210:
 2453:src/display.c **** 			annuc = 1;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 292
+ARM GAS  /tmp/ccNux4Ah.s 			page 292
 
 
  10520              		.loc 1 2453 46 view .LVU3420
@@ -17518,7 +17518,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2137:src/display.c **** 	}
  10560              		.loc 1 2137 14 is_stmt 0 view .LVU3435
  10561 0a4e 15A9     		add	r1, sp, #84
-ARM GAS  /tmp/ccIRAJ2l.s 			page 293
+ARM GAS  /tmp/ccNux4Ah.s 			page 293
 
 
  10562 0a50 3846     		mov	r0, r7
@@ -17578,7 +17578,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  10606              	.LVL1221:
 2144:src/display.c **** #endif
  10607              		.loc 1 2144 3 view .LVU3446
-ARM GAS  /tmp/ccIRAJ2l.s 			page 294
+ARM GAS  /tmp/ccNux4Ah.s 			page 294
 
 
 2144:src/display.c **** #endif
@@ -17638,7 +17638,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  10648              	.L891:
 2157:src/display.c **** 	}
  10649              		.loc 1 2157 3 is_stmt 0 view .LVU3461
-ARM GAS  /tmp/ccIRAJ2l.s 			page 295
+ARM GAS  /tmp/ccNux4Ah.s 			page 295
 
 
  10650              	.LBE565:
@@ -17698,7 +17698,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  10691 0ade 1EA8     		add	r0, sp, #120
  10692 0ae0 FFF7FEFF 		bl	set_status
  10693              	.LVL1235:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 296
+ARM GAS  /tmp/ccNux4Ah.s 			page 296
 
 
 2373:src/display.c **** 	} else if (State2.multi) {
@@ -17758,7 +17758,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2351:src/display.c **** 						FP_MONADIC_REAL fp = (FP_MONADIC_REAL) EXPAND_ADDRESS(monfuncs[f].mondreal);
  10734              		.loc 1 2351 6 is_stmt 1 view .LVU3489
 2351:src/display.c **** 						FP_MONADIC_REAL fp = (FP_MONADIC_REAL) EXPAND_ADDRESS(monfuncs[f].mondreal);
-ARM GAS  /tmp/ccIRAJ2l.s 			page 297
+ARM GAS  /tmp/ccNux4Ah.s 			page 297
 
 
  10735              		.loc 1 2351 9 is_stmt 0 view .LVU3490
@@ -17818,7 +17818,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  10778              	.LVL1248:
  10779              	.L866:
 2362:src/display.c **** 				skip = 1;
-ARM GAS  /tmp/ccIRAJ2l.s 			page 298
+ARM GAS  /tmp/ccNux4Ah.s 			page 298
 
 
  10780              		.loc 1 2362 5 is_stmt 0 discriminator 1 view .LVU3502
@@ -17878,7 +17878,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  10823 0b60 0AF07F01 		and	r1, r10, #127
  10824 0b64 3046     		mov	r0, r6
  10825 0b66 FFF7FEFF 		bl	do_conv
-ARM GAS  /tmp/ccIRAJ2l.s 			page 299
+ARM GAS  /tmp/ccNux4Ah.s 			page 299
 
 
  10826              	.LVL1254:
@@ -17938,7 +17938,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  10865              	.LVL1260:
  10866              	.L888:
 2424:src/display.c **** 			}
-ARM GAS  /tmp/ccIRAJ2l.s 			page 300
+ARM GAS  /tmp/ccNux4Ah.s 			page 300
 
 
  10867              		.loc 1 2424 5 is_stmt 1 view .LVU3529
@@ -17998,7 +17998,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  10906 0bc4 019B     		ldr	r3, [sp, #4]
  10907 0bc6 02F8283C 		strb	r3, [r2, #-40]
 2414:src/display.c **** 				}
-ARM GAS  /tmp/ccIRAJ2l.s 			page 301
+ARM GAS  /tmp/ccNux4Ah.s 			page 301
 
 
  10908              		.loc 1 2414 6 is_stmt 1 view .LVU3545
@@ -18058,7 +18058,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  10946              		.loc 1 2565 2 view .LVU3561
 2565:src/display.c **** 		for (j=1; j<=glen; j++) {
  10947              		.loc 1 2565 12 view .LVU3562
-ARM GAS  /tmp/ccIRAJ2l.s 			page 302
+ARM GAS  /tmp/ccNux4Ah.s 			page 302
 
 
  10948 0bec C118     		adds	r1, r0, r3
@@ -18118,7 +18118,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  10991              		.loc 1 329 7 view .LVU3573
  10992              	.LBE577:
  10993              	.LBE579:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 303
+ARM GAS  /tmp/ccNux4Ah.s 			page 303
 
 
 2571:src/display.c **** #endif
@@ -18178,7 +18178,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  11034              		.loc 1 2459 2 view .LVU3587
  11035 0c44 FFF703BB 		b	.L817
  11036              	.LVL1286:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 304
+ARM GAS  /tmp/ccNux4Ah.s 			page 304
 
 
  11037              	.L872:
@@ -18238,7 +18238,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2041:src/display.c **** 			set_status("XYZT\006A:D\006LIJK");
  11077              		.loc 1 2041 4 view .LVU3602
 2042:src/display.c **** 		}
-ARM GAS  /tmp/ccIRAJ2l.s 			page 305
+ARM GAS  /tmp/ccNux4Ah.s 			page 305
 
 
  11078              		.loc 1 2042 4 view .LVU3603
@@ -18298,7 +18298,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  11119              		.loc 1 1999 7 view .LVU3616
  11120 0c96 FFF7FEFF 		bl	num_arg
  11121              	.LVL1301:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 306
+ARM GAS  /tmp/ccNux4Ah.s 			page 306
 
 
 2000:src/display.c **** 		p = num_arg(p, free_flash());
@@ -18358,7 +18358,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  11161              	.LVL1310:
 2028:src/display.c **** 			end = base >= 70 ? 99 : base + 29;
  11162              		.loc 1 2028 9 view .LVU3632
-ARM GAS  /tmp/ccIRAJ2l.s 			page 307
+ARM GAS  /tmp/ccNux4Ah.s 			page 307
 
 
  11163 0cc0 7F00     		lsls	r7, r7, #1
@@ -18418,7 +18418,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  11202              		.loc 1 2033 8 view .LVU3647
  11203 0cee 0246     		mov	r2, r0
  11204              	.LVL1319:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 308
+ARM GAS  /tmp/ccNux4Ah.s 			page 308
 
 
 2034:src/display.c **** 			set_status(buf);
@@ -18478,7 +18478,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  11249 0d4c 15AE     		add	r6, sp, #84
  11250              	.LVL1324:
 2007:src/display.c **** 		if (SizeStatRegs)
-ARM GAS  /tmp/ccIRAJ2l.s 			page 309
+ARM GAS  /tmp/ccNux4Ah.s 			page 309
 
 
  11251              		.loc 1 2007 7 view .LVU3658
@@ -18538,7 +18538,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2015:src/display.c **** 			p = scopy(p, " , Loc. ");
  11291              		.loc 1 2015 6 view .LVU3673
  11292 0d78 B2F9DE27 		ldrsh	r2, [r2, #2014]
-ARM GAS  /tmp/ccIRAJ2l.s 			page 310
+ARM GAS  /tmp/ccNux4Ah.s 			page 310
 
 
  11293 0d7c 002A     		cmp	r2, #0
@@ -18598,7 +18598,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  11332 0d9a FFF7FEFF 		bl	scopy
  11333              	.LVL1340:
 2016:src/display.c **** 			p = num_arg(p, local_regs());
-ARM GAS  /tmp/ccIRAJ2l.s 			page 311
+ARM GAS  /tmp/ccNux4Ah.s 			page 311
 
 
  11334              		.loc 1 2016 8 view .LVU3689
@@ -18658,7 +18658,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  11382              		.cfi_def_cfa_offset 8
  11383              		.cfi_offset 4, -8
  11384              		.cfi_offset 14, -4
-ARM GAS  /tmp/ccIRAJ2l.s 			page 312
+ARM GAS  /tmp/ccNux4Ah.s 			page 312
 
 
 2546:src/display.c **** 	display();
@@ -18718,7 +18718,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  11431              		.cfi_offset 4, -20
  11432              		.cfi_offset 5, -16
  11433              		.cfi_offset 6, -12
-ARM GAS  /tmp/ccIRAJ2l.s 			page 313
+ARM GAS  /tmp/ccNux4Ah.s 			page 313
 
 
  11434              		.cfi_offset 7, -8
@@ -18778,7 +18778,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  11471              		.loc 1 2755 4 view .LVU3724
  11472 002a 3146     		mov	r1, r6
  11473 002c 2046     		mov	r0, r4
-ARM GAS  /tmp/ccIRAJ2l.s 			page 314
+ARM GAS  /tmp/ccNux4Ah.s 			page 314
 
 
  11474 002e FFF7FEFF 		bl	set_digits_string
@@ -18838,7 +18838,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  11518              	.LVL1355:
 2758:src/display.c **** 	}
  11519              		.loc 1 2758 3 view .LVU3735
-ARM GAS  /tmp/ccIRAJ2l.s 			page 315
+ARM GAS  /tmp/ccNux4Ah.s 			page 315
 
 
  11520 004e FFF7FEBF 		b	finish_display
@@ -18898,7 +18898,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  11568              		.loc 1 127 2 view .LVU3743
  185:src/display.c **** 	{
  11569              		.loc 1 185 2 view .LVU3744
-ARM GAS  /tmp/ccIRAJ2l.s 			page 316
+ARM GAS  /tmp/ccNux4Ah.s 			page 316
 
 
  220:src/display.c **** 		const char *p = error_table[e];
@@ -18958,7 +18958,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  235:src/display.c **** #ifndef REALBUILD
  11611              		.loc 1 235 4 view .LVU3758
  235:src/display.c **** #ifndef REALBUILD
-ARM GAS  /tmp/ccIRAJ2l.s 			page 317
+ARM GAS  /tmp/ccNux4Ah.s 			page 317
 
 
  11612              		.loc 1 235 23 is_stmt 0 view .LVU3759
@@ -19018,7 +19018,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
 2546:src/display.c **** 	display();
  11654              		.loc 1 2546 21 is_stmt 0 view .LVU3772
  11655 004a 0B4C     		ldr	r4, .L1136+12
-ARM GAS  /tmp/ccIRAJ2l.s 			page 318
+ARM GAS  /tmp/ccNux4Ah.s 			page 318
 
 
  11656              	.LVL1367:
@@ -19078,7 +19078,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  11697              	.LBB591:
  222:src/display.c **** 		if (*q == '\0')
  11698              		.loc 1 222 15 view .LVU3786
-ARM GAS  /tmp/ccIRAJ2l.s 			page 319
+ARM GAS  /tmp/ccNux4Ah.s 			page 319
 
 
  11699 0066 411C     		adds	r1, r0, #1
@@ -19138,7 +19138,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  11740      20612074 
  11740      2069206F 
  11740      206E2000 
-ARM GAS  /tmp/ccIRAJ2l.s 			page 320
+ARM GAS  /tmp/ccNux4Ah.s 			page 320
 
 
  11741              		.align	2
@@ -19198,7 +19198,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  11767      2000
  11768 00f6 0000     		.align	2
  11769              	.LC60:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 321
+ARM GAS  /tmp/ccNux4Ah.s 			page 321
 
 
  11770 00f8 2049206E 		.ascii	" I n s t a l l e d \000"
@@ -19258,7 +19258,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  11803 005e 0000     		.space	2
  11804              	.LC65:
  11805 0060 2B9F0000 		.ascii	"+\237\000\000"
-ARM GAS  /tmp/ccIRAJ2l.s 			page 322
+ARM GAS  /tmp/ccNux4Ah.s 			page 322
 
 
  11806              	.LC66:
@@ -19318,7 +19318,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  11834      64417441 
  11834      20506F69 
  11834      6E745300 
-ARM GAS  /tmp/ccIRAJ2l.s 			page 323
+ARM GAS  /tmp/ccNux4Ah.s 			page 323
 
 
  11835              	.LC77:
@@ -19378,7 +19378,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  11862 0198 04201D00 		.ascii	"\004 \035\000X\000"
  11862      5800
  11863              		.section	.bss.DecimalMode,"aw",%nobits
-ARM GAS  /tmp/ccIRAJ2l.s 			page 324
+ARM GAS  /tmp/ccNux4Ah.s 			page 324
 
 
  11864              		.set	.LANCHOR1,. + 0
@@ -19438,7 +19438,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  11923              		.align	2
  11924              		.set	.LANCHOR6,. + 0
  11927              	S7_NEG_INF_Text:
-ARM GAS  /tmp/ccIRAJ2l.s 			page 325
+ARM GAS  /tmp/ccNux4Ah.s 			page 325
 
 
  11928 0000 2D49206E 		.ascii	"-I n f i n i t y \000"
@@ -19498,7 +19498,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  11984      3F00
  11985              		.section	.rodata.SvnRevision,"a"
  11986              		.align	2
-ARM GAS  /tmp/ccIRAJ2l.s 			page 326
+ARM GAS  /tmp/ccNux4Ah.s 			page 326
 
 
  11987              		.set	.LANCHOR19,. + 0
@@ -19537,10 +19537,10 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  12003      75266915 
  12003      177C7914 
  12004 0076 000F003B 		.ascii	"\000\017\000;"
- 12005              		.section	.rodata.error_table.8476,"a"
+ 12005              		.section	.rodata.error_table.8478,"a"
  12006              		.align	2
  12007              		.set	.LANCHOR26,. + 0
- 12010              	error_table.8476:
+ 12010              	error_table.8478:
  12011 0000 1C000000 		.word	.LC61
  12012 0004 30000000 		.word	.LC62
  12013 0008 38000000 		.word	.LC63
@@ -19558,7 +19558,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  12025 0038 D8000000 		.word	.LC75
  12026 003c F0000000 		.word	.LC76
  12027 0040 04010000 		.word	.LC77
-ARM GAS  /tmp/ccIRAJ2l.s 			page 327
+ARM GAS  /tmp/ccNux4Ah.s 			page 327
 
 
  12028 0044 18010000 		.word	.LC78
@@ -19570,10 +19570,10 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  12034 005c 70010000 		.word	.LC84
  12035 0060 80010000 		.word	.LC85
  12036 0064 98010000 		.word	.LC86
- 12037              		.section	.rodata.error_table_text.8477,"a"
+ 12037              		.section	.rodata.error_table_text.8479,"a"
  12038              		.align	2
  12039              		.set	.LANCHOR27,. + 0
- 12042              	error_table_text.8477:
+ 12042              	error_table_text.8479:
  12043 0000 10000000 		.word	.LC46
  12044 0004 A8000000 		.word	.LC41
  12045 0008 20000000 		.word	.LC47
@@ -19618,7 +19618,7 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  12084              	libname_shorttext:
  12085 0000 52616D00 		.ascii	"Ram\000"
  12086 0004 00       		.space	1
-ARM GAS  /tmp/ccIRAJ2l.s 			page 328
+ARM GAS  /tmp/ccNux4Ah.s 			page 328
 
 
  12087 0005 4C696200 		.ascii	"Lib\000"
@@ -19643,23 +19643,23 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  12105 001e 2052206F 		.ascii	" R o m \000"
  12105      206D2000 
  12106 0026 0000     		.space	2
- 12107              		.section	.rodata.shift_chars.8573,"a"
+ 12107              		.section	.rodata.shift_chars.8575,"a"
  12108              		.align	2
  12109              		.set	.LANCHOR15,. + 0
- 12112              	shift_chars.8573:
+ 12112              	shift_chars.8575:
  12113 0000 20111213 		.ascii	" \021\022\023"
- 12114              		.section	.rodata.small_dots.8760,"a"
+ 12114              		.section	.rodata.small_dots.8762,"a"
  12115              		.align	2
  12116              		.set	.LANCHOR14,. + 0
- 12119              	small_dots.8760:
+ 12119              	small_dots.8762:
  12120 0000 07E12C06 		.ascii	"\007\341,\006\007\341,\006\007\341,\006\006"
  12120      07E12C06 
  12120      07E12C06 
  12120      06
- 12121              		.section	.rodata.small_minus.8759,"a"
+ 12121              		.section	.rodata.small_minus.8761,"a"
  12122              		.align	2
  12123              		.set	.LANCHOR13,. + 0
- 12126              	small_minus.8759:
+ 12126              	small_minus.8761:
  12127 0000 07C22D06 		.ascii	"\007\302-\006"
  12128              		.text
  12129              	.Letext0:
@@ -19678,205 +19678,205 @@ ARM GAS  /tmp/ccIRAJ2l.s 			page 1
  12142              		.file 14 "src/lcd.h"
  12143              		.file 15 "src/decn.h"
  12144              		.file 16 "src/alpha.h"
-ARM GAS  /tmp/ccIRAJ2l.s 			page 329
+ARM GAS  /tmp/ccNux4Ah.s 			page 329
 
 
  12145              		.file 17 "src/int.h"
-ARM GAS  /tmp/ccIRAJ2l.s 			page 330
+ARM GAS  /tmp/ccNux4Ah.s 			page 330
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 display.c
-     /tmp/ccIRAJ2l.s:18     .text.set_separator_decimal_modes:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:26     .text.set_separator_decimal_modes:0000000000000000 set_separator_decimal_modes
-     /tmp/ccIRAJ2l.s:119    .text.set_separator_decimal_modes:0000000000000048 $d
-     /tmp/ccIRAJ2l.s:126    .text.set_dig:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:133    .text.set_dig:0000000000000000 set_dig
-     /tmp/ccIRAJ2l.s:253    .text.set_dig:0000000000000064 $d
+     /tmp/ccNux4Ah.s:18     .text.set_separator_decimal_modes:0000000000000000 $t
+     /tmp/ccNux4Ah.s:26     .text.set_separator_decimal_modes:0000000000000000 set_separator_decimal_modes
+     /tmp/ccNux4Ah.s:119    .text.set_separator_decimal_modes:0000000000000048 $d
+     /tmp/ccNux4Ah.s:126    .text.set_dig:0000000000000000 $t
+     /tmp/ccNux4Ah.s:133    .text.set_dig:0000000000000000 set_dig
+     /tmp/ccNux4Ah.s:253    .text.set_dig:0000000000000064 $d
                             *COM*:000000000000001a LastDisplayedNumber
                             *COM*:0000000000000005 LastDisplayedExponent
-     /tmp/ccIRAJ2l.s:262    .text.hms_render:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:269    .text.hms_render:0000000000000000 hms_render
-     /tmp/ccIRAJ2l.s:468    .text.hms_render:00000000000000a4 $d
-     /tmp/ccIRAJ2l.s:475    .text.set_exp_digits_string:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:482    .text.set_exp_digits_string:0000000000000000 set_exp_digits_string
-     /tmp/ccIRAJ2l.s:596    .text.hms_step:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:603    .text.hms_step:0000000000000000 hms_step
-     /tmp/ccIRAJ2l.s:664    .text.hms_step:0000000000000034 $d
-     /tmp/ccIRAJ2l.s:669    .text.set_status_sized:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:676    .text.set_status_sized:0000000000000000 set_status_sized
-     /tmp/ccIRAJ2l.s:1121   .text.set_status_sized:0000000000000190 $d
+     /tmp/ccNux4Ah.s:262    .text.hms_render:0000000000000000 $t
+     /tmp/ccNux4Ah.s:269    .text.hms_render:0000000000000000 hms_render
+     /tmp/ccNux4Ah.s:468    .text.hms_render:00000000000000a4 $d
+     /tmp/ccNux4Ah.s:475    .text.set_exp_digits_string:0000000000000000 $t
+     /tmp/ccNux4Ah.s:482    .text.set_exp_digits_string:0000000000000000 set_exp_digits_string
+     /tmp/ccNux4Ah.s:596    .text.hms_step:0000000000000000 $t
+     /tmp/ccNux4Ah.s:603    .text.hms_step:0000000000000000 hms_step
+     /tmp/ccNux4Ah.s:664    .text.hms_step:0000000000000034 $d
+     /tmp/ccNux4Ah.s:669    .text.set_status_sized:0000000000000000 $t
+     /tmp/ccNux4Ah.s:676    .text.set_status_sized:0000000000000000 set_status_sized
+     /tmp/ccNux4Ah.s:1121   .text.set_status_sized:0000000000000190 $d
                             *COM*:000000000000001f LastDisplayedText
                             *COM*:0000000000000001 forceDispPlot
-     /tmp/ccIRAJ2l.s:1129   .rodata.set_exp.str1.4:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:1133   .text.set_exp:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:1140   .text.set_exp:0000000000000000 set_exp
-     /tmp/ccIRAJ2l.s:1361   .text.set_exp:00000000000000b0 $d
-     /tmp/ccIRAJ2l.s:1367   .text.set_separator.part.0:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:1374   .text.set_separator.part.0:0000000000000000 set_separator.part.0
-     /tmp/ccIRAJ2l.s:1442   .text.set_separator.part.0:0000000000000038 $d
-     /tmp/ccIRAJ2l.s:1448   .text.set_decimal:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:1455   .text.set_decimal:0000000000000000 set_decimal
-     /tmp/ccIRAJ2l.s:1551   .text.set_decimal:000000000000004c $d
-     /tmp/ccIRAJ2l.s:1559   .text.set_digits_string:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:1566   .text.set_digits_string:0000000000000000 set_digits_string
-     /tmp/ccIRAJ2l.s:1660   .rodata.check_special_dn.isra.0.str1.4:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:1664   .text.check_special_dn.isra.0:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:1671   .text.check_special_dn.isra.0:0000000000000000 check_special_dn.isra.0
-     /tmp/ccIRAJ2l.s:1818   .text.check_special_dn.isra.0:000000000000007c $d
-     /tmp/ccIRAJ2l.s:1830   .text.set_x_hms:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:1837   .text.set_x_hms:0000000000000000 set_x_hms
-     /tmp/ccIRAJ2l.s:2338   .text.set_x_hms:00000000000001b8 $d
-     /tmp/ccIRAJ2l.s:2348   .text.set_x_fract:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:2355   .text.set_x_fract:0000000000000000 set_x_fract
-     /tmp/ccIRAJ2l.s:2791   .text.set_x_fract:0000000000000198 $d
-     /tmp/ccIRAJ2l.s:2806   .rodata.carry_overflow.str1.4:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:2807   .rodata.carry_overflow.str1.4:0000000000000000 .LC2
-     /tmp/ccIRAJ2l.s:2810   .text.carry_overflow:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:2817   .text.carry_overflow:0000000000000000 carry_overflow
-     /tmp/ccIRAJ2l.s:2954   .text.carry_overflow:0000000000000070 $d
-     /tmp/ccIRAJ2l.s:2964   .text.set_int_x:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:2971   .text.set_int_x:0000000000000000 set_int_x
-     /tmp/ccIRAJ2l.s:3728   .text.set_int_x:0000000000000348 $d
+     /tmp/ccNux4Ah.s:1129   .rodata.set_exp.str1.4:0000000000000000 $d
+     /tmp/ccNux4Ah.s:1133   .text.set_exp:0000000000000000 $t
+     /tmp/ccNux4Ah.s:1140   .text.set_exp:0000000000000000 set_exp
+     /tmp/ccNux4Ah.s:1361   .text.set_exp:00000000000000b0 $d
+     /tmp/ccNux4Ah.s:1367   .text.set_separator.part.0:0000000000000000 $t
+     /tmp/ccNux4Ah.s:1374   .text.set_separator.part.0:0000000000000000 set_separator.part.0
+     /tmp/ccNux4Ah.s:1442   .text.set_separator.part.0:0000000000000038 $d
+     /tmp/ccNux4Ah.s:1448   .text.set_decimal:0000000000000000 $t
+     /tmp/ccNux4Ah.s:1455   .text.set_decimal:0000000000000000 set_decimal
+     /tmp/ccNux4Ah.s:1551   .text.set_decimal:000000000000004c $d
+     /tmp/ccNux4Ah.s:1559   .text.set_digits_string:0000000000000000 $t
+     /tmp/ccNux4Ah.s:1566   .text.set_digits_string:0000000000000000 set_digits_string
+     /tmp/ccNux4Ah.s:1660   .rodata.check_special_dn.isra.0.str1.4:0000000000000000 $d
+     /tmp/ccNux4Ah.s:1664   .text.check_special_dn.isra.0:0000000000000000 $t
+     /tmp/ccNux4Ah.s:1671   .text.check_special_dn.isra.0:0000000000000000 check_special_dn.isra.0
+     /tmp/ccNux4Ah.s:1818   .text.check_special_dn.isra.0:000000000000007c $d
+     /tmp/ccNux4Ah.s:1830   .text.set_x_hms:0000000000000000 $t
+     /tmp/ccNux4Ah.s:1837   .text.set_x_hms:0000000000000000 set_x_hms
+     /tmp/ccNux4Ah.s:2338   .text.set_x_hms:00000000000001b8 $d
+     /tmp/ccNux4Ah.s:2348   .text.set_x_fract:0000000000000000 $t
+     /tmp/ccNux4Ah.s:2355   .text.set_x_fract:0000000000000000 set_x_fract
+     /tmp/ccNux4Ah.s:2791   .text.set_x_fract:0000000000000198 $d
+     /tmp/ccNux4Ah.s:2806   .rodata.carry_overflow.str1.4:0000000000000000 $d
+     /tmp/ccNux4Ah.s:2807   .rodata.carry_overflow.str1.4:0000000000000000 .LC2
+     /tmp/ccNux4Ah.s:2810   .text.carry_overflow:0000000000000000 $t
+     /tmp/ccNux4Ah.s:2817   .text.carry_overflow:0000000000000000 carry_overflow
+     /tmp/ccNux4Ah.s:2954   .text.carry_overflow:0000000000000070 $d
+     /tmp/ccNux4Ah.s:2964   .text.set_int_x:0000000000000000 $t
+     /tmp/ccNux4Ah.s:2971   .text.set_int_x:0000000000000000 set_int_x
+     /tmp/ccNux4Ah.s:3728   .text.set_int_x:0000000000000348 $d
                .rodata.CSWTCH.304:0000000000000000 CSWTCH.306
                             *COM*:0000000000000004 IntMaxWindow
-     /tmp/ccIRAJ2l.s:3738   .text.set_int_x:0000000000000360 $t
-     /tmp/ccIRAJ2l.s:3788   .text.set_int_x:0000000000000390 $d
-ARM GAS  /tmp/ccIRAJ2l.s 			page 331
+     /tmp/ccNux4Ah.s:3738   .text.set_int_x:0000000000000360 $t
+     /tmp/ccNux4Ah.s:3788   .text.set_int_x:0000000000000390 $d
+ARM GAS  /tmp/ccNux4Ah.s 			page 331
 
 
-     /tmp/ccIRAJ2l.s:3794   .text.set_annunciators:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:3801   .text.set_annunciators:0000000000000000 set_annunciators
-     /tmp/ccIRAJ2l.s:4174   .text.set_annunciators:00000000000000d4 $d
+     /tmp/ccNux4Ah.s:3794   .text.set_annunciators:0000000000000000 $t
+     /tmp/ccNux4Ah.s:3801   .text.set_annunciators:0000000000000000 set_annunciators
+     /tmp/ccNux4Ah.s:4174   .text.set_annunciators:00000000000000d4 $d
                             *COM*:0000000000000004 IoAnnunciator
-     /tmp/ccIRAJ2l.s:4186   .text.getdig:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:4194   .text.getdig:0000000000000000 getdig
-     /tmp/ccIRAJ2l.s:4214   .text.getdig:0000000000000008 $d
-     /tmp/ccIRAJ2l.s:4219   .text.dot:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:4227   .text.dot:0000000000000000 dot
-     /tmp/ccIRAJ2l.s:4250   .text.std_round_fix:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:4258   .text.std_round_fix:0000000000000000 std_round_fix
-     /tmp/ccIRAJ2l.s:4340   .text.std_round_fix:000000000000004c $d
-     /tmp/ccIRAJ2l.s:4346   .text.set_IO_annunciator:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:4354   .text.set_IO_annunciator:0000000000000000 set_IO_annunciator
-     /tmp/ccIRAJ2l.s:4414   .text.set_IO_annunciator:000000000000001c $d
-     /tmp/ccIRAJ2l.s:4421   .text.pixel_length:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:4429   .text.pixel_length:0000000000000000 pixel_length
-     /tmp/ccIRAJ2l.s:4520   .text.set_status:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:4527   .text.set_status:0000000000000000 set_status
-     /tmp/ccIRAJ2l.s:4595   .text.set_status:0000000000000034 $d
-     /tmp/ccIRAJ2l.s:4600   .text.set_x_dn:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:4608   .text.set_x_dn:0000000000000000 set_x_dn
-     /tmp/ccIRAJ2l.s:5376   .text.set_x_dn:0000000000000328 $d
-     /tmp/ccIRAJ2l.s:5385   .text.set_x_dn:000000000000033c $t
-     /tmp/ccIRAJ2l.s:5504   .text.set_x_dn:00000000000003dc $d
-     /tmp/ccIRAJ2l.s:5510   .text.set_x_dn:00000000000003f0 $t
-     /tmp/ccIRAJ2l.s:5537   .text.set_x_dn:000000000000041c $d
-     /tmp/ccIRAJ2l.s:5543   .text.set_x_dn:0000000000000426 $t
-     /tmp/ccIRAJ2l.s:6048   .text.set_x_dn:0000000000000644 $d
-     /tmp/ccIRAJ2l.s:6064   .text.set_x_dn:0000000000000660 $t
-     /tmp/ccIRAJ2l.s:6778   .text.set_x_dn:0000000000000950 $d
-     /tmp/ccIRAJ2l.s:6787   .text.set_x:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:6794   .text.set_x:0000000000000000 set_x
-     /tmp/ccIRAJ2l.s:6862   .text.format_reg:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:6870   .text.format_reg:0000000000000000 format_reg
-     /tmp/ccIRAJ2l.s:6989   .text.format_reg:0000000000000064 $d
-     /tmp/ccIRAJ2l.s:6995   .text.set_status_right:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:7002   .text.set_status_right:0000000000000000 set_status_right
-     /tmp/ccIRAJ2l.s:7139   .text.set_status_right:0000000000000060 $d
-     /tmp/ccIRAJ2l.s:7144   .rodata.annunciators.str1.4:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:7193   .text.annunciators:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:7200   .text.annunciators:0000000000000000 annunciators
-     /tmp/ccIRAJ2l.s:7902   .text.annunciators:0000000000000308 $d
-     /tmp/ccIRAJ2l.s:7925   .text.annunciators:000000000000034c $t
-     /tmp/ccIRAJ2l.s:8119   .text.annunciators:0000000000000420 $d
-     /tmp/ccIRAJ2l.s:8134   .rodata.display.str1.4:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:8201   .text.display:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:8209   .text.display:0000000000000000 display
-     /tmp/ccIRAJ2l.s:8883   .text.display:0000000000000300 $d
+     /tmp/ccNux4Ah.s:4186   .text.getdig:0000000000000000 $t
+     /tmp/ccNux4Ah.s:4194   .text.getdig:0000000000000000 getdig
+     /tmp/ccNux4Ah.s:4214   .text.getdig:0000000000000008 $d
+     /tmp/ccNux4Ah.s:4219   .text.dot:0000000000000000 $t
+     /tmp/ccNux4Ah.s:4227   .text.dot:0000000000000000 dot
+     /tmp/ccNux4Ah.s:4250   .text.std_round_fix:0000000000000000 $t
+     /tmp/ccNux4Ah.s:4258   .text.std_round_fix:0000000000000000 std_round_fix
+     /tmp/ccNux4Ah.s:4340   .text.std_round_fix:000000000000004c $d
+     /tmp/ccNux4Ah.s:4346   .text.set_IO_annunciator:0000000000000000 $t
+     /tmp/ccNux4Ah.s:4354   .text.set_IO_annunciator:0000000000000000 set_IO_annunciator
+     /tmp/ccNux4Ah.s:4414   .text.set_IO_annunciator:000000000000001c $d
+     /tmp/ccNux4Ah.s:4421   .text.pixel_length:0000000000000000 $t
+     /tmp/ccNux4Ah.s:4429   .text.pixel_length:0000000000000000 pixel_length
+     /tmp/ccNux4Ah.s:4520   .text.set_status:0000000000000000 $t
+     /tmp/ccNux4Ah.s:4527   .text.set_status:0000000000000000 set_status
+     /tmp/ccNux4Ah.s:4595   .text.set_status:0000000000000034 $d
+     /tmp/ccNux4Ah.s:4600   .text.set_x_dn:0000000000000000 $t
+     /tmp/ccNux4Ah.s:4608   .text.set_x_dn:0000000000000000 set_x_dn
+     /tmp/ccNux4Ah.s:5376   .text.set_x_dn:0000000000000328 $d
+     /tmp/ccNux4Ah.s:5385   .text.set_x_dn:000000000000033c $t
+     /tmp/ccNux4Ah.s:5504   .text.set_x_dn:00000000000003dc $d
+     /tmp/ccNux4Ah.s:5510   .text.set_x_dn:00000000000003f0 $t
+     /tmp/ccNux4Ah.s:5537   .text.set_x_dn:000000000000041c $d
+     /tmp/ccNux4Ah.s:5543   .text.set_x_dn:0000000000000426 $t
+     /tmp/ccNux4Ah.s:6048   .text.set_x_dn:0000000000000644 $d
+     /tmp/ccNux4Ah.s:6064   .text.set_x_dn:0000000000000660 $t
+     /tmp/ccNux4Ah.s:6778   .text.set_x_dn:0000000000000950 $d
+     /tmp/ccNux4Ah.s:6787   .text.set_x:0000000000000000 $t
+     /tmp/ccNux4Ah.s:6794   .text.set_x:0000000000000000 set_x
+     /tmp/ccNux4Ah.s:6862   .text.format_reg:0000000000000000 $t
+     /tmp/ccNux4Ah.s:6870   .text.format_reg:0000000000000000 format_reg
+     /tmp/ccNux4Ah.s:6989   .text.format_reg:0000000000000064 $d
+     /tmp/ccNux4Ah.s:6995   .text.set_status_right:0000000000000000 $t
+     /tmp/ccNux4Ah.s:7002   .text.set_status_right:0000000000000000 set_status_right
+     /tmp/ccNux4Ah.s:7139   .text.set_status_right:0000000000000060 $d
+     /tmp/ccNux4Ah.s:7144   .rodata.annunciators.str1.4:0000000000000000 $d
+     /tmp/ccNux4Ah.s:7193   .text.annunciators:0000000000000000 $t
+     /tmp/ccNux4Ah.s:7200   .text.annunciators:0000000000000000 annunciators
+     /tmp/ccNux4Ah.s:7902   .text.annunciators:0000000000000308 $d
+     /tmp/ccNux4Ah.s:7925   .text.annunciators:000000000000034c $t
+     /tmp/ccNux4Ah.s:8119   .text.annunciators:0000000000000420 $d
+     /tmp/ccNux4Ah.s:8134   .rodata.display.str1.4:0000000000000000 $d
+     /tmp/ccNux4Ah.s:8201   .text.display:0000000000000000 $t
+     /tmp/ccNux4Ah.s:8209   .text.display:0000000000000000 display
+     /tmp/ccNux4Ah.s:8883   .text.display:0000000000000300 $d
                             *COM*:0000000000000004 DispMsg
                             *COM*:0000000000000004 ShowRPN
                             *COM*:0000000000000002 DispPlot
-     /tmp/ccIRAJ2l.s:8901   .text.display:0000000000000334 $t
-     /tmp/ccIRAJ2l.s:9600   .text.display:000000000000063c $d
-     /tmp/ccIRAJ2l.s:9630   .text.display:0000000000000694 $t
-     /tmp/ccIRAJ2l.s:10477  .text.display:00000000000009c8 $d
-     /tmp/ccIRAJ2l.s:10494  .text.display:00000000000009fc $t
-ARM GAS  /tmp/ccIRAJ2l.s 			page 332
+     /tmp/ccNux4Ah.s:8901   .text.display:0000000000000334 $t
+     /tmp/ccNux4Ah.s:9600   .text.display:000000000000063c $d
+     /tmp/ccNux4Ah.s:9630   .text.display:0000000000000694 $t
+     /tmp/ccNux4Ah.s:10477  .text.display:00000000000009c8 $d
+     /tmp/ccNux4Ah.s:10494  .text.display:00000000000009fc $t
+ARM GAS  /tmp/ccNux4Ah.s 			page 332
 
 
-     /tmp/ccIRAJ2l.s:11228  .text.display:0000000000000d10 $d
-     /tmp/ccIRAJ2l.s:11249  .text.display:0000000000000d4c $t
-     /tmp/ccIRAJ2l.s:11354  .text.display:0000000000000db0 $d
-     /tmp/ccIRAJ2l.s:11365  .text.frozen_display:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:11373  .text.frozen_display:0000000000000000 frozen_display
-     /tmp/ccIRAJ2l.s:11403  .text.frozen_display:000000000000001c $d
-     /tmp/ccIRAJ2l.s:11408  .text.message:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:11416  .text.message:0000000000000000 message
-     /tmp/ccIRAJ2l.s:11545  .text.message:0000000000000060 $d
-     /tmp/ccIRAJ2l.s:11553  .text.error_message:0000000000000000 $t
-     /tmp/ccIRAJ2l.s:11561  .text.error_message:0000000000000000 error_message
-     /tmp/ccIRAJ2l.s:11704  .text.error_message:000000000000006c $d
-     /tmp/ccIRAJ2l.s:11716  .rodata.str1.4:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11880  .rodata.CSWTCH.304:0000000000000000 CSWTCH.304
-     /tmp/ccIRAJ2l.s:11899  .rodata.DIGITS:0000000000000000 DIGITS
+     /tmp/ccNux4Ah.s:11228  .text.display:0000000000000d10 $d
+     /tmp/ccNux4Ah.s:11249  .text.display:0000000000000d4c $t
+     /tmp/ccNux4Ah.s:11354  .text.display:0000000000000db0 $d
+     /tmp/ccNux4Ah.s:11365  .text.frozen_display:0000000000000000 $t
+     /tmp/ccNux4Ah.s:11373  .text.frozen_display:0000000000000000 frozen_display
+     /tmp/ccNux4Ah.s:11403  .text.frozen_display:000000000000001c $d
+     /tmp/ccNux4Ah.s:11408  .text.message:0000000000000000 $t
+     /tmp/ccNux4Ah.s:11416  .text.message:0000000000000000 message
+     /tmp/ccNux4Ah.s:11545  .text.message:0000000000000060 $d
+     /tmp/ccNux4Ah.s:11553  .text.error_message:0000000000000000 $t
+     /tmp/ccNux4Ah.s:11561  .text.error_message:0000000000000000 error_message
+     /tmp/ccNux4Ah.s:11704  .text.error_message:000000000000006c $d
+     /tmp/ccNux4Ah.s:11716  .rodata.str1.4:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11880  .rodata.CSWTCH.304:0000000000000000 CSWTCH.304
+     /tmp/ccNux4Ah.s:11899  .rodata.DIGITS:0000000000000000 DIGITS
                             *COM*:0000000000000004 JustDisplayed
-     /tmp/ccIRAJ2l.s:11990  .rodata.SvnRevision:0000000000000000 SvnRevision
-     /tmp/ccIRAJ2l.s:11784  .rodata:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11867  .bss.DecimalMode:0000000000000000 DecimalMode
-     /tmp/ccIRAJ2l.s:11868  .bss.DecimalMode:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11873  .bss.SeparatorMode:0000000000000000 SeparatorMode
-     /tmp/ccIRAJ2l.s:11874  .bss.SeparatorMode:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11876  .rodata.CSWTCH.304:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11886  .rodata.CSWTCH.326:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11890  .rodata.CSWTCH.326:0000000000000000 CSWTCH.326
-     /tmp/ccIRAJ2l.s:11895  .rodata.DIGITS:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11902  .rodata.S7_ERROR:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11906  .rodata.S7_ERROR:0000000000000000 S7_ERROR
-     /tmp/ccIRAJ2l.s:11909  .rodata.S7_INF:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11913  .rodata.S7_INF:0000000000000000 S7_INF
-     /tmp/ccIRAJ2l.s:11916  .rodata.S7_INF_Text:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11920  .rodata.S7_INF_Text:0000000000000000 S7_INF_Text
-     /tmp/ccIRAJ2l.s:11923  .rodata.S7_NEG_INF_Text:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11927  .rodata.S7_NEG_INF_Text:0000000000000000 S7_NEG_INF_Text
-     /tmp/ccIRAJ2l.s:11930  .rodata.S7_NaN:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11934  .rodata.S7_NaN:0000000000000000 S7_NaN
-     /tmp/ccIRAJ2l.s:11937  .rodata.S7_NaN_Text:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11941  .rodata.S7_NaN_Text:0000000000000000 S7_NaN_Text
-     /tmp/ccIRAJ2l.s:11944  .rodata.S7_STEP:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11948  .rodata.S7_STEP:0000000000000000 S7_STEP
-     /tmp/ccIRAJ2l.s:11951  .rodata.S7_STEP_ShortText:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11955  .rodata.S7_STEP_ShortText:0000000000000000 S7_STEP_ShortText
-     /tmp/ccIRAJ2l.s:11958  .rodata.S7_fract_EQ:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11962  .rodata.S7_fract_EQ:0000000000000000 S7_fract_EQ
-     /tmp/ccIRAJ2l.s:11965  .rodata.S7_fract_GT:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11969  .rodata.S7_fract_GT:0000000000000000 S7_fract_GT
-     /tmp/ccIRAJ2l.s:11972  .rodata.S7_fract_LT:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11976  .rodata.S7_fract_LT:0000000000000000 S7_fract_LT
-     /tmp/ccIRAJ2l.s:11979  .rodata.S_SURE:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11983  .rodata.S_SURE:0000000000000000 S_SURE
-     /tmp/ccIRAJ2l.s:11986  .rodata.SvnRevision:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11993  .rodata.digtbl:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:11997  .rodata.digtbl:0000000000000000 digtbl
-     /tmp/ccIRAJ2l.s:12006  .rodata.error_table.8476:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:12010  .rodata.error_table.8476:0000000000000000 error_table.8476
-     /tmp/ccIRAJ2l.s:12038  .rodata.error_table_text.8477:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:12042  .rodata.error_table_text.8477:0000000000000000 error_table_text.8477
-ARM GAS  /tmp/ccIRAJ2l.s 			page 333
+     /tmp/ccNux4Ah.s:11990  .rodata.SvnRevision:0000000000000000 SvnRevision
+     /tmp/ccNux4Ah.s:11784  .rodata:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11867  .bss.DecimalMode:0000000000000000 DecimalMode
+     /tmp/ccNux4Ah.s:11868  .bss.DecimalMode:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11873  .bss.SeparatorMode:0000000000000000 SeparatorMode
+     /tmp/ccNux4Ah.s:11874  .bss.SeparatorMode:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11876  .rodata.CSWTCH.304:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11886  .rodata.CSWTCH.326:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11890  .rodata.CSWTCH.326:0000000000000000 CSWTCH.326
+     /tmp/ccNux4Ah.s:11895  .rodata.DIGITS:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11902  .rodata.S7_ERROR:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11906  .rodata.S7_ERROR:0000000000000000 S7_ERROR
+     /tmp/ccNux4Ah.s:11909  .rodata.S7_INF:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11913  .rodata.S7_INF:0000000000000000 S7_INF
+     /tmp/ccNux4Ah.s:11916  .rodata.S7_INF_Text:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11920  .rodata.S7_INF_Text:0000000000000000 S7_INF_Text
+     /tmp/ccNux4Ah.s:11923  .rodata.S7_NEG_INF_Text:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11927  .rodata.S7_NEG_INF_Text:0000000000000000 S7_NEG_INF_Text
+     /tmp/ccNux4Ah.s:11930  .rodata.S7_NaN:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11934  .rodata.S7_NaN:0000000000000000 S7_NaN
+     /tmp/ccNux4Ah.s:11937  .rodata.S7_NaN_Text:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11941  .rodata.S7_NaN_Text:0000000000000000 S7_NaN_Text
+     /tmp/ccNux4Ah.s:11944  .rodata.S7_STEP:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11948  .rodata.S7_STEP:0000000000000000 S7_STEP
+     /tmp/ccNux4Ah.s:11951  .rodata.S7_STEP_ShortText:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11955  .rodata.S7_STEP_ShortText:0000000000000000 S7_STEP_ShortText
+     /tmp/ccNux4Ah.s:11958  .rodata.S7_fract_EQ:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11962  .rodata.S7_fract_EQ:0000000000000000 S7_fract_EQ
+     /tmp/ccNux4Ah.s:11965  .rodata.S7_fract_GT:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11969  .rodata.S7_fract_GT:0000000000000000 S7_fract_GT
+     /tmp/ccNux4Ah.s:11972  .rodata.S7_fract_LT:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11976  .rodata.S7_fract_LT:0000000000000000 S7_fract_LT
+     /tmp/ccNux4Ah.s:11979  .rodata.S_SURE:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11983  .rodata.S_SURE:0000000000000000 S_SURE
+     /tmp/ccNux4Ah.s:11986  .rodata.SvnRevision:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11993  .rodata.digtbl:0000000000000000 $d
+     /tmp/ccNux4Ah.s:11997  .rodata.digtbl:0000000000000000 digtbl
+     /tmp/ccNux4Ah.s:12006  .rodata.error_table.8478:0000000000000000 $d
+     /tmp/ccNux4Ah.s:12010  .rodata.error_table.8478:0000000000000000 error_table.8478
+     /tmp/ccNux4Ah.s:12038  .rodata.error_table_text.8479:0000000000000000 $d
+     /tmp/ccNux4Ah.s:12042  .rodata.error_table_text.8479:0000000000000000 error_table_text.8479
+ARM GAS  /tmp/ccNux4Ah.s 			page 333
 
 
-     /tmp/ccIRAJ2l.s:12070  .rodata.libname:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:12074  .rodata.libname:0000000000000000 libname
-     /tmp/ccIRAJ2l.s:12080  .rodata.libname_shorttext:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:12084  .rodata.libname_shorttext:0000000000000000 libname_shorttext
-     /tmp/ccIRAJ2l.s:12094  .rodata.libname_text:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:12098  .rodata.libname_text:0000000000000000 libname_text
-     /tmp/ccIRAJ2l.s:12108  .rodata.shift_chars.8573:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:12112  .rodata.shift_chars.8573:0000000000000000 shift_chars.8573
-     /tmp/ccIRAJ2l.s:12115  .rodata.small_dots.8760:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:12119  .rodata.small_dots.8760:0000000000000000 small_dots.8760
-     /tmp/ccIRAJ2l.s:12122  .rodata.small_minus.8759:0000000000000000 $d
-     /tmp/ccIRAJ2l.s:12126  .rodata.small_minus.8759:0000000000000000 small_minus.8759
+     /tmp/ccNux4Ah.s:12070  .rodata.libname:0000000000000000 $d
+     /tmp/ccNux4Ah.s:12074  .rodata.libname:0000000000000000 libname
+     /tmp/ccNux4Ah.s:12080  .rodata.libname_shorttext:0000000000000000 $d
+     /tmp/ccNux4Ah.s:12084  .rodata.libname_shorttext:0000000000000000 libname_shorttext
+     /tmp/ccNux4Ah.s:12094  .rodata.libname_text:0000000000000000 $d
+     /tmp/ccNux4Ah.s:12098  .rodata.libname_text:0000000000000000 libname_text
+     /tmp/ccNux4Ah.s:12108  .rodata.shift_chars.8575:0000000000000000 $d
+     /tmp/ccNux4Ah.s:12112  .rodata.shift_chars.8575:0000000000000000 shift_chars.8575
+     /tmp/ccNux4Ah.s:12115  .rodata.small_dots.8762:0000000000000000 $d
+     /tmp/ccNux4Ah.s:12119  .rodata.small_dots.8762:0000000000000000 small_dots.8762
+     /tmp/ccNux4Ah.s:12122  .rodata.small_minus.8761:0000000000000000 $d
+     /tmp/ccNux4Ah.s:12126  .rodata.small_minus.8761:0000000000000000 small_minus.8761
 
 UNDEFINED SYMBOLS
 main_ram
@@ -19922,7 +19922,7 @@ word_size
 extract_value
 int_mode
 int_base
-ARM GAS  /tmp/ccIRAJ2l.s 			page 334
+ARM GAS  /tmp/ccNux4Ah.s 			page 334
 
 
 get_trig_mode
@@ -19982,7 +19982,7 @@ free_flash
 monfuncs
 global_regs
 local_regs
-ARM GAS  /tmp/ccIRAJ2l.s 			page 335
+ARM GAS  /tmp/ccNux4Ah.s 			page 335
 
 
 SizeStatRegs

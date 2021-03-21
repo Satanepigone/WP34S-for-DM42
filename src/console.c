@@ -349,6 +349,10 @@ struct _ndmap do_multi (struct _ndmap r) {
     run_help_file("/HELP/wp34s_help.html");
     r = no_key;
     break;
+  case DOTS:
+    do_all_dots();
+    r = no_key;
+    break;
   default:
     r = no_key;
   }
@@ -435,6 +439,7 @@ void program_main(){
     // Get up from OFF state
     if ( ST(STAT_OFF) ) {
       LCD_power_on();
+      key_pop_all(); //try clearing the ON key to stop double flashing of RPN
       rtc_wakeup_delay(); // Ensure that RTC readings after power off will be OK
 
       CLR_ST(STAT_OFF);

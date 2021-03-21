@@ -32,6 +32,7 @@ extern void wait_for_display(void);
 extern void finish_display(void);
 #ifdef DM42
 extern void finish_RPN(void);
+extern void do_all_dots(void);
 #endif
 extern void show_flags(void);
 extern void reset_disp(void);
