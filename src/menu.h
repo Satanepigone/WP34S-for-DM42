@@ -15,6 +15,7 @@
 #define HELP 9
 #define SVPRG 10
 #define DOTS 11
+#define SSHOT 12
 
 struct _key {
   struct _ndmap unshifted;

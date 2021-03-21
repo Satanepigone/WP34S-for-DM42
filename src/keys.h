@@ -58,6 +58,7 @@ typedef enum {
 	K_SYS = 48, // only used to trigger system menu
 	K_MULTI = 49, // used to send back "multiple" keys from remap()
 	K_EXIT = 50, // used to exit loop
+	K_SSHOT = 51, //triggers screenshot
 } keycode;
 
 #else

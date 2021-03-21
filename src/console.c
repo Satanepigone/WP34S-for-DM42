@@ -55,7 +55,6 @@ struct _ndmap f_shift = {.key_34s = K_F, .shift = -1};
 struct _ndmap g_shift = {.key_34s = K_G, .shift = -1};
 struct _ndmap h_shift = {.key_34s = K_H, .shift = -1};
 struct _ndmap release = {.key_34s = K_RELEASE, .shift = -1};
-
 struct _ndmap do_multi (struct _ndmap r);
 
 static struct _ndmap remap (const int c) {
@@ -69,18 +68,9 @@ static struct _ndmap remap (const int c) {
   if (c == 99) return release; // turn KEY_DOUBLE_RELEASE into ordinary release
 
   if (c == 44 ) {
-    // Start click 
-    start_buzzer_freq(4400); sys_delay(10); stop_buzzer();
-    // Make screenshot - allow to report errors
-    if ( create_screenshot(1) == 2 ) {
-      // Was error just wait for confirmation
-      wait_for_key_press();
-    }
-    // End click
-    start_buzzer_freq(8800); sys_delay(10); stop_buzzer();
-    return no_key;
+    struct _ndmap sshot = {.key_34s = K_MULTI, .shift = SSHOT};
+    return sshot;
   }
-
   
   if ( get_alpha_state() ) {
     if (c == KEY_SHIFT) { //deal with shift keys
@@ -351,6 +341,11 @@ struct _ndmap do_multi (struct _ndmap r) {
     break;
   case DOTS:
     do_all_dots();
+    r = no_key;
+    break;
+  case SSHOT: // comes after f-key already pressed, but not released
+    do_now(K_RELEASE,0); //release f-key; restore display
+    do_now(K_SSHOT,0); //activates screenshot routine in keys
     r = no_key;
     break;
   default:

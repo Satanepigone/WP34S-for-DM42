@@ -2,7 +2,9 @@
 
 ## A project to bring the WP34s calculator firmware to the DM42 hardware. 
 
-![screenshot](./help/screen1.png)
+![screenshot](./help/screen1.png)   ![screenshot](./help/screen2.png)
+![screenshot](./help/screen3.png)
+
 
 To install this program on your DM42 calculator, you need to:
 

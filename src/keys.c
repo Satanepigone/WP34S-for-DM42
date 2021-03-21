@@ -2907,6 +2907,15 @@ static int process(const int c) {
  void process_keycode_with_shift ( struct _ndmap remapped ) {
    if (remapped.shift >= 0) set_shift ( remapped.shift );
    if (remapped.key_34s == K_NOP) return;
+   if (remapped.key_34s == K_SSHOT) {
+     start_buzzer_freq(4400); sys_delay(10); stop_buzzer();// Start click 
+     if ( create_screenshot(1) == 2 ) {
+       // Was error just wait for confirmation
+       wait_for_key_press();
+     }
+     start_buzzer_freq(8800); sys_delay(10); stop_buzzer();// End click
+     return;
+   }
    process_keycode ( remapped.key_34s );
  }
  
