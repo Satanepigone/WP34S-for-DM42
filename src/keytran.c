@@ -155,7 +155,7 @@ static const struct _ndmap mapping_none[] = {
     {K53, 3}, // X.FCN catalogue.
     {K_NOP, 0}, // no function
     // Last row of DM42 33--37
-    {K60, 0}, // Exit
+    {K60, 2}, // SHOW (register browser)
     {K_SETMENU, 13}, // SETUP2 menu
     {K_NOP, 0}, // no function
     {K_SETMENU, 7}, // P.FCN menu

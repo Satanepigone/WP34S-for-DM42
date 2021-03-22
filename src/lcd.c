@@ -319,8 +319,8 @@ void show_disp(void) { // This function re-draws everything.
 	  exp_middle (xleft_exp-dwidth_exp, ytop);
         }
 	if (dots[BIG_EQ]) {
-	  lcd_fill_rect (235, ytop-34, 15, 4, 0xff);
-	  lcd_fill_rect (235, ytop-24, 15, 4, 0xff);
+	  lcd_fill_rect (250, ytop-34, 15, 4, 0xff);
+	  lcd_fill_rect (250, ytop-24, 15, 4, 0xff);
         }
 	/* t20->newln = 0; */
 	/* t20->lnfill = 0; */
@@ -329,21 +329,21 @@ void show_disp(void) { // This function re-draws everything.
 	t20->inv = 0;
 	
         if (dots[DOWN_ARR]) {
-	  lcd_fill_rect(277,ytop_exp-70,5,12,0xff);
-	  lcd_fill_rect(275,ytop_exp-58,9,1,0xff);
-	  lcd_fill_rect(276,ytop_exp-57,7,1,0xff);
-	  lcd_fill_rect(277,ytop_exp-56,5,1,0xff);
-	  lcd_fill_rect(278,ytop_exp-55,3,1,0xff);
-	  lcd_fill_rect(279,ytop_exp-54,1,1,0xff);
+	  lcd_fill_rect(287,ytop_exp-70,5,12,0xff);
+	  lcd_fill_rect(285,ytop_exp-58,9,1,0xff);
+	  lcd_fill_rect(286,ytop_exp-57,7,1,0xff);
+	  lcd_fill_rect(287,ytop_exp-56,5,1,0xff);
+	  lcd_fill_rect(288,ytop_exp-55,3,1,0xff);
+	  lcd_fill_rect(289,ytop_exp-54,1,1,0xff);
         }
 
 	if (dots[INPUT]) {
-	  lcd_setXY(t20, 297, ytop_exp-70);
+	  lcd_setXY(t20, 305, ytop_exp-70);
 	  lcd_writeText(t20,"INPUT");
         }
 
 	if (dots[LIT_EQ]) {
-	  lcd_setXY (t20, 357, ytop_exp-70);
+	  lcd_setXY (t20, 360, ytop_exp-70);
 	  lcd_writeText(t20, "=");
         }
 
@@ -352,12 +352,12 @@ void show_disp(void) { // This function re-draws everything.
         }
 
 	if (dots[BEG]) {
-	  lcd_setXY (t20, 275, ytop_exp-50);
+	  lcd_setXY (t20, 285, ytop_exp-50);
 	  lcd_writeText(t20, "BEG");
         }
 
 	if (dots[STO_annun]) {
-	  lcd_setXY (t20, 320, ytop_exp-50);
+	  lcd_setXY (t20, 325, ytop_exp-50);
 	  lcd_writeText(t20, "STO");
         }
 
@@ -367,12 +367,12 @@ void show_disp(void) { // This function re-draws everything.
         }
 
 	if (dots[RAD]) {
-	  lcd_setXY (t20, 275, ytop_exp-30);
+	  lcd_setXY (t20, 285, ytop_exp-30);
 	  lcd_writeText(t20, "RAD");
 	}
 
 	if (dots[DEG]) {
-	  lcd_setXY (t20, 320, ytop_exp-30);
+	  lcd_setXY (t20, 325, ytop_exp-30);
 	  lcd_writeText(t20, "360");
         }
         if (dots[RPN]) {
@@ -385,7 +385,7 @@ void show_disp(void) { // This function re-draws everything.
 	  for (j=0; j<6; j++) {
 	    if (dots[i*6+j+MATRIX_BASE]) {
 	      //  lcd_fill_rect( xleft-dwidth+2*i, ytop-(5+3*6)+j*2, 2, 2, 0xff);
-	      lcd_fill_rect( xleft-dwidth+5*i, ytop-(10+5*6)+j*5, 4, 4, 0xff);
+	      lcd_fill_rect( xleft-dwidth+5*i+15, ytop-(10+6*6)+j*6, 4, 5, 0xff);
 	    }
 	  }
 	}

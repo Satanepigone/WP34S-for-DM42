@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccYD6hAj.s 			page 1
+ARM GAS  /tmp/ccQmaUTi.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
   27:src/keys.c    **** #include "display.h"
   28:src/keys.c    **** #include "lcd.h"
   29:src/keys.c    **** #include "int.h"
-ARM GAS  /tmp/ccYD6hAj.s 			page 2
+ARM GAS  /tmp/ccQmaUTi.s 			page 2
 
 
   30:src/keys.c    **** #include "consts.h"
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
   84:src/keys.c    **** enum shifts cur_shift(void) {
   85:src/keys.c    **** 	enum shifts s = shift_down();
   86:src/keys.c    **** 	return s == SHIFT_N ? (enum shifts) State2.shifts : s;
-ARM GAS  /tmp/ccYD6hAj.s 			page 3
+ARM GAS  /tmp/ccQmaUTi.s 			page 3
 
 
   87:src/keys.c    **** }
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  141:src/keys.c    **** 		19, 20, 21, 22, 23,  0,   // K40 - K44
  142:src/keys.c    **** 		24, 25, 26, 27, 28,  0,   // K50 - K54
  143:src/keys.c    **** 		29, 30, 31, 32, 33,       // K60 - K64
-ARM GAS  /tmp/ccYD6hAj.s 			page 4
+ARM GAS  /tmp/ccQmaUTi.s 			page 4
 
 
  144:src/keys.c    **** 		34, 34, 34,  4,  5, 34,        // K_F, G, H, ARROW, CMPLX, NOP
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  198:src/keys.c    **** unsigned int keycode_to_digit_or_register(const keycode c)
  199:src/keys.c    **** {
  200:src/keys.c    ****   static const unsigned char map[] = {
-ARM GAS  /tmp/ccYD6hAj.s 			page 5
+ARM GAS  /tmp/ccQmaUTi.s 			page 5
 
 
  201:src/keys.c    ****     // K00 - K05
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  255:src/keys.c    **** {
  256:src/keys.c    ****   enum catalogues cat = CATALOGUE_NONE;
  257:src/keys.c    ****   int i, col, max;
-ARM GAS  /tmp/ccYD6hAj.s 			page 6
+ARM GAS  /tmp/ccQmaUTi.s 			page 6
 
 
  258:src/keys.c    ****   const struct _map {
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  312:src/keys.c    ****     if (shift != SHIFT_H) {
  313:src/keys.c    ****       /*
  314:src/keys.c    ****        *  All standard catalogues are on h-shifted keys
-ARM GAS  /tmp/ccYD6hAj.s 			page 7
+ARM GAS  /tmp/ccQmaUTi.s 			page 7
 
 
  315:src/keys.c    ****        */
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  369:src/keys.c    ****    */
  370:src/keys.c    ****   for (i = 0; i < max; ++i, ++cp) {
  371:src/keys.c    ****     if (cp->key == c) {
-ARM GAS  /tmp/ccYD6hAj.s 			page 8
+ARM GAS  /tmp/ccQmaUTi.s 			page 8
 
 
  372:src/keys.c    ****       cat = (enum catalogues) cp->cat[col];
@@ -460,25 +460,25 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  408:src/keys.c    **** 		{ 0000, 0000, 0000, 0000, 0000, 0000,  },  // K30
  409:src/keys.c    **** 		{ 'P',  '7',  0217, '&',  'p',  0257,  },  // K31
  410:src/keys.c    **** 		{ 'Q',  '8',  0000, '|',  'q',  0000,  },  // K32
- 411:src/keys.c    **** 		{ 'R',  '9',  'R',  0000, 'r',  0260,  },  // K33
- 412:src/keys.c    **** 		{ 'S',  '/',  0221, 0000, 's',  0261,  },  // K34
+ 411:src/keys.c    **** 		{ 'R',  '9',  'R',  0013, 'r',  0260,  },  // K33
+ 412:src/keys.c    **** 		{ 'S',  '/',  0221, '\\', 's',  0261,  },  // K34
  413:src/keys.c    **** 
- 414:src/keys.c    **** 		{ 0000, 0000, '!',  0000, 0000, 0000,  },  // K40
+ 414:src/keys.c    **** 		{ 0000, 0000, 0000, '!',  0000, 0000,  },  // K40
  415:src/keys.c    **** 		{ 'T',  '4',  'T',  0000, 't',  0262,  },  // K41
  416:src/keys.c    **** 		{ 'U',  '5',  0000, 0000, 'u',  0000,  },  // K42
  417:src/keys.c    **** 		{ 'V',  '6',  0000, 0000, 'v',  0000,  },  // K43
  418:src/keys.c    **** 		{ 'W', 0034,  0000, 0000, 'w',  0000,  },  // K44
  419:src/keys.c    **** 
- 420:src/keys.c    **** 		{ 0000, 0000, 0000, 0000, 0000, 0000,  },  // K50
+ 420:src/keys.c    **** 		{ 0000, 0000, 0000, '?',  0000, 0000,  },  // K50
  421:src/keys.c    **** 		{ 'X',  '1',  0215, 0000, 'x',  0255,  },  // K51
  422:src/keys.c    **** 		{ 'Y',  '2',  'Y',  0000, 'y',  0263,  },  // K52
  423:src/keys.c    **** 		{ 'Z',  '3',  'Z',  0000, 'z',  0245,  },  // K53
  424:src/keys.c    **** 		{ '-',  '(',  ')',  0000, 0000, 0000,  },  // K54
  425:src/keys.c    **** 
  426:src/keys.c    **** 		{ 0000, 0000, 0000, 0000, 0000, 0000,  },  // K60
- 427:src/keys.c    **** 		{ ':',  '0',  0207, 0000, ';',  0247,  },  // K61
+ 427:src/keys.c    **** 		{ ':',  '0',  0207, ' ',  ';',  0247,  },  // K61
  428:src/keys.c    **** 		{ '.',  '.',  0226, 0000, '.',  0266,  },  // K62
-ARM GAS  /tmp/ccYD6hAj.s 			page 9
+ARM GAS  /tmp/ccQmaUTi.s 			page 9
 
 
  429:src/keys.c    **** 		{ '?',  0000, 0041, 0000, 0000, 0000,  },  // K63
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  483:src/keys.c    **** 		{ 'V',  '3',  0000, 0000, 'v',  0000,  },  // K53
  484:src/keys.c    **** 		{ 'W',  0034, 0000, 0000, 'w',  0000,  },  // K54
  485:src/keys.c    **** 
-ARM GAS  /tmp/ccYD6hAj.s 			page 10
+ARM GAS  /tmp/ccQmaUTi.s 			page 10
 
 
  486:src/keys.c    **** 		{ 0000, 0222, 0000, 0000, 0000, 0000,  },  // K60
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  540:src/keys.c    **** 
  541:src/keys.c    **** 	case CATALOGUE_STATUS:
  542:src/keys.c    **** 		// Flag browser
-ARM GAS  /tmp/ccYD6hAj.s 			page 11
+ARM GAS  /tmp/ccQmaUTi.s 			page 11
 
 
  543:src/keys.c    **** 		State2.status = 1;
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  597:src/keys.c    **** void soft_init_state(void) {
  598:src/keys.c    **** 	int soft;
  599:src/keys.c    **** 	unsigned int runmode;
-ARM GAS  /tmp/ccYD6hAj.s 			page 12
+ARM GAS  /tmp/ccQmaUTi.s 			page 12
 
 
  600:src/keys.c    **** 	unsigned int alphas;
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  654:src/keys.c    **** 	if (State2.runmode) {
  655:src/keys.c    **** 		if (isXROM(pc))
  656:src/keys.c    **** 			pc = 1;
-ARM GAS  /tmp/ccYD6hAj.s 			page 13
+ARM GAS  /tmp/ccQmaUTi.s 			page 13
 
 
  657:src/keys.c    **** 		if (find_label_from(pc, code, FIND_OP_ENDS))
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  711:src/keys.c    **** 		// Row 7
  712:src/keys.c    **** 		STATE_UNFINISHED,	// ON/C
  713:src/keys.c    **** 		OP_SPEC | OP_0,
-ARM GAS  /tmp/ccYD6hAj.s 			page 14
+ARM GAS  /tmp/ccQmaUTi.s 			page 14
 
 
  714:src/keys.c    **** 		OP_SPEC | OP_DOT,
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  768:src/keys.c    **** 	case K01:
  769:src/keys.c    **** 		return check_f_key(1, op);
  770:src/keys.c    **** 	case K03:
-ARM GAS  /tmp/ccYD6hAj.s 			page 15
+ARM GAS  /tmp/ccQmaUTi.s 			page 15
 
 
  771:src/keys.c    **** 		return check_f_key(2, op);
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  825:src/keys.c    **** 		return STATE_BACKSPACE;
  826:src/keys.c    **** 
  827:src/keys.c    **** 	case K10:				// STO
-ARM GAS  /tmp/ccYD6hAj.s 			page 16
+ARM GAS  /tmp/ccQmaUTi.s 			page 16
 
 
  828:src/keys.c    **** 	case K11:				// RCL
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  882:src/keys.c    **** 		// Row 7
  883:src/keys.c    **** #ifdef INFRARED
  884:src/keys.c    **** 		{ RARG(RARG_PRINT_REG,regX_idx),   STATE_UNFINISHED	       },
-ARM GAS  /tmp/ccYD6hAj.s 			page 17
+ARM GAS  /tmp/ccQmaUTi.s 			page 17
 
 
  885:src/keys.c    **** #else
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  939:src/keys.c    **** 		}
  940:src/keys.c    **** 		break;
  941:src/keys.c    **** #endif
-ARM GAS  /tmp/ccYD6hAj.s 			page 18
+ARM GAS  /tmp/ccQmaUTi.s 			page 18
 
 
  942:src/keys.c    **** 	case K20:				// Alpha
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  996:src/keys.c    **** }
  997:src/keys.c    **** 
  998:src/keys.c    **** /*
-ARM GAS  /tmp/ccYD6hAj.s 			page 19
+ARM GAS  /tmp/ccQmaUTi.s 			page 19
 
 
  999:src/keys.c    ****  *  Process a key code after h shift
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1053:src/keys.c    **** 	};
 1054:src/keys.c    **** 
 1055:src/keys.c    **** 	int lc = keycode_to_linear(c);
-ARM GAS  /tmp/ccYD6hAj.s 			page 20
+ARM GAS  /tmp/ccQmaUTi.s 			page 20
 
 
 1056:src/keys.c    **** 	int op = op_map[lc];
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1110:src/keys.c    **** 		{ OP_CMON | OP_SQRT,	OP_CMON | OP_TAN,    OP_CMON | OP_ATAN,   STATE_UNFINISHED    },
 1111:src/keys.c    **** 		{ STATE_UNFINISHED,	OP_NIL | OP_P2R,     OP_NIL | OP_R2P,     STATE_UNFINISHED    },
 1112:src/keys.c    **** 		{ STATE_UNFINISHED,	STATE_UNFINISHED,    STATE_UNFINISHED,    STATE_UNFINISHED    }, // CPX
-ARM GAS  /tmp/ccYD6hAj.s 			page 21
+ARM GAS  /tmp/ccQmaUTi.s 			page 21
 
 
 1113:src/keys.c    **** 		// Row 2
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1167:src/keys.c    **** 		process_cmdline_set_lift();
 1168:src/keys.c    **** 		State2.hyp = 1;
 1169:src/keys.c    **** 		State2.dot = op;
-ARM GAS  /tmp/ccYD6hAj.s 			page 22
+ARM GAS  /tmp/ccQmaUTi.s 			page 22
 
 
 1170:src/keys.c    **** 		State2.cmplx = 1;
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1224:src/keys.c    **** 	};
 1225:src/keys.c    **** 	int cmplx = State2.cmplx;
 1226:src/keys.c    **** 	int f = State2.dot;
-ARM GAS  /tmp/ccYD6hAj.s 			page 23
+ARM GAS  /tmp/ccQmaUTi.s 			page 23
 
 
 1227:src/keys.c    **** 
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1281:src/keys.c    **** 	display_current_menu ();
 1282:src/keys.c    **** 
 1283:src/keys.c    **** 	if (shift == SHIFT_N) return STATE_UNFINISHED;
-ARM GAS  /tmp/ccYD6hAj.s 			page 24
+ARM GAS  /tmp/ccQmaUTi.s 			page 24
 
 
 1284:src/keys.c    **** 	
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
   60              		.loc 1 1298 12 view .LVU11
   61 0018 04EB4304 		add	r4, r4, r3, lsl #1
   62              	.LVL2:
-ARM GAS  /tmp/ccYD6hAj.s 			page 25
+ARM GAS  /tmp/ccQmaUTi.s 			page 25
 
 
 1299:src/keys.c    **** 
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  109              	.L5:
  110 0054 00000000 		.word	main_ram
  111 0058 00000000 		.word	StateWhileOn
-ARM GAS  /tmp/ccYD6hAj.s 			page 26
+ARM GAS  /tmp/ccQmaUTi.s 			page 26
 
 
  112 005c 67666666 		.word	1717986919
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  652:src/keys.c    **** 
  157              		.loc 1 652 15 view .LVU41
  158 0010 B3F8E037 		ldrh	r3, [r3, #2016]
-ARM GAS  /tmp/ccYD6hAj.s 			page 27
+ARM GAS  /tmp/ccQmaUTi.s 			page 27
 
 
  159              	.LVL10:
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  661:src/keys.c    **** 
  199              		.loc 1 661 1 view .LVU56
  200 0036 00BF     		.align	2
-ARM GAS  /tmp/ccYD6hAj.s 			page 28
+ARM GAS  /tmp/ccQmaUTi.s 			page 28
 
 
  201              	.L17:
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1347:src/keys.c    **** 		pc = State2.digval;
 1348:src/keys.c    **** 	}
 1349:src/keys.c    **** 	else if (c == K24) {
-ARM GAS  /tmp/ccYD6hAj.s 			page 29
+ARM GAS  /tmp/ccQmaUTi.s 			page 29
 
 
 1350:src/keys.c    **** 		// backspace
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1404:src/keys.c    **** 	case K11:	// RCL - maybe view
 1405:src/keys.c    **** 		if (shift == SHIFT_F) {
 1406:src/keys.c    **** 			init_arg(RARG_ARCL);
-ARM GAS  /tmp/ccYD6hAj.s 			page 30
+ARM GAS  /tmp/ccQmaUTi.s 			page 30
 
 
 1407:src/keys.c    **** 			return STATE_UNFINISHED;
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1461:src/keys.c    **** 		else if (shift == SHIFT_H)
 1462:src/keys.c    **** 			return OP_NIL | OP_OFF;
 1463:src/keys.c    **** 		else if (shift == SHIFT_N)
-ARM GAS  /tmp/ccYD6hAj.s 			page 31
+ARM GAS  /tmp/ccQmaUTi.s 			page 31
 
 
 1464:src/keys.c    **** 			init_state();
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1518:src/keys.c    **** 			return STATE_UNFINISHED;
 1519:src/keys.c    **** 	}
 1520:src/keys.c    **** 	// Build op-code
-ARM GAS  /tmp/ccYD6hAj.s 			page 32
+ARM GAS  /tmp/ccQmaUTi.s 			page 32
 
 
 1521:src/keys.c    **** 	reset_arg();
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1575:src/keys.c    **** 	if (argcmds[b].label || (b >= RARG_SF && b <= RARG_FCF))
 1576:src/keys.c    **** 	{
 1577:src/keys.c    **** 		if (State2.ind || State2.numdigit > 0)
-ARM GAS  /tmp/ccYD6hAj.s 			page 33
+ARM GAS  /tmp/ccQmaUTi.s 			page 33
 
 
 1578:src/keys.c    **** 			return STATE_UNFINISHED;
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1632:src/keys.c    **** 		}
 1633:src/keys.c    **** 	}
 1634:src/keys.c    **** 	return STATE_UNFINISHED;
-ARM GAS  /tmp/ccYD6hAj.s 			page 34
+ARM GAS  /tmp/ccQmaUTi.s 			page 34
 
 
 1635:src/keys.c    **** }
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1689:src/keys.c    **** 	if (base >= RARG_FIX && base <= RARG_SIG0) {
 1690:src/keys.c    **** 		switch ((int)c) {
 1691:src/keys.c    **** 		case K_UP:	// up arrow
-ARM GAS  /tmp/ccYD6hAj.s 			page 35
+ARM GAS  /tmp/ccQmaUTi.s 			page 35
 
 
 1692:src/keys.c    **** 			if (--base < RARG_FIX)
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1746:src/keys.c    **** 	  if (State2.shuffle)
 1747:src/keys.c    **** 	    return process_arg_shuffle(1);
 1748:src/keys.c    **** #endif
-ARM GAS  /tmp/ccYD6hAj.s 			page 36
+ARM GAS  /tmp/ccQmaUTi.s 			page 36
 
 
 1749:src/keys.c    **** 	case K00:	// A
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1803:src/keys.c    **** 			return arg_eval(n);
 1804:src/keys.c    **** 		break;
 1805:src/keys.c    **** 
-ARM GAS  /tmp/ccYD6hAj.s 			page 37
+ARM GAS  /tmp/ccQmaUTi.s 			page 37
 
 
 1806:src/keys.c    **** 	case K54:
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1860:src/keys.c    **** 			else if (State2.ind)
 1861:src/keys.c    **** 				State2.ind = 0;
 1862:src/keys.c    **** 			else
-ARM GAS  /tmp/ccYD6hAj.s 			page 38
+ARM GAS  /tmp/ccQmaUTi.s 			page 38
 
 
 1863:src/keys.c    **** 				goto reset;
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1917:src/keys.c    **** 		init_arg((enum rarg)base);
 1918:src/keys.c    **** 		return process_arg(c);
 1919:src/keys.c    **** 	}
-ARM GAS  /tmp/ccYD6hAj.s 			page 39
+ARM GAS  /tmp/ccQmaUTi.s 			page 39
 
 
 1920:src/keys.c    **** 
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1974:src/keys.c    **** 			char buf2[16];
 1975:src/keys.c    **** 			const char *p, *q;
 1976:src/keys.c    **** 			int diff = 0;
-ARM GAS  /tmp/ccYD6hAj.s 			page 40
+ARM GAS  /tmp/ccQmaUTi.s 			page 40
 
 
 1977:src/keys.c    **** 			if (op == UserCat[i]) {
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2031:src/keys.c    **** 		SIZE_mode_catalogue,
 2032:src/keys.c    **** 		SIZE_alpha_catalogue,
 2033:src/keys.c    **** 		SIZE_alpha_symbols,
-ARM GAS  /tmp/ccYD6hAj.s 			page 41
+ARM GAS  /tmp/ccQmaUTi.s 			page 41
 
 
 2034:src/keys.c    **** 		SIZE_alpha_compares,
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2088:src/keys.c    **** 		NULL,
 2089:src/keys.c    **** 		NULL, //CONV
 2090:src/keys.c    **** 		sums_catalogue,
-ARM GAS  /tmp/ccYD6hAj.s 			page 42
+ARM GAS  /tmp/ccQmaUTi.s 			page 42
 
 
 2091:src/keys.c    **** 		matrix_catalogue,
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2145:src/keys.c    **** 		m -= opcode_breaks[i];
 2146:src/keys.c    **** 	}
 2147:src/keys.c    **** 	return RARG_BASEOP(m);
-ARM GAS  /tmp/ccYD6hAj.s 			page 43
+ARM GAS  /tmp/ccQmaUTi.s 			page 43
 
 
 2148:src/keys.c    **** }
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2202:src/keys.c    **** 				goto set_pos;
 2203:src/keys.c    **** 			} else
 2204:src/keys.c    **** 				init_cat(CATALOGUE_NONE);
-ARM GAS  /tmp/ccYD6hAj.s 			page 44
+ARM GAS  /tmp/ccQmaUTi.s 			page 44
 
 
 2205:src/keys.c    **** 			return STATE_UNFINISHED;
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2259:src/keys.c    **** 			// Handle alpha shift in alpha character catalogues
 2260:src/keys.c    **** 			State2.alphashift = 1 - State2.alphashift;
 2261:src/keys.c    **** 			return STATE_UNFINISHED;
-ARM GAS  /tmp/ccYD6hAj.s 			page 45
+ARM GAS  /tmp/ccQmaUTi.s 			page 45
 
 
 2262:src/keys.c    **** 		}
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2316:src/keys.c    **** 	int pos;
 2317:src/keys.c    **** 	const int ctmax = current_catalogue_max();
 2318:src/keys.c    **** 	for (pos = 0; pos < ctmax; ++pos) {
-ARM GAS  /tmp/ccYD6hAj.s 			page 46
+ARM GAS  /tmp/ccQmaUTi.s 			page 46
 
 
 2319:src/keys.c    **** 		char buf[16];
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2373:src/keys.c    **** 		goto fin;
 2374:src/keys.c    **** 
 2375:src/keys.c    **** 	case K24:	// Clx - backspace, clear alpha
-ARM GAS  /tmp/ccYD6hAj.s 			page 47
+ARM GAS  /tmp/ccQmaUTi.s 			page 47
 
 
 2376:src/keys.c    **** 		if (shift != SHIFT_H) {
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2430:src/keys.c    **** 	  case confirm_reset:	 reset();	break;
 2431:src/keys.c    **** 	  case confirm_clprog:	 clrprog();	break;
 2432:src/keys.c    **** 	  case confirm_clpall:	 clpall();	break;
-ARM GAS  /tmp/ccYD6hAj.s 			page 48
+ARM GAS  /tmp/ccQmaUTi.s 			page 48
 
 
 2433:src/keys.c    **** 	  }
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2487:src/keys.c    ****  */
 2488:src/keys.c    **** static int is_label_or_end_at(unsigned int pc, int search_end) {
  218              		.loc 1 2488 64 is_stmt 1 view -0
-ARM GAS  /tmp/ccYD6hAj.s 			page 49
+ARM GAS  /tmp/ccQmaUTi.s 			page 49
 
 
  219              		.cfi_startproc
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  264              		.loc 1 2492 1 discriminator 5 view .LVU72
  265 002e 10BD     		pop	{r4, pc}
  266              		.loc 1 2492 1 discriminator 5 view .LVU73
-ARM GAS  /tmp/ccYD6hAj.s 			page 50
+ARM GAS  /tmp/ccQmaUTi.s 			page 50
 
 
  267              		.cfi_endproc
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  310              		.loc 1 2504 7 view .LVU85
  311 0010 B8B9     		cbnz	r0, .L28
  312              	.LVL29:
-ARM GAS  /tmp/ccYD6hAj.s 			page 51
+ARM GAS  /tmp/ccQmaUTi.s 			page 51
 
 
  313              	.L29:
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  354              	.LVL34:
  355              	.L38:
  356              		.loc 1 2511 1 view .LVU100
-ARM GAS  /tmp/ccYD6hAj.s 			page 52
+ARM GAS  /tmp/ccQmaUTi.s 			page 52
 
 
  357 0046 00BF     		.align	2
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  402 0012 92F8DC17 		ldrb	r1, [r2, #2012]	@ zero_extendqisi2
  403 0016 63F30401 		bfi	r1, r3, #0, #5
  404 001a 82F8DC17 		strb	r1, [r2, #2012]
-ARM GAS  /tmp/ccYD6hAj.s 			page 53
+ARM GAS  /tmp/ccQmaUTi.s 			page 53
 
 
  518:src/keys.c    **** 	}
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  440              		.loc 1 92 20 view .LVU130
  441              	.LBB234:
   93:src/keys.c    **** 	State2.shifts = shift;
-ARM GAS  /tmp/ccYD6hAj.s 			page 54
+ARM GAS  /tmp/ccQmaUTi.s 			page 54
 
 
  442              		.loc 1 93 2 view .LVU131
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  522:src/keys.c    **** 	State2.registerlist = 0;
  480              		.loc 1 522 19 view .LVU148
  481 0048 23F00C03 		bic	r3, r3, #12
-ARM GAS  /tmp/ccYD6hAj.s 			page 55
+ARM GAS  /tmp/ccQmaUTi.s 			page 55
 
 
  527:src/keys.c    **** 	case CATALOGUE_LABELS:
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  518              	.LVL43:
   86:src/keys.c    **** }
  519              		.loc 1 86 2 is_stmt 1 view .LVU167
-ARM GAS  /tmp/ccYD6hAj.s 			page 56
+ARM GAS  /tmp/ccQmaUTi.s 			page 56
 
 
  520              	.LBE237:
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  558 0084 2081     		strh	r0, [r4, #8]	@ movhi
  532:src/keys.c    **** 	
  559              		.loc 1 532 3 is_stmt 1 view .LVU184
-ARM GAS  /tmp/ccYD6hAj.s 			page 57
+ARM GAS  /tmp/ccQmaUTi.s 			page 57
 
 
  560              	.L45:
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  536:src/keys.c    **** 		State2.digval = regX_idx;
  598              		.loc 1 536 3 is_stmt 1 view .LVU201
  536:src/keys.c    **** 		State2.digval = regX_idx;
-ARM GAS  /tmp/ccYD6hAj.s 			page 58
+ARM GAS  /tmp/ccQmaUTi.s 			page 58
 
 
  599              		.loc 1 536 23 is_stmt 0 view .LVU202
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  635              		.loc 1 94 2 view .LVU220
   94:src/keys.c    **** 	State2.alpha_pos = 0;
  636              		.loc 1 94 16 is_stmt 0 view .LVU221
-ARM GAS  /tmp/ccYD6hAj.s 			page 59
+ARM GAS  /tmp/ccQmaUTi.s 			page 59
 
 
  637 00a4 0023     		movs	r3, #0
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  552:src/keys.c    **** 		}
  675              		.loc 1 552 17 is_stmt 0 view .LVU238
  676 00ca B2F8DC37 		ldrh	r3, [r2, #2012]
-ARM GAS  /tmp/ccYD6hAj.s 			page 60
+ARM GAS  /tmp/ccQmaUTi.s 			page 60
 
 
  677 00ce 6FF34B13 		bfc	r3, #5, #7
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  726 0006 0D46     		mov	r5, r1
  727              	.LVL53:
  728              	.L61:
-ARM GAS  /tmp/ccYD6hAj.s 			page 61
+ARM GAS  /tmp/ccQmaUTi.s 			page 61
 
 
 2514:src/keys.c    **** 	do {
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2525:src/keys.c    **** 	} while (! is_label_or_end_at(pc, search_end));
 2526:src/keys.c    **** 	return pc;
 2527:src/keys.c    **** }
-ARM GAS  /tmp/ccYD6hAj.s 			page 62
+ARM GAS  /tmp/ccQmaUTi.s 			page 62
 
 
  765              		.loc 1 2527 1 view .LVU264
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  814              	.LBB256:
  621:src/keys.c    **** 		if (nilop >= OP_CLALL && nilop <= OP_CLPALL) {
  815              		.loc 1 621 3 view .LVU274
-ARM GAS  /tmp/ccYD6hAj.s 			page 63
+ARM GAS  /tmp/ccQmaUTi.s 			page 63
 
 
  622:src/keys.c    **** 			State2.confirm = confirm_clall + (nilop - OP_CLALL);
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  854              	.LVL65:
  624:src/keys.c    **** 		}
  855              		.loc 1 624 11 view .LVU291
-ARM GAS  /tmp/ccYD6hAj.s 			page 64
+ARM GAS  /tmp/ccQmaUTi.s 			page 64
 
 
  856 0026 7047     		bx	lr
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  506:src/keys.c    **** 	State2.numdigit = 0;
  902              		.loc 1 506 16 view .LVU302
  903 001c 1981     		strh	r1, [r3, #8]	@ movhi
-ARM GAS  /tmp/ccYD6hAj.s 			page 65
+ARM GAS  /tmp/ccQmaUTi.s 			page 65
 
 
  507:src/keys.c    **** 	State2.rarg = 1;
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  948              	.LBB261:
  949              	.LBB260:
  502:src/keys.c    **** 		return;
-ARM GAS  /tmp/ccYD6hAj.s 			page 66
+ARM GAS  /tmp/ccQmaUTi.s 			page 66
 
 
  950              		.loc 1 502 6 view .LVU315
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  997              		.cfi_offset 4, -16
  998              		.cfi_offset 5, -12
  999              		.cfi_offset 6, -8
-ARM GAS  /tmp/ccYD6hAj.s 			page 67
+ARM GAS  /tmp/ccQmaUTi.s 			page 67
 
 
  1000              		.cfi_offset 14, -4
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  1040              		.loc 1 1512 3 is_stmt 1 view .LVU338
 1512:src/keys.c    **** 			// Disallow odd complex register > 98
  1041              		.loc 1 1512 20 is_stmt 0 view .LVU339
-ARM GAS  /tmp/ccYD6hAj.s 			page 68
+ARM GAS  /tmp/ccQmaUTi.s 			page 68
 
 
  1042 0038 104B     		ldr	r3, .L106+8
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  1083 005e FFF7FEFF 		bl	reset_arg
  1084              	.LVL81:
 1522:src/keys.c    **** }
-ARM GAS  /tmp/ccYD6hAj.s 			page 69
+ARM GAS  /tmp/ccQmaUTi.s 			page 69
 
 
  1085              		.loc 1 1522 2 view .LVU353
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  1133              		.loc 1 1638 31 view .LVU361
  1134 0002 0A4A     		ldr	r2, .L111
  1135 0004 D37A     		ldrb	r3, [r2, #11]	@ zero_extendqisi2
-ARM GAS  /tmp/ccYD6hAj.s 			page 70
+ARM GAS  /tmp/ccQmaUTi.s 			page 70
 
 
 1638:src/keys.c    **** 	if (State2.numdigit < 4)
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  1176              		.align	2
  1177              	.L111:
  1178 002c 00000000 		.word	StateWhileOn
-ARM GAS  /tmp/ccYD6hAj.s 			page 71
+ARM GAS  /tmp/ccQmaUTi.s 			page 71
 
 
  1179              		.cfi_endproc
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  1223 0012 5179     		ldrb	r1, [r2, #5]	@ zero_extendqisi2
 1534:src/keys.c    **** 	
  1224              		.loc 1 1534 39 view .LVU388
-ARM GAS  /tmp/ccYD6hAj.s 			page 72
+ARM GAS  /tmp/ccQmaUTi.s 			page 72
 
 
  1225 0014 8E07     		lsls	r6, r1, #30
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  1262              		.loc 1 1543 5 is_stmt 1 view .LVU405
 1543:src/keys.c    **** 				if (lim >= MAX_LOCAL_DIRECT)
  1263              		.loc 1 1543 11 is_stmt 0 view .LVU406
-ARM GAS  /tmp/ccYD6hAj.s 			page 73
+ARM GAS  /tmp/ccQmaUTi.s 			page 73
 
 
  1264 0038 3846     		mov	r0, r7
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  1302              	.LVL97:
 1561:src/keys.c    **** 		int result = arg_eval(val);
  1303              		.loc 1 1561 49 discriminator 1 view .LVU423
-ARM GAS  /tmp/ccYD6hAj.s 			page 74
+ARM GAS  /tmp/ccQmaUTi.s 			page 74
 
 
  1304 0060 FFF7FEFF 		bl	num_arg_digits
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  1344              		.loc 1 1570 1 view .LVU437
  1345 0084 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
  1346              	.LVL103:
-ARM GAS  /tmp/ccYD6hAj.s 			page 75
+ARM GAS  /tmp/ccQmaUTi.s 			page 75
 
 
  1347              	.L114:
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  1386 00a8 2389     		ldrh	r3, [r4, #8]
  1387 00aa 0A49     		ldr	r1, .L138+12
 1564:src/keys.c    **** 			State2.digval /= 10;
-ARM GAS  /tmp/ccYD6hAj.s 			page 76
+ARM GAS  /tmp/ccQmaUTi.s 			page 76
 
 
  1388              		.loc 1 1564 4 view .LVU453
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  1435              		@ args = 0, pretend = 0, frame = 0
  1436              		@ frame_needed = 0, uses_anonymous_args = 0
  667:src/keys.c    **** }
-ARM GAS  /tmp/ccYD6hAj.s 			page 77
+ARM GAS  /tmp/ccQmaUTi.s 			page 77
 
 
  1437              		.loc 1 667 2 view .LVU463
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  1479              		.loc 1 667 43 view .LVU475
  1480 0026 8442     		cmp	r4, r0
  1481 0028 ACBF     		ite	ge
-ARM GAS  /tmp/ccYD6hAj.s 			page 78
+ARM GAS  /tmp/ccQmaUTi.s 			page 78
 
 
  1482 002a 0020     		movge	r0, #0
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2555:src/keys.c    **** 		pc = advance_to_previous_label(advance_to_previous_label(pc, 1), 1);
 2556:src/keys.c    **** 		goto next;
 2557:src/keys.c    **** 
-ARM GAS  /tmp/ccYD6hAj.s 			page 79
+ARM GAS  /tmp/ccQmaUTi.s 			page 79
 
 
 2558:src/keys.c    **** 	case K_DOWN | (SHIFT_F << 8):		// Find next program
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2612:src/keys.c    **** #endif		
 2613:src/keys.c    **** 	case K63:				// R/S
 2614:src/keys.c    **** 		if (direct && label) {
-ARM GAS  /tmp/ccYD6hAj.s 			page 80
+ARM GAS  /tmp/ccQmaUTi.s 			page 80
 
 
 2615:src/keys.c    **** 			cmdgtocommon(1, pc);	// set pc and push return address
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2648:src/keys.c    **** 				State2.window = is_dblmode();
 2649:src/keys.c    **** 		}
 2650:src/keys.c    **** 		else {
-ARM GAS  /tmp/ccYD6hAj.s 			page 81
+ARM GAS  /tmp/ccQmaUTi.s 			page 81
 
 
 2651:src/keys.c    **** 			if (UState.intm) {
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2657:src/keys.c    **** 		}
  1560              		.loc 1 2657 19 is_stmt 0 view .LVU496
  1561 0030 227D     		ldrb	r2, [r4, #20]	@ zero_extendqisi2
-ARM GAS  /tmp/ccYD6hAj.s 			page 82
+ARM GAS  /tmp/ccQmaUTi.s 			page 82
 
 
  1562 0032 63F3C502 		bfi	r2, r3, #3, #3
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  1603              		.loc 1 2661 1 view .LVU511
  1604 005a 38BD     		pop	{r3, r4, r5, pc}
  1605              	.LVL127:
-ARM GAS  /tmp/ccYD6hAj.s 			page 83
+ARM GAS  /tmp/ccQmaUTi.s 			page 83
 
 
  1606              	.L164:
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  1646 0082 237D     		ldrb	r3, [r4, #20]	@ zero_extendqisi2
  1647 0084 60F3C503 		bfi	r3, r0, #3, #3
  1648 0088 2375     		strb	r3, [r4, #20]
-ARM GAS  /tmp/ccYD6hAj.s 			page 84
+ARM GAS  /tmp/ccQmaUTi.s 			page 84
 
 
  1649 008a D5E7     		b	.L157
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  1696              	.LBB289:
 1591:src/keys.c    **** #endif
  1697              		.loc 1 1591 41 is_stmt 0 view .LVU536
-ARM GAS  /tmp/ccYD6hAj.s 			page 85
+ARM GAS  /tmp/ccQmaUTi.s 			page 85
 
 
  1698 000c 19B1     		cbz	r1, .L170
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  1738 0024 19B1     		cbz	r1, .L175
 1591:src/keys.c    **** #endif
  1739              		.loc 1 1591 51 view .LVU551
-ARM GAS  /tmp/ccYD6hAj.s 			page 86
+ARM GAS  /tmp/ccQmaUTi.s 			page 86
 
 
  1740 0026 152B     		cmp	r3, #21
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  1780              	.L201:
  1781              		.align	2
  1782              	.L200:
-ARM GAS  /tmp/ccYD6hAj.s 			page 87
+ARM GAS  /tmp/ccQmaUTi.s 			page 87
 
 
  1783 0040 00000000 		.word	StateWhileOn
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  221:src/keys.c    **** }
  1831              		.loc 1 221 28 view .LVU574
  1832 000e AC4A     		ldr	r2, .L317+8
-ARM GAS  /tmp/ccYD6hAj.s 			page 88
+ARM GAS  /tmp/ccQmaUTi.s 			page 88
 
 
  1833              	.LBB321:
@@ -5278,7 +5278,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  1875              		.loc 1 200 3 view .LVU586
  221:src/keys.c    **** }
  1876              		.loc 1 221 3 view .LVU587
-ARM GAS  /tmp/ccYD6hAj.s 			page 89
+ARM GAS  /tmp/ccQmaUTi.s 			page 89
 
 
  1877              	.LBB322:
@@ -5338,7 +5338,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1648:src/keys.c    **** 	const enum shifts previous_shift = (enum shifts) State2.shifts;
  1916              		.loc 1 1648 31 is_stmt 0 view .LVU603
  1917 003e 4FEA071A 		lsl	r10, r7, #4
-ARM GAS  /tmp/ccYD6hAj.s 			page 90
+ARM GAS  /tmp/ccQmaUTi.s 			page 90
 
 
  1918              	.LBB343:
@@ -5398,7 +5398,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  1961 005a 1EF0200F 		tst	lr, #32
 1651:src/keys.c    **** 	int shorthand = label_addressing && c != K_F 
  1962              		.loc 1 1651 38 view .LVU615
-ARM GAS  /tmp/ccYD6hAj.s 			page 91
+ARM GAS  /tmp/ccQmaUTi.s 			page 91
 
 
  1963 005e CEF34011 		ubfx	r1, lr, #5, #1
@@ -5458,7 +5458,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  2002              		.loc 1 1661 35 view .LVU630
  2003 008a 10F4103F 		tst	r0, #147456
 1651:src/keys.c    **** 	int shorthand = label_addressing && c != K_F 
-ARM GAS  /tmp/ccYD6hAj.s 			page 92
+ARM GAS  /tmp/ccQmaUTi.s 			page 92
 
 
  2004              		.loc 1 1651 61 view .LVU631
@@ -5518,7 +5518,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  2055 00ea 4900     		.2byte	(.L304-.L268)/2
  2056 00ec 1801     		.2byte	(.L243-.L268)/2
  2057 00ee B000     		.2byte	(.L225-.L268)/2
-ARM GAS  /tmp/ccYD6hAj.s 			page 93
+ARM GAS  /tmp/ccQmaUTi.s 			page 93
 
 
  2058 00f0 4900     		.2byte	(.L304-.L268)/2
@@ -5578,7 +5578,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1655:src/keys.c    **** 	if (base >= NUM_RARG) {
  2102              		.loc 1 1655 2 is_stmt 1 view .LVU645
 1656:src/keys.c    **** 		reset_arg();
-ARM GAS  /tmp/ccYD6hAj.s 			page 94
+ARM GAS  /tmp/ccQmaUTi.s 			page 94
 
 
  2103              		.loc 1 1656 5 is_stmt 0 view .LVU646
@@ -5638,7 +5638,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  2143              		.loc 1 1766 6 is_stmt 0 view .LVU660
  2144 0142 032E     		cmp	r6, #3
  2145 0144 F3D8     		bhi	.L304
-ARM GAS  /tmp/ccYD6hAj.s 			page 95
+ARM GAS  /tmp/ccQmaUTi.s 			page 95
 
 
 1767:src/keys.c    **** 		break;
@@ -5698,7 +5698,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  2185 0168 632B     		cmp	r3, #99
  2186 016a E0D9     		bls	.L304
 1581:src/keys.c    **** 	}
-ARM GAS  /tmp/ccYD6hAj.s 			page 96
+ARM GAS  /tmp/ccQmaUTi.s 			page 96
 
 
  2187              		.loc 1 1581 3 is_stmt 1 view .LVU676
@@ -5758,7 +5758,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  2228              	.L209:
 1653:src/keys.c    **** 
  2229              		.loc 1 1653 42 discriminator 4 view .LVU690
-ARM GAS  /tmp/ccYD6hAj.s 			page 97
+ARM GAS  /tmp/ccQmaUTi.s 			page 97
 
 
  2230 019a 19F0800F 		tst	r9, #128
@@ -5818,7 +5818,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  2268 01c0 3044     		add	r0, r0, r6
  2269              	.LVL176:
  2270              	.L306:
-ARM GAS  /tmp/ccYD6hAj.s 			page 98
+ARM GAS  /tmp/ccQmaUTi.s 			page 98
 
 
 1881:src/keys.c    **** 
@@ -5878,7 +5878,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1787:src/keys.c    **** 		break;
  2315              		.loc 1 1787 11 is_stmt 0 view .LVU717
  2316 01e4 2846     		mov	r0, r5
-ARM GAS  /tmp/ccYD6hAj.s 			page 99
+ARM GAS  /tmp/ccQmaUTi.s 			page 99
 
 
  2317 01e6 ECE7     		b	.L306
@@ -5938,7 +5938,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  2360 01fc BCF1000F 		cmp	ip, #0
  2361 0200 95D0     		beq	.L304
  2362              	.L226:
-ARM GAS  /tmp/ccYD6hAj.s 			page 100
+ARM GAS  /tmp/ccQmaUTi.s 			page 100
 
 
 1712:src/keys.c    **** 		break;
@@ -5998,7 +5998,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  2403              	.LBE356:
  2404              	.LBE359:
 1880:src/keys.c    **** }
-ARM GAS  /tmp/ccYD6hAj.s 			page 101
+ARM GAS  /tmp/ccQmaUTi.s 			page 101
 
 
  2405              		.loc 1 1880 9 is_stmt 0 view .LVU743
@@ -6058,7 +6058,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1729:src/keys.c    **** 		break;
  2444              		.loc 1 1729 4 is_stmt 1 view .LVU759
 1729:src/keys.c    **** 		break;
-ARM GAS  /tmp/ccYD6hAj.s 			page 102
+ARM GAS  /tmp/ccQmaUTi.s 			page 102
 
 
  2445              		.loc 1 1729 12 is_stmt 0 view .LVU760
@@ -6118,7 +6118,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  2485              	.LVL192:
 1784:src/keys.c    **** 	case K44:		// multiply
  2486              		.loc 1 1784 3 view .LVU775
-ARM GAS  /tmp/ccYD6hAj.s 			page 103
+ARM GAS  /tmp/ccQmaUTi.s 			page 103
 
 
 1880:src/keys.c    **** }
@@ -6178,7 +6178,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  2525              		.loc 1 1628 4 is_stmt 1 view .LVU791
 1629:src/keys.c    **** 				reset_arg();
  2526              		.loc 1 1629 5 view .LVU792
-ARM GAS  /tmp/ccYD6hAj.s 			page 104
+ARM GAS  /tmp/ccQmaUTi.s 			page 104
 
 
 1629:src/keys.c    **** 				reset_arg();
@@ -6238,7 +6238,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1716:src/keys.c    **** 			State2.ind = ! State2.ind;
  2570              		.loc 1 1716 7 is_stmt 0 view .LVU804
  2571 02ea 637D     		ldrb	r3, [r4, #21]	@ zero_extendqisi2
-ARM GAS  /tmp/ccYD6hAj.s 			page 105
+ARM GAS  /tmp/ccQmaUTi.s 			page 105
 
 
 1716:src/keys.c    **** 			State2.ind = ! State2.ind;
@@ -6298,7 +6298,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  2610 0326 0020     		movs	r0, #0
  2611              	.L307:
 1881:src/keys.c    **** 
-ARM GAS  /tmp/ccYD6hAj.s 			page 106
+ARM GAS  /tmp/ccQmaUTi.s 			page 106
 
 
  2612              		.loc 1 1881 1 view .LVU821
@@ -6358,7 +6358,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  2654              		.loc 1 1743 13 is_stmt 0 view .LVU833
  2655 0346 0220     		movs	r0, #2
  2656 0348 EEE7     		b	.L307
-ARM GAS  /tmp/ccYD6hAj.s 			page 107
+ARM GAS  /tmp/ccQmaUTi.s 			page 107
 
 
  2657              	.L254:
@@ -6418,7 +6418,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  2695 0370 7BBB     		cbnz	r3, .L263
 1856:src/keys.c    **** 				State2.dot = 0;
  2696              		.loc 1 1856 4 is_stmt 1 view .LVU850
-ARM GAS  /tmp/ccYD6hAj.s 			page 108
+ARM GAS  /tmp/ccQmaUTi.s 			page 108
 
 
 1856:src/keys.c    **** 				State2.dot = 0;
@@ -6478,7 +6478,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  2734 03a2 4F2F     		cmp	r7, #79
  2735 03a4 5ED0     		beq	.L316
 1846:src/keys.c    **** 				State2.dot = 1;
-ARM GAS  /tmp/ccYD6hAj.s 			page 109
+ARM GAS  /tmp/ccQmaUTi.s 			page 109
 
 
  2736              		.loc 1 1846 11 is_stmt 1 view .LVU868
@@ -6538,7 +6538,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1866:src/keys.c    **** 			if (State2.shuffle)
  2774              		.loc 1 1866 4 view .LVU885
  2775 03da E372     		strb	r3, [r4, #11]
-ARM GAS  /tmp/ccYD6hAj.s 			page 110
+ARM GAS  /tmp/ccQmaUTi.s 			page 110
 
 
 1867:src/keys.c    **** 				State2.digval &= ~(3 << (State2.numdigit << 1));
@@ -6598,7 +6598,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  2815              	.L267:
 1624:src/keys.c    **** 		}
  2816              		.loc 1 1624 17 view .LVU901
-ARM GAS  /tmp/ccYD6hAj.s 			page 111
+ARM GAS  /tmp/ccQmaUTi.s 			page 111
 
 
  2817              	.LBE363:
@@ -6658,7 +6658,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  2857              		.loc 1 1859 18 is_stmt 0 view .LVU915
  2858 042c 61F30002 		bfi	r2, r1, #0, #1
  2859 0430 A275     		strb	r2, [r4, #22]
-ARM GAS  /tmp/ccYD6hAj.s 			page 112
+ARM GAS  /tmp/ccQmaUTi.s 			page 112
 
 
 1880:src/keys.c    **** }
@@ -6718,7 +6718,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  2901              	.L315:
 1841:src/keys.c    **** 				return OP_NIL | OP_FIXSCI;
  2902              		.loc 1 1841 5 is_stmt 1 view .LVU929
-ARM GAS  /tmp/ccYD6hAj.s 			page 113
+ARM GAS  /tmp/ccQmaUTi.s 			page 113
 
 
  2903 045a FFF7FEFF 		bl	reset_arg
@@ -6778,7 +6778,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  2949              		.cfi_offset 14, -4
   85:src/keys.c    **** 	return s == SHIFT_N ? (enum shifts) State2.shifts : s;
  2950              		.loc 1 85 18 view .LVU940
-ARM GAS  /tmp/ccYD6hAj.s 			page 114
+ARM GAS  /tmp/ccQmaUTi.s 			page 114
 
 
  2951 0002 FFF7FEFF 		bl	shift_down
@@ -6838,7 +6838,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  2997              	.LBE374:
  2998              	.LBE373:
  2999              	.LBE372:
-ARM GAS  /tmp/ccYD6hAj.s 			page 115
+ARM GAS  /tmp/ccQmaUTi.s 			page 115
 
 
  3000              	.LBE371:
@@ -6898,7 +6898,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  3042              	.LFE2:
  3044              		.section	.text.keycode_to_row_column,"ax",%progbits
  3045              		.align	1
-ARM GAS  /tmp/ccYD6hAj.s 			page 116
+ARM GAS  /tmp/ccQmaUTi.s 			page 116
 
 
  3046              		.p2align 2,,3
@@ -6958,7 +6958,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  3096              	.LFB7:
  178:src/keys.c    **** 	int row = c / 10 - 1;
  3097              		.loc 1 178 1 is_stmt 1 view -0
-ARM GAS  /tmp/ccYD6hAj.s 			page 117
+ARM GAS  /tmp/ccQmaUTi.s 			page 117
 
 
  3098              		.cfi_startproc
@@ -7018,7 +7018,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  3137              		.loc 1 184 17 view .LVU985
  3138 002e 00EB4300 		add	r0, r0, r3, lsl #1
  3139              	.LVL226:
-ARM GAS  /tmp/ccYD6hAj.s 			page 118
+ARM GAS  /tmp/ccQmaUTi.s 			page 118
 
 
  184:src/keys.c    **** }
@@ -7078,7 +7078,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  3185              		.loc 1 221 28 view .LVU996
  3186 0002 034A     		ldr	r2, .L345+4
  3187              	.LBB382:
-ARM GAS  /tmp/ccYD6hAj.s 			page 119
+ARM GAS  /tmp/ccQmaUTi.s 			page 119
 
 
  3188              	.LBB381:
@@ -7138,7 +7138,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  3235              		.loc 1 578 2 view .LVU1005
  3236 0008 1422     		movs	r2, #20
  3237 000a 04F10800 		add	r0, r4, #8
-ARM GAS  /tmp/ccYD6hAj.s 			page 120
+ARM GAS  /tmp/ccQmaUTi.s 			page 120
 
 
  574:src/keys.c    **** 	// Removed: will clear any locals on power off
@@ -7198,7 +7198,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  587:src/keys.c    **** #ifndef REALBUILD
  3275              		.loc 1 587 10 view .LVU1023
  3276 003a 84F81380 		strb	r8, [r4, #19]
-ARM GAS  /tmp/ccYD6hAj.s 			page 121
+ARM GAS  /tmp/ccQmaUTi.s 			page 121
 
 
  566:src/keys.c    **** 	unsigned int b = State2.trace;
@@ -7258,7 +7258,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  590:src/keys.c    **** #else
  3310              		.loc 1 590 2 view .LVU1045
  594:src/keys.c    **** }
-ARM GAS  /tmp/ccYD6hAj.s 			page 122
+ARM GAS  /tmp/ccQmaUTi.s 			page 122
 
 
  3311              		.loc 1 594 2 view .LVU1046
@@ -7318,7 +7318,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  3356 0006 D3B9     		cbnz	r3, .L357
  608:src/keys.c    **** 			State2.cmplx || State2.arrow || State2.test != TST_NONE || State2.status;
  3357              		.loc 1 608 2 is_stmt 1 view .LVU1058
-ARM GAS  /tmp/ccYD6hAj.s 			page 123
+ARM GAS  /tmp/ccQmaUTi.s 			page 123
 
 
  609:src/keys.c    **** 	runmode = State2.runmode;
@@ -7378,7 +7378,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  617:src/keys.c    **** 
  3397              		.loc 1 617 1 is_stmt 0 view .LVU1074
  3398 0036 BDE83840 		pop	{r3, r4, r5, lr}
-ARM GAS  /tmp/ccYD6hAj.s 			page 124
+ARM GAS  /tmp/ccQmaUTi.s 			page 124
 
 
  3399              		.cfi_remember_state
@@ -7438,7 +7438,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2017:src/keys.c    **** 	// A quick table of catalogue sizes
  3446              		.loc 1 2017 33 is_stmt 1 view -0
  3447              		.cfi_startproc
-ARM GAS  /tmp/ccYD6hAj.s 			page 125
+ARM GAS  /tmp/ccQmaUTi.s 			page 125
 
 
  3448              		@ args = 0, pretend = 0, frame = 0
@@ -7498,7 +7498,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  3492              		.loc 1 2097 15 view .LVU1096
  3493 0002 937B     		ldrb	r3, [r2, #14]	@ zero_extendqisi2
  3494              	.LVL245:
-ARM GAS  /tmp/ccYD6hAj.s 			page 126
+ARM GAS  /tmp/ccQmaUTi.s 			page 126
 
 
 2098:src/keys.c    **** 	unsigned p, q;
@@ -7558,7 +7558,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2136:src/keys.c    **** 	p = cat[0];
  3530              		.loc 1 2136 2 is_stmt 1 view .LVU1116
 2066:src/keys.c    **** 	// A quick table of catalogue tables
-ARM GAS  /tmp/ccYD6hAj.s 			page 127
+ARM GAS  /tmp/ccQmaUTi.s 			page 127
 
 
  3531              		.loc 1 2066 33 is_stmt 0 view .LVU1117
@@ -7618,7 +7618,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  3569 0048 1843     		orrs	r0, r0, r3
 2139:src/keys.c    **** 
  3570              		.loc 1 2139 4 view .LVU1134
-ARM GAS  /tmp/ccYD6hAj.s 			page 128
+ARM GAS  /tmp/ccQmaUTi.s 			page 128
 
 
  3571 004a C0F30903 		ubfx	r3, r0, #0, #10
@@ -7678,7 +7678,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  3608              		.loc 1 2147 9 view .LVU1151
  3609 006a 0002     		lsls	r0, r0, #8
  3610              	.L363:
-ARM GAS  /tmp/ccYD6hAj.s 			page 129
+ARM GAS  /tmp/ccQmaUTi.s 			page 129
 
 
 2148:src/keys.c    **** 
@@ -7738,7 +7738,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  3650              		.loc 1 2125 7 discriminator 1 view .LVU1166
  3651 008c 11F0100F 		tst	r1, #16
  3652 0090 18BF     		it	ne
-ARM GAS  /tmp/ccYD6hAj.s 			page 130
+ARM GAS  /tmp/ccQmaUTi.s 			page 130
 
 
  3653 0092 1A46     		movne	r2, r3
@@ -7798,7 +7798,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  3692 00a6 40F40070 		orrgt	r0, r0, #512
 2117:src/keys.c    **** 	}
  3693              		.loc 1 2117 4 is_stmt 1 view .LVU1182
-ARM GAS  /tmp/ccYD6hAj.s 			page 131
+ARM GAS  /tmp/ccQmaUTi.s 			page 131
 
 
 2117:src/keys.c    **** 	}
@@ -7858,7 +7858,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  3737 00d0 01000000 		.word	.LANCHOR7+1
  3738 00d4 00000000 		.word	.LANCHOR4
  3739 00d8 00000000 		.word	.LANCHOR3
-ARM GAS  /tmp/ccYD6hAj.s 			page 132
+ARM GAS  /tmp/ccQmaUTi.s 			page 132
 
 
  3740 00dc 00000000 		.word	.LANCHOR5
@@ -7918,7 +7918,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  3789              	.LBB397:
  3790              	.LBB393:
 2051:src/keys.c    **** #endif
-ARM GAS  /tmp/ccYD6hAj.s 			page 133
+ARM GAS  /tmp/ccQmaUTi.s 			page 133
 
 
  3791              		.loc 1 2051 24 view .LVU1201
@@ -7978,7 +7978,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  3829 002a 00F0EE80 		beq	.L492
 2263:src/keys.c    **** 		if (c == K24 && cat == CATALOGUE_SUMS) {
  3830              		.loc 1 2263 9 is_stmt 1 view .LVU1218
-ARM GAS  /tmp/ccYD6hAj.s 			page 134
+ARM GAS  /tmp/ccQmaUTi.s 			page 134
 
 
 2263:src/keys.c    **** 		if (c == K24 && cat == CATALOGUE_SUMS) {
@@ -8038,7 +8038,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  3873 0044 585C     		ldrb	r0, [r3, r1]	@ zero_extendqisi2
  3874              	.LVL286:
 2273:src/keys.c    **** 	reset_shift();
-ARM GAS  /tmp/ccYD6hAj.s 			page 135
+ARM GAS  /tmp/ccQmaUTi.s 			page 135
 
 
  3875              		.loc 1 2273 7 view .LVU1231
@@ -8098,7 +8098,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  3913              	.LBE414:
  3914              	.LBE415:
  3915              	.LBE417:
-ARM GAS  /tmp/ccYD6hAj.s 			page 136
+ARM GAS  /tmp/ccQmaUTi.s 			page 136
 
 
 2275:src/keys.c    **** 		return STATE_UNFINISHED;
@@ -8158,7 +8158,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  3954              	.LVL295:
  3955 0082 6946     		mov	r1, sp
  3956 0084 FFF7FEFF 		bl	catcmd
-ARM GAS  /tmp/ccYD6hAj.s 			page 137
+ARM GAS  /tmp/ccQmaUTi.s 			page 137
 
 
  3957              	.LVL296:
@@ -8218,7 +8218,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  3997              		.loc 1 2295 18 is_stmt 0 view .LVU1277
  3998 00b2 FFF7FEFF 		bl	remap_chars
  3999              	.LVL303:
-ARM GAS  /tmp/ccYD6hAj.s 			page 138
+ARM GAS  /tmp/ccQmaUTi.s 			page 138
 
 
 2299:src/keys.c    **** 				break;
@@ -8278,7 +8278,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2308:src/keys.c    **** 		--pos;
  4039              		.loc 1 2308 8 view .LVU1293
  4040              	.LBB423:
-ARM GAS  /tmp/ccYD6hAj.s 			page 139
+ARM GAS  /tmp/ccQmaUTi.s 			page 139
 
 
  4041              	.LBI423:
@@ -8338,7 +8338,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  4083              	.L396:
  4084 0100 35       		.byte	(.L400-.L396)/2
  4085 0101 2E       		.byte	(.L394-.L396)/2
-ARM GAS  /tmp/ccYD6hAj.s 			page 140
+ARM GAS  /tmp/ccQmaUTi.s 			page 140
 
 
  4086 0102 2E       		.byte	(.L394-.L396)/2
@@ -8398,7 +8398,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  4133 0132 62F30413 		bfi	r3, r2, #4, #1
  4134 0136 B375     		strb	r3, [r6, #22]
  4135              	.LVL314:
-ARM GAS  /tmp/ccYD6hAj.s 			page 141
+ARM GAS  /tmp/ccQmaUTi.s 			page 141
 
 
  4136              	.L490:
@@ -8458,7 +8458,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  384:src/keys.c    **** {
  4179              		.loc 1 384 12 is_stmt 1 discriminator 4 view .LVU1324
  4180              	.LBB406:
-ARM GAS  /tmp/ccYD6hAj.s 			page 142
+ARM GAS  /tmp/ccQmaUTi.s 			page 142
 
 
  386:src/keys.c    **** 		/*upper f-sft g-sft h-sft lower g-lower */
@@ -8518,7 +8518,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  4221 017e F02B     		cmp	r3, #240
  4222              	.LBB429:
  4223              	.LBB428:
-ARM GAS  /tmp/ccYD6hAj.s 			page 143
+ARM GAS  /tmp/ccQmaUTi.s 			page 143
 
 
 2156:src/keys.c    **** }
@@ -8578,7 +8578,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  4263              		.loc 1 2185 6 is_stmt 1 view .LVU1353
 2185:src/keys.c    **** 						State2.test = TST_EQ + (RARG_CMD(op) - RARG_TEST_EQ);
  4264              		.loc 1 2185 31 is_stmt 0 view .LVU1354
-ARM GAS  /tmp/ccYD6hAj.s 			page 144
+ARM GAS  /tmp/ccQmaUTi.s 			page 144
 
 
  4265 01b6 A5F12D02 		sub	r2, r5, #45
@@ -8638,7 +8638,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2220:src/keys.c    **** 			while (++pos < ctmax && is_multi && forbidden_alpha(pos));
  4305              		.loc 1 2220 18 is_stmt 0 view .LVU1369
  4306 01d6 0023     		movs	r3, #0
-ARM GAS  /tmp/ccYD6hAj.s 			page 145
+ARM GAS  /tmp/ccQmaUTi.s 			page 145
 
 
  4307 01d8 3377     		strb	r3, [r6, #28]
@@ -8698,7 +8698,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  4348 01f0 F4DC     		bgt	.L499
  4349              	.LVL334:
 2308:src/keys.c    **** 		--pos;
-ARM GAS  /tmp/ccYD6hAj.s 			page 146
+ARM GAS  /tmp/ccQmaUTi.s 			page 146
 
 
  4350              		.loc 1 2308 8 is_stmt 1 view .LVU1383
@@ -8758,7 +8758,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  4390              	.LBB448:
  384:src/keys.c    **** {
  4391              		.loc 1 384 12 view .LVU1398
-ARM GAS  /tmp/ccYD6hAj.s 			page 147
+ARM GAS  /tmp/ccQmaUTi.s 			page 147
 
 
  4392              	.LBB407:
@@ -8818,7 +8818,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  4432              		.loc 1 2287 2 view .LVU1412
  4433 0232 92F82030 		ldrb	r3, [r2, #32]	@ zero_extendqisi2
  4434              	.LVL348:
-ARM GAS  /tmp/ccYD6hAj.s 			page 148
+ARM GAS  /tmp/ccQmaUTi.s 			page 148
 
 
 2287:src/keys.c    **** 		char buf[16];
@@ -8878,7 +8878,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  4474              	.LBE450:
 2230:src/keys.c    **** 			/*
  4475              		.loc 1 2230 29 discriminator 1 view .LVU1428
-ARM GAS  /tmp/ccYD6hAj.s 			page 149
+ARM GAS  /tmp/ccQmaUTi.s 			page 149
 
 
  4476 0254 0128     		cmp	r0, #1
@@ -8938,7 +8938,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  4514 0278 357F     		ldrb	r5, [r6, #28]	@ zero_extendqisi2
  4515              	.LVL361:
 2199:src/keys.c    **** 					goto search;
-ARM GAS  /tmp/ccYD6hAj.s 			page 150
+ARM GAS  /tmp/ccQmaUTi.s 			page 150
 
 
  4516              		.loc 1 2199 13 view .LVU1445
@@ -8998,7 +8998,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  4559              	.LBB436:
  620:src/keys.c    **** 		const int nilop = argKIND(op);
  4560              		.loc 1 620 5 is_stmt 0 view .LVU1457
-ARM GAS  /tmp/ccYD6hAj.s 			page 151
+ARM GAS  /tmp/ccQmaUTi.s 			page 151
 
 
  4561 02aa C4F30723 		ubfx	r3, r4, #8, #8
@@ -9058,7 +9058,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  4603              		.loc 1 2162 92 view .LVU1469
  4604 02cc 31F8022F 		ldrh	r2, [r1, #2]!
  4605              	.LVL374:
-ARM GAS  /tmp/ccYD6hAj.s 			page 152
+ARM GAS  /tmp/ccQmaUTi.s 			page 152
 
 
  4606              	.L422:
@@ -9118,7 +9118,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  4648 0300 0028     		cmp	r0, #0
  4649 0302 7FF419AF 		bne	.L490
  4650 0306 2846     		mov	r0, r5
-ARM GAS  /tmp/ccYD6hAj.s 			page 153
+ARM GAS  /tmp/ccQmaUTi.s 			page 153
 
 
  4651 0308 FFF7FEFF 		bl	init_arg.part.0
@@ -9178,7 +9178,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  4697              		.loc 1 2051 2 view .LVU1491
  4698              	.LBE457:
  4699              	.LBE456:
-ARM GAS  /tmp/ccYD6hAj.s 			page 154
+ARM GAS  /tmp/ccQmaUTi.s 			page 154
 
 
 2315:src/keys.c    **** 	int pos;
@@ -9238,7 +9238,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  4741              		.loc 1 2320 3 view .LVU1504
 2320:src/keys.c    **** 		int i;
  4742              		.loc 1 2320 21 is_stmt 0 view .LVU1505
-ARM GAS  /tmp/ccYD6hAj.s 			page 155
+ARM GAS  /tmp/ccQmaUTi.s 			page 155
 
 
  4743 0020 4046     		mov	r0, r8
@@ -9298,7 +9298,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  4784              	.L513:
  4785              	.LBB462:
 2326:src/keys.c    **** 			const int cl = remap_chars(text[i]);
-ARM GAS  /tmp/ccYD6hAj.s 			page 156
+ARM GAS  /tmp/ccQmaUTi.s 			page 156
 
 
  4786              		.loc 1 2326 4 is_stmt 1 view .LVU1519
@@ -9358,7 +9358,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  4828              	.L511:
 2333:src/keys.c    **** 			return pos;
  4829              		.loc 1 2333 3 is_stmt 1 view .LVU1532
-ARM GAS  /tmp/ccYD6hAj.s 			page 157
+ARM GAS  /tmp/ccQmaUTi.s 			page 157
 
 
 2333:src/keys.c    **** 			return pos;
@@ -9418,7 +9418,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2670:src/keys.c    **** 	if (n == LOCAL_REG_BASE) {	// '.'
 2671:src/keys.c    **** 		if (local_regs())
 2672:src/keys.c    **** 			State2.local = ! State2.local && ! State2.digval2;
-ARM GAS  /tmp/ccYD6hAj.s 			page 158
+ARM GAS  /tmp/ccQmaUTi.s 			page 158
 
 
 2673:src/keys.c    **** 		State2.digval = State2.local ? 0 : regX_idx;
@@ -9478,7 +9478,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2727:src/keys.c    **** 			State2.disp_as_alpha = 1;
 2728:src/keys.c    **** 			goto reset_window;
 2729:src/keys.c    **** 		}
-ARM GAS  /tmp/ccYD6hAj.s 			page 159
+ARM GAS  /tmp/ccQmaUTi.s 			page 159
 
 
 2730:src/keys.c    **** 	case K11:		// RCL
@@ -9538,7 +9538,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2784:src/keys.c    ****    */
 2785:src/keys.c    ****   if (c == K60 && shift == SHIFT_N && ! State2.catalogue) {
 2786:src/keys.c    ****     soft_init_state();
-ARM GAS  /tmp/ccYD6hAj.s 			page 160
+ARM GAS  /tmp/ccQmaUTi.s 			page 160
 
 
 2787:src/keys.c    ****     return STATE_UNFINISHED;
@@ -9598,7 +9598,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2841:src/keys.c    **** 	 *  The handlers in this block need to call reset_shift somewhere
 2842:src/keys.c    **** 	 */
 2843:src/keys.c    **** 	// print_debug (2, c);
-ARM GAS  /tmp/ccYD6hAj.s 			page 161
+ARM GAS  /tmp/ccQmaUTi.s 			page 161
 
 
 2844:src/keys.c    **** 	if (State2.arrow)
@@ -9658,7 +9658,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2898:src/keys.c    **** 	}
 2899:src/keys.c    **** }
 2900:src/keys.c    **** 
-ARM GAS  /tmp/ccYD6hAj.s 			page 162
+ARM GAS  /tmp/ccQmaUTi.s 			page 162
 
 
 2901:src/keys.c    ****  unsigned int get_alpha_state ( void ) {
@@ -9718,7 +9718,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  4919              		.p2align 2,,3
  4920              		.global	process_keycode
  4921              		.syntax unified
-ARM GAS  /tmp/ccYD6hAj.s 			page 163
+ARM GAS  /tmp/ccQmaUTi.s 			page 163
 
 
  4922              		.thumb
@@ -9778,7 +9778,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  4951 0006 A94D     		ldr	r5, .L1147+4
  4952              		.loc 1 2930 6 view .LVU1553
  4953 0008 3368     		ldr	r3, [r6]
-ARM GAS  /tmp/ccYD6hAj.s 			page 164
+ARM GAS  /tmp/ccQmaUTi.s 			page 164
 
 
 2926:src/keys.c    ****   static int was_paused;
@@ -9838,7 +9838,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2957:src/keys.c    **** 	  OpCodeDisplayPending = 0;
 2958:src/keys.c    **** 	  if (OpCode == (OP_NIL | OP_RS)) {
 2959:src/keys.c    **** 	    DispMsg = "RUN";
-ARM GAS  /tmp/ccYD6hAj.s 			page 165
+ARM GAS  /tmp/ccQmaUTi.s 			page 165
 
 
 2960:src/keys.c    **** 	  }
@@ -9898,7 +9898,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  4983              		.loc 1 3008 5 view .LVU1567
  4984 002a FFF7FEFF 		bl	xeq_init_contexts
  4985              	.LVL403:
-ARM GAS  /tmp/ccYD6hAj.s 			page 166
+ARM GAS  /tmp/ccQmaUTi.s 			page 166
 
 
  4986              		.loc 1 3009 5 is_stmt 1 view .LVU1568
@@ -9958,7 +9958,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  5013 0052 1A60     		str	r2, [r3]
  5014              		.loc 1 3034 3 is_stmt 1 view .LVU1581
  5015              		.loc 1 3034 6 is_stmt 0 view .LVU1582
-ARM GAS  /tmp/ccYD6hAj.s 			page 167
+ARM GAS  /tmp/ccQmaUTi.s 			page 167
 
 
  5016 0054 40F0D281 		bne	.L555
@@ -10018,7 +10018,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 3047:src/keys.c    **** 	  xeq(c);
  5053              		.loc 1 3047 4 is_stmt 1 view .LVU1600
 3048:src/keys.c    **** 	  if (Running || Pause)
-ARM GAS  /tmp/ccYD6hAj.s 			page 168
+ARM GAS  /tmp/ccQmaUTi.s 			page 168
 
 
  5054              		.loc 1 3048 8 is_stmt 0 view .LVU1601
@@ -10078,7 +10078,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  5081              		.loc 1 3074 9 is_stmt 0 view .LVU1610
  5082 00a0 2768     		ldr	r7, [r4]
  5083              		.loc 1 3074 8 view .LVU1611
-ARM GAS  /tmp/ccYD6hAj.s 			page 169
+ARM GAS  /tmp/ccQmaUTi.s 			page 169
 
 
  5084 00a2 002F     		cmp	r7, #0
@@ -10138,7 +10138,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 3125:src/keys.c    **** 	  if (c != (OP_SPEC | OP_ENTER) || !is_bad_cmdline()) {
 3126:src/keys.c    **** 	    // Data entry key
 3127:src/keys.c    **** #ifndef CONSOLE
-ARM GAS  /tmp/ccYD6hAj.s 			page 170
+ARM GAS  /tmp/ccQmaUTi.s 			page 170
 
 
 3128:src/keys.c    **** 	    WasDataEntry = 1;
@@ -10198,7 +10198,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  5116 00ce D9F80050 		ldr	r5, [r9]
  5117              	.LVL413:
 3154:src/keys.c    **** 
-ARM GAS  /tmp/ccYD6hAj.s 			page 171
+ARM GAS  /tmp/ccQmaUTi.s 			page 171
 
 
 3155:src/keys.c    ****     WasDataEntry &= !(c == (OP_SPEC | OP_ENTER) || cmdline_empty || State2.invalid_disp);
@@ -10258,7 +10258,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2945:src/keys.c    ****       /*
  5162              		.loc 1 2945 9 is_stmt 0 view .LVU1637
  5163 0102 FFF7FEFF 		bl	keyticks
-ARM GAS  /tmp/ccYD6hAj.s 			page 172
+ARM GAS  /tmp/ccQmaUTi.s 			page 172
 
 
  5164              	.LVL418:
@@ -10318,7 +10318,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  5201              	.LVL419:
 2966:src/keys.c    **** 	}
  5202              		.loc 1 2966 4 view .LVU1655
-ARM GAS  /tmp/ccYD6hAj.s 			page 173
+ARM GAS  /tmp/ccQmaUTi.s 			page 173
 
 
 2966:src/keys.c    **** 	}
@@ -10378,7 +10378,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  5241              		.loc 1 3083 18 view .LVU1671
  5242 015e 0022     		movs	r2, #0
 3084:src/keys.c    ****     c = process(c);		// returns an op-code or state
-ARM GAS  /tmp/ccYD6hAj.s 			page 174
+ARM GAS  /tmp/ccQmaUTi.s 			page 174
 
 
  5243              		.loc 1 3084 13 view .LVU1672
@@ -10438,7 +10438,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  5281 0178 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
  5282 017a 2BB3     		cbz	r3, .L570
  5283              	.L569:
-ARM GAS  /tmp/ccYD6hAj.s 			page 175
+ARM GAS  /tmp/ccQmaUTi.s 			page 175
 
 
 2762:src/keys.c    ****       if (Pause && isXROM(state_pc()))
@@ -10498,7 +10498,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  5320              		.loc 1 3108 7 is_stmt 1 view .LVU1706
  5321 019c FFF7FEFF 		bl	xeqprog
  5322              	.LVL426:
-ARM GAS  /tmp/ccYD6hAj.s 			page 176
+ARM GAS  /tmp/ccQmaUTi.s 			page 176
 
 
 3109:src/keys.c    **** 
@@ -10558,7 +10558,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  5364              		.loc 1 2791 2 is_stmt 1 view .LVU1719
 2791:src/keys.c    **** 		// Avoid an accidental restart with R/S
  5365              		.loc 1 2791 5 is_stmt 0 view .LVU1720
-ARM GAS  /tmp/ccYD6hAj.s 			page 177
+ARM GAS  /tmp/ccQmaUTi.s 			page 177
 
 
  5366 01ce 272C     		cmp	r4, #39
@@ -10618,7 +10618,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  5406 01f0 3060     		str	r0, [r6]
  5407 01f2 AAE7     		b	.L549
  5408              	.LVL435:
-ARM GAS  /tmp/ccYD6hAj.s 			page 178
+ARM GAS  /tmp/ccQmaUTi.s 			page 178
 
 
  5409              	.L578:
@@ -10678,7 +10678,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  5446              		.loc 1 2818 5 view .LVU1751
  5447 022e BBF1070F 		cmp	fp, #7
  5448 0232 40F00D84 		bne	.L1085
-ARM GAS  /tmp/ccYD6hAj.s 			page 179
+ARM GAS  /tmp/ccQmaUTi.s 			page 179
 
 
 2821:src/keys.c    **** 		return process_status((const keycode)c);
@@ -10738,7 +10738,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  5484 025a 212C     		cmp	r4, #33
  5485 025c 00F05E85 		beq	.L1091
  266:src/keys.c    ****     /*
-ARM GAS  /tmp/ccYD6hAj.s 			page 180
+ARM GAS  /tmp/ccQmaUTi.s 			page 180
 
 
  5486              		.loc 1 266 3 is_stmt 1 view .LVU1771
@@ -10798,7 +10798,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  324:src/keys.c    **** #else
  5525              		.loc 1 324 73 view .LVU1787
  5526 0298 4FF0020C 		mov	ip, #2
-ARM GAS  /tmp/ccYD6hAj.s 			page 181
+ARM GAS  /tmp/ccQmaUTi.s 			page 181
 
 
  5527              	.LVL438:
@@ -10858,7 +10858,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  371:src/keys.c    ****       cat = (enum catalogues) cp->cat[col];
  5571              		.loc 1 371 8 is_stmt 0 view .LVU1798
  5572 02ec 8C42     		cmp	r4, r1
-ARM GAS  /tmp/ccYD6hAj.s 			page 182
+ARM GAS  /tmp/ccQmaUTi.s 			page 182
 
 
  5573 02ee 00F0FB84 		beq	.L1093
@@ -10918,7 +10918,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  5611 0320 12F0020B 		ands	fp, r2, #2
  5612 0324 41F00D81 		bne	.L1099
 2892:src/keys.c    **** 			return process_fg_shifted((const keycode)c);
-ARM GAS  /tmp/ccYD6hAj.s 			page 183
+ARM GAS  /tmp/ccQmaUTi.s 			page 183
 
 
  5613              		.loc 1 2892 3 is_stmt 1 view .LVU1815
@@ -10978,7 +10978,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  5651 0340 1268     		ldr	r2, [r2]
  5652              	.LBB667:
  5653              	.LBB665:
-ARM GAS  /tmp/ccYD6hAj.s 			page 184
+ARM GAS  /tmp/ccQmaUTi.s 			page 184
 
 
  146:src/keys.c    **** }
@@ -11038,7 +11038,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  5697 0384 1701     		.2byte	(.L594-.L855)/2
  5698 0386 3502     		.2byte	(.L812-.L855)/2
  5699 0388 1701     		.2byte	(.L594-.L855)/2
-ARM GAS  /tmp/ccYD6hAj.s 			page 185
+ARM GAS  /tmp/ccQmaUTi.s 			page 185
 
 
  5700 038a 1701     		.2byte	(.L594-.L855)/2
@@ -11098,7 +11098,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2763:src/keys.c    **** 	set_pc(0);
  5748              		.loc 1 2763 10 view .LVU1849
  5749 03c8 3BB1     		cbz	r3, .L573
-ARM GAS  /tmp/ccYD6hAj.s 			page 186
+ARM GAS  /tmp/ccQmaUTi.s 			page 186
 
 
 2763:src/keys.c    **** 	set_pc(0);
@@ -11158,7 +11158,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2770:src/keys.c    ****     }
  5789              		.loc 1 2770 14 view .LVU1865
  5790 03fc 8F4E     		ldr	r6, .L1149+28
-ARM GAS  /tmp/ccYD6hAj.s 			page 187
+ARM GAS  /tmp/ccQmaUTi.s 			page 187
 
 
  5791 03fe 3368     		ldr	r3, [r6]
@@ -11218,7 +11218,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  5833 0430 40F06582 		bne	.L567
 3061:src/keys.c    **** 	}
  5834              		.loc 1 3061 4 is_stmt 1 view .LVU1878
-ARM GAS  /tmp/ccYD6hAj.s 			page 188
+ARM GAS  /tmp/ccQmaUTi.s 			page 188
 
 
  5835              		.loc 1 3163 1 is_stmt 0 view .LVU1879
@@ -11278,7 +11278,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  5880 045c 0C28     		cmp	r0, #12
  5881 045e 7FF76BAE 		ble	.L542
 2972:src/keys.c    **** 	  message("NULL", CNULL);
-ARM GAS  /tmp/ccYD6hAj.s 			page 189
+ARM GAS  /tmp/ccQmaUTi.s 			page 189
 
 
  5882              		.loc 1 2972 4 is_stmt 1 view .LVU1889
@@ -11338,7 +11338,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1226:src/keys.c    **** 
  5923              		.loc 1 1226 2 is_stmt 1 view .LVU1903
 1226:src/keys.c    **** 
-ARM GAS  /tmp/ccYD6hAj.s 			page 190
+ARM GAS  /tmp/ccQmaUTi.s 			page 190
 
 
  5924              		.loc 1 1226 16 is_stmt 0 view .LVU1904
@@ -11398,7 +11398,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1234:src/keys.c    **** 
  5965              		.loc 1 1234 2 is_stmt 0 view .LVU1918
  5966 048e 2A2C     		cmp	r4, #42
-ARM GAS  /tmp/ccYD6hAj.s 			page 191
+ARM GAS  /tmp/ccQmaUTi.s 			page 191
 
 
  5967              	.LBB695:
@@ -11458,7 +11458,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  6008              	.LVL471:
  6009              	.L620:
 1239:src/keys.c    **** 
-ARM GAS  /tmp/ccYD6hAj.s 			page 192
+ARM GAS  /tmp/ccQmaUTi.s 			page 192
 
 
  6010              		.loc 1 1239 37 view .LVU1932
@@ -11518,7 +11518,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  6050              	.LBI702:
 2350:src/keys.c    **** 	enum shifts shift = reset_shift();
  6051              		.loc 1 2350 12 view .LVU1947
-ARM GAS  /tmp/ccYD6hAj.s 			page 193
+ARM GAS  /tmp/ccQmaUTi.s 			page 193
 
 
  6052              	.LBB703:
@@ -11578,7 +11578,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  6094              	.LBE711:
 2355:src/keys.c    **** 		// Alpha catalogue from within multi character command
  6095              		.loc 1 2355 5 is_stmt 0 view .LVU1960
-ARM GAS  /tmp/ccYD6hAj.s 			page 194
+ARM GAS  /tmp/ccQmaUTi.s 			page 194
 
 
  6096 04fa 98F80E20 		ldrb	r2, [r8, #14]	@ zero_extendqisi2
@@ -11638,7 +11638,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  6136              	.LBB719:
  386:src/keys.c    **** 		/*upper f-sft g-sft h-sft lower g-lower */
  6137              		.loc 1 386 2 view .LVU1975
-ARM GAS  /tmp/ccYD6hAj.s 			page 195
+ARM GAS  /tmp/ccQmaUTi.s 			page 195
 
 
  434:src/keys.c    **** 		if (shift == SHIFT_N)
@@ -11698,7 +11698,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  6177              		.loc 1 2398 2 is_stmt 1 view .LVU1990
 2398:src/keys.c    **** 		return STATE_UNFINISHED;
  6178              		.loc 1 2398 5 is_stmt 0 view .LVU1991
-ARM GAS  /tmp/ccYD6hAj.s 			page 196
+ARM GAS  /tmp/ccQmaUTi.s 			page 196
 
 
  6179 053e 002B     		cmp	r3, #0
@@ -11758,7 +11758,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  6217              	.LBE721:
 2413:src/keys.c    **** 	       + State2.digval + (State2.digval2 << 16) + (ch << 24);
  6218              		.loc 1 2413 2 is_stmt 1 view .LVU2008
-ARM GAS  /tmp/ccYD6hAj.s 			page 197
+ARM GAS  /tmp/ccQmaUTi.s 			page 197
 
 
 2415:src/keys.c    **** }
@@ -11818,7 +11818,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 3113:src/keys.c    **** 	set_window(c);
  6262              		.loc 1 3113 7 view .LVU2020
 3113:src/keys.c    **** 	set_window(c);
-ARM GAS  /tmp/ccYD6hAj.s 			page 198
+ARM GAS  /tmp/ccQmaUTi.s 			page 198
 
 
  6263              		.loc 1 3113 12 is_stmt 0 view .LVU2021
@@ -11878,7 +11878,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  6305              		.loc 1 1448 7 view .LVU2033
  6306              	.LBE738:
  6307              	.LBE737:
-ARM GAS  /tmp/ccYD6hAj.s 			page 199
+ARM GAS  /tmp/ccQmaUTi.s 			page 199
 
 
  6308              	.LBE1182:
@@ -11938,7 +11938,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  6345 0618 4FF0300B 		mov	fp, #48
  6346 061c 44E5     		b	.L565
  6347              	.L1150:
-ARM GAS  /tmp/ccYD6hAj.s 			page 200
+ARM GAS  /tmp/ccQmaUTi.s 			page 200
 
 
  6348 061e 00BF     		.align	2
@@ -11998,7 +11998,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  6391              		.loc 1 3125 4 is_stmt 1 view .LVU2061
 3125:src/keys.c    **** 	    // Data entry key
  6392              		.loc 1 3125 7 is_stmt 0 view .LVU2062
-ARM GAS  /tmp/ccYD6hAj.s 			page 201
+ARM GAS  /tmp/ccQmaUTi.s 			page 201
 
 
  6393 067c BBF1000F 		cmp	fp, #0
@@ -12058,7 +12058,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  6432              	.LBB1237:
  6433              	.LBB1183:
  6434              	.LBB794:
-ARM GAS  /tmp/ccYD6hAj.s 			page 202
+ARM GAS  /tmp/ccQmaUTi.s 			page 202
 
 
  6435              	.LBB670:
@@ -12118,7 +12118,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  6481              	.L813:
  6482 06ec 65080000 		.word	.L816+1
  6483 06f0 91050000 		.word	.L594+1
-ARM GAS  /tmp/ccYD6hAj.s 			page 203
+ARM GAS  /tmp/ccQmaUTi.s 			page 203
 
 
  6484 06f4 91050000 		.word	.L594+1
@@ -12178,7 +12178,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  6535 0798 B8F80830 		ldrh	r3, [r8, #8]
 2694:src/keys.c    **** 			if (! State2.local && State2.digval == TOPREALREG)
  6536              		.loc 1 2694 6 view .LVU2089
-ARM GAS  /tmp/ccYD6hAj.s 			page 204
+ARM GAS  /tmp/ccQmaUTi.s 			page 204
 
 
  6537 079c 002B     		cmp	r3, #0
@@ -12238,7 +12238,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  6579              	.LBB669:
  502:src/keys.c    **** 		return;
  6580              		.loc 1 502 2 view .LVU2102
-ARM GAS  /tmp/ccYD6hAj.s 			page 205
+ARM GAS  /tmp/ccQmaUTi.s 			page 205
 
 
  502:src/keys.c    **** 		return;
@@ -12298,7 +12298,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  6626              	.LVL508:
  6627              	.L803:
  6628              	.LBB1239:
-ARM GAS  /tmp/ccYD6hAj.s 			page 206
+ARM GAS  /tmp/ccQmaUTi.s 			page 206
 
 
  6629              	.LBB1185:
@@ -12358,7 +12358,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 3124:src/keys.c    **** 	  if (c != (OP_SPEC | OP_ENTER) || !is_bad_cmdline()) {
  6670              		.loc 1 3124 32 is_stmt 0 view .LVU2125
  6671 0812 5846     		mov	r0, fp
-ARM GAS  /tmp/ccYD6hAj.s 			page 207
+ARM GAS  /tmp/ccQmaUTi.s 			page 207
 
 
  6672 0814 3BE7     		b	.L834
@@ -12418,7 +12418,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  6714 0830 1A60     		str	r2, [r3]
 3124:src/keys.c    **** 	  if (c != (OP_SPEC | OP_ENTER) || !is_bad_cmdline()) {
  6715              		.loc 1 3124 2 is_stmt 1 view .LVU2138
-ARM GAS  /tmp/ccYD6hAj.s 			page 208
+ARM GAS  /tmp/ccQmaUTi.s 			page 208
 
 
 3124:src/keys.c    **** 	  if (c != (OP_SPEC | OP_ENTER) || !is_bad_cmdline()) {
@@ -12478,7 +12478,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  6757              	.LVL519:
  6758 0860 8346     		mov	fp, r0
  6759 0862 95E6     		b	.L594
-ARM GAS  /tmp/ccYD6hAj.s 			page 209
+ARM GAS  /tmp/ccQmaUTi.s 			page 209
 
 
  6760              	.LVL520:
@@ -12538,7 +12538,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  6800              		.loc 1 806 3 view .LVU2165
  6801              	.LBE677:
  6802              	.LBE833:
-ARM GAS  /tmp/ccYD6hAj.s 			page 210
+ARM GAS  /tmp/ccQmaUTi.s 			page 210
 
 
  6803              	.LBE1189:
@@ -12598,7 +12598,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2800:src/keys.c    **** 		CmdLineLength = 0;
  6851              		.loc 1 2800 23 view .LVU2172
  6852 08de 1E28     		cmp	r0, #30
-ARM GAS  /tmp/ccYD6hAj.s 			page 211
+ARM GAS  /tmp/ccQmaUTi.s 			page 211
 
 
 2801:src/keys.c    **** 	/*
@@ -12658,7 +12658,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2962:src/keys.c    **** 	    DispMsg = TraceBuffer;
  6900              		.loc 1 2962 6 is_stmt 1 view .LVU2181
  6901 0908 254F     		ldr	r7, .L1151+8
-ARM GAS  /tmp/ccYD6hAj.s 			page 212
+ARM GAS  /tmp/ccQmaUTi.s 			page 212
 
 
  6902 090a 3946     		mov	r1, r7
@@ -12718,7 +12718,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  6950 096c C7070000 		.word	.L1060+1
  6951 0970 C7070000 		.word	.L1060+1
  6952 0974 C7070000 		.word	.L1060+1
-ARM GAS  /tmp/ccYD6hAj.s 			page 213
+ARM GAS  /tmp/ccQmaUTi.s 			page 213
 
 
  6953 0978 C7090000 		.word	.L585+1
@@ -12778,7 +12778,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2428:src/keys.c    **** 	  case confirm_clall:	 clrall();	break;
  6996              		.loc 1 2428 4 is_stmt 1 view .LVU2199
 2428:src/keys.c    **** 	  case confirm_clall:	 clrall();	break;
-ARM GAS  /tmp/ccYD6hAj.s 			page 214
+ARM GAS  /tmp/ccQmaUTi.s 			page 214
 
 
  6997              		.loc 1 2428 18 is_stmt 0 view .LVU2200
@@ -12838,7 +12838,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  7040 0a02 98F80E30 		ldrb	r3, [r8, #14]	@ zero_extendqisi2
 2785:src/keys.c    ****     soft_init_state();
  7041              		.loc 1 2785 36 view .LVU2212
-ARM GAS  /tmp/ccYD6hAj.s 			page 215
+ARM GAS  /tmp/ccQmaUTi.s 			page 215
 
 
  7042 0a06 4AEA0302 		orr	r2, r10, r3
@@ -12898,7 +12898,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  7084              		.loc 1 3102 2 is_stmt 1 view .LVU2224
 3102:src/keys.c    **** 	  *--p = '\0';
  7085              		.loc 1 3102 8 is_stmt 0 view .LVU2225
-ARM GAS  /tmp/ccYD6hAj.s 			page 216
+ARM GAS  /tmp/ccQmaUTi.s 			page 216
 
 
  7086 0a40 03F5F663 		add	r3, r3, #1968
@@ -12958,7 +12958,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  7128              	.LBE841:
 1891:src/keys.c    **** 
  7129              		.loc 1 1891 44 view .LVU2238
-ARM GAS  /tmp/ccYD6hAj.s 			page 217
+ARM GAS  /tmp/ccQmaUTi.s 			page 217
 
 
  7130 0a58 12F0020F 		tst	r2, #2
@@ -13018,7 +13018,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  7170              	.LVL555:
 1893:src/keys.c    **** 	State2.cmplx = 0;
  7171              		.loc 1 1893 2 is_stmt 1 view .LVU2253
-ARM GAS  /tmp/ccYD6hAj.s 			page 218
+ARM GAS  /tmp/ccQmaUTi.s 			page 218
 
 
 1894:src/keys.c    **** 	if (n == regX_idx) n = 1; //don't want x-reg
@@ -13078,7 +13078,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  7208              		.loc 1 1898 12 view .LVU2271
  7209 0aa4 1CF0010F 		tst	ip, #1
  7210 0aa8 00F0A781 		beq	.L627
-ARM GAS  /tmp/ccYD6hAj.s 			page 219
+ARM GAS  /tmp/ccQmaUTi.s 			page 219
 
 
 1899:src/keys.c    **** 				return OP_SPEC + OP_Zeqi + r;
@@ -13138,7 +13138,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  7248              	.LBE868:
  221:src/keys.c    **** }
  7249              		.loc 1 221 28 view .LVU2289
-ARM GAS  /tmp/ccYD6hAj.s 			page 220
+ARM GAS  /tmp/ccQmaUTi.s 			page 220
 
 
  7250 0aba B44A     		ldr	r2, .L1153+8
@@ -13198,7 +13198,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1335:src/keys.c    **** 		// A - D
  7289              		.loc 1 1335 10 is_stmt 0 view .LVU2305
  7290 0ae4 032C     		cmp	r4, #3
-ARM GAS  /tmp/ccYD6hAj.s 			page 221
+ARM GAS  /tmp/ccQmaUTi.s 			page 221
 
 
  7291 0ae6 40F2A883 		bls	.L1116
@@ -13258,7 +13258,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1372:src/keys.c    **** 			rawpc = 1;
  7328              		.loc 1 1372 6 is_stmt 0 view .LVU2323
  7329 0b1c 20B9     		cbnz	r0, .L607
-ARM GAS  /tmp/ccYD6hAj.s 			page 222
+ARM GAS  /tmp/ccQmaUTi.s 			page 222
 
 
 1372:src/keys.c    **** 			rawpc = 1;
@@ -13318,7 +13318,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  7369              		.loc 1 2929 7 view .LVU2338
  7370 0b4a 5F46     		mov	r7, fp
  7371 0b4c FFF7ACBA 		b	.L565
-ARM GAS  /tmp/ccYD6hAj.s 			page 223
+ARM GAS  /tmp/ccQmaUTi.s 			page 223
 
 
  7372              	.LVL569:
@@ -13378,7 +13378,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  7414 0b82 FFF7B3BA 		b	.L840
  7415              	.LVL573:
  7416              	.L1110:
-ARM GAS  /tmp/ccYD6hAj.s 			page 224
+ARM GAS  /tmp/ccQmaUTi.s 			page 224
 
 
 1254:src/keys.c    **** 
@@ -13438,7 +13438,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  7455 0ba4 B2F9DE27 		ldrsh	r2, [r2, #2014]
  7456              	.LBE886:
  7457              	.LBE885:
-ARM GAS  /tmp/ccYD6hAj.s 			page 225
+ARM GAS  /tmp/ccQmaUTi.s 			page 225
 
 
 2822:src/keys.c    **** 
@@ -13498,7 +13498,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  7496              		.loc 1 119 12 view .LVU2382
  7497              	.LBB891:
  121:src/keys.c    **** 		 0,  1,  2,  3,  4,  5,   // K00 - K05
-ARM GAS  /tmp/ccYD6hAj.s 			page 226
+ARM GAS  /tmp/ccQmaUTi.s 			page 226
 
 
  7498              		.loc 1 121 2 view .LVU2383
@@ -13558,7 +13558,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  7539              	.L641:
 2476:src/keys.c    **** 			n = 10; 
  7540              		.loc 1 2476 11 view .LVU2397
-ARM GAS  /tmp/ccYD6hAj.s 			page 227
+ARM GAS  /tmp/ccQmaUTi.s 			page 227
 
 
  7541              	.LBE894:
@@ -13618,7 +13618,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  7584              		.loc 1 1266 12 is_stmt 1 view .LVU2408
  7585              	.LBB928:
 1267:src/keys.c    **** 		{ OP_MON | OP_2DEG,  OP_MON | OP_2HMS },
-ARM GAS  /tmp/ccYD6hAj.s 			page 228
+ARM GAS  /tmp/ccQmaUTi.s 			page 228
 
 
  7586              		.loc 1 1267 2 view .LVU2409
@@ -13678,7 +13678,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  7627              		.loc 1 1279 15 is_stmt 0 view .LVU2422
  7628 0c02 98F81520 		ldrb	r2, [r8, #21]	@ zero_extendqisi2
  7629              	.LBB922:
-ARM GAS  /tmp/ccYD6hAj.s 			page 229
+ARM GAS  /tmp/ccQmaUTi.s 			page 229
 
 
  7630              	.LBB918:
@@ -13738,7 +13738,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  7669 0c28 FFF7FEFF 		bl	display_current_menu
  7670              	.LVL590:
 1283:src/keys.c    **** 	
-ARM GAS  /tmp/ccYD6hAj.s 			page 230
+ARM GAS  /tmp/ccQmaUTi.s 			page 230
 
 
  7671              		.loc 1 1283 2 view .LVU2438
@@ -13798,7 +13798,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  7711              		.loc 1 647 2 view .LVU2452
  647:src/keys.c    **** }
  7712              		.loc 1 647 15 is_stmt 0 view .LVU2453
-ARM GAS  /tmp/ccYD6hAj.s 			page 231
+ARM GAS  /tmp/ccQmaUTi.s 			page 231
 
 
  7713 0c5a 9A42     		cmp	r2, r3
@@ -13858,7 +13858,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  7753 0c7e 11F80AC0 		ldrb	ip, [r1, r10]	@ zero_extendqisi2
  7754              	.LVL598:
  364:src/keys.c    ****   }
-ARM GAS  /tmp/ccYD6hAj.s 			page 232
+ARM GAS  /tmp/ccQmaUTi.s 			page 232
 
 
  7755              		.loc 1 364 5 is_stmt 1 view .LVU2468
@@ -13918,7 +13918,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1937:src/keys.c    **** }
  7796              		.loc 1 1937 9 is_stmt 0 view .LVU2482
  7797 0cb6 4FF0330B 		mov	fp, #51
-ARM GAS  /tmp/ccYD6hAj.s 			page 233
+ARM GAS  /tmp/ccQmaUTi.s 			page 233
 
 
  7798              	.LVL600:
@@ -13978,7 +13978,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  7839              	.LBE1253:
  7840              	.LBB1254:
  7841              	.LBB1197:
-ARM GAS  /tmp/ccYD6hAj.s 			page 234
+ARM GAS  /tmp/ccQmaUTi.s 			page 234
 
 
  7842              	.LBB936:
@@ -14038,7 +14038,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  7882              	.LVL611:
  7883              	.L656:
  376:src/keys.c    ****     // Ignore the non character catalogues in multi character mode
-ARM GAS  /tmp/ccYD6hAj.s 			page 235
+ARM GAS  /tmp/ccQmaUTi.s 			page 235
 
 
  7884              		.loc 1 376 20 view .LVU2510
@@ -14098,7 +14098,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  7926 0d2e A4E7     		b	.L658
  7927              	.LVL616:
  7928              	.L633:
-ARM GAS  /tmp/ccYD6hAj.s 			page 236
+ARM GAS  /tmp/ccQmaUTi.s 			page 236
 
 
  266:src/keys.c    ****     /*
@@ -14158,7 +14158,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  7970              	.LBB941:
  110:src/keys.c    **** }
  7971              		.loc 1 110 2 view .LVU2536
-ARM GAS  /tmp/ccYD6hAj.s 			page 237
+ARM GAS  /tmp/ccQmaUTi.s 			page 237
 
 
  110:src/keys.c    **** }
@@ -14218,7 +14218,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  8013 0d70 022A     		cmp	r2, #2
  8014 0d72 18BF     		it	ne
  8015 0d74 0223     		movne	r3, #2
-ARM GAS  /tmp/ccYD6hAj.s 			page 238
+ARM GAS  /tmp/ccQmaUTi.s 			page 238
 
 
  8016 0d76 88F81030 		strb	r3, [r8, #16]
@@ -14278,7 +14278,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  8060              		.loc 1 109 13 view .LVU2559
  8061              	.LBB946:
  110:src/keys.c    **** }
-ARM GAS  /tmp/ccYD6hAj.s 			page 239
+ARM GAS  /tmp/ccQmaUTi.s 			page 239
 
 
  8062              		.loc 1 110 2 view .LVU2560
@@ -14338,7 +14338,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  8104              	.LVL634:
 2459:src/keys.c    **** 			n = max;
  8105              		.loc 1 2459 6 view .LVU2573
-ARM GAS  /tmp/ccYD6hAj.s 			page 240
+ARM GAS  /tmp/ccQmaUTi.s 			page 240
 
 
  8106 0de0 01E7     		b	.L641
@@ -14398,7 +14398,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  8149              	.LBB954:
  8150              	.LBB876:
 1331:src/keys.c    **** 	else if ((rawpc & ~NO_SHORT) == regZ_idx) rawpc = gtodot_digit(3); 
-ARM GAS  /tmp/ccYD6hAj.s 			page 241
+ARM GAS  /tmp/ccQmaUTi.s 			page 241
 
 
  8151              		.loc 1 1331 44 is_stmt 1 view .LVU2585
@@ -14458,7 +14458,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  8194              	.LBE956:
  8195              	.LBB957:
  8196              	.LBB656:
-ARM GAS  /tmp/ccYD6hAj.s 			page 242
+ARM GAS  /tmp/ccQmaUTi.s 			page 242
 
 
  8197              	.LBB649:
@@ -14518,7 +14518,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  8239              		.loc 1 2813 10 is_stmt 0 view .LVU2608
  8240 0e4c 4FF0330B 		mov	fp, #51
  8241 0e50 FFF72AB9 		b	.L565
-ARM GAS  /tmp/ccYD6hAj.s 			page 243
+ARM GAS  /tmp/ccQmaUTi.s 			page 243
 
 
  8242              	.LVL651:
@@ -14578,7 +14578,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  8280 0e62 1B5D     		ldrb	r3, [r3, r4]	@ zero_extendqisi2
  8281              	.LBE966:
  8282              	.LBE967:
-ARM GAS  /tmp/ccYD6hAj.s 			page 244
+ARM GAS  /tmp/ccQmaUTi.s 			page 244
 
 
  221:src/keys.c    **** }
@@ -14638,7 +14638,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  8324              		.loc 1 103 2 view .LVU2637
  8325              	.LBB1257:
  8326              	.LBB1200:
-ARM GAS  /tmp/ccYD6hAj.s 			page 245
+ARM GAS  /tmp/ccQmaUTi.s 			page 245
 
 
  8327              	.LBB995:
@@ -14698,7 +14698,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
   95:src/keys.c    **** 	return r;
  8368              		.loc 1 95 19 is_stmt 0 view .LVU2651
  8369 0ea4 88F80D10 		strb	r1, [r8, #13]
-ARM GAS  /tmp/ccYD6hAj.s 			page 246
+ARM GAS  /tmp/ccQmaUTi.s 			page 246
 
 
   96:src/keys.c    **** }
@@ -14758,7 +14758,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  8416 0f1c C7070000 		.word	.L1060+1
  8417 0f20 C7070000 		.word	.L1060+1
  8418 0f24 C7070000 		.word	.L1060+1
-ARM GAS  /tmp/ccYD6hAj.s 			page 247
+ARM GAS  /tmp/ccQmaUTi.s 			page 247
 
 
  8419 0f28 C7070000 		.word	.L1060+1
@@ -14818,7 +14818,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  8463 0f72 88F81710 		strb	r1, [r8, #23]
 2628:src/keys.c    **** 	State2.labellist = 0;
  8464              		.loc 1 2628 16 view .LVU2670
-ARM GAS  /tmp/ccYD6hAj.s 			page 248
+ARM GAS  /tmp/ccQmaUTi.s 			page 248
 
 
  8465 0f76 A8F80820 		strh	r2, [r8, #8]	@ movhi
@@ -14878,7 +14878,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  8509              	.LVL671:
  8510 0f94 8246     		mov	r10, r0
  8511              	.LVL672:
-ARM GAS  /tmp/ccYD6hAj.s 			page 249
+ARM GAS  /tmp/ccQmaUTi.s 			page 249
 
 
  8512              	.L699:
@@ -14938,7 +14938,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  8552              	.LVL679:
  8553              	.L700:
 2566:src/keys.c    **** 		return STATE_UNFINISHED;
-ARM GAS  /tmp/ccYD6hAj.s 			page 250
+ARM GAS  /tmp/ccQmaUTi.s 			page 250
 
 
  8554              		.loc 1 2566 3 is_stmt 1 view .LVU2695
@@ -14998,7 +14998,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  8593              	.LBE1257:
 3086:src/keys.c    ****     case STATE_SST:
  8594              		.loc 1 3086 5 is_stmt 1 view .LVU2711
-ARM GAS  /tmp/ccYD6hAj.s 			page 251
+ARM GAS  /tmp/ccQmaUTi.s 			page 251
 
 
  8595              	.LBB1258:
@@ -15058,7 +15058,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  8634              	.LBB986:
  619:src/keys.c    **** 	if (opKIND(op) == KIND_NIL) {
  8635              		.loc 1 619 12 view .LVU2727
-ARM GAS  /tmp/ccYD6hAj.s 			page 252
+ARM GAS  /tmp/ccQmaUTi.s 			page 252
 
 
  8636              	.LBB982:
@@ -15118,7 +15118,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  8686              		.p2align 1
  8687              	.L873:
  8688 1090 40F2431B 		movw	fp, #323
-ARM GAS  /tmp/ccYD6hAj.s 			page 253
+ARM GAS  /tmp/ccQmaUTi.s 			page 253
 
 
  8689              	.LVL689:
@@ -15178,7 +15178,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  8730              		.loc 1 2541 6 is_stmt 0 view .LVU2744
  8731 10cc 4FF0330B 		mov	fp, #51
  8732              	.LVL697:
-ARM GAS  /tmp/ccYD6hAj.s 			page 254
+ARM GAS  /tmp/ccQmaUTi.s 			page 254
 
 
 2623:src/keys.c    **** 
@@ -15238,7 +15238,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  131:src/keys.c    **** }
  8774              		.loc 1 131 23 view .LVU2758
  8775 10ec 1B5D     		ldrb	r3, [r3, r4]	@ zero_extendqisi2
-ARM GAS  /tmp/ccYD6hAj.s 			page 255
+ARM GAS  /tmp/ccQmaUTi.s 			page 255
 
 
  8776              	.LBE801:
@@ -15298,7 +15298,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  8821              	.LBI806:
   84:src/keys.c    **** 	enum shifts s = shift_down();
  8822              		.loc 1 84 13 view .LVU2768
-ARM GAS  /tmp/ccYD6hAj.s 			page 256
+ARM GAS  /tmp/ccQmaUTi.s 			page 256
 
 
  8823              	.LBB808:
@@ -15358,7 +15358,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  8863              		.loc 1 2667 46 view .LVU2782
  8864 111a 0093     		str	r3, [sp]
  8865              	.LVL705:
-ARM GAS  /tmp/ccYD6hAj.s 			page 257
+ARM GAS  /tmp/ccQmaUTi.s 			page 257
 
 
 2668:src/keys.c    **** 
@@ -15418,7 +15418,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  8908 1178 D1110000 		.word	.L729+1
  8909 117c C7070000 		.word	.L1060+1
  8910 1180 9D110000 		.word	.L725+1
-ARM GAS  /tmp/ccYD6hAj.s 			page 258
+ARM GAS  /tmp/ccQmaUTi.s 			page 258
 
 
  8911 1184 C7070000 		.word	.L1060+1
@@ -15478,7 +15478,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  8950 11c8 A8F80830 		strh	r3, [r8, #8]	@ movhi
  8951 11cc FFF7F5BA 		b	.L715
  8952              	.LVL709:
-ARM GAS  /tmp/ccYD6hAj.s 			page 259
+ARM GAS  /tmp/ccQmaUTi.s 			page 259
 
 
  8953              	.L729:
@@ -15538,7 +15538,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2739:src/keys.c    **** 			return n;
  8989              		.loc 1 2739 19 view .LVU2828
  8990 1204 88F80A30 		strb	r3, [r8, #10]
-ARM GAS  /tmp/ccYD6hAj.s 			page 260
+ARM GAS  /tmp/ccQmaUTi.s 			page 260
 
 
 2737:src/keys.c    **** 			State2.digval = 0;
@@ -15598,7 +15598,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  9030 122c 4FF0330B 		mov	fp, #51
  9031 1230 FEF73ABF 		b	.L565
  9032              	.LVL716:
-ARM GAS  /tmp/ccYD6hAj.s 			page 261
+ARM GAS  /tmp/ccQmaUTi.s 			page 261
 
 
  9033              	.L1118:
@@ -15658,7 +15658,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1315:src/keys.c    **** 	if (pc > 0)
  9072              		.loc 1 1315 7 view .LVU2859
  9073 1252 0322     		movs	r2, #3
-ARM GAS  /tmp/ccYD6hAj.s 			page 262
+ARM GAS  /tmp/ccQmaUTi.s 			page 262
 
 
  9074              	.LVL724:
@@ -15718,7 +15718,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  9114 1274 FFF78CB9 		b	.L594
  9115              	.LVL731:
  9116              	.L1097:
-ARM GAS  /tmp/ccYD6hAj.s 			page 263
+ARM GAS  /tmp/ccQmaUTi.s 			page 263
 
 
 1913:src/keys.c    **** 	}
@@ -15778,7 +15778,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  9157              	.LBE1049:
  9158              	.LBE1048:
  9159              	.LBE1054:
-ARM GAS  /tmp/ccYD6hAj.s 			page 264
+ARM GAS  /tmp/ccQmaUTi.s 			page 264
 
 
 2874:src/keys.c    **** 
@@ -15838,7 +15838,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  9201              	.LBB1057:
  9202              	.LBB782:
  9203              	.LBB748:
-ARM GAS  /tmp/ccYD6hAj.s 			page 265
+ARM GAS  /tmp/ccQmaUTi.s 			page 265
 
 
  9204              	.LBB740:
@@ -15898,7 +15898,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  9246              		.loc 1 434 5 view .LVU2912
  9247 12aa D906     		lsls	r1, r3, #27
  9248              	.LBE761:
-ARM GAS  /tmp/ccYD6hAj.s 			page 266
+ARM GAS  /tmp/ccQmaUTi.s 			page 266
 
 
  9249              	.LBE765:
@@ -15958,7 +15958,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  9287              		.loc 1 440 49 view .LVU2928
  9288 12c2 694A     		ldr	r2, .L1157+8
  9289              	.LBB757:
-ARM GAS  /tmp/ccYD6hAj.s 			page 267
+ARM GAS  /tmp/ccQmaUTi.s 			page 267
 
 
  9290              	.LBB753:
@@ -16018,7 +16018,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  9329 12e0 51F824F0 		ldr	pc, [r1, r4, lsl #2]
  9330              		.p2align 2
  9331              	.L842:
-ARM GAS  /tmp/ccYD6hAj.s 			page 268
+ARM GAS  /tmp/ccQmaUTi.s 			page 268
 
 
  9332 12e4 251B0000 		.word	.L749+1
@@ -16078,7 +16078,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1479:src/keys.c    **** }
  9381              		.loc 1 1479 9 view .LVU2949
  9382              	.LBE782:
-ARM GAS  /tmp/ccYD6hAj.s 			page 269
+ARM GAS  /tmp/ccQmaUTi.s 			page 269
 
 
  9383              	.LBE1057:
@@ -16138,7 +16138,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1355:src/keys.c    **** 		}
  9423              		.loc 1 1355 18 view .LVU2964
  9424 13a4 A8F80830 		strh	r3, [r8, #8]	@ movhi
-ARM GAS  /tmp/ccYD6hAj.s 			page 270
+ARM GAS  /tmp/ccQmaUTi.s 			page 270
 
 
 1376:src/keys.c    **** 		rawpc = find_user_pc(pc);
@@ -16198,7 +16198,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  9464 13b2 33F812A0 		ldrh	r10, [r3, r2, lsl #1]
  9465              	.LVL751:
 1057:src/keys.c    **** 
-ARM GAS  /tmp/ccYD6hAj.s 			page 271
+ARM GAS  /tmp/ccQmaUTi.s 			page 271
 
 
  9466              		.loc 1 1057 2 is_stmt 1 view .LVU2980
@@ -16258,7 +16258,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  9508              		.loc 1 95 2 is_stmt 1 view .LVU2992
   95:src/keys.c    **** 	return r;
  9509              		.loc 1 95 19 is_stmt 0 view .LVU2993
-ARM GAS  /tmp/ccYD6hAj.s 			page 272
+ARM GAS  /tmp/ccQmaUTi.s 			page 272
 
 
  9510 13c0 88F80DB0 		strb	fp, [r8, #13]
@@ -16318,7 +16318,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  9549 13fc 06D1     		bne	.L792
 1078:src/keys.c    **** 			set_pc(0);
  9550              		.loc 1 1078 27 view .LVU3009
-ARM GAS  /tmp/ccYD6hAj.s 			page 273
+ARM GAS  /tmp/ccQmaUTi.s 			page 273
 
 
  9551 13fe 1B4B     		ldr	r3, .L1157+12
@@ -16378,7 +16378,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  9590              		.loc 1 1068 29 is_stmt 0 view .LVU3024
  9591 142a 4FF0330B 		mov	fp, #51
  9592              	.LVL761:
-ARM GAS  /tmp/ccYD6hAj.s 			page 274
+ARM GAS  /tmp/ccQmaUTi.s 			page 274
 
 
  9593              	.L795:
@@ -16438,7 +16438,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  9635 1454 3FF4B7A9 		beq	.L1060
 2360:src/keys.c    **** 		goto add_char;
  9636              		.loc 1 2360 3 is_stmt 1 view .LVU3037
-ARM GAS  /tmp/ccYD6hAj.s 			page 275
+ARM GAS  /tmp/ccQmaUTi.s 			page 275
 
 
 2360:src/keys.c    **** 		goto add_char;
@@ -16498,7 +16498,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  9680              	.LBE756:
  9681              	.LBE760:
  440:src/keys.c    **** }
-ARM GAS  /tmp/ccYD6hAj.s 			page 276
+ARM GAS  /tmp/ccQmaUTi.s 			page 276
 
 
  9682              		.loc 1 440 49 view .LVU3049
@@ -16558,7 +16558,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  9731 1514 6D1B0000 		.word	.L743+1
  9732 1518 6D130000 		.word	.L740+1
  9733 151c 6D130000 		.word	.L740+1
-ARM GAS  /tmp/ccYD6hAj.s 			page 277
+ARM GAS  /tmp/ccQmaUTi.s 			page 277
 
 
  9734 1520 67190000 		.word	.L741+1
@@ -16618,7 +16618,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  9777              		.loc 1 1100 12 view .LVU3065
  9778              	.LBB1091:
 1105:src/keys.c    **** 		// Row 1
-ARM GAS  /tmp/ccYD6hAj.s 			page 278
+ARM GAS  /tmp/ccQmaUTi.s 			page 278
 
 
  9779              		.loc 1 1105 2 view .LVU3066
@@ -16678,7 +16678,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  9821              	.LBE1103:
  9822              	.LBB1104:
  9823              	.LBB1105:
-ARM GAS  /tmp/ccYD6hAj.s 			page 279
+ARM GAS  /tmp/ccQmaUTi.s 			page 279
 
 
  146:src/keys.c    **** }
@@ -16738,7 +16738,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  9865              		.loc 1 1161 5 view .LVU3091
  9866 1570 B2F57F4F 		cmp	r2, #65280
 1159:src/keys.c    **** 
-ARM GAS  /tmp/ccYD6hAj.s 			page 280
+ARM GAS  /tmp/ccQmaUTi.s 			page 280
 
 
  9867              		.loc 1 1159 15 view .LVU3092
@@ -16798,7 +16798,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  9904 158c 242C     		cmp	r4, #36
  9905 158e 00F0D383 		beq	.L764
  9906 1592 2D2C     		cmp	r4, #45
-ARM GAS  /tmp/ccYD6hAj.s 			page 281
+ARM GAS  /tmp/ccQmaUTi.s 			page 281
 
 
  9907 1594 00F0C683 		beq	.L765
@@ -16858,7 +16858,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  9947              	.LVL779:
 1188:src/keys.c    **** 
  9948              		.loc 1 1188 11 view .LVU3124
-ARM GAS  /tmp/ccYD6hAj.s 			page 282
+ARM GAS  /tmp/ccQmaUTi.s 			page 282
 
 
  9949 15cc FEF76CBD 		b	.L565
@@ -16918,7 +16918,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
   86:src/keys.c    **** }
  9990              		.loc 1 86 2 is_stmt 1 view .LVU3138
   86:src/keys.c    **** }
-ARM GAS  /tmp/ccYD6hAj.s 			page 283
+ARM GAS  /tmp/ccQmaUTi.s 			page 283
 
 
  9991              		.loc 1 86 52 is_stmt 0 view .LVU3139
@@ -16978,7 +16978,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  10036              		.loc 1 94 16 view .LVU3148
  10037 15f2 88F81010 		strb	r1, [r8, #16]
   95:src/keys.c    **** 	return r;
-ARM GAS  /tmp/ccYD6hAj.s 			page 284
+ARM GAS  /tmp/ccQmaUTi.s 			page 284
 
 
  10038              		.loc 1 95 2 is_stmt 1 view .LVU3149
@@ -17038,7 +17038,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  10077              	.L843:
  10078 160e 97       		.byte	(.L780-.L843)/2
  10079 160f 15       		.byte	(.L778-.L843)/2
-ARM GAS  /tmp/ccYD6hAj.s 			page 285
+ARM GAS  /tmp/ccQmaUTi.s 			page 285
 
 
  10080 1610 26       		.byte	(.L788-.L843)/2
@@ -17098,7 +17098,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  991:src/keys.c    **** 		return STATE_UNFINISHED;
  10131              		.loc 1 991 2 is_stmt 1 view .LVU3168
  991:src/keys.c    **** 		return STATE_UNFINISHED;
-ARM GAS  /tmp/ccYD6hAj.s 			page 286
+ARM GAS  /tmp/ccQmaUTi.s 			page 286
 
 
  10132              		.loc 1 991 5 is_stmt 0 view .LVU3169
@@ -17158,7 +17158,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  946:src/keys.c    **** 			State2.alphas = 1;
  10173              		.loc 1 946 4 is_stmt 1 view .LVU3183
  10174 1674 FFF7FEFF 		bl	process_cmdline_set_lift
-ARM GAS  /tmp/ccYD6hAj.s 			page 287
+ARM GAS  /tmp/ccQmaUTi.s 			page 287
 
 
  10175              	.LVL789:
@@ -17218,7 +17218,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  10216              	.LVL795:
  10217              	.L774:
  971:src/keys.c    **** 			State2.trace = (shift == SHIFT_F);
-ARM GAS  /tmp/ccYD6hAj.s 			page 288
+ARM GAS  /tmp/ccQmaUTi.s 			page 288
 
 
  10218              		.loc 1 971 3 is_stmt 1 view .LVU3197
@@ -17278,7 +17278,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  952:src/keys.c    **** 	    return OP_SPEC | OP_D;
  10260              		.loc 1 952 45 view .LVU3210
  10261 16e6 FFF7FEFF 		bl	intltr
-ARM GAS  /tmp/ccYD6hAj.s 			page 289
+ARM GAS  /tmp/ccQmaUTi.s 			page 289
 
 
  10262              	.LVL800:
@@ -17338,7 +17338,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  10304              		.loc 1 957 4 is_stmt 1 view .LVU3222
  957:src/keys.c    **** 	    return OP_SPEC | OP_E;
  10305              		.loc 1 957 7 is_stmt 0 view .LVU3223
-ARM GAS  /tmp/ccYD6hAj.s 			page 290
+ARM GAS  /tmp/ccQmaUTi.s 			page 290
 
 
  10306 1708 022B     		cmp	r3, #2
@@ -17398,7 +17398,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  10348              	.LBE1128:
  10349              	.LBE1213:
  10350              	.LBE1270:
-ARM GAS  /tmp/ccYD6hAj.s 			page 291
+ARM GAS  /tmp/ccQmaUTi.s 			page 291
 
 
 3123:src/keys.c    **** 	if (c >= (OP_SPEC | OP_ENTER) && c <= (OP_SPEC | OP_F)) {
@@ -17458,7 +17458,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  10395              	.LBE1129:
  10396              	.LBB1130:
  10397              	.LBB822:
-ARM GAS  /tmp/ccYD6hAj.s 			page 292
+ARM GAS  /tmp/ccQmaUTi.s 			page 292
 
 
 2683:src/keys.c    **** 		set_window(shift == SHIFT_F ? STATE_WINDOWLEFT : STATE_WINDOWRIGHT);
@@ -17518,7 +17518,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  10440              	.LVL812:
  10441              	.L1130:
 2743:src/keys.c    **** 	}
-ARM GAS  /tmp/ccYD6hAj.s 			page 293
+ARM GAS  /tmp/ccQmaUTi.s 			page 293
 
 
  10442              		.loc 1 2743 10 view .LVU3258
@@ -17578,7 +17578,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2678:src/keys.c    **** 			dv = n;
  10485              		.loc 1 2678 3 is_stmt 1 view .LVU3270
 2678:src/keys.c    **** 			dv = n;
-ARM GAS  /tmp/ccYD6hAj.s 			page 294
+ARM GAS  /tmp/ccQmaUTi.s 			page 294
 
 
  10486              		.loc 1 2678 6 is_stmt 0 view .LVU3271
@@ -17638,7 +17638,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  10526 17fa 7EF491AE 		bne	.L676
 2368:src/keys.c    **** 		if (State2.numdigit == 0)
  10527              		.loc 1 2368 3 is_stmt 1 view .LVU3286
-ARM GAS  /tmp/ccYD6hAj.s 			page 295
+ARM GAS  /tmp/ccQmaUTi.s 			page 295
 
 
  10528              	.LBB723:
@@ -17698,7 +17698,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  10566 182a 7EF4A2AE 		bne	.L678
 2372:src/keys.c    **** 		goto fin;
  10567              		.loc 1 2372 4 is_stmt 1 view .LVU3303
-ARM GAS  /tmp/ccYD6hAj.s 			page 296
+ARM GAS  /tmp/ccQmaUTi.s 			page 296
 
 
 2372:src/keys.c    **** 		goto fin;
@@ -17758,7 +17758,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  10607 185e 0329     		cmp	r1, #3
  10608 1860 3EF466AE 		beq	.L679
 2377:src/keys.c    **** 				reset_multi();
-ARM GAS  /tmp/ccYD6hAj.s 			page 297
+ARM GAS  /tmp/ccQmaUTi.s 			page 297
 
 
  10609              		.loc 1 2377 4 is_stmt 1 view .LVU3319
@@ -17818,7 +17818,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  301:src/keys.c    ****     }
  10649              		.loc 1 301 14 view .LVU3334
  10650              	.LBE651:
-ARM GAS  /tmp/ccYD6hAj.s 			page 298
+ARM GAS  /tmp/ccQmaUTi.s 			page 298
 
 
  10651              	.LBE658:
@@ -17878,7 +17878,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  10693              	.LVL830:
 1363:src/keys.c    **** 		update_program_bounds(1);
  10694              		.loc 1 1363 3 is_stmt 0 view .LVU3347
-ARM GAS  /tmp/ccYD6hAj.s 			page 299
+ARM GAS  /tmp/ccQmaUTi.s 			page 299
 
 
  10695 18c4 0021     		movs	r1, #0
@@ -17938,7 +17938,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  10736              		.loc 1 1068 8 is_stmt 0 view .LVU3360
  10737 18f8 93F8E737 		ldrb	r3, [r3, #2023]	@ zero_extendqisi2
 1068:src/keys.c    **** #endif
-ARM GAS  /tmp/ccYD6hAj.s 			page 300
+ARM GAS  /tmp/ccQmaUTi.s 			page 300
 
 
  10738              		.loc 1 1068 7 view .LVU3361
@@ -17998,7 +17998,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  10782              	.LVL842:
  10783              	.L808:
  767:src/keys.c    **** 	case K01:
-ARM GAS  /tmp/ccYD6hAj.s 			page 301
+ARM GAS  /tmp/ccQmaUTi.s 			page 301
 
 
  10784              		.loc 1 767 10 view .LVU3372
@@ -18058,7 +18058,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  10824              		.loc 1 3123 18 is_stmt 0 view .LVU3386
  10825 1956 A64B     		ldr	r3, .L1161+4
  10826 1958 0022     		movs	r2, #0
-ARM GAS  /tmp/ccYD6hAj.s 			page 302
+ARM GAS  /tmp/ccQmaUTi.s 			page 302
 
 
  10827              	.LBB1274:
@@ -18118,7 +18118,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  10869              	.LVL847:
 3123:src/keys.c    **** 	if (c >= (OP_SPEC | OP_ENTER) && c <= (OP_SPEC | OP_F)) {
  10870              		.loc 1 3123 18 view .LVU3399
-ARM GAS  /tmp/ccYD6hAj.s 			page 303
+ARM GAS  /tmp/ccQmaUTi.s 			page 303
 
 
  10871 1976 1A60     		str	r2, [r3]
@@ -18178,7 +18178,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  10913 19a8 88F81530 		strb	r3, [r8, #21]
 1171:src/keys.c    **** 	}
  10914              		.loc 1 1171 3 is_stmt 1 view .LVU3412
-ARM GAS  /tmp/ccYD6hAj.s 			page 304
+ARM GAS  /tmp/ccQmaUTi.s 			page 304
 
 
 1171:src/keys.c    **** 	}
@@ -18238,7 +18238,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  10963 1a28 4D160000 		.word	.L770+1
  10964 1a2c 4D160000 		.word	.L770+1
  10965 1a30 4D160000 		.word	.L770+1
-ARM GAS  /tmp/ccYD6hAj.s 			page 305
+ARM GAS  /tmp/ccQmaUTi.s 			page 305
 
 
  10966 1a34 4D160000 		.word	.L770+1
@@ -18298,7 +18298,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 2545:src/keys.c    **** 		if (! is_label_or_end_at(pc, 0))
  11009              		.loc 1 2545 6 view .LVU3430
  11010 1a7e 44F00104 		orr	r4, r4, #1
-ARM GAS  /tmp/ccYD6hAj.s 			page 306
+ARM GAS  /tmp/ccQmaUTi.s 			page 306
 
 
  11011              	.LVL856:
@@ -18358,7 +18358,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  11049              		.loc 1 2672 19 view .LVU3446
  11050 1aaa 03F00101 		and	r1, r3, #1
 2672:src/keys.c    **** 		State2.digval = State2.local ? 0 : regX_idx;
-ARM GAS  /tmp/ccYD6hAj.s 			page 307
+ARM GAS  /tmp/ccQmaUTi.s 			page 307
 
 
  11051              		.loc 1 2672 34 view .LVU3447
@@ -18418,7 +18418,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  11092              		.loc 1 1417 24 view .LVU3460
  11093 1ae6 00F0E780 		beq	.L1145
  11094              	.L751:
-ARM GAS  /tmp/ccYD6hAj.s 			page 308
+ARM GAS  /tmp/ccQmaUTi.s 			page 308
 
 
 1423:src/keys.c    **** 		State2.alphashift = 0;
@@ -18478,7 +18478,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  11135              	.LBE1276:
 2929:src/keys.c    ****   if (was_paused && Pause == 0) {
  11136              		.loc 1 2929 7 view .LVU3475
-ARM GAS  /tmp/ccYD6hAj.s 			page 309
+ARM GAS  /tmp/ccQmaUTi.s 			page 309
 
 
  11137 1b16 1F46     		mov	r7, r3
@@ -18538,7 +18538,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  11181              	.LBB1278:
  11182              	.LBB1221:
  11183              	.LBB1152:
-ARM GAS  /tmp/ccYD6hAj.s 			page 310
+ARM GAS  /tmp/ccQmaUTi.s 			page 310
 
 
  11184              	.LBB787:
@@ -18598,7 +18598,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 1459:src/keys.c    **** 			State2.alphashift = 1 - State2.alphashift;
  11225              		.loc 1 1459 3 is_stmt 1 view .LVU3499
 1459:src/keys.c    **** 			State2.alphashift = 1 - State2.alphashift;
-ARM GAS  /tmp/ccYD6hAj.s 			page 311
+ARM GAS  /tmp/ccQmaUTi.s 			page 311
 
 
  11226              		.loc 1 1459 6 is_stmt 0 view .LVU3500
@@ -18658,7 +18658,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  11268              	.LBB1222:
  11269              	.LBB1153:
  11270              	.LBB788:
-ARM GAS  /tmp/ccYD6hAj.s 			page 312
+ARM GAS  /tmp/ccQmaUTi.s 			page 312
 
 
 1407:src/keys.c    **** 		} else if (shift == SHIFT_H) {
@@ -18718,7 +18718,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
 3123:src/keys.c    **** 	if (c >= (OP_SPEC | OP_ENTER) && c <= (OP_SPEC | OP_F)) {
  11314              		.loc 1 3123 2 is_stmt 1 view .LVU3524
 3123:src/keys.c    **** 	if (c >= (OP_SPEC | OP_ENTER) && c <= (OP_SPEC | OP_F)) {
-ARM GAS  /tmp/ccYD6hAj.s 			page 313
+ARM GAS  /tmp/ccQmaUTi.s 			page 313
 
 
  11315              		.loc 1 3123 18 is_stmt 0 view .LVU3525
@@ -18778,7 +18778,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  11357              		.loc 1 3123 18 view .LVU3537
  11358 1be0 1A60     		str	r2, [r3]
 3124:src/keys.c    **** 	  if (c != (OP_SPEC | OP_ENTER) || !is_bad_cmdline()) {
-ARM GAS  /tmp/ccYD6hAj.s 			page 314
+ARM GAS  /tmp/ccQmaUTi.s 			page 314
 
 
  11359              		.loc 1 3124 2 is_stmt 1 view .LVU3538
@@ -18838,7 +18838,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  11403 1c0c FFF7FEFF 		bl	is_bad_cmdline
  11404              	.LVL890:
  502:src/keys.c    **** 		return;
-ARM GAS  /tmp/ccYD6hAj.s 			page 315
+ARM GAS  /tmp/ccQmaUTi.s 			page 315
 
 
  11405              		.loc 1 502 5 view .LVU3549
@@ -18898,7 +18898,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  11449              		.loc 1 1913 47 view .LVU3559
  11450 1c3c FEF7A8BC 		b	.L594
  11451              	.LVL895:
-ARM GAS  /tmp/ccYD6hAj.s 			page 316
+ARM GAS  /tmp/ccQmaUTi.s 			page 316
 
 
  11452              	.L746:
@@ -18958,7 +18958,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  11492              	.LBB1283:
  11493              	.LBB1226:
  11494              	.LBB1161:
-ARM GAS  /tmp/ccYD6hAj.s 			page 317
+ARM GAS  /tmp/ccQmaUTi.s 			page 317
 
 
  11495              	.LBB1035:
@@ -19018,7 +19018,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  11537              	.LBE1036:
  11538              	.LBE1163:
  11539              	.LBB1164:
-ARM GAS  /tmp/ccYD6hAj.s 			page 318
+ARM GAS  /tmp/ccQmaUTi.s 			page 318
 
 
  11540              	.LBB792:
@@ -19078,7 +19078,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  749:src/keys.c    **** 	    }
  11585              		.loc 1 749 15 view .LVU3595
  11586 1cac 4FF0110B 		mov	fp, #17
-ARM GAS  /tmp/ccYD6hAj.s 			page 319
+ARM GAS  /tmp/ccQmaUTi.s 			page 319
 
 
  11587 1cb0 7AE7     		b	.L833
@@ -19138,7 +19138,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  11626              		.loc 1 2547 4 is_stmt 1 view .LVU3610
 2547:src/keys.c    **** 		State2.digval = pc;
  11627              		.loc 1 2547 9 is_stmt 0 view .LVU3611
-ARM GAS  /tmp/ccYD6hAj.s 			page 320
+ARM GAS  /tmp/ccQmaUTi.s 			page 320
 
 
  11628 1cd6 2046     		mov	r0, r4
@@ -19198,7 +19198,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  11671              	.L1109:
 2696:src/keys.c    **** 			--State2.digval;
  11672              		.loc 1 2696 5 is_stmt 1 view .LVU3623
-ARM GAS  /tmp/ccYD6hAj.s 			page 321
+ARM GAS  /tmp/ccQmaUTi.s 			page 321
 
 
 2696:src/keys.c    **** 			--State2.digval;
@@ -19258,7 +19258,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  11714              		.loc 1 85 2 view .LVU3636
   85:src/keys.c    **** 	return s == SHIFT_N ? (enum shifts) State2.shifts : s;
  11715              		.loc 1 85 18 is_stmt 0 view .LVU3637
-ARM GAS  /tmp/ccYD6hAj.s 			page 322
+ARM GAS  /tmp/ccQmaUTi.s 			page 322
 
 
  11716 1d26 FFF7FEFF 		bl	shift_down
@@ -19318,7 +19318,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  11755 1d48 4B41     		adcs	r3, r3, r1
  972:src/keys.c    **** 			return STATE_UNFINISHED;
  11756              		.loc 1 972 17 view .LVU3653
-ARM GAS  /tmp/ccYD6hAj.s 			page 323
+ARM GAS  /tmp/ccQmaUTi.s 			page 323
 
 
  11757 1d4a 63F3C712 		bfi	r2, r3, #7, #1
@@ -19378,7 +19378,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  11807 0006 03E90300 		stmdb	r3, {r0, r1}
  11808 000a 019D     		ldr	r5, [sp, #4]
  11809 000c 9DF80040 		ldrb	r4, [sp]	@ zero_extendqisi2
-ARM GAS  /tmp/ccYD6hAj.s 			page 324
+ARM GAS  /tmp/ccQmaUTi.s 			page 324
 
 
  11810              	.LVL933:
@@ -19438,7 +19438,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  11848              	.LVL936:
  11849              	.L1166:
   96:src/keys.c    **** }
-ARM GAS  /tmp/ccYD6hAj.s 			page 325
+ARM GAS  /tmp/ccQmaUTi.s 			page 325
 
 
  11850              		.loc 1 96 2 is_stmt 0 discriminator 1 view .LVU3676
@@ -19498,7 +19498,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  11893              		.loc 1 2912 6 view .LVU3687
 2912:src/keys.c    ****        // Was error just wait for confirmation
  11894              		.loc 1 2912 11 is_stmt 0 view .LVU3688
-ARM GAS  /tmp/ccYD6hAj.s 			page 326
+ARM GAS  /tmp/ccQmaUTi.s 			page 326
 
 
  11895 0046 0F4B     		ldr	r3, .L1173+16
@@ -19558,7 +19558,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  11941 006c 064B     		ldr	r3, .L1173+20
  11942 006e 9847     		blx	r3
  11943              	.LVL948:
-ARM GAS  /tmp/ccYD6hAj.s 			page 327
+ARM GAS  /tmp/ccQmaUTi.s 			page 327
 
 
  11944 0070 EEE7     		b	.L1169
@@ -19618,7 +19618,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  11996 001a D618D8D9 		.ascii	"\326\030\330\331\332\333\334\001\031\002\335\032\336"
  11996      DADBDC01 
  11996      1902DD1A 
-ARM GAS  /tmp/ccYD6hAj.s 			page 328
+ARM GAS  /tmp/ccQmaUTi.s 			page 328
 
 
  11996      DE
@@ -19678,7 +19678,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  12033 0024 47008200 		.ascii	"G\000\202\000g\242"
  12033      67A2
  12034 002a 48005800 		.ascii	"H\000X\000h\265"
-ARM GAS  /tmp/ccYD6hAj.s 			page 329
+ARM GAS  /tmp/ccQmaUTi.s 			page 329
 
 
  12034      68B5
@@ -19706,11 +19706,11 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  12045      70AF
  12046 0072 5138007C 		.ascii	"Q8\000|q\000"
  12046      7100
- 12047 0078 52395200 		.ascii	"R9R\000r\260"
+ 12047 0078 5239520B 		.ascii	"R9R\013r\260"
  12047      72B0
- 12048 007e 532F9100 		.ascii	"S/\221\000s\261"
+ 12048 007e 532F915C 		.ascii	"S/\221\\s\261"
  12048      73B1
- 12049 0084 00002100 		.ascii	"\000\000!\000\000\000"
+ 12049 0084 00000021 		.ascii	"\000\000\000!\000\000"
  12049      0000
  12050 008a 54345400 		.ascii	"T4T\000t\262"
  12050      74B2
@@ -19720,7 +19720,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  12052      7600
  12053 009c 571C0000 		.ascii	"W\034\000\000w\000"
  12053      7700
- 12054 00a2 00000000 		.ascii	"\000\000\000\000\000\000"
+ 12054 00a2 0000003F 		.ascii	"\000\000\000?\000\000"
  12054      0000
  12055 00a8 58318D00 		.ascii	"X1\215\000x\255"
  12055      78AD
@@ -19732,13 +19732,13 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  12058      0000
  12059 00c0 00000000 		.ascii	"\000\000\000\000\000\000"
  12059      0000
- 12060 00c6 3A308700 		.ascii	":0\207\000;\247"
+ 12060 00c6 3A308720 		.ascii	":0\207 ;\247"
  12060      3BA7
  12061 00cc 2E2E9600 		.ascii	"..\226\000.\266"
  12061      2EB6
  12062 00d2 3F002100 		.ascii	"?\000!\000\000\000"
  12062      0000
-ARM GAS  /tmp/ccYD6hAj.s 			page 330
+ARM GAS  /tmp/ccQmaUTi.s 			page 330
 
 
  12063 00d8 202B3D00 		.ascii	" +=\000\000\000"
@@ -19798,7 +19798,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  12094      15A26FD6 
  12094      D5A9A1
  12095              		.section	.rodata.catalogue_sizes.9448,"a"
-ARM GAS  /tmp/ccYD6hAj.s 			page 331
+ARM GAS  /tmp/ccQmaUTi.s 			page 331
 
 
  12096              		.align	2
@@ -19858,7 +19858,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  12152 0021 171717   		.ascii	"\027\027\027"
  12153 0024 1F       		.byte	31
  12154 0025 080808   		.ascii	"\010\010\010"
-ARM GAS  /tmp/ccYD6hAj.s 			page 332
+ARM GAS  /tmp/ccQmaUTi.s 			page 332
 
 
  12155 0028 20       		.byte	32
@@ -19918,7 +19918,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  12193      66E7E5CF 
  12194 0015 9DB775DF 		.ascii	"\235\267u\337\242\353\011\265\370u\000"
  12194      A2EB09B5 
-ARM GAS  /tmp/ccYD6hAj.s 			page 333
+ARM GAS  /tmp/ccQmaUTi.s 			page 333
 
 
  12194      F87500
@@ -19978,7 +19978,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  12231 0000 00010203 		.ascii	"\000\001\002\003\004\005\006\007\010\"\"\"\011\012\013"
  12231      04050607 
  12231      08222222 
-ARM GAS  /tmp/ccYD6hAj.s 			page 334
+ARM GAS  /tmp/ccQmaUTi.s 			page 334
 
 
  12231      090A0B
@@ -20038,7 +20038,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  12260              		.section	.rodata.op_map.9226,"a"
  12261              		.align	2
  12262              		.set	.LANCHOR22,. + 0
-ARM GAS  /tmp/ccYD6hAj.s 			page 335
+ARM GAS  /tmp/ccQmaUTi.s 			page 335
 
 
  12265              	op_map.9226:
@@ -20098,7 +20098,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  12321 001c 5B01     		.short	347
  12322 001e 36F1     		.short	-3786
  12323 0020 3301     		.short	307
-ARM GAS  /tmp/ccYD6hAj.s 			page 336
+ARM GAS  /tmp/ccQmaUTi.s 			page 336
 
 
  12324 0022 37F1     		.short	-3785
@@ -20158,7 +20158,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  12378              		.align	2
  12379              		.set	.LANCHOR21,. + 0
  12382              	op_map.9272:
-ARM GAS  /tmp/ccYD6hAj.s 			page 337
+ARM GAS  /tmp/ccQmaUTi.s 			page 337
 
 
  12383 0000 4C80     		.short	-32692
@@ -20218,7 +20218,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  12439 001e 3300     		.short	51
  12440 0020 3300     		.short	51
  12441 0022 4701     		.short	327
-ARM GAS  /tmp/ccYD6hAj.s 			page 338
+ARM GAS  /tmp/ccQmaUTi.s 			page 338
 
 
  12442 0024 4601     		.short	326
@@ -20278,7 +20278,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  12496 0090 0406     		.short	1540
  12497 0092 0B05     		.short	1291
  12498 0094 1606     		.short	1558
-ARM GAS  /tmp/ccYD6hAj.s 			page 339
+ARM GAS  /tmp/ccQmaUTi.s 			page 339
 
 
  12499 0096 3300     		.short	51
@@ -20338,7 +20338,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  12553 0102 3300     		.short	51
  12554 0104 3300     		.short	51
  12555 0106 3300     		.short	51
-ARM GAS  /tmp/ccYD6hAj.s 			page 340
+ARM GAS  /tmp/ccQmaUTi.s 			page 340
 
 
  12556 0108 0106     		.short	1537
@@ -20398,7 +20398,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  12609      C4DD384F 
  12609      53C5793E 
  12609      569304D1 
-ARM GAS  /tmp/ccYD6hAj.s 			page 341
+ARM GAS  /tmp/ccQmaUTi.s 			page 341
 
 
  12610 0043 B0       		.ascii	"\260"
@@ -20458,7 +20458,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  12630      8683
  12631 005d ED1ABC4C 		.ascii	"\355\032\274L+\313\017(\333&\021\263\015W3)\010A\320"
  12631      2BCB0F28 
-ARM GAS  /tmp/ccYD6hAj.s 			page 342
+ARM GAS  /tmp/ccQmaUTi.s 			page 342
 
 
  12631      DB2611B3 
@@ -20518,7 +20518,7 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  12663              		.text
  12664              	.Letext0:
  12665              		.file 2 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h"
-ARM GAS  /tmp/ccYD6hAj.s 			page 343
+ARM GAS  /tmp/ccQmaUTi.s 			page 343
 
 
  12666              		.file 3 "dmcp/dmcp.h"
@@ -20536,251 +20536,251 @@ ARM GAS  /tmp/ccYD6hAj.s 			page 1
  12678              		.file 15 "src/catalogues.h"
  12679              		.file 16 "src/lcd.h"
  12680              		.file 17 "src/int.h"
-ARM GAS  /tmp/ccYD6hAj.s 			page 344
+ARM GAS  /tmp/ccQmaUTi.s 			page 344
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 keys.c
-     /tmp/ccYD6hAj.s:18     .text.gtodot_digit:0000000000000000 $t
-     /tmp/ccYD6hAj.s:26     .text.gtodot_digit:0000000000000000 gtodot_digit
-     /tmp/ccYD6hAj.s:110    .text.gtodot_digit:0000000000000054 $d
-     /tmp/ccYD6hAj.s:117    .text.check_f_key:0000000000000000 $t
-     /tmp/ccYD6hAj.s:124    .text.check_f_key:0000000000000000 check_f_key
-     /tmp/ccYD6hAj.s:202    .text.check_f_key:0000000000000038 $d
-     /tmp/ccYD6hAj.s:208    .text.is_label_or_end_at:0000000000000000 $t
-     /tmp/ccYD6hAj.s:215    .text.is_label_or_end_at:0000000000000000 is_label_or_end_at
-     /tmp/ccYD6hAj.s:271    .text.advance_to_next_label:0000000000000000 $t
-     /tmp/ccYD6hAj.s:278    .text.advance_to_next_label:0000000000000000 advance_to_next_label
-     /tmp/ccYD6hAj.s:359    .text.advance_to_next_label:0000000000000048 $d
-     /tmp/ccYD6hAj.s:364    .text.init_cat:0000000000000000 $t
-     /tmp/ccYD6hAj.s:371    .text.init_cat:0000000000000000 init_cat
-     /tmp/ccYD6hAj.s:696    .text.init_cat:00000000000000ec $d
-     /tmp/ccYD6hAj.s:702    .text.advance_to_previous_label:0000000000000000 $t
-     /tmp/ccYD6hAj.s:709    .text.advance_to_previous_label:0000000000000000 advance_to_previous_label
-     /tmp/ccYD6hAj.s:794    .text.advance_to_previous_label:000000000000004c $d
-     /tmp/ccYD6hAj.s:799    .text.check_confirm.part.0:0000000000000000 $t
-     /tmp/ccYD6hAj.s:806    .text.check_confirm.part.0:0000000000000000 check_confirm.part.0
-     /tmp/ccYD6hAj.s:860    .text.check_confirm.part.0:0000000000000028 $d
+     /tmp/ccQmaUTi.s:18     .text.gtodot_digit:0000000000000000 $t
+     /tmp/ccQmaUTi.s:26     .text.gtodot_digit:0000000000000000 gtodot_digit
+     /tmp/ccQmaUTi.s:110    .text.gtodot_digit:0000000000000054 $d
+     /tmp/ccQmaUTi.s:117    .text.check_f_key:0000000000000000 $t
+     /tmp/ccQmaUTi.s:124    .text.check_f_key:0000000000000000 check_f_key
+     /tmp/ccQmaUTi.s:202    .text.check_f_key:0000000000000038 $d
+     /tmp/ccQmaUTi.s:208    .text.is_label_or_end_at:0000000000000000 $t
+     /tmp/ccQmaUTi.s:215    .text.is_label_or_end_at:0000000000000000 is_label_or_end_at
+     /tmp/ccQmaUTi.s:271    .text.advance_to_next_label:0000000000000000 $t
+     /tmp/ccQmaUTi.s:278    .text.advance_to_next_label:0000000000000000 advance_to_next_label
+     /tmp/ccQmaUTi.s:359    .text.advance_to_next_label:0000000000000048 $d
+     /tmp/ccQmaUTi.s:364    .text.init_cat:0000000000000000 $t
+     /tmp/ccQmaUTi.s:371    .text.init_cat:0000000000000000 init_cat
+     /tmp/ccQmaUTi.s:696    .text.init_cat:00000000000000ec $d
+     /tmp/ccQmaUTi.s:702    .text.advance_to_previous_label:0000000000000000 $t
+     /tmp/ccQmaUTi.s:709    .text.advance_to_previous_label:0000000000000000 advance_to_previous_label
+     /tmp/ccQmaUTi.s:794    .text.advance_to_previous_label:000000000000004c $d
+     /tmp/ccQmaUTi.s:799    .text.check_confirm.part.0:0000000000000000 $t
+     /tmp/ccQmaUTi.s:806    .text.check_confirm.part.0:0000000000000000 check_confirm.part.0
+     /tmp/ccQmaUTi.s:860    .text.check_confirm.part.0:0000000000000028 $d
                             *COM*:0000000000000004 NonProgrammable
-     /tmp/ccYD6hAj.s:867    .text.init_arg.part.0:0000000000000000 $t
-     /tmp/ccYD6hAj.s:874    .text.init_arg.part.0:0000000000000000 init_arg.part.0
-     /tmp/ccYD6hAj.s:916    .text.init_arg.part.0:0000000000000024 $d
-     /tmp/ccYD6hAj.s:921    .text.reset_arg:0000000000000000 $t
-     /tmp/ccYD6hAj.s:928    .text.reset_arg:0000000000000000 reset_arg
-     /tmp/ccYD6hAj.s:972    .text.reset_arg:0000000000000018 $d
-     /tmp/ccYD6hAj.s:977    .text.arg_eval:0000000000000000 $t
-     /tmp/ccYD6hAj.s:984    .text.arg_eval:0000000000000000 arg_eval
-     /tmp/ccYD6hAj.s:1106   .text.arg_eval:0000000000000074 $d
-     /tmp/ccYD6hAj.s:1113   .text.process_arg_shuffle:0000000000000000 $t
-     /tmp/ccYD6hAj.s:1120   .text.process_arg_shuffle:0000000000000000 process_arg_shuffle
-     /tmp/ccYD6hAj.s:1178   .text.process_arg_shuffle:000000000000002c $d
-     /tmp/ccYD6hAj.s:1183   .text.arg_digit:0000000000000000 $t
-     /tmp/ccYD6hAj.s:1190   .text.arg_digit:0000000000000000 arg_digit
-     /tmp/ccYD6hAj.s:1415   .text.arg_digit:00000000000000c8 $d
-     /tmp/ccYD6hAj.s:1423   .text.intltr:0000000000000000 $t
-     /tmp/ccYD6hAj.s:1430   .text.intltr:0000000000000000 intltr
-     /tmp/ccYD6hAj.s:1493   .text.intltr:0000000000000030 $d
-     /tmp/ccYD6hAj.s:1499   .text.set_window:0000000000000000 $t
-     /tmp/ccYD6hAj.s:1506   .text.set_window:0000000000000000 set_window
-     /tmp/ccYD6hAj.s:1653   .text.set_window:000000000000008c $d
-     /tmp/ccYD6hAj.s:1660   .text.arg_storcl:0000000000000000 $t
-     /tmp/ccYD6hAj.s:1667   .text.arg_storcl:0000000000000000 arg_storcl
-     /tmp/ccYD6hAj.s:1783   .text.arg_storcl:0000000000000040 $d
-     /tmp/ccYD6hAj.s:1788   .text.process_arg:0000000000000000 $t
-     /tmp/ccYD6hAj.s:1795   .text.process_arg:0000000000000000 process_arg
-     /tmp/ccYD6hAj.s:2016   .text.process_arg:000000000000009c $d
-     /tmp/ccYD6hAj.s:2063   .text.process_arg:00000000000000f8 $t
-     /tmp/ccYD6hAj.s:2096   .text.process_arg:000000000000011e $d
-     /tmp/ccYD6hAj.s:2540   .text.process_arg:00000000000002b8 $d
-     /tmp/ccYD6hAj.s:2552   .text.process_arg:00000000000002cc $t
-     /tmp/ccYD6hAj.s:2925   .text.process_arg:0000000000000474 $d
-     /tmp/ccYD6hAj.s:2930   .text.cur_shift:0000000000000000 $t
-     /tmp/ccYD6hAj.s:2938   .text.cur_shift:0000000000000000 cur_shift
-ARM GAS  /tmp/ccYD6hAj.s 			page 345
+     /tmp/ccQmaUTi.s:867    .text.init_arg.part.0:0000000000000000 $t
+     /tmp/ccQmaUTi.s:874    .text.init_arg.part.0:0000000000000000 init_arg.part.0
+     /tmp/ccQmaUTi.s:916    .text.init_arg.part.0:0000000000000024 $d
+     /tmp/ccQmaUTi.s:921    .text.reset_arg:0000000000000000 $t
+     /tmp/ccQmaUTi.s:928    .text.reset_arg:0000000000000000 reset_arg
+     /tmp/ccQmaUTi.s:972    .text.reset_arg:0000000000000018 $d
+     /tmp/ccQmaUTi.s:977    .text.arg_eval:0000000000000000 $t
+     /tmp/ccQmaUTi.s:984    .text.arg_eval:0000000000000000 arg_eval
+     /tmp/ccQmaUTi.s:1106   .text.arg_eval:0000000000000074 $d
+     /tmp/ccQmaUTi.s:1113   .text.process_arg_shuffle:0000000000000000 $t
+     /tmp/ccQmaUTi.s:1120   .text.process_arg_shuffle:0000000000000000 process_arg_shuffle
+     /tmp/ccQmaUTi.s:1178   .text.process_arg_shuffle:000000000000002c $d
+     /tmp/ccQmaUTi.s:1183   .text.arg_digit:0000000000000000 $t
+     /tmp/ccQmaUTi.s:1190   .text.arg_digit:0000000000000000 arg_digit
+     /tmp/ccQmaUTi.s:1415   .text.arg_digit:00000000000000c8 $d
+     /tmp/ccQmaUTi.s:1423   .text.intltr:0000000000000000 $t
+     /tmp/ccQmaUTi.s:1430   .text.intltr:0000000000000000 intltr
+     /tmp/ccQmaUTi.s:1493   .text.intltr:0000000000000030 $d
+     /tmp/ccQmaUTi.s:1499   .text.set_window:0000000000000000 $t
+     /tmp/ccQmaUTi.s:1506   .text.set_window:0000000000000000 set_window
+     /tmp/ccQmaUTi.s:1653   .text.set_window:000000000000008c $d
+     /tmp/ccQmaUTi.s:1660   .text.arg_storcl:0000000000000000 $t
+     /tmp/ccQmaUTi.s:1667   .text.arg_storcl:0000000000000000 arg_storcl
+     /tmp/ccQmaUTi.s:1783   .text.arg_storcl:0000000000000040 $d
+     /tmp/ccQmaUTi.s:1788   .text.process_arg:0000000000000000 $t
+     /tmp/ccQmaUTi.s:1795   .text.process_arg:0000000000000000 process_arg
+     /tmp/ccQmaUTi.s:2016   .text.process_arg:000000000000009c $d
+     /tmp/ccQmaUTi.s:2063   .text.process_arg:00000000000000f8 $t
+     /tmp/ccQmaUTi.s:2096   .text.process_arg:000000000000011e $d
+     /tmp/ccQmaUTi.s:2540   .text.process_arg:00000000000002b8 $d
+     /tmp/ccQmaUTi.s:2552   .text.process_arg:00000000000002cc $t
+     /tmp/ccQmaUTi.s:2925   .text.process_arg:0000000000000474 $d
+     /tmp/ccQmaUTi.s:2930   .text.cur_shift:0000000000000000 $t
+     /tmp/ccQmaUTi.s:2938   .text.cur_shift:0000000000000000 cur_shift
+ARM GAS  /tmp/ccQmaUTi.s 			page 345
 
 
-     /tmp/ccYD6hAj.s:2966   .text.cur_shift:0000000000000010 $d
-     /tmp/ccYD6hAj.s:2971   .text.reset_shift:0000000000000000 $t
-     /tmp/ccYD6hAj.s:2979   .text.reset_shift:0000000000000000 reset_shift
-     /tmp/ccYD6hAj.s:3040   .text.reset_shift:0000000000000014 $d
-     /tmp/ccYD6hAj.s:3045   .text.keycode_to_row_column:0000000000000000 $t
-     /tmp/ccYD6hAj.s:3053   .text.keycode_to_row_column:0000000000000000 keycode_to_row_column
-     /tmp/ccYD6hAj.s:3081   .text.keycode_to_row_column:0000000000000020 $d
-     /tmp/ccYD6hAj.s:3086   .text.row_column_to_keycode:0000000000000000 $t
-     /tmp/ccYD6hAj.s:3094   .text.row_column_to_keycode:0000000000000000 row_column_to_keycode
-     /tmp/ccYD6hAj.s:3152   .text.row_column_to_keycode:000000000000003c $d
-     /tmp/ccYD6hAj.s:3157   .text.keycode_to_digit_or_register:0000000000000000 $t
-     /tmp/ccYD6hAj.s:3165   .text.keycode_to_digit_or_register:0000000000000000 keycode_to_digit_or_register
-     /tmp/ccYD6hAj.s:3201   .text.keycode_to_digit_or_register:000000000000000c $d
-     /tmp/ccYD6hAj.s:3207   .text.init_state:0000000000000000 $t
-     /tmp/ccYD6hAj.s:3215   .text.init_state:0000000000000000 init_state
-     /tmp/ccYD6hAj.s:3321   .text.init_state:000000000000005c $d
-     /tmp/ccYD6hAj.s:3327   .text.soft_init_state:0000000000000000 $t
-     /tmp/ccYD6hAj.s:3335   .text.soft_init_state:0000000000000000 soft_init_state
-     /tmp/ccYD6hAj.s:3430   .text.soft_init_state:0000000000000048 $d
-     /tmp/ccYD6hAj.s:3436   .text.current_catalogue_max:0000000000000000 $t
-     /tmp/ccYD6hAj.s:3444   .text.current_catalogue_max:0000000000000000 current_catalogue_max
-     /tmp/ccYD6hAj.s:3465   .text.current_catalogue_max:000000000000000c $d
-     /tmp/ccYD6hAj.s:3471   .text.current_catalogue:0000000000000000 $t
-     /tmp/ccYD6hAj.s:3479   .text.current_catalogue:0000000000000000 current_catalogue
-     /tmp/ccYD6hAj.s:3735   .text.current_catalogue:00000000000000c8 $d
-     /tmp/ccYD6hAj.s:3745   .text.process_catalogue:0000000000000000 $t
-     /tmp/ccYD6hAj.s:3752   .text.process_catalogue:0000000000000000 process_catalogue
-     /tmp/ccYD6hAj.s:4084   .text.process_catalogue:0000000000000100 $d
-     /tmp/ccYD6hAj.s:4116   .text.process_catalogue:0000000000000120 $t
-     /tmp/ccYD6hAj.s:4624   .text.process_catalogue:00000000000002dc $d
-     /tmp/ccYD6hAj.s:4645   .text.process_catalogue:00000000000002fc $t
-     /tmp/ccYD6hAj.s:4675   .text.find_pos:0000000000000000 $t
-     /tmp/ccYD6hAj.s:4683   .text.find_pos:0000000000000000 find_pos
-     /tmp/ccYD6hAj.s:4856   .text.find_pos:0000000000000080 $d
-     /tmp/ccYD6hAj.s:4862   .text.get_alpha_state:0000000000000000 $t
-     /tmp/ccYD6hAj.s:4870   .text.get_alpha_state:0000000000000000 get_alpha_state
-     /tmp/ccYD6hAj.s:4902   .text.get_alpha_state:0000000000000020 $d
-     /tmp/ccYD6hAj.s:4908   .rodata.process_keycode.str1.4:0000000000000000 $d
-     /tmp/ccYD6hAj.s:4918   .text.process_keycode:0000000000000000 $t
-     /tmp/ccYD6hAj.s:4926   .text.process_keycode:0000000000000000 process_keycode
-     /tmp/ccYD6hAj.s:5544   .text.process_keycode:00000000000002a8 $d
+     /tmp/ccQmaUTi.s:2966   .text.cur_shift:0000000000000010 $d
+     /tmp/ccQmaUTi.s:2971   .text.reset_shift:0000000000000000 $t
+     /tmp/ccQmaUTi.s:2979   .text.reset_shift:0000000000000000 reset_shift
+     /tmp/ccQmaUTi.s:3040   .text.reset_shift:0000000000000014 $d
+     /tmp/ccQmaUTi.s:3045   .text.keycode_to_row_column:0000000000000000 $t
+     /tmp/ccQmaUTi.s:3053   .text.keycode_to_row_column:0000000000000000 keycode_to_row_column
+     /tmp/ccQmaUTi.s:3081   .text.keycode_to_row_column:0000000000000020 $d
+     /tmp/ccQmaUTi.s:3086   .text.row_column_to_keycode:0000000000000000 $t
+     /tmp/ccQmaUTi.s:3094   .text.row_column_to_keycode:0000000000000000 row_column_to_keycode
+     /tmp/ccQmaUTi.s:3152   .text.row_column_to_keycode:000000000000003c $d
+     /tmp/ccQmaUTi.s:3157   .text.keycode_to_digit_or_register:0000000000000000 $t
+     /tmp/ccQmaUTi.s:3165   .text.keycode_to_digit_or_register:0000000000000000 keycode_to_digit_or_register
+     /tmp/ccQmaUTi.s:3201   .text.keycode_to_digit_or_register:000000000000000c $d
+     /tmp/ccQmaUTi.s:3207   .text.init_state:0000000000000000 $t
+     /tmp/ccQmaUTi.s:3215   .text.init_state:0000000000000000 init_state
+     /tmp/ccQmaUTi.s:3321   .text.init_state:000000000000005c $d
+     /tmp/ccQmaUTi.s:3327   .text.soft_init_state:0000000000000000 $t
+     /tmp/ccQmaUTi.s:3335   .text.soft_init_state:0000000000000000 soft_init_state
+     /tmp/ccQmaUTi.s:3430   .text.soft_init_state:0000000000000048 $d
+     /tmp/ccQmaUTi.s:3436   .text.current_catalogue_max:0000000000000000 $t
+     /tmp/ccQmaUTi.s:3444   .text.current_catalogue_max:0000000000000000 current_catalogue_max
+     /tmp/ccQmaUTi.s:3465   .text.current_catalogue_max:000000000000000c $d
+     /tmp/ccQmaUTi.s:3471   .text.current_catalogue:0000000000000000 $t
+     /tmp/ccQmaUTi.s:3479   .text.current_catalogue:0000000000000000 current_catalogue
+     /tmp/ccQmaUTi.s:3735   .text.current_catalogue:00000000000000c8 $d
+     /tmp/ccQmaUTi.s:3745   .text.process_catalogue:0000000000000000 $t
+     /tmp/ccQmaUTi.s:3752   .text.process_catalogue:0000000000000000 process_catalogue
+     /tmp/ccQmaUTi.s:4084   .text.process_catalogue:0000000000000100 $d
+     /tmp/ccQmaUTi.s:4116   .text.process_catalogue:0000000000000120 $t
+     /tmp/ccQmaUTi.s:4624   .text.process_catalogue:00000000000002dc $d
+     /tmp/ccQmaUTi.s:4645   .text.process_catalogue:00000000000002fc $t
+     /tmp/ccQmaUTi.s:4675   .text.find_pos:0000000000000000 $t
+     /tmp/ccQmaUTi.s:4683   .text.find_pos:0000000000000000 find_pos
+     /tmp/ccQmaUTi.s:4856   .text.find_pos:0000000000000080 $d
+     /tmp/ccQmaUTi.s:4862   .text.get_alpha_state:0000000000000000 $t
+     /tmp/ccQmaUTi.s:4870   .text.get_alpha_state:0000000000000000 get_alpha_state
+     /tmp/ccQmaUTi.s:4902   .text.get_alpha_state:0000000000000020 $d
+     /tmp/ccQmaUTi.s:4908   .rodata.process_keycode.str1.4:0000000000000000 $d
+     /tmp/ccQmaUTi.s:4918   .text.process_keycode:0000000000000000 $t
+     /tmp/ccQmaUTi.s:4926   .text.process_keycode:0000000000000000 process_keycode
+     /tmp/ccQmaUTi.s:5544   .text.process_keycode:00000000000002a8 $d
                             *COM*:0000000000000004 OpCode
                             *COM*:0000000000000004 GoFast
                             *COM*:0000000000000004 OpCodeDisplayPending
                             *COM*:0000000000000004 WasDataEntry
-     /tmp/ccYD6hAj.s:5563   .text.process_keycode:00000000000002e8 $t
-     /tmp/ccYD6hAj.s:5680   .text.process_keycode:0000000000000362 $d
-     /tmp/ccYD6hAj.s:5727   .text.process_keycode:00000000000003be $t
-     /tmp/ccYD6hAj.s:6251   .text.process_keycode:00000000000005a0 $d
-     /tmp/ccYD6hAj.s:6260   .text.process_keycode:00000000000005c4 $t
-     /tmp/ccYD6hAj.s:6350   .text.process_keycode:0000000000000620 $d
-     /tmp/ccYD6hAj.s:6373   .text.process_keycode:0000000000000664 $t
-     /tmp/ccYD6hAj.s:6452   .text.process_keycode:00000000000006c8 $d
-     /tmp/ccYD6hAj.s:6482   .text.process_keycode:00000000000006ec $d
-     /tmp/ccYD6hAj.s:6526   .text.process_keycode:0000000000000798 $t
-     /tmp/ccYD6hAj.s:6830   .text.process_keycode:00000000000008b0 $d
-     /tmp/ccYD6hAj.s:6839   .text.process_keycode:00000000000008d4 $t
-ARM GAS  /tmp/ccYD6hAj.s 			page 346
+     /tmp/ccQmaUTi.s:5563   .text.process_keycode:00000000000002e8 $t
+     /tmp/ccQmaUTi.s:5680   .text.process_keycode:0000000000000362 $d
+     /tmp/ccQmaUTi.s:5727   .text.process_keycode:00000000000003be $t
+     /tmp/ccQmaUTi.s:6251   .text.process_keycode:00000000000005a0 $d
+     /tmp/ccQmaUTi.s:6260   .text.process_keycode:00000000000005c4 $t
+     /tmp/ccQmaUTi.s:6350   .text.process_keycode:0000000000000620 $d
+     /tmp/ccQmaUTi.s:6373   .text.process_keycode:0000000000000664 $t
+     /tmp/ccQmaUTi.s:6452   .text.process_keycode:00000000000006c8 $d
+     /tmp/ccQmaUTi.s:6482   .text.process_keycode:00000000000006ec $d
+     /tmp/ccQmaUTi.s:6526   .text.process_keycode:0000000000000798 $t
+     /tmp/ccQmaUTi.s:6830   .text.process_keycode:00000000000008b0 $d
+     /tmp/ccQmaUTi.s:6839   .text.process_keycode:00000000000008d4 $t
+ARM GAS  /tmp/ccQmaUTi.s 			page 346
 
 
-     /tmp/ccYD6hAj.s:6935   .text.process_keycode:0000000000000930 $d
-     /tmp/ccYD6hAj.s:6965   .text.process_keycode:0000000000000998 $d
-     /tmp/ccYD6hAj.s:6971   .text.process_keycode:00000000000009a8 $t
-     /tmp/ccYD6hAj.s:7007   .text.process_keycode:00000000000009dc $d
-     /tmp/ccYD6hAj.s:7011   .text.process_keycode:00000000000009ec $t
-     /tmp/ccYD6hAj.s:8028   .text.process_keycode:0000000000000d84 $d
-     /tmp/ccYD6hAj.s:8043   .text.process_keycode:0000000000000da8 $t
-     /tmp/ccYD6hAj.s:8396   .text.process_keycode:0000000000000ecc $d
-     /tmp/ccYD6hAj.s:8431   .text.process_keycode:0000000000000f58 $t
-     /tmp/ccYD6hAj.s:8666   .text.process_keycode:0000000000001040 $d
-     /tmp/ccYD6hAj.s:8686   .text.process_keycode:0000000000001090 $t
-     /tmp/ccYD6hAj.s:8738   .text.process_keycode:00000000000010d4 $d
-     /tmp/ccYD6hAj.s:8767   .text.process_keycode:00000000000010e8 $t
-     /tmp/ccYD6hAj.s:8899   .text.process_keycode:0000000000001154 $d
-     /tmp/ccYD6hAj.s:8917   .text.process_keycode:000000000000119c $t
-     /tmp/ccYD6hAj.s:9332   .text.process_keycode:00000000000012e4 $d
-     /tmp/ccYD6hAj.s:9366   .text.process_keycode:000000000000136c $t
-     /tmp/ccYD6hAj.s:9645   .text.process_keycode:0000000000001460 $d
-     /tmp/ccYD6hAj.s:9661   .text.process_keycode:0000000000001478 $t
-     /tmp/ccYD6hAj.s:9701   .text.process_keycode:000000000000149c $d
-     /tmp/ccYD6hAj.s:9736   .text.process_keycode:0000000000001524 $t
-     /tmp/ccYD6hAj.s:10078  .text.process_keycode:000000000000160e $d
-     /tmp/ccYD6hAj.s:10383  .text.process_keycode:000000000000175c $d
-     /tmp/ccYD6hAj.s:10399  .text.process_keycode:000000000000177c $t
-     /tmp/ccYD6hAj.s:10938  .text.process_keycode:00000000000019c4 $d
-     /tmp/ccYD6hAj.s:10980  .text.process_keycode:0000000000001a68 $t
-     /tmp/ccYD6hAj.s:11373  .text.process_keycode:0000000000001bec $d
-     /tmp/ccYD6hAj.s:11385  .text.process_keycode:0000000000001bf8 $t
-     /tmp/ccYD6hAj.s:11773  .text.process_keycode:0000000000001d60 $d
-     /tmp/ccYD6hAj.s:11784  .text.process_keycode_with_shift:0000000000000000 $t
-     /tmp/ccYD6hAj.s:11792  .text.process_keycode_with_shift:0000000000000000 process_keycode_with_shift
-     /tmp/ccYD6hAj.s:11948  .text.process_keycode_with_shift:0000000000000074 $d
-     /tmp/ccYD6hAj.s:11963  .bss.was_paused.9650:0000000000000000 $d
-     /tmp/ccYD6hAj.s:11967  .bss.was_paused.9650:0000000000000000 was_paused.9650
-     /tmp/ccYD6hAj.s:11970  .rodata.alpha_arrows:0000000000000000 $d
-     /tmp/ccYD6hAj.s:11973  .rodata.alpha_arrows:0000000000000000 alpha_arrows
-     /tmp/ccYD6hAj.s:11976  .rodata.alpha_catalogue:0000000000000000 $d
-     /tmp/ccYD6hAj.s:11979  .rodata.alpha_catalogue:0000000000000000 alpha_catalogue
-     /tmp/ccYD6hAj.s:11983  .rodata.alpha_compares:0000000000000000 $d
-     /tmp/ccYD6hAj.s:11986  .rodata.alpha_compares:0000000000000000 alpha_compares
-     /tmp/ccYD6hAj.s:11989  .rodata.alpha_letters:0000000000000000 $d
-     /tmp/ccYD6hAj.s:11993  .rodata.alpha_letters:0000000000000000 alpha_letters
-     /tmp/ccYD6hAj.s:11999  .rodata.alpha_letters_lower:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12003  .rodata.alpha_letters_lower:0000000000000000 alpha_letters_lower
-     /tmp/ccYD6hAj.s:12009  .rodata.alpha_subscripts:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12012  .rodata.alpha_subscripts:0000000000000000 alpha_subscripts
-     /tmp/ccYD6hAj.s:12016  .rodata.alpha_symbols:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12019  .rodata.alpha_symbols:0000000000000000 alpha_symbols
-     /tmp/ccYD6hAj.s:12022  .rodata.alphamap.9182:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12026  .rodata.alphamap.9182:0000000000000000 alphamap.9182
-     /tmp/ccYD6hAj.s:12066  .rodata.amap.9173:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12070  .rodata.amap.9173:0000000000000000 amap.9173
-     /tmp/ccYD6hAj.s:12084  .rodata.catalogue:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12087  .rodata.catalogue:0000000000000000 catalogue
-     /tmp/ccYD6hAj.s:12096  .rodata.catalogue_sizes.9448:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12100  .rodata.catalogue_sizes.9448:0000000000000000 catalogue_sizes.9448
-     /tmp/ccYD6hAj.s:12103  .rodata.catalogues.9456:0000000000000000 $d
-ARM GAS  /tmp/ccYD6hAj.s 			page 347
+     /tmp/ccQmaUTi.s:6935   .text.process_keycode:0000000000000930 $d
+     /tmp/ccQmaUTi.s:6965   .text.process_keycode:0000000000000998 $d
+     /tmp/ccQmaUTi.s:6971   .text.process_keycode:00000000000009a8 $t
+     /tmp/ccQmaUTi.s:7007   .text.process_keycode:00000000000009dc $d
+     /tmp/ccQmaUTi.s:7011   .text.process_keycode:00000000000009ec $t
+     /tmp/ccQmaUTi.s:8028   .text.process_keycode:0000000000000d84 $d
+     /tmp/ccQmaUTi.s:8043   .text.process_keycode:0000000000000da8 $t
+     /tmp/ccQmaUTi.s:8396   .text.process_keycode:0000000000000ecc $d
+     /tmp/ccQmaUTi.s:8431   .text.process_keycode:0000000000000f58 $t
+     /tmp/ccQmaUTi.s:8666   .text.process_keycode:0000000000001040 $d
+     /tmp/ccQmaUTi.s:8686   .text.process_keycode:0000000000001090 $t
+     /tmp/ccQmaUTi.s:8738   .text.process_keycode:00000000000010d4 $d
+     /tmp/ccQmaUTi.s:8767   .text.process_keycode:00000000000010e8 $t
+     /tmp/ccQmaUTi.s:8899   .text.process_keycode:0000000000001154 $d
+     /tmp/ccQmaUTi.s:8917   .text.process_keycode:000000000000119c $t
+     /tmp/ccQmaUTi.s:9332   .text.process_keycode:00000000000012e4 $d
+     /tmp/ccQmaUTi.s:9366   .text.process_keycode:000000000000136c $t
+     /tmp/ccQmaUTi.s:9645   .text.process_keycode:0000000000001460 $d
+     /tmp/ccQmaUTi.s:9661   .text.process_keycode:0000000000001478 $t
+     /tmp/ccQmaUTi.s:9701   .text.process_keycode:000000000000149c $d
+     /tmp/ccQmaUTi.s:9736   .text.process_keycode:0000000000001524 $t
+     /tmp/ccQmaUTi.s:10078  .text.process_keycode:000000000000160e $d
+     /tmp/ccQmaUTi.s:10383  .text.process_keycode:000000000000175c $d
+     /tmp/ccQmaUTi.s:10399  .text.process_keycode:000000000000177c $t
+     /tmp/ccQmaUTi.s:10938  .text.process_keycode:00000000000019c4 $d
+     /tmp/ccQmaUTi.s:10980  .text.process_keycode:0000000000001a68 $t
+     /tmp/ccQmaUTi.s:11373  .text.process_keycode:0000000000001bec $d
+     /tmp/ccQmaUTi.s:11385  .text.process_keycode:0000000000001bf8 $t
+     /tmp/ccQmaUTi.s:11773  .text.process_keycode:0000000000001d60 $d
+     /tmp/ccQmaUTi.s:11784  .text.process_keycode_with_shift:0000000000000000 $t
+     /tmp/ccQmaUTi.s:11792  .text.process_keycode_with_shift:0000000000000000 process_keycode_with_shift
+     /tmp/ccQmaUTi.s:11948  .text.process_keycode_with_shift:0000000000000074 $d
+     /tmp/ccQmaUTi.s:11963  .bss.was_paused.9650:0000000000000000 $d
+     /tmp/ccQmaUTi.s:11967  .bss.was_paused.9650:0000000000000000 was_paused.9650
+     /tmp/ccQmaUTi.s:11970  .rodata.alpha_arrows:0000000000000000 $d
+     /tmp/ccQmaUTi.s:11973  .rodata.alpha_arrows:0000000000000000 alpha_arrows
+     /tmp/ccQmaUTi.s:11976  .rodata.alpha_catalogue:0000000000000000 $d
+     /tmp/ccQmaUTi.s:11979  .rodata.alpha_catalogue:0000000000000000 alpha_catalogue
+     /tmp/ccQmaUTi.s:11983  .rodata.alpha_compares:0000000000000000 $d
+     /tmp/ccQmaUTi.s:11986  .rodata.alpha_compares:0000000000000000 alpha_compares
+     /tmp/ccQmaUTi.s:11989  .rodata.alpha_letters:0000000000000000 $d
+     /tmp/ccQmaUTi.s:11993  .rodata.alpha_letters:0000000000000000 alpha_letters
+     /tmp/ccQmaUTi.s:11999  .rodata.alpha_letters_lower:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12003  .rodata.alpha_letters_lower:0000000000000000 alpha_letters_lower
+     /tmp/ccQmaUTi.s:12009  .rodata.alpha_subscripts:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12012  .rodata.alpha_subscripts:0000000000000000 alpha_subscripts
+     /tmp/ccQmaUTi.s:12016  .rodata.alpha_symbols:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12019  .rodata.alpha_symbols:0000000000000000 alpha_symbols
+     /tmp/ccQmaUTi.s:12022  .rodata.alphamap.9182:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12026  .rodata.alphamap.9182:0000000000000000 alphamap.9182
+     /tmp/ccQmaUTi.s:12066  .rodata.amap.9173:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12070  .rodata.amap.9173:0000000000000000 amap.9173
+     /tmp/ccQmaUTi.s:12084  .rodata.catalogue:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12087  .rodata.catalogue:0000000000000000 catalogue
+     /tmp/ccQmaUTi.s:12096  .rodata.catalogue_sizes.9448:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12100  .rodata.catalogue_sizes.9448:0000000000000000 catalogue_sizes.9448
+     /tmp/ccQmaUTi.s:12103  .rodata.catalogues.9456:0000000000000000 $d
+ARM GAS  /tmp/ccQmaUTi.s 			page 347
 
 
-     /tmp/ccYD6hAj.s:12107  .rodata.catalogues.9456:0000000000000000 catalogues.9456
-     /tmp/ccYD6hAj.s:12192  .rodata.cplx_catalogue:0000000000000000 cplx_catalogue
-     /tmp/ccYD6hAj.s:12646  .rodata.stats_catalogue:0000000000000000 stats_catalogue
-     /tmp/ccYD6hAj.s:12606  .rodata.prob_catalogue:0000000000000000 prob_catalogue
-     /tmp/ccYD6hAj.s:12209  .rodata.int_catalogue:0000000000000000 int_catalogue
-     /tmp/ccYD6hAj.s:12615  .rodata.prog_catalogue:0000000000000000 prog_catalogue
-     /tmp/ccYD6hAj.s:12625  .rodata.program_xfcn:0000000000000000 program_xfcn
-     /tmp/ccYD6hAj.s:12659  .rodata.test_catalogue:0000000000000000 test_catalogue
-     /tmp/ccYD6hAj.s:12255  .rodata.mode_catalogue:0000000000000000 mode_catalogue
-     /tmp/ccYD6hAj.s:12653  .rodata.sums_catalogue:0000000000000000 sums_catalogue
-     /tmp/ccYD6hAj.s:12248  .rodata.matrix_catalogue:0000000000000000 matrix_catalogue
-     /tmp/ccYD6hAj.s:12130  .rodata.cmap.9172:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12134  .rodata.cmap.9172:0000000000000000 cmap.9172
-     /tmp/ccYD6hAj.s:12160  .rodata.conv_catalogue:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12164  .rodata.conv_catalogue:0000000000000000 conv_catalogue
-     /tmp/ccYD6hAj.s:12171  .rodata.conv_mapping.9495:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12175  .rodata.conv_mapping.9495:0000000000000000 conv_mapping.9495
-     /tmp/ccYD6hAj.s:12189  .rodata.cplx_catalogue:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12196  .rodata.disp.9310:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12200  .rodata.disp.9310:0000000000000000 disp.9310
-     /tmp/ccYD6hAj.s:12206  .rodata.int_catalogue:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12216  .rodata.linear_key_map.9143:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12220  .rodata.linear_key_map.9143:0000000000000000 linear_key_map.9143
-     /tmp/ccYD6hAj.s:12226  .rodata.linear_key_map.9147:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12230  .rodata.linear_key_map.9147:0000000000000000 linear_key_map.9147
-     /tmp/ccYD6hAj.s:12236  .rodata.map.9159:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12240  .rodata.map.9159:0000000000000000 map.9159
-     /tmp/ccYD6hAj.s:12245  .rodata.matrix_catalogue:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12252  .rodata.mode_catalogue:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12261  .rodata.op_map.9226:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12265  .rodata.op_map.9226:0000000000000000 op_map.9226
-     /tmp/ccYD6hAj.s:12302  .rodata.op_map.9249:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12306  .rodata.op_map.9249:0000000000000000 op_map.9249
-     /tmp/ccYD6hAj.s:12378  .rodata.op_map.9272:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12382  .rodata.op_map.9272:0000000000000000 op_map.9272
-     /tmp/ccYD6hAj.s:12419  .rodata.op_map.9282:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12423  .rodata.op_map.9282:0000000000000000 op_map.9282
-     /tmp/ccYD6hAj.s:12565  .rodata.op_map.9294:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12569  .rodata.op_map.9294:0000000000000000 op_map.9294
-     /tmp/ccYD6hAj.s:12574  .rodata.op_map.9309:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12578  .rodata.op_map.9309:0000000000000000 op_map.9309
-     /tmp/ccYD6hAj.s:12586  .rodata.op_map2.9250:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12590  .rodata.op_map2.9250:0000000000000000 op_map2.9250
-     /tmp/ccYD6hAj.s:12596  .rodata.opcode_breaks:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12600  .rodata.opcode_breaks:0000000000000000 opcode_breaks
-     /tmp/ccYD6hAj.s:12603  .rodata.prob_catalogue:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12612  .rodata.prog_catalogue:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12622  .rodata.program_xfcn:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12636  .rodata.smap.9174:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12640  .rodata.smap.9174:0000000000000000 smap.9174
-     /tmp/ccYD6hAj.s:12643  .rodata.stats_catalogue:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12650  .rodata.sums_catalogue:0000000000000000 $d
-     /tmp/ccYD6hAj.s:12656  .rodata.test_catalogue:0000000000000000 $d
-     /tmp/ccYD6hAj.s:2100   .text.process_arg:0000000000000121 $d
-     /tmp/ccYD6hAj.s:2100   .text.process_arg:0000000000000122 $t
-     /tmp/ccYD6hAj.s:6471   .text.process_keycode:00000000000006db $d
-     /tmp/ccYD6hAj.s:6471   .text.process_keycode:00000000000006dc $t
-ARM GAS  /tmp/ccYD6hAj.s 			page 348
+     /tmp/ccQmaUTi.s:12107  .rodata.catalogues.9456:0000000000000000 catalogues.9456
+     /tmp/ccQmaUTi.s:12192  .rodata.cplx_catalogue:0000000000000000 cplx_catalogue
+     /tmp/ccQmaUTi.s:12646  .rodata.stats_catalogue:0000000000000000 stats_catalogue
+     /tmp/ccQmaUTi.s:12606  .rodata.prob_catalogue:0000000000000000 prob_catalogue
+     /tmp/ccQmaUTi.s:12209  .rodata.int_catalogue:0000000000000000 int_catalogue
+     /tmp/ccQmaUTi.s:12615  .rodata.prog_catalogue:0000000000000000 prog_catalogue
+     /tmp/ccQmaUTi.s:12625  .rodata.program_xfcn:0000000000000000 program_xfcn
+     /tmp/ccQmaUTi.s:12659  .rodata.test_catalogue:0000000000000000 test_catalogue
+     /tmp/ccQmaUTi.s:12255  .rodata.mode_catalogue:0000000000000000 mode_catalogue
+     /tmp/ccQmaUTi.s:12653  .rodata.sums_catalogue:0000000000000000 sums_catalogue
+     /tmp/ccQmaUTi.s:12248  .rodata.matrix_catalogue:0000000000000000 matrix_catalogue
+     /tmp/ccQmaUTi.s:12130  .rodata.cmap.9172:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12134  .rodata.cmap.9172:0000000000000000 cmap.9172
+     /tmp/ccQmaUTi.s:12160  .rodata.conv_catalogue:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12164  .rodata.conv_catalogue:0000000000000000 conv_catalogue
+     /tmp/ccQmaUTi.s:12171  .rodata.conv_mapping.9495:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12175  .rodata.conv_mapping.9495:0000000000000000 conv_mapping.9495
+     /tmp/ccQmaUTi.s:12189  .rodata.cplx_catalogue:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12196  .rodata.disp.9310:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12200  .rodata.disp.9310:0000000000000000 disp.9310
+     /tmp/ccQmaUTi.s:12206  .rodata.int_catalogue:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12216  .rodata.linear_key_map.9143:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12220  .rodata.linear_key_map.9143:0000000000000000 linear_key_map.9143
+     /tmp/ccQmaUTi.s:12226  .rodata.linear_key_map.9147:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12230  .rodata.linear_key_map.9147:0000000000000000 linear_key_map.9147
+     /tmp/ccQmaUTi.s:12236  .rodata.map.9159:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12240  .rodata.map.9159:0000000000000000 map.9159
+     /tmp/ccQmaUTi.s:12245  .rodata.matrix_catalogue:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12252  .rodata.mode_catalogue:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12261  .rodata.op_map.9226:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12265  .rodata.op_map.9226:0000000000000000 op_map.9226
+     /tmp/ccQmaUTi.s:12302  .rodata.op_map.9249:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12306  .rodata.op_map.9249:0000000000000000 op_map.9249
+     /tmp/ccQmaUTi.s:12378  .rodata.op_map.9272:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12382  .rodata.op_map.9272:0000000000000000 op_map.9272
+     /tmp/ccQmaUTi.s:12419  .rodata.op_map.9282:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12423  .rodata.op_map.9282:0000000000000000 op_map.9282
+     /tmp/ccQmaUTi.s:12565  .rodata.op_map.9294:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12569  .rodata.op_map.9294:0000000000000000 op_map.9294
+     /tmp/ccQmaUTi.s:12574  .rodata.op_map.9309:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12578  .rodata.op_map.9309:0000000000000000 op_map.9309
+     /tmp/ccQmaUTi.s:12586  .rodata.op_map2.9250:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12590  .rodata.op_map2.9250:0000000000000000 op_map2.9250
+     /tmp/ccQmaUTi.s:12596  .rodata.opcode_breaks:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12600  .rodata.opcode_breaks:0000000000000000 opcode_breaks
+     /tmp/ccQmaUTi.s:12603  .rodata.prob_catalogue:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12612  .rodata.prog_catalogue:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12622  .rodata.program_xfcn:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12636  .rodata.smap.9174:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12640  .rodata.smap.9174:0000000000000000 smap.9174
+     /tmp/ccQmaUTi.s:12643  .rodata.stats_catalogue:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12650  .rodata.sums_catalogue:0000000000000000 $d
+     /tmp/ccQmaUTi.s:12656  .rodata.test_catalogue:0000000000000000 $d
+     /tmp/ccQmaUTi.s:2100   .text.process_arg:0000000000000121 $d
+     /tmp/ccQmaUTi.s:2100   .text.process_arg:0000000000000122 $t
+     /tmp/ccQmaUTi.s:6471   .text.process_keycode:00000000000006db $d
+     /tmp/ccQmaUTi.s:6471   .text.process_keycode:00000000000006dc $t
+ARM GAS  /tmp/ccQmaUTi.s 			page 348
 
 
-     /tmp/ccYD6hAj.s:10119  .text.process_keycode:0000000000001637 $d
-     /tmp/ccYD6hAj.s:10119  .text.process_keycode:0000000000001638 $t
+     /tmp/ccQmaUTi.s:10119  .text.process_keycode:0000000000001637 $d
+     /tmp/ccQmaUTi.s:10119  .text.process_keycode:0000000000001638 $t
 
 UNDEFINED SYMBOLS
 sizeLIB
@@ -20836,7 +20836,7 @@ prt
 scopy_char
 TraceBuffer
 clpall
-ARM GAS  /tmp/ccYD6hAj.s 			page 349
+ARM GAS  /tmp/ccQmaUTi.s 			page 349
 
 
 clrprog
