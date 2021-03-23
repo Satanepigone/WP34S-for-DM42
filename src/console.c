@@ -348,6 +348,10 @@ struct _ndmap do_multi (struct _ndmap r) {
     do_now(K_SSHOT,0); //activates screenshot routine in keys
     r = no_key;
     break;
+  case DEFMEN:
+    toggle_default_menu();
+    r = no_key;
+    break;
   default:
     r = no_key;
   }

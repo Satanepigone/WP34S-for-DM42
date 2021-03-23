@@ -33,20 +33,20 @@
     <h2 id="intro">Introduction</h2>
     
     The WP-34s calculator was born when someone at HP provided a
-    development kit and programming cables to allow the firmware of the
+    development kit and programming cables that allowed the firmware of the
     HP-20b and 30b calculators to be re-flashed.
     <br>
     This led to the
     development of an open-source RPN programmable scientific
     calculator, the WP-34s. Despite the limits of the target
-    hardware - for example, just 2k of RAM and a very limited display -
+    hardware - just 2k of RAM and a very limited display -
     the result was extraordinary.
     <br>
-    With a programming cable, key stickers
-    and an overlay, these business calculators could become what is, in
-    many ways, one of the most powerful RPN calculators ever.
+    With just a cable, key stickers,
+    and an overlay, these business calculators could become one of the
+    most powerful RPN calculators ever.
     <br>
-    The 20b and 30b calculators are no longer produced, but the WP-34s
+    Today the 20b and 30b calculators are no longer produced, but the WP-34s
     lives on, with versions for desktops, iOS and Android. The aim of this
     project is to bring the WP-34s to the hardware of the
     DM42.
@@ -56,11 +56,11 @@
     but why replace the already-excellent Free42 on the DM42 with the
     WP-34s?
     <br>
-    One point to remember is that the change can be reversed, as 
+    First, the change can be easily reversed, as 
     many times as you like.
     <br>
     Also, compared to Free42 the WP34s has a far greater
-    number of built-in functions, especially conversions and
+    number of built-in functions, e.g., conversions and
     statistics. It's fun, too!
     <br>
     The WP-34s on the DM42 still only offers 2k of RAM to the user and the
@@ -88,7 +88,7 @@
     the DM42 keyboard.
     <br>
     Outside of alpha mode there are two shift states, f (one press of
-    <span class="lcd">SHIFT</span>) and g (two presses). A third press cancels the shift.
+    <span class="button">SHIFT</span>) and g (two presses). A third press cancels the shift.
     <br>
     In this manual, <span class="button">SHIFT</span> will be shown
     as <span class="button">f</span>
@@ -100,61 +100,74 @@
     (e.g., in order to reload the 
     Free42 firmware):
     <ul>
-      <li>Press <span class="button">SHIFT</span> <span class="button">0</span>. This brings up the SETUP menu.</li>
+      <li>Press <span class="button">SHIFT</span> <span class="button">0</span>. This
+      brings up the SETUP menu.</li> 
       <li>Press <span class="button">F1</span> (EXIT).</li>
       <li>You can then use <span class="lcd">3: Load Program</span> to choose a
 	different firmware file to load, or <span class="lcd">2: Run Program</span>
 	to return to the already-loaded WP-34s.</li>
     </ul>
-
+    
     <h2 id="menus">Menus</h2>
     Menus use the top row of function keys, unshifted and f-shifted, to
-    make the full WP-34s keyboard available. All menus have the right-arrow
-    and CPX keys on unshifted F5 and F6. Most menus are on f-shifted keys;
+    make the full WP-34s keyboard available. All menus have the
+    <span class="button">→</span> and <span class="button">CPX</span>
+    keys on unshifted F5 and F6. Most menus are on f-shifted keys;
     a few are on g-shifted keys.
     <br>
     <ul>
-      <li>Calling the same menu twice goes back to the minimal "blank menu",
-	with only arrow and CPX keys.</li>
-      <li>Pressing SHIFT-Hold-Down-arrow goes to the last menu.</li>
+      <li>Calling the same menu twice goes back to the <i>default menu</i>.</li>
+      <li>Initially the default menu displays only
+	<span class="button">→</span>
+	and <span class="button">CPX</span> keys.</li>
+      <li>Pressing <span class="button">f</span> <span class="button">ASSIGN</span>
+      when the default menu is displayed toggles between this version
+	and one with
+	<span class="button">Σ+</span>&nbsp;,
+	<span class="button">1/x</span>&nbsp;,
+	<span class="button">√</span>&nbsp;, and
+	<span class="button">LOG</span>, helpful when labels are assigned.</li> 
+      <li>Also,
+      pressing <span class="button">SHIFT</span>-Hold-<span class="button">&#9650;</span>
+      goes to the last menu.</li>
     </ul>
     <h3>Menus on f-shifted keys</h3>
     <ul>
       <li><b>Angles</b> menu
-	(<span class="button">f</span> <span class="button">MODES</span>):
+	<span class="button">f</span> <span class="button">MODES</span>:
 	angle modes, H.MS / H.d, co-ordinate 
 	conversions and hyperbolic prefixes. This menu is also available from
 	g-shifted <span class="button">SIN</span>, <span class="button">COS</span>,
 	<span class="button">TAN</span>.</li>
       <li><b>Display</b> menu
-	(<span class="button">f</span> <span class="button">DISP</span>):
+	<span class="button">f</span> <span class="button">DISP</span>:
 	display modes, fraction modes, radix 
 	choice, and H.MS / H.d.</li>
       <li><b>Clear</b> menu
-	(<span class="button">f</span> <span class="button">CLEAR</span>):
+	<span class="button">f</span> <span class="button">CLEAR</span>:
 	clear program, clear stats, clear x.</li> 
       <li><b>Integrate</b> menu
-	(<span class="button">f</span> <span class="button">INTEGRATE</span>):
+	<span class="button">f</span> <span class="button">INTEGRATE</span>:
 	SLV, &int;, SUM, and PROD.</li> 
       <li><b>Stats</b> menu
-	(<span class="button">f</span> <span class="button">STATS</span>):
+	<span class="button">f</span> <span class="button">STATS</span>:
 	Xbar, Yhat, s (variance) and r 
 	(correlation coefficient), plus a link to the SUMS catalogue.</li>
       <li><b>Base</b> menu
-	(<span class="button">f</span> <span class="button">BASE</span>):
+	<span class="button">f</span> <span class="button">BASE</span>:
 	BIN, OCT, DEC, HEX, not, and, or, xor, and RMDR.</li>
       <li><b>Flags</b> menu
-	(<span class="button">f</span> <span class="button">FLAGS</span>):
+	<span class="button">f</span> <span class="button">FLAGS</span>:
 	SF, CF, x=? and x&lt;&gt;? tests.</li> 
-      <li><b>Probability</b> menu (<span class="button">f</span>
-	<span class="button">PROB</span>): factorial, permutations,
+      <li><b>Probability</b> menu <span class="button">f</span>
+	<span class="button">PROB</span>: factorial, permutations,
 	combinations, random numbers, the normal cdf and its inverse.</li>
       <li><b>Setup</b> menu
-	(<span class="button">f</span> <span class="button">SETUP</span>):
+	<span class="button">f</span> <span class="button">SETUP</span>:
 	Exit to the DMCP menu, Help, save and restore 
 	state in "flash" memory, save state to and load state from named file.</li>
       <li><b>Misc.</b> menu
-	(<span class="button">f</span>-hold-<span class="button">&#9660;</span>):
+	<span class="button">f</span>-hold-<span class="button">&#9660;</span>:
 	functions that didn't fit anywhere else! Mod x, RND, IPart,
 	FPart, 2^x, Log2 x, llel, delta 
 	percent.</li>
@@ -162,74 +175,67 @@
     <h3>Menus on g-shifted keys</h3>
     <ul>
       <li><b>X&lt;&gt;Y</b> menu
-	(<span class="button">g</span> <span class="button">x&lt;&gt;?</span>):
+	<span class="button">g</span> <span class="button">x&lt;&gt;?</span>:
 	Show<-, Show->, and x<>?. (These are the 
 	    three shifted functions on the x<>y key on the real WP-34s.)</li>
       <li><b>Setup 2</b> menu
-	(<span class="button">g</span> <span class="button">0</span>):
+	<span class="button">g</span> <span class="button">0</span>:
 	More file functions; save library to and 
 	load library from named file; save program to and load program from
 	named file.</li>
-      <li><b>Program</b> function menu (<span class="button">g</span>
-	<span class="button">R/S</span>): LBL, RTN, Pause, GTO, DSE, ISG.</li>
+      <li><b>Program</b> function menu <span class="button">g</span>
+	<span class="button">R/S</span>: LBL, RTN, Pause, GTO, DSE, ISG.</li>
     </ul>
 
     <h2 id="cats">Catalogues</h2>
     The WP-34s makes most of its functions available via catalogues. This
     is where to find them. The mnemonic column shows the shifted label
     of each key, which should explain why the catalogue is there.
+    <h3>f-shifted catalogues:</h3>
     <table>
-      <tr><td><b>Catalogue</b></td><td><b>Location</b></td><td>Mnemonic</td></tr>
-      <tr><td>MATRIX</td>
+      <tr><td><b>Catalogue</b></td><td><b>Location</b></td></tr>
+      <tr><td>MATRIX. . </td>
 	<td><span class="button">f</span> <span class="button">MATRIX</span></td>
-	<td></td>
       </tr>
-      <tr><td>CONV</td>
+      <tr><td>CONV. . . .</td>
 	<td><span class="button">f</span> <span class="button">CONVERT</span></td>
-	<td></td>
       </tr>
-      <tr><td>P.FCN</td>
+      <tr><td>P.FCN. . . . . </td>
 	<td><span class="button">f</span> <span class="button">PGM.FCN</span></td>
-	<td></td>
       </tr>
-      <tr><td>CAT</td>
+      <tr><td>CAT. . . . . . </td>
 	<td><span class="button">f</span> <span class="button">CATALOG</span></td>
-	<td></td>
       </tr>
-      <tr><td>MODE</td>
+    </table>
+    <h3>g-shifted catalogues:</h3>
+    <table>
+      <tr><td><b>Catalogue</b></td><td><b>Location</b></td></tr>
+      <tr><td>MODE. . . . . </td>
 	<td><span class="button">g</span> <span class="button">+/-</span></td>
-	<td><span class="button">MODES</span></td>
       </tr>
-      <tr><td>SUMS</td>
+      <tr><td>SUMS. . . . . </td>
 	<td><span class="button">g</span> <span class="button">9</span></td>
-	<td><span class="button">MATRIX</span></td>
       </tr>
-      <tr><td>STAT</td>
+      <tr><td>STAT. . . . . </td>
 	<td><span class="button">g</span> <span class="button">&divide;</span></td>
-	<td><span class="button">STAT</span></td>
       </tr>
-      <tr><td>CONST</td>
+      <tr><td>CONST. . . . </td>
 	<td><span class="button">g</span> <span class="button">5</span></td>
-	<td><span class="button">CONVERT</span></td>
       </tr>
-      <tr><td>TEST</td>
+      <tr><td>TEST. . . . . </td>
 	<td><span class="button">g</span> <span class="button">6</span></td>
-	<td><span class="button">FLAGS</span></td>
       </tr>
-      <tr><td>PROB</td>
+      <tr><td>PROB. . . . . </td>
 	<td><span class="button">g</span> <span class="button">&times;</span></td>
-	<td><span class="button">PROB</span></td>
       </tr>
-      <tr><td>X.FCN</td>
+      <tr><td>X.FCN. . . . </td>
 	<td><span class="button">g</span> <span class="button">3</span></td>
-	<td><span class="button">PGM.FCN</span></td>
       </tr>
-      <tr><td>SHOW</td>
+      <tr><td>SHOW. . . . . </td>
 	<td><span class="button">g</span> <span class="button">EXIT</span></td>
       </tr>
-      <tr><td>STATUS</td>
+      <tr><td>STATUS. . </td>
 	<td><span class="button">g</span> <span class="button">+</span></td>
-	<td><span class="button">CATALOG</span></td>
       </tr>
     </table>
 
@@ -237,8 +243,8 @@
     These all do much what you would expect given their labels.
     <br>
     The four
-    keys <span class="button">&sigma;+</span>;, <span class="button">1/x</span>,
-    <span class="button">U+221A&nbsp;x</span>,
+    keys <span class="button">&Sigma;+</span>&nbsp;, <span class="button">1/x</span>&nbsp;,
+    <span class="button">√x</span>&nbsp;,
     and <span class="button">LOG</span> on the top row run code
     starting from labels
     A, B, C, and D if defined in the current program. The keys'
@@ -257,7 +263,7 @@
     <br>
     <ul>
       <li><span class="button">COMPLEX</span> - same function as the CPX key
-	(<span class="button">F6</span>).</li>
+	<span class="button">F6</span>.</li>
       <li><span class="button">LASTx</span> - does RCL L, which is how Last
 	X works on the WP-34s.</li> 
       <li><span class="button">MODES</span> - angles menu (including angle modes).</li>
@@ -276,7 +282,7 @@
       <li><span class="button">PGM.FCN</span> - the P.FCN catalogue.</li>
       <li><span class="button">PRINT</span> - no function.</li>
       <li><span class="button">SETUP</span> - Setup menu.</li>
-      <li><span class="button">SHOW</span> - Show&larr;, which shows the
+      <li><span class="button">SHOW</span> - Show←, which shows the
 	full precision of a number in single-precision mode.</li>
       <li><span class="button">PGRM</span> - toggles programming mode.</li>
       <li><span class="button">CATALOG</span> - the CAT catalogue.</li>
@@ -289,7 +295,7 @@
     <br>
     <ul>
       <li><span class="button">&Sigma;+</span>;, <span class="button">1/x</span>,
-	<span class="button">U+221Ax</span>,
+	<span class="button">√</span>,
 	and <span class="button">LOG</span> - unshifted functions of these
 	keys, for use when labels A-D are defined.</li>
       <li><span class="button">RCL</span> - View.</li>
@@ -359,10 +365,11 @@
     flash. Of the remainder, 2k was used to provide a backup region for the
     RAM and what was left - the library - could hold user programs.
     <br>
-    (Note that programs can be run from the backup region or the library without the
-    need to load them into the main RAM!)
+    Programs in the backup region or the library can be run without
+    loadin them into RAM, so the 2k not as bad as it sounds.
     <br>
-    This version of the WP-34s holds the backup region and the library in
+    This version of the WP-34s holds the backup region (2k) and the
+    library (16k) in
     RAM rather than in flash memory, along with the main RAM
     region.
 <br>
@@ -383,7 +390,7 @@
 	is only written when the EXIT button in the Setup
 	menu is pressed.</li> 
       <li><b>wp34s-backup.dat</b> - in the Setup menu Setup
-	(<span class="button">f</span> <span class="button">0</span>) the
+	<span class="button">f</span> <span class="button">0</span> the
 	function <span class="lcd">OnSTO</span>
 	writes a copy of the calculator's state to a backup region in
 	memory, and also to this file. (On 

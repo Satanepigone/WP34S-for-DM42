@@ -92,7 +92,7 @@ static const struct _ndmap mapping_none[] = {
     {K_SETMENU, 11}, // PROBS menu
     // Sixth row of DM42 28--32
     {K_G, 0}, // gshift
-    {K_NOP, 0}, // no function
+    {K_MULTI, DEFMEN}, // toggle default menu
     {K_NOP, 0}, // no function
     {K52, 3}, // P.FCN cat
     {K_NOP, 0}, // no function

@@ -16,6 +16,7 @@
 #define SVPRG 10
 #define DOTS 11
 #define SSHOT 12
+#define DEFMEN 13
 
 struct _key {
   struct _ndmap unshifted;
@@ -33,6 +34,7 @@ struct _menu {
 
 static int current_menu = 0;
 static int last_menu = 0;
+static int default_menu = 0;
 
 static void set_menu_label (const char *str, int smallp, int dotcol, int shifted);
 void mdot(int i, int j, int s, int on);

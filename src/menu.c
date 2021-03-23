@@ -3,7 +3,7 @@
 void set_menu ( int new_menu ) {
   int m = current_menu;
   if (new_menu == current_menu) {
-    current_menu = 0;
+    current_menu = default_menu;
   }
   else if (new_menu == -1) {
     current_menu = last_menu;
@@ -12,6 +12,12 @@ void set_menu ( int new_menu ) {
     current_menu = new_menu;
   }
   last_menu = m;
+}
+
+void toggle_default_menu () {
+  if (current_menu == default_menu) {
+    current_menu = default_menu = 15 - default_menu;
+  }
 }
 
 int get_menu () {
@@ -194,6 +200,17 @@ static const struct _menu Menus[] = {
       { ARROW_KEY, NO_KEY, "--\015", "" },
       { CMPLX_KEY, NO_KEY, "CPX", "" },
     }
+  },
+  {
+    "Blank with A-D", // 15
+    { 
+      { { K64, 3 }, NO_KEY, "\221+", "" },
+      { { K34, 1 }, NO_KEY, "1/X", "" },
+      { { K44, 1 }, NO_KEY, "\003X", "" },
+      { { K31, 2 }, NO_KEY, "LOG", "" },
+      { ARROW_KEY, NO_KEY, "--\015", "" },
+      { CMPLX_KEY, NO_KEY, "CPX", "" },
+    }    
   },
 };  
 
