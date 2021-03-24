@@ -2408,7 +2408,9 @@ void display(void) {
 			j = State2.alpha_pos;
 			if (j != 0) {
 				i = slen(buf);
+				//				print_debug(200,i);
 				j *= 6;
+				//print_debug(201,j);
 				if ( i - j >= 12 ) {
 					buf[ (i - j) ] = '\0';
 					set_status_right(buf);
@@ -2693,7 +2695,7 @@ static void set_status_sized(const char *str, int smallp) {
 #if !defined(CONSOLE) && !defined(DM42)
 	set_status_grob(mat);
 #else
-	for (i=MATRIX_BASE + 6*x; i<400; i++)
+	for (i=MATRIX_BASE + 6*x; i<MAX_DOTS; i++)
 		clr_dot(i);
 #endif
 }

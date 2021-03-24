@@ -493,6 +493,7 @@ void program_main(){
     }
   }
   save_ram_file(0);
+  //  free_storage();
   return;
 }
 #else

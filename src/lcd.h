@@ -59,7 +59,15 @@ extern void show_stack(void);
 
 #define SEGS_EXP_BASE		(DISPLAY_DIGITS*SEGS_PER_DIGIT)
 
+#define BIGGER_DISPLAY
+
+#ifdef BIGGER_DISPLAY
+#define BITMAP_WIDTH		74
+#else
 #define BITMAP_WIDTH		43
+#endif
+// MAX_DOTS is 400 if BITMAP_WIDTH = 43
+#define MAX_DOTS (MATRIX_BASE + BITMAP_WIDTH*6)
 
 #ifndef DM42
 

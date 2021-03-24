@@ -28,7 +28,7 @@
 
 
 #if defined(USECURSES) || defined(DM42) // want this in DM42
-static unsigned char dots[400];
+static unsigned char dots[MAX_DOTS];
 #endif
 
 #if defined(USECURSES) && !defined(DM42)
@@ -252,7 +252,11 @@ void show_disp(void) { // This function re-draws everything.
 	const uint32_t xleft_exp = 344;
 	const uint32_t ytop_exp = 130; // was 170
 	const uint32_t dwidth_exp = 18;
-
+#ifdef BIGGER_DISPLAY
+	const uint32_t y_ann = 70;
+#else
+	const uint32_t y_ann = 130;
+#endif
         /* Segments 0 - 107 are the main digits */
         for (i=0; i<DISPLAY_DIGITS; i++) { // 0 -> 11 inclusive
                 p = i*SEGS_PER_DIGIT;
@@ -318,32 +322,29 @@ void show_disp(void) { // This function re-draws everything.
         if (dots[EXP_SIGN]) {
 	  exp_middle (xleft_exp-dwidth_exp, ytop);
         }
+
 	if (dots[BIG_EQ]) {
-	  lcd_fill_rect (250, ytop-34, 15, 4, 0xff);
-	  lcd_fill_rect (250, ytop-24, 15, 4, 0xff);
+	  lcd_fill_rect (250, y_ann-34, 15, 4, 0xff);
+	  lcd_fill_rect (250, y_ann-24, 15, 4, 0xff);
         }
-	/* t20->newln = 0; */
-	/* t20->lnfill = 0; */
-	/* t20->fixed = 1; */
-	/* t20->xspc = -2; */
 	t20->inv = 0;
 	
         if (dots[DOWN_ARR]) {
-	  lcd_fill_rect(287,ytop_exp-70,5,12,0xff);
-	  lcd_fill_rect(285,ytop_exp-58,9,1,0xff);
-	  lcd_fill_rect(286,ytop_exp-57,7,1,0xff);
-	  lcd_fill_rect(287,ytop_exp-56,5,1,0xff);
-	  lcd_fill_rect(288,ytop_exp-55,3,1,0xff);
-	  lcd_fill_rect(289,ytop_exp-54,1,1,0xff);
+	  lcd_fill_rect(287,y_ann-67,5,12,0xff);
+	  lcd_fill_rect(285,y_ann-55,9,1,0xff);
+	  lcd_fill_rect(286,y_ann-54,7,1,0xff);
+	  lcd_fill_rect(287,y_ann-53,5,1,0xff);
+	  lcd_fill_rect(288,y_ann-52,3,1,0xff);
+	  lcd_fill_rect(289,y_ann-51,1,1,0xff);
         }
 
 	if (dots[INPUT]) {
-	  lcd_setXY(t20, 305, ytop_exp-70);
+	  lcd_setXY(t20, 305, y_ann-70);
 	  lcd_writeText(t20,"INPUT");
         }
 
 	if (dots[LIT_EQ]) {
-	  lcd_setXY (t20, 360, ytop_exp-70);
+	  lcd_setXY (t20, 360, y_ann-70);
 	  lcd_writeText(t20, "=");
         }
 
@@ -352,31 +353,31 @@ void show_disp(void) { // This function re-draws everything.
         }
 
 	if (dots[BEG]) {
-	  lcd_setXY (t20, 285, ytop_exp-50);
+	  lcd_setXY (t20, 285, y_ann-50);
 	  lcd_writeText(t20, "BEG");
         }
 
 	if (dots[STO_annun]) {
-	  lcd_setXY (t20, 325, ytop_exp-50);
+	  lcd_setXY (t20, 325, y_ann-50);
 	  lcd_writeText(t20, "STO");
         }
 
 	if (dots[RCL_annun]) {
-	  lcd_setXY (t20, 365, ytop_exp-50);
+	  lcd_setXY (t20, 365, y_ann-50);
 	  lcd_writeText(t20, "RCL");
         }
 
 	if (dots[RAD]) {
-	  lcd_setXY (t20, 285, ytop_exp-30);
+	  lcd_setXY (t20, 285, y_ann-30);
 	  lcd_writeText(t20, "RAD");
 	}
 
 	if (dots[DEG]) {
-	  lcd_setXY (t20, 325, ytop_exp-30);
+	  lcd_setXY (t20, 325, y_ann-30);
 	  lcd_writeText(t20, "360");
         }
         if (dots[RPN]) {
-	  lcd_setXY (t20, 365, ytop_exp-30);
+	  lcd_setXY (t20, 365, y_ann-30);
 	  lcd_writeText(t20, "RPN");
         }
 
@@ -675,15 +676,26 @@ void finish_display(void) {
 }
 void finish_RPN(void) {//only refreshes the RPN flag
   t20->inv = !dots[RPN];
-  lcd_setXY (t20, 350, 130-30); // 130 is ytop_exp
+#ifdef BIGGER_DISPLAY
+  lcd_setXY (t20, 365, 70-30); // 70 is y_ann
+#else
+  lcd_setXY (t20, 365, 130-30); // 130 is y_ann
+#endif
   lcd_writeText(t20, "RPN");
+  t20->inv = !dots[RCL_annun];
+#ifdef BIGGER_DISPLAY
+  lcd_setXY (t20, 365, 70-50); // 70 is y_ann
+#else
+  lcd_setXY (t20, 365, 130-50); // 130 is y_ann
+#endif
+  lcd_writeText(t20, "RCL");
   lcd_refresh();
 }
 
 extern void all_menu_dots (void);
 
 void do_all_dots(void) {
-  for (int i=0; i<400; i++) {
+  for (int i=0; i<MAX_DOTS; i++) {
     set_dot(i);
   }
   all_menu_dots();
