@@ -797,7 +797,7 @@ static int process_normal(const keycode c)
 		process_cmdline_set_lift();
 		State2.arrow = 1;
 #ifdef DM42
-		set_menu (9);
+		set_menu (9); // arrow menu
 		display_current_menu ();
 		lcd_refresh ();
 #else
@@ -1277,9 +1277,10 @@ static int process_arrow(const keycode c) {
 	const int f = (shift == SHIFT_F);
 
 	State2.arrow = 0;
+#ifdef DM42
 	set_last_menu ();
 	display_current_menu ();
-
+#endif
 	if (shift == SHIFT_N) return STATE_UNFINISHED;
 	
 	if (c >= K10 && c <= K12)
@@ -1387,7 +1388,7 @@ fin2:		State2.gtodot = 0;
 /* Process a keystroke in alpha mode
  */
 static int process_alpha(const keycode c) {
-	unsigned int alpha_pos = State2.alpha_pos, n;
+	unsigned int alpha_pos = State2.alpha_pos;
         int op = STATE_UNFINISHED;
 	const enum shifts shift = reset_shift();
 	int ch = keycode_to_alpha(c, shift);
@@ -1432,30 +1433,45 @@ static int process_alpha(const keycode c) {
 		break;
 
 	case K_UP:
-		if (shift == SHIFT_N) {
-			if ( State2.runmode ) {
-				// Alpha scroll left
-			  //	print_debug(100,alpha_pos);
-				n = alpha_pos + 1;
-				State2.alpha_pos = ( n < ( alen() + 5 ) / 6 ) ? n : alpha_pos;
-				//	print_debug(101,State2.alpha_pos);
-				return STATE_UNFINISHED;
-			}
-			return STATE_BST;
-		}
-		break;
+	  if (shift == SHIFT_N) {
+	    if ( State2.runmode ) {
+	      // Alpha scroll left
+#ifdef DM42
+	      /* 
+	       * The numbers 20 and 12 below should match the same 
+	       * numbers in display.c, lines 2414 and 2416.
+	       */
+#ifdef BIGGER_DISPLAY
+	      if (alen()-6*alpha_pos >= 20) {
+		alpha_pos += 1;
+	      }
+#else
+	      if (alen()-6*alpha_pos >= 12) {
+		alpha_pos += 1;
+	      }
+#endif
+	      State2.alpha_pos = alpha_pos;
+#else
+	      int n = alpha_pos + 1;
+	      State2.alpha_pos = ( n < ( alen() + 5 ) / 6 ) ? n : alpha_pos;
+#endif
+	      return STATE_UNFINISHED;
+	    }
+	    return STATE_BST;
+	  }
+	  break;
 
 	case K_DOWN:
-		if (shift == SHIFT_N) {
-			if ( State2.runmode ) {
-				// Alpha scroll right
-				if (alpha_pos > 0)
-					State2.alpha_pos = alpha_pos-1;
-				return STATE_UNFINISHED;
-			}
-			return STATE_SST;
-		}
-		break;
+	  if (shift == SHIFT_N) {
+	    if ( State2.runmode ) {
+	      // Alpha scroll right
+	      if (alpha_pos > 0)
+		State2.alpha_pos = alpha_pos-1;
+	      return STATE_UNFINISHED;
+	    }
+	    return STATE_SST;
+	  }
+	  break;
 
 	case K60:	// EXIT/ON maybe case switch, otherwise exit alpha
 		if (shift == SHIFT_F)
@@ -2784,10 +2800,15 @@ static int process(const int c) {
    * common across all modes.  Shifted modes need to check this themselves
    * if required.
    */
-  if (c == K60 && shift == SHIFT_N && ! State2.catalogue) {
-    soft_init_state();
-    return STATE_UNFINISHED;
-  }
+#ifdef DM42
+  if (c == K60 && shift == SHIFT_N && ! State2.catalogue && ! State2.arrow)
+#else
+  if (c == K60 && shift == SHIFT_N && ! State2.catalogue)
+#endif
+    {
+      soft_init_state();
+      return STATE_UNFINISHED;
+    }
 
 #ifndef CONSOLE
 	if (c == K63 && JustStopped) {

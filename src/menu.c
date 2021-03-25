@@ -2,16 +2,16 @@
 
 void set_menu ( int new_menu ) {
   int m = current_menu;
-  if (new_menu == current_menu) {
+  if (new_menu == current_menu) { // return to default
     current_menu = default_menu;
   }
-  else if (new_menu == -1) {
+  else if (new_menu == -1) { // go to last menu
     current_menu = last_menu;
   }
   else {
-    current_menu = new_menu;
+    current_menu = new_menu; // change to new menu
   }
-  last_menu = m;
+  if (m != 9) last_menu = m; // store menu as last menu unless it's arrow!
 }
 
 void toggle_default_menu () {

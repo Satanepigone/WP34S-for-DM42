@@ -224,17 +224,17 @@ void flush_comm( void )
  */
 #ifdef DM42
 void start_key_timer (void);
-int keyticks (void);
+long int keyticks (void);
 void moveto (int line, int x);
 
-static int start_ticks;
+static long int start_ticks;
 
 void start_key_timer() {
     start_ticks = get_rtc_ticks();
 }
 
-int keyticks () {
-  int i;
+long int keyticks () {
+  long int i;
   i = (get_rtc_ticks() - start_ticks)*10;
   return i >> 8;
 }
@@ -255,7 +255,7 @@ void print_debug (int i, int j) {
   moveto (3, 1);
   lcd_print (fReg , (const char*) print_string );
   lcd_refresh();
-  sys_delay (2500);
+  sys_delay (100);
   /* wait_for_key_press(); */
   //  key_pop_all();
   // while ((key_pop()<=0) || (key_pop()==K_HEARTBEAT));;

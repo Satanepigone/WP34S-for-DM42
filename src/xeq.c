@@ -39,7 +39,7 @@ extern unsigned long long strtoull(const char *, char **, int);
 #include <string.h>
 #include <stdlib.h>
 
-#endif // REALBUILD
+#endif // not REALBUILD
 
 #ifdef IOS
 #include <stdarg.h>
@@ -1773,10 +1773,10 @@ void get_base(enum nilop op) {
 }
 
 #ifdef DM42
- int DM42_Ticker () {
-    int f, t;
+ long int DM42_Ticker () {
+    long int f, t;
     t = get_rtc_ticks();
-    f = ((t & 0xff)*10)>>8; // tenths of a second;
+    f = ((t & 0xfffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
     return f;
  }
 #endif
@@ -5249,43 +5249,49 @@ void xeq_xrom(void) {
 /*
 'Pause' is true if Pause is non-zero, i.e., if the pause is still running.
 */
-void xeqprog(void) 
-{
-	int state = 0;
-	if (Running || Pause) {
-#ifndef CONSOLE
-		long long last_ticker = Ticker;
-		state = ((int) last_ticker % (2*TICKS_PER_FLASH) < TICKS_PER_FLASH);
-#else
-		state = 1;
-#endif
-		dot(RCL_annun, state);
-		finish_RPN(); // RPN
+ void xeqprog(void) 
+ {
+   int state = 0;
+   if (Running || Pause) {
 
-		while (! Pause && Running) {
-		  xeq_single();
-			if (is_key_pressed()) {
-				// Key press or heart beat
-				// xeq_xrom(); // Already done by dispatch_xrom()
-				break;
-			}
-		}
-	}
-	if (! Running && ! Pause) {	  
-	  // Program has terminated
-		clr_dot(RCL_annun);
-		ShowRPN = 1;	// display() may turn it off again
-		display();
-		if (ShowRPN) {
-			set_dot(RPN);
-			finish_RPN(); // RPN
-		}
-#ifndef CONSOLE
-		// Avoid accidental restart with R/S or APD after program ends
-     		JustStopped = 1;
+#if !(defined(CONSOLE)) && !(defined(DM42))
+     long long last_ticker = Ticker;
+     state = ((int) last_ticker % (2*TICKS_PER_FLASH) < TICKS_PER_FLASH);
+#else
+     state = 1;
 #endif
-	}
-}
+     
+     //     print_debug(100,state);
+     dot(RCL_annun, state);
+     finish_RPN(); // RPN
+
+     while (! Pause && Running) {
+       xeq_single();
+       //       if (is_key_pressed() || (Ticker != last_ticker)) // flashes but empty loop 1/3 the speed
+       if (is_key_pressed())
+	 {
+	 // Key press or heart beat
+	 // Note: DM42 doesn't have real heart beat so no flash
+	 // xeq_xrom(); // Already done by dispatch_xrom()
+	 break;
+       }
+     }
+   }
+   if (! Running && ! Pause) {	  
+     // Program has terminated
+     clr_dot(RCL_annun);
+     ShowRPN = 1;	// display() may turn it off again
+     display();
+     if (ShowRPN) {
+       set_dot(RPN);
+       finish_RPN(); // RPN
+     }
+#ifndef CONSOLE
+     // Avoid accidental restart with R/S or APD after program ends
+     JustStopped = 1;
+#endif
+   }
+ }
 
 /* Single step and back step routine
  */

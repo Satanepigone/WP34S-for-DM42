@@ -441,7 +441,7 @@ extern int current_catalogue_max(void);
 #ifdef DM42
 void print_debug (int i, int j);
 void print_debug2 (int i, char* j);
-int keyticks (void);
+long int keyticks (void);
 #endif
 
 /* Allow the number of registers and the size of the stack to be changed
