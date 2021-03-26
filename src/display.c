@@ -34,7 +34,12 @@ static enum separator_modes { SEP_NONE, SEP_COMMA, SEP_DOT } SeparatorMode;
 static enum decimal_modes { DECIMAL_DOT, DECIMAL_COMMA } DecimalMode;
 
 static void set_status_sized(const char *, int);
+static void set_status_sized_top(const char *, int);
+static void s_s_sized(const char *str, int smallp, int b_w, int m_b, int m_d);
+
 static void set_status(const char *);
+static void set_status_top(const char *);
+
 static void set_status_right(const char *);
 static void set_status_graphic(const unsigned char *);
 
@@ -585,6 +590,315 @@ static void set_exp(int exp, int flags, char *res) {
      * Care needs to be taken to keep things aligned.
      * Spaces are 5 pixels wide, \006 is a single pixel space.
      */
+#ifdef TOP_ROW
+    static void annunciators(void) {
+      // We initialize q here to avoid uninitialized error messages by very strict compilers
+      char buf[42], *p = buf, *q="";
+      char buf2[42], *p2 = buf2;
+      int n;
+      static const char shift_chars[4] = " \021\022\023";
+      const char shift_char = shift_chars[cur_shift()];
+      // Constant variables and code branches depending on a constant variable
+      // that's set to 0 will be optimized away. This way it's easier to make a
+      // feature run-time configurable if needed.
+#ifdef INCLUDE_YREG_CODE
+#  ifdef YREG_ALWAYS_ON
+      const int yreg_enabled = 1;
+#  else
+      const int yreg_enabled = UState.show_y;
+#  endif
+#  ifdef INCLUDE_YREG_HMS
+      const int yreg_hms = 1;
+#  else
+      const int yreg_hms = 0;
+#  endif
+#  ifdef INCLUDE_YREG_FRACT
+      const int yreg_fract = 1;
+#  else
+      const int yreg_fract = 0;
+#  endif
+#else
+      const int yreg_enabled = 0;
+      const int yreg_hms = 0;
+      const int yreg_fract = 0;
+#endif
+#ifdef RP_PREFIX
+      const int rp_prefix = 1;
+#else
+      const int rp_prefix = 0;
+      const int RectPolConv = -1; // This variable doesn't exist without RP_PREFIX
+#endif
+      // Indicates whether font escape code is compiled in.
+      // This variable will always be set at compile time.
+#ifdef INCLUDE_FONT_ESCAPE
+      const int has_FONT_ESCAPE = 1;
+#else
+      const int has_FONT_ESCAPE = 0;
+#endif
+
+      xset(buf, '\0', sizeof(buf));
+      xset(buf2, '\0', sizeof(buf2));
+      
+      if (is_intmode()) {
+#ifdef SHOW_STACK_SIZE
+	if (shift_char == ' ') {
+	  *p2++ = '\007';
+	  *p2++ = '\346';
+	  *p2++ = (UState.stack_depth ? ':' : '.');
+	}
+	else
+#endif
+	  {
+	    *p2++ = shift_char;
+	    *p2++ = '\006';
+	  }
+
+	switch(int_mode()) {
+	default:
+	case MODE_2COMP:	q = "2c\006";		break;
+	case MODE_UNSIGNED:	q = "un\006";		break;
+	case MODE_1COMP:	q = "\0061c\006\006";	break;
+	case MODE_SGNMANT:	q = "sm";		break;
+	}
+	q = scopy(p2, q);
+	*q++ = '\006';
+	p2 = num_arg_0(q, word_size(), 2);
+
+	if (IntMaxWindow > 0) {
+	  n = 4 + 2 * (5 - IntMaxWindow);
+	  if (*q == '1')
+	    n += 2;
+	  if (q[1] == '1')
+	    n += 2;
+	  while (n-- > 0)
+	    *p2++ = '\006';
+
+	  for (n = IntMaxWindow; n >= 0; n--)
+	    *p2++ = State2.window == n ? '|' : '\'';
+	}
+	//	if (yreg_enabled) goto display_yreg;
+      }
+      else if (!yreg_enabled
+#ifdef SHIFT_AND_CMPLX_SUPPRESS_YREG
+	       || shift_char != ' ' || State2.cmplx
+#endif
+	       ) {
+	// The stack size indicator is displayed on the right if date mode indication is enabled
+	// because the 'D' in small font doesn't look good next to the date mode indicator.
+#if defined SHOW_STACK_SIZE && defined NO_DATEMODE_INDICATION
+	if (shift_char == ' ') {
+	  *p2++ = '\007';
+	  *p2++ = '\342';
+	  *p2++ = (UState.stack_depth ? ':' : '.');
+	  *p2++ = '\007';
+	  *p2++ = '\344';
+	  *p2++ = (is_dblmode() ? 'D' : ' ');
+	}
+	else
+#endif
+	  if (shift_char != ' ' || !is_dblmode()) {
+	    *p2++ = shift_char;
+	    *p2++ = '\006';
+	  }
+	  else {
+	    *p2++ = 'D';
+	  }
+
+	if (State2.cmplx) {
+	  *p2++ = ' ';
+	  *p2 = '\024';
+	  goto skip;
+	}
+	if (State2.arrow) {
+	  *p2++ = ' ';
+	  *p2 = '\015';
+	  goto skip;
+	}
+
+	if (shift_char == ' ' && (State2.wascomplex || (rp_prefix && RectPolConv != 0))) {
+	  if (State2.wascomplex) {
+	    q = (has_FONT_ESCAPE ? "\007\207i" : "i\006");
+	  }
+	  else if (rp_prefix) {
+	    if (RectPolConv == 1) {
+	      q = "\007\306<";
+	    }
+	    else {
+	      q = "\007\306y";
+	    }
+	  }
+	  p = scopy(buf, q);
+
+	  goto display_yreg;
+	}
+
+	switch (UState.date_mode) {
+#ifndef NO_DATEMODE_INDICATION
+#if defined(DEFAULT_DATEMODE) && (DEFAULT_DATEMODE != 0)
+	case DATE_DMY:	q = "d.my\006\006";	break;
+#endif
+#if ! defined(DEFAULT_DATEMODE) || (DEFAULT_DATEMODE != 1)
+	case DATE_YMD:	q = "y.md\006\006";	break;
+#endif
+#if ! defined(DEFAULT_DATEMODE) || (DEFAULT_DATEMODE != 2)
+	case DATE_MDY:	q = "m.dy\006\006";	break;
+#endif
+#endif
+	default:	q = (has_FONT_ESCAPE ? "\007\225\006" : "    \006");	break; // 21 pixels
+	}
+	p2 = scopy(p2, q);
+#if !defined SHOW_STACK_SIZE || defined NO_DATEMODE_INDICATION
+	if (get_trig_mode() == TRIG_GRAD) {
+	  scopy(p2, (has_FONT_ESCAPE ? "\006\006\007\210\007" : "\006\006\007" ));
+	}
+#else
+	p2 = scopy(p2, (get_trig_mode() == TRIG_GRAD ? "\006\006\007\210\007" : "  "));
+	*p2++ = '\007';
+	*p2++ = '\342';
+	*p2 =  (UState.stack_depth ? ':' : '.');
+#endif
+      }
+      else { // yreg_enabled
+#ifndef SHIFT_AND_CMPLX_SUPPRESS_YREG
+	if (State2.cmplx) {
+	  *p2++ = '\007';
+	  *p2++ = '\344';
+	  *p2++ = shift_char;
+	  q = "\024";
+	}
+	else if (shift_char != ' ') {
+	  *p2++ = '\007';
+	  *p2++ = '\307';
+	  *p2++ = shift_char;
+	  goto no_copy;
+	}
+	else
+#endif
+	  if (State2.wascomplex) {
+	    q = "\007\207i";
+	    p = scopy(p, q);
+	    goto no_copy;
+	  }
+	  else if (rp_prefix && RectPolConv == 1) {
+	    q = "\007\307<";
+	    p = scopy(p, q);
+	    goto no_copy;
+	  }
+	  else if (rp_prefix && RectPolConv == 2) {
+	    q = "\007\307y";
+	    p = scopy(p, q);
+	    goto no_copy;
+	  }
+#ifdef SHOW_GRADIAN_PREFIX
+	  else if (get_trig_mode() == TRIG_GRAD) {
+	    q = "\007\207\007";
+	  }
+#endif
+	  else {
+#ifndef SHOW_STACK_SIZE
+	    q = (is_dblmode() ? "\007\307D" : "\007\207 ");
+#else
+	    if (is_dblmode()) {
+	      *p++ = '\007';
+	      *p++ = '\342';
+	      *p++ = (UState.stack_depth ? ':' : '.');
+	      q = "\007\345D";
+	    }
+	    else {
+	      q = (UState.stack_depth ? "\007\347:" : "\007\347.");
+	    }
+#endif
+	  }
+	p2 = scopy(p2, q);
+
+      no_copy:
+
+
+	if (State2.arrow) {
+	  scopy(p2, "\007\204\006\015");
+	} else if (State2.runmode) {
+	  decNumber y;
+	display_yreg:
+	  /* This is a bit convoluted.  ShowRegister is the real portion being shown.  Normally
+	   * ShowRegister+1 would contain the complex component, however if the register being
+	   * examined is on the stack and there is a command line present, the stack will be lifted
+	   * after we execute so we need to show ShowRegister instead.
+	   */
+	  getRegister(&y, (ShowRegister >= regX_idx && ShowRegister < regX_idx + stack_size() && get_cmdline()
+			   && !(yreg_enabled && !State2.state_lift) // unless stack lift is disabled...
+			   ) ? ShowRegister : ShowRegister+1);
+	  if ((yreg_hms || yreg_fract) && !decNumberIsSpecial(&y)) {
+	    if (yreg_hms && State2.hms) {
+	      const int saved_nothousands = UState.nothousands;
+
+	      xset(buf, '\0', sizeof(buf));
+	      UState.nothousands = 1;
+	      set_x_hms(&y, buf); // no prefix or alignment for HMS display
+	      UState.nothousands = saved_nothousands;
+	      // First replace the '@' character with the degree symbol
+	      // Then, if the string doesn't fit in the dot matrix display, replace spaces with narrow spaces,
+	      // then remove the second symbol (") and the overflow or underflow signs,
+	      // then remove the fractional part of the seconds.
+	      p = "@\005 \006\"\0.\0";
+	      while (*p) {
+		replace_char(buf, p[0], p[1]);
+		if (pixel_length(buf, 1) <= BW_TOP + 1) {
+		  goto skip;
+		}
+		p += 2;
+	      }
+	      goto skip;
+	    }
+	    if (yreg_fract && UState.fract
+#ifndef SHIFT_AND_CMPLX_SUPPRESS_YREG
+		&& !State2.cmplx
+#endif
+#ifdef ANGLES_NOT_SHOWN_AS_FRACTIONS
+		&& !(rp_prefix && RectPolConv == 1)
+#endif
+		&& set_x_fract(&y, p)) {
+	      char ltgteq;
+
+	      q = find_char(buf, '\0') - 2;
+	      // Replace Lt/Gt/= with </>/= in small font
+	      ltgteq = *q;
+	      switch (ltgteq) {
+	      case 'G':	ltgteq = '>'; break;
+	      case 'L':	ltgteq = '<'; break;
+	      }
+	      scopy(q, "\007\344?");
+	      q[2] = ltgteq;
+
+	      if (pixel_length(buf, 1) <= BW_TOP + 1) {
+		goto skip;
+	      }
+	      q[-1] = '\0'; // Remove </>/= if string doesn't fit in the dot matrix display
+	      if (pixel_length(buf, 1) <= BW_TOP + 1) {
+		goto skip;
+	      }
+	      xset(p, '\0', sizeof(buf) - (p - buf));
+	    }
+	  }
+	  for (n=DISPLAY_DIGITS; n>1; ) {
+	    int extra_pixels;
+
+	    set_x_dn(&y, p, &n);
+	    extra_pixels = pixel_length(buf, 1) - (BITMAP_WIDTH + 1);
+	    if (extra_pixels <= 0)
+	      break;
+
+	    xset(p, '\0', n+10);
+
+	    n -= (extra_pixels + 3) / 4; // The maximum width of digits in the small font is 4 pixels.
+	  }
+	}
+      }
+      
+    skip:	set_status(buf);
+      set_status_top(buf2);
+      
+    }
+#else
     static void annunciators(void) {
       // We initialize q here to avoid uninitialized error messages by very strict compilers
       char buf[42], *p = buf, *q="";
@@ -630,7 +944,10 @@ static void set_exp(int exp, int flags, char *res) {
 #endif
 
       xset(buf, '\0', sizeof(buf));
-
+#ifdef TOP_ROW
+      xset(buf2, '\0', sizeof(buf2));
+#endif
+      
       if (is_intmode()) {
 #ifdef SHOW_STACK_SIZE
 	if (shift_char == ' ') {
@@ -827,7 +1144,7 @@ static void set_exp(int exp, int flags, char *res) {
 	      p = "@\005 \006\"\0.\0";
 	      while (*p) {
 		replace_char(buf, p[0], p[1]);
-		if (pixel_length(buf, 1) <= BITMAP_WIDTH + 1) {
+		if (pixel_length(buf, 1) <= BW_TOP + 1) {
 		  goto skip;
 		}
 		p += 2;
@@ -854,11 +1171,11 @@ static void set_exp(int exp, int flags, char *res) {
 	      scopy(q, "\007\344?");
 	      q[2] = ltgteq;
 
-	      if (pixel_length(buf, 1) <= BITMAP_WIDTH + 1) {
+	      if (pixel_length(buf, 1) <= BW_TOP + 1) {
 		goto skip;
 	      }
 	      q[-1] = '\0'; // Remove </>/= if string doesn't fit in the dot matrix display
-	      if (pixel_length(buf, 1) <= BITMAP_WIDTH + 1) {
+	      if (pixel_length(buf, 1) <= BW_TOP + 1) {
 		goto skip;
 	      }
 	      xset(p, '\0', sizeof(buf) - (p - buf));
@@ -868,7 +1185,7 @@ static void set_exp(int exp, int flags, char *res) {
 	    int extra_pixels;
 
 	    set_x_dn(&y, p, &n);
-	    extra_pixels = pixel_length(buf, 1) - (BITMAP_WIDTH + 1);
+	    extra_pixels = pixel_length(buf, 1) - (BW_TOP + 1);
 	    if (extra_pixels <= 0)
 	      break;
 
@@ -878,10 +1195,10 @@ static void set_exp(int exp, int flags, char *res) {
 	  }
 	}
       }
-
-    skip:	set_status(buf);
+      
+    skip:	set_status_top(buf);
     }
-
+#endif //top_row
     static void disp_x(const char *p) {
       int i;
       int gotdot = -1;
@@ -2589,6 +2906,14 @@ static void set_exp(int exp, int flags, char *res) {
        * column is almost always blank.
        */
       static void set_status_sized(const char *str, int smallp) {
+	s_s_sized(str, smallp, BITMAP_WIDTH, MATRIX_BASE, MAX_DOTS);
+      }
+      static void set_status_sized_top(const char *str, int smallp) {
+	s_s_sized(str, smallp, BW_TOP, MB_TOP, TOP_DOTS);
+      }
+
+      
+      static void s_s_sized(const char *str, int smallp, int b_w, int m_b, int m_d) {	
 	unsigned short int posns[257];
 #ifdef INCLUDE_FONT_ESCAPE
 	// Mark posns as uninitialized, smallp must be 0 or 1 for this to work correctly.
@@ -2624,7 +2949,7 @@ static void set_exp(int exp, int flags, char *res) {
 #ifndef INCLUDE_FONT_ESCAPE
 	findlengths(posns, smallp);
 #endif
-	while (*str != '\0' && x <= BITMAP_WIDTH+1)  {
+	while (*str != '\0' && x <= b_w+1)  {
 	  int c;
 	  int width;
 	  unsigned char cmap[6];
@@ -2660,7 +2985,7 @@ static void set_exp(int exp, int flags, char *res) {
 	    current_smallp = smallp;
 	  }
 
-	  if (x + real_width > BITMAP_WIDTH+1)
+	  if (x + real_width > b_w + 1)
 	    break;
 
 	  if (posns_state != current_smallp) {
@@ -2674,7 +2999,7 @@ static void set_exp(int exp, int flags, char *res) {
 	  //cmap = &charset[c][0];
 	  width = charlengths(c);
 
-	  if (x + width > BITMAP_WIDTH+1)
+	  if (x + width > b_w+1)
 	    break;
 
 	  /* Decode the packed character bytes */
@@ -2683,13 +3008,13 @@ static void set_exp(int exp, int flags, char *res) {
 
 	  for (i=0; i<6; i++)
 	    for (j=0; j<width; j++) {
-	      if (x+j >= BITMAP_WIDTH)
+	      if (x+j >= b_w)
 		break;
 #if !defined(CONSOLE) && !defined(DM42)
 	      if (cmap[i] & (1 << j))
 		mat[i] |= 1LL << (x+j);
 #else
-	      dot((x+j)*6+i+MATRIX_BASE, (cmap[i] & (1 << j))?1:0);
+	      dot((x+j)*6+i+m_b, (cmap[i] & (1 << j))?1:0);
 #endif
 	    }
 	  x += width;
@@ -2699,7 +3024,7 @@ static void set_exp(int exp, int flags, char *res) {
 #if !defined(CONSOLE) && !defined(DM42)
 	set_status_grob(mat);
 #else
-	for (i=MATRIX_BASE + 6*x; i<MAX_DOTS; i++)
+	for (i=m_b + 6*x; i<m_d; i++)
 	  clr_dot(i);
 #endif
       }
@@ -2731,12 +3056,18 @@ static void set_exp(int exp, int flags, char *res) {
       static int string_too_large(const char *s) {
 	return pixel_length(s, 0) > BITMAP_WIDTH+1;
       }
+      static int string_too_large_top(const char *s) {
+	return pixel_length(s, 0) > BW_TOP+1;
+      }
 
 
       /* Display the given string on the screen.
        */
       static void set_status(const char *str) {
 	set_status_sized(str, State2.disp_small || string_too_large(str));
+      }
+      static void set_status_top(const char *str) {
+	set_status_sized_top(str, State2.disp_small || string_too_large_top(str));
       }
 
 

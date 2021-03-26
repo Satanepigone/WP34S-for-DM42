@@ -60,14 +60,26 @@ extern void show_stack(void);
 #define SEGS_EXP_BASE		(DISPLAY_DIGITS*SEGS_PER_DIGIT)
 
 #define BIGGER_DISPLAY
+#define TOP_ROW
 
 #ifdef BIGGER_DISPLAY
 #define BITMAP_WIDTH		74
 #else
 #define BITMAP_WIDTH		43
 #endif
-// MAX_DOTS is 400 if BITMAP_WIDTH = 43
-#define MAX_DOTS (MATRIX_BASE + BITMAP_WIDTH*6)
+
+#ifdef TOP_ROW
+#define BW_TOP		        25
+#define MAX_DOTS		(MATRIX_BASE + BITMAP_WIDTH*6) // for middle row
+#define TOP_DOTS 		(MATRIX_BASE + BITMAP_WIDTH*6 + BW_TOP*6) // inc. top row
+#define MB_TOP 			(MATRIX_BASE + BITMAP_WIDTH*6) // where top row starts
+#else
+#define BW_TOP			BITMAP_WIDTH 
+#define MAX_DOTS 		(MATRIX_BASE + BITMAP_WIDTH*6 )
+#define TOP_DOTS 		MAX_DOTS
+#define MB_TOP			MATRIX_BASE
+#endif
+
 
 #ifndef DM42
 

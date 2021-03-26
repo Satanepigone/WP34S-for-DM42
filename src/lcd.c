@@ -28,7 +28,7 @@
 
 
 #if defined(USECURSES) || defined(DM42) // want this in DM42
-static unsigned char dots[MAX_DOTS];
+static unsigned char dots[TOP_DOTS];
 #endif
 
 #if defined(USECURSES) && !defined(DM42)
@@ -83,7 +83,7 @@ void reset_disp(void) {
 	int leq = is_dot(LIT_EQ);
 	int rpn = is_dot(RPN);
 	int i;
-        for (i=0; i<400; i++)
+        for (i=0; i<TOP_DOTS; i++)
 		if (i != RCL_annun && i != BATTERY && i != LIT_EQ )
 			clr_dot(i);
 	dot(RCL_annun, rcl);
@@ -385,11 +385,19 @@ void show_disp(void) { // This function re-draws everything.
         for (i=0; i<BITMAP_WIDTH; i++) {
 	  for (j=0; j<6; j++) {
 	    if (dots[i*6+j+MATRIX_BASE]) {
-	      //  lcd_fill_rect( xleft-dwidth+2*i, ytop-(5+3*6)+j*2, 2, 2, 0xff);
 	      lcd_fill_rect( xleft-dwidth+5*i+15, ytop-(10+6*6)+j*6, 4, 5, 0xff);
 	    }
 	  }
 	}
+#ifdef TOP_ROW
+        for (i=0; i<BW_TOP; i++) {
+	  for (j=0; j<6; j++) {
+	    if (dots[i*6+j+MB_TOP]) {
+	      lcd_fill_rect( xleft-dwidth+5*i+15, 70-(10+6*6)+j*6, 4, 5, 0xff);
+	    }
+	  }
+	}
+#endif
 }
 #endif
 
@@ -695,7 +703,7 @@ void finish_RPN(void) {//only refreshes the RPN flag
 extern void all_menu_dots (void);
 
 void do_all_dots(void) {
-  for (int i=0; i<MAX_DOTS; i++) {
+  for (int i=0; i<TOP_DOTS; i++) {
     set_dot(i);
   }
   all_menu_dots();
