@@ -43,6 +43,8 @@ static void set_status_top(const char *);
 static void set_status_right(const char *);
 static void set_status_graphic(const unsigned char *);
 
+static void set_int_x(const long long int value, char *res);
+
 const char *DispMsg; // What to display in message area
 
 short int DispPlot;
@@ -676,7 +678,7 @@ static void set_exp(int exp, int flags, char *res) {
 	  for (n = IntMaxWindow; n >= 0; n--)
 	    *p2++ = State2.window == n ? '|' : '\'';
 	}
-	//	if (yreg_enabled) goto display_yreg;
+	if (yreg_enabled) goto display_yreg;
       }
       else if (!yreg_enabled
 #ifdef SHIFT_AND_CMPLX_SUPPRESS_YREG
@@ -824,6 +826,11 @@ static void set_exp(int exp, int flags, char *res) {
 	   * examined is on the stack and there is a command line present, the stack will be lifted
 	   * after we execute so we need to show ShowRegister instead.
 	   */
+	  if (is_intmode()) {
+	    set_int_x(get_reg_n_int(regY_idx), p);
+	    goto skip;
+	  }
+		      
 	  getRegister(&y, (ShowRegister >= regX_idx && ShowRegister < regX_idx + stack_size() && get_cmdline()
 			   && !(yreg_enabled && !State2.state_lift) // unless stack lift is disabled...
 			   ) ? ShowRegister : ShowRegister+1);
