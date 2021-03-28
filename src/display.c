@@ -48,6 +48,8 @@ static void set_int_x(const long long int value, char *res);
 const char *DispMsg; // What to display in message area
 
 short int DispPlot;
+short int no_status_top = 0;
+
 #ifndef REALBUILD
 char LastDisplayedText[NUMALPHA + 1];	   // For clipboard export
 char LastDisplayedNumber[NUMBER_LENGTH + 1];
@@ -793,32 +795,32 @@ static void set_exp(int exp, int flags, char *res) {
 	  }
 #ifdef SHOW_GRADIAN_PREFIX
 	  else if (get_trig_mode() == TRIG_GRAD) {
-	    q = "\007\207\007";
-	  }
+	  q = "\007\207\007";
+	}
 #endif
-	  else {
+	else {
 #ifndef SHOW_STACK_SIZE
-	    q = (is_dblmode() ? "\007\307D" : "\007\207 ");
+	  q = (is_dblmode() ? "\007\307D" : "\007\207 ");
 #else
-	    if (is_dblmode()) {
-	      *p++ = '\007';
-	      *p++ = '\342';
-	      *p++ = (UState.stack_depth ? ':' : '.');
-	      q = "\007\345D";
-	    }
-	    else {
-	      q = (UState.stack_depth ? "\007\347:" : "\007\347.");
-	    }
-#endif
+	  if (is_dblmode()) {
+	    *p++ = '\007';
+	    *p++ = '\342';
+	    *p++ = (UState.stack_depth ? ':' : '.');
+	    q = "\007\345D";
 	  }
+	  else {
+	    q = (UState.stack_depth ? "\007\347:" : "\007\347.");
+	  }
+#endif
+	}
 	p2 = scopy(p2, q);
 
       no_copy:
 
-
 	if (State2.arrow) {
 	  scopy(p2, "\007\204\006\015");
-	} else if (State2.runmode) {
+	} // no need to skip y display with arrow here
+	if (State2.runmode) {
 	  decNumber y;
 	display_yreg:
 	  /* This is a bit convoluted.  ShowRegister is the real portion being shown.  Normally
@@ -1386,7 +1388,7 @@ static void set_exp(int exp, int flags, char *res) {
 	  carry_overflow();
 	}
 
-	if ((0x7f75 & (1 << (b-1))) != 0) {
+	if ((0x7f75 & (1 << (b-1))) != 0) { // excludes bases 2, 4, 8, 16
 	  v = extract_value(value, &sign);
 	  if (int_mode() == MODE_2COMP && sign == 1 && v == 0)
 	    v = value;
@@ -1434,12 +1436,25 @@ static void set_exp(int exp, int flags, char *res) {
 	    }
 	  }
 	}
-
+#ifdef BIGGER_DISPLAY
+#define MAX_INT_Y_DIG 13
+#else
+#define MAX_INT_Y_DIG 7
+#endif
 	/* At this point i is the number of digits in the output */
+	int nd = i;
 	if (res) {
 	  if (sign) *res++ = '-';
-	  while (--i >= 0)
-	    *res++ = buf[i];
+	  if (i > MAX_INT_Y_DIG) {
+	    while (--i >= (nd - MAX_INT_Y_DIG))
+	      *res++ = buf[i];
+	    *res++ = '.';
+	    *res++ = '.';
+	  }
+	  else {
+	    while (--i >= 0)
+	      *res++ = buf[i];
+	  }
 	} else {
 #if 0
 	  set_separator_decimal_modes();
@@ -2534,6 +2549,339 @@ static void set_exp(int exp, int flags, char *res) {
 	}
       }
 
+#ifdef TOP_ROW
+      /*
+       *  Update the display
+       */
+      void display(void) {
+	int i, j;
+	char buf[40], *bp = buf;
+	const char *p;
+	int annuc = 0;
+	const enum catalogues cata = (enum catalogues) State2.catalogue;
+	int skip = 0;
+	int x_disp = 0;
+	const int shift = cur_shift();
+
+	no_status_top = 0;
+	if (State2.disp_freeze) {
+	  State2.disp_freeze = 0;
+	  State2.disp_temp = 1;
+#ifdef CONSOLE
+	  JustDisplayed = 1;
+#endif
+	  ShowRPN = 0;
+	  return;
+	}
+
+	if (WasDataEntry) {
+#if defined(QTGUI) || defined(IOS)
+	  xset(LastDisplayedNumber, ' ', NUMBER_LENGTH);
+	  LastDisplayedNumber[NUMBER_LENGTH]=0;
+	  xset(LastDisplayedExponent, ' ', EXPONENT_LENGTH);
+	  LastDisplayedExponent[EXPONENT_LENGTH]=0;
+#endif
+	  wait_for_display(); // Normally called from reset_disp()
+
+	  // Erase 7-segment display
+	  for (i = 0; i <= EXP_SIGN; ++i) {
+	    clr_dot(i);
+	  }
+	  goto only_update_x;
+	}
+
+	// Clear display
+	reset_disp();
+
+	xset(buf, '\0', sizeof(buf));
+	// Not clear why this code is needed - "c" is done in annunciators.
+	/* if (State2.cmplx  && !cata) { */
+	/*   *bp++ = COMPLEX_PREFIX; */
+	/*   set_status(buf); */
+	/* } */
+	if (State2.version) {
+	  char vers[VERS_SVN_OFFSET + 5] = VERS_DISPLAY;
+	  set_digits_string("pAULI, WwALtE", 0);
+	  set_dig_s(SEGS_EXP_BASE, 'r', CNULL);
+#ifndef REALBUILD
+	  scopy(LastDisplayedNumber, " P A U L I,  W A L T E R ");
+	  scopy(LastDisplayedExponent, " ");
+#endif
+	  xcopy( vers + VERS_SVN_OFFSET, SvnRevision, 4 );
+	  set_status(vers);
+	  skip = 1;
+	  goto nostk;
+	} else if (State2.confirm) {
+	  set_status_top(S_SURE);
+	  no_status_top = 1;
+	  annuc = State2.runmode;
+	} else if (State2.hyp) {
+	  bp = scopy(bp, "HYP");
+	  if (! State2.dot)
+	    *bp++ = '\235';
+	  set_status_top(buf);
+	  no_status_top = 1;
+	  annuc = State2.runmode;
+	} else if (State2.gtodot) {
+	  // const int n = 3 + (nLIB(state_pc()) & 1); // Number of digits to display/expect
+	  bp = scopy_char(bp, argcmds[RARG_GTO].cmd, '.');
+	  if (State2.numdigit > 0)
+	    bp = num_arg_0(bp, (unsigned int)State2.digval, (int)State2.numdigit);
+	  // for (i=State2.numdigit; i<n; i++)
+	  *bp++ = '_';
+	  set_status_top(buf);
+	  no_status_top = 1;
+	  annuc = State2.runmode;
+	} else if (State2.rarg) {
+	  /* Commands with arguments */
+#ifdef INCLUDE_SIGFIG_MODE
+	  if (CmdBase >= RARG_FIX && CmdBase <= RARG_SIG0)
+	    bp = scopy(bp, "\177\006\006");
+#endif
+	  bp = scopy(bp, argcmds[CmdBase].cmd);
+	  bp = scopy(bp, State2.ind?"\015" : "\006\006");
+	  if (State2.dot) {
+	    *bp++ = 's';
+	    *bp++ = '_';
+	  } else if (shift == SHIFT_F) {
+	    *bp++ = '\021';
+	    *bp++ = '_';
+	  } else {
+	    /* const int maxdigits = State2.shuffle ? 4 
+	       : State2.ind ? 2 
+	       : num_arg_digits(CmdBase); */
+	    if (State2.local)
+	      *bp++ = '.';
+	    if (State2.numdigit > 0) {
+	      if (State2.shuffle)
+		for (i = 0, j = State2.digval; i<State2.numdigit; i++, j >>= 2)
+		  *bp++ = REGNAMES[j & 3];
+	      else
+		bp = num_arg_0(bp, (unsigned int)State2.digval, (int)State2.numdigit);
+	    }
+	    // for (i = State2.numdigit; i < maxdigits; i++)
+	    *bp++ = '_';
+	  }
+	  set_status_top(buf);
+	  no_status_top = 1;
+	  annuc = State2.runmode;
+	} else if (State2.test != TST_NONE) {
+	  *bp++ = 'x';
+	  *bp++ = "=\013\035<\011>\012"[State2.test];
+	  *bp++ = '_';
+	  *bp++ = '?';
+	  set_status_top(buf);
+	  no_status_top = 1;
+	  annuc = State2.runmode;
+	} else if (cata) {
+	  const opcode op = current_catalogue(State.catpos);
+	  char b2[16];
+	  const char *p;
+
+	  bp = scopy(bp, "\177\006\006");
+	  p = catcmd(op, b2);
+	  if (*p != COMPLEX_PREFIX && State2.cmplx)
+	    *bp++ = COMPLEX_PREFIX;
+	  bp = scopy(bp, p);
+	  if (cata == CATALOGUE_CONST || cata == CATALOGUE_COMPLEX_CONST) {
+	    // State2.disp_small = 1;
+	    if (op == RARG_BASEOP(RARG_INTNUM) || op == RARG_BASEOP(RARG_INTNUM_CMPLX))
+	      set_digits_string("0 to 255", 0);
+	    else
+	      set_x(get_const(op & RARG_MASK, 0), CNULL, 0);
+	    skip = 1;
+	  } else if (State2.runmode) {
+	    if (cata == CATALOGUE_CONV) {
+	      decNumber x, r;
+	      decimal64 z;
+
+	      getX(&x);
+	      if (opKIND(op) == KIND_MON) {
+		const unsigned int f = argKIND(op);
+		if (f < NUM_MONADIC && ! isNULL(monfuncs[f].mondreal)) {
+		  FP_MONADIC_REAL fp = (FP_MONADIC_REAL) EXPAND_ADDRESS(monfuncs[f].mondreal);
+		  update_speed(0);
+		  fp(&r, &x);
+		}
+		else
+		  set_NaN(&r);
+	      } else
+		do_conv(&r, op & RARG_MASK, &x);
+	      decNumberNormalize(&r, &r, &Ctx);
+	      packed_from_number(&z, &r);
+	      set_x((REGISTER *)&z, CNULL, 0);
+	      skip = 1;
+	    } else if (op >= (OP_NIL | OP_sigmaX2Y) && op < (OP_NIL | OP_sigmaX2Y) + NUMSTATREG) {
+	      REGISTER z, *const x = StackBase;
+	      copyreg(&z, x);
+	      sigma_val((enum nilop) argKIND(op));
+	      set_x(x, CNULL, is_dblmode());
+	      copyreg(x, &z);
+	      skip = 1;
+	    }
+	  }
+	  set_status_top(buf);
+	  no_status_top = 1;
+	  annuc = State2.runmode;
+	} else if (State2.multi) {
+	  bp = scopy_char(bp, multicmds[CmdBase].cmd, '\'');
+	  if (State2.numdigit > 0) {
+	    *bp++ = (char) State2.digval;
+	    if (State2.numdigit > 1)
+	      *bp++ = State2.digval2;
+	  }
+	  set_status_top(buf);
+	  no_status_top = 1;
+	  annuc = State2.runmode;
+	} else if (State2.status) {
+	  show_status();
+	  skip = 1;
+	} else if (State2.labellist) {
+	  show_label();
+	  skip = 1;
+	} else if (State2.registerlist) {
+	  show_registers();
+	  skip = 1;
+	  if (shift != SHIFT_N || (State2.smode == SDISP_SHOW && is_intmode())) {
+	    annunciators();
+	  }
+#ifdef SHIFT_HOLD_TEMPVIEW
+	} else if (State2.disp_as_alpha) {
+	  set_status(alpha_rcl_s(regX_idx, buf));
+#endif
+	} else if (State2.runmode) {
+	  if (DispMsg) { 
+	    set_status(DispMsg);
+	  } else if (DispPlot) {
+	    set_status_graphic((const unsigned char *)get_reg_n(DispPlot-1));
+	  } else if (State2.alphas) {
+#if 0
+	    set_digits_string("AlpHA", 0);
+#endif
+	    bp = scopy(buf, Alpha);
+	    j = State2.alpha_pos;
+	    if (j != 0) {
+	      i = slen(buf);
+	      //				
+	      j *= 6;
+#ifdef BIGGER_DISPLAY
+	      if ( i - j >= 20 )
+#else
+	      if ( i - j >= 12 )
+#endif
+		{
+		buf[ (i - j) ] = '\0';
+		set_status_right(buf);
+		}
+	      else {
+		set_status(buf);
+	      }
+	    } else {
+	      if (shift != SHIFT_N) {
+		*bp++ = 021 + shift - SHIFT_F;
+		*bp++ = '\0';
+	      }
+	      set_status_right(buf);
+	    }
+	  } else {
+	    annuc = 1;
+	  }
+	} else {
+#ifndef DM42
+	  show_progtrace(buf);
+#endif
+	  i = state_pc();
+	  if (i > 0)
+	    set_status(prt(getprog(i), buf));
+	  else
+	    set_status("");
+	  set_dot(STO_annun);
+	    if (cur_shift() != SHIFT_N || State2.cmplx || State2.arrow)
+	      annuc = 1;
+	  goto nostk;
+	}
+	show_stack();
+      nostk:
+	show_flags();
+	if (!skip) {
+	  if (State2.runmode) {
+	  only_update_x:
+	    p = get_cmdline();
+	    if (p == NULL || cata) {
+	      if (ShowRegister != -1) {
+		x_disp = (ShowRegister == regX_idx) && !State2.hms;
+		format_reg(ShowRegister, CNULL);
+	      }
+	      else
+		set_digits_string(" ---", 4 * SEGS_PER_DIGIT);
+	    } else {
+	      disp_x(p);
+	      x_disp = 1;
+	    }
+	    if (WasDataEntry) {
+	      goto finish;
+	    }
+	  } else {
+	    unsigned int pc = state_pc();
+	    unsigned int upc = user_pc(pc);
+	    const int n = nLIB(pc);
+	    xset(buf, '\0', sizeof(buf));
+	    set_exp(ProgFree, 1, CNULL);
+	    num_arg_0(scopy_spc(buf, n == 0 ? S7_STEP : libname[n]), 
+		      upc, 3 + (n & 1));  // 4 digits in ROM and Library
+	    set_digits_string(buf, SEGS_PER_DIGIT);
+#ifndef REALBUILD
+	    xset(buf, '\0', sizeof(buf));
+	    set_exp(ProgFree, 1, CNULL);
+	    num_arg_0(scopy_spc(buf, n == 0 ? S7_STEP_ShortText : libname_shorttext[n]),
+		      upc, 3 + (n & 1));  // 4 digits in ROM and Library
+	    { // allow local declaration of b and l in C (not C++) on VisualStudio
+	      char *b=buf;
+	      char *l=LastDisplayedNumber;
+	      *l++=' ';
+	      while(*b) {
+		*l++=*b++;
+		*l++=' ';
+	      }
+	      *l=0;
+	    }
+#endif
+	  }
+	}
+	set_annunciators();
+	if (x_disp == 0 || State2.smode != SDISP_NORMAL || DispMsg != NULL || DispPlot || State2.disp_as_alpha) {
+	  ShowRPN = 0;
+	  dot(RPN, 0);
+	}
+	// disp_temp disables the <- key
+	State2.disp_temp = ! ShowRPN && State2.runmode 
+	  && (! State2.registerlist || State2.smode == SDISP_SHOW || State2.disp_as_alpha);
+
+#if defined(INCLUDE_YREG_CODE)
+	if ((annuc && (! State2.disp_temp || State2.hms)) || State2.wascomplex) // makes sure that hms numbers appear in the dot-matrix display
+	  annunciators();
+ 	State2.hms = 0;
+#else
+	if ((annuc && ! State2.disp_temp) || State2.wascomplex)
+	  annunciators();
+#endif
+
+      finish:
+	State2.version = 0;
+	State2.disp_as_alpha = 0;
+	State2.smode = SDISP_NORMAL;
+	State2.invalid_disp = 0;
+	ShowRegister = regX_idx;
+	DispMsg = CNULL;
+	DispPlot = 0;
+	State2.disp_small = 0;
+	finish_display();
+	no_status_top = 0;
+#ifdef CONSOLE
+	JustDisplayed = 1;
+#endif
+      }
+#else
       /*
        *  Update the display
        */
@@ -2867,7 +3215,7 @@ static void set_exp(int exp, int flags, char *res) {
 	JustDisplayed = 1;
 #endif
       }
-
+#endif
       /*
        *  Frozen display will revert to normal only after another call to display();
        */
@@ -3074,7 +3422,13 @@ static void set_exp(int exp, int flags, char *res) {
 	set_status_sized(str, State2.disp_small || string_too_large(str));
       }
       static void set_status_top(const char *str) {
-	set_status_sized_top(str, State2.disp_small || string_too_large_top(str));
+	if (no_status_top) return;
+	if (State2.runmode) {
+	  set_status_sized_top(str, State2.disp_small || string_too_large_top(str));
+	}
+	else {
+	  set_status_sized(str, State2.disp_small || string_too_large(str));
+	}
       }
 
 

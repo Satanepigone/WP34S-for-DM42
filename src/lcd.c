@@ -393,7 +393,7 @@ void show_disp(void) { // This function re-draws everything.
         for (i=0; i<BW_TOP; i++) {
 	  for (j=0; j<6; j++) {
 	    if (dots[i*6+j+MB_TOP]) {
-	      lcd_fill_rect( xleft-dwidth+5*i+15, 70-(10+6*6)+j*6, 4, 5, 0xff);
+	      lcd_fill_rect( xleft-dwidth+5*i+15, 70-(10+6*5)+j*5, 4, 4, 0xff);
 	    }
 	  }
 	}

@@ -69,7 +69,7 @@ extern void show_stack(void);
 #endif
 
 #ifdef TOP_ROW
-#define BW_TOP		        25
+#define BW_TOP		        43 // if not this intmode display code needs changing
 #define MAX_DOTS		(MATRIX_BASE + BITMAP_WIDTH*6) // for middle row
 #define TOP_DOTS 		(MATRIX_BASE + BITMAP_WIDTH*6 + BW_TOP*6) // inc. top row
 #define MB_TOP 			(MATRIX_BASE + BITMAP_WIDTH*6) // where top row starts

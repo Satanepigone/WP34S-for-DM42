@@ -756,7 +756,7 @@ void flash_backup( enum nilop op )
 		init_state();
 		checksum_all();
 		if ( program_flash( &BackupFlash, &PersistentRam, sizeof( BackupFlash ) / PAGE_SIZE ) ) {
-			report_err( ERR_IO );
+			error_message( ERR_IO );
 			DispMsg = "Error";
 		}
 		else {
@@ -770,7 +770,7 @@ void flash_restore( enum nilop op )
 {
 	if ( not_running() ) {
 		if ( checksum_backup() ) {
-			report_err( ERR_INVALID );
+			error_message( ERR_INVALID );
 		}
 		else {
 			xcopy( &PersistentRam, &BackupFlash, sizeof( PersistentRam ) );
@@ -1278,7 +1278,7 @@ void save_prog_file () {
      */
     pc = nLIB( state_pc() );
     if ( pc == REGION_XROM ) {
-      report_err( ERR_ILLEGAL );
+      error_message( ERR_ILLEGAL );
       return;
     }
     /*
@@ -1287,7 +1287,7 @@ void save_prog_file () {
     update_program_bounds( 1 );
     lbl = getprog( ProgBegin );
     if ( !isDBL(lbl) || opDBL(lbl) != DBL_LBL ) {
-      report_err( ERR_NO_LBL );
+      error_message( ERR_NO_LBL );
       return;
     }
     /*
@@ -1422,7 +1422,7 @@ void store_program_from_buffer( FLASH_REGION* fr )
       set_pc( old_pc );
     }
     if ( space_needed > free ) {
-      report_err( ERR_FLASH_FULL );
+      error_message( ERR_FLASH_FULL );
       return;
     }
     // 3. Append program
