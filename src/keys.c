@@ -92,7 +92,7 @@ enum shifts cur_shift(void) {
 static enum shifts set_shift(enum shifts shift) {
 	enum shifts r = cur_shift();
 	State2.shifts = shift;
-	State2.alpha_pos = 0;
+	//	State2.alpha_pos = 0;
 	return r;
 }
 
