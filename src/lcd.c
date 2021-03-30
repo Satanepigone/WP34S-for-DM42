@@ -340,7 +340,7 @@ void show_disp(void) { // This function re-draws everything.
 
 	if (dots[INPUT]) {
 	  lcd_setXY(t20, 305, y_ann-70);
-	  lcd_writeText(t20,"INPUT");
+	  lcd_writeText(t20,"ALPHA");
         }
 
 	if (dots[LIT_EQ]) {
@@ -359,12 +359,12 @@ void show_disp(void) { // This function re-draws everything.
 
 	if (dots[STO_annun]) {
 	  lcd_setXY (t20, 325, y_ann-50);
-	  lcd_writeText(t20, "STO");
+	  lcd_writeText(t20, "PGM");
         }
 
 	if (dots[RCL_annun]) {
 	  lcd_setXY (t20, 365, y_ann-50);
-	  lcd_writeText(t20, "RCL");
+	  lcd_writeText(t20, "RUN");
         }
 
 	if (dots[RAD]) {
@@ -374,7 +374,7 @@ void show_disp(void) { // This function re-draws everything.
 
 	if (dots[DEG]) {
 	  lcd_setXY (t20, 325, y_ann-30);
-	  lcd_writeText(t20, "360");
+	  lcd_writeText(t20, "DEG");
         }
         if (dots[RPN]) {
 	  lcd_setXY (t20, 365, y_ann-30);

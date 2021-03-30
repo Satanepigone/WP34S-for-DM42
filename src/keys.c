@@ -1442,11 +1442,11 @@ static int process_alpha(const keycode c) {
 	       * numbers in display.c, lines 2414 and 2416.
 	       */
 #ifdef BIGGER_DISPLAY
-	      if (alen()-6*alpha_pos >= 20) {
+	      if ((alpha_pos == 0) || (alen()-6*alpha_pos >= 20)) {
 		alpha_pos += 1;
 	      }
 #else
-	      if (alen()-6*alpha_pos >= 12) {
+	      if ((alpha_pos == 0) || (alen()-6*alpha_pos >= 12)) {
 		alpha_pos += 1;
 	      }
 #endif

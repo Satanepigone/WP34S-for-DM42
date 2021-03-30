@@ -766,55 +766,86 @@ static void set_exp(int exp, int flags, char *res) {
 #ifndef SHIFT_AND_CMPLX_SUPPRESS_YREG
 	if (State2.cmplx) {
 	  *p2++ = '\007';
-	  *p2++ = '\344';
+	  *p2++ = '\344'; // small font; 4 px wide
 	  *p2++ = shift_char;
-	  q = "\024";
+	  //	  q = "\024";
+	  *p2++ = '\024';
 	}
-	else if (shift_char != ' ') {
+	else {// if (shift_char != ' ') {
 	  *p2++ = '\007';
-	  *p2++ = '\307';
+	  *p2++ = '\307'; // big font; 7 px wide 
 	  *p2++ = shift_char;
-	  goto no_copy;
+	  //	  goto no_copy;
 	}
-	else
+	//	else
 #endif
 	  if (State2.wascomplex) {
 	    q = "\007\207i";
 	    p = scopy(p, q);
-	    goto no_copy;
+	    //	    goto no_copy;
 	  }
 	  else if (rp_prefix && RectPolConv == 1) {
 	    q = "\007\307<";
 	    p = scopy(p, q);
-	    goto no_copy;
+	    //	    goto no_copy;
 	  }
 	  else if (rp_prefix && RectPolConv == 2) {
 	    q = "\007\307y";
 	    p = scopy(p, q);
-	    goto no_copy;
+	    //	    goto no_copy;
 	  }
 #ifdef SHOW_GRADIAN_PREFIX
-	  else if (get_trig_mode() == TRIG_GRAD) {
-	  q = "\007\207\007";
-	}
+	  //	  else
+	    if (get_trig_mode() == TRIG_GRAD) {
+	    //	    q = "\007\207\007";
+	      *p2++ = '\007';
+	      *p2++ = '\207';
+	      *p2++ = '\007';	    
+	    }
+	    else {
+	      *p2++ = '\007';
+	      *p2++ = '\207';
+	      *p2++ = ' ';
+	    }
 #endif
-	else {
+	    //	else { 
 #ifndef SHOW_STACK_SIZE
 	  q = (is_dblmode() ? "\007\307D" : "\007\207 ");
+	  p2 = scopy(p2, q);
 #else
 	  if (is_dblmode()) {
-	    *p++ = '\007';
-	    *p++ = '\342';
-	    *p++ = (UState.stack_depth ? ':' : '.');
-	    q = "\007\345D";
+	    *p2++ = '\007';
+	    *p2++ = '\342';
+	    *p2++ = (UState.stack_depth ? ':' : '.');
+	    //	    q = "\007\345D";
+	    *p2++ = '\007';
+	    *p2++ = '\345';
+	    *p2++ = 'D';
 	  }
 	  else {
 	    q = (UState.stack_depth ? "\007\347:" : "\007\347.");
+	    p2 = scopy(p2, q);
 	  }
 #endif
+	  //	}
+	//	p2 = scopy(p2, q);
+
+	switch (UState.date_mode) {
+#ifndef NO_DATEMODE_INDICATION
+#if defined(DEFAULT_DATEMODE) && (DEFAULT_DATEMODE != 0)
+	case DATE_DMY:	q = "d.my\006\006";	break;
+#endif
+#if ! defined(DEFAULT_DATEMODE) || (DEFAULT_DATEMODE != 1)
+	case DATE_YMD:	q = "y.md\006\006";	break;
+#endif
+#if ! defined(DEFAULT_DATEMODE) || (DEFAULT_DATEMODE != 2)
+	case DATE_MDY:	q = "m.dy\006\006";	break;
+#endif
+#endif
+	default:	q = (has_FONT_ESCAPE ? "\007\225\006" : "    \006");	break; // 21 pixels
 	}
 	p2 = scopy(p2, q);
-
+	  
       no_copy:
 
 	if (State2.arrow) {
@@ -953,9 +984,6 @@ static void set_exp(int exp, int flags, char *res) {
 #endif
 
       xset(buf, '\0', sizeof(buf));
-#ifdef TOP_ROW
-      xset(buf2, '\0', sizeof(buf2));
-#endif
       
       if (is_intmode()) {
 #ifdef SHOW_STACK_SIZE
@@ -2589,10 +2617,19 @@ static void set_exp(int exp, int flags, char *res) {
 	  }
 	  goto only_update_x;
 	}
-
+#ifdef INCLUDE_YREG_CODE
+#  ifdef YREG_ALWAYS_ON
+	const int yreg_enabled = 1;
+#  else
+	const int yreg_enabled = UState.show_y;
+#  endif
+#else
+	const int yreg_enabled = 0;
+#endif
 	// Clear display
 	reset_disp();
 
+	
 	xset(buf, '\0', sizeof(buf));
 	// Not clear why this code is needed - "c" is done in annunciators.
 	/* if (State2.cmplx  && !cata) { */
@@ -2612,16 +2649,26 @@ static void set_exp(int exp, int flags, char *res) {
 	  skip = 1;
 	  goto nostk;
 	} else if (State2.confirm) {
-	  set_status_top(S_SURE);
-	  no_status_top = 1;
-	  annuc = State2.runmode;
+	  if (yreg_enabled) {
+	    set_status_top(S_SURE);
+	    no_status_top = 1;
+	    annuc = State2.runmode;
+	  }
+	  else {
+	    set_status(S_SURE);
+	  }
 	} else if (State2.hyp) {
 	  bp = scopy(bp, "HYP");
 	  if (! State2.dot)
 	    *bp++ = '\235';
-	  set_status_top(buf);
-	  no_status_top = 1;
-	  annuc = State2.runmode;
+	  if (yreg_enabled) {
+	    set_status_top(buf);
+	    no_status_top = 1;
+	    annuc = State2.runmode;
+	  }
+	  else {
+	    set_status(buf);
+	  }
 	} else if (State2.gtodot) {
 	  // const int n = 3 + (nLIB(state_pc()) & 1); // Number of digits to display/expect
 	  bp = scopy_char(bp, argcmds[RARG_GTO].cmd, '.');
@@ -2629,9 +2676,14 @@ static void set_exp(int exp, int flags, char *res) {
 	    bp = num_arg_0(bp, (unsigned int)State2.digval, (int)State2.numdigit);
 	  // for (i=State2.numdigit; i<n; i++)
 	  *bp++ = '_';
-	  set_status_top(buf);
-	  no_status_top = 1;
-	  annuc = State2.runmode;
+	  if (yreg_enabled) {
+	    set_status_top(buf);
+	    no_status_top = 1;
+	    annuc = State2.runmode;
+	  }
+	  else {
+	    set_status(buf);
+	  }
 	} else if (State2.rarg) {
 	  /* Commands with arguments */
 #ifdef INCLUDE_SIGFIG_MODE
@@ -2662,17 +2714,27 @@ static void set_exp(int exp, int flags, char *res) {
 	    // for (i = State2.numdigit; i < maxdigits; i++)
 	    *bp++ = '_';
 	  }
-	  set_status_top(buf);
-	  no_status_top = 1;
-	  annuc = State2.runmode;
+	  if (yreg_enabled) {
+	    set_status_top(buf);
+	    no_status_top = 1;
+	    annuc = State2.runmode;
+	  }
+	  else {
+	    set_status(buf);
+	  }
 	} else if (State2.test != TST_NONE) {
 	  *bp++ = 'x';
 	  *bp++ = "=\013\035<\011>\012"[State2.test];
 	  *bp++ = '_';
 	  *bp++ = '?';
-	  set_status_top(buf);
-	  no_status_top = 1;
-	  annuc = State2.runmode;
+	  if (yreg_enabled) {
+	    set_status_top(buf);
+	    no_status_top = 1;
+	    annuc = State2.runmode;
+	  }
+	  else {
+	    set_status(buf);
+	  }
 	} else if (cata) {
 	  const opcode op = current_catalogue(State.catpos);
 	  char b2[16];
@@ -2720,9 +2782,14 @@ static void set_exp(int exp, int flags, char *res) {
 	      skip = 1;
 	    }
 	  }
-	  set_status_top(buf);
-	  no_status_top = 1;
-	  annuc = State2.runmode;
+	  if (yreg_enabled) {
+	    set_status_top(buf);
+	    no_status_top = 1;
+	    annuc = State2.runmode;
+	  }
+	  else {
+	    set_status(buf);
+	  }
 	} else if (State2.multi) {
 	  bp = scopy_char(bp, multicmds[CmdBase].cmd, '\'');
 	  if (State2.numdigit > 0) {
@@ -2730,9 +2797,14 @@ static void set_exp(int exp, int flags, char *res) {
 	    if (State2.numdigit > 1)
 	      *bp++ = State2.digval2;
 	  }
-	  set_status_top(buf);
-	  no_status_top = 1;
-	  annuc = State2.runmode;
+	  if (yreg_enabled) {
+	    set_status_top(buf);
+	    no_status_top = 1;
+	    annuc = State2.runmode;
+	  }
+	  else {
+	    set_status(buf);
+	  }
 	} else if (State2.status) {
 	  show_status();
 	  skip = 1;
@@ -2755,38 +2827,41 @@ static void set_exp(int exp, int flags, char *res) {
 	  } else if (DispPlot) {
 	    set_status_graphic((const unsigned char *)get_reg_n(DispPlot-1));
 	  } else if (State2.alphas) {
-#if 0
-	    set_digits_string("AlpHA", 0);
-#endif
 	    bp = scopy(buf, Alpha);
 	    j = State2.alpha_pos;
 	    if (j != 0) {
 	      i = slen(buf);
-	      //				
 	      j *= 6;
-#ifdef BIGGER_DISPLAY
-	      if ( i - j >= 20 )
-#else
-	      if ( i - j >= 12 )
-#endif
+	      if ( i - j >= ALPHA_SWITCH )
 		{
-		buf[ (i - j) ] = '\0';
-		set_status_right(buf);
+		  buf[ (i - j) ] = '\0';
+		  set_status_right(buf);
 		}
 	      else {
 		set_status(buf);
 	      }
-	    } else {
-	      if (shift != SHIFT_N) {
+	    }
+	    else {
+	      if ((shift != SHIFT_N) && !yreg_enabled) {
 		*bp++ = 021 + shift - SHIFT_F;
 		*bp++ = '\0';
 	      }
 	      set_status_right(buf);
 	    }
-	  } else {
+	    if (shift != SHIFT_N && yreg_enabled) {
+	      bp = buf;
+	      *bp++ = 021 + shift - SHIFT_F;
+	      *bp++ = '\0';
+	      set_status_top(buf);
+	      no_status_top = 1;
+	      //	      annuc = State2.runmode;
+	    }
+	  }
+	  else {
 	    annuc = 1;
 	  }
-	} else {
+	}
+	else {
 #ifndef DM42
 	  show_progtrace(buf);
 #endif
@@ -2796,8 +2871,8 @@ static void set_exp(int exp, int flags, char *res) {
 	  else
 	    set_status("");
 	  set_dot(STO_annun);
-	    if (cur_shift() != SHIFT_N || State2.cmplx || State2.arrow)
-	      annuc = 1;
+	  if (cur_shift() != SHIFT_N || State2.cmplx || State2.arrow)
+	    annuc = 1;
 	  goto nostk;
 	}
 	show_stack();
