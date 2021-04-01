@@ -39,6 +39,7 @@ static void s_s_sized(const char *str, int smallp, int b_w, int m_b, int m_d);
 
 static void set_status(const char *);
 static void set_status_top(const char *);
+static void set_status_top_always(const char *);
 
 static void set_status_right(const char *);
 static void set_status_graphic(const unsigned char *);
@@ -844,13 +845,15 @@ static void set_exp(int exp, int flags, char *res) {
 #endif
 	default:	q = (has_FONT_ESCAPE ? "\007\225\006" : "    \006");	break; // 21 pixels
 	}
-	p2 = scopy(p2, q);
 	  
-      no_copy:
-
+	//      no_copy:
+	// display either arrow or datemode
 	if (State2.arrow) {
 	  scopy(p2, "\007\204\006\015");
 	} // no need to skip y display with arrow here
+	else {
+	  p2 = scopy(p2, q);
+	}
 	if (State2.runmode) {
 	  decNumber y;
 	display_yreg:
@@ -934,8 +937,9 @@ static void set_exp(int exp, int flags, char *res) {
 	}
       }
       
-    skip:	set_status(buf);
-      set_status_top(buf2);
+    skip:
+      if (State2.runmode) set_status(buf); // don't overwrite program line with blank
+      set_status_top_always(buf2);
       
     }
 #else
@@ -2871,7 +2875,7 @@ static void set_exp(int exp, int flags, char *res) {
 	  else
 	    set_status("");
 	  set_dot(STO_annun);
-	  if (cur_shift() != SHIFT_N || State2.cmplx || State2.arrow)
+	  //	  if (cur_shift() != SHIFT_N || State2.cmplx || State2.arrow)
 	    annuc = 1;
 	  goto nostk;
 	}
@@ -3504,6 +3508,9 @@ static void set_exp(int exp, int flags, char *res) {
 	else {
 	  set_status_sized(str, State2.disp_small || string_too_large(str));
 	}
+      }
+      static void set_status_top_always(const char *str) {
+	set_status_sized_top(str, State2.disp_small || string_too_large_top(str));
       }
 
 

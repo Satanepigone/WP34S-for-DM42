@@ -696,7 +696,7 @@ void finish_RPN(void) {//only refreshes the RPN flag
 #else
   lcd_setXY (t20, 365, 130-50); // 130 is y_ann
 #endif
-  lcd_writeText(t20, "RCL");
+  lcd_writeText(t20, "RUN");
   lcd_refresh();
 }
 

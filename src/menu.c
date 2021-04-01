@@ -141,8 +141,8 @@ static const struct _menu Menus[] = {
       { { K22, 1 }, { K10, 2 }, "Bin", "DEG" },
       { { K22, 2 }, { K11, 2 }, "Oct", "RAD" },
       { { K23, 1 }, { K12, 2 }, "Dec", "Grad" },
-      { { K23, 2 }, { K10, 1 }, "Hex", "2HMS" },
-      { ARROW_KEY, { K11, 1 }, "--\015", "HMS2" },
+      { { K23, 2 }, { K10, 1 }, "Hex", "\015HMS" },
+      { ARROW_KEY, { K11, 1 }, "--\015", "HMS\015" },
       { CMPLX_KEY, NO_KEY, "CPX", "" },
     }
   },
