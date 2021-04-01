@@ -2858,7 +2858,7 @@ static void set_exp(int exp, int flags, char *res) {
 	      *bp++ = '\0';
 	      set_status_top(buf);
 	      no_status_top = 1;
-	      annuc = 1;
+	      //annuc = 1;
 	    }
 	  }
 	  else {
