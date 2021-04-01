@@ -2656,7 +2656,7 @@ static void set_exp(int exp, int flags, char *res) {
 	  if (yreg_enabled) {
 	    set_status_top(S_SURE);
 	    no_status_top = 1;
-	    annuc = State2.runmode;
+	    annuc = 1;
 	  }
 	  else {
 	    set_status(S_SURE);
@@ -2668,7 +2668,7 @@ static void set_exp(int exp, int flags, char *res) {
 	  if (yreg_enabled) {
 	    set_status_top(buf);
 	    no_status_top = 1;
-	    annuc = State2.runmode;
+	    annuc = 1;
 	  }
 	  else {
 	    set_status(buf);
@@ -2683,7 +2683,7 @@ static void set_exp(int exp, int flags, char *res) {
 	  if (yreg_enabled) {
 	    set_status_top(buf);
 	    no_status_top = 1;
-	    annuc = State2.runmode;
+	    annuc = 1;
 	  }
 	  else {
 	    set_status(buf);
@@ -2721,7 +2721,7 @@ static void set_exp(int exp, int flags, char *res) {
 	  if (yreg_enabled) {
 	    set_status_top(buf);
 	    no_status_top = 1;
-	    annuc = State2.runmode;
+	    annuc = 1;
 	  }
 	  else {
 	    set_status(buf);
@@ -2734,7 +2734,7 @@ static void set_exp(int exp, int flags, char *res) {
 	  if (yreg_enabled) {
 	    set_status_top(buf);
 	    no_status_top = 1;
-	    annuc = State2.runmode;
+	    annuc = 1;
 	  }
 	  else {
 	    set_status(buf);
@@ -2789,7 +2789,7 @@ static void set_exp(int exp, int flags, char *res) {
 	  if (yreg_enabled) {
 	    set_status_top(buf);
 	    no_status_top = 1;
-	    annuc = State2.runmode;
+	    annuc = 1;
 	  }
 	  else {
 	    set_status(buf);
@@ -2804,7 +2804,7 @@ static void set_exp(int exp, int flags, char *res) {
 	  if (yreg_enabled) {
 	    set_status_top(buf);
 	    no_status_top = 1;
-	    annuc = State2.runmode;
+	    annuc = 1;
 	  }
 	  else {
 	    set_status(buf);
@@ -2858,7 +2858,7 @@ static void set_exp(int exp, int flags, char *res) {
 	      *bp++ = '\0';
 	      set_status_top(buf);
 	      no_status_top = 1;
-	      //	      annuc = State2.runmode;
+	      annuc = 1;
 	    }
 	  }
 	  else {
@@ -3510,6 +3510,7 @@ static void set_exp(int exp, int flags, char *res) {
 	}
       }
       static void set_status_top_always(const char *str) {
+	if ((no_status_top) && (State2.runmode)) return;
 	set_status_sized_top(str, State2.disp_small || string_too_large_top(str));
       }
 

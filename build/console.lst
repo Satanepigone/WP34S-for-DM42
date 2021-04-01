@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccnOID6v.s 			page 1
+ARM GAS  /tmp/ccotxa8d.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
   27:src/menu.c    **** void display_current_menu () {
   28:src/menu.c    ****   display_menu (current_menu);
   29:src/menu.c    **** }
-ARM GAS  /tmp/ccnOID6v.s 			page 2
+ARM GAS  /tmp/ccotxa8d.s 			page 2
 
 
   30:src/menu.c    **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
   84:src/menu.c    ****     { 
   85:src/menu.c    ****       { { K10, 2 }, { K04, 1 }, "DEG", "P\015R" },
   86:src/menu.c    ****       { { K11, 2 }, { K04, 2 }, "RAD", "R\015P" },
-ARM GAS  /tmp/ccnOID6v.s 			page 3
+ARM GAS  /tmp/ccotxa8d.s 			page 3
 
 
   87:src/menu.c    ****       { { K12, 2 }, { K00, 1 }, "GRAD", "HYP" },
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  141:src/menu.c    ****       { { K22, 1 }, { K10, 2 }, "Bin", "DEG" },
  142:src/menu.c    ****       { { K22, 2 }, { K11, 2 }, "Oct", "RAD" },
  143:src/menu.c    ****       { { K23, 1 }, { K12, 2 }, "Dec", "Grad" },
-ARM GAS  /tmp/ccnOID6v.s 			page 4
+ARM GAS  /tmp/ccotxa8d.s 			page 4
 
 
  144:src/menu.c    ****       { { K23, 2 }, { K10, 1 }, "Hex", "\015HMS" },
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  198:src/menu.c    ****       { { K53, 1 }, NO_KEY, "SUM", "" },
  199:src/menu.c    ****       { { K53, 2 }, NO_KEY, "PROD", "" },
  200:src/menu.c    ****       { ARROW_KEY, NO_KEY, "--\015", "" },
-ARM GAS  /tmp/ccnOID6v.s 			page 5
+ARM GAS  /tmp/ccotxa8d.s 			page 5
 
 
  201:src/menu.c    ****       { CMPLX_KEY, NO_KEY, "CPX", "" },
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
   51              		.loc 1 223 13 view .LVU5
   52 0008 CDE90102 		strd	r0, r2, [sp, #4]
  232:src/menu.c    ****   int i, j, xmax;
-ARM GAS  /tmp/ccnOID6v.s 			page 6
+ARM GAS  /tmp/ccotxa8d.s 			page 6
 
 
  233:src/menu.c    ****   xmax = ((dotcol/MENU_WIDTH)+1)*MENU_WIDTH;
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
   88              		.loc 1 241 9 view .LVU22
   89 002e 002D     		cmp	r5, #0
   90 0030 78D0     		beq	.L1
-ARM GAS  /tmp/ccnOID6v.s 			page 7
+ARM GAS  /tmp/ccotxa8d.s 			page 7
 
 
   91              		.loc 1 241 23 is_stmt 0 view .LVU23
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  114              		.loc 1 257 7 is_stmt 1 view .LVU34
  257:src/menu.c    ****       width = str[1] & 0x1F;
  115              		.loc 1 257 18 is_stmt 0 view .LVU35
-ARM GAS  /tmp/ccnOID6v.s 			page 8
+ARM GAS  /tmp/ccotxa8d.s 			page 8
 
 
  116 0042 019B     		ldr	r3, [sp, #4]
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  152              		.loc 1 277 5 view .LVU48
  153              		.loc 1 277 11 is_stmt 0 view .LVU49
  154 006e C319     		adds	r3, r0, r7
-ARM GAS  /tmp/ccnOID6v.s 			page 9
+ARM GAS  /tmp/ccotxa8d.s 			page 9
 
 
  155              	.LVL13:
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  287:src/menu.c    ****       for (j=0; j<width; j++) { // width is width of character
  198              		.loc 1 287 17 is_stmt 1 view .LVU62
  199              		.loc 1 287 7 is_stmt 0 view .LVU63
-ARM GAS  /tmp/ccnOID6v.s 			page 10
+ARM GAS  /tmp/ccotxa8d.s 			page 10
 
 
  200 00a8 002E     		cmp	r6, #0
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  290:src/menu.c    ****       }
  218              		.loc 1 290 31 view .LVU68
  219 00b8 9BF80000 		ldrb	r0, [fp]	@ zero_extendqisi2
-ARM GAS  /tmp/ccnOID6v.s 			page 11
+ARM GAS  /tmp/ccotxa8d.s 			page 11
 
 
  220              	.LBB53:
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  318:src/menu.c    ****   if (on) {
  264              		.loc 1 318 6 view .LVU80
  265 00d0 09D8     		bhi	.L16
-ARM GAS  /tmp/ccnOID6v.s 			page 12
+ARM GAS  /tmp/ccotxa8d.s 			page 12
 
 
  266              	.LBB49:
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  293:src/menu.c    ****   }
  307              		.loc 1 293 5 is_stmt 1 view .LVU96
  308              	.LBE56:
-ARM GAS  /tmp/ccnOID6v.s 			page 13
+ARM GAS  /tmp/ccotxa8d.s 			page 13
 
 
  241:src/menu.c    ****     int c;
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  347 0116 0193     		str	r3, [sp, #4]
  348              	.LVL30:
  273:src/menu.c    ****       current_smallp = smallp;
-ARM GAS  /tmp/ccnOID6v.s 			page 14
+ARM GAS  /tmp/ccotxa8d.s 			page 14
 
 
  349              		.loc 1 273 7 is_stmt 1 view .LVU113
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  390 0136 00BF     		.align	2
  391              	.L36:
  392 0138 00000000 		.word	forceDispPlot
-ARM GAS  /tmp/ccnOID6v.s 			page 15
+ARM GAS  /tmp/ccotxa8d.s 			page 15
 
 
  393 013c 00000000 		.word	RectPolConv
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  437              		.loc 1 12 5 is_stmt 1 view .LVU138
  438              	.L40:
   14:src/menu.c    **** }
-ARM GAS  /tmp/ccnOID6v.s 			page 16
+ARM GAS  /tmp/ccotxa8d.s 			page 16
 
 
  439              		.loc 1 14 3 view .LVU139
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
   18:src/menu.c    ****     current_menu = default_menu = 15 - default_menu;
  486              		.loc 1 18 6 view .LVU149
  487 0006 1368     		ldr	r3, [r2]
-ARM GAS  /tmp/ccnOID6v.s 			page 17
+ARM GAS  /tmp/ccotxa8d.s 			page 17
 
 
  488 0008 8342     		cmp	r3, r0
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  535              	.LFE5:
  537              		.section	.text.set_last_menu,"ax",%progbits
  538              		.align	1
-ARM GAS  /tmp/ccnOID6v.s 			page 18
+ARM GAS  /tmp/ccotxa8d.s 			page 18
 
 
  539              		.p2align 2,,3
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
    8:src/menu.c    ****     current_menu = last_menu;
  582              		.loc 1 8 8 is_stmt 1 view .LVU171
   12:src/menu.c    ****   }
-ARM GAS  /tmp/ccnOID6v.s 			page 19
+ARM GAS  /tmp/ccotxa8d.s 			page 19
 
 
  583              		.loc 1 12 18 is_stmt 0 view .LVU172
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  630              	.LBI67:
  317:src/menu.c    ****   if ( (i<0) || (i>199) ) return;
  631              		.loc 1 317 6 is_stmt 1 view .LVU182
-ARM GAS  /tmp/ccnOID6v.s 			page 20
+ARM GAS  /tmp/ccotxa8d.s 			page 20
 
 
  632              	.LBB68:
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  679              	.LVL49:
  320:src/menu.c    ****   }
  680              		.loc 1 320 17 view .LVU197
-ARM GAS  /tmp/ccnOID6v.s 			page 21
+ARM GAS  /tmp/ccotxa8d.s 			page 21
 
 
  681 0024 03EB4000 		add	r0, r3, r0, lsl #1
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  728              		.loc 1 330 3 view .LVU206
  328:src/menu.c    ****   int len = 0;
  729              		.loc 1 328 38 is_stmt 0 view .LVU207
-ARM GAS  /tmp/ccnOID6v.s 			page 22
+ARM GAS  /tmp/ccotxa8d.s 			page 22
 
 
  730 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  778              	.LVL57:
  779              	.L77:
  780              	.LBB74:
-ARM GAS  /tmp/ccnOID6v.s 			page 23
+ARM GAS  /tmp/ccotxa8d.s 			page 23
 
 
  781              		.loc 1 334 5 is_stmt 1 discriminator 3 view .LVU218
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  816              		.loc 1 347 93 view .LVU232
  817 0056 00EBD070 		add	r0, r0, r0, lsr #31
  818              		.loc 1 347 5 view .LVU233
-ARM GAS  /tmp/ccnOID6v.s 			page 24
+ARM GAS  /tmp/ccotxa8d.s 			page 24
 
 
  819 005a 04EB6001 		add	r1, r4, r0, asr #1
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  862 009a 1F4E     		ldr	r6, .L94+12
  863              	.LBE75:
  864              	.LBB76:
-ARM GAS  /tmp/ccnOID6v.s 			page 25
+ARM GAS  /tmp/ccotxa8d.s 			page 25
 
 
  865              	.LBB77:
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  904 00cc 02D0     		beq	.L80
  905              		.loc 1 360 2 view .LVU260
  906 00ce CDF80080 		str	r8, [sp]
-ARM GAS  /tmp/ccnOID6v.s 			page 26
+ARM GAS  /tmp/ccotxa8d.s 			page 26
 
 
  907 00d2 C847     		blx	r9
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  948              	.LBE80:
  364:src/menu.c    ****     }
  365:src/menu.c    ****   }
-ARM GAS  /tmp/ccnOID6v.s 			page 27
+ARM GAS  /tmp/ccotxa8d.s 			page 27
 
 
  366:src/menu.c    **** }
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1004              	.LFB11:
  367:src/menu.c    **** 
  368:src/menu.c    **** void all_menu_dots () {
-ARM GAS  /tmp/ccnOID6v.s 			page 28
+ARM GAS  /tmp/ccotxa8d.s 			page 28
 
 
  1005              		.loc 1 368 23 view -0
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1051 000e 1A46     		mov	r2, r3
  1052 0010 2146     		mov	r1, r4
  1053 0012 2846     		mov	r0, r5
-ARM GAS  /tmp/ccnOID6v.s 			page 29
+ARM GAS  /tmp/ccotxa8d.s 			page 29
 
 
  1054 0014 0097     		str	r7, [sp]
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1100              	shutdown:
  1101              	.LFB13:
  1102              		.file 2 "src/console.c"
-ARM GAS  /tmp/ccnOID6v.s 			page 30
+ARM GAS  /tmp/ccotxa8d.s 			page 30
 
 
    1:src/console.c **** /* This file is part of 34S.
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
   55:src/console.c **** struct _ndmap g_shift = {.key_34s = K_G, .shift = -1};
   56:src/console.c **** struct _ndmap h_shift = {.key_34s = K_H, .shift = -1};
   57:src/console.c **** struct _ndmap release = {.key_34s = K_RELEASE, .shift = -1};
-ARM GAS  /tmp/ccnOID6v.s 			page 31
+ARM GAS  /tmp/ccotxa8d.s 			page 31
 
 
   58:src/console.c **** struct _ndmap do_multi (struct _ndmap r);
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  112:src/console.c ****   case KEY_F6:
  113:src/console.c ****     if (cur_shift() == SHIFT_N) return Menus[current_menu].keys[5].unshifted;
  114:src/console.c ****     if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[5].shifted;
-ARM GAS  /tmp/ccnOID6v.s 			page 32
+ARM GAS  /tmp/ccotxa8d.s 			page 32
 
 
  115:src/console.c ****   }
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1127              		.thumb
  1128              		.thumb_func
  1129              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/ccnOID6v.s 			page 33
+ARM GAS  /tmp/ccotxa8d.s 			page 33
 
 
  1131              	is_key_pressed:
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1170              		.cfi_startproc
  1171              		@ args = 0, pretend = 0, frame = 0
  1172              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccnOID6v.s 			page 34
+ARM GAS  /tmp/ccotxa8d.s 			page 34
 
 
  1173              		@ link register save eliminated.
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1219              		.global	shift_down
  1220              		.syntax unified
  1221              		.thumb
-ARM GAS  /tmp/ccnOID6v.s 			page 35
+ARM GAS  /tmp/ccotxa8d.s 			page 35
 
 
  1222              		.thumb_func
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  202:src/console.c **** /*
  203:src/console.c ****  *  Output a single byte to the serial
  204:src/console.c ****  */
-ARM GAS  /tmp/ccnOID6v.s 			page 36
+ARM GAS  /tmp/ccotxa8d.s 			page 36
 
 
  205:src/console.c **** void put_byte( unsigned char byte )
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1273 0010 00000000 		.word	.LANCHOR5
  1274              		.cfi_endproc
  1275              	.LFE18:
-ARM GAS  /tmp/ccnOID6v.s 			page 37
+ARM GAS  /tmp/ccotxa8d.s 			page 37
 
 
  1277              		.section	.text.keyticks,"ax",%progbits
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1324              		.p2align 2,,3
  1325              		.global	moveto
  1326              		.syntax unified
-ARM GAS  /tmp/ccnOID6v.s 			page 38
+ARM GAS  /tmp/ccotxa8d.s 			page 38
 
 
  1327              		.thumb
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1371 001c 013C     		subs	r4, r4, #1
  1372              	.LVL93:
  1373              		.loc 2 249 40 view .LVU347
-ARM GAS  /tmp/ccnOID6v.s 			page 39
+ARM GAS  /tmp/ccotxa8d.s 			page 39
 
 
  1374 001e 04FB01F1 		mul	r1, r4, r1
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1421              		.cfi_offset 4, -24
  1422              		.cfi_offset 5, -20
  1423              		.cfi_offset 6, -16
-ARM GAS  /tmp/ccnOID6v.s 			page 40
+ARM GAS  /tmp/ccotxa8d.s 			page 40
 
 
  1424              		.cfi_offset 7, -12
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1466              		.loc 2 257 3 view .LVU365
  1467 0038 C047     		blx	r8
  1468              	.LVL103:
-ARM GAS  /tmp/ccnOID6v.s 			page 41
+ARM GAS  /tmp/ccotxa8d.s 			page 41
 
 
  258:src/console.c ****   sys_delay (100);
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1510              		.align	2
  1511              	.L135:
  1512 0060 00000000 		.word	print_string
-ARM GAS  /tmp/ccnOID6v.s 			page 42
+ARM GAS  /tmp/ccotxa8d.s 			page 42
 
 
  1513 0064 00000000 		.word	.LANCHOR6
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1559 000c DFF86C80 		ldr	r8, .L139+24
  271:src/console.c ****   strcpy( print_string, spaces );
  1560              		.loc 2 271 36 view .LVU380
-ARM GAS  /tmp/ccnOID6v.s 			page 43
+ARM GAS  /tmp/ccotxa8d.s 			page 43
 
 
  1561 0010 82B0     		sub	sp, sp, #8
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1602 0046 FFF7FEFF 		bl	strcpy
  1603              	.LVL120:
  283:src/console.c ****   moveto (3, 1);
-ARM GAS  /tmp/ccnOID6v.s 			page 44
+ARM GAS  /tmp/ccotxa8d.s 			page 44
 
 
  1604              		.loc 2 283 3 view .LVU391
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1653              		.thumb_func
  1654              		.fpu fpv4-sp-d16
  1656              	do_now:
-ARM GAS  /tmp/ccnOID6v.s 			page 45
+ARM GAS  /tmp/ccotxa8d.s 			page 45
 
 
  1657              	.LVL126:
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1695              		.align	1
  1696              		.p2align 2,,3
  1697              		.global	do_multi
-ARM GAS  /tmp/ccnOID6v.s 			page 46
+ARM GAS  /tmp/ccotxa8d.s 			page 46
 
 
  1698              		.syntax unified
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1748              	.L145:
  299:src/console.c ****   case LASTX: // Last x via RCL L
  300:src/console.c ****     do_now (K11, 0); // RCL
-ARM GAS  /tmp/ccnOID6v.s 			page 47
+ARM GAS  /tmp/ccotxa8d.s 			page 47
 
 
  301:src/console.c ****     do_now (K_RELEASE,0); // release
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1751              	.LBI88:
   17:src/menu.c    ****   if (current_menu == default_menu) {
  1752              		.loc 1 17 6 view .LVU415
-ARM GAS  /tmp/ccnOID6v.s 			page 48
+ARM GAS  /tmp/ccotxa8d.s 			page 48
 
 
  1753              	.LBB89:
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  294:src/console.c **** }
  1792              		.loc 2 294 3 is_stmt 0 view .LVU430
  1793 004a 0DF10808 		add	r8, sp, #8
-ARM GAS  /tmp/ccnOID6v.s 			page 49
+ARM GAS  /tmp/ccotxa8d.s 			page 49
 
 
  293:src/console.c ****   process_keycode_with_shift (temp);
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1833              	.LBE96:
  1834              	.LBE98:
  302:src/console.c ****     r.key_34s = K_RELEASE;
-ARM GAS  /tmp/ccnOID6v.s 			page 50
+ARM GAS  /tmp/ccotxa8d.s 			page 50
 
 
  1835              		.loc 2 302 5 is_stmt 1 view .LVU446
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  359:src/console.c **** }
  1873              		.loc 2 359 1 view .LVU464
  1874 008a 2846     		mov	r0, r5
-ARM GAS  /tmp/ccnOID6v.s 			page 51
+ARM GAS  /tmp/ccotxa8d.s 			page 51
 
 
  1875 008c 04B0     		add	sp, sp, #16
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1916 00b4 84E80300 		stm	r4, {r0, r1}
  313:src/console.c ****   case WRLIB: // save library file
  1917              		.loc 2 313 5 view .LVU478
-ARM GAS  /tmp/ccnOID6v.s 			page 52
+ARM GAS  /tmp/ccotxa8d.s 			page 52
 
 
  1918 00b8 E0E7     		b	.L159
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  1958              	.L153:
  323:src/console.c ****     r = no_key;
  1959              		.loc 2 323 5 is_stmt 1 view .LVU493
-ARM GAS  /tmp/ccnOID6v.s 			page 53
+ARM GAS  /tmp/ccotxa8d.s 			page 53
 
 
  1960 00e2 0120     		movs	r0, #1
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  332:src/console.c ****     break;
  2000              		.loc 2 332 5 view .LVU508
  332:src/console.c ****     break;
-ARM GAS  /tmp/ccnOID6v.s 			page 54
+ARM GAS  /tmp/ccotxa8d.s 			page 54
 
 
  2001              		.loc 2 332 7 is_stmt 0 view .LVU509
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  337:src/console.c ****   case HELP:
  2042              		.loc 2 337 5 is_stmt 1 view .LVU523
  336:src/console.c ****     break;
-ARM GAS  /tmp/ccnOID6v.s 			page 55
+ARM GAS  /tmp/ccotxa8d.s 			page 55
 
 
  2043              		.loc 2 336 7 is_stmt 0 view .LVU524
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  294:src/console.c **** }
  2081              		.loc 2 294 3 is_stmt 1 view .LVU541
  2082 015e 02AE     		add	r6, sp, #8
-ARM GAS  /tmp/ccnOID6v.s 			page 56
+ARM GAS  /tmp/ccotxa8d.s 			page 56
 
 
  2083 0160 96E80300 		ldm	r6, {r0, r1}
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  350:src/console.c ****   case DEFMEN:
  2121              		.loc 2 350 5 view .LVU558
  2122 0184 7AE7     		b	.L159
-ARM GAS  /tmp/ccnOID6v.s 			page 57
+ARM GAS  /tmp/ccotxa8d.s 			page 57
 
 
  2123              	.LVL183:
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  2167              		.loc 2 361 20 is_stmt 0 view .LVU568
  2168 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
  2169              		.cfi_def_cfa_offset 32
-ARM GAS  /tmp/ccnOID6v.s 			page 58
+ARM GAS  /tmp/ccotxa8d.s 			page 58
 
 
  2170              		.cfi_offset 4, -32
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
   28:src/menu.c    **** }
  2216              		.loc 1 28 3 view .LVU582
  2217 0030 AA4E     		ldr	r6, .L262+12
-ARM GAS  /tmp/ccnOID6v.s 			page 59
+ARM GAS  /tmp/ccotxa8d.s 			page 59
 
 
  2218              	.LBE122:
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  375:src/console.c ****   t20->xspc = -2;
  2234              		.loc 2 375 3 view .LVU589
  375:src/console.c ****   t20->xspc = -2;
-ARM GAS  /tmp/ccnOID6v.s 			page 60
+ARM GAS  /tmp/ccotxa8d.s 			page 60
 
 
  2235              		.loc 2 375 14 is_stmt 0 view .LVU590
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  399:src/console.c ****       {
  2274              		.loc 2 399 10 is_stmt 0 view .LVU606
  2275 0064 2368     		ldr	r3, [r4]
-ARM GAS  /tmp/ccnOID6v.s 			page 61
+ARM GAS  /tmp/ccotxa8d.s 			page 61
 
 
  399:src/console.c ****       {
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  423:src/console.c ****         LCD_power_off(0);
  424:src/console.c ****         SET_ST(STAT_SUSPENDED);
  425:src/console.c ****         SET_ST(STAT_OFF);
-ARM GAS  /tmp/ccnOID6v.s 			page 62
+ARM GAS  /tmp/ccotxa8d.s 			page 62
 
 
  426:src/console.c ****       }
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  2340 00ba 2360     		str	r3, [r4]
  2341              		.loc 2 446 7 is_stmt 1 view .LVU630
  2342              		.loc 2 446 13 is_stmt 0 view .LVU631
-ARM GAS  /tmp/ccnOID6v.s 			page 63
+ARM GAS  /tmp/ccotxa8d.s 			page 63
 
 
  2343 00bc 9047     		blx	r2
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  2379 00da 8C4B     		ldr	r3, .L262+60
  2380 00dc 9847     		blx	r3
  2381              	.LVL203:
-ARM GAS  /tmp/ccnOID6v.s 			page 64
+ARM GAS  /tmp/ccotxa8d.s 			page 64
 
 
  233:src/console.c **** }
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
   21:src/keytran.c ****     {K23, 0}, // EEX
   22:src/keytran.c ****     {K24, 0}, // <-
   23:src/keytran.c ****     // Fourth row of DM42 18--22
-ARM GAS  /tmp/ccnOID6v.s 			page 65
+ARM GAS  /tmp/ccotxa8d.s 			page 65
 
 
   24:src/keytran.c ****     {K40, 0}, // up-arrow
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
   77:src/keytran.c ****     {K_MULTI, 1}, // lastX not available; it's RCL L; so just RCL for now;
   78:src/keytran.c ****     {K_SETMENU, 4}, // ANGLES menu
   79:src/keytran.c ****     {K_SETMENU, 2}, // DISP menu
-ARM GAS  /tmp/ccnOID6v.s 			page 66
+ARM GAS  /tmp/ccotxa8d.s 			page 66
 
 
   80:src/keytran.c ****     {K_SETMENU, 1}, // CLR menu
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  133:src/keytran.c ****     // Third row of DM42 13--17
  134:src/keytran.c ****     {K20, 2}, // fill
  135:src/keytran.c ****     {K_SETMENU, 6}, // X<>Y menu
-ARM GAS  /tmp/ccnOID6v.s 			page 67
+ARM GAS  /tmp/ccotxa8d.s 			page 67
 
 
  136:src/keytran.c ****     {K05, 3}, // MODE cat
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  2419              	.LVL205:
  2420              	.L219:
   75:src/console.c ****     if (c == KEY_SHIFT) { //deal with shift keys
-ARM GAS  /tmp/ccnOID6v.s 			page 68
+ARM GAS  /tmp/ccotxa8d.s 			page 68
 
 
  2421              		.loc 2 75 3 is_stmt 1 view .LVU662
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  474:src/console.c **** 	case SHIFT_H:
  475:src/console.c **** 	  remapped = h_shift; // H -> N
  476:src/console.c **** 	default:
-ARM GAS  /tmp/ccnOID6v.s 			page 69
+ARM GAS  /tmp/ccotxa8d.s 			page 69
 
 
  477:src/console.c **** 	  remapped = f_shift; // shouldn't happen
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  2497              		.loc 1 28 3 view .LVU691
  2498 0154 3068     		ldr	r0, [r6]
  2499              	.LBE145:
-ARM GAS  /tmp/ccnOID6v.s 			page 70
+ARM GAS  /tmp/ccotxa8d.s 			page 70
 
 
  2500              	.LBE144:
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  2540 017e 2368     		ldr	r3, [r4]
  399:src/console.c ****       {
  2541              		.loc 2 399 8 view .LVU707
-ARM GAS  /tmp/ccnOID6v.s 			page 71
+ARM GAS  /tmp/ccotxa8d.s 			page 71
 
 
  2542 0180 9A05     		lsls	r2, r3, #22
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  2582 01b2 5D4B     		ldr	r3, .L262+88
  2583 01b4 6220     		movs	r0, #98
  2584 01b6 9847     		blx	r3
-ARM GAS  /tmp/ccnOID6v.s 			page 72
+ARM GAS  /tmp/ccotxa8d.s 			page 72
 
 
  2585              	.LVL224:
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  2625 01e8 9847     		blx	r3
  2626              	.LVL227:
  423:src/console.c ****         SET_ST(STAT_SUSPENDED);
-ARM GAS  /tmp/ccnOID6v.s 			page 73
+ARM GAS  /tmp/ccotxa8d.s 			page 73
 
 
  2627              		.loc 2 423 9 view .LVU736
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  2672              		.loc 2 60 22 view .LVU745
  2673              	.LBB133:
   62:src/console.c **** 
-ARM GAS  /tmp/ccnOID6v.s 			page 74
+ARM GAS  /tmp/ccotxa8d.s 			page 74
 
 
  2674              		.loc 2 62 3 view .LVU746
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  2713              	.LBB152:
    4:src/menu.c    ****   if (new_menu == current_menu) { // return to default
  2714              		.loc 1 4 3 view .LVU763
-ARM GAS  /tmp/ccnOID6v.s 			page 75
+ARM GAS  /tmp/ccotxa8d.s 			page 75
 
 
    4:src/menu.c    ****   if (new_menu == current_menu) { // return to default
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  2754              	.LVL239:
  2755              	.LBE157:
  2756              	.LBE156:
-ARM GAS  /tmp/ccnOID6v.s 			page 76
+ARM GAS  /tmp/ccotxa8d.s 			page 76
 
 
  467:src/console.c **** 	case SHIFT_F:
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  2798 0280 0DF10809 		add	r9, sp, #8
  2799 0284 99E80600 		ldm	r9, {r1, r2}
  2800 0288 2846     		mov	r0, r5
-ARM GAS  /tmp/ccnOID6v.s 			page 77
+ARM GAS  /tmp/ccotxa8d.s 			page 77
 
 
  2801 028a FFF7FEFF 		bl	do_multi
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  2840              		.cfi_def_cfa_offset 32
  2841              		@ sp needed
  2842 02ae BDE8F047 		pop	{r4, r5, r6, r7, r8, r9, r10, lr}
-ARM GAS  /tmp/ccnOID6v.s 			page 78
+ARM GAS  /tmp/ccotxa8d.s 			page 78
 
 
  2843              		.cfi_restore 14
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  2887              	.L250:
    9:src/menu.c    ****   }
  2888              		.loc 1 9 5 is_stmt 1 view .LVU813
-ARM GAS  /tmp/ccnOID6v.s 			page 79
+ARM GAS  /tmp/ccotxa8d.s 			page 79
 
 
    9:src/menu.c    ****   }
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  2940              	.LBB137:
   77:src/console.c ****       case SHIFT_N:
  2941              		.loc 2 77 7 is_stmt 1 view .LVU817
-ARM GAS  /tmp/ccnOID6v.s 			page 80
+ARM GAS  /tmp/ccotxa8d.s 			page 80
 
 
   77:src/console.c ****       case SHIFT_N:
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  111:src/console.c ****   case KEY_F6:
  2981              		.loc 2 111 9 is_stmt 0 view .LVU833
  2982 0386 FFF7FEFF 		bl	cur_shift
-ARM GAS  /tmp/ccnOID6v.s 			page 81
+ARM GAS  /tmp/ccotxa8d.s 			page 81
 
 
  2983              	.LVL264:
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  3025              		.loc 2 110 5 is_stmt 1 view .LVU845
  110:src/console.c ****     if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[4].shifted;
  3026              		.loc 2 110 9 is_stmt 0 view .LVU846
-ARM GAS  /tmp/ccnOID6v.s 			page 82
+ARM GAS  /tmp/ccotxa8d.s 			page 82
 
 
  3027 03c6 FFF7FEFF 		bl	cur_shift
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  3069              		.loc 2 98 5 is_stmt 1 view .LVU858
   98:src/console.c ****     if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[0].shifted;
  3070              		.loc 2 98 9 is_stmt 0 view .LVU859
-ARM GAS  /tmp/ccnOID6v.s 			page 83
+ARM GAS  /tmp/ccotxa8d.s 			page 83
 
 
  3071 0408 FFF7FEFF 		bl	cur_shift
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  3110 0438 03FB01F3 		mul	r3, r3, r1
  3111 043c D018     		adds	r0, r2, r3
  3112 043e D0E91401 		ldrd	r0, r1, [r0, #80]
-ARM GAS  /tmp/ccnOID6v.s 			page 84
+ARM GAS  /tmp/ccotxa8d.s 			page 84
 
 
  3113 0442 5033     		adds	r3, r3, #80
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  3153 046a 0025     		movs	r5, #0
  3154 046c 5AE6     		b	.L209
  3155              	.LVL281:
-ARM GAS  /tmp/ccnOID6v.s 			page 85
+ARM GAS  /tmp/ccotxa8d.s 			page 85
 
 
  3156              	.L251:
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  3197 04a0 D018     		adds	r0, r2, r3
  3198 04a2 D0E90401 		ldrd	r0, r1, [r0, #16]
  3199 04a6 1033     		adds	r3, r3, #16
-ARM GAS  /tmp/ccnOID6v.s 			page 86
+ARM GAS  /tmp/ccotxa8d.s 			page 86
 
 
  3200 04a8 7FE7     		b	.L240
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  3240              		.loc 1 3 6 view .LVU915
  3241              	.LBB154:
    4:src/menu.c    ****   if (new_menu == current_menu) { // return to default
-ARM GAS  /tmp/ccnOID6v.s 			page 87
+ARM GAS  /tmp/ccotxa8d.s 			page 87
 
 
  3242              		.loc 1 4 3 view .LVU916
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  3286 050a D023     		movs	r3, #208
  3287 050c 03FB01F3 		mul	r3, r3, r1
  3288 0510 D018     		adds	r0, r2, r3
-ARM GAS  /tmp/ccnOID6v.s 			page 88
+ARM GAS  /tmp/ccotxa8d.s 			page 88
 
 
  3289 0512 D0E91E01 		ldrd	r0, r1, [r0, #120]
@@ -5278,7 +5278,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  3334 0556 0A4A     		ldr	r2, .L264+28
  3335 0558 1568     		ldr	r5, [r2]
  3336 055a 3560     		str	r5, [r6]
-ARM GAS  /tmp/ccnOID6v.s 			page 89
+ARM GAS  /tmp/ccotxa8d.s 			page 89
 
 
   14:src/menu.c    **** }
@@ -5338,7 +5338,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  3398 0000 00000000 		.space	400
  3398      00000000 
  3398      00000000 
-ARM GAS  /tmp/ccnOID6v.s 			page 90
+ARM GAS  /tmp/ccotxa8d.s 			page 90
 
 
  3398      00000000 
@@ -5398,7 +5398,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  3467              		.align	2
  3468              		.set	.LANCHOR6,. + 0
  3471              	spaces:
-ARM GAS  /tmp/ccnOID6v.s 			page 91
+ARM GAS  /tmp/ccotxa8d.s 			page 91
 
 
  3472 0000 20202020 		.ascii	"                     \000"
@@ -5458,7 +5458,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  3519 0061 00000000 		.space	7
  3519      000000
  3520 0068 00       		.ascii	"\000"
-ARM GAS  /tmp/ccnOID6v.s 			page 92
+ARM GAS  /tmp/ccotxa8d.s 			page 92
 
 
  3521 0069 00000000 		.space	7
@@ -5518,7 +5518,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  3565 0100 10       		.byte	16
  3566 0101 000000   		.space	3
  3567 0104 02000000 		.word	2
-ARM GAS  /tmp/ccnOID6v.s 			page 93
+ARM GAS  /tmp/ccotxa8d.s 			page 93
 
 
  3568 0108 2E       		.byte	46
@@ -5578,7 +5578,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  3615 01a0 44495350 		.ascii	"DISP\000"
  3615      00
  3616 01a5 00000000 		.space	10
-ARM GAS  /tmp/ccnOID6v.s 			page 94
+ARM GAS  /tmp/ccotxa8d.s 			page 94
 
 
  3616      00000000 
@@ -5638,7 +5638,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  3667 024c 00000000 		.space	4
  3668 0250 2D       		.byte	45
  3669 0251 000000   		.space	3
-ARM GAS  /tmp/ccnOID6v.s 			page 95
+ARM GAS  /tmp/ccotxa8d.s 			page 95
 
 
  3670 0254 FFFFFFFF 		.word	-1
@@ -5698,7 +5698,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  3719 02f8 786F7200 		.ascii	"xor\000"
  3720 02fc 00000000 		.space	4
  3721 0300 2C       		.byte	44
-ARM GAS  /tmp/ccnOID6v.s 			page 96
+ARM GAS  /tmp/ccotxa8d.s 			page 96
 
 
  3722 0301 000000   		.space	3
@@ -5758,7 +5758,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  3772 03a8 48595000 		.ascii	"HYP\000"
  3773 03ac 00000000 		.space	4
  3774 03b0 06       		.byte	6
-ARM GAS  /tmp/ccnOID6v.s 			page 97
+ARM GAS  /tmp/ccotxa8d.s 			page 97
 
 
  3775 03b1 000000   		.space	3
@@ -5818,7 +5818,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  3822 044c 02000000 		.word	2
  3823 0450 524E4400 		.ascii	"RND\000"
  3824 0454 00000000 		.space	4
-ARM GAS  /tmp/ccnOID6v.s 			page 98
+ARM GAS  /tmp/ccotxa8d.s 			page 98
 
 
  3825 0458 4C6F67BA 		.ascii	"Log\272\000"
@@ -5878,7 +5878,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  3869 04ef 00       		.space	1
  3870 04f0 0D       		.byte	13
  3871 04f1 000000   		.space	3
-ARM GAS  /tmp/ccnOID6v.s 			page 99
+ARM GAS  /tmp/ccotxa8d.s 			page 99
 
 
  3872 04f4 01000000 		.word	1
@@ -5938,7 +5938,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  3919 0589 00000000 		.space	7
  3919      000000
  3920 0590 2D       		.byte	45
-ARM GAS  /tmp/ccnOID6v.s 			page 100
+ARM GAS  /tmp/ccotxa8d.s 			page 100
 
 
  3921 0591 000000   		.space	3
@@ -5998,7 +5998,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  3970 0634 00000000 		.space	4
  3971 0638 00       		.ascii	"\000"
  3972 0639 00000000 		.space	7
-ARM GAS  /tmp/ccnOID6v.s 			page 101
+ARM GAS  /tmp/ccotxa8d.s 			page 101
 
 
  3972      000000
@@ -6058,7 +6058,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  4018 06d4 02000000 		.word	2
  4019 06d8 31       		.byte	49
  4020 06d9 000000   		.space	3
-ARM GAS  /tmp/ccnOID6v.s 			page 102
+ARM GAS  /tmp/ccotxa8d.s 			page 102
 
 
  4021 06dc 06000000 		.word	6
@@ -6118,7 +6118,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  4066 0774 00000000 		.space	4
  4067 0778 44454700 		.ascii	"DEG\000"
  4068 077c 00000000 		.space	4
-ARM GAS  /tmp/ccnOID6v.s 			page 103
+ARM GAS  /tmp/ccotxa8d.s 			page 103
 
 
  4069 0780 0E       		.byte	14
@@ -6178,7 +6178,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  4119 0820 466C6167 		.ascii	"Flags\000"
  4119      7300
  4120 0826 00000000 		.space	9
-ARM GAS  /tmp/ccnOID6v.s 			page 104
+ARM GAS  /tmp/ccotxa8d.s 			page 104
 
 
  4120      00000000 
@@ -6238,7 +6238,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  4169 08c4 00000000 		.space	4
  4170 08c8 00       		.ascii	"\000"
  4171 08c9 00000000 		.space	7
-ARM GAS  /tmp/ccnOID6v.s 			page 105
+ARM GAS  /tmp/ccotxa8d.s 			page 105
 
 
  4171      000000
@@ -6298,7 +6298,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  4216 0961 000000   		.space	3
  4217 0964 01000000 		.word	1
  4218 0968 2E       		.byte	46
-ARM GAS  /tmp/ccnOID6v.s 			page 106
+ARM GAS  /tmp/ccotxa8d.s 			page 106
 
 
  4219 0969 000000   		.space	3
@@ -6358,7 +6358,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  4264      00
  4265 0a05 000000   		.space	3
  4266 0a08 00       		.ascii	"\000"
-ARM GAS  /tmp/ccnOID6v.s 			page 107
+ARM GAS  /tmp/ccotxa8d.s 			page 107
 
 
  4267 0a09 00000000 		.space	7
@@ -6418,7 +6418,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  4312 0aa1 000000   		.space	3
  4313 0aa4 04000000 		.word	4
  4314 0aa8 2E       		.byte	46
-ARM GAS  /tmp/ccnOID6v.s 			page 108
+ARM GAS  /tmp/ccotxa8d.s 			page 108
 
 
  4315 0aa9 000000   		.space	3
@@ -6478,7 +6478,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  4360      000000
  4361 0b40 2D       		.byte	45
  4362 0b41 000000   		.space	3
-ARM GAS  /tmp/ccnOID6v.s 			page 109
+ARM GAS  /tmp/ccotxa8d.s 			page 109
 
 
  4363 0b44 FFFFFFFF 		.word	-1
@@ -6538,7 +6538,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  4409 0be0 50524F44 		.ascii	"PROD\000"
  4409      00
  4410 0be5 000000   		.space	3
-ARM GAS  /tmp/ccnOID6v.s 			page 110
+ARM GAS  /tmp/ccotxa8d.s 			page 110
 
 
  4411 0be8 00       		.ascii	"\000"
@@ -6598,7 +6598,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  4456 0c81 000000   		.space	3
  4457 0c84 01000000 		.word	1
  4458 0c88 2E       		.byte	46
-ARM GAS  /tmp/ccnOID6v.s 			page 111
+ARM GAS  /tmp/ccotxa8d.s 			page 111
 
 
  4459 0c89 000000   		.space	3
@@ -6658,7 +6658,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  4510 0018 02       		.byte	2
  4511 0019 000000   		.space	3
  4512 001c FFFFFFFF 		.word	-1
-ARM GAS  /tmp/ccnOID6v.s 			page 112
+ARM GAS  /tmp/ccotxa8d.s 			page 112
 
 
  4513 0020 03       		.byte	3
@@ -6718,7 +6718,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  4567 00b0 16       		.byte	22
  4568 00b1 000000   		.space	3
  4569 00b4 FFFFFFFF 		.word	-1
-ARM GAS  /tmp/ccnOID6v.s 			page 113
+ARM GAS  /tmp/ccotxa8d.s 			page 113
 
 
  4570 00b8 18       		.byte	24
@@ -6778,7 +6778,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  4624 0148 2E       		.byte	46
  4625 0149 000000   		.space	3
  4626 014c FFFFFFFF 		.word	-1
-ARM GAS  /tmp/ccnOID6v.s 			page 114
+ARM GAS  /tmp/ccotxa8d.s 			page 114
 
 
  4627 0150 2C       		.byte	44
@@ -6838,7 +6838,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  4683 005c 02000000 		.word	2
  4684 0060 03       		.byte	3
  4685 0061 000000   		.space	3
-ARM GAS  /tmp/ccnOID6v.s 			page 115
+ARM GAS  /tmp/ccotxa8d.s 			page 115
 
 
  4686 0064 02000000 		.word	2
@@ -6898,7 +6898,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  4740 00f4 00000000 		.word	0
  4741 00f8 20       		.byte	32
  4742 00f9 000000   		.space	3
-ARM GAS  /tmp/ccnOID6v.s 			page 116
+ARM GAS  /tmp/ccotxa8d.s 			page 116
 
 
  4743 00fc 03000000 		.word	3
@@ -6958,7 +6958,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  4799 0009 000000   		.space	3
  4800 000c 03000000 		.word	3
  4801 0010 16       		.byte	22
-ARM GAS  /tmp/ccnOID6v.s 			page 117
+ARM GAS  /tmp/ccotxa8d.s 			page 117
 
 
  4802 0011 000000   		.space	3
@@ -7018,7 +7018,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  4856 00a1 000000   		.space	3
  4857 00a4 00000000 		.word	0
  4858 00a8 1B       		.byte	27
-ARM GAS  /tmp/ccnOID6v.s 			page 118
+ARM GAS  /tmp/ccotxa8d.s 			page 118
 
 
  4859 00a9 000000   		.space	3
@@ -7078,7 +7078,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  4913 0139 000000   		.space	3
  4914 013c 00000000 		.word	0
  4915 0140 2E       		.byte	46
-ARM GAS  /tmp/ccnOID6v.s 			page 119
+ARM GAS  /tmp/ccotxa8d.s 			page 119
 
 
  4916 0141 000000   		.space	3
@@ -7138,7 +7138,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  4972 0050 01       		.byte	1
  4973 0051 000000   		.space	3
  4974 0054 01000000 		.word	1
-ARM GAS  /tmp/ccnOID6v.s 			page 120
+ARM GAS  /tmp/ccotxa8d.s 			page 120
 
 
  4975 0058 02       		.byte	2
@@ -7198,7 +7198,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  5029 00e8 1F       		.byte	31
  5030 00e9 000000   		.space	3
  5031 00ec 00000000 		.word	0
-ARM GAS  /tmp/ccnOID6v.s 			page 121
+ARM GAS  /tmp/ccotxa8d.s 			page 121
 
 
  5032 00f0 20       		.byte	32
@@ -7258,7 +7258,7 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  5088 0000 C8C400   		.ascii	"\310\304\000"
  5089              		.text
  5090              	.Letext0:
-ARM GAS  /tmp/ccnOID6v.s 			page 122
+ARM GAS  /tmp/ccotxa8d.s 			page 122
 
 
  5091              		.file 4 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h"
@@ -7286,133 +7286,133 @@ ARM GAS  /tmp/ccnOID6v.s 			page 1
  5113              		.file 26 "src/lcd.h"
  5114              		.file 27 "/usr/include/newlib/string.h"
  5115              		.file 28 "/usr/include/newlib/stdio.h"
-ARM GAS  /tmp/ccnOID6v.s 			page 123
+ARM GAS  /tmp/ccotxa8d.s 			page 123
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 console.c
-     /tmp/ccnOID6v.s:18     .text.set_menu_label.constprop.0:0000000000000000 $t
-     /tmp/ccnOID6v.s:26     .text.set_menu_label.constprop.0:0000000000000000 set_menu_label.constprop.0
-     /tmp/ccnOID6v.s:392    .text.set_menu_label.constprop.0:0000000000000138 $d
-     /tmp/ccnOID6v.s:400    .text.set_menu:0000000000000000 $t
-     /tmp/ccnOID6v.s:408    .text.set_menu:0000000000000000 set_menu
-     /tmp/ccnOID6v.s:459    .text.set_menu:0000000000000028 $d
-     /tmp/ccnOID6v.s:466    .text.toggle_default_menu:0000000000000000 $t
-     /tmp/ccnOID6v.s:474    .text.toggle_default_menu:0000000000000000 toggle_default_menu
-     /tmp/ccnOID6v.s:503    .text.toggle_default_menu:0000000000000018 $d
-     /tmp/ccnOID6v.s:509    .text.get_menu:0000000000000000 $t
-     /tmp/ccnOID6v.s:517    .text.get_menu:0000000000000000 get_menu
-     /tmp/ccnOID6v.s:533    .text.get_menu:0000000000000008 $d
-     /tmp/ccnOID6v.s:538    .text.set_last_menu:0000000000000000 $t
-     /tmp/ccnOID6v.s:546    .text.set_last_menu:0000000000000000 set_last_menu
-     /tmp/ccnOID6v.s:601    .text.set_last_menu:000000000000001c $d
-     /tmp/ccnOID6v.s:608    .text.mdot:0000000000000000 $t
-     /tmp/ccnOID6v.s:616    .text.mdot:0000000000000000 mdot
-     /tmp/ccnOID6v.s:707    .text.mdot:000000000000003c $d
-     /tmp/ccnOID6v.s:712    .text.display_menu:0000000000000000 $t
-     /tmp/ccnOID6v.s:720    .text.display_menu:0000000000000000 display_menu
-     /tmp/ccnOID6v.s:959    .text.display_menu:000000000000010c $d
-     /tmp/ccnOID6v.s:967    .text.display_current_menu:0000000000000000 $t
-     /tmp/ccnOID6v.s:975    .text.display_current_menu:0000000000000000 display_current_menu
-     /tmp/ccnOID6v.s:990    .text.display_current_menu:0000000000000008 $d
-     /tmp/ccnOID6v.s:995    .text.all_menu_dots:0000000000000000 $t
-     /tmp/ccnOID6v.s:1003   .text.all_menu_dots:0000000000000000 all_menu_dots
-     /tmp/ccnOID6v.s:1087   .text.all_menu_dots:0000000000000038 $d
-     /tmp/ccnOID6v.s:1092   .text.shutdown:0000000000000000 $t
-     /tmp/ccnOID6v.s:1100   .text.shutdown:0000000000000000 shutdown
-     /tmp/ccnOID6v.s:1118   .text.shutdown:000000000000000c $d
-     /tmp/ccnOID6v.s:1123   .text.is_key_pressed:0000000000000000 $t
-     /tmp/ccnOID6v.s:1131   .text.is_key_pressed:0000000000000000 is_key_pressed
-     /tmp/ccnOID6v.s:1154   .text.is_key_pressed:0000000000000010 $d
-     /tmp/ccnOID6v.s:1159   .text.get_key:0000000000000000 $t
-     /tmp/ccnOID6v.s:1167   .text.get_key:0000000000000000 get_key
-     /tmp/ccnOID6v.s:1182   .text.get_key:0000000000000004 $d
-     /tmp/ccnOID6v.s:1187   .text.put_key:0000000000000000 $t
-     /tmp/ccnOID6v.s:1195   .text.put_key:0000000000000000 put_key
-     /tmp/ccnOID6v.s:1212   .text.put_key:0000000000000004 $d
-     /tmp/ccnOID6v.s:1217   .text.shift_down:0000000000000000 $t
-     /tmp/ccnOID6v.s:1225   .text.shift_down:0000000000000000 shift_down
-     /tmp/ccnOID6v.s:1240   .text.start_key_timer:0000000000000000 $t
-     /tmp/ccnOID6v.s:1248   .text.start_key_timer:0000000000000000 start_key_timer
-     /tmp/ccnOID6v.s:1272   .text.start_key_timer:000000000000000c $d
-     /tmp/ccnOID6v.s:1278   .text.keyticks:0000000000000000 $t
-     /tmp/ccnOID6v.s:1286   .text.keyticks:0000000000000000 keyticks
-     /tmp/ccnOID6v.s:1317   .text.keyticks:0000000000000018 $d
-     /tmp/ccnOID6v.s:1323   .text.moveto:0000000000000000 $t
-     /tmp/ccnOID6v.s:1331   .text.moveto:0000000000000000 moveto
-     /tmp/ccnOID6v.s:1391   .text.moveto:000000000000002c $d
-     /tmp/ccnOID6v.s:1398   .rodata.print_debug.str1.4:0000000000000000 $d
-     /tmp/ccnOID6v.s:1402   .text.print_debug:0000000000000000 $t
-     /tmp/ccnOID6v.s:1410   .text.print_debug:0000000000000000 print_debug
-     /tmp/ccnOID6v.s:1512   .text.print_debug:0000000000000060 $d
+     /tmp/ccotxa8d.s:18     .text.set_menu_label.constprop.0:0000000000000000 $t
+     /tmp/ccotxa8d.s:26     .text.set_menu_label.constprop.0:0000000000000000 set_menu_label.constprop.0
+     /tmp/ccotxa8d.s:392    .text.set_menu_label.constprop.0:0000000000000138 $d
+     /tmp/ccotxa8d.s:400    .text.set_menu:0000000000000000 $t
+     /tmp/ccotxa8d.s:408    .text.set_menu:0000000000000000 set_menu
+     /tmp/ccotxa8d.s:459    .text.set_menu:0000000000000028 $d
+     /tmp/ccotxa8d.s:466    .text.toggle_default_menu:0000000000000000 $t
+     /tmp/ccotxa8d.s:474    .text.toggle_default_menu:0000000000000000 toggle_default_menu
+     /tmp/ccotxa8d.s:503    .text.toggle_default_menu:0000000000000018 $d
+     /tmp/ccotxa8d.s:509    .text.get_menu:0000000000000000 $t
+     /tmp/ccotxa8d.s:517    .text.get_menu:0000000000000000 get_menu
+     /tmp/ccotxa8d.s:533    .text.get_menu:0000000000000008 $d
+     /tmp/ccotxa8d.s:538    .text.set_last_menu:0000000000000000 $t
+     /tmp/ccotxa8d.s:546    .text.set_last_menu:0000000000000000 set_last_menu
+     /tmp/ccotxa8d.s:601    .text.set_last_menu:000000000000001c $d
+     /tmp/ccotxa8d.s:608    .text.mdot:0000000000000000 $t
+     /tmp/ccotxa8d.s:616    .text.mdot:0000000000000000 mdot
+     /tmp/ccotxa8d.s:707    .text.mdot:000000000000003c $d
+     /tmp/ccotxa8d.s:712    .text.display_menu:0000000000000000 $t
+     /tmp/ccotxa8d.s:720    .text.display_menu:0000000000000000 display_menu
+     /tmp/ccotxa8d.s:959    .text.display_menu:000000000000010c $d
+     /tmp/ccotxa8d.s:967    .text.display_current_menu:0000000000000000 $t
+     /tmp/ccotxa8d.s:975    .text.display_current_menu:0000000000000000 display_current_menu
+     /tmp/ccotxa8d.s:990    .text.display_current_menu:0000000000000008 $d
+     /tmp/ccotxa8d.s:995    .text.all_menu_dots:0000000000000000 $t
+     /tmp/ccotxa8d.s:1003   .text.all_menu_dots:0000000000000000 all_menu_dots
+     /tmp/ccotxa8d.s:1087   .text.all_menu_dots:0000000000000038 $d
+     /tmp/ccotxa8d.s:1092   .text.shutdown:0000000000000000 $t
+     /tmp/ccotxa8d.s:1100   .text.shutdown:0000000000000000 shutdown
+     /tmp/ccotxa8d.s:1118   .text.shutdown:000000000000000c $d
+     /tmp/ccotxa8d.s:1123   .text.is_key_pressed:0000000000000000 $t
+     /tmp/ccotxa8d.s:1131   .text.is_key_pressed:0000000000000000 is_key_pressed
+     /tmp/ccotxa8d.s:1154   .text.is_key_pressed:0000000000000010 $d
+     /tmp/ccotxa8d.s:1159   .text.get_key:0000000000000000 $t
+     /tmp/ccotxa8d.s:1167   .text.get_key:0000000000000000 get_key
+     /tmp/ccotxa8d.s:1182   .text.get_key:0000000000000004 $d
+     /tmp/ccotxa8d.s:1187   .text.put_key:0000000000000000 $t
+     /tmp/ccotxa8d.s:1195   .text.put_key:0000000000000000 put_key
+     /tmp/ccotxa8d.s:1212   .text.put_key:0000000000000004 $d
+     /tmp/ccotxa8d.s:1217   .text.shift_down:0000000000000000 $t
+     /tmp/ccotxa8d.s:1225   .text.shift_down:0000000000000000 shift_down
+     /tmp/ccotxa8d.s:1240   .text.start_key_timer:0000000000000000 $t
+     /tmp/ccotxa8d.s:1248   .text.start_key_timer:0000000000000000 start_key_timer
+     /tmp/ccotxa8d.s:1272   .text.start_key_timer:000000000000000c $d
+     /tmp/ccotxa8d.s:1278   .text.keyticks:0000000000000000 $t
+     /tmp/ccotxa8d.s:1286   .text.keyticks:0000000000000000 keyticks
+     /tmp/ccotxa8d.s:1317   .text.keyticks:0000000000000018 $d
+     /tmp/ccotxa8d.s:1323   .text.moveto:0000000000000000 $t
+     /tmp/ccotxa8d.s:1331   .text.moveto:0000000000000000 moveto
+     /tmp/ccotxa8d.s:1391   .text.moveto:000000000000002c $d
+     /tmp/ccotxa8d.s:1398   .rodata.print_debug.str1.4:0000000000000000 $d
+     /tmp/ccotxa8d.s:1402   .text.print_debug:0000000000000000 $t
+     /tmp/ccotxa8d.s:1410   .text.print_debug:0000000000000000 print_debug
+     /tmp/ccotxa8d.s:1512   .text.print_debug:0000000000000060 $d
                             *COM*:0000000000000016 print_string
-ARM GAS  /tmp/ccnOID6v.s 			page 124
+ARM GAS  /tmp/ccotxa8d.s 			page 124
 
 
-     /tmp/ccnOID6v.s:1523   .rodata.print_debug2.str1.4:0000000000000000 $d
-     /tmp/ccnOID6v.s:1527   .text.print_debug2:0000000000000000 $t
-     /tmp/ccnOID6v.s:1535   .text.print_debug2:0000000000000000 print_debug2
-     /tmp/ccnOID6v.s:1637   .text.print_debug2:0000000000000064 $d
-     /tmp/ccnOID6v.s:1648   .text.do_now:0000000000000000 $t
-     /tmp/ccnOID6v.s:1656   .text.do_now:0000000000000000 do_now
-     /tmp/ccnOID6v.s:1691   .rodata.do_multi.str1.4:0000000000000000 $d
-     /tmp/ccnOID6v.s:1695   .text.do_multi:0000000000000000 $t
-     /tmp/ccnOID6v.s:1703   .text.do_multi:0000000000000000 do_multi
-     /tmp/ccnOID6v.s:1734   .text.do_multi:0000000000000018 $d
-     /tmp/ccnOID6v.s:2141   .text.do_multi:0000000000000190 $d
-     /tmp/ccnOID6v.s:2150   .text.program_main:0000000000000000 $t
-     /tmp/ccnOID6v.s:2158   .text.program_main:0000000000000000 program_main
-     /tmp/ccnOID6v.s:2651   .text.program_main:0000000000000210 $d
-     /tmp/ccnOID6v.s:2658   .text.program_main:000000000000021c $t
-     /tmp/ccnOID6v.s:2899   .text.program_main:00000000000002d0 $d
-     /tmp/ccnOID6v.s:2943   .text.program_main:000000000000035c $t
-     /tmp/ccnOID6v.s:3343   .text.program_main:0000000000000564 $d
-     /tmp/ccnOID6v.s:3403   .bss.n_p:0000000000000000 n_p
-     /tmp/ccnOID6v.s:3471   .data.spaces:0000000000000000 spaces
-     /tmp/ccnOID6v.s:3462   .data.release:0000000000000000 release
-     /tmp/ccnOID6v.s:3435   .data.h_shift:0000000000000000 h_shift
-     /tmp/ccnOID6v.s:3426   .data.g_shift:0000000000000000 g_shift
-     /tmp/ccnOID6v.s:3417   .data.f_shift:0000000000000000 f_shift
-     /tmp/ccnOID6v.s:3444   .data.heartbeat:0000000000000000 heartbeat
-     /tmp/ccnOID6v.s:3453   .data.no_key:0000000000000000 no_key
-     /tmp/ccnOID6v.s:3478   .rodata.MID_MENU:0000000000000000 MID_MENU
-     /tmp/ccnOID6v.s:3367   .rodata.str1.4:0000000000000000 $d
-     /tmp/ccnOID6v.s:5087   .rodata.mid_menu:0000000000000000 mid_menu
-     /tmp/ccnOID6v.s:3372   .bss.current_menu:0000000000000000 $d
-     /tmp/ccnOID6v.s:3376   .bss.current_menu:0000000000000000 current_menu
-     /tmp/ccnOID6v.s:3379   .bss.default_menu:0000000000000000 $d
-     /tmp/ccnOID6v.s:3383   .bss.default_menu:0000000000000000 default_menu
-     /tmp/ccnOID6v.s:3386   .bss.last_menu:0000000000000000 $d
-     /tmp/ccnOID6v.s:3390   .bss.last_menu:0000000000000000 last_menu
-     /tmp/ccnOID6v.s:3393   .bss.mdots:0000000000000000 $d
-     /tmp/ccnOID6v.s:3397   .bss.mdots:0000000000000000 mdots
-     /tmp/ccnOID6v.s:3400   .bss.n_p:0000000000000000 $d
-     /tmp/ccnOID6v.s:3406   .bss.start_ticks:0000000000000000 $d
-     /tmp/ccnOID6v.s:3410   .bss.start_ticks:0000000000000000 start_ticks
-     /tmp/ccnOID6v.s:3413   .data.f_shift:0000000000000000 $d
-     /tmp/ccnOID6v.s:3422   .data.g_shift:0000000000000000 $d
-     /tmp/ccnOID6v.s:3431   .data.h_shift:0000000000000000 $d
-     /tmp/ccnOID6v.s:3440   .data.heartbeat:0000000000000000 $d
-     /tmp/ccnOID6v.s:3449   .data.no_key:0000000000000000 $d
-     /tmp/ccnOID6v.s:3458   .data.release:0000000000000000 $d
-     /tmp/ccnOID6v.s:3467   .data.spaces:0000000000000000 $d
-     /tmp/ccnOID6v.s:3474   .rodata.MID_MENU:0000000000000000 $d
-     /tmp/ccnOID6v.s:3484   .rodata.Menus:0000000000000000 $d
-     /tmp/ccnOID6v.s:3488   .rodata.Menus:0000000000000000 Menus
-     /tmp/ccnOID6v.s:4496   .rodata.mapping_alpha.10888:0000000000000000 $d
-     /tmp/ccnOID6v.s:4500   .rodata.mapping_alpha.10888:0000000000000000 mapping_alpha.10888
-     /tmp/ccnOID6v.s:4643   .rodata.mapping_fshift.10886:0000000000000000 $d
-     /tmp/ccnOID6v.s:4647   .rodata.mapping_fshift.10886:0000000000000000 mapping_fshift.10886
-     /tmp/ccnOID6v.s:4790   .rodata.mapping_gshift.10887:0000000000000000 $d
-     /tmp/ccnOID6v.s:4794   .rodata.mapping_gshift.10887:0000000000000000 mapping_gshift.10887
-     /tmp/ccnOID6v.s:4937   .rodata.mapping_none.10885:0000000000000000 $d
-ARM GAS  /tmp/ccnOID6v.s 			page 125
+     /tmp/ccotxa8d.s:1523   .rodata.print_debug2.str1.4:0000000000000000 $d
+     /tmp/ccotxa8d.s:1527   .text.print_debug2:0000000000000000 $t
+     /tmp/ccotxa8d.s:1535   .text.print_debug2:0000000000000000 print_debug2
+     /tmp/ccotxa8d.s:1637   .text.print_debug2:0000000000000064 $d
+     /tmp/ccotxa8d.s:1648   .text.do_now:0000000000000000 $t
+     /tmp/ccotxa8d.s:1656   .text.do_now:0000000000000000 do_now
+     /tmp/ccotxa8d.s:1691   .rodata.do_multi.str1.4:0000000000000000 $d
+     /tmp/ccotxa8d.s:1695   .text.do_multi:0000000000000000 $t
+     /tmp/ccotxa8d.s:1703   .text.do_multi:0000000000000000 do_multi
+     /tmp/ccotxa8d.s:1734   .text.do_multi:0000000000000018 $d
+     /tmp/ccotxa8d.s:2141   .text.do_multi:0000000000000190 $d
+     /tmp/ccotxa8d.s:2150   .text.program_main:0000000000000000 $t
+     /tmp/ccotxa8d.s:2158   .text.program_main:0000000000000000 program_main
+     /tmp/ccotxa8d.s:2651   .text.program_main:0000000000000210 $d
+     /tmp/ccotxa8d.s:2658   .text.program_main:000000000000021c $t
+     /tmp/ccotxa8d.s:2899   .text.program_main:00000000000002d0 $d
+     /tmp/ccotxa8d.s:2943   .text.program_main:000000000000035c $t
+     /tmp/ccotxa8d.s:3343   .text.program_main:0000000000000564 $d
+     /tmp/ccotxa8d.s:3403   .bss.n_p:0000000000000000 n_p
+     /tmp/ccotxa8d.s:3471   .data.spaces:0000000000000000 spaces
+     /tmp/ccotxa8d.s:3462   .data.release:0000000000000000 release
+     /tmp/ccotxa8d.s:3435   .data.h_shift:0000000000000000 h_shift
+     /tmp/ccotxa8d.s:3426   .data.g_shift:0000000000000000 g_shift
+     /tmp/ccotxa8d.s:3417   .data.f_shift:0000000000000000 f_shift
+     /tmp/ccotxa8d.s:3444   .data.heartbeat:0000000000000000 heartbeat
+     /tmp/ccotxa8d.s:3453   .data.no_key:0000000000000000 no_key
+     /tmp/ccotxa8d.s:3478   .rodata.MID_MENU:0000000000000000 MID_MENU
+     /tmp/ccotxa8d.s:3367   .rodata.str1.4:0000000000000000 $d
+     /tmp/ccotxa8d.s:5087   .rodata.mid_menu:0000000000000000 mid_menu
+     /tmp/ccotxa8d.s:3372   .bss.current_menu:0000000000000000 $d
+     /tmp/ccotxa8d.s:3376   .bss.current_menu:0000000000000000 current_menu
+     /tmp/ccotxa8d.s:3379   .bss.default_menu:0000000000000000 $d
+     /tmp/ccotxa8d.s:3383   .bss.default_menu:0000000000000000 default_menu
+     /tmp/ccotxa8d.s:3386   .bss.last_menu:0000000000000000 $d
+     /tmp/ccotxa8d.s:3390   .bss.last_menu:0000000000000000 last_menu
+     /tmp/ccotxa8d.s:3393   .bss.mdots:0000000000000000 $d
+     /tmp/ccotxa8d.s:3397   .bss.mdots:0000000000000000 mdots
+     /tmp/ccotxa8d.s:3400   .bss.n_p:0000000000000000 $d
+     /tmp/ccotxa8d.s:3406   .bss.start_ticks:0000000000000000 $d
+     /tmp/ccotxa8d.s:3410   .bss.start_ticks:0000000000000000 start_ticks
+     /tmp/ccotxa8d.s:3413   .data.f_shift:0000000000000000 $d
+     /tmp/ccotxa8d.s:3422   .data.g_shift:0000000000000000 $d
+     /tmp/ccotxa8d.s:3431   .data.h_shift:0000000000000000 $d
+     /tmp/ccotxa8d.s:3440   .data.heartbeat:0000000000000000 $d
+     /tmp/ccotxa8d.s:3449   .data.no_key:0000000000000000 $d
+     /tmp/ccotxa8d.s:3458   .data.release:0000000000000000 $d
+     /tmp/ccotxa8d.s:3467   .data.spaces:0000000000000000 $d
+     /tmp/ccotxa8d.s:3474   .rodata.MID_MENU:0000000000000000 $d
+     /tmp/ccotxa8d.s:3484   .rodata.Menus:0000000000000000 $d
+     /tmp/ccotxa8d.s:3488   .rodata.Menus:0000000000000000 Menus
+     /tmp/ccotxa8d.s:4496   .rodata.mapping_alpha.10888:0000000000000000 $d
+     /tmp/ccotxa8d.s:4500   .rodata.mapping_alpha.10888:0000000000000000 mapping_alpha.10888
+     /tmp/ccotxa8d.s:4643   .rodata.mapping_fshift.10886:0000000000000000 $d
+     /tmp/ccotxa8d.s:4647   .rodata.mapping_fshift.10886:0000000000000000 mapping_fshift.10886
+     /tmp/ccotxa8d.s:4790   .rodata.mapping_gshift.10887:0000000000000000 $d
+     /tmp/ccotxa8d.s:4794   .rodata.mapping_gshift.10887:0000000000000000 mapping_gshift.10887
+     /tmp/ccotxa8d.s:4937   .rodata.mapping_none.10885:0000000000000000 $d
+ARM GAS  /tmp/ccotxa8d.s 			page 125
 
 
-     /tmp/ccnOID6v.s:4941   .rodata.mapping_none.10885:0000000000000000 mapping_none.10885
-     /tmp/ccnOID6v.s:5084   .rodata.mid_menu:0000000000000000 $d
-     /tmp/ccnOID6v.s:1747   .text.do_multi:0000000000000025 $d
-     /tmp/ccnOID6v.s:1747   .text.do_multi:0000000000000026 $t
+     /tmp/ccotxa8d.s:4941   .rodata.mapping_none.10885:0000000000000000 mapping_none.10885
+     /tmp/ccotxa8d.s:5084   .rodata.mid_menu:0000000000000000 $d
+     /tmp/ccotxa8d.s:1747   .text.do_multi:0000000000000025 $d
+     /tmp/ccotxa8d.s:1747   .text.do_multi:0000000000000026 $t
 
 UNDEFINED SYMBOLS
 charlengths
