@@ -17,7 +17,10 @@
 # Target
 ######################################
 
-TARGET = wp34s
+#TARGET = wp34s
+
+VERSION_NO != git rev-list HEAD --count
+export VERSION_NO
 
 ######################################
 # building variables
@@ -68,15 +71,16 @@ C_SOURCES += $(C_SRCS)
 
 HEADERS := alpha.h charset7.h complex.h consts.h data.h \
 		date.h decn.h display.h features.h int.h keys.h lcd.h \
-		stats.h xeq.h xrom.h storage.h matrix.h menu.h menu.c keytran.c
+		stats.h xeq.h xrom.h storage.h matrix.h menu.h menu.c keytran.c \
+		main.h
 
 
 # Libraries
-ifeq ($(DEBUG), 1)
-LIBS += lib/gcc111libbid_hard.a
-else
-LIBS += lib/gcc111libbid_hard.a
-endif
+#ifeq ($(DEBUG), 1)
+#LIBS += lib/gcc111libbid_hard.a
+#else
+#LIBS += lib/gcc111libbid_hard.a
+#endif
 
 # ---
 
@@ -159,8 +163,23 @@ LDFLAGS = --specs=nosys.specs $(CPUFLAGS) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-M
   -Wl,--wrap=_malloc_r
 
 
-# default action: build all
-all: $(BUILD_DIR)/$(TARGET).elf 
+# default action: build top
+all: top
+
+normal: TARGET := wp34s
+normal: JUNK != cat src/main_0.h | sed -e 's/pversion/$(VERSION_NO)/g' -e 's/pname/$(TARGET)/g' > src/main.h
+normal: $(BUILD_DIR)/$(TARGET).elf 
+
+long: TARGET := wp34s_long
+long: JUNK != cat src/main_0.h | sed -e 's/pversion/$(VERSION_NO)/g' -e 's/pname/$(TARGET)/g' > src/main.h
+long: CFLAGS += -DBIGGER_DISPLAY
+long: $(BUILD_DIR)/$(TARGET).elf 
+
+top: TARGET := wp34s_top
+top: JUNK != cat src/main_0.h | sed -e 's/pversion/$(VERSION_NO)/g' -e 's/pname/$(TARGET)/g' > src/main.h
+top: CFLAGS += -DBIGGER_DISPLAY -DTOP_ROW
+top: $(BUILD_DIR)/$(TARGET).elf 
+
 
 #######################################
 # build the application
@@ -253,6 +272,6 @@ cleanlibs:
 -include $(shell mkdir .dep 2>/dev/null) $(wildcard .dep/*)
 
 
-.PHONY: clean all
+.PHONY: clean all normal long top
 
 # *** EOF ***

@@ -39,7 +39,9 @@ static void s_s_sized(const char *str, int smallp, int b_w, int m_b, int m_d);
 
 static void set_status(const char *);
 static void set_status_top(const char *);
+#ifdef TOP_ROW
 static void set_status_top_always(const char *);
+#endif
 
 static void set_status_right(const char *);
 static void set_status_graphic(const unsigned char *);
@@ -3509,11 +3511,12 @@ static void set_exp(int exp, int flags, char *res) {
 	  set_status_sized(str, State2.disp_small || string_too_large(str));
 	}
       }
+#ifdef TOP_ROW
       static void set_status_top_always(const char *str) {
 	if ((no_status_top) && (State2.runmode)) return;
 	set_status_sized_top(str, State2.disp_small || string_too_large_top(str));
       }
-
+#endif
 
       /*
        *  Display messages (global function)

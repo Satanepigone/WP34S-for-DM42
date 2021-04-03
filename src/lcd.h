@@ -59,8 +59,8 @@ extern void show_stack(void);
 
 #define SEGS_EXP_BASE		(DISPLAY_DIGITS*SEGS_PER_DIGIT)
 
-#define BIGGER_DISPLAY
-#define TOP_ROW
+//#define BIGGER_DISPLAY
+//#define TOP_ROW
 
 #ifdef BIGGER_DISPLAY
 #define BITMAP_WIDTH		74
