@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccc49Hv1.s 			page 1
+ARM GAS  /tmp/cctqle0d.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccc49Hv1.s 			page 1
   26:dmcp/sys/pgm_syscalls.c **** FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
   27:dmcp/sys/pgm_syscalls.c **** DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
   28:dmcp/sys/pgm_syscalls.c **** SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-ARM GAS  /tmp/ccc49Hv1.s 			page 2
+ARM GAS  /tmp/cctqle0d.s 			page 2
 
 
   29:dmcp/sys/pgm_syscalls.c **** CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccc49Hv1.s 			page 1
   33              		@ args = 0, pretend = 0, frame = 0
   34              		@ frame_needed = 0, uses_anonymous_args = 0
   35              		@ link register save eliminated.
-ARM GAS  /tmp/ccc49Hv1.s 			page 3
+ARM GAS  /tmp/cctqle0d.s 			page 3
 
 
   81:dmcp/sys/pgm_syscalls.c **** 	return len;
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccc49Hv1.s 			page 1
   82              		.fpu fpv4-sp-d16
   84              	_close:
   85              	.LVL4:
-ARM GAS  /tmp/ccc49Hv1.s 			page 4
+ARM GAS  /tmp/cctqle0d.s 			page 4
 
 
   86              	.LFB27:
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccc49Hv1.s 			page 1
  127 0008 7047     		bx	lr
  128              		.cfi_endproc
  129              	.LFE28:
-ARM GAS  /tmp/ccc49Hv1.s 			page 5
+ARM GAS  /tmp/cctqle0d.s 			page 5
 
 
  131 000a 00BF     		.section	.text._isatty,"ax",%progbits
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccc49Hv1.s 			page 1
  178              		.loc 1 116 1 view .LVU25
  179 0002 7047     		bx	lr
  180              		.cfi_endproc
-ARM GAS  /tmp/ccc49Hv1.s 			page 6
+ARM GAS  /tmp/cctqle0d.s 			page 6
 
 
  181              	.LFE30:
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccc49Hv1.s 			page 1
  229              		.loc 1 125 1 is_stmt 1 view -0
  230              		.cfi_startproc
  231              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccc49Hv1.s 			page 7
+ARM GAS  /tmp/cctqle0d.s 			page 7
 
 
  232              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccc49Hv1.s 			page 1
  134:dmcp/sys/pgm_syscalls.c **** 
  135:dmcp/sys/pgm_syscalls.c **** 
  136:dmcp/sys/pgm_syscalls.c **** void *malloc(size_t size) {
-ARM GAS  /tmp/ccc49Hv1.s 			page 8
+ARM GAS  /tmp/cctqle0d.s 			page 8
 
 
  282              		.loc 1 136 27 is_stmt 1 view -0
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccc49Hv1.s 			page 1
  333              		.global	realloc
  334              		.syntax unified
  335              		.thumb
-ARM GAS  /tmp/ccc49Hv1.s 			page 9
+ARM GAS  /tmp/cctqle0d.s 			page 9
 
 
  336              		.thumb_func
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccc49Hv1.s 			page 1
    3:/usr/include/newlib/stdlib.h ****  *
    4:/usr/include/newlib/stdlib.h ****  * Definitions for common types, variables, and functions.
    5:/usr/include/newlib/stdlib.h ****  */
-ARM GAS  /tmp/ccc49Hv1.s 			page 10
+ARM GAS  /tmp/cctqle0d.s 			page 10
 
 
    6:/usr/include/newlib/stdlib.h **** 
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccc49Hv1.s 			page 1
   60:/usr/include/newlib/stdlib.h **** #define EXIT_FAILURE 1
   61:/usr/include/newlib/stdlib.h **** #define EXIT_SUCCESS 0
   62:/usr/include/newlib/stdlib.h **** 
-ARM GAS  /tmp/ccc49Hv1.s 			page 11
+ARM GAS  /tmp/cctqle0d.s 			page 11
 
 
   63:/usr/include/newlib/stdlib.h **** #define RAND_MAX __RAND_MAX
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccc49Hv1.s 			page 1
  387              	.LVL23:
  137:dmcp/sys/pgm_syscalls.c **** }
  388              		.loc 1 137 9 view .LVU56
-ARM GAS  /tmp/ccc49Hv1.s 			page 12
+ARM GAS  /tmp/cctqle0d.s 			page 12
 
 
  389 0004 1847     		bx	r3
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccc49Hv1.s 			page 1
  142:dmcp/sys/pgm_syscalls.c **** }
  435              		.loc 1 142 9 view .LVU65
  436              		.align	2
-ARM GAS  /tmp/ccc49Hv1.s 			page 13
+ARM GAS  /tmp/cctqle0d.s 			page 13
 
 
  437              	.L29:
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccc49Hv1.s 			page 1
  134:/usr/include/newlib/stdlib.h **** char *	mktemp (char *) _ATTRIBUTE ((__deprecated__("the use of `mktemp' is dangerous; use `mkstemp'
  135:/usr/include/newlib/stdlib.h **** #endif
  136:/usr/include/newlib/stdlib.h **** #endif /* !_REENT_ONLY */
-ARM GAS  /tmp/ccc49Hv1.s 			page 14
+ARM GAS  /tmp/cctqle0d.s 			page 14
 
 
  137:/usr/include/newlib/stdlib.h **** char *	_mkdtemp_r (struct _reent *, char *);
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccc49Hv1.s 			page 1
  503              		@ link register save eliminated.
  164:dmcp/sys/pgm_syscalls.c **** 	free(ptr);
  504              		.loc 1 164 2 view .LVU75
-ARM GAS  /tmp/ccc49Hv1.s 			page 15
+ARM GAS  /tmp/cctqle0d.s 			page 15
 
 
  505              	.LBB16:
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccc49Hv1.s 			page 1
  550 0006 9847     		blx	r3
  551              	.LVL36:
  171:dmcp/sys/pgm_syscalls.c **** 	sys_reset();
-ARM GAS  /tmp/ccc49Hv1.s 			page 16
+ARM GAS  /tmp/cctqle0d.s 			page 16
 
 
  552              		.loc 1 171 2 is_stmt 1 view .LVU84
@@ -932,15 +932,16 @@ ARM GAS  /tmp/ccc49Hv1.s 			page 1
  581 0010 0F000000 		.word	15
  582 0014 00000000 		.word	0
  583 0018 00000000 		.word	0
- 584 001c 57503334 		.ascii	"WP34S\000"
- 584      5300
- 585 0022 00000000 		.space	10
- 585      00000000 
+ 584 001c 77703334 		.ascii	"wp34s_top\000"
+ 584      735F746F 
+ 584      7000
+ 585 0026 00000000 		.space	6
  585      0000
- 586 002c 302E3100 		.ascii	"0.1\000"
- 587 0030 00000000 		.space	12
+ 586 002c 323400   		.ascii	"24\000"
+ 587 002f 00000000 		.space	13
  587      00000000 
  587      00000000 
+ 587      00
  588 003c FFFFFFFF 		.word	-1
  589              		.text
  590              	.Letext0:
@@ -957,57 +958,60 @@ ARM GAS  /tmp/ccc49Hv1.s 			page 1
  601              		.file 13 "/usr/include/newlib/sys/stat.h"
  602              		.file 14 "/usr/include/newlib/sys/errno.h"
  603              		.file 15 "dmcp/dmcp.h"
-ARM GAS  /tmp/ccc49Hv1.s 			page 17
+ARM GAS  /tmp/cctqle0d.s 			page 17
+
+
+ARM GAS  /tmp/cctqle0d.s 			page 18
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 pgm_syscalls.c
-     /tmp/ccc49Hv1.s:18     .text._read:0000000000000000 $t
-     /tmp/ccc49Hv1.s:27     .text._read:0000000000000000 _read
-     /tmp/ccc49Hv1.s:46     .text._write:0000000000000000 $t
-     /tmp/ccc49Hv1.s:54     .text._write:0000000000000000 _write
-     /tmp/ccc49Hv1.s:71     .text._write:0000000000000004 $d
-     /tmp/ccc49Hv1.s:76     .text._close:0000000000000000 $t
-     /tmp/ccc49Hv1.s:84     .text._close:0000000000000000 _close
-     /tmp/ccc49Hv1.s:102    .text._fstat:0000000000000000 $t
-     /tmp/ccc49Hv1.s:110    .text._fstat:0000000000000000 _fstat
-     /tmp/ccc49Hv1.s:132    .text._isatty:0000000000000000 $t
-     /tmp/ccc49Hv1.s:140    .text._isatty:0000000000000000 _isatty
-     /tmp/ccc49Hv1.s:158    .text._lseek:0000000000000000 $t
-     /tmp/ccc49Hv1.s:166    .text._lseek:0000000000000000 _lseek
-     /tmp/ccc49Hv1.s:184    .text._kill:0000000000000000 $t
-     /tmp/ccc49Hv1.s:192    .text._kill:0000000000000000 _kill
-     /tmp/ccc49Hv1.s:219    .text._getpid:0000000000000000 $t
-     /tmp/ccc49Hv1.s:227    .text._getpid:0000000000000000 _getpid
-     /tmp/ccc49Hv1.s:242    .text.free:0000000000000000 $t
-     /tmp/ccc49Hv1.s:250    .text.free:0000000000000000 free
-     /tmp/ccc49Hv1.s:266    .text.free:0000000000000004 $d
-     /tmp/ccc49Hv1.s:271    .text.malloc:0000000000000000 $t
-     /tmp/ccc49Hv1.s:279    .text.malloc:0000000000000000 malloc
-     /tmp/ccc49Hv1.s:296    .text.malloc:0000000000000004 $d
-     /tmp/ccc49Hv1.s:301    .text.calloc:0000000000000000 $t
-     /tmp/ccc49Hv1.s:309    .text.calloc:0000000000000000 calloc
-     /tmp/ccc49Hv1.s:326    .text.calloc:0000000000000004 $d
-     /tmp/ccc49Hv1.s:331    .text.realloc:0000000000000000 $t
-     /tmp/ccc49Hv1.s:339    .text.realloc:0000000000000000 realloc
-     /tmp/ccc49Hv1.s:356    .text.realloc:0000000000000004 $d
-     /tmp/ccc49Hv1.s:361    .text.__wrap__malloc_r:0000000000000000 $t
-     /tmp/ccc49Hv1.s:369    .text.__wrap__malloc_r:0000000000000000 __wrap__malloc_r
-     /tmp/ccc49Hv1.s:395    .text.__wrap__malloc_r:0000000000000008 $d
-     /tmp/ccc49Hv1.s:402    .text._calloc_r:0000000000000000 $t
-     /tmp/ccc49Hv1.s:410    .text._calloc_r:0000000000000000 _calloc_r
-     /tmp/ccc49Hv1.s:438    .text._calloc_r:0000000000000008 $d
-     /tmp/ccc49Hv1.s:445    .text._realloc_r:0000000000000000 $t
-     /tmp/ccc49Hv1.s:453    .text._realloc_r:0000000000000000 _realloc_r
-     /tmp/ccc49Hv1.s:481    .text._realloc_r:0000000000000008 $d
-     /tmp/ccc49Hv1.s:488    .text._free_r:0000000000000000 $t
-     /tmp/ccc49Hv1.s:496    .text._free_r:0000000000000000 _free_r
-     /tmp/ccc49Hv1.s:520    .text._free_r:0000000000000008 $d
-     /tmp/ccc49Hv1.s:527    .text.post_main:0000000000000000 $t
-     /tmp/ccc49Hv1.s:535    .text.post_main:0000000000000000 post_main
-     /tmp/ccc49Hv1.s:565    .text.post_main:0000000000000010 $d
-     /tmp/ccc49Hv1.s:576    .rodata.prog_info:0000000000000000 prog_info
-     /tmp/ccc49Hv1.s:573    .rodata.prog_info:0000000000000000 $d
+     /tmp/cctqle0d.s:18     .text._read:0000000000000000 $t
+     /tmp/cctqle0d.s:27     .text._read:0000000000000000 _read
+     /tmp/cctqle0d.s:46     .text._write:0000000000000000 $t
+     /tmp/cctqle0d.s:54     .text._write:0000000000000000 _write
+     /tmp/cctqle0d.s:71     .text._write:0000000000000004 $d
+     /tmp/cctqle0d.s:76     .text._close:0000000000000000 $t
+     /tmp/cctqle0d.s:84     .text._close:0000000000000000 _close
+     /tmp/cctqle0d.s:102    .text._fstat:0000000000000000 $t
+     /tmp/cctqle0d.s:110    .text._fstat:0000000000000000 _fstat
+     /tmp/cctqle0d.s:132    .text._isatty:0000000000000000 $t
+     /tmp/cctqle0d.s:140    .text._isatty:0000000000000000 _isatty
+     /tmp/cctqle0d.s:158    .text._lseek:0000000000000000 $t
+     /tmp/cctqle0d.s:166    .text._lseek:0000000000000000 _lseek
+     /tmp/cctqle0d.s:184    .text._kill:0000000000000000 $t
+     /tmp/cctqle0d.s:192    .text._kill:0000000000000000 _kill
+     /tmp/cctqle0d.s:219    .text._getpid:0000000000000000 $t
+     /tmp/cctqle0d.s:227    .text._getpid:0000000000000000 _getpid
+     /tmp/cctqle0d.s:242    .text.free:0000000000000000 $t
+     /tmp/cctqle0d.s:250    .text.free:0000000000000000 free
+     /tmp/cctqle0d.s:266    .text.free:0000000000000004 $d
+     /tmp/cctqle0d.s:271    .text.malloc:0000000000000000 $t
+     /tmp/cctqle0d.s:279    .text.malloc:0000000000000000 malloc
+     /tmp/cctqle0d.s:296    .text.malloc:0000000000000004 $d
+     /tmp/cctqle0d.s:301    .text.calloc:0000000000000000 $t
+     /tmp/cctqle0d.s:309    .text.calloc:0000000000000000 calloc
+     /tmp/cctqle0d.s:326    .text.calloc:0000000000000004 $d
+     /tmp/cctqle0d.s:331    .text.realloc:0000000000000000 $t
+     /tmp/cctqle0d.s:339    .text.realloc:0000000000000000 realloc
+     /tmp/cctqle0d.s:356    .text.realloc:0000000000000004 $d
+     /tmp/cctqle0d.s:361    .text.__wrap__malloc_r:0000000000000000 $t
+     /tmp/cctqle0d.s:369    .text.__wrap__malloc_r:0000000000000000 __wrap__malloc_r
+     /tmp/cctqle0d.s:395    .text.__wrap__malloc_r:0000000000000008 $d
+     /tmp/cctqle0d.s:402    .text._calloc_r:0000000000000000 $t
+     /tmp/cctqle0d.s:410    .text._calloc_r:0000000000000000 _calloc_r
+     /tmp/cctqle0d.s:438    .text._calloc_r:0000000000000008 $d
+     /tmp/cctqle0d.s:445    .text._realloc_r:0000000000000000 $t
+     /tmp/cctqle0d.s:453    .text._realloc_r:0000000000000000 _realloc_r
+     /tmp/cctqle0d.s:481    .text._realloc_r:0000000000000008 $d
+     /tmp/cctqle0d.s:488    .text._free_r:0000000000000000 $t
+     /tmp/cctqle0d.s:496    .text._free_r:0000000000000000 _free_r
+     /tmp/cctqle0d.s:520    .text._free_r:0000000000000008 $d
+     /tmp/cctqle0d.s:527    .text.post_main:0000000000000000 $t
+     /tmp/cctqle0d.s:535    .text.post_main:0000000000000000 post_main
+     /tmp/cctqle0d.s:565    .text.post_main:0000000000000010 $d
+     /tmp/cctqle0d.s:576    .rodata.prog_info:0000000000000000 prog_info
+     /tmp/cctqle0d.s:573    .rodata.prog_info:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 __errno

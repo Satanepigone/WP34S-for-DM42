@@ -42,13 +42,6 @@
 
 #include <menu.c>
 
-const uint8_t mid_menu[] = {
-    MI_SYSTEM_ENTER,
-    MI_MSC,
-    0 }; // Terminator
-
-const smenu_t MID_MENU = { "System!",  mid_menu,   NULL, NULL };
-
 struct _ndmap no_key = {.key_34s = K_NOP, .shift = 0};
 struct _ndmap heartbeat = {.key_34s = K_HEARTBEAT, .shift = -1};
 struct _ndmap f_shift = {.key_34s = K_F, .shift = -1};
@@ -224,17 +217,17 @@ void flush_comm( void )
  */
 #ifdef DM42
 void start_key_timer (void);
-int keyticks (void);
+long int keyticks (void);
 void moveto (int line, int x);
 
-static int start_ticks;
+static long int start_ticks;
 
 void start_key_timer() {
     start_ticks = get_rtc_ticks();
 }
 
-int keyticks () {
-  int i;
+long int keyticks () {
+  long int i;
   i = (get_rtc_ticks() - start_ticks)*10;
   return i >> 8;
 }
@@ -255,7 +248,7 @@ void print_debug (int i, int j) {
   moveto (3, 1);
   lcd_print (fReg , (const char*) print_string );
   lcd_refresh();
-  sys_delay (2500);
+  sys_delay (100);
   /* wait_for_key_press(); */
   //  key_pop_all();
   // while ((key_pop()<=0) || (key_pop()==K_HEARTBEAT));;
@@ -375,7 +368,9 @@ void program_main(){
   t20->fixed = 1;
   t20->xspc = -2;
   t20->bgfill = 0;
-  
+  run_menu_item_app = run_menu_item;
+  menu_line_str_app = menu_line_str;
+
   display();
   display_current_menu();
   lcd_refresh();
@@ -493,6 +488,7 @@ void program_main(){
     }
   }
   save_ram_file(0);
+  //  free_storage();
   return;
 }
 #else

@@ -17,7 +17,10 @@
 # Target
 ######################################
 
-TARGET = wp34s
+#TARGET = wp34s
+
+VERSION_NO != git rev-list HEAD --count
+export VERSION_NO
 
 ######################################
 # building variables
@@ -68,15 +71,16 @@ C_SOURCES += $(C_SRCS)
 
 HEADERS := alpha.h charset7.h complex.h consts.h data.h \
 		date.h decn.h display.h features.h int.h keys.h lcd.h \
-		stats.h xeq.h xrom.h storage.h matrix.h menu.h menu.c keytran.c
+		stats.h xeq.h xrom.h storage.h matrix.h menu.h menu.c keytran.c \
+		main.h
 
 
 # Libraries
-ifeq ($(DEBUG), 1)
-LIBS += lib/gcc111libbid_hard.a
-else
-LIBS += lib/gcc111libbid_hard.a
-endif
+#ifeq ($(DEBUG), 1)
+#LIBS += lib/gcc111libbid_hard.a
+#else
+#LIBS += lib/gcc111libbid_hard.a
+#endif
 
 # ---
 
@@ -155,12 +159,31 @@ CFLAGS += -MD -MP -MF .dep/$(@F).d
 # link script
 LDSCRIPT = stm32_program.ld
 LIBDIR =
-LDFLAGS = --specs=nosys.specs $(CPUFLAGS) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections \
-  -Wl,--wrap=_malloc_r
 
+all :	top
 
-# default action: build all
-all: $(BUILD_DIR)/$(TARGET).elf 
+top :	top_setup clean_some $(BUILD_DIR)/wp34s_top.elf
+
+top_setup:
+	$(eval TARGET = wp34s_top)
+	$(eval LDFLAGS = --specs=nosys.specs $(CPUFLAGS) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections -Wl,--wrap=_malloc_r)
+	$(shell cat src/main_0.h | sed -e 's/pversion/$(VERSION_NO)/g' -e 's/pname/$(TARGET)/g' > src/main.h)
+	$(eval CFLAGS += -DBIGGER_DISPLAY -DTOP_ROW)
+
+normal: normal_setup clean_some $(BUILD_DIR)/wp34s.elf 
+
+normal_setup:
+	$(eval TARGET = wp34s)
+	$(eval LDFLAGS = --specs=nosys.specs $(CPUFLAGS) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections -Wl,--wrap=_malloc_r)
+	$(shell cat src/main_0.h | sed -e 's/pversion/$(VERSION_NO)/g' -e 's/pname/$(TARGET)/g' > src/main.h)
+
+long :	long_setup clean_some $(BUILD_DIR)/wp34s_long.elf
+
+long_setup:
+	$(eval TARGET = wp34s_long)
+	$(eval LDFLAGS = --specs=nosys.specs $(CPUFLAGS) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections -Wl,--wrap=_malloc_r)
+	$(shell cat src/main_0.h | sed -e 's/pversion/$(VERSION_NO)/g' -e 's/pname/$(TARGET)/g' > src/main.h)
+	$(eval CFLAGS += -DBIGGER_DISPLAY)
 
 #######################################
 # build the application
@@ -215,7 +238,27 @@ $(BUILD_DIR)/%.o: %.cc Makefile | $(BUILD_DIR)
 $(BUILD_DIR)/%.o: %.s Makefile | $(BUILD_DIR)
 	$(AS) -c $(CFLAGS) $< -o $@
 
-$(BUILD_DIR)/$(TARGET).elf: $(OBJECTS) Makefile
+$(BUILD_DIR)/wp34s.elf: $(OBJECTS) Makefile
+	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
+	$(OBJCOPY) --remove-section .qspi -O ihex    $@  $(BUILD_DIR)/$(TARGET)_flash.hex
+	$(OBJCOPY) --remove-section .qspi -O binary  $@  $(BUILD_DIR)/$(TARGET)_flash.bin
+	$(OBJCOPY) --only-section   .qspi -O ihex    $@  $(BUILD_DIR)/$(TARGET)_qspi.hex
+	$(OBJCOPY) --only-section   .qspi -O binary  $@  $(BUILD_DIR)/$(TARGET)_qspi.bin
+	$(BIN_DIR)check_qspi_crc $(TARGET) src/qspi_crc.h || ( $(MAKE) clean && false )
+	$(BIN_DIR)add_pgm_chsum build/$(TARGET)_flash.bin build/$(TARGET).pgm
+	$(SIZE) $@
+
+$(BUILD_DIR)/wp34s_long.elf: $(OBJECTS) Makefile
+	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
+	$(OBJCOPY) --remove-section .qspi -O ihex    $@  $(BUILD_DIR)/$(TARGET)_flash.hex
+	$(OBJCOPY) --remove-section .qspi -O binary  $@  $(BUILD_DIR)/$(TARGET)_flash.bin
+	$(OBJCOPY) --only-section   .qspi -O ihex    $@  $(BUILD_DIR)/$(TARGET)_qspi.hex
+	$(OBJCOPY) --only-section   .qspi -O binary  $@  $(BUILD_DIR)/$(TARGET)_qspi.bin
+	$(BIN_DIR)check_qspi_crc $(TARGET) src/qspi_crc.h || ( $(MAKE) clean && false )
+	$(BIN_DIR)add_pgm_chsum build/$(TARGET)_flash.bin build/$(TARGET).pgm
+	$(SIZE) $@
+
+$(BUILD_DIR)/wp34s_top.elf: $(OBJECTS) Makefile
 	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
 	$(OBJCOPY) --remove-section .qspi -O ihex    $@  $(BUILD_DIR)/$(TARGET)_flash.hex
 	$(OBJCOPY) --remove-section .qspi -O binary  $@  $(BUILD_DIR)/$(TARGET)_flash.bin
@@ -246,13 +289,20 @@ cleanlibs:
 	-rm $(BUILD_DIR)/$(DECLIB)
 	-rm -fR .dep $(CONST_DIR)/*.o $(CONST_DIR)/*.lst
 	-rm $(BUILD_DIR)/libconsts.a
+clean_some:
+	-touch src/keys.c
+	-touch src/console.c
+	-touch src/lcd.c
+	-touch src/display.c
 
 #######################################
 # dependencies
 #######################################
 -include $(shell mkdir .dep 2>/dev/null) $(wildcard .dep/*)
 
+source:
+		$(MAKE) -C src
 
-.PHONY: clean all
+.PHONY: clean cleantop cleanlibs clean_some all normal long top source
 
 # *** EOF ***

@@ -1,17 +1,100 @@
 #include <menu.h>
 
+/* 
+ * System menu stuff
+ */
+
+#define MI_ABOUT_PGM 11
+
+const uint8_t mid_menu[] = {
+    MI_SYSTEM_ENTER,
+    MI_MSC,
+    MI_ABOUT_PGM,
+    0 }; // Terminator
+
+const smenu_t MID_MENU = { "System!",  mid_menu,   NULL, NULL };
+
+void disp_about(void);
+
+int run_menu_item(uint8_t line_id) {
+  int ret = 0;
+
+  switch(line_id) {
+    case MI_ABOUT_PGM:
+      disp_about();
+      break;
+
+     default:
+      ret = MRET_UNIMPL;
+      break;
+  }
+
+  return ret;
+}
+
+const char * menu_line_str(uint8_t line_id, char * s, const int slen) {
+  const char * ln;
+
+  switch(line_id) {
+
+  case MI_ABOUT_PGM:    ln = "About >";              break;
+
+  default:
+    ln = NULL;
+    break;
+  }
+
+  return ln;
+}
+
+void disp_about() {
+  lcd_clear_buf();
+  lcd_writeClr(t24);
+
+  lcd_setXY(t24, 0, 5);
+  lcd_printR(t24, "WP34s calculator for DM42:");
+  t24->y += 5;
+#ifdef TOP_ROW
+  lcd_print(t24, "with top row for annunciators,");
+  lcd_print(t24, "a longer alpha display,");
+  lcd_print(t24, "and some annunciators renamed.");
+#elif defined(BIGGER_DISPLAY)
+  lcd_print(t24, "with a longer alpha display");
+  lcd_print(t24, "than the original calculator,");
+  lcd_print(t24, "and some annunciators renamed.");
+  #else
+  lcd_print(t24, "Just like the original calculator");
+  lcd_print(t24, "but with some annunciators renamed.");
+#endif
+  t24->y += 5;
+  lcd_printR(t24, "This software is neither provided");
+  lcd_printR(t24, "by nor supported by SwissMicros.");
+
+  t24->y = LCD_Y - lcd_lineHeight(t24)-5;
+  t24->x = 20;
+  lcd_printR(t24, "    Press EXIT key to continue...");
+
+  lcd_refresh();
+
+  wait_for_key_press();
+}
+
+/*
+ * WP34s menu code
+ */
+
 void set_menu ( int new_menu ) {
   int m = current_menu;
-  if (new_menu == current_menu) {
+  if (new_menu == current_menu) { // return to default
     current_menu = default_menu;
   }
-  else if (new_menu == -1) {
+  else if (new_menu == -1) { // go to last menu
     current_menu = last_menu;
   }
   else {
-    current_menu = new_menu;
+    current_menu = new_menu; // change to new menu
   }
-  last_menu = m;
+  if (m != 9) last_menu = m; // store menu as last menu unless it's arrow!
 }
 
 void toggle_default_menu () {
@@ -141,8 +224,8 @@ static const struct _menu Menus[] = {
       { { K22, 1 }, { K10, 2 }, "Bin", "DEG" },
       { { K22, 2 }, { K11, 2 }, "Oct", "RAD" },
       { { K23, 1 }, { K12, 2 }, "Dec", "Grad" },
-      { { K23, 2 }, { K10, 1 }, "Hex", "2HMS" },
-      { ARROW_KEY, { K11, 1 }, "--\015", "HMS2" },
+      { { K23, 2 }, { K10, 1 }, "Hex", "\015HMS" },
+      { ARROW_KEY, { K11, 1 }, "--\015", "HMS\015" },
       { CMPLX_KEY, NO_KEY, "CPX", "" },
     }
   },
