@@ -42,13 +42,6 @@
 
 #include <menu.c>
 
-const uint8_t mid_menu[] = {
-    MI_SYSTEM_ENTER,
-    MI_MSC,
-    0 }; // Terminator
-
-const smenu_t MID_MENU = { "System!",  mid_menu,   NULL, NULL };
-
 struct _ndmap no_key = {.key_34s = K_NOP, .shift = 0};
 struct _ndmap heartbeat = {.key_34s = K_HEARTBEAT, .shift = -1};
 struct _ndmap f_shift = {.key_34s = K_F, .shift = -1};
@@ -375,7 +368,9 @@ void program_main(){
   t20->fixed = 1;
   t20->xspc = -2;
   t20->bgfill = 0;
-  
+  run_menu_item_app = run_menu_item;
+  menu_line_str_app = menu_line_str;
+
   display();
   display_current_menu();
   lcd_refresh();

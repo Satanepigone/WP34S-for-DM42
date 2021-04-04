@@ -253,7 +253,7 @@ void show_disp(void) { // This function re-draws everything.
 	const uint32_t ytop_exp = 130; // was 170
 	const uint32_t dwidth_exp = 18;
 #ifdef BIGGER_DISPLAY
-	const uint32_t y_ann = 70;
+	const uint32_t y_ann = 75;
 #else
 	const uint32_t y_ann = 130;
 #endif
@@ -685,14 +685,14 @@ void finish_display(void) {
 void finish_RPN(void) {//only refreshes the RPN flag
   t20->inv = !dots[RPN];
 #ifdef BIGGER_DISPLAY
-  lcd_setXY (t20, 365, 70-30); // 70 is y_ann
+  lcd_setXY (t20, 365, 75-30); // 70 is y_ann
 #else
   lcd_setXY (t20, 365, 130-30); // 130 is y_ann
 #endif
   lcd_writeText(t20, "RPN");
   t20->inv = !dots[RCL_annun];
 #ifdef BIGGER_DISPLAY
-  lcd_setXY (t20, 365, 70-50); // 70 is y_ann
+  lcd_setXY (t20, 365, 75-50); // 70 is y_ann
 #else
   lcd_setXY (t20, 365, 130-50); // 130 is y_ann
 #endif

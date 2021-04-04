@@ -1,5 +1,88 @@
 #include <menu.h>
 
+/* 
+ * System menu stuff
+ */
+
+#define MI_ABOUT_PGM 11
+
+const uint8_t mid_menu[] = {
+    MI_SYSTEM_ENTER,
+    MI_MSC,
+    MI_ABOUT_PGM,
+    0 }; // Terminator
+
+const smenu_t MID_MENU = { "System!",  mid_menu,   NULL, NULL };
+
+void disp_about(void);
+
+int run_menu_item(uint8_t line_id) {
+  int ret = 0;
+
+  switch(line_id) {
+    case MI_ABOUT_PGM:
+      disp_about();
+      break;
+
+     default:
+      ret = MRET_UNIMPL;
+      break;
+  }
+
+  return ret;
+}
+
+const char * menu_line_str(uint8_t line_id, char * s, const int slen) {
+  const char * ln;
+
+  switch(line_id) {
+
+  case MI_ABOUT_PGM:    ln = "About >";              break;
+
+  default:
+    ln = NULL;
+    break;
+  }
+
+  return ln;
+}
+
+void disp_about() {
+  lcd_clear_buf();
+  lcd_writeClr(t24);
+
+  lcd_setXY(t24, 0, 5);
+  lcd_printR(t24, "WP34s calculator for DM42:");
+  t24->y += 5;
+#ifdef TOP_ROW
+  lcd_print(t24, "with top row for annunciators,");
+  lcd_print(t24, "a longer alpha display,");
+  lcd_print(t24, "and some annunciators renamed.");
+#elif defined(BIGGER_DISPLAY)
+  lcd_print(t24, "with a longer alpha display");
+  lcd_print(t24, "than the original calculator,");
+  lcd_print(t24, "and some annunciators renamed.");
+  #else
+  lcd_print(t24, "Just like the original calculator");
+  lcd_print(t24, "but with some annunciators renamed.");
+#endif
+  t24->y += 5;
+  lcd_printR(t24, "This software is neither provided");
+  lcd_printR(t24, "by nor supported by SwissMicros.");
+
+  t24->y = LCD_Y - lcd_lineHeight(t24)-5;
+  t24->x = 20;
+  lcd_printR(t24, "    Press EXIT key to continue...");
+
+  lcd_refresh();
+
+  wait_for_key_press();
+}
+
+/*
+ * WP34s menu code
+ */
+
 void set_menu ( int new_menu ) {
   int m = current_menu;
   if (new_menu == current_menu) { // return to default

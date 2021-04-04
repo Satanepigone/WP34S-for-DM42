@@ -159,27 +159,31 @@ CFLAGS += -MD -MP -MF .dep/$(@F).d
 # link script
 LDSCRIPT = stm32_program.ld
 LIBDIR =
-LDFLAGS = --specs=nosys.specs $(CPUFLAGS) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections \
-  -Wl,--wrap=_malloc_r
 
+all :	top
 
-# default action: build top
-all: top
+top :	top_setup clean_some $(BUILD_DIR)/wp34s_top.elf
 
-normal: TARGET := wp34s
-normal: JUNK != cat src/main_0.h | sed -e 's/pversion/$(VERSION_NO)/g' -e 's/pname/$(TARGET)/g' > src/main.h
-normal: $(BUILD_DIR)/$(TARGET).elf 
+top_setup:
+	$(eval TARGET = wp34s_top)
+	$(eval LDFLAGS = --specs=nosys.specs $(CPUFLAGS) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections -Wl,--wrap=_malloc_r)
+	$(shell cat src/main_0.h | sed -e 's/pversion/$(VERSION_NO)/g' -e 's/pname/$(TARGET)/g' > src/main.h)
+	$(eval CFLAGS += -DBIGGER_DISPLAY -DTOP_ROW)
 
-long: TARGET := wp34s_long
-long: JUNK != cat src/main_0.h | sed -e 's/pversion/$(VERSION_NO)/g' -e 's/pname/$(TARGET)/g' > src/main.h
-long: CFLAGS += -DBIGGER_DISPLAY
-long: $(BUILD_DIR)/$(TARGET).elf 
+normal: normal_setup clean_some $(BUILD_DIR)/wp34s.elf 
 
-top: TARGET := wp34s_top
-top: JUNK != cat src/main_0.h | sed -e 's/pversion/$(VERSION_NO)/g' -e 's/pname/$(TARGET)/g' > src/main.h
-top: CFLAGS += -DBIGGER_DISPLAY -DTOP_ROW
-top: $(BUILD_DIR)/$(TARGET).elf 
+normal_setup:
+	$(eval TARGET = wp34s)
+	$(eval LDFLAGS = --specs=nosys.specs $(CPUFLAGS) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections -Wl,--wrap=_malloc_r)
+	$(shell cat src/main_0.h | sed -e 's/pversion/$(VERSION_NO)/g' -e 's/pname/$(TARGET)/g' > src/main.h)
 
+long :	long_setup clean_some $(BUILD_DIR)/wp34s_long.elf
+
+long_setup:
+	$(eval TARGET = wp34s_long)
+	$(eval LDFLAGS = --specs=nosys.specs $(CPUFLAGS) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections -Wl,--wrap=_malloc_r)
+	$(shell cat src/main_0.h | sed -e 's/pversion/$(VERSION_NO)/g' -e 's/pname/$(TARGET)/g' > src/main.h)
+	$(eval CFLAGS += -DBIGGER_DISPLAY)
 
 #######################################
 # build the application
@@ -234,7 +238,27 @@ $(BUILD_DIR)/%.o: %.cc Makefile | $(BUILD_DIR)
 $(BUILD_DIR)/%.o: %.s Makefile | $(BUILD_DIR)
 	$(AS) -c $(CFLAGS) $< -o $@
 
-$(BUILD_DIR)/$(TARGET).elf: $(OBJECTS) Makefile
+$(BUILD_DIR)/wp34s.elf: $(OBJECTS) Makefile
+	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
+	$(OBJCOPY) --remove-section .qspi -O ihex    $@  $(BUILD_DIR)/$(TARGET)_flash.hex
+	$(OBJCOPY) --remove-section .qspi -O binary  $@  $(BUILD_DIR)/$(TARGET)_flash.bin
+	$(OBJCOPY) --only-section   .qspi -O ihex    $@  $(BUILD_DIR)/$(TARGET)_qspi.hex
+	$(OBJCOPY) --only-section   .qspi -O binary  $@  $(BUILD_DIR)/$(TARGET)_qspi.bin
+	$(BIN_DIR)check_qspi_crc $(TARGET) src/qspi_crc.h || ( $(MAKE) clean && false )
+	$(BIN_DIR)add_pgm_chsum build/$(TARGET)_flash.bin build/$(TARGET).pgm
+	$(SIZE) $@
+
+$(BUILD_DIR)/wp34s_long.elf: $(OBJECTS) Makefile
+	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
+	$(OBJCOPY) --remove-section .qspi -O ihex    $@  $(BUILD_DIR)/$(TARGET)_flash.hex
+	$(OBJCOPY) --remove-section .qspi -O binary  $@  $(BUILD_DIR)/$(TARGET)_flash.bin
+	$(OBJCOPY) --only-section   .qspi -O ihex    $@  $(BUILD_DIR)/$(TARGET)_qspi.hex
+	$(OBJCOPY) --only-section   .qspi -O binary  $@  $(BUILD_DIR)/$(TARGET)_qspi.bin
+	$(BIN_DIR)check_qspi_crc $(TARGET) src/qspi_crc.h || ( $(MAKE) clean && false )
+	$(BIN_DIR)add_pgm_chsum build/$(TARGET)_flash.bin build/$(TARGET).pgm
+	$(SIZE) $@
+
+$(BUILD_DIR)/wp34s_top.elf: $(OBJECTS) Makefile
 	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
 	$(OBJCOPY) --remove-section .qspi -O ihex    $@  $(BUILD_DIR)/$(TARGET)_flash.hex
 	$(OBJCOPY) --remove-section .qspi -O binary  $@  $(BUILD_DIR)/$(TARGET)_flash.bin
@@ -265,13 +289,20 @@ cleanlibs:
 	-rm $(BUILD_DIR)/$(DECLIB)
 	-rm -fR .dep $(CONST_DIR)/*.o $(CONST_DIR)/*.lst
 	-rm $(BUILD_DIR)/libconsts.a
+clean_some:
+	-rm $(BUILD_DIR)/keys.o
+	-rm $(BUILD_DIR)/console.o
+	-rm $(BUILD_DIR)/lcd.o
+	-rm $(BUILD_DIR)/display.o
 
 #######################################
 # dependencies
 #######################################
 -include $(shell mkdir .dep 2>/dev/null) $(wildcard .dep/*)
 
+source:
+		$(MAKE) -C src
 
-.PHONY: clean all normal long top
+.PHONY: clean cleantop cleanlibs clean_some all normal long top source
 
 # *** EOF ***
