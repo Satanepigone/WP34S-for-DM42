@@ -290,10 +290,10 @@ cleanlibs:
 	-rm -fR .dep $(CONST_DIR)/*.o $(CONST_DIR)/*.lst
 	-rm $(BUILD_DIR)/libconsts.a
 clean_some:
-	-rm $(BUILD_DIR)/keys.o
-	-rm $(BUILD_DIR)/console.o
-	-rm $(BUILD_DIR)/lcd.o
-	-rm $(BUILD_DIR)/display.o
+	-touch src/keys.c
+	-touch src/console.c
+	-touch src/lcd.c
+	-touch src/display.c
 
 #######################################
 # dependencies
