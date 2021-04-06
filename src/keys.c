@@ -78,6 +78,8 @@ FLAG NonProgrammable;
  */ 
 static unsigned int advance_to_next_label(unsigned int pc, int inc, int search_end);
 
+unsigned int nd_opcode;
+
 /*
  *  Return the shift state
  */
@@ -2177,157 +2179,157 @@ static int forbidden_alpha(int pos) {
 /*
  *  Catalogue navigation
  */
-static int process_catalogue(const keycode c, const enum shifts shift, const int is_multi) {
-	int pos = State.catpos;
-	int ch;
-	const int ctmax = current_catalogue_max();
-	const enum catalogues cat = (enum catalogues) State2.catalogue;
+ static int process_catalogue(const keycode c, const enum shifts shift, const int is_multi) {
+   int pos = State.catpos;
+   int ch;
+   const int ctmax = current_catalogue_max();
+   const enum catalogues cat = (enum catalogues) State2.catalogue;
 
-	if (shift == SHIFT_N) {
-		switch (c) {
+   if (shift == SHIFT_N) {
+     switch (c) {
 #ifdef DM42
-		case K05:			// XEQ accepts command
+     case K05:			// XEQ accepts command
 #else	  
-		case K30:			// XEQ accepts command
+     case K30:			// XEQ accepts command
 #endif						  
-		case K20:			// Enter accepts command
-			if (pos < ctmax && !(is_multi && forbidden_alpha(pos))) {
-				const opcode op = current_catalogue(pos);
+     case K20:			// Enter accepts command
+       if (pos < ctmax && !(is_multi && forbidden_alpha(pos))) {
+	 const opcode op = current_catalogue(pos);
 
-				init_cat(CATALOGUE_NONE);
+	 init_cat(CATALOGUE_NONE);
 
-				if (isRARG(op)) {
-					const unsigned int rarg = RARG_CMD(op);
-					if (rarg == RARG_CONST || rarg == RARG_CONST_CMPLX || rarg == RARG_CONV || rarg == RARG_ALPHA)
-						return op;
-					if (rarg >= RARG_TEST_EQ && rarg <= RARG_TEST_GE)
-						State2.test = TST_EQ + (RARG_CMD(op) - RARG_TEST_EQ);
-					else
-						init_arg(RARG_CMD(op));
-				}
-				else {
-					return check_confirm(op);
-				}
-			} else
-				init_cat(CATALOGUE_NONE);
-			return STATE_UNFINISHED;
+	 if (isRARG(op)) {
+	   const unsigned int rarg = RARG_CMD(op);
+	   if (rarg == RARG_CONST || rarg == RARG_CONST_CMPLX || rarg == RARG_CONV || rarg == RARG_ALPHA)
+	     return op;
+	   if (rarg >= RARG_TEST_EQ && rarg <= RARG_TEST_GE)
+	     State2.test = TST_EQ + (RARG_CMD(op) - RARG_TEST_EQ);
+	   else
+	     init_arg(RARG_CMD(op));
+	 }
+	 else {
+	   return check_confirm(op);
+	 }
+       } else
+	 init_cat(CATALOGUE_NONE);
+       return STATE_UNFINISHED;
 
-		case K24:			// backspace
-		    if (CmdLineLength > 0 && Keyticks < 30) {
-		      if (--CmdLineLength > 0)
-					goto search;
-				pos = 0;
-				goto set_pos;
-			} else
-				init_cat(CATALOGUE_NONE);
-			return STATE_UNFINISHED;
+     case K24:			// backspace
+       if (CmdLineLength > 0 && Keyticks < 30) {
+	 if (--CmdLineLength > 0)
+	   goto search;
+	 pos = 0;
+	 goto set_pos;
+       } else
+	 init_cat(CATALOGUE_NONE);
+       return STATE_UNFINISHED;
 
-		case K60:
-			init_cat(CATALOGUE_NONE);
-			return STATE_UNFINISHED;
+     case K60:
+       init_cat(CATALOGUE_NONE);
+       return STATE_UNFINISHED;
 
-		case K_UP:
-			CmdLineLength = 0;
-			if (pos == 0)
-				goto set_max;
-			else
-				--pos;
-			goto set_pos;
+     case K_UP:
+       CmdLineLength = 0;
+       if (pos == 0)
+	 goto set_max;
+       else
+	 --pos;
+       goto set_pos;
 
-		case K_DOWN:
-			CmdLineLength = 0;
-			while (++pos < ctmax && is_multi && forbidden_alpha(pos));
-			if (pos >= ctmax)
-				pos = 0;
-			goto set_pos;
+     case K_DOWN:
+       CmdLineLength = 0;
+       while (++pos < ctmax && is_multi && forbidden_alpha(pos));
+       if (pos >= ctmax)
+	 pos = 0;
+       goto set_pos;
 
-		default:
-			break;
-		}
-	} else if (shift == SHIFT_F) {
-		if (cat == CATALOGUE_CONV && c == K01) {
-			/*
-			 * f 1/x in conversion catalogue
-			 */
-			/* A small table of commands in pairs containing inverse commands.
-			 * This table could be unsigned characters only storing the monadic kind.
-			 * this saves twelve bytes in the table at a cost of some bytes in the code below.
-			 * Not worth it since the maximum saving will be less than twelve bytes.
-			 */
-			static const unsigned short int conv_mapping[] = {
-				OP_MON | OP_AR_DB,	OP_MON | OP_DB_AR,
-				OP_MON | OP_DB_PR,	OP_MON | OP_PR_DB,
-				OP_MON | OP_DEGC_F,	OP_MON | OP_DEGF_C,
-				OP_MON | OP_DEG2RAD,	OP_MON | OP_RAD2DEG,
-				OP_MON | OP_DEG2GRD,	OP_MON | OP_GRD2DEG,
-				OP_MON | OP_RAD2GRD,	OP_MON | OP_GRD2RAD,
-			};
-			const opcode op = current_catalogue(pos);
-			int i;
+     default:
+       break;
+     }
+   } else if (shift == SHIFT_F) {
+     if (cat == CATALOGUE_CONV && c == K01) {
+       /*
+	* f 1/x in conversion catalogue
+	*/
+       /* A small table of commands in pairs containing inverse commands.
+	* This table could be unsigned characters only storing the monadic kind.
+	* this saves twelve bytes in the table at a cost of some bytes in the code below.
+	* Not worth it since the maximum saving will be less than twelve bytes.
+	*/
+       static const unsigned short int conv_mapping[] = {
+	 OP_MON | OP_AR_DB,	OP_MON | OP_DB_AR,
+	 OP_MON | OP_DB_PR,	OP_MON | OP_PR_DB,
+	 OP_MON | OP_DEGC_F,	OP_MON | OP_DEGF_C,
+	 OP_MON | OP_DEG2RAD,	OP_MON | OP_RAD2DEG,
+	 OP_MON | OP_DEG2GRD,	OP_MON | OP_GRD2DEG,
+	 OP_MON | OP_RAD2GRD,	OP_MON | OP_GRD2RAD,
+       };
+       const opcode op = current_catalogue(pos);
+       int i;
 
-			init_cat(CATALOGUE_NONE);
-			if (isRARG(op))
-				return op ^ 1;
-			for (i = 0; i < sizeof(conv_mapping) / sizeof(conv_mapping[0]); ++i)
-				if (op == conv_mapping[i])
-					return conv_mapping[i^1];
-			return STATE_UNFINISHED;		// Unreached
-		}
-		else if (c == K60 && (State2.alphas || State2.multi)) {
-			// Handle alpha shift in alpha character catalogues
-			State2.alphashift = 1 - State2.alphashift;
-			return STATE_UNFINISHED;
-		}
-	} else if (shift == SHIFT_G) {
-		if (c == K24 && cat == CATALOGUE_SUMS) {
-			init_cat(CATALOGUE_NONE);
-			return OP_NIL | OP_SIGMACLEAR;
-		}
-	}
+       init_cat(CATALOGUE_NONE);
+       if (isRARG(op))
+	 return op ^ 1;
+       for (i = 0; i < sizeof(conv_mapping) / sizeof(conv_mapping[0]); ++i)
+	 if (op == conv_mapping[i])
+	   return conv_mapping[i^1];
+       return STATE_UNFINISHED;		// Unreached
+     }
+     else if (c == K60 && (State2.alphas || State2.multi)) {
+       // Handle alpha shift in alpha character catalogues
+       State2.alphashift = 1 - State2.alphashift;
+       return STATE_UNFINISHED;
+     }
+   } else if (shift == SHIFT_G) {
+     if (c == K24 && cat == CATALOGUE_SUMS) {
+       init_cat(CATALOGUE_NONE);
+       return OP_NIL | OP_SIGMACLEAR;
+     }
+   }
 
-	/* We've got a key press, map it to a character and try to
-	 * jump to the appropriate catalogue entry.
-	 */
-	ch = remap_chars(keycode_to_alpha(c, shift == SHIFT_G ? SHIFT_LC_G : shift));
-	reset_shift();
-	if (ch == '\0')
-		return STATE_UNFINISHED;
-	if (cat > CATALOGUE_ALPHA && cat < CATALOGUE_CONST) {
-		// No multi character search in alpha catalogues
-		CmdLineLength = 0;
-	}
-	if (CmdLineLength < 10)
-		Cmdline[CmdLineLength++] = ch;
-	/* Search for the current buffer in the catalogue */
+   /* We've got a key press, map it to a character and try to
+    * jump to the appropriate catalogue entry.
+    */
+   ch = remap_chars(keycode_to_alpha(c, shift == SHIFT_G ? SHIFT_LC_G : shift));
+   reset_shift();
+   if (ch == '\0')
+     return STATE_UNFINISHED;
+   if (cat > CATALOGUE_ALPHA && cat < CATALOGUE_CONST) {
+     // No multi character search in alpha catalogues
+     CmdLineLength = 0;
+   }
+   if (CmdLineLength < 10)
+     Cmdline[CmdLineLength++] = ch;
+   /* Search for the current buffer in the catalogue */
 
-search:
-	Cmdline[CmdLineLength] = '\0';
-	for (pos = 0; pos < ctmax; ++pos) {
-		char buf[16];
-		const char *cmd = catcmd(current_catalogue(pos), buf);
-		int i;
+ search:
+   Cmdline[CmdLineLength] = '\0';
+   for (pos = 0; pos < ctmax; ++pos) {
+     char buf[16];
+     const char *cmd = catcmd(current_catalogue(pos), buf);
+     int i;
 
-		if (*cmd == COMPLEX_PREFIX)
-			cmd++;
-		for (i=0; cmd[i] != '\0'; i++) {
-			const int c = remap_chars(cmd[i]);
-			const int cl = (unsigned char) Cmdline[i];
-			if (c > cl)
-				goto set_pos;
-			else if (c < cl)
-				break;
-		}
-		if (Cmdline[i] == '\0')
-			goto set_pos;
-	}
-set_max:
-	pos = ctmax - 1;
-set_pos:
-	while (is_multi && pos && forbidden_alpha(pos))
-		--pos;
-	State.catpos = pos;
-	return STATE_UNFINISHED;
-}
+     if (*cmd == COMPLEX_PREFIX)
+       cmd++;
+     for (i=0; cmd[i] != '\0'; i++) {
+       const int c = remap_chars(cmd[i]);
+       const int cl = (unsigned char) Cmdline[i];
+       if (c > cl)
+	 goto set_pos;
+       else if (c < cl)
+	 break;
+     }
+     if (Cmdline[i] == '\0')
+       goto set_pos;
+   }
+ set_max:
+   pos = ctmax - 1;
+ set_pos:
+   while (is_multi && pos && forbidden_alpha(pos))
+     --pos;
+   State.catpos = pos;
+   return STATE_UNFINISHED;
+ }
 
 #ifndef REALBUILD
 int find_pos(const char* text) {
@@ -2924,11 +2926,10 @@ static int process(const int c) {
  unsigned int get_alpha_state ( void ) {
    return (State2.alphas || State2.confirm || State2.status || State2.labellist
 	   || State2.rarg || State2.registerlist || State2.multi 
-	   || State2.gtodot || State2.catalogue || (State2.test != TST_NONE) );
+	   || State2.gtodot || State2.catalogue || (State2.test != TST_NONE));
  }
 
  void process_keycode_with_shift ( struct _ndmap remapped ) {
-   if (remapped.shift >= 0) set_shift ( remapped.shift );
    if (remapped.key_34s == K_NOP) return;
    if (remapped.key_34s == K_SSHOT) {
      start_buzzer_freq(4400); sys_delay(10); stop_buzzer();// Start click 
@@ -2939,6 +2940,11 @@ static int process(const int c) {
      start_buzzer_freq(8800); sys_delay(10); stop_buzzer();// End click
      return;
    }
+   if (remapped.key_34s == K_OP) {
+     nd_opcode = remapped.shift;
+     set_shift(SHIFT_N);
+   }
+   else if (remapped.shift >= 0) set_shift ( remapped.shift );
    process_keycode ( remapped.key_34s );
  }
  
@@ -2950,17 +2956,20 @@ void process_keycode(int c)
   static int was_paused;
   //volatile int cmdline_empty; // volatile because it's uninitialized in some cases
   int cmdline_empty = 0;        // Visual studio chokes in debug mode over the above
-  if (was_paused && Pause == 0) {
+  if (was_paused && Pause == 0)
+    {
     /*
      *  Continue XROM execution after a pause
      */
-    xeq_xrom();
-  }
+      xeq_xrom();
+    }
   was_paused = Pause;
-  if (c == K_NOP) {
-    OpCode = 0;
-  }
-  else if (c == K_HEARTBEAT) {
+  if (c == K_NOP)
+    {
+      OpCode = 0;
+    }
+  else if (c == K_HEARTBEAT)
+    {
     /*
      *  Heartbeat processing goes here.
      *  This is totally thread safe!
@@ -3054,7 +3063,8 @@ void process_keycode(int c)
   /*
    *  Handle key release
    */
-  if (c == K_RELEASE) {
+  if (c == K_RELEASE)
+    {
     if (OpCode != 0) {
       /*
        * Execute the key on release
@@ -3105,7 +3115,31 @@ void process_keycode(int c)
     // print_debug (100, c);
     WasDataEntry = 0;
     ShowRPN = ! Running;	// Default behaviour, may be turned off later
+#ifdef DM42
+    if (c != K_OP) {
+      c = process(c);		// returns an op-code or state
+    }
+    else {
+      if (isRARG(nd_opcode)) {
+	const unsigned int rarg = RARG_CMD(nd_opcode);
+	if (rarg == RARG_CONST || rarg == RARG_CONST_CMPLX || rarg == RARG_CONV || rarg == RARG_ALPHA)
+	  c = nd_opcode;
+	else if (rarg >= RARG_TEST_EQ && rarg <= RARG_TEST_GE) {
+	  State2.test = TST_EQ + (RARG_CMD(nd_opcode) - RARG_TEST_EQ);
+	  c = STATE_UNFINISHED;
+	}
+	else {
+	  init_arg(RARG_CMD(nd_opcode));
+	  c = STATE_UNFINISHED;
+	}
+      }
+      else {
+	c = check_confirm(nd_opcode);
+      }      
+    }
+#else
     c = process(c);		// returns an op-code or state
+#endif
     switch (c) {
     case STATE_SST:
       OpCode = c;

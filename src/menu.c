@@ -126,16 +126,16 @@ static const struct _menu Menus[] = {
       { NO_KEY, NO_KEY, "", "" },
       { NO_KEY, NO_KEY, "", "" },
       { ARROW_KEY, NO_KEY, "--\015", "" },
-      { CMPLX_KEY, NO_KEY, "CPX", "" },
+      { CMPLX_KEY, { K_MULTI, DOTS }, "CPX", "" },
     }    
   },
   {
     "Clear", // 1
     { 
-      { { K24, 1 }, NO_KEY, "CLProg", "" },
-      { { K24, 2 }, NO_KEY, "CL\221", "" },
-      { { K24, 3 }, NO_KEY, "CL X", "" },
-      { NO_KEY, NO_KEY, "", "" },
+      { { K24, 1 }, { K_OP, OP_NIL | OP_CLPALL }, "CLProg", "CLPAll" },
+      { { K24, 2 }, { K_OP, OP_NIL | OP_CLREG }, "CL\221", "CLReg" },
+      { { K24, 3 }, { K_OP, OP_NIL | OP_CLRALPHA }, "CLx", "CL\006\240" },
+      { { K_OP, OP_NIL | OP_CLSTK }, { K_OP, OP_NIL | OP_CLALL }, "CLStk", "CLAll" },
       { ARROW_KEY, NO_KEY, "--\015", "" },
       { CMPLX_KEY, NO_KEY, "CPX", "" },
     }    
@@ -190,8 +190,8 @@ static const struct _menu Menus[] = {
     { 
       { { K21, 1 }, NO_KEY, "Show\016", "" },
       { { K21, 2 }, NO_KEY, "Show\015", "" },
-      { { K21, 3 }, NO_KEY, "x\027?", "" },
-      { NO_KEY, NO_KEY, "", "" },
+      { { K21, 3 }, { K_OP, RARG_BASEOP(RARG_SWAPZ) }, "x\027?", "z\027?" },
+      { { K_OP, RARG_BASEOP(RARG_SWAPY) }, { K_OP, RARG_BASEOP(RARG_SWAPT) }, "y\027?", "t\027?" },
       { ARROW_KEY, NO_KEY, "--\015", "" },
       { CMPLX_KEY, NO_KEY, "CPX", "" },
     }    
@@ -201,10 +201,10 @@ static const struct _menu Menus[] = {
     { 
       { { K63, 1 }, { K64, 1 }, "LBL", "DSE" },
       { { K63, 2 }, { K64, 2 }, "RTN", "ISG" },
-      { { K61, 3 }, NO_KEY, "Pause", "" },
-      { { K30, 3 }, NO_KEY, "GTO", "" },
-      { ARROW_KEY, NO_KEY, "--\015", "" },
-      { CMPLX_KEY, NO_KEY, "CPX", "" },
+      { { K61, 3 }, { K_OP, RARG_BASEOP(RARG_DEC) }, "Pause", "DEC" },
+      { { K30, 3 }, { K_OP, RARG_BASEOP(RARG_INC) }, "GTO", "INC" },
+      { ARROW_KEY, { K_OP, RARG_BASEOP(RARG_BACK) }, "--\015", "BACK" },
+      { CMPLX_KEY, { K_OP, RARG_BASEOP(RARG_SKIP) }, "CPX", "SKIP" },
     }
   },
   {
@@ -232,34 +232,43 @@ static const struct _menu Menus[] = {
   {
     "Flags", // 10
     { 
-      { { K50, 1 }, NO_KEY, "SF_", "" },
-      { { K50, 2 }, NO_KEY, "CF_", "" },
-      { { K51, 1 }, NO_KEY, "x=?", "" },
-      { { K51, 2 }, NO_KEY, "x\013?", "" },
-      { ARROW_KEY, NO_KEY, "--\015", "" },
-      { CMPLX_KEY, NO_KEY, "CPX", "" },
+      { { K50, 1 }, { K_OP, RARG_BASEOP(RARG_FS) }, "SF_", "FS?" },
+      { { K50, 2 }, { K_OP, RARG_BASEOP(RARG_FC)}, "CF_", "FC?" },
+      { { K51, 1 }, { K_OP, RARG_BASEOP(RARG_TEST_LT)}, "x=?", "x<?" },
+      { { K51, 2 }, { K_OP, RARG_BASEOP(RARG_TEST_LE)}, "x\013?", "x<=?" },
+      { ARROW_KEY, { K_OP, RARG_BASEOP(RARG_TEST_GT)}, "--\015", "x>?" },
+      { CMPLX_KEY, { K_OP, RARG_BASEOP(RARG_TEST_GE)}, "CPX", "x>=?" },
     }
   },
   {
     "Probability", // 11
     { 
-      { { K40, 3 }, { K41, 1 }, "Fact!", "\224" },
-      { { K40, 1 }, { K41, 2 }, "Cy,x", "\224\235" },
-      { { K40, 2 }, NO_KEY, "Py,x", "" },
-      { { K12, 1 }, NO_KEY, "RAN#", "" },
+      { { K40, 3 }, { K_OP, OP_MON | OP_LNGAMMA }, "Fact!", "Ln\006\202" },
+      { { K40, 1 }, { K41, 1 }, "Cy,x", "\224" }, // phi
+      { { K40, 2 }, { K41, 2 }, "Py,x", "\224\235" }, // phi^-1
+      { { K12, 1 }, { K_OP, OP_NIL | OP_STORANDOM } , "RAN#", "SEED" },
       { ARROW_KEY, NO_KEY, "--\015", "" },
       { CMPLX_KEY, NO_KEY, "CPX", "" },
     }
   },
   {
     "Statistics", // 12
+    /*
+     *xbar, sd;
+     *yhat, xhat;
+     *corr, L.R.;
+     *best, linear;
+     *ln, exp;
+     *cmplx, power;
+     *No, sums is already on g9.
+     */
     { 
-      { { K42, 1 }, { K43, 3 }, "Xbar", "SUMS" },
-      { { K43, 1 }, NO_KEY, "Yhat", "" },
-      { { K42, 2 }, NO_KEY, "s", "" },
-      { { K43, 2 }, NO_KEY, "r", "" },
-      { ARROW_KEY, NO_KEY, "--\015", "" },
-      { CMPLX_KEY, { K_MULTI, DOTS }, "CPX", "" },
+      { { K42, 1 }, { K42, 2 }, "\001", "S.D." },
+      { { K43, 1 }, { K_OP, OP_MON | OP_xhat }, "y-hat", "x-hat" },
+      { { K_OP, OP_NIL | OP_statR}, { K_OP, OP_NIL | OP_statLR}, "CORR", "L.R." },
+      { { K_OP, OP_NIL | OP_BEST}, { K_OP, OP_NIL | OP_LOGF}, "BestF", "LogFit" },
+      { { K_OP, OP_NIL | OP_LINF}, { K_OP, OP_NIL | OP_EXPF}, "Linear", "ExpFit" },
+      { CMPLX_KEY, { K_OP, OP_NIL | OP_PWRF }, "CPX", "PwrFit" },
     }
   },
   {

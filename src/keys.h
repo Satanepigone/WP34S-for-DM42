@@ -59,6 +59,7 @@ typedef enum {
 	K_MULTI = 49, // used to send back "multiple" keys from remap()
 	K_EXIT = 50, // used to exit loop
 	K_SSHOT = 51, //triggers screenshot
+	K_OP = 52, // means that shift is an opcode
 } keycode;
 
 #else
