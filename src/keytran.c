@@ -229,3 +229,61 @@ static const struct _ndmap mapping_alpha[] = {
     {K_NOP, -1},
     {K_NOP, -1},
 };
+
+static const struct _ndmap mapping_running[] = {
+    {K_RELEASE, -1},
+    // Top row of DM42 1--6
+    {K00, 0}, //
+    {K01, 0}, //
+    {K02, 0}, //
+    {K03, 0}, //
+    {K04, 0}, //
+    {K30, 0}, // xeq
+    // Next row of DM42 7--12
+    {K10, 0}, //
+    {K11, 0}, //
+    {K12, 0}, //
+    {K13, 0}, // sin
+    {K14, 0}, // cos
+    {K15, 0}, // tan
+    // Third row of DM42 13--17
+    {K20, 0}, // ENTER
+    {K21, 0}, // x<>y
+    {K22, 0}, // +/-
+    {K23, 0}, // EEX
+    {K24, 0}, // <-
+    // Fourth row of DM42 18--22
+    {K40, 0}, // up-arrow
+    {K31, 0}, // 7
+    {K32, 0}, // 8
+    {K33, 0}, // 9
+    {K34, 0}, // /
+    // Fifth row of DM42 23--27
+    {K50, 0}, // down-arrow
+    {K41, 0}, // 4
+    {K42, 0}, // 5
+    {K43, 0}, // 6
+    {K44, 0}, // *
+    // Sixth row of DM42 28--32
+    {K13, 0}, // shift
+    {K51, 0}, // 1
+    {K52, 0}, // 2
+    {K53, 0}, // 3
+    {K54, 0}, // -
+    // Last row of DM42 33--37
+    {K60, 0}, // EXIT
+    {K61, 0}, // 0
+    {K62, 0}, // .
+    {K63, 0}, // R/S
+    {K64, 0}, // +
+    // Function keys, screenshot, sh_up, sh_down
+    {K_NOP, 0}, // F1
+    {K_NOP, 0},
+    {K_NOP, 0},
+    {K_NOP, 0},
+    {K04, 0}, // -->
+    {K05, 0}, // CPX
+    {K_NOP, 0}, // 44
+    {K_NOP, 0}, // 45
+    {K_NOP, 0}, // 46
+  };

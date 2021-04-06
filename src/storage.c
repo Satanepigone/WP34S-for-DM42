@@ -1342,7 +1342,7 @@ void load_prog_file () {
   FLASH_REGION* fr;
   char* buffer;
 
-  fss = file_selection_screen ("Load RAM File", "/wp34s", ".dat", open_selected_file, NO_DISP_NEW, NO_OVERWRITE_CHECK, &data );
+  fss = file_selection_screen ("Load PROG File", "/wp34s", ".dat", open_selected_file, NO_DISP_NEW, NO_OVERWRITE_CHECK, &data );
   if (fss != 1) return;
 
   // File is now open with correct permissions

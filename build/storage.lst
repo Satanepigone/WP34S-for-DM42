@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccYFWqP2.s 			page 1
+ARM GAS  /tmp/cczYVb2h.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
   27:src/storage.c **** #define BACKUP_FLASH   __attribute__((section(".backupflash")))
   28:src/storage.c **** 
   29:src/storage.c **** #ifndef NULL
-ARM GAS  /tmp/ccYFWqP2.s 			page 2
+ARM GAS  /tmp/cczYVb2h.s 			page 2
 
 
   30:src/storage.c **** #define NULL 0
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
   84:src/storage.c **** 
   85:src/storage.c **** #ifdef DM42
   86:src/storage.c **** #define PAGE_SIZE	 256 // if saving to flash need page size of 2k on DM42
-ARM GAS  /tmp/ccYFWqP2.s 			page 3
+ARM GAS  /tmp/cczYVb2h.s 			page 3
 
 
   87:src/storage.c **** #else
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  141:src/storage.c **** #if !defined(REALBUILD)
  142:src/storage.c **** /*
  143:src/storage.c ****  *  We need to define the Library space here.
-ARM GAS  /tmp/ccYFWqP2.s 			page 4
+ARM GAS  /tmp/cczYVb2h.s 			page 4
 
 
  144:src/storage.c ****  *  On the device the linker takes care of this.
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
   43              		.loc 1 160 2 view .LVU6
  162:src/storage.c **** 		crc  = ( (unsigned char)( crc >> 8 ) ) | ( crc << 8 );
   44              		.loc 1 162 2 view .LVU7
-ARM GAS  /tmp/ccYFWqP2.s 			page 5
+ARM GAS  /tmp/cczYVb2h.s 			page 5
 
 
  162:src/storage.c **** 		crc  = ( (unsigned char)( crc >> 8 ) ) | ( crc << 8 );
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  167:src/storage.c **** 	}
   85              		.loc 1 167 3 is_stmt 1 view .LVU22
  167:src/storage.c **** 	}
-ARM GAS  /tmp/ccYFWqP2.s 			page 6
+ARM GAS  /tmp/cczYVb2h.s 			page 6
 
 
   86              		.loc 1 167 25 is_stmt 0 view .LVU23
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  125 0040 7047     		bx	lr
  126              	.L6:
  127              		.cfi_restore_state
-ARM GAS  /tmp/ccYFWqP2.s 			page 7
+ARM GAS  /tmp/cczYVb2h.s 			page 7
 
 
  185:src/storage.c **** }
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  170              		.cfi_endproc
  171              	.LFE5:
  173 0062 00BF     		.section	.text.checksum_region,"ax",%progbits
-ARM GAS  /tmp/ccYFWqP2.s 			page 8
+ARM GAS  /tmp/cczYVb2h.s 			page 8
 
 
  174              		.align	1
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  228:src/storage.c **** 	unsigned int l = header->size * sizeof( s_opcode );
  188              		.loc 1 228 2 view .LVU55
  189              		.loc 1 228 25 is_stmt 0 view .LVU56
-ARM GAS  /tmp/ccYFWqP2.s 			page 9
+ARM GAS  /tmp/cczYVb2h.s 			page 9
 
 
  190 0000 4B88     		ldrh	r3, [r1, #2]
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  236              		.thumb_func
  237              		.fpu fpv4-sp-d16
  239              	check_delete_prog:
-ARM GAS  /tmp/ccYFWqP2.s 			page 10
+ARM GAS  /tmp/cczYVb2h.s 			page 10
 
 
  240              	.LVL23:
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  260:src/storage.c **** 		report_warn(ERR_READ_ONLY);
  261:src/storage.c **** 	}
  262:src/storage.c **** 	else {
-ARM GAS  /tmp/ccYFWqP2.s 			page 11
+ARM GAS  /tmp/cczYVb2h.s 			page 11
 
 
  263:src/storage.c **** 		return 0;
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  303 002c 2F777033 		.ascii	"/wp34s\000"
  303      347300
  304              		.section	.text.program_flash,"ax",%progbits
-ARM GAS  /tmp/ccYFWqP2.s 			page 12
+ARM GAS  /tmp/cczYVb2h.s 			page 12
 
 
  305              		.align	1
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  312:src/storage.c **** 
  313:src/storage.c **** 	DispMsg = NULL;
  314:src/storage.c **** }
-ARM GAS  /tmp/ccYFWqP2.s 			page 13
+ARM GAS  /tmp/cczYVb2h.s 			page 13
 
 
  315:src/storage.c **** 
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  369:src/storage.c **** void delprog( void )
  370:src/storage.c **** {
  371:src/storage.c **** 	int i;
-ARM GAS  /tmp/ccYFWqP2.s 			page 14
+ARM GAS  /tmp/cczYVb2h.s 			page 14
 
 
  372:src/storage.c **** 	const unsigned int pc = state_pc();
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  426:src/storage.c **** 
  427:src/storage.c **** 		if ( regs < 0 ) {
  428:src/storage.c **** 			return report_err( ERR_RAM_FULL );
-ARM GAS  /tmp/ccYFWqP2.s 			page 15
+ARM GAS  /tmp/cczYVb2h.s 			page 15
 
 
  429:src/storage.c **** 		}
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  483:src/storage.c **** 		for ( i = 0; i < PAGE_SIZE / 4; ++i, sp += 2 ) {
  484:src/storage.c **** 			*flash++ = *sp | ( (unsigned int) ( sp[ 1 ] ) << 16 );
  485:src/storage.c **** 		}
-ARM GAS  /tmp/ccYFWqP2.s 			page 16
+ARM GAS  /tmp/cczYVb2h.s 			page 16
 
 
  486:src/storage.c **** 
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  319              		.loc 1 535 3 view .LVU84
  536:src/storage.c ****   char *dest = (char *) destination;
  320              		.loc 1 536 3 view .LVU85
-ARM GAS  /tmp/ccYFWqP2.s 			page 17
+ARM GAS  /tmp/cczYVb2h.s 			page 17
 
 
  534:src/storage.c ****   char *name;
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  354 0014 2F4B     		ldr	r3, .L56
  355 0016 1E68     		ldr	r6, [r3]
  356              		.loc 1 550 6 view .LVU98
-ARM GAS  /tmp/ccYFWqP2.s 			page 18
+ARM GAS  /tmp/cczYVb2h.s 			page 18
 
 
  357 0018 AE42     		cmp	r6, r5
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  393              	.LBB45:
  394              	.LBI45:
  566:src/storage.c ****   if ( f != FR_OK ) {
-ARM GAS  /tmp/ccYFWqP2.s 			page 19
+ARM GAS  /tmp/cczYVb2h.s 			page 19
 
 
  567:src/storage.c ****     return f;
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  416              		.loc 1 599 3 is_stmt 0 view .LVU121
  417              	.LBE46:
  418              	.LBE45:
-ARM GAS  /tmp/ccYFWqP2.s 			page 20
+ARM GAS  /tmp/cczYVb2h.s 			page 20
 
 
  566:src/storage.c ****     return f;
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  457              		.loc 1 582 5 is_stmt 1 view .LVU137
  458 0076 1C4B     		ldr	r3, .L56+20
  459 0078 0020     		movs	r0, #0
-ARM GAS  /tmp/ccYFWqP2.s 			page 21
+ARM GAS  /tmp/cczYVb2h.s 			page 21
 
 
  460 007a 9847     		blx	r3
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  500              		.cfi_def_cfa_offset 32
  501              		@ sp needed
  502 0096 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
-ARM GAS  /tmp/ccYFWqP2.s 			page 22
+ARM GAS  /tmp/cczYVb2h.s 			page 22
 
 
  503              	.LVL49:
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  591:src/storage.c **** }
  545              		.loc 1 591 3 view .LVU164
  591:src/storage.c **** }
-ARM GAS  /tmp/ccYFWqP2.s 			page 23
+ARM GAS  /tmp/cczYVb2h.s 			page 23
 
 
  546              		.loc 1 591 10 is_stmt 0 view .LVU165
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  605:src/storage.c **** {
  606:src/storage.c ****   char *name;
  607:src/storage.c ****   char *dest = (char *) destination;
-ARM GAS  /tmp/ccYFWqP2.s 			page 24
+ARM GAS  /tmp/cczYVb2h.s 			page 24
 
 
  608:src/storage.c ****   FILE *f = NULL;
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  662:src/storage.c **** {
  663:src/storage.c **** 	if ( checksum_region( &UserFlash, &UserFlash ) ) {
  664:src/storage.c **** 	  struct {
-ARM GAS  /tmp/ccYFWqP2.s 			page 25
+ARM GAS  /tmp/cczYVb2h.s 			page 25
 
 
  665:src/storage.c **** 			unsigned short crc;
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  691:src/storage.c ****   char buffer[ PAGE_SIZE ];
  692:src/storage.c ****   FLASH_REGION *fr = (FLASH_REGION *) buffer;
  693:src/storage.c ****   count <<= 1;
-ARM GAS  /tmp/ccYFWqP2.s 			page 26
+ARM GAS  /tmp/cczYVb2h.s 			page 26
 
 
  694:src/storage.c **** 
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  714:src/storage.c ****      */
  715:src/storage.c **** #ifdef DM42
  716:src/storage.c ****     count = ( count + ( PAGE_SIZE - 1 ) ) / PAGE_SIZE; // Should work for DM42 or not
-ARM GAS  /tmp/ccYFWqP2.s 			page 27
+ARM GAS  /tmp/cczYVb2h.s 			page 27
 
 
  647              		.loc 1 716 5 is_stmt 1 view .LVU189
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  685              	.LVL70:
  732:src/storage.c **** }
  686              		.loc 1 732 1 view .LVU202
-ARM GAS  /tmp/ccYFWqP2.s 			page 28
+ARM GAS  /tmp/cczYVb2h.s 			page 28
 
 
  687 0056 41B0     		add	sp, sp, #260
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  733 007e FFF7FEFF 		bl	xcopy
  734              	.LVL79:
  703:src/storage.c ****       return 1;
-ARM GAS  /tmp/ccYFWqP2.s 			page 29
+ARM GAS  /tmp/cczYVb2h.s 			page 29
 
 
  735              		.loc 1 703 5 view .LVU214
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  778              		.syntax unified
  779              		.thumb
  780              		.thumb_func
-ARM GAS  /tmp/ccYFWqP2.s 			page 30
+ARM GAS  /tmp/cczYVb2h.s 			page 30
 
 
  781              		.fpu fpv4-sp-d16
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  783:src/storage.c **** 
  784:src/storage.c **** /*
  785:src/storage.c ****  *  Load the user program area from the backup.
-ARM GAS  /tmp/ccYFWqP2.s 			page 31
+ARM GAS  /tmp/cczYVb2h.s 			page 31
 
 
  786:src/storage.c ****  *  Called by PLOAD.
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  840:src/storage.c **** 	}
  841:src/storage.c **** 	if ( ! BackupFlash._state.have_stats ) {
  842:src/storage.c **** 		/*
-ARM GAS  /tmp/ccYFWqP2.s 			page 32
+ARM GAS  /tmp/cczYVb2h.s 			page 32
 
 
  843:src/storage.c **** 		 *  Backup has no data
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  897:src/storage.c **** 			return;
  898:src/storage.c **** 		}
  899:src/storage.c **** 		/*
-ARM GAS  /tmp/ccYFWqP2.s 			page 33
+ARM GAS  /tmp/cczYVb2h.s 			page 33
 
 
  900:src/storage.c **** 		 *  Compute space needed
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  954:src/storage.c **** #define ASSEMBLER "..\\tools\\wp34s_asm.exe"
  955:src/storage.c **** #else
  956:src/storage.c **** #define ASSEMBLER "../tools/wp34s_asm.pl"
-ARM GAS  /tmp/ccYFWqP2.s 			page 34
+ARM GAS  /tmp/cczYVb2h.s 			page 34
 
 
  957:src/storage.c **** #endif
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
 1011:src/storage.c **** 		ShowMessage( "Save Error", strerror( errno ) );
 1012:src/storage.c **** 		return;
 1013:src/storage.c **** 	}
-ARM GAS  /tmp/ccYFWqP2.s 			page 35
+ARM GAS  /tmp/cczYVb2h.s 			page 35
 
 
 1014:src/storage.c **** 	process_cmdline_set_lift();
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
 1068:src/storage.c **** 
 1069:src/storage.c **** /*
 1070:src/storage.c ****  *  Lots of file routines for DM42
-ARM GAS  /tmp/ccYFWqP2.s 			page 36
+ARM GAS  /tmp/cczYVb2h.s 			page 36
 
 
 1071:src/storage.c ****  */
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
 1125:src/storage.c ****     }
 1126:src/storage.c ****   }
 1127:src/storage.c ****   else {
-ARM GAS  /tmp/ccYFWqP2.s 			page 37
+ARM GAS  /tmp/cczYVb2h.s 			page 37
 
 
 1128:src/storage.c ****     fss = file_selection_screen ("Load Library File", "/wp34s", ".lib", open_selected_file, NO_DISP
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
 1182:src/storage.c ****     f = f_open (FPT, STATE_FILE, FA_READ);
 1183:src/storage.c ****     if (f != FR_OK) {
 1184:src/storage.c ****       f_close (FPT);
-ARM GAS  /tmp/ccYFWqP2.s 			page 38
+ARM GAS  /tmp/cczYVb2h.s 			page 38
 
 
 1185:src/storage.c ****       //      DispMsg = "No file?";
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  787              		.cfi_startproc
  788              		@ args = 0, pretend = 0, frame = 0
  789              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccYFWqP2.s 			page 39
+ARM GAS  /tmp/cczYVb2h.s 			page 39
 
 
  790              		.loc 1 1237 78 is_stmt 0 view .LVU225
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
 1254:src/storage.c ****     sys_disk_write_enable(0);
 1255:src/storage.c ****     DispMsg = "File err";
 1256:src/storage.c ****     return 2; // file can't be opened
-ARM GAS  /tmp/ccYFWqP2.s 			page 40
+ARM GAS  /tmp/cczYVb2h.s 			page 40
 
 
 1257:src/storage.c ****   }
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  864              	.L80:
  865              	.LBB52:
  866              	.LBI52:
-ARM GAS  /tmp/ccYFWqP2.s 			page 41
+ARM GAS  /tmp/cczYVb2h.s 			page 41
 
 
 1237:src/storage.c ****   FRESULT f;
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  912      61696C65 
  912      6400
  913              		.section	.text.init_mem,"ax",%progbits
-ARM GAS  /tmp/ccYFWqP2.s 			page 42
+ARM GAS  /tmp/cczYVb2h.s 			page 42
 
 
  914              		.align	1
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  108:src/storage.c ****   backup_ram = (TPersistentRam *) v;
  955              		.loc 1 108 5 is_stmt 0 view .LVU277
  956 0016 00F50061 		add	r1, r0, #2048
-ARM GAS  /tmp/ccYFWqP2.s 			page 43
+ARM GAS  /tmp/cczYVb2h.s 			page 43
 
 
  957              	.LVL104:
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  1003              	.LVL109:
  1004              	.LFB4:
  157:src/storage.c **** 	unsigned short int crc = 0x5aa5;
-ARM GAS  /tmp/ccYFWqP2.s 			page 44
+ARM GAS  /tmp/cczYVb2h.s 			page 44
 
 
  1005              		.loc 1 157 1 is_stmt 1 view -0
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  166:src/storage.c **** 		crc ^= ( crc & 0xff ) << 5;
  1043              		.loc 1 166 7 is_stmt 0 discriminator 3 view .LVU305
  1044 0018 83EA0332 		eor	r2, r3, r3, lsl #12
-ARM GAS  /tmp/ccYFWqP2.s 			page 45
+ARM GAS  /tmp/cczYVb2h.s 			page 45
 
 
  1045              	.LVL117:
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  1085              		.thumb
  1086              		.thumb_func
  1087              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/ccYFWqP2.s 			page 46
+ARM GAS  /tmp/cczYVb2h.s 			page 46
 
 
  1089              	checksum_program:
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  1127              		.loc 1 162 2 is_stmt 0 view .LVU336
  1128 001a 4B1C     		adds	r3, r1, #1
  1129              	.LVL125:
-ARM GAS  /tmp/ccYFWqP2.s 			page 47
+ARM GAS  /tmp/cczYVb2h.s 			page 47
 
 
  162:src/storage.c **** 		crc  = ( (unsigned char)( crc >> 8 ) ) | ( crc << 8 );
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  1168 0042 8142     		cmp	r1, r0
  167:src/storage.c **** 	}
  1169              		.loc 1 167 7 view .LVU353
-ARM GAS  /tmp/ccYFWqP2.s 			page 48
+ARM GAS  /tmp/cczYVb2h.s 			page 48
 
 
  1170 0044 83EA0203 		eor	r3, r3, r2
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  205:src/storage.c **** 	return test_checksum( &PersistentRam, sizeof( PersistentRam ) - sizeof( short ),
  1216              		.loc 1 205 1 is_stmt 1 view -0
  1217              		.cfi_startproc
-ARM GAS  /tmp/ccYFWqP2.s 			page 49
+ARM GAS  /tmp/cczYVb2h.s 			page 49
 
 
  1218              		@ args = 0, pretend = 0, frame = 0
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  1266              	.LBI60:
  156:src/storage.c **** {
  1267              		.loc 1 156 20 view .LVU373
-ARM GAS  /tmp/ccYFWqP2.s 			page 50
+ARM GAS  /tmp/cczYVb2h.s 			page 50
 
 
  1268              	.LBB61:
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  1307 001c C3F30312 		ubfx	r2, r3, #4, #4
  1308 0020 5340     		eors	r3, r3, r2
  1309              	.LVL144:
-ARM GAS  /tmp/ccYFWqP2.s 			page 51
+ARM GAS  /tmp/cczYVb2h.s 			page 51
 
 
  166:src/storage.c **** 		crc ^= ( crc & 0xff ) << 5;
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  1347              	.LVL150:
  185:src/storage.c **** }
  1348              		.loc 1 185 23 view .LVU406
-ARM GAS  /tmp/ccYFWqP2.s 			page 52
+ARM GAS  /tmp/cczYVb2h.s 			page 52
 
 
  1349              	.LBE64:
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  248:src/storage.c **** 	clrretstk_pc();
  1398              		.loc 1 248 1 is_stmt 0 view .LVU414
  1399 0000 08B5     		push	{r3, lr}
-ARM GAS  /tmp/ccYFWqP2.s 			page 53
+ARM GAS  /tmp/cczYVb2h.s 			page 53
 
 
  1400              		.cfi_def_cfa_offset 8
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  1445              		.loc 1 301 1 is_stmt 1 view -0
  1446              		.cfi_startproc
  1447              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccYFWqP2.s 			page 54
+ARM GAS  /tmp/cczYVb2h.s 			page 54
 
 
  1448              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  237:src/storage.c **** {
  1490              		.loc 1 237 13 view .LVU438
  1491              	.LBB73:
-ARM GAS  /tmp/ccYFWqP2.s 			page 55
+ARM GAS  /tmp/cczYVb2h.s 			page 55
 
 
  239:src/storage.c **** 	Prog[ 0 ] = ( OP_NIL | OP_END );
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  1530 0050 00000000 		.word	StateWhileOn
  1531 0054 00000000 		.word	DispMsg
  1532              		.cfi_endproc
-ARM GAS  /tmp/ccYFWqP2.s 			page 56
+ARM GAS  /tmp/cczYVb2h.s 			page 56
 
 
  1533              	.LFE14:
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  1578              		.loc 1 325 18 view .LVU464
  1579 001c 93F8E427 		ldrb	r2, [r3, #2020]	@ zero_extendqisi2
  329:src/storage.c **** }
-ARM GAS  /tmp/ccYFWqP2.s 			page 57
+ARM GAS  /tmp/cczYVb2h.s 			page 57
 
 
  1580              		.loc 1 329 10 view .LVU465
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  337:src/storage.c **** 	int i;
  1629              		.loc 1 337 18 view .LVU473
  1630 0006 00F47046 		and	r6, r0, #61440
-ARM GAS  /tmp/ccYFWqP2.s 			page 58
+ARM GAS  /tmp/cczYVb2h.s 			page 58
 
 
  339:src/storage.c **** 
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  1668              		.loc 1 350 2 view .LVU490
  350:src/storage.c **** 		return;
  1669              		.loc 1 350 16 is_stmt 0 view .LVU491
-ARM GAS  /tmp/ccYFWqP2.s 			page 59
+ARM GAS  /tmp/cczYVb2h.s 			page 59
 
 
  1670 0030 2D4B     		ldr	r3, .L145+4
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  1708              		.loc 1 356 26 is_stmt 1 view .LVU507
  356:src/storage.c **** 		Prog_1[ i ] = Prog_1[ i - off ];
  1709              		.loc 1 356 2 is_stmt 0 view .LVU508
-ARM GAS  /tmp/ccYFWqP2.s 			page 60
+ARM GAS  /tmp/cczYVb2h.s 			page 60
 
 
  1710 0064 8242     		cmp	r2, r0
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  361:src/storage.c **** 	State.pc = pc;
  1749              		.loc 1 361 13 view .LVU524
  1750 00a0 27F81340 		strh	r4, [r7, r3, lsl #1]	@ movhi
-ARM GAS  /tmp/ccYFWqP2.s 			page 61
+ARM GAS  /tmp/cczYVb2h.s 			page 61
 
 
  362:src/storage.c **** }
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  1793              		.loc 1 338 2 is_stmt 1 view .LVU536
  339:src/storage.c **** 
  1794              		.loc 1 339 2 view .LVU537
-ARM GAS  /tmp/ccYFWqP2.s 			page 62
+ARM GAS  /tmp/cczYVb2h.s 			page 62
 
 
  341:src/storage.c **** 		stoprog( OP_NIL | OP_END );
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  1841              		.cfi_offset 4, -16
  1842              		.cfi_offset 5, -12
  1843              		.cfi_offset 6, -8
-ARM GAS  /tmp/ccYFWqP2.s 			page 63
+ARM GAS  /tmp/cczYVb2h.s 			page 63
 
 
  1844              		.cfi_offset 14, -4
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  1882              		.loc 1 383 2 view .LVU563
  1883 0036 9442     		cmp	r4, r2
  380:src/storage.c **** 	ProgSize -= off;
-ARM GAS  /tmp/ccYFWqP2.s 			page 64
+ARM GAS  /tmp/cczYVb2h.s 			page 64
 
 
  1884              		.loc 1 380 33 view .LVU564
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  1921 005c F7DA     		bge	.L151
  1922              	.L152:
  385:src/storage.c **** }
-ARM GAS  /tmp/ccYFWqP2.s 			page 65
+ARM GAS  /tmp/cczYVb2h.s 			page 65
 
 
  1923              		.loc 1 385 2 is_stmt 1 view .LVU582
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  1971              		.cfi_offset 5, -20
  1972              		.cfi_offset 6, -16
  1973              		.cfi_offset 7, -12
-ARM GAS  /tmp/ccYFWqP2.s 			page 66
+ARM GAS  /tmp/cczYVb2h.s 			page 66
 
 
  1974              		.cfi_offset 8, -8
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  440:src/storage.c **** 
  2012              		.loc 1 440 1 is_stmt 0 view .LVU607
  2013 002c BDE8F041 		pop	{r4, r5, r6, r7, r8, lr}
-ARM GAS  /tmp/ccYFWqP2.s 			page 67
+ARM GAS  /tmp/cczYVb2h.s 			page 67
 
 
  2014              		.cfi_remember_state
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  2055 004e 1B68     		ldr	r3, [r3]
  416:src/storage.c **** 		space_needed -= SizeStatRegs;
  2056              		.loc 1 416 24 discriminator 1 view .LVU621
-ARM GAS  /tmp/ccYFWqP2.s 			page 68
+ARM GAS  /tmp/cczYVb2h.s 			page 68
 
 
  2057 0050 3BBB     		cbnz	r3, .L178
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  2095              		.loc 1 435 5 is_stmt 0 view .LVU637
  2096 0076 5D1C     		adds	r5, r3, #1
  437:src/storage.c **** 	set_pc( pc );
-ARM GAS  /tmp/ccYFWqP2.s 			page 69
+ARM GAS  /tmp/cczYVb2h.s 			page 69
 
 
  2097              		.loc 1 437 16 view .LVU638
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  2140              	.LVL216:
  2141              	.L178:
  2142              		.cfi_restore_state
-ARM GAS  /tmp/ccYFWqP2.s 			page 70
+ARM GAS  /tmp/cczYVb2h.s 			page 70
 
 
  417:src/storage.c **** 		sigmaDeallocate();
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  2183              		.cfi_endproc
  2184              	.LFE18:
  2186              		.section	.text.check_create_wp34sdir,"ax",%progbits
-ARM GAS  /tmp/ccYFWqP2.s 			page 71
+ARM GAS  /tmp/cczYVb2h.s 			page 71
 
 
  2187              		.align	1
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  2232              	.L185:
  600:src/storage.c **** 
  2233              		.loc 1 600 1 view .LVU674
-ARM GAS  /tmp/ccYFWqP2.s 			page 72
+ARM GAS  /tmp/cczYVb2h.s 			page 72
 
 
  2234              		.align	2
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  2282              		.cfi_restore_state
  2283              	.LBB78:
  664:src/storage.c **** 			unsigned short crc;
-ARM GAS  /tmp/ccYFWqP2.s 			page 73
+ARM GAS  /tmp/cczYVb2h.s 			page 73
 
 
  2284              		.loc 1 664 4 is_stmt 1 view .LVU683
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  2331              		@ args = 0, pretend = 0, frame = 0
  2332              		@ frame_needed = 0, uses_anonymous_args = 0
  2333              		@ link register save eliminated.
-ARM GAS  /tmp/ccYFWqP2.s 			page 74
+ARM GAS  /tmp/cczYVb2h.s 			page 74
 
 
  740:src/storage.c **** 	step_no = offsetLIB( step_no );
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  2373 0024 00000000 		.word	library_ram
  2374              		.cfi_endproc
  2375              	.LFE24:
-ARM GAS  /tmp/ccYFWqP2.s 			page 75
+ARM GAS  /tmp/cczYVb2h.s 			page 75
 
 
  2377              		.section	.text.clrprog,"ax",%progbits
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  2420              	.L206:
  285:src/storage.c **** 		xcopy( Prog_1 + ProgBegin, Prog + ProgEnd, ( ProgSize - ProgEnd ) << 1 );
  2421              		.loc 1 285 3 is_stmt 1 view .LVU720
-ARM GAS  /tmp/ccYFWqP2.s 			page 76
+ARM GAS  /tmp/cczYVb2h.s 			page 76
 
 
  2422 001e FFF7FEFF 		bl	clrretstk
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  2460              		.loc 1 288 6 is_stmt 0 view .LVU736
  2461 005a B3B9     		cbnz	r3, .L207
  289:src/storage.c **** 		}
-ARM GAS  /tmp/ccYFWqP2.s 			page 77
+ARM GAS  /tmp/cczYVb2h.s 			page 77
 
 
  2462              		.loc 1 289 4 is_stmt 1 view .LVU737
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  2501              		.cfi_remember_state
  2502              		.cfi_restore 14
  2503              		.cfi_restore 4
-ARM GAS  /tmp/ccYFWqP2.s 			page 78
+ARM GAS  /tmp/cczYVb2h.s 			page 78
 
 
  2504              		.cfi_def_cfa_offset 0
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
 1282:src/storage.c ****       return;
 1283:src/storage.c ****     }
 1284:src/storage.c ****     /*
-ARM GAS  /tmp/ccYFWqP2.s 			page 79
+ARM GAS  /tmp/cczYVb2h.s 			page 79
 
 
 1285:src/storage.c ****      *  Check if program is labeled
@@ -4738,13 +4738,13 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
 1339:src/storage.c ****   int fss, fsize;
 1340:src/storage.c ****   int data = READ;
 1341:src/storage.c ****   uint x=0;
-ARM GAS  /tmp/ccYFWqP2.s 			page 80
+ARM GAS  /tmp/cczYVb2h.s 			page 80
 
 
 1342:src/storage.c ****   FLASH_REGION* fr;
 1343:src/storage.c ****   char* buffer;
 1344:src/storage.c **** 
-1345:src/storage.c ****   fss = file_selection_screen ("Load RAM File", "/wp34s", ".dat", open_selected_file, NO_DISP_NEW, 
+1345:src/storage.c ****   fss = file_selection_screen ("Load PROG File", "/wp34s", ".dat", open_selected_file, NO_DISP_NEW,
 1346:src/storage.c ****   if (fss != 1) return;
 1347:src/storage.c **** 
 1348:src/storage.c ****   // File is now open with correct permissions
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
 1391:src/storage.c ****      *  Check if program is labeled
 1392:src/storage.c ****      */
 1393:src/storage.c ****     opcode lbl = (fr->prog)[0];
-ARM GAS  /tmp/ccYFWqP2.s 			page 81
+ARM GAS  /tmp/cczYVb2h.s 			page 81
 
 
  2541              		.loc 1 1393 5 view .LVU756
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  2581              		.loc 1 1398 8 is_stmt 0 view .LVU768
  2582 0024 04D1     		bne	.L211
 1398:src/storage.c ****       DispMsg = "No label";
-ARM GAS  /tmp/ccYFWqP2.s 			page 82
+ARM GAS  /tmp/cczYVb2h.s 			page 82
 
 
  2583              		.loc 1 1398 22 view .LVU769
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  2602              	.LBB85:
 1405:src/storage.c ****     free = NUMPROG_FLASH_MAX - UserFlash.size;
  2603              		.loc 1 1405 5 is_stmt 1 view .LVU776
-ARM GAS  /tmp/ccYFWqP2.s 			page 83
+ARM GAS  /tmp/cczYVb2h.s 			page 83
 
 
 1406:src/storage.c ****     
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  2641 0062 211D     		adds	r1, r4, #4
  2642 0064 3B18     		adds	r3, r7, r0
  2643 0066 3A46     		mov	r2, r7
-ARM GAS  /tmp/ccYFWqP2.s 			page 84
+ARM GAS  /tmp/cczYVb2h.s 			page 84
 
 
  2644              	.LBE85:
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  2687              	.LVL258:
 1419:src/storage.c **** 	clrprog();
  2688              		.loc 1 1419 7 is_stmt 1 view .LVU806
-ARM GAS  /tmp/ccYFWqP2.s 			page 85
+ARM GAS  /tmp/cczYVb2h.s 			page 85
 
 
 1419:src/storage.c **** 	clrprog();
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  2737              	.LBE87:
  2738              		.cfi_endproc
  2739              	.LFE43:
-ARM GAS  /tmp/ccYFWqP2.s 			page 86
+ARM GAS  /tmp/cczYVb2h.s 			page 86
 
 
  2741              		.section	.rodata.flash_backup.str1.4,"aMS",%progbits,1
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  2785              		.loc 1 755 3 view .LVU822
  2786 000c FFF7FEFF 		bl	process_cmdline_set_lift
  2787              	.LVL266:
-ARM GAS  /tmp/ccYFWqP2.s 			page 87
+ARM GAS  /tmp/cczYVb2h.s 			page 87
 
 
  756:src/storage.c **** 		checksum_all();
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  760:src/storage.c **** 		}
  2829              		.loc 1 760 12 is_stmt 0 view .LVU836
  2830 0040 034B     		ldr	r3, .L238+8
-ARM GAS  /tmp/ccYFWqP2.s 			page 88
+ARM GAS  /tmp/cczYVb2h.s 			page 88
 
 
  2831 0042 054A     		ldr	r2, .L238+16
@@ -5278,7 +5278,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  772:src/storage.c **** 			error_message( ERR_INVALID );
  2878              		.loc 1 772 8 is_stmt 0 view .LVU844
  2879 0008 FFF7FEFF 		bl	checksum_backup
-ARM GAS  /tmp/ccYFWqP2.s 			page 89
+ARM GAS  /tmp/cczYVb2h.s 			page 89
 
 
  2880              	.LVL273:
@@ -5338,7 +5338,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  2926              		.align	1
  2927              		.p2align 2,,3
  2928              		.global	load_program
-ARM GAS  /tmp/ccYFWqP2.s 			page 90
+ARM GAS  /tmp/cczYVb2h.s 			page 90
 
 
  2929              		.syntax unified
@@ -5398,7 +5398,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  239:src/storage.c **** 	Prog[ 0 ] = ( OP_NIL | OP_END );
  2971              		.loc 1 239 2 view .LVU867
  2972 0012 0A4B     		ldr	r3, .L254
-ARM GAS  /tmp/ccYFWqP2.s 			page 91
+ARM GAS  /tmp/cczYVb2h.s 			page 91
 
 
  2973              	.LBE95:
@@ -5458,7 +5458,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  3018 0026 0430     		adds	r0, r0, #4
  801:src/storage.c **** 
  3019              		.loc 1 801 1 is_stmt 0 view .LVU877
-ARM GAS  /tmp/ccYFWqP2.s 			page 92
+ARM GAS  /tmp/cczYVb2h.s 			page 92
 
 
  3020 0028 BDE80840 		pop	{r3, lr}
@@ -5518,7 +5518,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  3068              		.loc 1 810 2 view .LVU885
  808:src/storage.c **** 	int count;
  3069              		.loc 1 808 1 is_stmt 0 view .LVU886
-ARM GAS  /tmp/ccYFWqP2.s 			page 93
+ARM GAS  /tmp/cczYVb2h.s 			page 93
 
 
  3070 0000 38B5     		push	{r3, r4, r5, lr}
@@ -5578,7 +5578,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  3110              		.loc 1 825 2 is_stmt 1 view .LVU900
  825:src/storage.c **** }
  3111              		.loc 1 825 9 is_stmt 0 view .LVU901
-ARM GAS  /tmp/ccYFWqP2.s 			page 94
+ARM GAS  /tmp/cczYVb2h.s 			page 94
 
 
  3112 0028 FFF7FEFF 		bl	get_reg_n
@@ -5638,7 +5638,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  3157              	.LFE28:
  3159              		.section	.text.load_sigma,"ax",%progbits
  3160              		.align	1
-ARM GAS  /tmp/ccYFWqP2.s 			page 95
+ARM GAS  /tmp/cczYVb2h.s 			page 95
 
 
  3161              		.p2align 2,,3
@@ -5698,7 +5698,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  849:src/storage.c **** 
  3203              		.loc 1 849 1 view .LVU924
  3204 0024 BDE80840 		pop	{r3, lr}
-ARM GAS  /tmp/ccYFWqP2.s 			page 96
+ARM GAS  /tmp/cczYVb2h.s 			page 96
 
 
  3205              		.cfi_remember_state
@@ -5758,7 +5758,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  3254              	.LVL299:
  3255              	.LFB30:
  856:src/storage.c **** 	if ( not_running() ) {
-ARM GAS  /tmp/ccYFWqP2.s 			page 97
+ARM GAS  /tmp/cczYVb2h.s 			page 97
 
 
  3256              		.loc 1 856 1 is_stmt 1 view -0
@@ -5818,7 +5818,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  3295              		.loc 1 867 3 view .LVU947
  869:src/storage.c **** 
  3296              		.loc 1 869 1 is_stmt 0 view .LVU948
-ARM GAS  /tmp/ccYFWqP2.s 			page 98
+ARM GAS  /tmp/cczYVb2h.s 			page 98
 
 
  3297 0028 BDE80840 		pop	{r3, lr}
@@ -5878,7 +5878,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  3345              		.loc 1 878 2 view .LVU956
  879:src/storage.c **** 
  3346              		.loc 1 879 2 view .LVU957
-ARM GAS  /tmp/ccYFWqP2.s 			page 99
+ARM GAS  /tmp/cczYVb2h.s 			page 99
 
 
  881:src/storage.c **** 		/*
@@ -5938,7 +5938,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  895:src/storage.c **** 			report_err( ERR_NO_LBL );
  3387              		.loc 1 895 9 is_stmt 0 view .LVU972
  3388 0028 00F47043 		and	r3, r0, #61440
-ARM GAS  /tmp/ccYFWqP2.s 			page 100
+ARM GAS  /tmp/cczYVb2h.s 			page 100
 
 
  895:src/storage.c **** 			report_err( ERR_NO_LBL );
@@ -5998,7 +5998,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  3426 005e 1E37     		adds	r7, r7, #30
  3427              	.LVL315:
  908:src/storage.c **** 		if ( pc != 0 ) {
-ARM GAS  /tmp/ccYFWqP2.s 			page 101
+ARM GAS  /tmp/cczYVb2h.s 			page 101
 
 
  3428              		.loc 1 908 3 is_stmt 1 view .LVU990
@@ -6058,7 +6058,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  3469 0080 FFF7FEBF 		b	flash_append
  3470              	.LVL320:
  3471              	.L281:
-ARM GAS  /tmp/ccYFWqP2.s 			page 102
+ARM GAS  /tmp/cczYVb2h.s 			page 102
 
 
  3472              		.cfi_restore_state
@@ -6118,7 +6118,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  3516 009c BDE8F041 		pop	{r4, r5, r6, r7, r8, lr}
  3517              		.cfi_remember_state
  3518              		.cfi_restore 14
-ARM GAS  /tmp/ccYFWqP2.s 			page 103
+ARM GAS  /tmp/cczYVb2h.s 			page 103
 
 
  3519              		.cfi_restore 8
@@ -6178,7 +6178,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  919:src/storage.c **** 		}
  3560              		.loc 1 919 4 is_stmt 1 view .LVU1027
  3561 00c4 4046     		mov	r0, r8
-ARM GAS  /tmp/ccYFWqP2.s 			page 104
+ARM GAS  /tmp/cczYVb2h.s 			page 104
 
 
  3562 00c6 FFF7FEFF 		bl	set_pc
@@ -6238,7 +6238,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  937:src/storage.c **** 			State.pc = 1;
  3610              		.loc 1 937 6 view .LVU1036
  3611 000c B3F8E027 		ldrh	r2, [r3, #2016]
-ARM GAS  /tmp/ccYFWqP2.s 			page 105
+ARM GAS  /tmp/cczYVb2h.s 			page 105
 
 
  3612 0010 12B9     		cbnz	r2, .L299
@@ -6298,7 +6298,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  3656      736C6631 
  3656      00
  3657 0009 000000   		.align	2
-ARM GAS  /tmp/ccYFWqP2.s 			page 106
+ARM GAS  /tmp/cczYVb2h.s 			page 106
 
 
  3658              	.LC12:
@@ -6358,7 +6358,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  3698              		.loc 1 1084 30 view .LVU1054
  3699 0008 0446     		mov	r4, r0
 1090:src/storage.c ****   if (i == 0) {
-ARM GAS  /tmp/ccYFWqP2.s 			page 107
+ARM GAS  /tmp/cczYVb2h.s 			page 107
 
 
  3700              		.loc 1 1090 3 view .LVU1055
@@ -6418,7 +6418,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
 1106:src/storage.c ****     DispMsg = "Err slf2";
  3741              		.loc 1 1106 3 is_stmt 1 view .LVU1069
 1106:src/storage.c ****     DispMsg = "Err slf2";
-ARM GAS  /tmp/ccYFWqP2.s 			page 108
+ARM GAS  /tmp/cczYVb2h.s 			page 108
 
 
  3742              		.loc 1 1106 6 is_stmt 0 view .LVU1070
@@ -6478,7 +6478,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  3786 0062 06B0     		add	sp, sp, #24
  3787              		.cfi_remember_state
  3788              		.cfi_def_cfa_offset 16
-ARM GAS  /tmp/ccYFWqP2.s 			page 109
+ARM GAS  /tmp/cczYVb2h.s 			page 109
 
 
  3789              		@ sp needed
@@ -6538,7 +6538,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  3833 0094 00000000 		.word	library_ram
  3834 0098 41040008 		.word	134218817
  3835 009c 39040008 		.word	134218809
-ARM GAS  /tmp/ccYFWqP2.s 			page 110
+ARM GAS  /tmp/cczYVb2h.s 			page 110
 
 
  3836 00a0 51030008 		.word	134218577
@@ -6598,7 +6598,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  3879 0002 0222     		movs	r2, #2
 1113:src/storage.c ****   FRESULT f;
  3880              		.loc 1 1113 30 view .LVU1097
-ARM GAS  /tmp/ccYFWqP2.s 			page 111
+ARM GAS  /tmp/cczYVb2h.s 			page 111
 
 
  3881 0004 86B0     		sub	sp, sp, #24
@@ -6658,7 +6658,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  3921              		.loc 1 1134 13 is_stmt 0 view .LVU1111
  3922 0032 164B     		ldr	r3, .L326+20
  3923 0034 164A     		ldr	r2, .L326+24
-ARM GAS  /tmp/ccYFWqP2.s 			page 112
+ARM GAS  /tmp/cczYVb2h.s 			page 112
 
 
  3924 0036 1A60     		str	r2, [r3]
@@ -6718,7 +6718,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  3968              	.LVL365:
 1129:src/storage.c ****   }
  3969              		.loc 1 1129 5 is_stmt 1 view .LVU1122
-ARM GAS  /tmp/ccYFWqP2.s 			page 113
+ARM GAS  /tmp/cczYVb2h.s 			page 113
 
 
 1129:src/storage.c ****   }
@@ -6778,7 +6778,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  4018      732F7770 
  4018      3334732E 
  4018      64617400 
-ARM GAS  /tmp/ccYFWqP2.s 			page 114
+ARM GAS  /tmp/cczYVb2h.s 			page 114
 
 
  4019              		.align	2
@@ -6838,7 +6838,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  4060              		.loc 1 206 9 view .LVU1134
  4061 0002 264E     		ldr	r6, .L338
  4062              	.LBE110:
-ARM GAS  /tmp/ccYFWqP2.s 			page 115
+ARM GAS  /tmp/cczYVb2h.s 			page 115
 
 
  4063              	.LBE109:
@@ -6898,7 +6898,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
 1153:src/storage.c ****       f = f_open (FPT, STATE_FILE, FA_CREATE_ALWAYS | FA_READ | FA_WRITE);
  4103              		.loc 1 1153 8 is_stmt 0 view .LVU1149
  4104 002e C4B9     		cbnz	r4, .L329
-ARM GAS  /tmp/ccYFWqP2.s 			page 116
+ARM GAS  /tmp/cczYVb2h.s 			page 116
 
 
 1154:src/storage.c ****       if (f != FR_OK) {
@@ -6958,7 +6958,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  4147 005e 07B0     		add	sp, sp, #28
  4148              		.cfi_remember_state
  4149              		.cfi_def_cfa_offset 20
-ARM GAS  /tmp/ccYFWqP2.s 			page 117
+ARM GAS  /tmp/cczYVb2h.s 			page 117
 
 
  4150              		@ sp needed
@@ -7018,7 +7018,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  4194              		.loc 1 1156 2 is_stmt 0 view .LVU1171
  4195 008a 9847     		blx	r3
  4196              	.LVL386:
-ARM GAS  /tmp/ccYFWqP2.s 			page 118
+ARM GAS  /tmp/cczYVb2h.s 			page 118
 
 
 1157:src/storage.c **** 	DispMsg = "Err srf1";
@@ -7078,7 +7078,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  4241      00
  4242              		.section	.text.load_ram_file,"ax",%progbits
  4243              		.align	1
-ARM GAS  /tmp/ccYFWqP2.s 			page 119
+ARM GAS  /tmp/cczYVb2h.s 			page 119
 
 
  4244              		.p2align 2,,3
@@ -7138,7 +7138,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  4286 0016 0122     		movs	r2, #1
  4287 0018 9847     		blx	r3
  4288              	.LVL391:
-ARM GAS  /tmp/ccYFWqP2.s 			page 120
+ARM GAS  /tmp/cczYVb2h.s 			page 120
 
 
 1183:src/storage.c ****       f_close (FPT);
@@ -7198,7 +7198,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  4329              		.loc 1 1203 14 is_stmt 0 view .LVU1204
  4330 0048 0120     		movs	r0, #1
 1207:src/storage.c **** 
-ARM GAS  /tmp/ccYFWqP2.s 			page 121
+ARM GAS  /tmp/cczYVb2h.s 			page 121
 
 
  4331              		.loc 1 1207 1 view .LVU1205
@@ -7258,7 +7258,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  4375              		.loc 1 1197 7 is_stmt 1 view .LVU1215
  4376 0072 6868     		ldr	r0, [r5, #4]
  4377              	.LVL401:
-ARM GAS  /tmp/ccYFWqP2.s 			page 122
+ARM GAS  /tmp/cczYVb2h.s 			page 122
 
 
 1197:src/storage.c ****       return 1;
@@ -7318,7 +7318,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  4419              		.loc 1 1207 1 view .LVU1228
  4420 0090 07B0     		add	sp, sp, #28
  4421              		.cfi_def_cfa_offset 12
-ARM GAS  /tmp/ccYFWqP2.s 			page 123
+ARM GAS  /tmp/cczYVb2h.s 			page 123
 
 
  4422              		@ sp needed
@@ -7378,7 +7378,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
 1212:src/storage.c ****   uint x=0;
  4469              		.loc 1 1212 3 view .LVU1232
 1209:src/storage.c ****   FRESULT f;
-ARM GAS  /tmp/ccYFWqP2.s 			page 124
+ARM GAS  /tmp/cczYVb2h.s 			page 124
 
 
  4470              		.loc 1 1209 33 is_stmt 0 view .LVU1233
@@ -7438,7 +7438,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  4512 002e A047     		blx	r4
  4513              	.LVL411:
 1228:src/storage.c ****     DispMsg = "Err lbf2";
-ARM GAS  /tmp/ccYFWqP2.s 			page 125
+ARM GAS  /tmp/cczYVb2h.s 			page 125
 
 
  4514              		.loc 1 1228 3 is_stmt 1 view .LVU1246
@@ -7498,7 +7498,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  4556 0058 0292     		str	r2, [sp, #8]
  4557 005a 104C     		ldr	r4, .L365+36
  4558 005c 104B     		ldr	r3, .L365+40
-ARM GAS  /tmp/ccYFWqP2.s 			page 126
+ARM GAS  /tmp/cczYVb2h.s 			page 126
 
 
  4559 005e 114A     		ldr	r2, .L365+44
@@ -7558,7 +7558,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  4605 00a0 00000000 		.word	open_selected_file
  4606 00a4 1C000000 		.word	.LC19
  4607 00a8 2C000000 		.word	.LC2
-ARM GAS  /tmp/ccYFWqP2.s 			page 127
+ARM GAS  /tmp/cczYVb2h.s 			page 127
 
 
  4608 00ac 00000000 		.word	.LC24
@@ -7618,7 +7618,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  4648              		.cfi_offset 4, -28
  4649              		.cfi_offset 5, -24
  4650              		.cfi_offset 6, -20
-ARM GAS  /tmp/ccYFWqP2.s 			page 128
+ARM GAS  /tmp/cczYVb2h.s 			page 128
 
 
  4651              		.cfi_offset 7, -16
@@ -7678,7 +7678,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  4689              		.loc 1 1288 20 is_stmt 0 view .LVU1289
  4690 0028 2B68     		ldr	r3, [r5]
 1288:src/storage.c ****     if ( !isDBL(lbl) || opDBL(lbl) != DBL_LBL ) {
-ARM GAS  /tmp/ccYFWqP2.s 			page 129
+ARM GAS  /tmp/cczYVb2h.s 			page 129
 
 
  4691              		.loc 1 1288 11 view .LVU1290
@@ -7738,7 +7738,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
 1297:src/storage.c ****     /*
  4733              		.loc 1 1297 23 is_stmt 0 view .LVU1303
  4734 005e FFF7FEFF 		bl	get_current_prog
-ARM GAS  /tmp/ccYFWqP2.s 			page 130
+ARM GAS  /tmp/cczYVb2h.s 			page 130
 
 
  4735              	.LVL429:
@@ -7798,7 +7798,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  4772              		.loc 1 165 7 is_stmt 0 view .LVU1320
  4773 0078 C3F30312 		ubfx	r2, r3, #4, #4
  4774 007c 5340     		eors	r3, r3, r2
-ARM GAS  /tmp/ccYFWqP2.s 			page 131
+ARM GAS  /tmp/cczYVb2h.s 			page 131
 
 
  4775              	.LVL435:
@@ -7858,7 +7858,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  4812 009e 04AA     		add	r2, sp, #16
  4813 00a0 CDE90132 		strd	r3, r2, [sp, #4]
  4814 00a4 0093     		str	r3, [sp]
-ARM GAS  /tmp/ccYFWqP2.s 			page 132
+ARM GAS  /tmp/cczYVb2h.s 			page 132
 
 
  4815 00a6 244A     		ldr	r2, .L384+8
@@ -7918,7 +7918,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  4853              	.LVL445:
 1322:src/storage.c ****     free(buffer);
  4854              		.loc 1 1322 9 view .LVU1354
-ARM GAS  /tmp/ccYFWqP2.s 			page 133
+ARM GAS  /tmp/cczYVb2h.s 			page 133
 
 
  4855 00d0 1E4C     		ldr	r4, .L384+28
@@ -7978,7 +7978,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  4897 0104 C047     		blx	r8
  4898              	.LVL452:
  4899 0106 9FE7     		b	.L367
-ARM GAS  /tmp/ccYFWqP2.s 			page 134
+ARM GAS  /tmp/cczYVb2h.s 			page 134
 
 
  4900              	.LVL453:
@@ -8038,7 +8038,7 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  4943              		.loc 1 1313 7 is_stmt 1 view .LVU1377
  4944 012c 8CE7     		b	.L367
  4945              	.L385:
-ARM GAS  /tmp/ccYFWqP2.s 			page 135
+ARM GAS  /tmp/cczYVb2h.s 			page 135
 
 
  4946 012e 00BF     		.align	2
@@ -8062,555 +8062,561 @@ ARM GAS  /tmp/ccYFWqP2.s 			page 1
  4965              		.section	.rodata.load_prog_file.str1.4,"aMS",%progbits,1
  4966              		.align	2
  4967              	.LC30:
- 4968 0000 46696C65 		.ascii	"File odd\000"
- 4968      206F6464 
- 4968      00
- 4969 0009 000000   		.align	2
+ 4968 0000 4C6F6164 		.ascii	"Load PROG File\000"
+ 4968      2050524F 
+ 4968      47204669 
+ 4968      6C6500
+ 4969 000f 00       		.align	2
  4970              	.LC31:
- 4971 000c 46696C65 		.ascii	"File crc err\000"
- 4971      20637263 
- 4971      20657272 
+ 4971 0010 46696C65 		.ascii	"File odd\000"
+ 4971      206F6464 
  4971      00
- 4972              		.section	.text.load_prog_file,"ax",%progbits
- 4973              		.align	1
- 4974              		.p2align 2,,3
- 4975              		.global	load_prog_file
- 4976              		.syntax unified
- 4977              		.thumb
- 4978              		.thumb_func
- 4979              		.fpu fpv4-sp-d16
- 4981              	load_prog_file:
- 4982              	.LFB40:
+ 4972 0019 000000   		.align	2
+ 4973              	.LC32:
+ 4974 001c 46696C65 		.ascii	"File crc err\000"
+ 4974      20637263 
+ 4974      20657272 
+ 4974      00
+ 4975              		.section	.text.load_prog_file,"ax",%progbits
+ 4976              		.align	1
+ 4977              		.p2align 2,,3
+ 4978              		.global	load_prog_file
+ 4979              		.syntax unified
+ 4980              		.thumb
+ 4981              		.thumb_func
+ 4982              		.fpu fpv4-sp-d16
+ 4984              	load_prog_file:
+ 4985              	.LFB40:
 1338:src/storage.c ****   int fss, fsize;
- 4983              		.loc 1 1338 24 view -0
- 4984              		.cfi_startproc
- 4985              		@ args = 0, pretend = 0, frame = 8
- 4986              		@ frame_needed = 0, uses_anonymous_args = 0
+ 4986              		.loc 1 1338 24 view -0
+ 4987              		.cfi_startproc
+ 4988              		@ args = 0, pretend = 0, frame = 8
+ 4989              		@ frame_needed = 0, uses_anonymous_args = 0
 1339:src/storage.c ****   int data = READ;
- 4987              		.loc 1 1339 3 view .LVU1379
+ 4990              		.loc 1 1339 3 view .LVU1379
 1340:src/storage.c ****   uint x=0;
- 4988              		.loc 1 1340 3 view .LVU1380
+ 4991              		.loc 1 1340 3 view .LVU1380
 1338:src/storage.c ****   int fss, fsize;
- 4989              		.loc 1 1338 24 is_stmt 0 view .LVU1381
- 4990 0000 F0B5     		push	{r4, r5, r6, r7, lr}
- 4991              		.cfi_def_cfa_offset 20
- 4992              		.cfi_offset 4, -20
- 4993              		.cfi_offset 5, -16
- 4994              		.cfi_offset 6, -12
- 4995              		.cfi_offset 7, -8
-ARM GAS  /tmp/ccYFWqP2.s 			page 136
+ 4992              		.loc 1 1338 24 is_stmt 0 view .LVU1381
+ARM GAS  /tmp/cczYVb2h.s 			page 136
 
 
- 4996              		.cfi_offset 14, -4
- 4997 0002 87B0     		sub	sp, sp, #28
- 4998              		.cfi_def_cfa_offset 48
+ 4993 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 4994              		.cfi_def_cfa_offset 20
+ 4995              		.cfi_offset 4, -20
+ 4996              		.cfi_offset 5, -16
+ 4997              		.cfi_offset 6, -12
+ 4998              		.cfi_offset 7, -8
+ 4999              		.cfi_offset 14, -4
+ 5000 0002 87B0     		sub	sp, sp, #28
+ 5001              		.cfi_def_cfa_offset 48
 1341:src/storage.c ****   FLASH_REGION* fr;
- 4999              		.loc 1 1341 8 view .LVU1382
- 5000 0004 0023     		movs	r3, #0
+ 5002              		.loc 1 1341 8 view .LVU1382
+ 5003 0004 0023     		movs	r3, #0
 1340:src/storage.c ****   uint x=0;
- 5001              		.loc 1 1340 7 view .LVU1383
- 5002 0006 0221     		movs	r1, #2
+ 5004              		.loc 1 1340 7 view .LVU1383
+ 5005 0006 0221     		movs	r1, #2
 1345:src/storage.c ****   if (fss != 1) return;
- 5003              		.loc 1 1345 9 view .LVU1384
- 5004 0008 04AA     		add	r2, sp, #16
+ 5006              		.loc 1 1345 9 view .LVU1384
+ 5007 0008 04AA     		add	r2, sp, #16
 1341:src/storage.c ****   FLASH_REGION* fr;
- 5005              		.loc 1 1341 8 view .LVU1385
- 5006 000a CDE90413 		strd	r1, r3, [sp, #16]
+ 5008              		.loc 1 1341 8 view .LVU1385
+ 5009 000a CDE90413 		strd	r1, r3, [sp, #16]
 1342:src/storage.c ****   char* buffer;
- 5007              		.loc 1 1342 3 is_stmt 1 view .LVU1386
+ 5010              		.loc 1 1342 3 is_stmt 1 view .LVU1386
 1343:src/storage.c **** 
- 5008              		.loc 1 1343 3 view .LVU1387
+ 5011              		.loc 1 1343 3 view .LVU1387
 1345:src/storage.c ****   if (fss != 1) return;
- 5009              		.loc 1 1345 3 view .LVU1388
+ 5012              		.loc 1 1345 3 view .LVU1388
 1345:src/storage.c ****   if (fss != 1) return;
- 5010              		.loc 1 1345 9 is_stmt 0 view .LVU1389
- 5011 000e CDE90033 		strd	r3, r3, [sp]
- 5012 0012 0292     		str	r2, [sp, #8]
- 5013 0014 284C     		ldr	r4, .L400
- 5014 0016 294B     		ldr	r3, .L400+4
- 5015 0018 294A     		ldr	r2, .L400+8
- 5016 001a 2A49     		ldr	r1, .L400+12
- 5017 001c 2A48     		ldr	r0, .L400+16
- 5018 001e A047     		blx	r4
- 5019              	.LVL460:
+ 5013              		.loc 1 1345 9 is_stmt 0 view .LVU1389
+ 5014 000e CDE90033 		strd	r3, r3, [sp]
+ 5015 0012 0292     		str	r2, [sp, #8]
+ 5016 0014 284C     		ldr	r4, .L400
+ 5017 0016 294B     		ldr	r3, .L400+4
+ 5018 0018 294A     		ldr	r2, .L400+8
+ 5019 001a 2A49     		ldr	r1, .L400+12
+ 5020 001c 2A48     		ldr	r0, .L400+16
+ 5021 001e A047     		blx	r4
+ 5022              	.LVL460:
 1346:src/storage.c **** 
- 5020              		.loc 1 1346 3 is_stmt 1 view .LVU1390
+ 5023              		.loc 1 1346 3 is_stmt 1 view .LVU1390
 1346:src/storage.c **** 
- 5021              		.loc 1 1346 6 is_stmt 0 view .LVU1391
- 5022 0020 0128     		cmp	r0, #1
- 5023 0022 0BD1     		bne	.L386
+ 5024              		.loc 1 1346 6 is_stmt 0 view .LVU1391
+ 5025 0020 0128     		cmp	r0, #1
+ 5026 0022 0BD1     		bne	.L386
 1350:src/storage.c ****   if (fsize > LIBRARY_SIZE) {// too big! Wrong file?
- 5024              		.loc 1 1350 3 is_stmt 1 view .LVU1392
+ 5027              		.loc 1 1350 3 is_stmt 1 view .LVU1392
 1350:src/storage.c ****   if (fsize > LIBRARY_SIZE) {// too big! Wrong file?
- 5025              		.loc 1 1350 11 is_stmt 0 view .LVU1393
- 5026 0024 294F     		ldr	r7, .L400+20
- 5027 0026 7D68     		ldr	r5, [r7, #4]
- 5028 0028 EE68     		ldr	r6, [r5, #12]
- 5029              	.LVL461:
+ 5028              		.loc 1 1350 11 is_stmt 0 view .LVU1393
+ 5029 0024 294F     		ldr	r7, .L400+20
+ 5030 0026 7D68     		ldr	r5, [r7, #4]
+ 5031 0028 EE68     		ldr	r6, [r5, #12]
+ 5032              	.LVL461:
 1351:src/storage.c ****     f_close(FPT);
- 5030              		.loc 1 1351 3 is_stmt 1 view .LVU1394
+ 5033              		.loc 1 1351 3 is_stmt 1 view .LVU1394
 1351:src/storage.c ****     f_close(FPT);
- 5031              		.loc 1 1351 6 is_stmt 0 view .LVU1395
- 5032 002a B6F5804F 		cmp	r6, #16384
- 5033 002e 07DD     		ble	.L388
-1352:src/storage.c ****     DispMsg = "File too big";
- 5034              		.loc 1 1352 5 is_stmt 1 view .LVU1396
- 5035 0030 274B     		ldr	r3, .L400+24
- 5036 0032 2846     		mov	r0, r5
- 5037              	.LVL462:
-ARM GAS  /tmp/ccYFWqP2.s 			page 137
+ 5034              		.loc 1 1351 6 is_stmt 0 view .LVU1395
+ 5035 002a B6F5804F 		cmp	r6, #16384
+ARM GAS  /tmp/cczYVb2h.s 			page 137
 
 
+ 5036 002e 07DD     		ble	.L388
 1352:src/storage.c ****     DispMsg = "File too big";
- 5038              		.loc 1 1352 5 is_stmt 0 view .LVU1397
- 5039 0034 9847     		blx	r3
- 5040              	.LVL463:
+ 5037              		.loc 1 1352 5 is_stmt 1 view .LVU1396
+ 5038 0030 274B     		ldr	r3, .L400+24
+ 5039 0032 2846     		mov	r0, r5
+ 5040              	.LVL462:
+1352:src/storage.c ****     DispMsg = "File too big";
+ 5041              		.loc 1 1352 5 is_stmt 0 view .LVU1397
+ 5042 0034 9847     		blx	r3
+ 5043              	.LVL463:
 1353:src/storage.c ****     return;
- 5041              		.loc 1 1353 5 is_stmt 1 view .LVU1398
+ 5044              		.loc 1 1353 5 is_stmt 1 view .LVU1398
 1353:src/storage.c ****     return;
- 5042              		.loc 1 1353 13 is_stmt 0 view .LVU1399
- 5043 0036 274B     		ldr	r3, .L400+28
- 5044 0038 274A     		ldr	r2, .L400+32
- 5045 003a 1A60     		str	r2, [r3]
+ 5045              		.loc 1 1353 13 is_stmt 0 view .LVU1399
+ 5046 0036 274B     		ldr	r3, .L400+28
+ 5047 0038 274A     		ldr	r2, .L400+32
+ 5048 003a 1A60     		str	r2, [r3]
 1354:src/storage.c ****   }
- 5046              		.loc 1 1354 5 is_stmt 1 view .LVU1400
- 5047              	.LVL464:
- 5048              	.L386:
+ 5049              		.loc 1 1354 5 is_stmt 1 view .LVU1400
+ 5050              	.LVL464:
+ 5051              	.L386:
 1382:src/storage.c **** 
- 5049              		.loc 1 1382 1 is_stmt 0 view .LVU1401
- 5050 003c 07B0     		add	sp, sp, #28
- 5051              		.cfi_remember_state
- 5052              		.cfi_def_cfa_offset 20
- 5053              		@ sp needed
- 5054 003e F0BD     		pop	{r4, r5, r6, r7, pc}
- 5055              	.LVL465:
- 5056              	.L388:
- 5057              		.cfi_restore_state
+ 5052              		.loc 1 1382 1 is_stmt 0 view .LVU1401
+ 5053 003c 07B0     		add	sp, sp, #28
+ 5054              		.cfi_remember_state
+ 5055              		.cfi_def_cfa_offset 20
+ 5056              		@ sp needed
+ 5057 003e F0BD     		pop	{r4, r5, r6, r7, pc}
+ 5058              	.LVL465:
+ 5059              	.L388:
+ 5060              		.cfi_restore_state
 1356:src/storage.c ****   if (!buffer) {// calloc failure!
- 5058              		.loc 1 1356 3 is_stmt 1 view .LVU1402
+ 5061              		.loc 1 1356 3 is_stmt 1 view .LVU1402
 1356:src/storage.c ****   if (!buffer) {// calloc failure!
- 5059              		.loc 1 1356 31 is_stmt 0 view .LVU1403
- 5060 0040 26F0FF03 		bic	r3, r6, #255
+ 5062              		.loc 1 1356 31 is_stmt 0 view .LVU1403
+ 5063 0040 26F0FF03 		bic	r3, r6, #255
 1356:src/storage.c ****   if (!buffer) {// calloc failure!
- 5061              		.loc 1 1356 12 view .LVU1404
- 5062 0044 0146     		mov	r1, r0
- 5063 0046 03F58070 		add	r0, r3, #256
- 5064              	.LVL466:
+ 5064              		.loc 1 1356 12 view .LVU1404
+ 5065 0044 0146     		mov	r1, r0
+ 5066 0046 03F58070 		add	r0, r3, #256
+ 5067              	.LVL466:
 1356:src/storage.c ****   if (!buffer) {// calloc failure!
- 5065              		.loc 1 1356 12 view .LVU1405
- 5066 004a FFF7FEFF 		bl	calloc
- 5067              	.LVL467:
+ 5068              		.loc 1 1356 12 view .LVU1405
+ 5069 004a FFF7FEFF 		bl	calloc
+ 5070              	.LVL467:
 1357:src/storage.c ****     f_close(FPT);
- 5068              		.loc 1 1357 3 is_stmt 1 view .LVU1406
+ 5071              		.loc 1 1357 3 is_stmt 1 view .LVU1406
 1357:src/storage.c ****     f_close(FPT);
- 5069              		.loc 1 1357 6 is_stmt 0 view .LVU1407
- 5070 004e 0446     		mov	r4, r0
- 5071 0050 58B3     		cbz	r0, .L397
+ 5072              		.loc 1 1357 6 is_stmt 0 view .LVU1407
+ 5073 004e 0446     		mov	r4, r0
+ 5074 0050 58B3     		cbz	r0, .L397
 1363:src/storage.c ****   if (!f_eof(FPT)) { //odd?
- 5072              		.loc 1 1363 3 is_stmt 1 view .LVU1408
- 5073 0052 3246     		mov	r2, r6
- 5074 0054 2846     		mov	r0, r5
- 5075              	.LVL468:
+ 5075              		.loc 1 1363 3 is_stmt 1 view .LVU1408
+ 5076 0052 3246     		mov	r2, r6
+ 5077 0054 2846     		mov	r0, r5
+ 5078              	.LVL468:
 1363:src/storage.c ****   if (!f_eof(FPT)) { //odd?
- 5076              		.loc 1 1363 3 is_stmt 0 view .LVU1409
- 5077 0056 05AB     		add	r3, sp, #20
- 5078 0058 204D     		ldr	r5, .L400+36
- 5079 005a 2146     		mov	r1, r4
- 5080 005c A847     		blx	r5
- 5081              	.LVL469:
-ARM GAS  /tmp/ccYFWqP2.s 			page 138
+ARM GAS  /tmp/cczYVb2h.s 			page 138
 
 
+ 5079              		.loc 1 1363 3 is_stmt 0 view .LVU1409
+ 5080 0056 05AB     		add	r3, sp, #20
+ 5081 0058 204D     		ldr	r5, .L400+36
+ 5082 005a 2146     		mov	r1, r4
+ 5083 005c A847     		blx	r5
+ 5084              	.LVL469:
 1364:src/storage.c ****     free(buffer);
- 5082              		.loc 1 1364 3 is_stmt 1 view .LVU1410
+ 5085              		.loc 1 1364 3 is_stmt 1 view .LVU1410
 1364:src/storage.c ****     free(buffer);
- 5083              		.loc 1 1364 8 is_stmt 0 view .LVU1411
- 5084 005e 7868     		ldr	r0, [r7, #4]
+ 5086              		.loc 1 1364 8 is_stmt 0 view .LVU1411
+ 5087 005e 7868     		ldr	r0, [r7, #4]
 1364:src/storage.c ****     free(buffer);
- 5085              		.loc 1 1364 6 view .LVU1412
- 5086 0060 8269     		ldr	r2, [r0, #24]
- 5087 0062 C368     		ldr	r3, [r0, #12]
- 5088 0064 9A42     		cmp	r2, r3
- 5089 0066 12D1     		bne	.L398
+ 5088              		.loc 1 1364 6 view .LVU1412
+ 5089 0060 8269     		ldr	r2, [r0, #24]
+ 5090 0062 C368     		ldr	r3, [r0, #12]
+ 5091 0064 9A42     		cmp	r2, r3
+ 5092 0066 12D1     		bne	.L398
 1370:src/storage.c **** 
- 5090              		.loc 1 1370 3 is_stmt 1 view .LVU1413
- 5091 0068 194B     		ldr	r3, .L400+24
- 5092 006a 9847     		blx	r3
- 5093              	.LVL470:
+ 5093              		.loc 1 1370 3 is_stmt 1 view .LVU1413
+ 5094 0068 194B     		ldr	r3, .L400+24
+ 5095 006a 9847     		blx	r3
+ 5096              	.LVL470:
 1372:src/storage.c ****     
- 5094              		.loc 1 1372 3 view .LVU1414
+ 5097              		.loc 1 1372 3 view .LVU1414
 1374:src/storage.c ****     DispMsg = "File crc err";
- 5095              		.loc 1 1374 3 view .LVU1415
+ 5098              		.loc 1 1374 3 view .LVU1415
 1374:src/storage.c ****     DispMsg = "File crc err";
- 5096              		.loc 1 1374 7 is_stmt 0 view .LVU1416
- 5097 006c 2146     		mov	r1, r4
- 5098 006e 2046     		mov	r0, r4
- 5099 0070 FFF7FEFF 		bl	checksum_region
- 5100              	.LVL471:
+ 5099              		.loc 1 1374 7 is_stmt 0 view .LVU1416
+ 5100 006c 2146     		mov	r1, r4
+ 5101 006e 2046     		mov	r0, r4
+ 5102 0070 FFF7FEFF 		bl	checksum_region
+ 5103              	.LVL471:
 1374:src/storage.c ****     DispMsg = "File crc err";
- 5101              		.loc 1 1374 6 view .LVU1417
- 5102 0074 A8B9     		cbnz	r0, .L399
+ 5104              		.loc 1 1374 6 view .LVU1417
+ 5105 0074 A8B9     		cbnz	r0, .L399
 1380:src/storage.c ****   free(buffer);
- 5103              		.loc 1 1380 3 is_stmt 1 view .LVU1418
- 5104              	.LVL472:
- 5105              	.LBB118:
- 5106              	.LBI118:
+ 5106              		.loc 1 1380 3 is_stmt 1 view .LVU1418
+ 5107              	.LVL472:
+ 5108              	.LBB118:
+ 5109              	.LBI118:
 1384:src/storage.c **** { // buffer contains all of program file
- 5107              		.loc 1 1384 6 view .LVU1419
- 5108              	.LBB119:
+ 5110              		.loc 1 1384 6 view .LVU1419
+ 5111              	.LBB119:
 1386:src/storage.c ****   int space_needed, count, free;
- 5109              		.loc 1 1386 3 view .LVU1420
+ 5112              		.loc 1 1386 3 view .LVU1420
 1387:src/storage.c **** 
- 5110              		.loc 1 1387 3 view .LVU1421
+ 5113              		.loc 1 1387 3 view .LVU1421
 1389:src/storage.c ****     /*
- 5111              		.loc 1 1389 3 view .LVU1422
+ 5114              		.loc 1 1389 3 view .LVU1422
 1389:src/storage.c ****     /*
- 5112              		.loc 1 1389 8 is_stmt 0 view .LVU1423
- 5113 0076 FFF7FEFF 		bl	not_running
- 5114              	.LVL473:
+ 5115              		.loc 1 1389 8 is_stmt 0 view .LVU1423
+ 5116 0076 FFF7FEFF 		bl	not_running
+ 5117              	.LVL473:
 1389:src/storage.c ****     /*
- 5115              		.loc 1 1389 6 view .LVU1424
- 5116 007a 10B1     		cbz	r0, .L392
- 5117 007c 2046     		mov	r0, r4
- 5118 007e FFF7FEFF 		bl	store_program_from_buffer.part.0
- 5119              	.LVL474:
- 5120              	.L392:
-1389:src/storage.c ****     /*
- 5121              		.loc 1 1389 6 view .LVU1425
- 5122              	.LBE119:
-ARM GAS  /tmp/ccYFWqP2.s 			page 139
+ 5118              		.loc 1 1389 6 view .LVU1424
+ 5119 007a 10B1     		cbz	r0, .L392
+ 5120 007c 2046     		mov	r0, r4
+ARM GAS  /tmp/cczYVb2h.s 			page 139
 
 
- 5123              	.LBE118:
+ 5121 007e FFF7FEFF 		bl	store_program_from_buffer.part.0
+ 5122              	.LVL474:
+ 5123              	.L392:
+1389:src/storage.c ****     /*
+ 5124              		.loc 1 1389 6 view .LVU1425
+ 5125              	.LBE119:
+ 5126              	.LBE118:
 1381:src/storage.c **** }
- 5124              		.loc 1 1381 3 is_stmt 1 view .LVU1426
- 5125 0082 2046     		mov	r0, r4
+ 5127              		.loc 1 1381 3 is_stmt 1 view .LVU1426
+ 5128 0082 2046     		mov	r0, r4
 1382:src/storage.c **** 
- 5126              		.loc 1 1382 1 is_stmt 0 view .LVU1427
- 5127 0084 07B0     		add	sp, sp, #28
- 5128              		.cfi_remember_state
- 5129              		.cfi_def_cfa_offset 20
- 5130              		@ sp needed
- 5131 0086 BDE8F040 		pop	{r4, r5, r6, r7, lr}
- 5132              		.cfi_restore 14
- 5133              		.cfi_restore 7
- 5134              		.cfi_restore 6
- 5135              		.cfi_restore 5
- 5136              		.cfi_restore 4
- 5137              		.cfi_def_cfa_offset 0
- 5138              	.LVL475:
+ 5129              		.loc 1 1382 1 is_stmt 0 view .LVU1427
+ 5130 0084 07B0     		add	sp, sp, #28
+ 5131              		.cfi_remember_state
+ 5132              		.cfi_def_cfa_offset 20
+ 5133              		@ sp needed
+ 5134 0086 BDE8F040 		pop	{r4, r5, r6, r7, lr}
+ 5135              		.cfi_restore 14
+ 5136              		.cfi_restore 7
+ 5137              		.cfi_restore 6
+ 5138              		.cfi_restore 5
+ 5139              		.cfi_restore 4
+ 5140              		.cfi_def_cfa_offset 0
+ 5141              	.LVL475:
 1381:src/storage.c **** }
- 5139              		.loc 1 1381 3 view .LVU1428
- 5140 008a FFF7FEBF 		b	free
- 5141              	.LVL476:
- 5142              	.L398:
- 5143              		.cfi_restore_state
+ 5142              		.loc 1 1381 3 view .LVU1428
+ 5143 008a FFF7FEBF 		b	free
+ 5144              	.LVL476:
+ 5145              	.L398:
+ 5146              		.cfi_restore_state
 1365:src/storage.c ****     f_close(FPT);
- 5144              		.loc 1 1365 5 is_stmt 1 view .LVU1429
- 5145 008e 2046     		mov	r0, r4
- 5146 0090 FFF7FEFF 		bl	free
- 5147              	.LVL477:
+ 5147              		.loc 1 1365 5 is_stmt 1 view .LVU1429
+ 5148 008e 2046     		mov	r0, r4
+ 5149 0090 FFF7FEFF 		bl	free
+ 5150              	.LVL477:
 1366:src/storage.c ****     DispMsg = "File odd";
- 5148              		.loc 1 1366 5 view .LVU1430
- 5149 0094 0E4B     		ldr	r3, .L400+24
- 5150 0096 7868     		ldr	r0, [r7, #4]
- 5151 0098 9847     		blx	r3
- 5152              	.LVL478:
+ 5151              		.loc 1 1366 5 view .LVU1430
+ 5152 0094 0E4B     		ldr	r3, .L400+24
+ 5153 0096 7868     		ldr	r0, [r7, #4]
+ 5154 0098 9847     		blx	r3
+ 5155              	.LVL478:
 1367:src/storage.c ****     return;
- 5153              		.loc 1 1367 5 view .LVU1431
+ 5156              		.loc 1 1367 5 view .LVU1431
 1367:src/storage.c ****     return;
- 5154              		.loc 1 1367 13 is_stmt 0 view .LVU1432
- 5155 009a 0E4B     		ldr	r3, .L400+28
- 5156 009c 104A     		ldr	r2, .L400+40
- 5157 009e 1A60     		str	r2, [r3]
+ 5157              		.loc 1 1367 13 is_stmt 0 view .LVU1432
+ 5158 009a 0E4B     		ldr	r3, .L400+28
+ 5159 009c 104A     		ldr	r2, .L400+40
+ 5160 009e 1A60     		str	r2, [r3]
 1368:src/storage.c ****   }
- 5158              		.loc 1 1368 5 is_stmt 1 view .LVU1433
- 5159 00a0 CCE7     		b	.L386
- 5160              	.LVL479:
- 5161              	.L399:
+ 5161              		.loc 1 1368 5 is_stmt 1 view .LVU1433
+ 5162 00a0 CCE7     		b	.L386
+ 5163              	.LVL479:
+ 5164              	.L399:
 1375:src/storage.c ****         free(buffer);
- 5162              		.loc 1 1375 5 view .LVU1434
+ 5165              		.loc 1 1375 5 view .LVU1434
 1375:src/storage.c ****         free(buffer);
- 5163              		.loc 1 1375 13 is_stmt 0 view .LVU1435
- 5164 00a2 0C4B     		ldr	r3, .L400+28
- 5165 00a4 0F4A     		ldr	r2, .L400+44
- 5166 00a6 1A60     		str	r2, [r3]
+ 5166              		.loc 1 1375 13 is_stmt 0 view .LVU1435
+ARM GAS  /tmp/cczYVb2h.s 			page 140
+
+
+ 5167 00a2 0C4B     		ldr	r3, .L400+28
+ 5168 00a4 0F4A     		ldr	r2, .L400+44
+ 5169 00a6 1A60     		str	r2, [r3]
 1376:src/storage.c ****     return;
- 5167              		.loc 1 1376 9 is_stmt 1 view .LVU1436
- 5168 00a8 EBE7     		b	.L392
-ARM GAS  /tmp/ccYFWqP2.s 			page 140
-
-
- 5169              	.LVL480:
- 5170              	.L397:
+ 5170              		.loc 1 1376 9 is_stmt 1 view .LVU1436
+ 5171 00a8 EBE7     		b	.L392
+ 5172              	.LVL480:
+ 5173              	.L397:
 1358:src/storage.c ****     DispMsg = "Mem short";
- 5171              		.loc 1 1358 5 view .LVU1437
- 5172 00aa 094B     		ldr	r3, .L400+24
- 5173 00ac 2846     		mov	r0, r5
- 5174              	.LVL481:
+ 5174              		.loc 1 1358 5 view .LVU1437
+ 5175 00aa 094B     		ldr	r3, .L400+24
+ 5176 00ac 2846     		mov	r0, r5
+ 5177              	.LVL481:
 1358:src/storage.c ****     DispMsg = "Mem short";
- 5175              		.loc 1 1358 5 is_stmt 0 view .LVU1438
- 5176 00ae 9847     		blx	r3
- 5177              	.LVL482:
+ 5178              		.loc 1 1358 5 is_stmt 0 view .LVU1438
+ 5179 00ae 9847     		blx	r3
+ 5180              	.LVL482:
 1359:src/storage.c ****     return;
- 5178              		.loc 1 1359 5 is_stmt 1 view .LVU1439
+ 5181              		.loc 1 1359 5 is_stmt 1 view .LVU1439
 1359:src/storage.c ****     return;
- 5179              		.loc 1 1359 13 is_stmt 0 view .LVU1440
- 5180 00b0 084B     		ldr	r3, .L400+28
- 5181 00b2 0D4A     		ldr	r2, .L400+48
- 5182 00b4 1A60     		str	r2, [r3]
+ 5182              		.loc 1 1359 13 is_stmt 0 view .LVU1440
+ 5183 00b0 084B     		ldr	r3, .L400+28
+ 5184 00b2 0D4A     		ldr	r2, .L400+48
+ 5185 00b4 1A60     		str	r2, [r3]
 1360:src/storage.c ****   }
- 5183              		.loc 1 1360 5 is_stmt 1 view .LVU1441
- 5184 00b6 C1E7     		b	.L386
- 5185              	.L401:
- 5186              		.align	2
- 5187              	.L400:
- 5188 00b8 51030008 		.word	134218577
- 5189 00bc 00000000 		.word	open_selected_file
- 5190 00c0 1C000000 		.word	.LC19
- 5191 00c4 2C000000 		.word	.LC2
- 5192 00c8 00000000 		.word	.LC22
- 5193 00cc 00200010 		.word	268443648
- 5194 00d0 39040008 		.word	134218809
- 5195 00d4 00000000 		.word	DispMsg
- 5196 00d8 14000000 		.word	.LC16
- 5197 00dc 3D040008 		.word	134218813
- 5198 00e0 00000000 		.word	.LC30
- 5199 00e4 0C000000 		.word	.LC31
- 5200 00e8 2C000000 		.word	.LC29
- 5201              		.cfi_endproc
- 5202              	.LFE40:
- 5204              		.section	.text.store_program_from_buffer,"ax",%progbits
- 5205              		.align	1
- 5206              		.p2align 2,,3
- 5207              		.global	store_program_from_buffer
- 5208              		.syntax unified
- 5209              		.thumb
- 5210              		.thumb_func
- 5211              		.fpu fpv4-sp-d16
- 5213              	store_program_from_buffer:
- 5214              	.LVL483:
- 5215              	.LFB41:
+ 5186              		.loc 1 1360 5 is_stmt 1 view .LVU1441
+ 5187 00b6 C1E7     		b	.L386
+ 5188              	.L401:
+ 5189              		.align	2
+ 5190              	.L400:
+ 5191 00b8 51030008 		.word	134218577
+ 5192 00bc 00000000 		.word	open_selected_file
+ 5193 00c0 1C000000 		.word	.LC19
+ 5194 00c4 2C000000 		.word	.LC2
+ 5195 00c8 00000000 		.word	.LC30
+ 5196 00cc 00200010 		.word	268443648
+ 5197 00d0 39040008 		.word	134218809
+ 5198 00d4 00000000 		.word	DispMsg
+ 5199 00d8 14000000 		.word	.LC16
+ 5200 00dc 3D040008 		.word	134218813
+ 5201 00e0 10000000 		.word	.LC31
+ 5202 00e4 1C000000 		.word	.LC32
+ 5203 00e8 2C000000 		.word	.LC29
+ 5204              		.cfi_endproc
+ 5205              	.LFE40:
+ 5207              		.section	.text.store_program_from_buffer,"ax",%progbits
+ 5208              		.align	1
+ 5209              		.p2align 2,,3
+ 5210              		.global	store_program_from_buffer
+ 5211              		.syntax unified
+ 5212              		.thumb
+ 5213              		.thumb_func
+ 5214              		.fpu fpv4-sp-d16
+ 5216              	store_program_from_buffer:
+ 5217              	.LVL483:
+ 5218              	.LFB41:
 1385:src/storage.c ****   unsigned int pc;
- 5216              		.loc 1 1385 1 view -0
- 5217              		.cfi_startproc
- 5218              		@ args = 0, pretend = 0, frame = 0
- 5219              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/cczYVb2h.s 			page 141
+
+
+ 5219              		.loc 1 1385 1 view -0
+ 5220              		.cfi_startproc
+ 5221              		@ args = 0, pretend = 0, frame = 0
+ 5222              		@ frame_needed = 0, uses_anonymous_args = 0
 1386:src/storage.c ****   int space_needed, count, free;
- 5220              		.loc 1 1386 3 view .LVU1443
-ARM GAS  /tmp/ccYFWqP2.s 			page 141
-
-
+ 5223              		.loc 1 1386 3 view .LVU1443
 1387:src/storage.c **** 
- 5221              		.loc 1 1387 3 view .LVU1444
+ 5224              		.loc 1 1387 3 view .LVU1444
 1389:src/storage.c ****     /*
- 5222              		.loc 1 1389 3 view .LVU1445
+ 5225              		.loc 1 1389 3 view .LVU1445
 1385:src/storage.c ****   unsigned int pc;
- 5223              		.loc 1 1385 1 is_stmt 0 view .LVU1446
- 5224 0000 10B5     		push	{r4, lr}
- 5225              		.cfi_def_cfa_offset 8
- 5226              		.cfi_offset 4, -8
- 5227              		.cfi_offset 14, -4
+ 5226              		.loc 1 1385 1 is_stmt 0 view .LVU1446
+ 5227 0000 10B5     		push	{r4, lr}
+ 5228              		.cfi_def_cfa_offset 8
+ 5229              		.cfi_offset 4, -8
+ 5230              		.cfi_offset 14, -4
 1385:src/storage.c ****   unsigned int pc;
- 5228              		.loc 1 1385 1 view .LVU1447
- 5229 0002 0446     		mov	r4, r0
+ 5231              		.loc 1 1385 1 view .LVU1447
+ 5232 0002 0446     		mov	r4, r0
 1389:src/storage.c ****     /*
- 5230              		.loc 1 1389 8 view .LVU1448
- 5231 0004 FFF7FEFF 		bl	not_running
- 5232              	.LVL484:
+ 5233              		.loc 1 1389 8 view .LVU1448
+ 5234 0004 FFF7FEFF 		bl	not_running
+ 5235              	.LVL484:
 1389:src/storage.c ****     /*
- 5233              		.loc 1 1389 6 view .LVU1449
- 5234 0008 20B1     		cbz	r0, .L402
- 5235 000a 2046     		mov	r0, r4
- 5236              		.loc 1 1431 1 view .LVU1450
- 5237 000c BDE81040 		pop	{r4, lr}
- 5238              		.cfi_remember_state
- 5239              		.cfi_restore 14
- 5240              		.cfi_restore 4
- 5241              		.cfi_def_cfa_offset 0
- 5242              	.LVL485:
- 5243              		.loc 1 1431 1 view .LVU1451
- 5244 0010 FFF7FEBF 		b	store_program_from_buffer.part.0
- 5245              	.LVL486:
- 5246              	.L402:
- 5247              		.cfi_restore_state
- 5248              		.loc 1 1431 1 view .LVU1452
- 5249 0014 10BD     		pop	{r4, pc}
- 5250              		.loc 1 1431 1 view .LVU1453
- 5251              		.cfi_endproc
- 5252              	.LFE41:
- 5254              		.comm	XromA2D,64,4
- 5255              		.comm	XromLocal,464,4
- 5256              		.comm	XromParams,16,4
- 5257              		.comm	StateWhileOn,52,4
- 5258              		.comm	library_ram,4,4
- 5259              		.comm	backup_ram,4,4
- 5260              		.comm	main_ram,4,4
- 5261 0016 00BF     		.text
- 5262              	.Letext0:
- 5263              		.file 2 "/usr/include/newlib/machine/_default_types.h"
- 5264              		.file 3 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h"
- 5265              		.file 4 "/usr/include/newlib/sys/_types.h"
- 5266              		.file 5 "/usr/include/newlib/sys/reent.h"
- 5267              		.file 6 "/usr/include/newlib/sys/lock.h"
- 5268              		.file 7 "/usr/include/newlib/sys/_stdint.h"
- 5269              		.file 8 "/usr/include/newlib/sys/types.h"
- 5270              		.file 9 "/usr/include/newlib/stdlib.h"
- 5271              		.file 10 "dmcp/ff_ifc.h"
- 5272              		.file 11 "dmcp/dmcp.h"
-ARM GAS  /tmp/ccYFWqP2.s 			page 142
+ 5236              		.loc 1 1389 6 view .LVU1449
+ 5237 0008 20B1     		cbz	r0, .L402
+ 5238 000a 2046     		mov	r0, r4
+ 5239              		.loc 1 1431 1 view .LVU1450
+ 5240 000c BDE81040 		pop	{r4, lr}
+ 5241              		.cfi_remember_state
+ 5242              		.cfi_restore 14
+ 5243              		.cfi_restore 4
+ 5244              		.cfi_def_cfa_offset 0
+ 5245              	.LVL485:
+ 5246              		.loc 1 1431 1 view .LVU1451
+ 5247 0010 FFF7FEBF 		b	store_program_from_buffer.part.0
+ 5248              	.LVL486:
+ 5249              	.L402:
+ 5250              		.cfi_restore_state
+ 5251              		.loc 1 1431 1 view .LVU1452
+ 5252 0014 10BD     		pop	{r4, pc}
+ 5253              		.loc 1 1431 1 view .LVU1453
+ 5254              		.cfi_endproc
+ 5255              	.LFE41:
+ 5257              		.comm	XromA2D,64,4
+ 5258              		.comm	XromLocal,464,4
+ 5259              		.comm	XromParams,16,4
+ 5260              		.comm	StateWhileOn,52,4
+ 5261              		.comm	library_ram,4,4
+ 5262              		.comm	backup_ram,4,4
+ 5263              		.comm	main_ram,4,4
+ 5264 0016 00BF     		.text
+ 5265              	.Letext0:
+ 5266              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 5267              		.file 3 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h"
+ 5268              		.file 4 "/usr/include/newlib/sys/_types.h"
+ 5269              		.file 5 "/usr/include/newlib/sys/reent.h"
+ARM GAS  /tmp/cczYVb2h.s 			page 142
 
 
- 5273              		.file 12 "src/decNumber/decContext.h"
- 5274              		.file 13 "src/decNumber/decNumber.h"
- 5275              		.file 14 "src/decNumber/decimal64.h"
- 5276              		.file 15 "src/decNumber/decimal128.h"
- 5277              		.file 16 "src/xeq.h"
- 5278              		.file 17 "src/data.h"
- 5279              		.file 18 "src/storage.h"
- 5280              		.file 19 "src/display.h"
- 5281              		.file 20 "src/stats.h"
- 5282              		.file 21 "src/alpha.h"
- 5283              		.file 22 "/usr/include/newlib/stdio.h"
-ARM GAS  /tmp/ccYFWqP2.s 			page 143
+ 5270              		.file 6 "/usr/include/newlib/sys/lock.h"
+ 5271              		.file 7 "/usr/include/newlib/sys/_stdint.h"
+ 5272              		.file 8 "/usr/include/newlib/sys/types.h"
+ 5273              		.file 9 "/usr/include/newlib/stdlib.h"
+ 5274              		.file 10 "dmcp/ff_ifc.h"
+ 5275              		.file 11 "dmcp/dmcp.h"
+ 5276              		.file 12 "src/decNumber/decContext.h"
+ 5277              		.file 13 "src/decNumber/decNumber.h"
+ 5278              		.file 14 "src/decNumber/decimal64.h"
+ 5279              		.file 15 "src/decNumber/decimal128.h"
+ 5280              		.file 16 "src/xeq.h"
+ 5281              		.file 17 "src/data.h"
+ 5282              		.file 18 "src/storage.h"
+ 5283              		.file 19 "src/display.h"
+ 5284              		.file 20 "src/stats.h"
+ 5285              		.file 21 "src/alpha.h"
+ 5286              		.file 22 "/usr/include/newlib/stdio.h"
+ARM GAS  /tmp/cczYVb2h.s 			page 143
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 storage.c
-     /tmp/ccYFWqP2.s:18     .text.test_checksum:0000000000000000 $t
-     /tmp/ccYFWqP2.s:26     .text.test_checksum:0000000000000000 test_checksum
-     /tmp/ccYFWqP2.s:174    .text.checksum_region:0000000000000000 $t
-     /tmp/ccYFWqP2.s:181    .text.checksum_region:0000000000000000 checksum_region
-     /tmp/ccYFWqP2.s:232    .text.check_delete_prog:0000000000000000 $t
-     /tmp/ccYFWqP2.s:239    .text.check_delete_prog:0000000000000000 check_delete_prog
-     /tmp/ccYFWqP2.s:290    .text.check_delete_prog:000000000000002c $d
+     /tmp/cczYVb2h.s:18     .text.test_checksum:0000000000000000 $t
+     /tmp/cczYVb2h.s:26     .text.test_checksum:0000000000000000 test_checksum
+     /tmp/cczYVb2h.s:174    .text.checksum_region:0000000000000000 $t
+     /tmp/cczYVb2h.s:181    .text.checksum_region:0000000000000000 checksum_region
+     /tmp/cczYVb2h.s:232    .text.check_delete_prog:0000000000000000 $t
+     /tmp/cczYVb2h.s:239    .text.check_delete_prog:0000000000000000 check_delete_prog
+     /tmp/cczYVb2h.s:290    .text.check_delete_prog:000000000000002c $d
                             *COM*:0000000000000004 main_ram
-     /tmp/ccYFWqP2.s:295    .rodata.program_flash.str1.4:0000000000000000 $d
-     /tmp/ccYFWqP2.s:305    .text.program_flash:0000000000000000 $t
-     /tmp/ccYFWqP2.s:312    .text.program_flash:0000000000000000 program_flash
-     /tmp/ccYFWqP2.s:568    .text.program_flash:00000000000000d4 $d
+     /tmp/cczYVb2h.s:295    .rodata.program_flash.str1.4:0000000000000000 $d
+     /tmp/cczYVb2h.s:305    .text.program_flash:0000000000000000 $t
+     /tmp/cczYVb2h.s:312    .text.program_flash:0000000000000000 program_flash
+     /tmp/cczYVb2h.s:568    .text.program_flash:00000000000000d4 $d
                             *COM*:0000000000000004 backup_ram
                             *COM*:0000000000000004 library_ram
-     /tmp/ccYFWqP2.s:584    .text.flash_append:0000000000000000 $t
-     /tmp/ccYFWqP2.s:591    .text.flash_append:0000000000000000 flash_append
-     /tmp/ccYFWqP2.s:762    .text.flash_append:000000000000009c $d
-     /tmp/ccYFWqP2.s:768    .rodata.open_selected_file.str1.4:0000000000000000 $d
-     /tmp/ccYFWqP2.s:775    .text.open_selected_file:0000000000000000 $t
-     /tmp/ccYFWqP2.s:783    .text.open_selected_file:0000000000000000 open_selected_file
-     /tmp/ccYFWqP2.s:899    .text.open_selected_file:0000000000000050 $d
-     /tmp/ccYFWqP2.s:910    .rodata.init_mem.str1.4:0000000000000000 $d
-     /tmp/ccYFWqP2.s:914    .text.init_mem:0000000000000000 $t
-     /tmp/ccYFWqP2.s:922    .text.init_mem:0000000000000000 init_mem
-     /tmp/ccYFWqP2.s:986    .text.init_mem:0000000000000030 $d
-     /tmp/ccYFWqP2.s:994    .text.crc16:0000000000000000 $t
-     /tmp/ccYFWqP2.s:1002   .text.crc16:0000000000000000 crc16
-     /tmp/ccYFWqP2.s:1081   .text.checksum_program:0000000000000000 $t
-     /tmp/ccYFWqP2.s:1089   .text.checksum_program:0000000000000000 checksum_program
-     /tmp/ccYFWqP2.s:1201   .text.checksum_program:0000000000000058 $d
-     /tmp/ccYFWqP2.s:1206   .text.checksum_ram:0000000000000000 $t
-     /tmp/ccYFWqP2.s:1214   .text.checksum_ram:0000000000000000 checksum_ram
-     /tmp/ccYFWqP2.s:1233   .text.checksum_ram:0000000000000014 $d
-     /tmp/ccYFWqP2.s:1238   .text.checksum_backup:0000000000000000 $t
-     /tmp/ccYFWqP2.s:1246   .text.checksum_backup:0000000000000000 checksum_backup
-     /tmp/ccYFWqP2.s:1378   .text.checksum_backup:0000000000000054 $d
-     /tmp/ccYFWqP2.s:1383   .text.clpall:0000000000000000 $t
-     /tmp/ccYFWqP2.s:1391   .text.clpall:0000000000000000 clpall
-     /tmp/ccYFWqP2.s:1430   .text.clpall:0000000000000018 $d
-     /tmp/ccYFWqP2.s:1435   .text.clrall:0000000000000000 $t
-     /tmp/ccYFWqP2.s:1443   .text.clrall:0000000000000000 clrall
-     /tmp/ccYFWqP2.s:1529   .text.clrall:000000000000004c $d
+     /tmp/cczYVb2h.s:584    .text.flash_append:0000000000000000 $t
+     /tmp/cczYVb2h.s:591    .text.flash_append:0000000000000000 flash_append
+     /tmp/cczYVb2h.s:762    .text.flash_append:000000000000009c $d
+     /tmp/cczYVb2h.s:768    .rodata.open_selected_file.str1.4:0000000000000000 $d
+     /tmp/cczYVb2h.s:775    .text.open_selected_file:0000000000000000 $t
+     /tmp/cczYVb2h.s:783    .text.open_selected_file:0000000000000000 open_selected_file
+     /tmp/cczYVb2h.s:899    .text.open_selected_file:0000000000000050 $d
+     /tmp/cczYVb2h.s:910    .rodata.init_mem.str1.4:0000000000000000 $d
+     /tmp/cczYVb2h.s:914    .text.init_mem:0000000000000000 $t
+     /tmp/cczYVb2h.s:922    .text.init_mem:0000000000000000 init_mem
+     /tmp/cczYVb2h.s:986    .text.init_mem:0000000000000030 $d
+     /tmp/cczYVb2h.s:994    .text.crc16:0000000000000000 $t
+     /tmp/cczYVb2h.s:1002   .text.crc16:0000000000000000 crc16
+     /tmp/cczYVb2h.s:1081   .text.checksum_program:0000000000000000 $t
+     /tmp/cczYVb2h.s:1089   .text.checksum_program:0000000000000000 checksum_program
+     /tmp/cczYVb2h.s:1201   .text.checksum_program:0000000000000058 $d
+     /tmp/cczYVb2h.s:1206   .text.checksum_ram:0000000000000000 $t
+     /tmp/cczYVb2h.s:1214   .text.checksum_ram:0000000000000000 checksum_ram
+     /tmp/cczYVb2h.s:1233   .text.checksum_ram:0000000000000014 $d
+     /tmp/cczYVb2h.s:1238   .text.checksum_backup:0000000000000000 $t
+     /tmp/cczYVb2h.s:1246   .text.checksum_backup:0000000000000000 checksum_backup
+     /tmp/cczYVb2h.s:1378   .text.checksum_backup:0000000000000054 $d
+     /tmp/cczYVb2h.s:1383   .text.clpall:0000000000000000 $t
+     /tmp/cczYVb2h.s:1391   .text.clpall:0000000000000000 clpall
+     /tmp/cczYVb2h.s:1430   .text.clpall:0000000000000018 $d
+     /tmp/cczYVb2h.s:1435   .text.clrall:0000000000000000 $t
+     /tmp/cczYVb2h.s:1443   .text.clrall:0000000000000000 clrall
+     /tmp/cczYVb2h.s:1529   .text.clrall:000000000000004c $d
                             *COM*:0000000000000034 StateWhileOn
-     /tmp/ccYFWqP2.s:1536   .rodata.reset.str1.4:0000000000000000 $d
-     /tmp/ccYFWqP2.s:1540   .text.reset:0000000000000000 $t
-     /tmp/ccYFWqP2.s:1548   .text.reset:0000000000000000 reset
-     /tmp/ccYFWqP2.s:1593   .text.reset:0000000000000030 $d
-     /tmp/ccYFWqP2.s:1600   .text.stoprog:0000000000000000 $t
-     /tmp/ccYFWqP2.s:1608   .text.stoprog:0000000000000000 stoprog
-     /tmp/ccYFWqP2.s:1816   .text.stoprog:00000000000000e4 $d
-     /tmp/ccYFWqP2.s:1822   .text.delprog:0000000000000000 $t
-     /tmp/ccYFWqP2.s:1830   .text.delprog:0000000000000000 delprog
-     /tmp/ccYFWqP2.s:1945   .text.delprog:0000000000000068 $d
-     /tmp/ccYFWqP2.s:1950   .text.append_program:0000000000000000 $t
-     /tmp/ccYFWqP2.s:1958   .text.append_program:0000000000000000 append_program
-ARM GAS  /tmp/ccYFWqP2.s 			page 144
+     /tmp/cczYVb2h.s:1536   .rodata.reset.str1.4:0000000000000000 $d
+     /tmp/cczYVb2h.s:1540   .text.reset:0000000000000000 $t
+     /tmp/cczYVb2h.s:1548   .text.reset:0000000000000000 reset
+     /tmp/cczYVb2h.s:1593   .text.reset:0000000000000030 $d
+     /tmp/cczYVb2h.s:1600   .text.stoprog:0000000000000000 $t
+     /tmp/cczYVb2h.s:1608   .text.stoprog:0000000000000000 stoprog
+     /tmp/cczYVb2h.s:1816   .text.stoprog:00000000000000e4 $d
+     /tmp/cczYVb2h.s:1822   .text.delprog:0000000000000000 $t
+     /tmp/cczYVb2h.s:1830   .text.delprog:0000000000000000 delprog
+     /tmp/cczYVb2h.s:1945   .text.delprog:0000000000000068 $d
+     /tmp/cczYVb2h.s:1950   .text.append_program:0000000000000000 $t
+     /tmp/cczYVb2h.s:1958   .text.append_program:0000000000000000 append_program
+ARM GAS  /tmp/cczYVb2h.s 			page 144
 
 
-     /tmp/ccYFWqP2.s:2179   .text.append_program:00000000000000c0 $d
-     /tmp/ccYFWqP2.s:2187   .text.check_create_wp34sdir:0000000000000000 $t
-     /tmp/ccYFWqP2.s:2195   .text.check_create_wp34sdir:0000000000000000 check_create_wp34sdir
-     /tmp/ccYFWqP2.s:2236   .text.check_create_wp34sdir:0000000000000018 $d
-     /tmp/ccYFWqP2.s:2243   .text.init_library:0000000000000000 $t
-     /tmp/ccYFWqP2.s:2251   .text.init_library:0000000000000000 init_library
-     /tmp/ccYFWqP2.s:2313   .text.init_library:0000000000000034 $d
-     /tmp/ccYFWqP2.s:2318   .text.flash_remove:0000000000000000 $t
-     /tmp/ccYFWqP2.s:2326   .text.flash_remove:0000000000000000 flash_remove
-     /tmp/ccYFWqP2.s:2373   .text.flash_remove:0000000000000024 $d
-     /tmp/ccYFWqP2.s:2378   .text.clrprog:0000000000000000 $t
-     /tmp/ccYFWqP2.s:2386   .text.clrprog:0000000000000000 clrprog
-     /tmp/ccYFWqP2.s:2517   .text.clrprog:0000000000000090 $d
-     /tmp/ccYFWqP2.s:2522   .rodata.store_program_from_buffer.part.0.str1.4:0000000000000000 $d
-     /tmp/ccYFWqP2.s:2526   .text.store_program_from_buffer.part.0:0000000000000000 $t
-     /tmp/ccYFWqP2.s:2533   .text.store_program_from_buffer.part.0:0000000000000000 store_program_from_buffer.part.0
-     /tmp/ccYFWqP2.s:2732   .text.store_program_from_buffer.part.0:00000000000000a8 $d
-     /tmp/ccYFWqP2.s:2742   .rodata.flash_backup.str1.4:0000000000000000 $d
-     /tmp/ccYFWqP2.s:2749   .text.flash_backup:0000000000000000 $t
-     /tmp/ccYFWqP2.s:2757   .text.flash_backup:0000000000000000 flash_backup
-     /tmp/ccYFWqP2.s:2838   .text.flash_backup:0000000000000048 $d
-     /tmp/ccYFWqP2.s:2847   .rodata.flash_restore.str1.4:0000000000000000 $d
-     /tmp/ccYFWqP2.s:2851   .text.flash_restore:0000000000000000 $t
-     /tmp/ccYFWqP2.s:2859   .text.flash_restore:0000000000000000 flash_restore
-     /tmp/ccYFWqP2.s:2918   .text.flash_restore:0000000000000034 $d
-     /tmp/ccYFWqP2.s:2926   .text.load_program:0000000000000000 $t
-     /tmp/ccYFWqP2.s:2934   .text.load_program:0000000000000000 load_program
-     /tmp/ccYFWqP2.s:3046   .text.load_program:000000000000003c $d
-     /tmp/ccYFWqP2.s:3052   .text.load_registers:0000000000000000 $t
-     /tmp/ccYFWqP2.s:3060   .text.load_registers:0000000000000000 load_registers
-     /tmp/ccYFWqP2.s:3154   .text.load_registers:000000000000004c $d
-     /tmp/ccYFWqP2.s:3160   .text.load_sigma:0000000000000000 $t
-     /tmp/ccYFWqP2.s:3168   .text.load_sigma:0000000000000000 load_sigma
-     /tmp/ccYFWqP2.s:3240   .text.load_sigma:0000000000000040 $d
-     /tmp/ccYFWqP2.s:3245   .text.load_state:0000000000000000 $t
-     /tmp/ccYFWqP2.s:3253   .text.load_state:0000000000000000 load_state
-     /tmp/ccYFWqP2.s:3323   .text.load_state:000000000000003c $d
-     /tmp/ccYFWqP2.s:3329   .text.store_program:0000000000000000 $t
-     /tmp/ccYFWqP2.s:3337   .text.store_program:0000000000000000 store_program
-     /tmp/ccYFWqP2.s:3573   .text.store_program:00000000000000d4 $d
-     /tmp/ccYFWqP2.s:3580   .text.recall_program:0000000000000000 $t
-     /tmp/ccYFWqP2.s:3588   .text.recall_program:0000000000000000 recall_program
-     /tmp/ccYFWqP2.s:3649   .text.recall_program:000000000000003c $d
-     /tmp/ccYFWqP2.s:3654   .rodata.save_lib_file.str1.4:0000000000000000 $d
-     /tmp/ccYFWqP2.s:3667   .text.save_lib_file:0000000000000000 $t
-     /tmp/ccYFWqP2.s:3675   .text.save_lib_file:0000000000000000 save_lib_file
-     /tmp/ccYFWqP2.s:3829   .text.save_lib_file:0000000000000084 $d
-     /tmp/ccYFWqP2.s:3848   .rodata.load_lib_file.str1.4:0000000000000000 $d
-     /tmp/ccYFWqP2.s:3855   .text.load_lib_file:0000000000000000 $t
-     /tmp/ccYFWqP2.s:3863   .text.load_lib_file:0000000000000000 load_lib_file
-     /tmp/ccYFWqP2.s:3998   .text.load_lib_file:0000000000000078 $d
-     /tmp/ccYFWqP2.s:4016   .rodata.save_ram_file.str1.4:0000000000000000 $d
-     /tmp/ccYFWqP2.s:4032   .text.save_ram_file:0000000000000000 $t
-     /tmp/ccYFWqP2.s:4040   .text.save_ram_file:0000000000000000 save_ram_file
-     /tmp/ccYFWqP2.s:4217   .text.save_ram_file:000000000000009c $d
-     /tmp/ccYFWqP2.s:4236   .rodata.load_ram_file.str1.4:0000000000000000 $d
-     /tmp/ccYFWqP2.s:4243   .text.load_ram_file:0000000000000000 $t
-ARM GAS  /tmp/ccYFWqP2.s 			page 145
+     /tmp/cczYVb2h.s:2179   .text.append_program:00000000000000c0 $d
+     /tmp/cczYVb2h.s:2187   .text.check_create_wp34sdir:0000000000000000 $t
+     /tmp/cczYVb2h.s:2195   .text.check_create_wp34sdir:0000000000000000 check_create_wp34sdir
+     /tmp/cczYVb2h.s:2236   .text.check_create_wp34sdir:0000000000000018 $d
+     /tmp/cczYVb2h.s:2243   .text.init_library:0000000000000000 $t
+     /tmp/cczYVb2h.s:2251   .text.init_library:0000000000000000 init_library
+     /tmp/cczYVb2h.s:2313   .text.init_library:0000000000000034 $d
+     /tmp/cczYVb2h.s:2318   .text.flash_remove:0000000000000000 $t
+     /tmp/cczYVb2h.s:2326   .text.flash_remove:0000000000000000 flash_remove
+     /tmp/cczYVb2h.s:2373   .text.flash_remove:0000000000000024 $d
+     /tmp/cczYVb2h.s:2378   .text.clrprog:0000000000000000 $t
+     /tmp/cczYVb2h.s:2386   .text.clrprog:0000000000000000 clrprog
+     /tmp/cczYVb2h.s:2517   .text.clrprog:0000000000000090 $d
+     /tmp/cczYVb2h.s:2522   .rodata.store_program_from_buffer.part.0.str1.4:0000000000000000 $d
+     /tmp/cczYVb2h.s:2526   .text.store_program_from_buffer.part.0:0000000000000000 $t
+     /tmp/cczYVb2h.s:2533   .text.store_program_from_buffer.part.0:0000000000000000 store_program_from_buffer.part.0
+     /tmp/cczYVb2h.s:2732   .text.store_program_from_buffer.part.0:00000000000000a8 $d
+     /tmp/cczYVb2h.s:2742   .rodata.flash_backup.str1.4:0000000000000000 $d
+     /tmp/cczYVb2h.s:2749   .text.flash_backup:0000000000000000 $t
+     /tmp/cczYVb2h.s:2757   .text.flash_backup:0000000000000000 flash_backup
+     /tmp/cczYVb2h.s:2838   .text.flash_backup:0000000000000048 $d
+     /tmp/cczYVb2h.s:2847   .rodata.flash_restore.str1.4:0000000000000000 $d
+     /tmp/cczYVb2h.s:2851   .text.flash_restore:0000000000000000 $t
+     /tmp/cczYVb2h.s:2859   .text.flash_restore:0000000000000000 flash_restore
+     /tmp/cczYVb2h.s:2918   .text.flash_restore:0000000000000034 $d
+     /tmp/cczYVb2h.s:2926   .text.load_program:0000000000000000 $t
+     /tmp/cczYVb2h.s:2934   .text.load_program:0000000000000000 load_program
+     /tmp/cczYVb2h.s:3046   .text.load_program:000000000000003c $d
+     /tmp/cczYVb2h.s:3052   .text.load_registers:0000000000000000 $t
+     /tmp/cczYVb2h.s:3060   .text.load_registers:0000000000000000 load_registers
+     /tmp/cczYVb2h.s:3154   .text.load_registers:000000000000004c $d
+     /tmp/cczYVb2h.s:3160   .text.load_sigma:0000000000000000 $t
+     /tmp/cczYVb2h.s:3168   .text.load_sigma:0000000000000000 load_sigma
+     /tmp/cczYVb2h.s:3240   .text.load_sigma:0000000000000040 $d
+     /tmp/cczYVb2h.s:3245   .text.load_state:0000000000000000 $t
+     /tmp/cczYVb2h.s:3253   .text.load_state:0000000000000000 load_state
+     /tmp/cczYVb2h.s:3323   .text.load_state:000000000000003c $d
+     /tmp/cczYVb2h.s:3329   .text.store_program:0000000000000000 $t
+     /tmp/cczYVb2h.s:3337   .text.store_program:0000000000000000 store_program
+     /tmp/cczYVb2h.s:3573   .text.store_program:00000000000000d4 $d
+     /tmp/cczYVb2h.s:3580   .text.recall_program:0000000000000000 $t
+     /tmp/cczYVb2h.s:3588   .text.recall_program:0000000000000000 recall_program
+     /tmp/cczYVb2h.s:3649   .text.recall_program:000000000000003c $d
+     /tmp/cczYVb2h.s:3654   .rodata.save_lib_file.str1.4:0000000000000000 $d
+     /tmp/cczYVb2h.s:3667   .text.save_lib_file:0000000000000000 $t
+     /tmp/cczYVb2h.s:3675   .text.save_lib_file:0000000000000000 save_lib_file
+     /tmp/cczYVb2h.s:3829   .text.save_lib_file:0000000000000084 $d
+     /tmp/cczYVb2h.s:3848   .rodata.load_lib_file.str1.4:0000000000000000 $d
+     /tmp/cczYVb2h.s:3855   .text.load_lib_file:0000000000000000 $t
+     /tmp/cczYVb2h.s:3863   .text.load_lib_file:0000000000000000 load_lib_file
+     /tmp/cczYVb2h.s:3998   .text.load_lib_file:0000000000000078 $d
+     /tmp/cczYVb2h.s:4016   .rodata.save_ram_file.str1.4:0000000000000000 $d
+     /tmp/cczYVb2h.s:4032   .text.save_ram_file:0000000000000000 $t
+     /tmp/cczYVb2h.s:4040   .text.save_ram_file:0000000000000000 save_ram_file
+     /tmp/cczYVb2h.s:4217   .text.save_ram_file:000000000000009c $d
+     /tmp/cczYVb2h.s:4236   .rodata.load_ram_file.str1.4:0000000000000000 $d
+     /tmp/cczYVb2h.s:4243   .text.load_ram_file:0000000000000000 $t
+ARM GAS  /tmp/cczYVb2h.s 			page 145
 
 
-     /tmp/ccYFWqP2.s:4251   .text.load_ram_file:0000000000000000 load_ram_file
-     /tmp/ccYFWqP2.s:4427   .text.load_ram_file:0000000000000094 $d
-     /tmp/ccYFWqP2.s:4445   .rodata.load_backup_file.str1.4:0000000000000000 $d
-     /tmp/ccYFWqP2.s:4452   .text.load_backup_file:0000000000000000 $t
-     /tmp/ccYFWqP2.s:4460   .text.load_backup_file:0000000000000000 load_backup_file
-     /tmp/ccYFWqP2.s:4595   .text.load_backup_file:0000000000000078 $d
-     /tmp/ccYFWqP2.s:4613   .rodata.save_prog_file.str1.4:0000000000000000 $d
-     /tmp/ccYFWqP2.s:4626   .text.save_prog_file:0000000000000000 $t
-     /tmp/ccYFWqP2.s:4634   .text.save_prog_file:0000000000000000 save_prog_file
-     /tmp/ccYFWqP2.s:4948   .text.save_prog_file:0000000000000130 $d
-     /tmp/ccYFWqP2.s:4966   .rodata.load_prog_file.str1.4:0000000000000000 $d
-     /tmp/ccYFWqP2.s:4973   .text.load_prog_file:0000000000000000 $t
-     /tmp/ccYFWqP2.s:4981   .text.load_prog_file:0000000000000000 load_prog_file
-     /tmp/ccYFWqP2.s:5188   .text.load_prog_file:00000000000000b8 $d
-     /tmp/ccYFWqP2.s:5205   .text.store_program_from_buffer:0000000000000000 $t
-     /tmp/ccYFWqP2.s:5213   .text.store_program_from_buffer:0000000000000000 store_program_from_buffer
+     /tmp/cczYVb2h.s:4251   .text.load_ram_file:0000000000000000 load_ram_file
+     /tmp/cczYVb2h.s:4427   .text.load_ram_file:0000000000000094 $d
+     /tmp/cczYVb2h.s:4445   .rodata.load_backup_file.str1.4:0000000000000000 $d
+     /tmp/cczYVb2h.s:4452   .text.load_backup_file:0000000000000000 $t
+     /tmp/cczYVb2h.s:4460   .text.load_backup_file:0000000000000000 load_backup_file
+     /tmp/cczYVb2h.s:4595   .text.load_backup_file:0000000000000078 $d
+     /tmp/cczYVb2h.s:4613   .rodata.save_prog_file.str1.4:0000000000000000 $d
+     /tmp/cczYVb2h.s:4626   .text.save_prog_file:0000000000000000 $t
+     /tmp/cczYVb2h.s:4634   .text.save_prog_file:0000000000000000 save_prog_file
+     /tmp/cczYVb2h.s:4948   .text.save_prog_file:0000000000000130 $d
+     /tmp/cczYVb2h.s:4966   .rodata.load_prog_file.str1.4:0000000000000000 $d
+     /tmp/cczYVb2h.s:4976   .text.load_prog_file:0000000000000000 $t
+     /tmp/cczYVb2h.s:4984   .text.load_prog_file:0000000000000000 load_prog_file
+     /tmp/cczYVb2h.s:5191   .text.load_prog_file:00000000000000b8 $d
+     /tmp/cczYVb2h.s:5208   .text.store_program_from_buffer:0000000000000000 $t
+     /tmp/cczYVb2h.s:5216   .text.store_program_from_buffer:0000000000000000 store_program_from_buffer
                             *COM*:0000000000000040 XromA2D
                             *COM*:00000000000001d0 XromLocal
                             *COM*:0000000000000010 XromParams
@@ -8652,6 +8658,6 @@ get_reg_n
 get_flash_reg_n
 sigmaCopy
 free
-ARM GAS  /tmp/ccYFWqP2.s 			page 146
+ARM GAS  /tmp/cczYVb2h.s 			page 146
 
 

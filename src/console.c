@@ -85,7 +85,11 @@ static struct _ndmap remap (const int c) {
     }
     return mapping_alpha [c];
   }
-    
+
+  if (Running | Pause) {
+    return mapping_running[c];
+  }
+  
   switch (c) {
   case KEY_F1:
     if (cur_shift() == SHIFT_N) return Menus[current_menu].keys[0].unshifted;
@@ -159,10 +163,28 @@ int get_key(void)
   #endif
 }
 
+/*
+ * k is a WP34s key code. I need to translate it into a DM42 keycode, and push it.
+ * 
+ */
 int put_key( int k )
 {
   #ifdef DM42
-  return key_push(k);
+  const char wp34s_to_DM42[] = {
+    KEY_SIGMA, KEY_INV, KEY_SQRT, KEY_LOG, KEY_F5, KEY_F6, // 0-5
+    KEY_STO, KEY_RCL, KEY_RDN, KEY_SHIFT, KEY_COS, KEY_TAN, // 6-11
+    KEY_ENTER, KEY_SWAP, KEY_CHS, KEY_E, KEY_BSP, 0, // 12-17
+    KEY_XEQ, KEY_7, KEY_8, KEY_9, KEY_DIV, 0, // 18-23
+    KEY_UP, KEY_4, KEY_5, KEY_6, KEY_MUL, 0, // 24-29
+    KEY_DOWN, KEY_1, KEY_2, KEY_3, KEY_SUB, 0, // 30-35
+    KEY_EXIT, KEY_0, KEY_DOT, KEY_RUN, KEY_ADD,}; // 36-40
+  
+  if ( ( k >= K00 ) && ( k <= K64 ) ) {
+    return key_push( wp34s_to_DM42 [k] );
+  }
+  else {
+    return -1;
+  }
   #else
   return k;
   #endif
