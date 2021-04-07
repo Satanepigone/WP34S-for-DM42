@@ -365,7 +365,7 @@ struct _ndmap do_multi (struct _ndmap r) {
     break;
   case DEFMEN:
     toggle_default_menu();
-    r = no_key;
+    r = f_shift; // clears f-shift that called this function
     break;
   default:
     r = no_key;
