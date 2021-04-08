@@ -541,12 +541,12 @@ static void query_time(unsigned int *s, unsigned int *m, unsigned int *h) {
 	*m = minute;
 	*h = hour;
 #else
-	//	time_t now = time(NULL);
-	//struct tm *dt = localtime(&now);
-
-	//*h = dt->tm_hour;
-	//*m = dt->tm_min;
-	//*s = dt->tm_sec;
+	tm_t time_now;
+	dt_t date_now;
+	rtc_read ( &time_now, &date_now );
+	*s = time_now.sec;
+	*m = time_now.min;
+	*h = time_now.hour;
 #endif
 }
 
@@ -561,12 +561,12 @@ static void query_date(unsigned int *d, unsigned int *m, unsigned int *y) {
 	*m = month;
 	*d = day;
 #else
-	//	time_t now = time(NULL);
-	//struct tm *dt = localtime(&now);
-
-	//*y = dt->tm_year + 1900;
-	//*m = dt->tm_mon + 1;
-	//*d = dt->tm_mday;
+	tm_t time_now;
+	dt_t date_now;
+	rtc_read ( &time_now, &date_now );
+	*y = date_now.year;
+	*m = date_now.month;
+	*d = date_now.day;
 #endif
 }
 

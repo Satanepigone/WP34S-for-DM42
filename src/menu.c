@@ -94,7 +94,7 @@ void set_menu ( int new_menu ) {
   else {
     current_menu = new_menu; // change to new menu
   }
-  if (m != 9) last_menu = m; // store menu as last menu unless it's arrow!
+  if ( (m != 9) && (m != 16) ) last_menu = m; // store menu as last menu unless arrow or alpha
 }
 
 void toggle_default_menu () {
@@ -188,7 +188,7 @@ static const struct _menu Menus[] = {
   {
     "X<>Y Key", // 6
     { 
-      { { K21, 1 }, NO_KEY, "Show\016", "" },
+      { { K21, 1 }, { K_OP, RARG_BASEOP(RARG_SHUFFLE) }, "Show\016", "[\027]" },
       { { K21, 2 }, NO_KEY, "Show\015", "" },
       { { K21, 3 }, { K_OP, RARG_BASEOP(RARG_SWAPZ) }, "x\027?", "z\027?" },
       { { K_OP, RARG_BASEOP(RARG_SWAPY) }, { K_OP, RARG_BASEOP(RARG_SWAPT) }, "y\027?", "t\027?" },
@@ -236,8 +236,8 @@ static const struct _menu Menus[] = {
       { { K50, 2 }, { K_OP, RARG_BASEOP(RARG_FC)}, "CF_", "FC?" },
       { { K51, 1 }, { K_OP, RARG_BASEOP(RARG_TEST_LT)}, "x=?", "x<?" },
       { { K51, 2 }, { K_OP, RARG_BASEOP(RARG_TEST_LE)}, "x\013?", "x<=?" },
-      { ARROW_KEY, { K_OP, RARG_BASEOP(RARG_TEST_GT)}, "--\015", "x>?" },
-      { CMPLX_KEY, { K_OP, RARG_BASEOP(RARG_TEST_GE)}, "CPX", "x>=?" },
+      { ARROW_KEY, { K_OP, RARG_BASEOP(RARG_TEST_GE)}, "--\015", "x>=?" },
+      { CMPLX_KEY, { K_OP, RARG_BASEOP(RARG_TEST_GT)}, "CPX", "x>?" },
     }
   },
   {
@@ -287,8 +287,8 @@ static const struct _menu Menus[] = {
     { 
       { { K52, 1 }, NO_KEY, "SLV", "" },
       { { K52, 2 }, NO_KEY, "\004 dx", "" },
-      { { K53, 1 }, NO_KEY, "SUM", "" },
-      { { K53, 2 }, NO_KEY, "PROD", "" },
+      { { K53, 2 }, NO_KEY, "SUM", "" },
+      { { K53, 1 }, NO_KEY, "PROD", "" },
       { ARROW_KEY, NO_KEY, "--\015", "" },
       { CMPLX_KEY, NO_KEY, "CPX", "" },
     }
@@ -300,6 +300,17 @@ static const struct _menu Menus[] = {
       { { K34, 1 }, NO_KEY, "1/X", "" },
       { { K44, 1 }, NO_KEY, "\003X", "" },
       { { K31, 2 }, NO_KEY, "LOG", "" },
+      { ARROW_KEY, NO_KEY, "--\015", "" },
+      { CMPLX_KEY, NO_KEY, "CPX", "" },
+    }    
+  },
+  {
+    "Alpha", // 16
+    { 
+      { { K_OP, OP_NIL | OP_XTOALPHA }, { K_OP, OP_NIL | OP_ALPHATIME }, "X->\240", "\240TIME" },
+      { { K_OP, OP_NIL | OP_ALPHATOX }, { K_OP, OP_NIL | OP_ALPHADATE }, "\240->X", "\240DATE" },
+      { { K_OP,  }, { K_OP, OP_NIL | OP_ALPHADAY }, "\240IP", "\240DAY" },
+      { { K_OP, OP_NIL | OP_ALPHALEN }, { K_OP, OP_NIL | OP_ALPHAMONTH }, "\240LENG", "\240MONTH" },
       { ARROW_KEY, NO_KEY, "--\015", "" },
       { CMPLX_KEY, NO_KEY, "CPX", "" },
     }    

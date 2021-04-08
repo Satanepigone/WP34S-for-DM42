@@ -223,8 +223,8 @@ static const struct _ndmap mapping_alpha[] = {
     {K_NOP, -1},
     {K_NOP, -1},
     {K_NOP, -1},
-    {K_ARROW, -1}, //F5 is always K_ARROW in all menus
-    {K_NOP, -1},
+    {K_ARROW, -1}, // allow arrow and CMPLX to be used for K04 and K05
+    {K_CMPLX, -1},
     {K_NOP, -1},
     {K_NOP, -1},
     {K_NOP, -1},

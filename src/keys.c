@@ -216,8 +216,9 @@ unsigned int keycode_to_digit_or_register(const keycode c)
     NO_REG, NO_SHORT | regX_idx, NO_SHORT | regY_idx, NO_SHORT | regZ_idx, NO_REG,
     // K60 - K64
     NO_SHORT | NO_REG, 0, NO_SHORT | LOCAL_REG_BASE, NO_REG, NO_REG,
-    // Shifts
-    NO_REG
+    // Shifts etc. - K_F, K_G, K_H, K_ARROW, K_CMPLX. K_NOP
+    NO_SHORT | NO_REG, NO_SHORT | NO_REG, NO_SHORT | NO_REG,
+    NO_SHORT | NO_REG, NO_SHORT | NO_REG, NO_SHORT | NO_REG, 
   };
 
   return (unsigned int) map[keycode_to_linear_for_alpha(c)];
@@ -337,6 +338,8 @@ static enum catalogues keycode_to_cat(const keycode c, enum shifts shift)
     static const struct _map amap[] = {
       { K04, { CATALOGUE_NONE, CATALOGUE_ALPHA_ARROWS,  CATALOGUE_NONE              } },
       { K05, { CATALOGUE_NONE, CATALOGUE_ALPHA_LETTERS, CATALOGUE_MODE              } },
+      { K_ARROW, { CATALOGUE_NONE, CATALOGUE_ALPHA_ARROWS,  CATALOGUE_NONE              } },
+      { K_CMPLX, { CATALOGUE_NONE, CATALOGUE_ALPHA_LETTERS, CATALOGUE_MODE              } },
       //	{ K10,     { CATALOGUE_NONE, CATALOGUE_NONE,          CATALOGUE_LABELS            } },
       { K12,     { CATALOGUE_NONE, CATALOGUE_NONE,	      CATALOGUE_ALPHA_SUBSCRIPTS  } },
       //	{ K50,     { CATALOGUE_NONE, CATALOGUE_NONE,          CATALOGUE_STATUS            } },
@@ -947,6 +950,10 @@ static int process_fg_shifted(const keycode c) {
 				return STATE_UNFINISHED;
 			process_cmdline_set_lift();
 			State2.alphas = 1;
+#ifdef DM42
+			set_menu(16);
+			display_current_menu();
+#endif
 		}
 		break;
 #ifdef DM42
@@ -1244,10 +1251,15 @@ static int process_hyp(const keycode c) {
 		cmplx = ! cmplx;
 		goto stay;
 
+#ifndef DM42
 	case K_F: 
 	case K_G:
 		f = (c == K_F);
-		// fall trough
+		// fall through
+#else
+	case K_F:
+	  if (c == K_F) f = 1 - f;
+#endif
 	stay:
 		// process_cmdline_set_lift();
 		State2.hyp = 1;
@@ -1425,6 +1437,10 @@ static int process_alpha(const keycode c) {
 		}
 		State2.alphas = 0;
 		State2.alphashift = 0;
+#ifdef DM42
+		set_menu(-1);
+		display_current_menu();
+#endif
 		return op;
 
 	case K24:	// Clx - backspace, clear Alpha
@@ -1480,8 +1496,11 @@ static int process_alpha(const keycode c) {
 			State2.alphashift = 1 - State2.alphashift;
 		else if (shift == SHIFT_H)
 			return OP_NIL | OP_OFF;
-		else if (shift == SHIFT_N)
-			init_state();
+		else if (shift == SHIFT_N) {
+		  set_menu(-1);
+		  display_current_menu();
+		  init_state();
+		}
 		return STATE_UNFINISHED;
 
 	case K63:
