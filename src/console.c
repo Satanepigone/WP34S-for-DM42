@@ -65,27 +65,6 @@ static struct _ndmap remap (const int c) {
     return sshot;
   }
   
-  if ( get_alpha_state() ) {
-    if (c == KEY_SHIFT) { //deal with shift keys
-      switch (cur_shift()) { 
-      case SHIFT_N:
-	return mapping_none[c]; // N -> F
-	break;
-      case SHIFT_F:
-	return mapping_fshift[c]; // F -> G
-	break;
-      case SHIFT_G:
-	return h_shift; // G -> H
-	break;
-      case SHIFT_H:
-	return h_shift; // H -> N
-      default:
-	return no_change;
-      }
-    }
-    return mapping_alpha [c];
-  }
-
   if (Running | Pause) {
     return mapping_running[c];
   }
@@ -111,6 +90,27 @@ static struct _ndmap remap (const int c) {
     if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[5].shifted;
   }
   
+  if ( get_alpha_state() ) {
+    if (c == KEY_SHIFT) { //deal with shift keys
+      switch (cur_shift()) { 
+      case SHIFT_N:
+	return mapping_none[c]; // N -> F
+	break;
+      case SHIFT_F:
+	return mapping_fshift[c]; // F -> G
+	break;
+      case SHIFT_G:
+	return h_shift; // G -> H
+	break;
+      case SHIFT_H:
+	return h_shift; // H -> N
+      default:
+	return no_change;
+      }
+    }
+    return mapping_alpha [c];
+  }
+
   switch (cur_shift()) {
   case SHIFT_N:    
     return mapping_none[c];

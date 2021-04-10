@@ -1497,8 +1497,10 @@ static int process_alpha(const keycode c) {
 		else if (shift == SHIFT_H)
 			return OP_NIL | OP_OFF;
 		else if (shift == SHIFT_N) {
+#ifdef DM42
 		  set_menu(-1);
 		  display_current_menu();
+#endif
 		  init_state();
 		}
 		return STATE_UNFINISHED;
@@ -2822,7 +2824,7 @@ static int process(const int c) {
    * if required.
    */
 #ifdef DM42
-  if (c == K60 && shift == SHIFT_N && ! State2.catalogue && ! State2.arrow)
+  if (c == K60 && shift == SHIFT_N && ! State2.catalogue && ! State2.arrow && ! State2.alphas)
 #else
   if (c == K60 && shift == SHIFT_N && ! State2.catalogue)
 #endif

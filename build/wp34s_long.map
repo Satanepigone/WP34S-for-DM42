@@ -3820,159 +3820,160 @@ LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtn.o
                 0x000000000807839c      0x1b8 build/console.o
                 0x000000000807839c                do_multi
  .text.program_main
-                0x0000000008078554      0x5b4 build/console.o
+                0x0000000008078554      0x5b0 build/console.o
                 0x0000000008078554                program_main
  .text.decContextDefault
-                0x0000000008078b08       0x6c build/libdecNumber.a(decContext.o)
-                0x0000000008078b08                decContextDefault
+                0x0000000008078b04       0x6c build/libdecNumber.a(decContext.o)
+                0x0000000008078b04                decContextDefault
  .text.decContextSetStatus
-                0x0000000008078b74        0x8 build/libdecNumber.a(decContext.o)
-                0x0000000008078b74                decContextSetStatus
+                0x0000000008078b70        0x8 build/libdecNumber.a(decContext.o)
+                0x0000000008078b70                decContextSetStatus
  .text.decUnitAddSub
-                0x0000000008078b7c      0x288 build/libdecNumber.a(decNumber.o)
+                0x0000000008078b78      0x288 build/libdecNumber.a(decNumber.o)
  .text.decSetOverflow
-                0x0000000008078e04       0xac build/libdecNumber.a(decNumber.o)
+                0x0000000008078e00       0xac build/libdecNumber.a(decNumber.o)
  .text.decGetDigits
-                0x0000000008078eb0       0x3c build/libdecNumber.a(decNumber.o)
+                0x0000000008078eac       0x3c build/libdecNumber.a(decNumber.o)
  .text.decUnitCompare
-                0x0000000008078eec       0xe8 build/libdecNumber.a(decNumber.o)
+                0x0000000008078ee8       0xe8 build/libdecNumber.a(decNumber.o)
  .text.decCompare
-                0x0000000008078fd4      0x11c build/libdecNumber.a(decNumber.o)
+                0x0000000008078fd0      0x11c build/libdecNumber.a(decNumber.o)
  .text.decStatus
-                0x00000000080790f0       0x2c build/libdecNumber.a(decNumber.o)
+                0x00000000080790ec       0x2c build/libdecNumber.a(decNumber.o)
  .text.decShiftToMost.part.0
-                0x000000000807911c       0xf4 build/libdecNumber.a(decNumber.o)
+                0x0000000008079118       0xf4 build/libdecNumber.a(decNumber.o)
  .text.decShiftToLeast.part.0
-                0x0000000008079210      0x100 build/libdecNumber.a(decNumber.o)
+                0x000000000807920c      0x100 build/libdecNumber.a(decNumber.o)
  .text.decSetCoeff.isra.0
-                0x0000000008079310      0x1e8 build/libdecNumber.a(decNumber.o)
+                0x000000000807930c      0x1e8 build/libdecNumber.a(decNumber.o)
  .text.decApplyRound.part.0
-                0x00000000080794f8      0x198 build/libdecNumber.a(decNumber.o)
+                0x00000000080794f4      0x198 build/libdecNumber.a(decNumber.o)
  .text.decSetSubnormal
-                0x0000000008079690       0xf0 build/libdecNumber.a(decNumber.o)
+                0x000000000807968c       0xf0 build/libdecNumber.a(decNumber.o)
  .text.decFinalize
-                0x0000000008079780       0xd8 build/libdecNumber.a(decNumber.o)
+                0x000000000807977c       0xd8 build/libdecNumber.a(decNumber.o)
  .text.decTrim.constprop.0
-                0x0000000008079858       0xbc build/libdecNumber.a(decNumber.o)
+                0x0000000008079854       0xbc build/libdecNumber.a(decNumber.o)
  .text.decNumberToString
-                0x0000000008079914      0x434 build/libdecNumber.a(decNumber.o)
-                0x0000000008079914                decNumberToString
+                0x0000000008079910      0x434 build/libdecNumber.a(decNumber.o)
+                0x0000000008079910                decNumberToString
  .text.decNumberFromString
-                0x0000000008079d48      0x3c4 build/libdecNumber.a(decNumber.o)
-                0x0000000008079d48                decNumberFromString
+                0x0000000008079d44      0x3c4 build/libdecNumber.a(decNumber.o)
+                0x0000000008079d44                decNumberFromString
  .text.decNumberCopy
-                0x000000000807a10c       0x50 build/libdecNumber.a(decNumber.o)
-                0x000000000807a10c                decNumberCopy
- .text.decNaNs  0x000000000807a15c       0x54 build/libdecNumber.a(decNumber.o)
+                0x000000000807a108       0x50 build/libdecNumber.a(decNumber.o)
+                0x000000000807a108                decNumberCopy
+ .text.decNaNs  0x000000000807a158       0x54 build/libdecNumber.a(decNumber.o)
  .text.decCompareOp
-                0x000000000807a1b0      0x184 build/libdecNumber.a(decNumber.o)
+                0x000000000807a1ac      0x184 build/libdecNumber.a(decNumber.o)
  .text.decNumberCompare
-                0x000000000807a334       0x30 build/libdecNumber.a(decNumber.o)
-                0x000000000807a334                decNumberCompare
+                0x000000000807a330       0x30 build/libdecNumber.a(decNumber.o)
+                0x000000000807a330                decNumberCompare
  .text.decNumberMax
-                0x000000000807a364       0x30 build/libdecNumber.a(decNumber.o)
-                0x000000000807a364                decNumberMax
+                0x000000000807a360       0x30 build/libdecNumber.a(decNumber.o)
+                0x000000000807a360                decNumberMax
  .text.decNumberMin
-                0x000000000807a394       0x30 build/libdecNumber.a(decNumber.o)
-                0x000000000807a394                decNumberMin
+                0x000000000807a390       0x30 build/libdecNumber.a(decNumber.o)
+                0x000000000807a390                decNumberMin
  .text.decMultiplyOp
-                0x000000000807a3c4      0x1cc build/libdecNumber.a(decNumber.o)
+                0x000000000807a3c0      0x1cc build/libdecNumber.a(decNumber.o)
  .text.decNumberMultiply
-                0x000000000807a590       0x2c build/libdecNumber.a(decNumber.o)
-                0x000000000807a590                decNumberMultiply
+                0x000000000807a58c       0x2c build/libdecNumber.a(decNumber.o)
+                0x000000000807a58c                decNumberMultiply
  .text.decNumberNormalize
-                0x000000000807a5bc       0x84 build/libdecNumber.a(decNumber.o)
-                0x000000000807a5bc                decNumberNormalize
+                0x000000000807a5b8       0x84 build/libdecNumber.a(decNumber.o)
+                0x000000000807a5b8                decNumberNormalize
  .text.decAddOp
-                0x000000000807a640      0x4dc build/libdecNumber.a(decNumber.o)
+                0x000000000807a63c      0x4dc build/libdecNumber.a(decNumber.o)
  .text.decNumberAdd
-                0x000000000807ab1c       0x30 build/libdecNumber.a(decNumber.o)
-                0x000000000807ab1c                decNumberAdd
+                0x000000000807ab18       0x30 build/libdecNumber.a(decNumber.o)
+                0x000000000807ab18                decNumberAdd
  .text.decNumberSubtract
-                0x000000000807ab4c       0x30 build/libdecNumber.a(decNumber.o)
-                0x000000000807ab4c                decNumberSubtract
+                0x000000000807ab48       0x30 build/libdecNumber.a(decNumber.o)
+                0x000000000807ab48                decNumberSubtract
  .text.decNumberAbs
-                0x000000000807ab7c       0x4c build/libdecNumber.a(decNumber.o)
-                0x000000000807ab7c                decNumberAbs
+                0x000000000807ab78       0x4c build/libdecNumber.a(decNumber.o)
+                0x000000000807ab78                decNumberAbs
  .text.decNumberMinus
-                0x000000000807abc8       0x48 build/libdecNumber.a(decNumber.o)
-                0x000000000807abc8                decNumberMinus
+                0x000000000807abc4       0x48 build/libdecNumber.a(decNumber.o)
+                0x000000000807abc4                decNumberMinus
  .text.decNumberPlus
-                0x000000000807ac10       0x44 build/libdecNumber.a(decNumber.o)
-                0x000000000807ac10                decNumberPlus
+                0x000000000807ac0c       0x44 build/libdecNumber.a(decNumber.o)
+                0x000000000807ac0c                decNumberPlus
  .text.decDivideOp
-                0x000000000807ac54      0x828 build/libdecNumber.a(decNumber.o)
+                0x000000000807ac50      0x828 build/libdecNumber.a(decNumber.o)
  .text.decNumberDivide
-                0x000000000807b47c       0x30 build/libdecNumber.a(decNumber.o)
-                0x000000000807b47c                decNumberDivide
+                0x000000000807b478       0x30 build/libdecNumber.a(decNumber.o)
+                0x000000000807b478                decNumberDivide
  .text.decNumberRemainder
-                0x000000000807b4ac       0x30 build/libdecNumber.a(decNumber.o)
-                0x000000000807b4ac                decNumberRemainder
+                0x000000000807b4a8       0x30 build/libdecNumber.a(decNumber.o)
+                0x000000000807b4a8                decNumberRemainder
  .text.decExpOp
-                0x000000000807b4dc      0x474 build/libdecNumber.a(decNumber.o)
+                0x000000000807b4d8      0x474 build/libdecNumber.a(decNumber.o)
  .text.decNumberExp
-                0x000000000807b950       0x88 build/libdecNumber.a(decNumber.o)
-                0x000000000807b950                decNumberExp
+                0x000000000807b94c       0x88 build/libdecNumber.a(decNumber.o)
+                0x000000000807b94c                decNumberExp
  .text.decNumberSquareRoot
-                0x000000000807b9d8      0x434 build/libdecNumber.a(decNumber.o)
-                0x000000000807b9d8                decNumberSquareRoot
+                0x000000000807b9d4      0x434 build/libdecNumber.a(decNumber.o)
+                0x000000000807b9d4                decNumberSquareRoot
  .text.decNumberZero
-                0x000000000807be0c       0x10 build/libdecNumber.a(decNumber.o)
-                0x000000000807be0c                decNumberZero
+                0x000000000807be08       0x10 build/libdecNumber.a(decNumber.o)
+                0x000000000807be08                decNumberZero
  .text.decGetInt
-                0x000000000807be1c      0x100 build/libdecNumber.a(decNumber.o)
-                0x000000000807be1c                decGetInt
+                0x000000000807be18      0x100 build/libdecNumber.a(decNumber.o)
+                0x000000000807be18                decGetInt
  .text.decQuantizeOp.constprop.0
-                0x000000000807bf1c      0x1a4 build/libdecNumber.a(decNumber.o)
+                0x000000000807bf18      0x1a4 build/libdecNumber.a(decNumber.o)
  .text.decNumberRescale
-                0x000000000807c0c0       0x30 build/libdecNumber.a(decNumber.o)
-                0x000000000807c0c0                decNumberRescale
+                0x000000000807c0bc       0x30 build/libdecNumber.a(decNumber.o)
+                0x000000000807c0bc                decNumberRescale
  .text.decNumberQuantize
-                0x000000000807c0f0       0x30 build/libdecNumber.a(decNumber.o)
-                0x000000000807c0f0                decNumberQuantize
+                0x000000000807c0ec       0x30 build/libdecNumber.a(decNumber.o)
+                0x000000000807c0ec                decNumberQuantize
  .text.decNumberToIntegralValue
-                0x000000000807c120       0xa8 build/libdecNumber.a(decNumber.o)
-                0x000000000807c120                decNumberToIntegralValue
+                0x000000000807c11c       0xa8 build/libdecNumber.a(decNumber.o)
+                0x000000000807c11c                decNumberToIntegralValue
  .text.ullint_to_dn
-                0x000000000807c1c8       0x6c build/libdecNumber.a(decNumber.o)
-                0x000000000807c1c8                ullint_to_dn
+                0x000000000807c1c4       0x6c build/libdecNumber.a(decNumber.o)
+                0x000000000807c1c4                ullint_to_dn
  .text.decimal128FromNumber
-                0x000000000807c234      0x164 build/libdecNumber.a(decimal128.o)
-                0x000000000807c234                decimal128FromNumber
+                0x000000000807c230      0x164 build/libdecNumber.a(decimal128.o)
+                0x000000000807c230                decimal128FromNumber
  .text.decimal128ToNumber
-                0x000000000807c398       0xd0 build/libdecNumber.a(decimal128.o)
-                0x000000000807c398                decimal128ToNumber
+                0x000000000807c394       0xd0 build/libdecNumber.a(decimal128.o)
+                0x000000000807c394                decimal128ToNumber
  .text.decDigitsToDPD
-                0x000000000807c468      0x184 build/libdecNumber.a(decimal64.o)
-                0x000000000807c468                decDigitsToDPD
+                0x000000000807c464      0x184 build/libdecNumber.a(decimal64.o)
+                0x000000000807c464                decDigitsToDPD
  .text.decimal64FromNumber
-                0x000000000807c5ec      0x158 build/libdecNumber.a(decimal64.o)
-                0x000000000807c5ec                decimal64FromNumber
+                0x000000000807c5e8      0x158 build/libdecNumber.a(decimal64.o)
+                0x000000000807c5e8                decimal64FromNumber
  .text.decDigitsFromDPD
-                0x000000000807c744       0xa4 build/libdecNumber.a(decimal64.o)
-                0x000000000807c744                decDigitsFromDPD
+                0x000000000807c740       0xa4 build/libdecNumber.a(decimal64.o)
+                0x000000000807c740                decDigitsFromDPD
  .text.decimal64ToNumber
-                0x000000000807c7e8       0xbc build/libdecNumber.a(decimal64.o)
-                0x000000000807c7e8                decimal64ToNumber
+                0x000000000807c7e4       0xbc build/libdecNumber.a(decimal64.o)
+                0x000000000807c7e4                decimal64ToNumber
  .text.Program_Entry
-                0x000000000807c8a4       0x48 build/startup_pgm.o
-                0x000000000807c8a4                Program_Entry
- .text.startup  0x000000000807c8ec       0x14 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-__call_atexit.o)
+                0x000000000807c8a0       0x48 build/startup_pgm.o
+                0x000000000807c8a0                Program_Entry
+ .text.startup  0x000000000807c8e8       0x14 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-__call_atexit.o)
  *(.glue_7)
- .glue_7        0x000000000807c900        0x0 linker stubs
+ .glue_7        0x000000000807c8fc        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x000000000807c900        0x0 linker stubs
+ .glue_7t       0x000000000807c8fc        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x000000000807c900        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .eh_frame      0x000000000807c8fc        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.init)
- .init          0x000000000807c900        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crti.o
-                0x000000000807c900                _init
- .init          0x000000000807c904        0x8 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtn.o
+ .init          0x000000000807c8fc        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crti.o
+                0x000000000807c8fc                _init
+ .init          0x000000000807c900        0x8 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtn.o
  *(.fini)
- .fini          0x000000000807c90c        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crti.o
-                0x000000000807c90c                _fini
- .fini          0x000000000807c910        0x8 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtn.o
+ .fini          0x000000000807c908        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crti.o
+                0x000000000807c908                _fini
+ .fini          0x000000000807c90c        0x8 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/crtn.o
                 0x000000000807c918                . = ALIGN (0x8)
+ *fill*         0x000000000807c914        0x4 
                 0x000000000807c918                _etext = .
 
 .vfp11_veneer   0x000000000807c918        0x0
@@ -4987,74 +4988,74 @@ LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a
  .debug_abbrev  0x0000000000011bdb       0x14 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixdfsi.o)
  .debug_abbrev  0x0000000000011bef       0x6a /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(_exit.o)
 
-.debug_loc      0x0000000000000000    0x5875c
+.debug_loc      0x0000000000000000    0x58758
  .debug_loc     0x0000000000000000      0x4d4 build/pgm_syscalls.o
- .debug_loc     0x00000000000004d4     0x561f build/keys.o
- .debug_loc     0x0000000000005af3     0x6acb build/display.o
- .debug_loc     0x000000000000c5be     0xbfe7 build/xeq.o
- .debug_loc     0x00000000000185a5     0x14c2 build/prt.o
- .debug_loc     0x0000000000019a67     0xddad build/decn.o
- .debug_loc     0x0000000000027814     0x23e0 build/complex.o
- .debug_loc     0x0000000000029bf4     0x1bd7 build/stats.o
- .debug_loc     0x000000000002b7cb      0xcfd build/lcd.o
- .debug_loc     0x000000000002c4c8     0x6262 build/int.o
- .debug_loc     0x000000000003272a     0x1d97 build/date.o
- .debug_loc     0x00000000000344c1      0xb69 build/alpha.o
- .debug_loc     0x000000000003502a       0x25 build/charmap.o
- .debug_loc     0x000000000003504f      0x9e4 build/string.o
- .debug_loc     0x0000000000035a33     0x1b3f build/storage.o
- .debug_loc     0x0000000000037572     0x25aa build/matrix.o
- .debug_loc     0x0000000000039b1c      0x1e2 build/font.o
- .debug_loc     0x0000000000039cfe     0x1011 build/console.o
- .debug_loc     0x000000000003ad0f       0x93 build/libdecNumber.a(decContext.o)
- .debug_loc     0x000000000003ada2     0xa4a2 build/libdecNumber.a(decNumber.o)
- .debug_loc     0x0000000000045244      0x3c2 build/libdecNumber.a(decimal128.o)
- .debug_loc     0x0000000000045606      0xb94 build/libdecNumber.a(decimal64.o)
- .debug_loc     0x000000000004619a      0xfa2 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
- .debug_loc     0x000000000004713c       0x32 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-atexit.o)
- .debug_loc     0x000000000004716e       0x68 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fini.o)
- .debug_loc     0x00000000000471d6       0xba /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-init.o)
- .debug_loc     0x0000000000047290      0x231 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-memset.o)
- .debug_loc     0x00000000000474c1      0x36f /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-perror.o)
- .debug_loc     0x0000000000047830       0xc2 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-sprintf.o)
- .debug_loc     0x00000000000478f2     0x101e /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-strerror.o)
- .debug_loc     0x0000000000048910     0x33c5 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-svfprintf.o)
- .debug_loc     0x000000000004bcd5       0x25 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-u_strerr.o)
- .debug_loc     0x000000000004bcfa       0xdd /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-writer.o)
- .debug_loc     0x000000000004bdd7      0x138 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-__atexit.o)
- .debug_loc     0x000000000004bf0f      0x14a /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-__call_atexit.o)
- .debug_loc     0x000000000004c059     0x305a /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-dtoa.o)
- .debug_loc     0x000000000004f0b3      0x334 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fflush.o)
- .debug_loc     0x000000000004f3e7       0x92 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fileno.o)
- .debug_loc     0x000000000004f479      0x32c /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-findfp.o)
- .debug_loc     0x000000000004f7a5      0x24f /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fwalk.o)
- .debug_loc     0x000000000004f9f4       0x6f /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-localeconv.o)
- .debug_loc     0x000000000004fa63     0x234e /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
- .debug_loc     0x0000000000051db1      0x152 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-reent.o)
- .debug_loc     0x0000000000051f03      0x393 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-stdio.o)
- .debug_loc     0x0000000000052296     0x1923 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-svfiprintf.o)
- .debug_loc     0x0000000000053bb9      0x15c /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-assert.o)
- .debug_loc     0x0000000000053d15       0x6c /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-closer.o)
- .debug_loc     0x0000000000053d81      0x179 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fclose.o)
- .debug_loc     0x0000000000053efa       0xa6 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fiprintf.o)
- .debug_loc     0x0000000000053fa0      0x189 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-locale.o)
- .debug_loc     0x0000000000054129       0xdd /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-lseekr.o)
- .debug_loc     0x0000000000054206      0x21d /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mbtowc_r.o)
- .debug_loc     0x0000000000054423      0x2f1 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-memmove.o)
- .debug_loc     0x0000000000054714       0xdd /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-readr.o)
- .debug_loc     0x00000000000547f1     0x25f3 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfiprintf.o)
- .debug_loc     0x0000000000056de4      0x13a /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wctomb_r.o)
- .debug_loc     0x0000000000056f1e       0xba /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wsetup.o)
- .debug_loc     0x0000000000056fd8      0x3cc /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fputwc.o)
- .debug_loc     0x00000000000573a4      0x669 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fvwrite.o)
- .debug_loc     0x0000000000057a0d      0x192 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-makebuf.o)
- .debug_loc     0x0000000000057b9f      0x560 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-signal.o)
- .debug_loc     0x00000000000580ff       0xd0 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-signalr.o)
- .debug_loc     0x00000000000581cf      0x1b0 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wbuf.o)
- .debug_loc     0x000000000005837f      0x2b1 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wcrtomb.o)
- .debug_loc     0x0000000000058630       0xab /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fstatr.o)
- .debug_loc     0x00000000000586db       0x6c /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-isattyr.o)
- .debug_loc     0x0000000000058747       0x15 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(_exit.o)
+ .debug_loc     0x00000000000004d4     0x5644 build/keys.o
+ .debug_loc     0x0000000000005b18     0x6acb build/display.o
+ .debug_loc     0x000000000000c5e3     0xbfe7 build/xeq.o
+ .debug_loc     0x00000000000185ca     0x14c2 build/prt.o
+ .debug_loc     0x0000000000019a8c     0xddad build/decn.o
+ .debug_loc     0x0000000000027839     0x23e0 build/complex.o
+ .debug_loc     0x0000000000029c19     0x1bd7 build/stats.o
+ .debug_loc     0x000000000002b7f0      0xcfd build/lcd.o
+ .debug_loc     0x000000000002c4ed     0x6262 build/int.o
+ .debug_loc     0x000000000003274f     0x1d97 build/date.o
+ .debug_loc     0x00000000000344e6      0xb69 build/alpha.o
+ .debug_loc     0x000000000003504f       0x25 build/charmap.o
+ .debug_loc     0x0000000000035074      0x9e4 build/string.o
+ .debug_loc     0x0000000000035a58     0x1b3f build/storage.o
+ .debug_loc     0x0000000000037597     0x25aa build/matrix.o
+ .debug_loc     0x0000000000039b41      0x1e2 build/font.o
+ .debug_loc     0x0000000000039d23      0xfe8 build/console.o
+ .debug_loc     0x000000000003ad0b       0x93 build/libdecNumber.a(decContext.o)
+ .debug_loc     0x000000000003ad9e     0xa4a2 build/libdecNumber.a(decNumber.o)
+ .debug_loc     0x0000000000045240      0x3c2 build/libdecNumber.a(decimal128.o)
+ .debug_loc     0x0000000000045602      0xb94 build/libdecNumber.a(decimal64.o)
+ .debug_loc     0x0000000000046196      0xfa2 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_loc     0x0000000000047138       0x32 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-atexit.o)
+ .debug_loc     0x000000000004716a       0x68 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fini.o)
+ .debug_loc     0x00000000000471d2       0xba /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-init.o)
+ .debug_loc     0x000000000004728c      0x231 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-memset.o)
+ .debug_loc     0x00000000000474bd      0x36f /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-perror.o)
+ .debug_loc     0x000000000004782c       0xc2 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-sprintf.o)
+ .debug_loc     0x00000000000478ee     0x101e /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-strerror.o)
+ .debug_loc     0x000000000004890c     0x33c5 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-svfprintf.o)
+ .debug_loc     0x000000000004bcd1       0x25 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-u_strerr.o)
+ .debug_loc     0x000000000004bcf6       0xdd /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-writer.o)
+ .debug_loc     0x000000000004bdd3      0x138 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-__atexit.o)
+ .debug_loc     0x000000000004bf0b      0x14a /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-__call_atexit.o)
+ .debug_loc     0x000000000004c055     0x305a /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-dtoa.o)
+ .debug_loc     0x000000000004f0af      0x334 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fflush.o)
+ .debug_loc     0x000000000004f3e3       0x92 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fileno.o)
+ .debug_loc     0x000000000004f475      0x32c /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-findfp.o)
+ .debug_loc     0x000000000004f7a1      0x24f /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fwalk.o)
+ .debug_loc     0x000000000004f9f0       0x6f /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-localeconv.o)
+ .debug_loc     0x000000000004fa5f     0x234e /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
+ .debug_loc     0x0000000000051dad      0x152 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-reent.o)
+ .debug_loc     0x0000000000051eff      0x393 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-stdio.o)
+ .debug_loc     0x0000000000052292     0x1923 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-svfiprintf.o)
+ .debug_loc     0x0000000000053bb5      0x15c /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-assert.o)
+ .debug_loc     0x0000000000053d11       0x6c /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-closer.o)
+ .debug_loc     0x0000000000053d7d      0x179 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fclose.o)
+ .debug_loc     0x0000000000053ef6       0xa6 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fiprintf.o)
+ .debug_loc     0x0000000000053f9c      0x189 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-locale.o)
+ .debug_loc     0x0000000000054125       0xdd /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-lseekr.o)
+ .debug_loc     0x0000000000054202      0x21d /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mbtowc_r.o)
+ .debug_loc     0x000000000005441f      0x2f1 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-memmove.o)
+ .debug_loc     0x0000000000054710       0xdd /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-readr.o)
+ .debug_loc     0x00000000000547ed     0x25f3 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfiprintf.o)
+ .debug_loc     0x0000000000056de0      0x13a /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wctomb_r.o)
+ .debug_loc     0x0000000000056f1a       0xba /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wsetup.o)
+ .debug_loc     0x0000000000056fd4      0x3cc /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fputwc.o)
+ .debug_loc     0x00000000000573a0      0x669 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fvwrite.o)
+ .debug_loc     0x0000000000057a09      0x192 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-makebuf.o)
+ .debug_loc     0x0000000000057b9b      0x560 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-signal.o)
+ .debug_loc     0x00000000000580fb       0xd0 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-signalr.o)
+ .debug_loc     0x00000000000581cb      0x1b0 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wbuf.o)
+ .debug_loc     0x000000000005837b      0x2b1 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wcrtomb.o)
+ .debug_loc     0x000000000005862c       0xab /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fstatr.o)
+ .debug_loc     0x00000000000586d7       0x6c /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-isattyr.o)
+ .debug_loc     0x0000000000058743       0x15 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(_exit.o)
 
 .debug_aranges  0x0000000000000000     0x2ad0
  .debug_aranges
@@ -5384,213 +5385,213 @@ LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a
  .debug_aranges
                 0x0000000000002ab0       0x20 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(_exit.o)
 
-.debug_ranges   0x0000000000000000     0xad68
+.debug_ranges   0x0000000000000000     0xad50
  .debug_ranges  0x0000000000000000       0x90 build/pgm_syscalls.o
- .debug_ranges  0x0000000000000090     0x1190 build/keys.o
- .debug_ranges  0x0000000000001220      0x978 build/display.o
- .debug_ranges  0x0000000000001b98     0x3280 build/xeq.o
- .debug_ranges  0x0000000000004e18      0x1e0 build/prt.o
- .debug_ranges  0x0000000000004ff8     0x1af8 build/decn.o
- .debug_ranges  0x0000000000006af0      0x250 build/complex.o
- .debug_ranges  0x0000000000006d40      0x270 build/stats.o
- .debug_ranges  0x0000000000006fb0      0x1c0 build/lcd.o
- .debug_ranges  0x0000000000007170     0x1898 build/int.o
- .debug_ranges  0x0000000000008a08      0x218 build/date.o
- .debug_ranges  0x0000000000008c20      0x280 build/alpha.o
- .debug_ranges  0x0000000000008ea0       0x10 build/charmap.o
- .debug_ranges  0x0000000000008eb0       0xb8 build/string.o
- .debug_ranges  0x0000000000008f68      0x2e8 build/storage.o
- .debug_ranges  0x0000000000009250      0x260 build/matrix.o
- .debug_ranges  0x00000000000094b0       0x60 build/font.o
- .debug_ranges  0x0000000000009510      0x370 build/console.o
- .debug_ranges  0x0000000000009880       0x18 build/libdecNumber.a(decContext.o)
- .debug_ranges  0x0000000000009898      0xae8 build/libdecNumber.a(decNumber.o)
- .debug_ranges  0x000000000000a380       0x50 build/libdecNumber.a(decimal128.o)
- .debug_ranges  0x000000000000a3d0       0xa0 build/libdecNumber.a(decimal64.o)
- .debug_ranges  0x000000000000a470       0xc8 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
- .debug_ranges  0x000000000000a538       0x28 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-perror.o)
- .debug_ranges  0x000000000000a560      0x178 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-svfprintf.o)
- .debug_ranges  0x000000000000a6d8       0x38 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-__call_atexit.o)
- .debug_ranges  0x000000000000a710       0x38 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-dtoa.o)
- .debug_ranges  0x000000000000a748       0x70 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fflush.o)
- .debug_ranges  0x000000000000a7b8       0x28 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fileno.o)
- .debug_ranges  0x000000000000a7e0      0x118 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-findfp.o)
- .debug_ranges  0x000000000000a8f8      0x138 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
- .debug_ranges  0x000000000000aa30       0x40 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-svfiprintf.o)
- .debug_ranges  0x000000000000aa70       0x30 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fclose.o)
- .debug_ranges  0x000000000000aaa0      0x1c0 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfiprintf.o)
- .debug_ranges  0x000000000000ac60       0x28 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wsetup.o)
- .debug_ranges  0x000000000000ac88       0x50 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fputwc.o)
- .debug_ranges  0x000000000000acd8       0x18 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fvwrite.o)
- .debug_ranges  0x000000000000acf0       0x18 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-makebuf.o)
- .debug_ranges  0x000000000000ad08       0x30 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-signal.o)
- .debug_ranges  0x000000000000ad38       0x20 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wbuf.o)
- .debug_ranges  0x000000000000ad58       0x10 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wcrtomb.o)
+ .debug_ranges  0x0000000000000090     0x1180 build/keys.o
+ .debug_ranges  0x0000000000001210      0x978 build/display.o
+ .debug_ranges  0x0000000000001b88     0x3280 build/xeq.o
+ .debug_ranges  0x0000000000004e08      0x1e0 build/prt.o
+ .debug_ranges  0x0000000000004fe8     0x1af8 build/decn.o
+ .debug_ranges  0x0000000000006ae0      0x250 build/complex.o
+ .debug_ranges  0x0000000000006d30      0x270 build/stats.o
+ .debug_ranges  0x0000000000006fa0      0x1c0 build/lcd.o
+ .debug_ranges  0x0000000000007160     0x1898 build/int.o
+ .debug_ranges  0x00000000000089f8      0x218 build/date.o
+ .debug_ranges  0x0000000000008c10      0x280 build/alpha.o
+ .debug_ranges  0x0000000000008e90       0x10 build/charmap.o
+ .debug_ranges  0x0000000000008ea0       0xb8 build/string.o
+ .debug_ranges  0x0000000000008f58      0x2e8 build/storage.o
+ .debug_ranges  0x0000000000009240      0x260 build/matrix.o
+ .debug_ranges  0x00000000000094a0       0x60 build/font.o
+ .debug_ranges  0x0000000000009500      0x368 build/console.o
+ .debug_ranges  0x0000000000009868       0x18 build/libdecNumber.a(decContext.o)
+ .debug_ranges  0x0000000000009880      0xae8 build/libdecNumber.a(decNumber.o)
+ .debug_ranges  0x000000000000a368       0x50 build/libdecNumber.a(decimal128.o)
+ .debug_ranges  0x000000000000a3b8       0xa0 build/libdecNumber.a(decimal64.o)
+ .debug_ranges  0x000000000000a458       0xc8 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_ranges  0x000000000000a520       0x28 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-perror.o)
+ .debug_ranges  0x000000000000a548      0x178 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-svfprintf.o)
+ .debug_ranges  0x000000000000a6c0       0x38 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-__call_atexit.o)
+ .debug_ranges  0x000000000000a6f8       0x38 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-dtoa.o)
+ .debug_ranges  0x000000000000a730       0x70 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fflush.o)
+ .debug_ranges  0x000000000000a7a0       0x28 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fileno.o)
+ .debug_ranges  0x000000000000a7c8      0x118 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-findfp.o)
+ .debug_ranges  0x000000000000a8e0      0x138 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
+ .debug_ranges  0x000000000000aa18       0x40 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-svfiprintf.o)
+ .debug_ranges  0x000000000000aa58       0x30 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fclose.o)
+ .debug_ranges  0x000000000000aa88      0x1c0 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfiprintf.o)
+ .debug_ranges  0x000000000000ac48       0x28 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wsetup.o)
+ .debug_ranges  0x000000000000ac70       0x50 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fputwc.o)
+ .debug_ranges  0x000000000000acc0       0x18 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fvwrite.o)
+ .debug_ranges  0x000000000000acd8       0x18 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-makebuf.o)
+ .debug_ranges  0x000000000000acf0       0x30 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-signal.o)
+ .debug_ranges  0x000000000000ad20       0x20 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wbuf.o)
+ .debug_ranges  0x000000000000ad40       0x10 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wcrtomb.o)
 
-.debug_line     0x0000000000000000    0x378c9
+.debug_line     0x0000000000000000    0x3788f
  .debug_line    0x0000000000000000      0x36a build/pgm_syscalls.o
- .debug_line    0x000000000000036a     0x3e44 build/keys.o
- .debug_line    0x00000000000041ae     0x3c12 build/display.o
- .debug_line    0x0000000000007dc0     0x9551 build/xeq.o
- .debug_line    0x0000000000011311      0x8c5 build/prt.o
- .debug_line    0x0000000000011bd6     0x5146 build/decn.o
- .debug_line    0x0000000000016d1c      0xaec build/complex.o
- .debug_line    0x0000000000017808     0x1244 build/stats.o
- .debug_line    0x0000000000018a4c      0x94a build/lcd.o
- .debug_line    0x0000000000019396     0x3e6e build/int.o
- .debug_line    0x000000000001d204      0xcf3 build/date.o
- .debug_line    0x000000000001def7       0x98 build/consts.o
- .debug_line    0x000000000001df8f      0x8ca build/alpha.o
- .debug_line    0x000000000001e859       0x4b build/charmap.o
- .debug_line    0x000000000001e8a4       0xc9 build/commands.o
- .debug_line    0x000000000001e96d      0x4db build/string.o
- .debug_line    0x000000000001ee48     0x17f4 build/storage.o
- .debug_line    0x000000000002063c     0x14c3 build/matrix.o
- .debug_line    0x0000000000021aff      0x206 build/font.o
- .debug_line    0x0000000000021d05       0x94 build/xrom.o
- .debug_line    0x0000000000021d99     0x1151 build/console.o
- .debug_line    0x0000000000022eea       0x5c build/libconsts.a(const_50.o)
- .debug_line    0x0000000000022f46       0x61 build/libconsts.a(const_randfac.o)
- .debug_line    0x0000000000022fa7       0x5e build/libconsts.a(const_ln10.o)
- .debug_line    0x0000000000023005       0x60 build/libconsts.a(const_egamma.o)
- .debug_line    0x0000000000023065       0x5d build/libconsts.a(const_256.o)
- .debug_line    0x00000000000230c2       0x5d build/libconsts.a(const_180.o)
- .debug_line    0x000000000002311f       0x5f build/libconsts.a(const_1e_32.o)
- .debug_line    0x000000000002317e       0x62 build/libconsts.a(const_gammaC03.o)
- .debug_line    0x00000000000231e0       0x5c build/libconsts.a(const_60.o)
- .debug_line    0x000000000002323c       0x5c build/libconsts.a(const_10.o)
- .debug_line    0x0000000000023298       0x5d build/libconsts.a(const_360.o)
- .debug_line    0x00000000000232f5       0x62 build/libconsts.a(const_gammaC10.o)
- .debug_line    0x0000000000023357       0x62 build/libconsts.a(const_gammaC11.o)
- .debug_line    0x00000000000233b9       0x5e build/libconsts.a(const__inf.o)
- .debug_line    0x0000000000023417       0x5c build/libconsts.a(const_21.o)
- .debug_line    0x0000000000023473       0x62 build/libconsts.a(const_gammaC16.o)
- .debug_line    0x00000000000234d5       0x5d build/libconsts.a(const_200.o)
- .debug_line    0x0000000000023532       0x62 build/libconsts.a(const_gammaC06.o)
- .debug_line    0x0000000000023594       0x5d build/libconsts.a(const_NaN.o)
- .debug_line    0x00000000000235f1       0x62 build/libconsts.a(const_gammaC15.o)
- .debug_line    0x0000000000023653       0x5f build/libconsts.a(const_1e_24.o)
- .debug_line    0x00000000000236b2       0x5c build/libconsts.a(const_45.o)
- .debug_line    0x000000000002370e       0x5e build/libconsts.a(const_0_05.o)
- .debug_line    0x000000000002376c       0x5b build/libconsts.a(const_3.o)
- .debug_line    0x00000000000237c7       0x67 build/libconsts.a(const_hms_threshold.o)
- .debug_line    0x000000000002382e       0x62 build/libconsts.a(const_gammaC14.o)
- .debug_line    0x0000000000023890       0x5d build/libconsts.a(const_0_6.o)
- .debug_line    0x00000000000238ed       0x5c build/libconsts.a(const_32.o)
- .debug_line    0x0000000000023949       0x5e build/libconsts.a(const_0_75.o)
- .debug_line    0x00000000000239a7       0x5c build/libconsts.a(const__1.o)
- .debug_line    0x0000000000023a03       0x62 build/libconsts.a(const_gammaC00.o)
- .debug_line    0x0000000000023a65       0x5d build/libconsts.a(const_ln2.o)
- .debug_line    0x0000000000023ac2       0x62 build/libconsts.a(const_gammaC18.o)
- .debug_line    0x0000000000023b24       0x5d build/libconsts.a(const_2PI.o)
- .debug_line    0x0000000000023b81       0x5f build/libconsts.a(const_1e_14.o)
- .debug_line    0x0000000000023be0       0x5b build/libconsts.a(const_0.o)
- .debug_line    0x0000000000023c3b       0x61 build/libconsts.a(const_PIon180.o)
- .debug_line    0x0000000000023c9c       0x5e build/libconsts.a(const_9000.o)
- .debug_line    0x0000000000023cfa       0x5d build/libconsts.a(const_0_9.o)
- .debug_line    0x0000000000023d57       0x62 build/libconsts.a(const_gammaC08.o)
- .debug_line    0x0000000000023db9       0x62 build/libconsts.a(const_gammaC21.o)
- .debug_line    0x0000000000023e1b       0x5f build/libconsts.a(const_1e_37.o)
- .debug_line    0x0000000000023e7a       0x62 build/libconsts.a(const_gammaC05.o)
- .debug_line    0x0000000000023edc       0x5b build/libconsts.a(const_2.o)
- .debug_line    0x0000000000023f37       0x62 build/libconsts.a(const_gammaC13.o)
- .debug_line    0x0000000000023f99       0x60 build/libconsts.a(const_100000.o)
- .debug_line    0x0000000000023ff9       0x60 build/libconsts.a(const_gammaR.o)
- .debug_line    0x0000000000024059       0x5b build/libconsts.a(const_5.o)
- .debug_line    0x00000000000240b4       0x5b build/libconsts.a(const_1.o)
- .debug_line    0x000000000002410f       0x62 build/libconsts.a(const_gammaC19.o)
- .debug_line    0x0000000000024171       0x5d build/libconsts.a(const_inf.o)
- .debug_line    0x00000000000241ce       0x5f build/libconsts.a(const_0_995.o)
- .debug_line    0x000000000002422d       0x60 build/libconsts.a(const_0_0001.o)
- .debug_line    0x000000000002428d       0x5f build/libconsts.a(const_1on60.o)
- .debug_line    0x00000000000242ec       0x61 build/libconsts.a(const_PIon200.o)
- .debug_line    0x000000000002434d       0x62 build/libconsts.a(const_gammaC01.o)
- .debug_line    0x00000000000243af       0x62 build/libconsts.a(const_gammaC09.o)
- .debug_line    0x0000000000024411       0x5d build/libconsts.a(const_0_5.o)
- .debug_line    0x000000000002446e       0x5e build/libconsts.a(const_9on5.o)
- .debug_line    0x00000000000244cc       0x5c build/libconsts.a(const_20.o)
- .debug_line    0x0000000000024528       0x62 build/libconsts.a(const_gammaC20.o)
- .debug_line    0x000000000002458a       0x5d build/libconsts.a(const_400.o)
- .debug_line    0x00000000000245e7       0x62 build/libconsts.a(const_gammaC07.o)
- .debug_line    0x0000000000024649       0x5c build/libconsts.a(const__0.o)
- .debug_line    0x00000000000246a5       0x5d build/libconsts.a(const_0_4.o)
- .debug_line    0x0000000000024702       0x62 build/libconsts.a(const_1e_10000.o)
- .debug_line    0x0000000000024764       0x62 build/libconsts.a(const_gammaC12.o)
- .debug_line    0x00000000000247c6       0x60 build/libconsts.a(const_2pow64.o)
- .debug_line    0x0000000000024826       0x5f build/libconsts.a(const_PIon2.o)
- .debug_line    0x0000000000024885       0x62 build/libconsts.a(const_gammaC04.o)
- .debug_line    0x00000000000248e7       0x5c build/libconsts.a(const_90.o)
- .debug_line    0x0000000000024943       0x62 build/libconsts.a(const_gammaC17.o)
- .debug_line    0x00000000000249a5       0x62 build/libconsts.a(const_gammaC02.o)
- .debug_line    0x0000000000024a07       0x5c build/libconsts.a(const_PI.o)
- .debug_line    0x0000000000024a63       0x62 build/libconsts.a(const_root2on2.o)
- .debug_line    0x0000000000024ac5       0x5d build/libconsts.a(const_100.o)
- .debug_line    0x0000000000024b22       0x5d build/libconsts.a(const_0_1.o)
- .debug_line    0x0000000000024b7f      0x161 build/libdecNumber.a(decContext.o)
- .debug_line    0x0000000000024ce0     0x5195 build/libdecNumber.a(decNumber.o)
- .debug_line    0x0000000000029e75      0x3da build/libdecNumber.a(decimal128.o)
- .debug_line    0x000000000002a24f      0x7d1 build/libdecNumber.a(decimal64.o)
- .debug_line    0x000000000002aa20       0x5d build/startup_pgm.o
- .debug_line    0x000000000002aa7d       0x60 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
- .debug_line    0x000000000002aadd      0x61a /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
- .debug_line    0x000000000002b0f7       0x60 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_dvmd_tls.o)
- .debug_line    0x000000000002b157      0x14a /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-atexit.o)
- .debug_line    0x000000000002b2a1      0x108 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-errno.o)
- .debug_line    0x000000000002b3a9       0xd7 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fini.o)
- .debug_line    0x000000000002b480       0xe3 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-impure.o)
- .debug_line    0x000000000002b563      0x10d /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-init.o)
- .debug_line    0x000000000002b670      0x26b /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-memset.o)
- .debug_line    0x000000000002b8db      0x2c2 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-perror.o)
- .debug_line    0x000000000002bb9d      0x22c /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-sprintf.o)
- .debug_line    0x000000000002bdc9      0x731 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-strerror.o)
- .debug_line    0x000000000002c4fa       0xaf /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-strlen.o)
- .debug_line    0x000000000002c5a9     0x161e /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-svfprintf.o)
- .debug_line    0x000000000002dbc7       0x70 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-u_strerr.o)
- .debug_line    0x000000000002dc37      0x188 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-writer.o)
- .debug_line    0x000000000002ddbf      0x1e1 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-__atexit.o)
- .debug_line    0x000000000002dfa0      0x238 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-__call_atexit.o)
- .debug_line    0x000000000002e1d8      0x154 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-ctype_.o)
- .debug_line    0x000000000002e32c     0x13b3 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-dtoa.o)
- .debug_line    0x000000000002f6df      0x430 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fflush.o)
- .debug_line    0x000000000002fb0f      0x1cc /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fileno.o)
- .debug_line    0x000000000002fcdb      0x526 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-findfp.o)
- .debug_line    0x0000000000030201      0x289 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fwalk.o)
- .debug_line    0x000000000003048a      0x1ca /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-localeconv.o)
- .debug_line    0x0000000000030654       0xa4 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-memchr.o)
- .debug_line    0x00000000000306f8       0xbe /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-memcpy.o)
- .debug_line    0x00000000000307b6     0x146f /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
- .debug_line    0x0000000000031c25      0x21b /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-reent.o)
- .debug_line    0x0000000000031e40      0x25f /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-stdio.o)
- .debug_line    0x000000000003209f      0xe6c /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-svfiprintf.o)
- .debug_line    0x0000000000032f0b      0x18d /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-assert.o)
- .debug_line    0x0000000000033098      0x182 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-closer.o)
- .debug_line    0x000000000003321a      0x23d /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fclose.o)
- .debug_line    0x0000000000033457      0x199 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fiprintf.o)
- .debug_line    0x00000000000335f0      0x252 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-locale.o)
- .debug_line    0x0000000000033842      0x188 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-lseekr.o)
- .debug_line    0x00000000000339ca      0x228 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mbtowc_r.o)
- .debug_line    0x0000000000033bf2      0x287 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-memmove.o)
- .debug_line    0x0000000000033e79      0x187 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-readr.o)
- .debug_line    0x0000000000034000      0x137 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-strcmp.o)
- .debug_line    0x0000000000034137     0x118d /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfiprintf.o)
- .debug_line    0x00000000000352c4      0x212 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wctomb_r.o)
- .debug_line    0x00000000000354d6      0x2cd /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wsetup.o)
- .debug_line    0x00000000000357a3      0x15f /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-abort.o)
- .debug_line    0x0000000000035902      0x2f9 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fputwc.o)
- .debug_line    0x0000000000035bfb      0x5e8 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fvwrite.o)
- .debug_line    0x00000000000361e3      0x35d /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-makebuf.o)
- .debug_line    0x0000000000036540      0x3cc /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-signal.o)
- .debug_line    0x000000000003690c      0x1a4 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-signalr.o)
- .debug_line    0x0000000000036ab0      0x29b /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wbuf.o)
- .debug_line    0x0000000000036d4b      0x2b5 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wcrtomb.o)
- .debug_line    0x0000000000037000      0x213 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fstatr.o)
- .debug_line    0x0000000000037213      0x183 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-isattyr.o)
- .debug_line    0x0000000000037396      0x186 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
- .debug_line    0x000000000003751c      0x19b /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
- .debug_line    0x00000000000376b7       0xbd /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
- .debug_line    0x0000000000037774       0x6e /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_unorddf2.o)
- .debug_line    0x00000000000377e2       0x79 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixdfsi.o)
- .debug_line    0x000000000003785b       0x6e /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(_exit.o)
+ .debug_line    0x000000000000036a     0x3e32 build/keys.o
+ .debug_line    0x000000000000419c     0x3c12 build/display.o
+ .debug_line    0x0000000000007dae     0x9551 build/xeq.o
+ .debug_line    0x00000000000112ff      0x8c5 build/prt.o
+ .debug_line    0x0000000000011bc4     0x5146 build/decn.o
+ .debug_line    0x0000000000016d0a      0xaec build/complex.o
+ .debug_line    0x00000000000177f6     0x1244 build/stats.o
+ .debug_line    0x0000000000018a3a      0x94a build/lcd.o
+ .debug_line    0x0000000000019384     0x3e6e build/int.o
+ .debug_line    0x000000000001d1f2      0xcf3 build/date.o
+ .debug_line    0x000000000001dee5       0x98 build/consts.o
+ .debug_line    0x000000000001df7d      0x8ca build/alpha.o
+ .debug_line    0x000000000001e847       0x4b build/charmap.o
+ .debug_line    0x000000000001e892       0xc9 build/commands.o
+ .debug_line    0x000000000001e95b      0x4db build/string.o
+ .debug_line    0x000000000001ee36     0x17f4 build/storage.o
+ .debug_line    0x000000000002062a     0x14c3 build/matrix.o
+ .debug_line    0x0000000000021aed      0x206 build/font.o
+ .debug_line    0x0000000000021cf3       0x94 build/xrom.o
+ .debug_line    0x0000000000021d87     0x1129 build/console.o
+ .debug_line    0x0000000000022eb0       0x5c build/libconsts.a(const_50.o)
+ .debug_line    0x0000000000022f0c       0x61 build/libconsts.a(const_randfac.o)
+ .debug_line    0x0000000000022f6d       0x5e build/libconsts.a(const_ln10.o)
+ .debug_line    0x0000000000022fcb       0x60 build/libconsts.a(const_egamma.o)
+ .debug_line    0x000000000002302b       0x5d build/libconsts.a(const_256.o)
+ .debug_line    0x0000000000023088       0x5d build/libconsts.a(const_180.o)
+ .debug_line    0x00000000000230e5       0x5f build/libconsts.a(const_1e_32.o)
+ .debug_line    0x0000000000023144       0x62 build/libconsts.a(const_gammaC03.o)
+ .debug_line    0x00000000000231a6       0x5c build/libconsts.a(const_60.o)
+ .debug_line    0x0000000000023202       0x5c build/libconsts.a(const_10.o)
+ .debug_line    0x000000000002325e       0x5d build/libconsts.a(const_360.o)
+ .debug_line    0x00000000000232bb       0x62 build/libconsts.a(const_gammaC10.o)
+ .debug_line    0x000000000002331d       0x62 build/libconsts.a(const_gammaC11.o)
+ .debug_line    0x000000000002337f       0x5e build/libconsts.a(const__inf.o)
+ .debug_line    0x00000000000233dd       0x5c build/libconsts.a(const_21.o)
+ .debug_line    0x0000000000023439       0x62 build/libconsts.a(const_gammaC16.o)
+ .debug_line    0x000000000002349b       0x5d build/libconsts.a(const_200.o)
+ .debug_line    0x00000000000234f8       0x62 build/libconsts.a(const_gammaC06.o)
+ .debug_line    0x000000000002355a       0x5d build/libconsts.a(const_NaN.o)
+ .debug_line    0x00000000000235b7       0x62 build/libconsts.a(const_gammaC15.o)
+ .debug_line    0x0000000000023619       0x5f build/libconsts.a(const_1e_24.o)
+ .debug_line    0x0000000000023678       0x5c build/libconsts.a(const_45.o)
+ .debug_line    0x00000000000236d4       0x5e build/libconsts.a(const_0_05.o)
+ .debug_line    0x0000000000023732       0x5b build/libconsts.a(const_3.o)
+ .debug_line    0x000000000002378d       0x67 build/libconsts.a(const_hms_threshold.o)
+ .debug_line    0x00000000000237f4       0x62 build/libconsts.a(const_gammaC14.o)
+ .debug_line    0x0000000000023856       0x5d build/libconsts.a(const_0_6.o)
+ .debug_line    0x00000000000238b3       0x5c build/libconsts.a(const_32.o)
+ .debug_line    0x000000000002390f       0x5e build/libconsts.a(const_0_75.o)
+ .debug_line    0x000000000002396d       0x5c build/libconsts.a(const__1.o)
+ .debug_line    0x00000000000239c9       0x62 build/libconsts.a(const_gammaC00.o)
+ .debug_line    0x0000000000023a2b       0x5d build/libconsts.a(const_ln2.o)
+ .debug_line    0x0000000000023a88       0x62 build/libconsts.a(const_gammaC18.o)
+ .debug_line    0x0000000000023aea       0x5d build/libconsts.a(const_2PI.o)
+ .debug_line    0x0000000000023b47       0x5f build/libconsts.a(const_1e_14.o)
+ .debug_line    0x0000000000023ba6       0x5b build/libconsts.a(const_0.o)
+ .debug_line    0x0000000000023c01       0x61 build/libconsts.a(const_PIon180.o)
+ .debug_line    0x0000000000023c62       0x5e build/libconsts.a(const_9000.o)
+ .debug_line    0x0000000000023cc0       0x5d build/libconsts.a(const_0_9.o)
+ .debug_line    0x0000000000023d1d       0x62 build/libconsts.a(const_gammaC08.o)
+ .debug_line    0x0000000000023d7f       0x62 build/libconsts.a(const_gammaC21.o)
+ .debug_line    0x0000000000023de1       0x5f build/libconsts.a(const_1e_37.o)
+ .debug_line    0x0000000000023e40       0x62 build/libconsts.a(const_gammaC05.o)
+ .debug_line    0x0000000000023ea2       0x5b build/libconsts.a(const_2.o)
+ .debug_line    0x0000000000023efd       0x62 build/libconsts.a(const_gammaC13.o)
+ .debug_line    0x0000000000023f5f       0x60 build/libconsts.a(const_100000.o)
+ .debug_line    0x0000000000023fbf       0x60 build/libconsts.a(const_gammaR.o)
+ .debug_line    0x000000000002401f       0x5b build/libconsts.a(const_5.o)
+ .debug_line    0x000000000002407a       0x5b build/libconsts.a(const_1.o)
+ .debug_line    0x00000000000240d5       0x62 build/libconsts.a(const_gammaC19.o)
+ .debug_line    0x0000000000024137       0x5d build/libconsts.a(const_inf.o)
+ .debug_line    0x0000000000024194       0x5f build/libconsts.a(const_0_995.o)
+ .debug_line    0x00000000000241f3       0x60 build/libconsts.a(const_0_0001.o)
+ .debug_line    0x0000000000024253       0x5f build/libconsts.a(const_1on60.o)
+ .debug_line    0x00000000000242b2       0x61 build/libconsts.a(const_PIon200.o)
+ .debug_line    0x0000000000024313       0x62 build/libconsts.a(const_gammaC01.o)
+ .debug_line    0x0000000000024375       0x62 build/libconsts.a(const_gammaC09.o)
+ .debug_line    0x00000000000243d7       0x5d build/libconsts.a(const_0_5.o)
+ .debug_line    0x0000000000024434       0x5e build/libconsts.a(const_9on5.o)
+ .debug_line    0x0000000000024492       0x5c build/libconsts.a(const_20.o)
+ .debug_line    0x00000000000244ee       0x62 build/libconsts.a(const_gammaC20.o)
+ .debug_line    0x0000000000024550       0x5d build/libconsts.a(const_400.o)
+ .debug_line    0x00000000000245ad       0x62 build/libconsts.a(const_gammaC07.o)
+ .debug_line    0x000000000002460f       0x5c build/libconsts.a(const__0.o)
+ .debug_line    0x000000000002466b       0x5d build/libconsts.a(const_0_4.o)
+ .debug_line    0x00000000000246c8       0x62 build/libconsts.a(const_1e_10000.o)
+ .debug_line    0x000000000002472a       0x62 build/libconsts.a(const_gammaC12.o)
+ .debug_line    0x000000000002478c       0x60 build/libconsts.a(const_2pow64.o)
+ .debug_line    0x00000000000247ec       0x5f build/libconsts.a(const_PIon2.o)
+ .debug_line    0x000000000002484b       0x62 build/libconsts.a(const_gammaC04.o)
+ .debug_line    0x00000000000248ad       0x5c build/libconsts.a(const_90.o)
+ .debug_line    0x0000000000024909       0x62 build/libconsts.a(const_gammaC17.o)
+ .debug_line    0x000000000002496b       0x62 build/libconsts.a(const_gammaC02.o)
+ .debug_line    0x00000000000249cd       0x5c build/libconsts.a(const_PI.o)
+ .debug_line    0x0000000000024a29       0x62 build/libconsts.a(const_root2on2.o)
+ .debug_line    0x0000000000024a8b       0x5d build/libconsts.a(const_100.o)
+ .debug_line    0x0000000000024ae8       0x5d build/libconsts.a(const_0_1.o)
+ .debug_line    0x0000000000024b45      0x161 build/libdecNumber.a(decContext.o)
+ .debug_line    0x0000000000024ca6     0x5195 build/libdecNumber.a(decNumber.o)
+ .debug_line    0x0000000000029e3b      0x3da build/libdecNumber.a(decimal128.o)
+ .debug_line    0x000000000002a215      0x7d1 build/libdecNumber.a(decimal64.o)
+ .debug_line    0x000000000002a9e6       0x5d build/startup_pgm.o
+ .debug_line    0x000000000002aa43       0x60 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_line    0x000000000002aaa3      0x61a /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_line    0x000000000002b0bd       0x60 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_dvmd_tls.o)
+ .debug_line    0x000000000002b11d      0x14a /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-atexit.o)
+ .debug_line    0x000000000002b267      0x108 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-errno.o)
+ .debug_line    0x000000000002b36f       0xd7 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fini.o)
+ .debug_line    0x000000000002b446       0xe3 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-impure.o)
+ .debug_line    0x000000000002b529      0x10d /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-init.o)
+ .debug_line    0x000000000002b636      0x26b /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-memset.o)
+ .debug_line    0x000000000002b8a1      0x2c2 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-perror.o)
+ .debug_line    0x000000000002bb63      0x22c /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-sprintf.o)
+ .debug_line    0x000000000002bd8f      0x731 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-strerror.o)
+ .debug_line    0x000000000002c4c0       0xaf /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-strlen.o)
+ .debug_line    0x000000000002c56f     0x161e /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-svfprintf.o)
+ .debug_line    0x000000000002db8d       0x70 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-u_strerr.o)
+ .debug_line    0x000000000002dbfd      0x188 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-writer.o)
+ .debug_line    0x000000000002dd85      0x1e1 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-__atexit.o)
+ .debug_line    0x000000000002df66      0x238 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-__call_atexit.o)
+ .debug_line    0x000000000002e19e      0x154 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-ctype_.o)
+ .debug_line    0x000000000002e2f2     0x13b3 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-dtoa.o)
+ .debug_line    0x000000000002f6a5      0x430 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fflush.o)
+ .debug_line    0x000000000002fad5      0x1cc /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fileno.o)
+ .debug_line    0x000000000002fca1      0x526 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-findfp.o)
+ .debug_line    0x00000000000301c7      0x289 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fwalk.o)
+ .debug_line    0x0000000000030450      0x1ca /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-localeconv.o)
+ .debug_line    0x000000000003061a       0xa4 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-memchr.o)
+ .debug_line    0x00000000000306be       0xbe /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-memcpy.o)
+ .debug_line    0x000000000003077c     0x146f /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mprec.o)
+ .debug_line    0x0000000000031beb      0x21b /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-reent.o)
+ .debug_line    0x0000000000031e06      0x25f /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-stdio.o)
+ .debug_line    0x0000000000032065      0xe6c /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-svfiprintf.o)
+ .debug_line    0x0000000000032ed1      0x18d /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-assert.o)
+ .debug_line    0x000000000003305e      0x182 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-closer.o)
+ .debug_line    0x00000000000331e0      0x23d /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fclose.o)
+ .debug_line    0x000000000003341d      0x199 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fiprintf.o)
+ .debug_line    0x00000000000335b6      0x252 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-locale.o)
+ .debug_line    0x0000000000033808      0x188 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-lseekr.o)
+ .debug_line    0x0000000000033990      0x228 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-mbtowc_r.o)
+ .debug_line    0x0000000000033bb8      0x287 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-memmove.o)
+ .debug_line    0x0000000000033e3f      0x187 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-readr.o)
+ .debug_line    0x0000000000033fc6      0x137 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-strcmp.o)
+ .debug_line    0x00000000000340fd     0x118d /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-vfiprintf.o)
+ .debug_line    0x000000000003528a      0x212 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wctomb_r.o)
+ .debug_line    0x000000000003549c      0x2cd /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wsetup.o)
+ .debug_line    0x0000000000035769      0x15f /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-abort.o)
+ .debug_line    0x00000000000358c8      0x2f9 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fputwc.o)
+ .debug_line    0x0000000000035bc1      0x5e8 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fvwrite.o)
+ .debug_line    0x00000000000361a9      0x35d /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-makebuf.o)
+ .debug_line    0x0000000000036506      0x3cc /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-signal.o)
+ .debug_line    0x00000000000368d2      0x1a4 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-signalr.o)
+ .debug_line    0x0000000000036a76      0x29b /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wbuf.o)
+ .debug_line    0x0000000000036d11      0x2b5 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-wcrtomb.o)
+ .debug_line    0x0000000000036fc6      0x213 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-fstatr.o)
+ .debug_line    0x00000000000371d9      0x183 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a(lib_a-isattyr.o)
+ .debug_line    0x000000000003735c      0x186 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
+ .debug_line    0x00000000000374e2      0x19b /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_muldivdf3.o)
+ .debug_line    0x000000000003767d       0xbd /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_cmpdf2.o)
+ .debug_line    0x000000000003773a       0x6e /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_unorddf2.o)
+ .debug_line    0x00000000000377a8       0x79 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_fixdfsi.o)
+ .debug_line    0x0000000000037821       0x6e /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(_exit.o)
 
 .debug_str      0x0000000000000000     0xac4b
  .debug_str     0x0000000000000000      0x774 build/pgm_syscalls.o
