@@ -193,7 +193,7 @@
 #define FRACTION_MODE_INPUT 0
 
 // Make two successive decimals a..b enter an improper fraction a/b, not a 0/b (also enables PRETTY_FRACTION_ENTRY)
-//#define INCLUDE_DOUBLEDOT_FRACTIONS
+#define INCLUDE_DOUBLEDOT_FRACTIONS
 
 // Ignore invalid fraction entry instead of treating it as an error.
 // If the denominator is missing or is zero, only the integer part will

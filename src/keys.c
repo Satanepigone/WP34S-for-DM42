@@ -1731,15 +1731,32 @@ static int process_arg(const keycode c) {
 	if (base == RARG_FIX || base == RARG_SIG || base == RARG_SIG0) {
 		switch ((int)c) {
 		case K_UP:	// up arrow
-		  if (base == RARG_FIX) base = RARG_SIG;
-		  if (base == RARG_SIG) base = RARG_SIG0;
-		  if (base == RARG_SIG0) base = RARG_FIX;
-			break;
+		  if (base == RARG_FIX) {
+		    base = RARG_SIG;
+		    break;
+		  }
+		  if (base == RARG_SIG) {
+		    base = RARG_SIG0;
+		    break;
+		  }
+		  if (base == RARG_SIG0) {
+		    base = RARG_FIX;
+		    break;
+		  }
 		case K_DOWN:	// down arrow
 		case K01:	// B
-		  if (base == RARG_FIX) base = RARG_SIG0;
-		  if (base == RARG_SIG) base = RARG_FIX;
-		  if (base == RARG_SIG0) base = RARG_SIG;
+		  if (base == RARG_FIX) {
+		    base = RARG_SIG0;
+		    break;
+		  }
+		  if (base == RARG_SIG) {
+		    base = RARG_FIX;
+		    break;
+		  }
+		  if (base == RARG_SIG0) {
+		    base = RARG_SIG;
+		    break;
+		  }
 		}
 	}
 		CmdBase = base;

@@ -2263,7 +2263,7 @@ void cmddisp(unsigned int arg, enum rarg op) {
 	case RARG_SIG0:
 	  dispmode = MODE_SIG0;
 	  break;
-	default:
+	default:;
 	}
 	if ((dispmode == MODE_SIG || dispmode == MODE_SIG0) && arg >= 8) {
 	  report_err(ERR_RANGE);

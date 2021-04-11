@@ -2599,6 +2599,8 @@ maxlibsteps=8190
 0xab00	arg	CASE	max=128,indirect,stack
 0xac00	arg	[cmplx]VIEW	max=128,indirect,stack,complex
 0xac00	alias-a	cVIEW	max=128,indirect,stack,complex
+0xad00	arg	SIG	max=8,indirect
+0xae00	arg	SIG0	max=8,indirect
 0xf000	mult	LBL
 0xf100	mult	LBL?
 0xf200	mult	XEQ
