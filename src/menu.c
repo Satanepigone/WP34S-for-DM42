@@ -309,7 +309,7 @@ static const struct _menu Menus[] = {
     { 
       { { K_OP, OP_NIL | OP_XTOALPHA }, { K_OP, OP_NIL | OP_ALPHATIME }, "X->\240", "\240TIME" },
       { { K_OP, OP_NIL | OP_ALPHATOX }, { K_OP, OP_NIL | OP_ALPHADATE }, "\240->X", "\240DATE" },
-      { { K_OP,  }, { K_OP, OP_NIL | OP_ALPHADAY }, "\240IP", "\240DAY" },
+      { { K_OP, RARG_BASEOP(RARG_AIP) }, { K_OP, OP_NIL | OP_ALPHADAY }, "\240IP", "\240DAY" },
       { { K_OP, OP_NIL | OP_ALPHALEN }, { K_OP, OP_NIL | OP_ALPHAMONTH }, "\240LENG", "\240MNTH" },
       { ARROW_KEY, { K_ARROW, 1 }, "--\015", "" },
       { CMPLX_KEY, { K_CMPLX, 1 }, "CPX", "" },
