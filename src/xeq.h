@@ -894,12 +894,13 @@ enum rarg {
         RARG_SUM, RARG_PROD, RARG_SOLVE, RARG_DERIV, RARG_2DERIV,
         RARG_INTG,
 
-#ifdef INCLUDE_SIGFIG_MODE
-        RARG_STD, RARG_SCI, RARG_ENG, RARG_FIX, RARG_SIG, RARG_SIG0, RARG_DISP,
-#else
-        RARG_STD, RARG_FIX, RARG_SCI, RARG_ENG, RARG_DISP,
-#endif
+/* #ifdef INCLUDE_SIGFIG_MODE */
+/*         RARG_STD, RARG_SCI, RARG_ENG, RARG_FIX, RARG_SIG, RARG_SIG0, RARG_DISP, */
+/* #else */
+/*         RARG_STD, RARG_FIX, RARG_SCI, RARG_ENG, RARG_DISP, */
+/* #endif */
 
+        RARG_STD, RARG_FIX, RARG_SCI, RARG_ENG, RARG_DISP,
         RARG_SF, RARG_CF, RARG_FF, RARG_FS, RARG_FC,
         RARG_FSC, RARG_FSS, RARG_FSF, RARG_FCC, RARG_FCS, RARG_FCF,
 
@@ -971,9 +972,10 @@ enum rarg {
 #ifdef INCLUDE_INDIRECT_BRANCHES
         RARG_iBACK, RARG_iBSF, RARG_iBSB,
 #endif
-
         RARG_CVIEW,
-
+#ifdef INCLUDE_SIGFIG_MODE
+	RARG_SIG, RARG_SIG0,
+#endif
         NUM_RARG        // Last entry defines number of operations
 };
 
@@ -1021,10 +1023,17 @@ enum integer_bases {
 
 // Display modes
 enum display_modes {
+/* #ifdef INCLUDE_SIGFIG_MODE */
+/*         MODE_STD=0,     MODE_SCI,       MODE_ENG, */
+/*         // Code in display.c and keys.c depends on this order of the modes */
+/*         MODE_FIX,       MODE_SIG,       MODE_SIG0 */
+/* #else */
+/*         MODE_STD=0,     MODE_FIX,       MODE_SCI,       MODE_ENG */
+/* #endif */
+/* }; */
 #ifdef INCLUDE_SIGFIG_MODE
-        MODE_STD=0,     MODE_SCI,       MODE_ENG,
-        // Code in display.c and keys.c depends on this order of the modes
-        MODE_FIX,       MODE_SIG,       MODE_SIG0
+        MODE_STD=0,     MODE_FIX,       MODE_SCI,
+        MODE_ENG,       MODE_SIG,       MODE_SIG0
 #else
         MODE_STD=0,     MODE_FIX,       MODE_SCI,       MODE_ENG
 #endif

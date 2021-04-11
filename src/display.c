@@ -2026,7 +2026,7 @@ static void set_exp(int exp, int flags, char *res) {
 	else
 	  dd = dispdigs;
 
-	if (mode == MODE_STD || mode >= MODE_SIG) {
+	if (mode == MODE_STD || mode == MODE_SIG || mode == MODE_SIG0) {
 	  int orig_mode = mode;
 
 	  mode = std_round_fix(z, &dd, mode, dispdigs); // modified function called
@@ -2693,7 +2693,7 @@ static void set_exp(int exp, int flags, char *res) {
 	} else if (State2.rarg) {
 	  /* Commands with arguments */
 #ifdef INCLUDE_SIGFIG_MODE
-	  if (CmdBase >= RARG_FIX && CmdBase <= RARG_SIG0)
+	  if (CmdBase == RARG_FIX || CmdBase == RARG_SIG || CmdBase == RARG_SIG0)
 	    bp = scopy(bp, "\177\006\006");
 #endif
 	  bp = scopy(bp, argcmds[CmdBase].cmd);
@@ -3042,7 +3042,7 @@ static void set_exp(int exp, int flags, char *res) {
 	} else if (State2.rarg) {
 	  /* Commands with arguments */
 #ifdef INCLUDE_SIGFIG_MODE
-	  if (CmdBase >= RARG_FIX && CmdBase <= RARG_SIG0)
+	  if (CmdBase == RARG_FIX || CmdBase == RARG_SIG || CmdBase == RARG_SIG0)
 	    bp = scopy(bp, "\177\006\006");
 #endif
 	  bp = scopy(bp, argcmds[CmdBase].cmd);

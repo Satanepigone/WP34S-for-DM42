@@ -2243,13 +2243,40 @@ void cmddisp(unsigned int arg, enum rarg op) {
 #ifdef INCLUDE_SIGFIG_MODE
 	int dispdigs;
 	int dispmode = get_dispmode_digs(&dispdigs);
-
+#ifdef DM42
+	switch (op) {
+	case RARG_STD:
+	  dispmode = MODE_STD;
+	  break;
+	case RARG_FIX:
+	  dispmode = MODE_FIX;
+	  break;
+	case RARG_SCI:
+	  dispmode = MODE_SCI;
+	  break;
+	case RARG_ENG:
+	  dispmode = MODE_ENG;
+	  break;
+	case RARG_SIG:
+	  dispmode = MODE_SIG;
+	  break;
+	case RARG_SIG0:
+	  dispmode = MODE_SIG0;
+	  break;
+	default:
+	}
+	if ((dispmode == MODE_SIG || dispmode == MODE_SIG0) && arg >= 8) {
+	  report_err(ERR_RANGE);
+	  return;
+	}
+#else	
 	if (op != RARG_DISP)
 		dispmode = (op - RARG_STD) + MODE_STD;
 	else if ((dispmode == MODE_SIG || dispmode == MODE_SIG0) && arg >= 8) {
 		report_err(ERR_RANGE);
 		return;
 	}
+#endif
 	set_dispmode_digs(dispmode, arg);
 #else
 	UState.dispdigs = arg;

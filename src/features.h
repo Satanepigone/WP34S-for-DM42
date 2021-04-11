@@ -317,7 +317,7 @@
 //#define WARNINGS_IN_UPPER_LINE_ONLY
 
 // Chamge ALL display mode to limited significant figures mode
-//#define INCLUDE_SIGFIG_MODE
+#define INCLUDE_SIGFIG_MODE
 
 // Enable Y-register display (not just for complex results)
 #define INCLUDE_YREG_CODE

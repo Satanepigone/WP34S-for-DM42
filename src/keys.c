@@ -1727,6 +1727,23 @@ static int process_arg(const keycode c) {
 		return arg_eval(keycode_to_row_column(c));
 
 #ifdef INCLUDE_SIGFIG_MODE
+#ifdef DM42
+	if (base == RARG_FIX || base == RARG_SIG || base == RARG_SIG0) {
+		switch ((int)c) {
+		case K_UP:	// up arrow
+		  if (base == RARG_FIX) base = RARG_SIG;
+		  if (base == RARG_SIG) base = RARG_SIG0;
+		  if (base == RARG_SIG0) base = RARG_FIX;
+			break;
+		case K_DOWN:	// down arrow
+		case K01:	// B
+		  if (base == RARG_FIX) base = RARG_SIG0;
+		  if (base == RARG_SIG) base = RARG_FIX;
+		  if (base == RARG_SIG0) base = RARG_SIG;
+		}
+	}
+		CmdBase = base;
+#else
 	if (base >= RARG_FIX && base <= RARG_SIG0) {
 		switch ((int)c) {
 		case K_UP:	// up arrow
@@ -1742,6 +1759,7 @@ static int process_arg(const keycode c) {
 		}
 		CmdBase = base;
 	}
+#endif
 #endif
 	/*
 	 *  So far, we've got the digits and some special label addressing keys
