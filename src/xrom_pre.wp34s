@@ -3393,3 +3393,314 @@ cpx_ln1p_loop:: # 0
    /
    IP
    xOUT (0)
+   XLBL"BES_IN"
+    xIN (((2 & 7) | ((1 & 7) << 3)) | (64))
+    SPEC?
+     JMP ret_posinf
+    SF .01
+    JMP bessel1_common
+   XLBL"BES_JN"
+    xIN (((2 & 7) | ((1 & 7) << 3)) | (64))
+    SPEC?
+     JMP ret_0
+bessel1_common:: GSB bessel1
+    xOUT (0)
+bessel1:: [cmplx]x[!=]0?
+     JMP bessel1_nonzero
+    # 1
+    RTN
+bessel1_nonzero:: x=0?
+     RTN
+    # 1/2
+    [times]
+    [cmplx]STO J
+    x[<->] Y
+    INT?
+     JMP bessel1_int
+    # 1
+    FILL
+    STO I
+bessel1_lp1:: x[<->] Z
+    FC? .01
+     +/-
+    RCL[times] J
+    RCL[times] J
+    RCL I
+    STO/ Y
+    RCL K
+    +
+    /
+    INC I
+    [<->] XYYY
+    STO+ Y
+    x[<->] Z
+    CNVG? 02
+     JMP bessel1_fin
+    JMP bessel1_lp1
+bessel1_fin:: RCL J
+    RCL K
+    y[^x]
+    [times]
+    RCL K
+    x!
+    /
+    RTN
+bessel1_int:: ERR 1
+    RTN
+   XLBL"BES_KN"
+    xIN (((2 & 7) | ((1 & 7) << 3)) | (64))
+    x=0?
+     JMP ret_posinf
+    SPEC?
+     JMP ret_0
+    LocR 3
+    SF .01
+    JMP bessel2_entry
+   XLBL"BES_YN"
+    xIN (((2 & 7) | ((1 & 7) << 3)) | (64))
+    x=0?
+     JMP ret_neginf
+    SPEC?
+     JMP ret_0
+    LocR 3
+bessel2_entry:: [cmplx]STO .00
+    x[<->] Y
+    INT?
+     JMP bessel2_int
+    +/-
+    x[<->] Y
+    GSB bessel1
+    STO .02
+    [cmplx]RCL .00
+    GSB bessel1
+    FS? .01
+     JMP bessel2_Kn
+    # [pi]
+    RCL[times] .01
+    COS
+    [times]
+    RCL- .02
+    JMP bessel_denom
+bessel2_Kn:: RCL- .02
+    +/-
+    # [pi]
+    [times]
+    # 1/2
+    [times]
+bessel_denom:: # [pi]
+    RCL[times] .01
+    SIN
+    /
+    xOUT (0)
+bessel2_int:: ERR 1
+    RTN
+   XLBL"CPX_IN"
+    xIN ((((2 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+    LocR 11
+    SF .01
+    GSB cpx_bessel1_entry
+    xOUT (0)
+   XLBL"CPX_JN"
+    xIN ((((2 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+    LocR 11
+    GSB cpx_bessel1_entry
+    xOUT (0)
+cpx_bessel1_entry:: [cmplx]STO .01
+    [cmplx]x[<->] Z
+    [cmplx]STO .05
+    # 2
+    STO/ .01
+    STO/ .02
+    [cmplx]RCL .01
+    [cmplx]RCL[times] X
+    [cmplx]STO .09
+    [cmplx]# 1
+    STO .00
+    [cmplx]STO .03
+    [cmplx]STO .07
+cpx_bessel1_loop:: [cmplx]RCL .09
+    [cmplx]RCL[times] .03
+    RCL .00
+    FC? .01
+     +/-
+    STO/ Z
+    /
+    [cmplx]RCL .05
+    RCL+ .00
+    [cmplx]/
+    [cmplx]STO .03
+    [cmplx]RCL+ .07
+    [cmplx]x[<->] .07
+    [cmplx]RCL .07
+    INC .00
+    CNVG? 10
+     JMP cpx_bessel1_fin
+    JMP cpx_bessel1_loop
+cpx_bessel1_fin:: [cmplx]RCL .01
+    [cmplx]RCL .05
+    [cmplx]y[^x]
+    [cmplx][times]
+    [cmplx]RCL .05
+    INC X
+    [cmplx][GAMMA]
+    [cmplx]/
+    RTN
+   XLBL"CPX_KN"
+    xIN ((((2 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+    LocR 15
+    SF .01
+    JMP cpx_bessel2_entry
+   XLBL"CPX_YN"
+    xIN ((((2 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+    LocR 15
+cpx_bessel2_entry:: [cmplx]STO .11
+    [cmplx]x[<->] Z
+    INT?
+     JMP cpx_bessel2_int_check
+        [cmplx]x[<->] Z
+cpx_bessel2_notint:: GSB cpx_bessel1_entry
+    FS? .01
+     JMP cpx_bessel2_kn_skip
+    [cmplx]# [pi]
+    [cmplx]RCL[times] .05
+    [cmplx]COS
+    [cmplx][times]
+cpx_bessel2_kn_skip:: [cmplx]STO .13
+    [cmplx]RCL .05
+    [cmplx]+/-
+    [cmplx]RCL .11
+    GSB cpx_bessel1_entry
+    [cmplx]STO- .13
+    [cmplx]# [pi]
+    [cmplx]RCL[times] .05
+    [cmplx]SIN
+    [cmplx]STO/ .13
+    FS? .01
+     JMP cpx_bessel2_2pi
+    [cmplx]# 1
+    +/-
+    JMP cpx_bessel2_skip
+cpx_bessel2_2pi:: [cmplx]# [pi]
+    # 1/2
+    [times]
+cpx_bessel2_skip:: [cmplx]RCL[times] .13
+    xOUT (0)
+cpx_bessel2_int_check:: x[<->] Y
+    x=0?
+     JMP cpx_bessel2_int
+    [<->] ZTYX
+    JMP cpx_bessel2_notint
+cpx_bessel2_int:: [<->] ZTYX
+    ERR 1
+  XLBL"DIGAMMA"
+   xIN (((1 & 7) | ((1 & 7) << 3)) | (64))
+   LocR 3
+   GSB digamma_loop
+   x<0?
+    SF .00
+   ABS
+   STO .02
+   GSB digamma_lower
+   x[<->] Y
+digamma_lp:: 1/x
+   STO+ .00
+   x[<->] L
+   INC X
+   x<? Y
+    JMP digamma_lp
+   1/x
+   STO .01
+   x[^2]
+   FILL
+   # 0
+digamma_horner:: CNST[->]J
+   1/x
+   +
+   [times]
+   DSL J
+    JMP digamma_horner
+   RCL .01
+   LN
+   # 1/2
+   RCL[times] L
+   +
+   -
+   RCL- .00
+   FC? .00
+    xOUT (0)
+   RCL .02
+   1/x
+   +
+   # [pi]
+   RCL .02
+   RCL .02
+   ROUNDI
+   -
+   # [pi]
+   [times]
+   TAN
+   /
+   +
+   xOUT (0)
+  XLBL"CPX_DIGAMMA"
+   xIN ((((1 & 7) | ((1 & 7) << 3)) | (64)) | (128))
+   LocR 6
+   GSB digamma_loop
+   x<0?
+    SF .00
+   FS? .00
+    [cmplx]+/-
+   [cmplx]STO .04
+   GSB digamma_lower
+   [<->] YZXX
+c_digamma_lp:: [cmplx]1/x
+   [cmplx]STO+ .00
+   [cmplx]x[<->] L
+   INC X
+   x<? Z
+    JMP c_digamma_lp
+   [cmplx]1/x
+   [cmplx]STO .02
+   [cmplx]RCL[times] X
+   [cmplx]FILL
+   [cmplx]# 0
+cpx_digamma_horner:: [cmplx]CNST[->]J
+   1/x
+   [cmplx]+
+   [cmplx][times]
+   DSL J
+    JMP cpx_digamma_horner
+   [cmplx]RCL .02
+   [cmplx]LN
+   [cmplx]# 1/2
+   [cmplx]RCL[times] L
+   [cmplx]+
+   [cmplx]-
+   [cmplx]RCL- .00
+   FC? .00
+    xOUT (0)
+   [cmplx]RCL .04
+   [cmplx]1/x
+   [cmplx]+
+   [cmplx]# [pi]
+   [cmplx]RCL .04
+   [cmplx]RCL[times] Z
+   [cmplx]TAN
+   [cmplx]/
+   [cmplx]+
+   xOUT (0)
+digamma_lower:: # 10
+   FS? .11
+   RCL+ X
+   RTN
+digamma_loop:: # ((82))
+   SDR 3
+   # ((92))
+   FC? .11
+    JMP digamma_single_loop
+   DROP
+   # ((98))
+digamma_single_loop:: +
+   STO J
+   DROP
+   RTN

@@ -100,14 +100,14 @@
 
 // Include first and second order Bessel functions Jn, In, Yn and Kn for
 // both real and complex arguments.  These are implemented in XROM.
-// #define INCLUDE_XROM_BESSEL
+#define INCLUDE_XROM_BESSEL
 
 // Inlcude real and complex flavours of the digamma function.  These are
 // implemented in XROM.  The first setting is sufficient for accuracy for
 // single precision, the second needs to be enabled as well to get good
 // results for double precision..
-// #define INCLUDE_XROM_DIGAMMA
-// #define XROM_DIGAMMA_DOUBLE_PRECISION
+#define INCLUDE_XROM_DIGAMMA
+#define XROM_DIGAMMA_DOUBLE_PRECISION
 
 // Include a fused multiply add instruction
 // This isn't vital since this can be done using a complex addition.
@@ -115,7 +115,7 @@
 // #define INCLUDE_MULADD
 
 // Include a date function to determine the date of Easter in a given year
-//#define INCLUDE_EASTER
+#define INCLUDE_EASTER
 
 // Include code to use a Ridder's method step after a bisection in the solver.
 // For some functions this seems to help a lot, for others there is limited
@@ -124,7 +124,7 @@
 
 // Include code to find integer factors
 // Space cost 480 bytes.
-// #define INCLUDE_FACTOR
+#define INCLUDE_FACTOR
 
 // Include matrix functions better implemented in user code
 // #define SILLY_MATRIX_SUPPORT
@@ -190,7 +190,7 @@
 //        The following only applies if INCLUDE_DOUBLEDOT_FRACTIONS is enabled:
 //          4:        mixed/proper fractions (a.b.c) enable proper fractions
 //          5:        simple/improper fractions (a..b) enable improper fractions
-#define FRACTION_MODE_INPUT 0
+#define FRACTION_MODE_INPUT (1+2+4+0+16+32)
 
 // Make two successive decimals a..b enter an improper fraction a/b, not a 0/b (also enables PRETTY_FRACTION_ENTRY)
 #define INCLUDE_DOUBLEDOT_FRACTIONS
@@ -200,7 +200,7 @@
 // be parsed. If a.b.0 is entered, it's interpreted as the integer a, and
 // with INCLUDE_DOUBLEDOT_FRACTIONS enabled, a..0 is interpreted as zero.
 // This saves approximately 252 bytes in the firmware.
-//#define IGNORE_INVALID_FRACTIONS
+#define IGNORE_INVALID_FRACTIONS
 
 // Show four-digit exponents instead of the HIG symbol in double precision mode
 // and display only 10 digits of the mantissa if necessary.
@@ -208,10 +208,10 @@
 //          1:               large exponents always displayed
 //          2:               large exponents displayed if flag L is set
 //          3:               large exponents displayed if flag L is cleared
-//#define SHOW_LARGE_EXPONENT 1
+#define SHOW_LARGE_EXPONENT 1
 
 // Allow entering four-digit exponents in double precision mode
-//#define LARGE_EXPONENT_ENTRY
+#define LARGE_EXPONENT_ENTRY
 
 // Rules about negative exponents in single precision mode with flag D cleared
 // Values: -1: Use value from register 0 (for debugging only!)
@@ -356,7 +356,7 @@
 //#define SHOW_STACK_SIZE
 
 // BEG annunciators indicates BIG stack size rather than beginning of program
-//#define MODIFY_BEG_SSIZE8
+#define MODIFY_BEG_SSIZE8
 
 /*
  * This setting allows to change default mode to one of the other 2

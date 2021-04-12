@@ -555,6 +555,10 @@ maxlibsteps=8190
 0x0296	cmd	M.IJ
 0x0297	cmd	DET
 0x0298	cmd	M.LU
+0x0299	cmd	[PSI]
+0x0299	alias-c	DIGAMMA
+0x029a	cmd	EASTER
+0x029b	cmd	FACTOR
 0x0300	cmd	y[^x]
 0x0300	alias-c	y^x
 0x0301	cmd	+
@@ -619,6 +623,10 @@ maxlibsteps=8190
 0x032c	cmd	M-COL
 0x032d	cmd	M.COPY
 0x032e	cmd	NEIGHB
+0x032f	cmd	Jn
+0x0330	cmd	In
+0x0331	cmd	Yn
+0x0332	cmd	Kn
 0x0400	cmd	I[sub-x]
 0x0400	alias-c	IBETA
 0x0401	cmd	DBL/
@@ -721,6 +729,8 @@ maxlibsteps=8190
 0x0538	alias-c	cCHS
 0x0539	cmd	[cmplx]CONJ
 0x0539	alias-c	cCONJ
+0x0599	cmd	[cmplx][PSI]
+0x0599	alias-c	cDIGAMMA
 0x0600	cmd	[cmplx]y[^x]
 0x0600	alias-c	cy^x
 0x0601	cmd	[cmplx]+
@@ -749,6 +759,14 @@ maxlibsteps=8190
 0x0617	alias-c	cAGM
 0x062a	cmd	[cmplx][^x][sqrt]y
 0x062a	alias-c	cXROOT
+0x062f	cmd	[cmplx]Jn
+0x062f	alias-c	cJn
+0x0630	cmd	[cmplx]In
+0x0630	alias-c	cIn
+0x0631	cmd	[cmplx]Yn
+0x0631	alias-c	cYn
+0x0632	cmd	[cmplx]Kn
+0x0632	alias-c	cKn
 0x2000	cmd	# 1/2
 0x2001	cmd	# a
 0x2002	cmd	# a[sub-0]
@@ -890,19 +908,36 @@ maxlibsteps=8190
 0x2050	cmd	# 1/[sqrt][pi]
 0x2050	alias-c	# RECIP_SQRTPI
 0x2051	cmd	# Chi2
-0x2052	cmd	# L10[^-1]
-0x2052	alias-c	# RECIPLN10
-0x2053	cmd	# LN2
-0x2054	cmd	# LN2[^-1]
-0x2054	alias-c	# RECIPLN2
-0x2055	cmd	# [pi]
-0x2055	alias-c	PI
-0x2056	cmd	# [pi]/2
-0x2056	alias-c	# PIon2
-0x2057	cmd	# [sqrt]2[pi]
-0x2057	alias-c	# SQRT_2_PI
-0x2058	cmd	# [integral]RgB
-0x2058	alias-c	# INT_R_BOUNDS
+0x2052	cmd	# DG02
+0x2053	cmd	# DG04
+0x2054	cmd	# DG06
+0x2055	cmd	# DG08
+0x2056	cmd	# DG10
+0x2057	cmd	# DG12
+0x2058	cmd	# DG14
+0x2059	cmd	# DG16
+0x205a	cmd	# DG18
+0x205b	cmd	# DG20
+0x205c	cmd	# DG22
+0x205d	cmd	# DG24
+0x205e	cmd	# DG26
+0x205f	cmd	# DG28
+0x2060	cmd	# DG30
+0x2061	cmd	# DG32
+0x2062	cmd	# DG34
+0x2063	cmd	# L10[^-1]
+0x2063	alias-c	# RECIPLN10
+0x2064	cmd	# LN2
+0x2065	cmd	# LN2[^-1]
+0x2065	alias-c	# RECIPLN2
+0x2066	cmd	# [pi]
+0x2066	alias-c	PI
+0x2067	cmd	# [pi]/2
+0x2067	alias-c	# PIon2
+0x2068	cmd	# [sqrt]2[pi]
+0x2068	alias-c	# SQRT_2_PI
+0x2069	cmd	# [integral]RgB
+0x2069	alias-c	# INT_R_BOUNDS
 0x2100	cmd	[cmplx]# 1/2
 0x2100	alias-c	c# 1/2
 0x2101	cmd	[cmplx]# a
@@ -1063,20 +1098,54 @@ maxlibsteps=8190
 0x2150	alias-c	c# RECIP_SQRTPI
 0x2151	cmd	[cmplx]# Chi2
 0x2151	alias-c	c# Chi2
-0x2152	cmd	[cmplx]# L10[^-1]
-0x2152	alias-c	c# RECIPLN10
-0x2153	cmd	[cmplx]# LN2
-0x2153	alias-c	c# LN2
-0x2154	cmd	[cmplx]# LN2[^-1]
-0x2154	alias-c	c# RECIPLN2
-0x2155	cmd	[cmplx]# [pi]
-0x2155	alias-c	cPI
-0x2156	cmd	[cmplx]# [pi]/2
-0x2156	alias-c	c# PIon2
-0x2157	cmd	[cmplx]# [sqrt]2[pi]
-0x2157	alias-c	c# SQRT_2_PI
-0x2158	cmd	[cmplx]# [integral]RgB
-0x2158	alias-c	c# INT_R_BOUNDS
+0x2152	cmd	[cmplx]# DG02
+0x2152	alias-c	c# DG02
+0x2153	cmd	[cmplx]# DG04
+0x2153	alias-c	c# DG04
+0x2154	cmd	[cmplx]# DG06
+0x2154	alias-c	c# DG06
+0x2155	cmd	[cmplx]# DG08
+0x2155	alias-c	c# DG08
+0x2156	cmd	[cmplx]# DG10
+0x2156	alias-c	c# DG10
+0x2157	cmd	[cmplx]# DG12
+0x2157	alias-c	c# DG12
+0x2158	cmd	[cmplx]# DG14
+0x2158	alias-c	c# DG14
+0x2159	cmd	[cmplx]# DG16
+0x2159	alias-c	c# DG16
+0x215a	cmd	[cmplx]# DG18
+0x215a	alias-c	c# DG18
+0x215b	cmd	[cmplx]# DG20
+0x215b	alias-c	c# DG20
+0x215c	cmd	[cmplx]# DG22
+0x215c	alias-c	c# DG22
+0x215d	cmd	[cmplx]# DG24
+0x215d	alias-c	c# DG24
+0x215e	cmd	[cmplx]# DG26
+0x215e	alias-c	c# DG26
+0x215f	cmd	[cmplx]# DG28
+0x215f	alias-c	c# DG28
+0x2160	cmd	[cmplx]# DG30
+0x2160	alias-c	c# DG30
+0x2161	cmd	[cmplx]# DG32
+0x2161	alias-c	c# DG32
+0x2162	cmd	[cmplx]# DG34
+0x2162	alias-c	c# DG34
+0x2163	cmd	[cmplx]# L10[^-1]
+0x2163	alias-c	c# RECIPLN10
+0x2164	cmd	[cmplx]# LN2
+0x2164	alias-c	c# LN2
+0x2165	cmd	[cmplx]# LN2[^-1]
+0x2165	alias-c	c# RECIPLN2
+0x2166	cmd	[cmplx]# [pi]
+0x2166	alias-c	cPI
+0x2167	cmd	[cmplx]# [pi]/2
+0x2167	alias-c	c# PIon2
+0x2168	cmd	[cmplx]# [sqrt]2[pi]
+0x2168	alias-c	c# SQRT_2_PI
+0x2169	cmd	[cmplx]# [integral]RgB
+0x2169	alias-c	c# INT_R_BOUNDS
 0x2200	arg	ERR	max=25,indirect
 0x2300	arg	STO	max=128,indirect,stack
 0x2400	arg	STO+	max=128,indirect,stack
@@ -2593,9 +2662,9 @@ maxlibsteps=8190
 0xa700	arg	#	max=256
 0xa800	arg	[cmplx]#	max=256
 0xa800	alias-a	c#	max=256
-0xa900	arg	CNST	max=89,indirect
-0xaa00	arg	[cmplx]CNST	max=89,indirect
-0xaa00	alias-a	cCNST	max=89,indirect
+0xa900	arg	CNST	max=106,indirect
+0xaa00	arg	[cmplx]CNST	max=106,indirect
+0xaa00	alias-a	cCNST	max=106,indirect
 0xab00	arg	CASE	max=128,indirect,stack
 0xac00	arg	[cmplx]VIEW	max=128,indirect,stack,complex
 0xac00	alias-a	cVIEW	max=128,indirect,stack,complex

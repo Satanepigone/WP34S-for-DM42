@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccNLenXV.s 			page 1
+ARM GAS  /tmp/ccLsYHtp.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
   26:src/lcd.c     **** 
   27:src/lcd.c     **** #include "pretty.h"
   28:src/lcd.c     **** 
-ARM GAS  /tmp/ccNLenXV.s 			page 2
+ARM GAS  /tmp/ccLsYHtp.s 			page 2
 
 
   29:src/lcd.c     **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
   54:src/lcd.c     **** void clr_dot(int n) {
   62              		.loc 1 54 21 is_stmt 1 view -0
   63              		.cfi_startproc
-ARM GAS  /tmp/ccNLenXV.s 			page 3
+ARM GAS  /tmp/ccLsYHtp.s 			page 3
 
 
   64              		@ args = 0, pretend = 0, frame = 0
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  116              		.global	setuptty
  117              		.syntax unified
  118              		.thumb
-ARM GAS  /tmp/ccNLenXV.s 			page 4
+ARM GAS  /tmp/ccLsYHtp.s 			page 4
 
 
  119              		.thumb_func
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  154              		.loc 1 81 2 view .LVU18
  155              	.LVL6:
  156              	.LBB37:
-ARM GAS  /tmp/ccNLenXV.s 			page 5
+ARM GAS  /tmp/ccLsYHtp.s 			page 5
 
 
  157              	.LBI37:
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  201              		.loc 1 58 13 view .LVU28
  202              	.LBE47:
  203              	.LBE46:
-ARM GAS  /tmp/ccNLenXV.s 			page 6
+ARM GAS  /tmp/ccLsYHtp.s 			page 6
 
 
   83:src/lcd.c     **** 	int leq = is_dot(LIT_EQ);
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  243              	.L13:
   88:src/lcd.c     **** 			clr_dot(i);
  244              		.loc 1 88 4 is_stmt 1 discriminator 2 view .LVU45
-ARM GAS  /tmp/ccNLenXV.s 			page 7
+ARM GAS  /tmp/ccLsYHtp.s 			page 7
 
 
  245              	.LBB59:
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  285              		.loc 1 87 38 is_stmt 0 view .LVU60
  286 0032 062B     		cmp	r3, #6
  287              	.LBB63:
-ARM GAS  /tmp/ccNLenXV.s 			page 8
+ARM GAS  /tmp/ccLsYHtp.s 			page 8
 
 
  288              	.LBB57:
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
   96:src/lcd.c     **** 	int bat = is_dot(BATTERY);
   97:src/lcd.c     **** 	int leq = is_dot(LIT_EQ);
   98:src/lcd.c     **** 	int rpn = is_dot(RPN);
-ARM GAS  /tmp/ccNLenXV.s 			page 9
+ARM GAS  /tmp/ccLsYHtp.s 			page 9
 
 
   99:src/lcd.c     **** #ifndef REALBUILD
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  341              	.LVL19:
  342              	.L21:
   92:src/lcd.c     **** 	dot(RPN, rpn);
-ARM GAS  /tmp/ccNLenXV.s 			page 10
+ARM GAS  /tmp/ccLsYHtp.s 			page 10
 
 
  343              		.loc 1 92 2 view .LVU75
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  381 0008 0D46     		mov	r5, r1
  382              		.loc 1 153 3 view .LVU81
  383 000a 124E     		ldr	r6, .L24
-ARM GAS  /tmp/ccNLenXV.s 			page 11
+ARM GAS  /tmp/ccLsYHtp.s 			page 11
 
 
  384 000c 0097     		str	r7, [sp]
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  430 004c B047     		blx	r6
  431              	.LVL27:
  158:src/lcd.c     **** }
-ARM GAS  /tmp/ccNLenXV.s 			page 12
+ARM GAS  /tmp/ccLsYHtp.s 			page 12
 
 
  432              		.loc 1 158 1 is_stmt 0 view .LVU91
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  486              		@ link register save eliminated.
  163:src/lcd.c     ****   left_side(i-2, j+19);
  487              		.loc 1 163 3 view .LVU97
-ARM GAS  /tmp/ccNLenXV.s 			page 13
+ARM GAS  /tmp/ccLsYHtp.s 			page 13
 
 
  488 0000 0238     		subs	r0, r0, #2
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  539 0012 0B31     		adds	r1, r1, #11
  540              	.LVL37:
  541              		.loc 1 166 3 view .LVU108
-ARM GAS  /tmp/ccNLenXV.s 			page 14
+ARM GAS  /tmp/ccLsYHtp.s 			page 14
 
 
  542 0014 0723     		movs	r3, #7
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  590              	.L30:
  591 005c 3D020008 		.word	134218301
  592              		.cfi_endproc
-ARM GAS  /tmp/ccNLenXV.s 			page 15
+ARM GAS  /tmp/ccLsYHtp.s 			page 15
 
 
  593              	.LFE8:
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  646              		.cfi_endproc
  647              	.LFE10:
  649              		.section	.text.top,"ax",%progbits
-ARM GAS  /tmp/ccNLenXV.s 			page 16
+ARM GAS  /tmp/ccLsYHtp.s 			page 16
 
 
  650              		.align	1
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  181:src/lcd.c     ****   lcd_fill_rect ( i+6, j+2, 12, 1, 0xff );
  699              		.loc 1 181 3 view .LVU133
  700 0022 A91C     		adds	r1, r5, #2
-ARM GAS  /tmp/ccNLenXV.s 			page 17
+ARM GAS  /tmp/ccLsYHtp.s 			page 17
 
 
  701 0024 A01D     		adds	r0, r4, #6
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  752              		.cfi_offset 7, -8
  753              		.cfi_offset 14, -4
  754 0002 83B0     		sub	sp, sp, #12
-ARM GAS  /tmp/ccNLenXV.s 			page 18
+ARM GAS  /tmp/ccLsYHtp.s 			page 18
 
 
  755              		.cfi_def_cfa_offset 32
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  801              		@ sp needed
  802 003e F0BD     		pop	{r4, r5, r6, r7, pc}
  803              	.LVL64:
-ARM GAS  /tmp/ccNLenXV.s 			page 19
+ARM GAS  /tmp/ccLsYHtp.s 			page 19
 
 
  804              	.L41:
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  856 0016 B047     		blx	r6
  857              	.LVL68:
  191:src/lcd.c     ****   lcd_fill_rect ( i+1, j+39, 16, 1, 0xff );
-ARM GAS  /tmp/ccNLenXV.s 			page 20
+ARM GAS  /tmp/ccLsYHtp.s 			page 20
 
 
  858              		.loc 1 191 3 is_stmt 1 view .LVU161
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  910              		@ args = 0, pretend = 0, frame = 0
  911              		@ frame_needed = 0, uses_anonymous_args = 0
  196:src/lcd.c     ****   lcd_fill_rect (i+19, j+40, 5, 5, 0xff);
-ARM GAS  /tmp/ccNLenXV.s 			page 21
+ARM GAS  /tmp/ccLsYHtp.s 			page 21
 
 
  912              		.loc 1 196 3 view .LVU167
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  963              		.loc 1 198 27 is_stmt 0 view .LVU175
  964 0000 F0B5     		push	{r4, r5, r6, r7, lr}
  965              		.cfi_def_cfa_offset 20
-ARM GAS  /tmp/ccNLenXV.s 			page 22
+ARM GAS  /tmp/ccLsYHtp.s 			page 22
 
 
  966              		.cfi_offset 4, -20
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  1018              		.thumb
  1019              		.thumb_func
  1020              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/ccNLenXV.s 			page 23
+ARM GAS  /tmp/ccLsYHtp.s 			page 23
 
 
  1022              	exp_left_side:
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  1069 002c B047     		blx	r6
  1070              	.LVL87:
  207:src/lcd.c     ****   lcd_fill_rect (i+3, j+2, 1, 4, 0xff );
-ARM GAS  /tmp/ccNLenXV.s 			page 24
+ARM GAS  /tmp/ccLsYHtp.s 			page 24
 
 
  1071              		.loc 1 207 3 view .LVU193
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  1125              		.thumb
  1126              		.thumb_func
  1127              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/ccNLenXV.s 			page 25
+ARM GAS  /tmp/ccLsYHtp.s 			page 25
 
 
  1129              	exp_left_side_bottom:
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  215:src/lcd.c     ****   lcd_fill_rect (i+12, j, 1, 6, 0xff );
  1178              		.loc 1 215 36 view .LVU208
  1179 000a 0446     		mov	r4, r0
-ARM GAS  /tmp/ccNLenXV.s 			page 26
+ARM GAS  /tmp/ccLsYHtp.s 			page 26
 
 
  1180 000c 0D46     		mov	r5, r1
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  1231              		.syntax unified
  1232              		.thumb
  1233              		.thumb_func
-ARM GAS  /tmp/ccNLenXV.s 			page 27
+ARM GAS  /tmp/ccLsYHtp.s 			page 27
 
 
  1234              		.fpu fpv4-sp-d16
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  1287              		.thumb_func
  1288              		.fpu fpv4-sp-d16
  1290              	exp_top:
-ARM GAS  /tmp/ccNLenXV.s 			page 28
+ARM GAS  /tmp/ccLsYHtp.s 			page 28
 
 
  1291              	.LVL109:
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  1338              	.LVL113:
  231:src/lcd.c     **** }
  1339              		.loc 1 231 1 is_stmt 0 view .LVU233
-ARM GAS  /tmp/ccNLenXV.s 			page 29
+ARM GAS  /tmp/ccLsYHtp.s 			page 29
 
 
  1340 002e 03B0     		add	sp, sp, #12
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  1392              	.LVL117:
  1393              		.loc 1 233 3 view .LVU242
  1394 0012 0123     		movs	r3, #1
-ARM GAS  /tmp/ccNLenXV.s 			page 30
+ARM GAS  /tmp/ccLsYHtp.s 			page 30
 
 
  1395 0014 0722     		movs	r2, #7
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  1445              		.loc 1 237 32 is_stmt 0 view .LVU249
  1446 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
  1447              		.cfi_def_cfa_offset 24
-ARM GAS  /tmp/ccNLenXV.s 			page 31
+ARM GAS  /tmp/ccLsYHtp.s 			page 31
 
 
  1448              		.cfi_offset 4, -24
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  1498              	.LVL128:
  1499              	.L77:
  1500              		.loc 1 241 1 view .LVU260
-ARM GAS  /tmp/ccNLenXV.s 			page 32
+ARM GAS  /tmp/ccLsYHtp.s 			page 32
 
 
  1501              		.align	2
@@ -1876,2017 +1876,2053 @@ ARM GAS  /tmp/ccNLenXV.s 			page 1
  1513 0008 3D00     		.ascii	"=\000"
  1514 000a 0000     		.align	2
  1515              	.LC2:
- 1516 000c 42454700 		.ascii	"BEG\000"
+ 1516 000c 533A3800 		.ascii	"S:8\000"
  1517              		.align	2
  1518              	.LC3:
- 1519 0010 50474D00 		.ascii	"PGM\000"
+ 1519 0010 533A3400 		.ascii	"S:4\000"
  1520              		.align	2
  1521              	.LC4:
- 1522 0014 52554E00 		.ascii	"RUN\000"
+ 1522 0014 50474D00 		.ascii	"PGM\000"
  1523              		.align	2
  1524              	.LC5:
- 1525 0018 52414400 		.ascii	"RAD\000"
+ 1525 0018 52554E00 		.ascii	"RUN\000"
  1526              		.align	2
  1527              	.LC6:
- 1528 001c 44454700 		.ascii	"DEG\000"
+ 1528 001c 52414400 		.ascii	"RAD\000"
  1529              		.align	2
  1530              	.LC7:
- 1531 0020 52504E00 		.ascii	"RPN\000"
- 1532              		.section	.text.show_disp,"ax",%progbits
- 1533              		.align	1
- 1534              		.p2align 2,,3
- 1535              		.global	show_disp
- 1536              		.syntax unified
- 1537              		.thumb
- 1538              		.thumb_func
- 1539              		.fpu fpv4-sp-d16
- 1541              	show_disp:
- 1542              	.LFB25:
+ 1531 0020 44454700 		.ascii	"DEG\000"
+ 1532              		.align	2
+ 1533              	.LC8:
+ 1534 0024 52504E00 		.ascii	"RPN\000"
+ 1535              		.section	.text.show_disp,"ax",%progbits
+ 1536              		.align	1
+ 1537              		.p2align 2,,3
+ 1538              		.global	show_disp
+ 1539              		.syntax unified
+ 1540              		.thumb
+ 1541              		.thumb_func
+ 1542              		.fpu fpv4-sp-d16
+ 1544              	show_disp:
+ 1545              	.LFB25:
  242:src/lcd.c     ****   
  243:src/lcd.c     **** void show_disp(void) { // This function re-draws everything.
- 1543              		.loc 1 243 22 is_stmt 1 view -0
- 1544              		.cfi_startproc
- 1545              		@ args = 0, pretend = 0, frame = 0
- 1546              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1546              		.loc 1 243 22 is_stmt 1 view -0
+ 1547              		.cfi_startproc
+ 1548              		@ args = 0, pretend = 0, frame = 0
+ 1549              		@ frame_needed = 0, uses_anonymous_args = 0
  244:src/lcd.c     ****   // It may be fast enough. It does mean that clearing everything first is needed,
  245:src/lcd.c     ****   // or we keep track of changes.
  246:src/lcd.c     ****   // Try clearing everything first first.
  247:src/lcd.c     ****         int i, j, p;
- 1547              		.loc 1 247 9 view .LVU262
+ 1550              		.loc 1 247 9 view .LVU262
  248:src/lcd.c     **** 	uint32_t x;
- 1548              		.loc 1 248 2 view .LVU263
+ 1551              		.loc 1 248 2 view .LVU263
+ARM GAS  /tmp/ccLsYHtp.s 			page 33
+
+
  249:src/lcd.c     **** 	const uint32_t xleft = 26;
- 1549              		.loc 1 249 2 view .LVU264
- 1550              	.LVL129:
-ARM GAS  /tmp/ccNLenXV.s 			page 33
-
-
+ 1552              		.loc 1 249 2 view .LVU264
+ 1553              	.LVL129:
  250:src/lcd.c     **** 	const uint32_t ytop = 130; // was 170
- 1551              		.loc 1 250 2 view .LVU265
+ 1554              		.loc 1 250 2 view .LVU265
  251:src/lcd.c     **** 	const uint32_t dwidth = 25;
- 1552              		.loc 1 251 2 view .LVU266
+ 1555              		.loc 1 251 2 view .LVU266
  252:src/lcd.c     **** 	const uint32_t xleft_exp = 344;
- 1553              		.loc 1 252 2 view .LVU267
+ 1556              		.loc 1 252 2 view .LVU267
  253:src/lcd.c     **** 	const uint32_t ytop_exp = 130; // was 170
- 1554              		.loc 1 253 2 view .LVU268
+ 1557              		.loc 1 253 2 view .LVU268
  254:src/lcd.c     **** 	const uint32_t dwidth_exp = 18;
- 1555              		.loc 1 254 2 view .LVU269
+ 1558              		.loc 1 254 2 view .LVU269
  255:src/lcd.c     **** #ifdef BIGGER_DISPLAY
  256:src/lcd.c     **** 	const uint32_t y_ann = 75;
- 1556              		.loc 1 256 2 view .LVU270
+ 1559              		.loc 1 256 2 view .LVU270
  257:src/lcd.c     **** #else
  258:src/lcd.c     **** 	const uint32_t y_ann = 130;
  259:src/lcd.c     **** #endif
  260:src/lcd.c     ****         /* Segments 0 - 107 are the main digits */
  261:src/lcd.c     ****         for (i=0; i<DISPLAY_DIGITS; i++) { // 0 -> 11 inclusive
- 1557              		.loc 1 261 9 view .LVU271
- 1558              		.loc 1 261 19 view .LVU272
+ 1560              		.loc 1 261 9 view .LVU271
+ 1561              		.loc 1 261 19 view .LVU272
  243:src/lcd.c     ****   // It may be fast enough. It does mean that clearing everything first is needed,
- 1559              		.loc 1 243 22 is_stmt 0 view .LVU273
- 1560 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
- 1561              		.cfi_def_cfa_offset 36
- 1562              		.cfi_offset 4, -36
- 1563              		.cfi_offset 5, -32
- 1564              		.cfi_offset 6, -28
- 1565              		.cfi_offset 7, -24
- 1566              		.cfi_offset 8, -20
- 1567              		.cfi_offset 9, -16
- 1568              		.cfi_offset 10, -12
- 1569              		.cfi_offset 11, -8
- 1570              		.cfi_offset 14, -4
- 1571 0004 DFF8C0B0 		ldr	fp, .L229+4
- 1572              	.LBB65:
- 1573              	.LBB66:
+ 1562              		.loc 1 243 22 is_stmt 0 view .LVU273
+ 1563 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 1564              		.cfi_def_cfa_offset 36
+ 1565              		.cfi_offset 4, -36
+ 1566              		.cfi_offset 5, -32
+ 1567              		.cfi_offset 6, -28
+ 1568              		.cfi_offset 7, -24
+ 1569              		.cfi_offset 8, -20
+ 1570              		.cfi_offset 9, -16
+ 1571              		.cfi_offset 10, -12
+ 1572              		.cfi_offset 11, -8
+ 1573              		.cfi_offset 14, -4
+ 1574 0004 DFF8C0B0 		ldr	fp, .L227+4
+ 1575              	.LBB65:
+ 1576              	.LBB66:
  196:src/lcd.c     **** }
- 1574              		.loc 1 196 3 view .LVU274
- 1575 0008 2E4F     		ldr	r7, .L229
- 1576              	.LBE66:
- 1577              	.LBE65:
+ 1577              		.loc 1 196 3 view .LVU274
+ 1578 0008 2E4F     		ldr	r7, .L227
+ 1579              	.LBE66:
+ 1580              	.LBE65:
  243:src/lcd.c     ****   // It may be fast enough. It does mean that clearing everything first is needed,
- 1578              		.loc 1 243 22 view .LVU275
- 1579 000a 83B0     		sub	sp, sp, #12
- 1580              		.cfi_def_cfa_offset 48
+ 1581              		.loc 1 243 22 view .LVU275
+ 1582 000a 83B0     		sub	sp, sp, #12
+ 1583              		.cfi_def_cfa_offset 48
  243:src/lcd.c     ****   // It may be fast enough. It does mean that clearing everything first is needed,
- 1581              		.loc 1 243 22 view .LVU276
- 1582 000c 5E46     		mov	r6, fp
- 1583 000e 5C46     		mov	r4, fp
- 1584 0010 1A25     		movs	r5, #26
- 1585 0012 24E0     		b	.L88
- 1586              	.LVL130:
- 1587              	.L79:
+ 1584              		.loc 1 243 22 view .LVU276
+ 1585 000c 5E46     		mov	r6, fp
+ 1586 000e 5C46     		mov	r4, fp
+ 1587 0010 1A25     		movs	r5, #26
+ 1588 0012 24E0     		b	.L88
+ 1589              	.LVL130:
+ 1590              	.L79:
  262:src/lcd.c     ****                 p = i*SEGS_PER_DIGIT;
+ARM GAS  /tmp/ccLsYHtp.s 			page 34
+
+
  263:src/lcd.c     ****                 x = xleft + dwidth*i;
  264:src/lcd.c     ****                 if (dots[p]) { // top
  265:src/lcd.c     **** 		  top (x, ytop);
-ARM GAS  /tmp/ccNLenXV.s 			page 34
-
-
  266:src/lcd.c     ****                 }
  267:src/lcd.c     ****                 if (dots[p+1]) { // top left
- 1588              		.loc 1 267 17 is_stmt 1 view .LVU277
- 1589              		.loc 1 267 20 is_stmt 0 view .LVU278
- 1590 0014 6378     		ldrb	r3, [r4, #1]	@ zero_extendqisi2
- 1591 0016 002B     		cmp	r3, #0
- 1592 0018 2BD1     		bne	.L212
- 1593              	.L80:
+ 1591              		.loc 1 267 17 is_stmt 1 view .LVU277
+ 1592              		.loc 1 267 20 is_stmt 0 view .LVU278
+ 1593 0014 6378     		ldrb	r3, [r4, #1]	@ zero_extendqisi2
+ 1594 0016 002B     		cmp	r3, #0
+ 1595 0018 2BD1     		bne	.L210
+ 1596              	.L80:
  268:src/lcd.c     **** 		  left_side_top (x, ytop);
  269:src/lcd.c     ****                 }
  270:src/lcd.c     ****                 if (dots[p+3]) { // top right
- 1594              		.loc 1 270 17 is_stmt 1 view .LVU279
- 1595              		.loc 1 270 20 is_stmt 0 view .LVU280
- 1596 001a E378     		ldrb	r3, [r4, #3]	@ zero_extendqisi2
- 1597 001c 002B     		cmp	r3, #0
- 1598 001e 2FD1     		bne	.L213
- 1599              	.L81:
+ 1597              		.loc 1 270 17 is_stmt 1 view .LVU279
+ 1598              		.loc 1 270 20 is_stmt 0 view .LVU280
+ 1599 001a E378     		ldrb	r3, [r4, #3]	@ zero_extendqisi2
+ 1600 001c 002B     		cmp	r3, #0
+ 1601 001e 2FD1     		bne	.L211
+ 1602              	.L81:
  271:src/lcd.c     **** 		  right_side_top (x, ytop);
  272:src/lcd.c     ****                 }
  273:src/lcd.c     ****                 if (dots[p+2]) { // centre line
- 1600              		.loc 1 273 17 is_stmt 1 view .LVU281
- 1601              		.loc 1 273 20 is_stmt 0 view .LVU282
- 1602 0020 A378     		ldrb	r3, [r4, #2]	@ zero_extendqisi2
- 1603 0022 002B     		cmp	r3, #0
- 1604 0024 33D1     		bne	.L214
- 1605              	.L82:
+ 1603              		.loc 1 273 17 is_stmt 1 view .LVU281
+ 1604              		.loc 1 273 20 is_stmt 0 view .LVU282
+ 1605 0020 A378     		ldrb	r3, [r4, #2]	@ zero_extendqisi2
+ 1606 0022 002B     		cmp	r3, #0
+ 1607 0024 33D1     		bne	.L212
+ 1608              	.L82:
  274:src/lcd.c     **** 		  middle (x, ytop);
  275:src/lcd.c     ****                 }
  276:src/lcd.c     ****                 if (dots[p+4]) { // lower left
- 1606              		.loc 1 276 17 is_stmt 1 view .LVU283
- 1607              		.loc 1 276 20 is_stmt 0 view .LVU284
- 1608 0026 2379     		ldrb	r3, [r4, #4]	@ zero_extendqisi2
- 1609 0028 002B     		cmp	r3, #0
- 1610 002a 37D1     		bne	.L215
- 1611              	.L83:
+ 1609              		.loc 1 276 17 is_stmt 1 view .LVU283
+ 1610              		.loc 1 276 20 is_stmt 0 view .LVU284
+ 1611 0026 2379     		ldrb	r3, [r4, #4]	@ zero_extendqisi2
+ 1612 0028 002B     		cmp	r3, #0
+ 1613 002a 37D1     		bne	.L213
+ 1614              	.L83:
  277:src/lcd.c     **** 		  left_side_bottom (x, ytop);
  278:src/lcd.c     ****                 }
  279:src/lcd.c     ****                 if (dots[p+6]) { // lower right
- 1612              		.loc 1 279 17 is_stmt 1 view .LVU285
- 1613              		.loc 1 279 20 is_stmt 0 view .LVU286
- 1614 002c A379     		ldrb	r3, [r4, #6]	@ zero_extendqisi2
- 1615 002e 002B     		cmp	r3, #0
- 1616 0030 3BD1     		bne	.L216
- 1617              	.L84:
+ 1615              		.loc 1 279 17 is_stmt 1 view .LVU285
+ 1616              		.loc 1 279 20 is_stmt 0 view .LVU286
+ 1617 002c A379     		ldrb	r3, [r4, #6]	@ zero_extendqisi2
+ 1618 002e 002B     		cmp	r3, #0
+ 1619 0030 3BD1     		bne	.L214
+ 1620              	.L84:
  280:src/lcd.c     **** 		  right_side_bottom (x, ytop);
  281:src/lcd.c     ****                 }
  282:src/lcd.c     ****                 if (dots[p+5]) { // bottom
- 1618              		.loc 1 282 17 is_stmt 1 view .LVU287
- 1619              		.loc 1 282 20 is_stmt 0 view .LVU288
- 1620 0032 6379     		ldrb	r3, [r4, #5]	@ zero_extendqisi2
- 1621 0034 002B     		cmp	r3, #0
- 1622 0036 3FD1     		bne	.L217
- 1623              	.L85:
+ 1621              		.loc 1 282 17 is_stmt 1 view .LVU287
+ 1622              		.loc 1 282 20 is_stmt 0 view .LVU288
+ 1623 0032 6379     		ldrb	r3, [r4, #5]	@ zero_extendqisi2
+ 1624 0034 002B     		cmp	r3, #0
+ 1625 0036 3FD1     		bne	.L215
+ 1626              	.L85:
  283:src/lcd.c     **** 		  bottom (x, ytop);
+ARM GAS  /tmp/ccLsYHtp.s 			page 35
+
+
  284:src/lcd.c     ****                 }
  285:src/lcd.c     ****                 if (dots[p+7]) { // point
- 1624              		.loc 1 285 17 is_stmt 1 view .LVU289
-ARM GAS  /tmp/ccNLenXV.s 			page 35
-
-
- 1625              		.loc 1 285 20 is_stmt 0 view .LVU290
- 1626 0038 E379     		ldrb	r3, [r4, #7]	@ zero_extendqisi2
- 1627 003a 3BB1     		cbz	r3, .L86
+ 1627              		.loc 1 285 17 is_stmt 1 view .LVU289
+ 1628              		.loc 1 285 20 is_stmt 0 view .LVU290
+ 1629 0038 E379     		ldrb	r3, [r4, #7]	@ zero_extendqisi2
+ 1630 003a 3BB1     		cbz	r3, .L86
  286:src/lcd.c     **** 		  decimal (x, ytop);
- 1628              		.loc 1 286 5 is_stmt 1 view .LVU291
- 1629              	.LVL131:
- 1630              	.LBB68:
- 1631              	.LBI65:
+ 1631              		.loc 1 286 5 is_stmt 1 view .LVU291
+ 1632              	.LVL131:
+ 1633              	.LBB68:
+ 1634              	.LBI65:
  195:src/lcd.c     ****   lcd_fill_rect (i+19, j+40, 5, 5, 0xff);
- 1632              		.loc 1 195 6 view .LVU292
- 1633              	.LBB67:
+ 1635              		.loc 1 195 6 view .LVU292
+ 1636              	.LBB67:
  196:src/lcd.c     **** }
- 1634              		.loc 1 196 3 view .LVU293
- 1635 003c FF22     		movs	r2, #255
- 1636 003e 0523     		movs	r3, #5
- 1637 0040 0092     		str	r2, [sp]
- 1638 0042 AA21     		movs	r1, #170
- 1639 0044 1A46     		mov	r2, r3
- 1640 0046 05F11300 		add	r0, r5, #19
- 1641 004a B847     		blx	r7
- 1642              	.LVL132:
- 1643              	.L86:
+ 1637              		.loc 1 196 3 view .LVU293
+ 1638 003c FF22     		movs	r2, #255
+ 1639 003e 0523     		movs	r3, #5
+ 1640 0040 0092     		str	r2, [sp]
+ 1641 0042 AA21     		movs	r1, #170
+ 1642 0044 1A46     		mov	r2, r3
+ 1643 0046 05F11300 		add	r0, r5, #19
+ 1644 004a B847     		blx	r7
+ 1645              	.LVL132:
+ 1646              	.L86:
  196:src/lcd.c     **** }
- 1644              		.loc 1 196 3 is_stmt 0 view .LVU294
- 1645              	.LBE67:
- 1646              	.LBE68:
+ 1647              		.loc 1 196 3 is_stmt 0 view .LVU294
+ 1648              	.LBE67:
+ 1649              	.LBE68:
  287:src/lcd.c     ****                 }
  288:src/lcd.c     ****                 if (dots[p+8]) { // comma
- 1647              		.loc 1 288 17 is_stmt 1 view .LVU295
- 1648              		.loc 1 288 20 is_stmt 0 view .LVU296
- 1649 004c 237A     		ldrb	r3, [r4, #8]	@ zero_extendqisi2
- 1650 004e 002B     		cmp	r3, #0
- 1651 0050 3CD1     		bne	.L218
+ 1650              		.loc 1 288 17 is_stmt 1 view .LVU295
+ 1651              		.loc 1 288 20 is_stmt 0 view .LVU296
+ 1652 004c 237A     		ldrb	r3, [r4, #8]	@ zero_extendqisi2
+ 1653 004e 002B     		cmp	r3, #0
+ 1654 0050 3CD1     		bne	.L216
  261:src/lcd.c     ****                 p = i*SEGS_PER_DIGIT;
- 1652              		.loc 1 261 37 is_stmt 1 discriminator 2 view .LVU297
+ 1655              		.loc 1 261 37 is_stmt 1 discriminator 2 view .LVU297
  261:src/lcd.c     ****                 p = i*SEGS_PER_DIGIT;
- 1653              		.loc 1 261 19 discriminator 2 view .LVU298
- 1654 0052 1935     		adds	r5, r5, #25
- 1655              	.LVL133:
+ 1656              		.loc 1 261 19 discriminator 2 view .LVU298
+ 1657 0052 1935     		adds	r5, r5, #25
+ 1658              	.LVL133:
  261:src/lcd.c     ****                 p = i*SEGS_PER_DIGIT;
- 1656              		.loc 1 261 9 is_stmt 0 discriminator 2 view .LVU299
- 1657 0054 B5F5A37F 		cmp	r5, #326
- 1658 0058 04F10904 		add	r4, r4, #9
- 1659              	.LVL134:
+ 1659              		.loc 1 261 9 is_stmt 0 discriminator 2 view .LVU299
+ 1660 0054 B5F5A37F 		cmp	r5, #326
+ 1661 0058 04F10904 		add	r4, r4, #9
+ 1662              	.LVL134:
  261:src/lcd.c     ****                 p = i*SEGS_PER_DIGIT;
- 1660              		.loc 1 261 9 discriminator 2 view .LVU300
- 1661 005c 40D0     		beq	.L219
- 1662              	.LVL135:
- 1663              	.L88:
+ 1663              		.loc 1 261 9 discriminator 2 view .LVU300
+ 1664 005c 40D0     		beq	.L217
+ 1665              	.LVL135:
+ 1666              	.L88:
  262:src/lcd.c     ****                 x = xleft + dwidth*i;
- 1664              		.loc 1 262 17 is_stmt 1 view .LVU301
+ 1667              		.loc 1 262 17 is_stmt 1 view .LVU301
  263:src/lcd.c     ****                 if (dots[p]) { // top
- 1665              		.loc 1 263 17 view .LVU302
+ 1668              		.loc 1 263 17 view .LVU302
  264:src/lcd.c     **** 		  top (x, ytop);
- 1666              		.loc 1 264 17 view .LVU303
- 264:src/lcd.c     **** 		  top (x, ytop);
- 1667              		.loc 1 264 20 is_stmt 0 view .LVU304
-ARM GAS  /tmp/ccNLenXV.s 			page 36
+ARM GAS  /tmp/ccLsYHtp.s 			page 36
 
 
- 1668 005e 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
- 1669 0060 002B     		cmp	r3, #0
- 1670 0062 D7D0     		beq	.L79
+ 1669              		.loc 1 264 17 view .LVU303
+ 264:src/lcd.c     **** 		  top (x, ytop);
+ 1670              		.loc 1 264 20 is_stmt 0 view .LVU304
+ 1671 005e 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 1672 0060 002B     		cmp	r3, #0
+ 1673 0062 D7D0     		beq	.L79
  265:src/lcd.c     ****                 }
- 1671              		.loc 1 265 5 is_stmt 1 view .LVU305
- 1672 0064 8221     		movs	r1, #130
- 1673 0066 2846     		mov	r0, r5
- 1674 0068 FFF7FEFF 		bl	top
- 1675              	.LVL136:
+ 1674              		.loc 1 265 5 is_stmt 1 view .LVU305
+ 1675 0064 8221     		movs	r1, #130
+ 1676 0066 2846     		mov	r0, r5
+ 1677 0068 FFF7FEFF 		bl	top
+ 1678              	.LVL136:
  267:src/lcd.c     **** 		  left_side_top (x, ytop);
- 1676              		.loc 1 267 17 view .LVU306
+ 1679              		.loc 1 267 17 view .LVU306
  267:src/lcd.c     **** 		  left_side_top (x, ytop);
- 1677              		.loc 1 267 20 is_stmt 0 view .LVU307
- 1678 006c 6378     		ldrb	r3, [r4, #1]	@ zero_extendqisi2
- 1679 006e 002B     		cmp	r3, #0
- 1680 0070 D3D0     		beq	.L80
- 1681              	.L212:
+ 1680              		.loc 1 267 20 is_stmt 0 view .LVU307
+ 1681 006c 6378     		ldrb	r3, [r4, #1]	@ zero_extendqisi2
+ 1682 006e 002B     		cmp	r3, #0
+ 1683 0070 D3D0     		beq	.L80
+ 1684              	.L210:
  268:src/lcd.c     ****                 }
- 1682              		.loc 1 268 5 is_stmt 1 view .LVU308
- 1683              	.LVL137:
- 1684              	.LBB69:
- 1685              	.LBI69:
+ 1685              		.loc 1 268 5 is_stmt 1 view .LVU308
+ 1686              	.LVL137:
+ 1687              	.LBB69:
+ 1688              	.LBI69:
  159:src/lcd.c     ****   left_side(i, j);
- 1686              		.loc 1 159 6 view .LVU309
- 1687              	.LBB70:
+ 1689              		.loc 1 159 6 view .LVU309
+ 1690              	.LBB70:
  160:src/lcd.c     **** }
- 1688              		.loc 1 160 3 view .LVU310
- 1689 0072 8221     		movs	r1, #130
- 1690 0074 2846     		mov	r0, r5
- 1691 0076 FFF7FEFF 		bl	left_side
- 1692              	.LVL138:
+ 1691              		.loc 1 160 3 view .LVU310
+ 1692 0072 8221     		movs	r1, #130
+ 1693 0074 2846     		mov	r0, r5
+ 1694 0076 FFF7FEFF 		bl	left_side
+ 1695              	.LVL138:
  160:src/lcd.c     **** }
- 1693              		.loc 1 160 3 is_stmt 0 view .LVU311
- 1694              	.LBE70:
- 1695              	.LBE69:
+ 1696              		.loc 1 160 3 is_stmt 0 view .LVU311
+ 1697              	.LBE70:
+ 1698              	.LBE69:
  270:src/lcd.c     **** 		  right_side_top (x, ytop);
- 1696              		.loc 1 270 17 is_stmt 1 view .LVU312
+ 1699              		.loc 1 270 17 is_stmt 1 view .LVU312
  270:src/lcd.c     **** 		  right_side_top (x, ytop);
- 1697              		.loc 1 270 20 is_stmt 0 view .LVU313
- 1698 007a E378     		ldrb	r3, [r4, #3]	@ zero_extendqisi2
- 1699 007c 002B     		cmp	r3, #0
- 1700 007e CFD0     		beq	.L81
- 1701              	.L213:
+ 1700              		.loc 1 270 20 is_stmt 0 view .LVU313
+ 1701 007a E378     		ldrb	r3, [r4, #3]	@ zero_extendqisi2
+ 1702 007c 002B     		cmp	r3, #0
+ 1703 007e CFD0     		beq	.L81
+ 1704              	.L211:
  271:src/lcd.c     ****                 }
- 1702              		.loc 1 271 5 is_stmt 1 view .LVU314
- 1703              	.LVL139:
- 1704              	.LBB71:
- 1705              	.LBI71:
+ 1705              		.loc 1 271 5 is_stmt 1 view .LVU314
+ 1706              	.LVL139:
+ 1707              	.LBB71:
+ 1708              	.LBI71:
  172:src/lcd.c     ****   right_side(i, j);
- 1706              		.loc 1 172 6 view .LVU315
- 1707              	.LBB72:
+ 1709              		.loc 1 172 6 view .LVU315
+ 1710              	.LBB72:
  173:src/lcd.c     **** }
- 1708              		.loc 1 173 3 view .LVU316
- 1709 0080 8221     		movs	r1, #130
- 1710 0082 2846     		mov	r0, r5
- 1711 0084 FFF7FEFF 		bl	right_side
- 1712              	.LVL140:
-ARM GAS  /tmp/ccNLenXV.s 			page 37
+ 1711              		.loc 1 173 3 view .LVU316
+ 1712 0080 8221     		movs	r1, #130
+ARM GAS  /tmp/ccLsYHtp.s 			page 37
 
 
+ 1713 0082 2846     		mov	r0, r5
+ 1714 0084 FFF7FEFF 		bl	right_side
+ 1715              	.LVL140:
  173:src/lcd.c     **** }
- 1713              		.loc 1 173 3 is_stmt 0 view .LVU317
- 1714              	.LBE72:
- 1715              	.LBE71:
+ 1716              		.loc 1 173 3 is_stmt 0 view .LVU317
+ 1717              	.LBE72:
+ 1718              	.LBE71:
  273:src/lcd.c     **** 		  middle (x, ytop);
- 1716              		.loc 1 273 17 is_stmt 1 view .LVU318
+ 1719              		.loc 1 273 17 is_stmt 1 view .LVU318
  273:src/lcd.c     **** 		  middle (x, ytop);
- 1717              		.loc 1 273 20 is_stmt 0 view .LVU319
- 1718 0088 A378     		ldrb	r3, [r4, #2]	@ zero_extendqisi2
- 1719 008a 002B     		cmp	r3, #0
- 1720 008c CBD0     		beq	.L82
- 1721              	.L214:
+ 1720              		.loc 1 273 20 is_stmt 0 view .LVU319
+ 1721 0088 A378     		ldrb	r3, [r4, #2]	@ zero_extendqisi2
+ 1722 008a 002B     		cmp	r3, #0
+ 1723 008c CBD0     		beq	.L82
+ 1724              	.L212:
  274:src/lcd.c     ****                 }
- 1722              		.loc 1 274 5 is_stmt 1 view .LVU320
- 1723 008e 8221     		movs	r1, #130
- 1724 0090 2846     		mov	r0, r5
- 1725 0092 FFF7FEFF 		bl	middle
- 1726              	.LVL141:
+ 1725              		.loc 1 274 5 is_stmt 1 view .LVU320
+ 1726 008e 8221     		movs	r1, #130
+ 1727 0090 2846     		mov	r0, r5
+ 1728 0092 FFF7FEFF 		bl	middle
+ 1729              	.LVL141:
  276:src/lcd.c     **** 		  left_side_bottom (x, ytop);
- 1727              		.loc 1 276 17 view .LVU321
+ 1730              		.loc 1 276 17 view .LVU321
  276:src/lcd.c     **** 		  left_side_bottom (x, ytop);
- 1728              		.loc 1 276 20 is_stmt 0 view .LVU322
- 1729 0096 2379     		ldrb	r3, [r4, #4]	@ zero_extendqisi2
- 1730 0098 002B     		cmp	r3, #0
- 1731 009a C7D0     		beq	.L83
- 1732              	.L215:
+ 1731              		.loc 1 276 20 is_stmt 0 view .LVU322
+ 1732 0096 2379     		ldrb	r3, [r4, #4]	@ zero_extendqisi2
+ 1733 0098 002B     		cmp	r3, #0
+ 1734 009a C7D0     		beq	.L83
+ 1735              	.L213:
  277:src/lcd.c     ****                 }
- 1733              		.loc 1 277 5 is_stmt 1 view .LVU323
- 1734              	.LVL142:
- 1735              	.LBB73:
- 1736              	.LBI73:
+ 1736              		.loc 1 277 5 is_stmt 1 view .LVU323
+ 1737              	.LVL142:
+ 1738              	.LBB73:
+ 1739              	.LBI73:
  162:src/lcd.c     ****   left_side(i-2, j+19);
- 1737              		.loc 1 162 6 view .LVU324
- 1738              	.LBB74:
+ 1740              		.loc 1 162 6 view .LVU324
+ 1741              	.LBB74:
  163:src/lcd.c     **** }
- 1739              		.loc 1 163 3 view .LVU325
- 1740 009c 9521     		movs	r1, #149
- 1741 009e A81E     		subs	r0, r5, #2
- 1742 00a0 FFF7FEFF 		bl	left_side
- 1743              	.LVL143:
+ 1742              		.loc 1 163 3 view .LVU325
+ 1743 009c 9521     		movs	r1, #149
+ 1744 009e A81E     		subs	r0, r5, #2
+ 1745 00a0 FFF7FEFF 		bl	left_side
+ 1746              	.LVL143:
  163:src/lcd.c     **** }
- 1744              		.loc 1 163 3 is_stmt 0 view .LVU326
- 1745              	.LBE74:
- 1746              	.LBE73:
+ 1747              		.loc 1 163 3 is_stmt 0 view .LVU326
+ 1748              	.LBE74:
+ 1749              	.LBE73:
  279:src/lcd.c     **** 		  right_side_bottom (x, ytop);
- 1747              		.loc 1 279 17 is_stmt 1 view .LVU327
+ 1750              		.loc 1 279 17 is_stmt 1 view .LVU327
  279:src/lcd.c     **** 		  right_side_bottom (x, ytop);
- 1748              		.loc 1 279 20 is_stmt 0 view .LVU328
- 1749 00a4 A379     		ldrb	r3, [r4, #6]	@ zero_extendqisi2
- 1750 00a6 002B     		cmp	r3, #0
- 1751 00a8 C3D0     		beq	.L84
- 1752              	.L216:
+ 1751              		.loc 1 279 20 is_stmt 0 view .LVU328
+ 1752 00a4 A379     		ldrb	r3, [r4, #6]	@ zero_extendqisi2
+ 1753 00a6 002B     		cmp	r3, #0
+ 1754 00a8 C3D0     		beq	.L84
+ 1755              	.L214:
  280:src/lcd.c     ****                 }
- 1753              		.loc 1 280 5 is_stmt 1 view .LVU329
- 1754              	.LVL144:
- 1755              	.LBB75:
- 1756              	.LBI75:
-ARM GAS  /tmp/ccNLenXV.s 			page 38
+ 1756              		.loc 1 280 5 is_stmt 1 view .LVU329
+ARM GAS  /tmp/ccLsYHtp.s 			page 38
 
 
+ 1757              	.LVL144:
+ 1758              	.LBB75:
+ 1759              	.LBI75:
  175:src/lcd.c     ****   right_side(i-2, j+19);
- 1757              		.loc 1 175 6 view .LVU330
- 1758              	.LBB76:
+ 1760              		.loc 1 175 6 view .LVU330
+ 1761              	.LBB76:
  176:src/lcd.c     **** }
- 1759              		.loc 1 176 3 view .LVU331
- 1760 00aa 9521     		movs	r1, #149
- 1761 00ac A81E     		subs	r0, r5, #2
- 1762 00ae FFF7FEFF 		bl	right_side
- 1763              	.LVL145:
+ 1762              		.loc 1 176 3 view .LVU331
+ 1763 00aa 9521     		movs	r1, #149
+ 1764 00ac A81E     		subs	r0, r5, #2
+ 1765 00ae FFF7FEFF 		bl	right_side
+ 1766              	.LVL145:
  176:src/lcd.c     **** }
- 1764              		.loc 1 176 3 is_stmt 0 view .LVU332
- 1765              	.LBE76:
- 1766              	.LBE75:
+ 1767              		.loc 1 176 3 is_stmt 0 view .LVU332
+ 1768              	.LBE76:
+ 1769              	.LBE75:
  282:src/lcd.c     **** 		  bottom (x, ytop);
- 1767              		.loc 1 282 17 is_stmt 1 view .LVU333
+ 1770              		.loc 1 282 17 is_stmt 1 view .LVU333
  282:src/lcd.c     **** 		  bottom (x, ytop);
- 1768              		.loc 1 282 20 is_stmt 0 view .LVU334
- 1769 00b2 6379     		ldrb	r3, [r4, #5]	@ zero_extendqisi2
- 1770 00b4 002B     		cmp	r3, #0
- 1771 00b6 BFD0     		beq	.L85
- 1772              	.L217:
+ 1771              		.loc 1 282 20 is_stmt 0 view .LVU334
+ 1772 00b2 6379     		ldrb	r3, [r4, #5]	@ zero_extendqisi2
+ 1773 00b4 002B     		cmp	r3, #0
+ 1774 00b6 BFD0     		beq	.L85
+ 1775              	.L215:
  283:src/lcd.c     ****                 }
- 1773              		.loc 1 283 5 is_stmt 1 view .LVU335
- 1774 00b8 8221     		movs	r1, #130
- 1775 00ba 2846     		mov	r0, r5
- 1776 00bc FFF7FEFF 		bl	bottom
- 1777              	.LVL146:
- 1778 00c0 BAE7     		b	.L85
- 1779              	.L230:
- 1780 00c2 00BF     		.align	2
- 1781              	.L229:
- 1782 00c4 3D020008 		.word	134218301
- 1783 00c8 00000000 		.word	.LANCHOR0
- 1784              	.L218:
+ 1776              		.loc 1 283 5 is_stmt 1 view .LVU335
+ 1777 00b8 8221     		movs	r1, #130
+ 1778 00ba 2846     		mov	r0, r5
+ 1779 00bc FFF7FEFF 		bl	bottom
+ 1780              	.LVL146:
+ 1781 00c0 BAE7     		b	.L85
+ 1782              	.L228:
+ 1783 00c2 00BF     		.align	2
+ 1784              	.L227:
+ 1785 00c4 3D020008 		.word	134218301
+ 1786 00c8 00000000 		.word	.LANCHOR0
+ 1787              	.L216:
  289:src/lcd.c     **** 		  comma (x, ytop);
- 1785              		.loc 1 289 5 view .LVU336
- 1786 00cc 2846     		mov	r0, r5
- 1787 00ce 8221     		movs	r1, #130
- 1788 00d0 1935     		adds	r5, r5, #25
- 1789              	.LVL147:
- 1790              		.loc 1 289 5 is_stmt 0 view .LVU337
- 1791 00d2 FFF7FEFF 		bl	comma
- 1792              	.LVL148:
+ 1788              		.loc 1 289 5 view .LVU336
+ 1789 00cc 2846     		mov	r0, r5
+ 1790 00ce 8221     		movs	r1, #130
+ 1791 00d0 1935     		adds	r5, r5, #25
+ 1792              	.LVL147:
+ 1793              		.loc 1 289 5 is_stmt 0 view .LVU337
+ 1794 00d2 FFF7FEFF 		bl	comma
+ 1795              	.LVL148:
  261:src/lcd.c     ****                 p = i*SEGS_PER_DIGIT;
- 1793              		.loc 1 261 37 is_stmt 1 view .LVU338
+ 1796              		.loc 1 261 37 is_stmt 1 view .LVU338
  261:src/lcd.c     ****                 p = i*SEGS_PER_DIGIT;
- 1794              		.loc 1 261 19 view .LVU339
+ 1797              		.loc 1 261 19 view .LVU339
  261:src/lcd.c     ****                 p = i*SEGS_PER_DIGIT;
- 1795              		.loc 1 261 9 is_stmt 0 view .LVU340
- 1796 00d6 B5F5A37F 		cmp	r5, #326
- 1797 00da 04F10904 		add	r4, r4, #9
- 1798              	.LVL149:
+ 1798              		.loc 1 261 9 is_stmt 0 view .LVU340
+ 1799 00d6 B5F5A37F 		cmp	r5, #326
+ 1800 00da 04F10904 		add	r4, r4, #9
+ 1801              	.LVL149:
  261:src/lcd.c     ****                 p = i*SEGS_PER_DIGIT;
- 1799              		.loc 1 261 9 view .LVU341
- 1800 00de BED1     		bne	.L88
- 1801              	.LVL150:
- 1802              	.L219:
-ARM GAS  /tmp/ccNLenXV.s 			page 39
+ 1802              		.loc 1 261 9 view .LVU341
+ARM GAS  /tmp/ccLsYHtp.s 			page 39
 
 
+ 1803 00de BED1     		bne	.L88
+ 1804              	.LVL150:
+ 1805              	.L217:
  261:src/lcd.c     ****                 p = i*SEGS_PER_DIGIT;
- 1803              		.loc 1 261 9 view .LVU342
- 1804 00e0 AF4C     		ldr	r4, .L231
- 1805 00e2 4FF4AC75 		mov	r5, #344
- 1806              	.L96:
+ 1806              		.loc 1 261 9 view .LVU342
+ 1807 00e0 AE4C     		ldr	r4, .L229
+ 1808 00e2 4FF4AC75 		mov	r5, #344
+ 1809              	.L96:
  290:src/lcd.c     ****                 }
  291:src/lcd.c     ****         }
  292:src/lcd.c     ****         /* Segments 108 - 128 are the exponent digits */
  293:src/lcd.c     ****         for (i=0; i<3; i++) {
  294:src/lcd.c     ****                 p = i*7+108;
- 1807              		.loc 1 294 17 is_stmt 1 view .LVU343
- 1808              	.LVL151:
+ 1810              		.loc 1 294 17 is_stmt 1 view .LVU343
+ 1811              	.LVL151:
  295:src/lcd.c     ****                 x = xleft_exp + dwidth_exp*i;
- 1809              		.loc 1 295 17 view .LVU344
+ 1812              		.loc 1 295 17 view .LVU344
  296:src/lcd.c     ****                 if (dots[p]) { // top
- 1810              		.loc 1 296 17 view .LVU345
- 1811              		.loc 1 296 20 is_stmt 0 view .LVU346
- 1812 00e6 94F86C30 		ldrb	r3, [r4, #108]	@ zero_extendqisi2
- 1813 00ea 002B     		cmp	r3, #0
- 1814 00ec 40F04381 		bne	.L220
- 1815              	.L89:
+ 1813              		.loc 1 296 17 view .LVU345
+ 1814              		.loc 1 296 20 is_stmt 0 view .LVU346
+ 1815 00e6 94F86C30 		ldrb	r3, [r4, #108]	@ zero_extendqisi2
+ 1816 00ea 002B     		cmp	r3, #0
+ 1817 00ec 40F04581 		bne	.L218
+ 1818              	.L89:
  297:src/lcd.c     **** 		  exp_top (x, ytop_exp);
  298:src/lcd.c     ****                 }
  299:src/lcd.c     ****                 if (dots[p+1]) { // top left
- 1816              		.loc 1 299 17 is_stmt 1 view .LVU347
- 1817              		.loc 1 299 20 is_stmt 0 view .LVU348
- 1818 00f0 94F86D30 		ldrb	r3, [r4, #109]	@ zero_extendqisi2
- 1819 00f4 002B     		cmp	r3, #0
- 1820 00f6 40F03981 		bne	.L221
- 1821              	.L90:
+ 1819              		.loc 1 299 17 is_stmt 1 view .LVU347
+ 1820              		.loc 1 299 20 is_stmt 0 view .LVU348
+ 1821 00f0 94F86D30 		ldrb	r3, [r4, #109]	@ zero_extendqisi2
+ 1822 00f4 002B     		cmp	r3, #0
+ 1823 00f6 40F03B81 		bne	.L219
+ 1824              	.L90:
  300:src/lcd.c     **** 		  exp_left_side_top (x, ytop_exp);
  301:src/lcd.c     ****                 }
  302:src/lcd.c     ****                 if (dots[p+3]) { // top right
- 1822              		.loc 1 302 17 is_stmt 1 view .LVU349
- 1823              		.loc 1 302 20 is_stmt 0 view .LVU350
- 1824 00fa 94F86F30 		ldrb	r3, [r4, #111]	@ zero_extendqisi2
- 1825 00fe 002B     		cmp	r3, #0
- 1826 0100 40F02F81 		bne	.L222
- 1827              	.L91:
+ 1825              		.loc 1 302 17 is_stmt 1 view .LVU349
+ 1826              		.loc 1 302 20 is_stmt 0 view .LVU350
+ 1827 00fa 94F86F30 		ldrb	r3, [r4, #111]	@ zero_extendqisi2
+ 1828 00fe 002B     		cmp	r3, #0
+ 1829 0100 40F03181 		bne	.L220
+ 1830              	.L91:
  303:src/lcd.c     **** 		  exp_right_side_top (x, ytop_exp);
  304:src/lcd.c     ****                 }
  305:src/lcd.c     ****                 if (dots[p+2]) { // centre line
- 1828              		.loc 1 305 17 is_stmt 1 view .LVU351
- 1829              		.loc 1 305 20 is_stmt 0 view .LVU352
- 1830 0104 94F86E30 		ldrb	r3, [r4, #110]	@ zero_extendqisi2
- 1831 0108 002B     		cmp	r3, #0
- 1832 010a 40F02581 		bne	.L223
- 1833              	.L92:
+ 1831              		.loc 1 305 17 is_stmt 1 view .LVU351
+ 1832              		.loc 1 305 20 is_stmt 0 view .LVU352
+ 1833 0104 94F86E30 		ldrb	r3, [r4, #110]	@ zero_extendqisi2
+ 1834 0108 002B     		cmp	r3, #0
+ 1835 010a 40F02781 		bne	.L221
+ 1836              	.L92:
  306:src/lcd.c     **** 		  exp_middle (x, ytop_exp);
  307:src/lcd.c     ****                 }
  308:src/lcd.c     ****                 if (dots[p+4]) { // lower left
- 1834              		.loc 1 308 17 is_stmt 1 view .LVU353
- 1835              		.loc 1 308 20 is_stmt 0 view .LVU354
- 1836 010e 94F87030 		ldrb	r3, [r4, #112]	@ zero_extendqisi2
- 1837 0112 002B     		cmp	r3, #0
- 1838 0114 40F01B81 		bne	.L224
- 1839              	.L93:
-ARM GAS  /tmp/ccNLenXV.s 			page 40
+ 1837              		.loc 1 308 17 is_stmt 1 view .LVU353
+ 1838              		.loc 1 308 20 is_stmt 0 view .LVU354
+ 1839 010e 94F87030 		ldrb	r3, [r4, #112]	@ zero_extendqisi2
+ARM GAS  /tmp/ccLsYHtp.s 			page 40
 
 
+ 1840 0112 002B     		cmp	r3, #0
+ 1841 0114 40F01D81 		bne	.L222
+ 1842              	.L93:
  309:src/lcd.c     **** 		  exp_left_side_bottom (x, ytop_exp);
  310:src/lcd.c     ****                 }
  311:src/lcd.c     ****                 if (dots[p+6]) { // lower right
- 1840              		.loc 1 311 17 is_stmt 1 view .LVU355
- 1841              		.loc 1 311 20 is_stmt 0 view .LVU356
- 1842 0118 94F87230 		ldrb	r3, [r4, #114]	@ zero_extendqisi2
- 1843 011c 002B     		cmp	r3, #0
- 1844 011e 40F01181 		bne	.L225
- 1845              	.L94:
+ 1843              		.loc 1 311 17 is_stmt 1 view .LVU355
+ 1844              		.loc 1 311 20 is_stmt 0 view .LVU356
+ 1845 0118 94F87230 		ldrb	r3, [r4, #114]	@ zero_extendqisi2
+ 1846 011c 002B     		cmp	r3, #0
+ 1847 011e 40F01381 		bne	.L223
+ 1848              	.L94:
  312:src/lcd.c     **** 		  exp_right_side_bottom (x, ytop_exp);
  313:src/lcd.c     ****                 }
  314:src/lcd.c     ****                 if (dots[p+5]) { // bottom
- 1846              		.loc 1 314 17 is_stmt 1 view .LVU357
- 1847              		.loc 1 314 20 is_stmt 0 view .LVU358
- 1848 0122 94F87130 		ldrb	r3, [r4, #113]	@ zero_extendqisi2
- 1849 0126 002B     		cmp	r3, #0
- 1850 0128 40F00781 		bne	.L226
- 1851              	.L95:
+ 1849              		.loc 1 314 17 is_stmt 1 view .LVU357
+ 1850              		.loc 1 314 20 is_stmt 0 view .LVU358
+ 1851 0122 94F87130 		ldrb	r3, [r4, #113]	@ zero_extendqisi2
+ 1852 0126 002B     		cmp	r3, #0
+ 1853 0128 40F00981 		bne	.L224
+ 1854              	.L95:
  293:src/lcd.c     ****                 p = i*7+108;
- 1852              		.loc 1 293 24 is_stmt 1 discriminator 2 view .LVU359
+ 1855              		.loc 1 293 24 is_stmt 1 discriminator 2 view .LVU359
  293:src/lcd.c     ****                 p = i*7+108;
- 1853              		.loc 1 293 19 discriminator 2 view .LVU360
- 1854 012c 1235     		adds	r5, r5, #18
- 1855              	.LVL152:
+ 1856              		.loc 1 293 19 discriminator 2 view .LVU360
+ 1857 012c 1235     		adds	r5, r5, #18
+ 1858              	.LVL152:
  293:src/lcd.c     ****                 p = i*7+108;
- 1856              		.loc 1 293 9 is_stmt 0 discriminator 2 view .LVU361
- 1857 012e B5F5C77F 		cmp	r5, #398
- 1858 0132 04F10704 		add	r4, r4, #7
- 1859              	.LVL153:
+ 1859              		.loc 1 293 9 is_stmt 0 discriminator 2 view .LVU361
+ 1860 012e B5F5C77F 		cmp	r5, #398
+ 1861 0132 04F10704 		add	r4, r4, #7
+ 1862              	.LVL153:
  293:src/lcd.c     ****                 p = i*7+108;
- 1860              		.loc 1 293 9 discriminator 2 view .LVU362
- 1861 0136 D6D1     		bne	.L96
+ 1863              		.loc 1 293 9 discriminator 2 view .LVU362
+ 1864 0136 D6D1     		bne	.L96
  315:src/lcd.c     **** 		  exp_bottom (x, ytop_exp);
  316:src/lcd.c     ****                 }
  317:src/lcd.c     ****         }
  318:src/lcd.c     ****         /* Segments 129 & 130 are the signs */
  319:src/lcd.c     ****         if (dots[MANT_SIGN]) {
- 1862              		.loc 1 319 9 is_stmt 1 view .LVU363
- 1863              		.loc 1 319 12 is_stmt 0 view .LVU364
- 1864 0138 96F88130 		ldrb	r3, [r6, #129]	@ zero_extendqisi2
- 1865 013c 002B     		cmp	r3, #0
- 1866 013e 40F01F81 		bne	.L227
+ 1865              		.loc 1 319 9 is_stmt 1 view .LVU363
+ 1866              		.loc 1 319 12 is_stmt 0 view .LVU364
+ 1867 0138 96F88130 		ldrb	r3, [r6, #129]	@ zero_extendqisi2
+ 1868 013c 002B     		cmp	r3, #0
+ 1869 013e 40F04981 		bne	.L225
  320:src/lcd.c     **** 	  middle (xleft - dwidth, ytop);
  321:src/lcd.c     ****         }
  322:src/lcd.c     ****         if (dots[EXP_SIGN]) {
- 1867              		.loc 1 322 9 is_stmt 1 view .LVU365
- 1868              		.loc 1 322 12 is_stmt 0 view .LVU366
- 1869 0142 96F88230 		ldrb	r3, [r6, #130]	@ zero_extendqisi2
- 1870 0146 002B     		cmp	r3, #0
- 1871 0148 40F02381 		bne	.L228
- 1872              	.L98:
+ 1870              		.loc 1 322 9 is_stmt 1 view .LVU365
+ 1871              		.loc 1 322 12 is_stmt 0 view .LVU366
+ 1872 0142 96F88230 		ldrb	r3, [r6, #130]	@ zero_extendqisi2
+ 1873 0146 002B     		cmp	r3, #0
+ 1874 0148 40F04D81 		bne	.L226
+ 1875              	.L98:
  323:src/lcd.c     **** 	  exp_middle (xleft_exp-dwidth_exp, ytop);
  324:src/lcd.c     ****         }
  325:src/lcd.c     **** 
+ARM GAS  /tmp/ccLsYHtp.s 			page 41
+
+
  326:src/lcd.c     **** 	if (dots[BIG_EQ]) {
- 1873              		.loc 1 326 2 is_stmt 1 view .LVU367
- 1874              		.loc 1 326 5 is_stmt 0 view .LVU368
-ARM GAS  /tmp/ccNLenXV.s 			page 41
-
-
- 1875 014c 96F88330 		ldrb	r3, [r6, #131]	@ zero_extendqisi2
- 1876 0150 6BB1     		cbz	r3, .L99
+ 1876              		.loc 1 326 2 is_stmt 1 view .LVU367
+ 1877              		.loc 1 326 5 is_stmt 0 view .LVU368
+ 1878 014c 96F88330 		ldrb	r3, [r6, #131]	@ zero_extendqisi2
+ 1879 0150 6BB1     		cbz	r3, .L99
  327:src/lcd.c     **** 	  lcd_fill_rect (250, y_ann-34, 15, 4, 0xff);
- 1877              		.loc 1 327 4 is_stmt 1 view .LVU369
- 1878 0152 FF25     		movs	r5, #255
- 1879              	.LVL154:
- 1880              		.loc 1 327 4 is_stmt 0 view .LVU370
- 1881 0154 0423     		movs	r3, #4
- 1882 0156 0F22     		movs	r2, #15
- 1883 0158 2921     		movs	r1, #41
- 1884 015a FA20     		movs	r0, #250
- 1885 015c 914C     		ldr	r4, .L231+4
- 1886              	.LVL155:
- 1887              		.loc 1 327 4 view .LVU371
- 1888 015e 0095     		str	r5, [sp]
- 1889 0160 A047     		blx	r4
- 1890              	.LVL156:
+ 1880              		.loc 1 327 4 is_stmt 1 view .LVU369
+ 1881 0152 FF25     		movs	r5, #255
+ 1882              	.LVL154:
+ 1883              		.loc 1 327 4 is_stmt 0 view .LVU370
+ 1884 0154 0423     		movs	r3, #4
+ 1885 0156 0F22     		movs	r2, #15
+ 1886 0158 2921     		movs	r1, #41
+ 1887 015a FA20     		movs	r0, #250
+ 1888 015c 904C     		ldr	r4, .L229+4
+ 1889              	.LVL155:
+ 1890              		.loc 1 327 4 view .LVU371
+ 1891 015e 0095     		str	r5, [sp]
+ 1892 0160 A047     		blx	r4
+ 1893              	.LVL156:
  328:src/lcd.c     **** 	  lcd_fill_rect (250, y_ann-24, 15, 4, 0xff);
- 1891              		.loc 1 328 4 is_stmt 1 view .LVU372
- 1892 0162 0095     		str	r5, [sp]
- 1893 0164 0423     		movs	r3, #4
- 1894 0166 0F22     		movs	r2, #15
- 1895 0168 3321     		movs	r1, #51
- 1896 016a FA20     		movs	r0, #250
- 1897 016c A047     		blx	r4
- 1898              	.LVL157:
- 1899              	.L99:
+ 1894              		.loc 1 328 4 is_stmt 1 view .LVU372
+ 1895 0162 0095     		str	r5, [sp]
+ 1896 0164 0423     		movs	r3, #4
+ 1897 0166 0F22     		movs	r2, #15
+ 1898 0168 3321     		movs	r1, #51
+ 1899 016a FA20     		movs	r0, #250
+ 1900 016c A047     		blx	r4
+ 1901              	.LVL157:
+ 1902              	.L99:
  329:src/lcd.c     ****         }
  330:src/lcd.c     **** 	t20->inv = 0;
- 1900              		.loc 1 330 2 view .LVU373
- 1901 016e 8E4B     		ldr	r3, .L231+8
- 1902              		.loc 1 330 11 is_stmt 0 view .LVU374
- 1903 0170 1B6B     		ldr	r3, [r3, #48]
- 1904 0172 0022     		movs	r2, #0
- 1905 0174 5A74     		strb	r2, [r3, #17]
+ 1903              		.loc 1 330 2 view .LVU373
+ 1904 016e 8D4B     		ldr	r3, .L229+8
+ 1905              		.loc 1 330 11 is_stmt 0 view .LVU374
+ 1906 0170 1B6B     		ldr	r3, [r3, #48]
+ 1907 0172 0022     		movs	r2, #0
+ 1908 0174 5A74     		strb	r2, [r3, #17]
  331:src/lcd.c     **** 	
  332:src/lcd.c     ****         if (dots[DOWN_ARR]) {
- 1906              		.loc 1 332 9 is_stmt 1 view .LVU375
- 1907              		.loc 1 332 12 is_stmt 0 view .LVU376
- 1908 0176 96F88530 		ldrb	r3, [r6, #133]	@ zero_extendqisi2
- 1909 017a 5BB3     		cbz	r3, .L100
+ 1909              		.loc 1 332 9 is_stmt 1 view .LVU375
+ 1910              		.loc 1 332 12 is_stmt 0 view .LVU376
+ 1911 0176 96F88530 		ldrb	r3, [r6, #133]	@ zero_extendqisi2
+ 1912 017a 5BB3     		cbz	r3, .L100
  333:src/lcd.c     **** 	  lcd_fill_rect(287,y_ann-67,5,12,0xff);
- 1910              		.loc 1 333 4 is_stmt 1 view .LVU377
- 1911 017c FF25     		movs	r5, #255
- 1912 017e 894C     		ldr	r4, .L231+4
- 1913 0180 0095     		str	r5, [sp]
- 1914 0182 0C23     		movs	r3, #12
- 1915 0184 0522     		movs	r2, #5
- 1916 0186 0821     		movs	r1, #8
- 1917 0188 40F21F10 		movw	r0, #287
- 1918 018c A047     		blx	r4
- 1919              	.LVL158:
+ 1913              		.loc 1 333 4 is_stmt 1 view .LVU377
+ 1914 017c FF25     		movs	r5, #255
+ 1915 017e 884C     		ldr	r4, .L229+4
+ 1916 0180 0095     		str	r5, [sp]
+ 1917 0182 0C23     		movs	r3, #12
+ 1918 0184 0522     		movs	r2, #5
+ 1919 0186 0821     		movs	r1, #8
+ 1920 0188 40F21F10 		movw	r0, #287
+ 1921 018c A047     		blx	r4
+ 1922              	.LVL158:
  334:src/lcd.c     **** 	  lcd_fill_rect(285,y_ann-55,9,1,0xff);
- 1920              		.loc 1 334 4 view .LVU378
- 1921 018e 0123     		movs	r3, #1
- 1922 0190 0922     		movs	r2, #9
- 1923 0192 1421     		movs	r1, #20
-ARM GAS  /tmp/ccNLenXV.s 			page 42
+ 1923              		.loc 1 334 4 view .LVU378
+ARM GAS  /tmp/ccLsYHtp.s 			page 42
 
 
- 1924 0194 40F21D10 		movw	r0, #285
- 1925 0198 0095     		str	r5, [sp]
- 1926 019a A047     		blx	r4
- 1927              	.LVL159:
+ 1924 018e 0123     		movs	r3, #1
+ 1925 0190 0922     		movs	r2, #9
+ 1926 0192 1421     		movs	r1, #20
+ 1927 0194 40F21D10 		movw	r0, #285
+ 1928 0198 0095     		str	r5, [sp]
+ 1929 019a A047     		blx	r4
+ 1930              	.LVL159:
  335:src/lcd.c     **** 	  lcd_fill_rect(286,y_ann-54,7,1,0xff);
- 1928              		.loc 1 335 4 view .LVU379
- 1929 019c 0123     		movs	r3, #1
- 1930 019e 0722     		movs	r2, #7
- 1931 01a0 1521     		movs	r1, #21
- 1932 01a2 4FF48F70 		mov	r0, #286
- 1933 01a6 0095     		str	r5, [sp]
- 1934 01a8 A047     		blx	r4
- 1935              	.LVL160:
+ 1931              		.loc 1 335 4 view .LVU379
+ 1932 019c 0123     		movs	r3, #1
+ 1933 019e 0722     		movs	r2, #7
+ 1934 01a0 1521     		movs	r1, #21
+ 1935 01a2 4FF48F70 		mov	r0, #286
+ 1936 01a6 0095     		str	r5, [sp]
+ 1937 01a8 A047     		blx	r4
+ 1938              	.LVL160:
  336:src/lcd.c     **** 	  lcd_fill_rect(287,y_ann-53,5,1,0xff);
- 1936              		.loc 1 336 4 view .LVU380
- 1937 01aa 0123     		movs	r3, #1
- 1938 01ac 0522     		movs	r2, #5
- 1939 01ae 1621     		movs	r1, #22
- 1940 01b0 40F21F10 		movw	r0, #287
- 1941 01b4 0095     		str	r5, [sp]
- 1942 01b6 A047     		blx	r4
- 1943              	.LVL161:
+ 1939              		.loc 1 336 4 view .LVU380
+ 1940 01aa 0123     		movs	r3, #1
+ 1941 01ac 0522     		movs	r2, #5
+ 1942 01ae 1621     		movs	r1, #22
+ 1943 01b0 40F21F10 		movw	r0, #287
+ 1944 01b4 0095     		str	r5, [sp]
+ 1945 01b6 A047     		blx	r4
+ 1946              	.LVL161:
  337:src/lcd.c     **** 	  lcd_fill_rect(288,y_ann-52,3,1,0xff);
- 1944              		.loc 1 337 4 view .LVU381
- 1945 01b8 0123     		movs	r3, #1
- 1946 01ba 0322     		movs	r2, #3
- 1947 01bc 1721     		movs	r1, #23
- 1948 01be 4FF49070 		mov	r0, #288
- 1949 01c2 0095     		str	r5, [sp]
- 1950 01c4 A047     		blx	r4
- 1951              	.LVL162:
+ 1947              		.loc 1 337 4 view .LVU381
+ 1948 01b8 0123     		movs	r3, #1
+ 1949 01ba 0322     		movs	r2, #3
+ 1950 01bc 1721     		movs	r1, #23
+ 1951 01be 4FF49070 		mov	r0, #288
+ 1952 01c2 0095     		str	r5, [sp]
+ 1953 01c4 A047     		blx	r4
+ 1954              	.LVL162:
  338:src/lcd.c     **** 	  lcd_fill_rect(289,y_ann-51,1,1,0xff);
- 1952              		.loc 1 338 4 view .LVU382
- 1953 01c6 0123     		movs	r3, #1
- 1954 01c8 0095     		str	r5, [sp]
- 1955 01ca 1A46     		mov	r2, r3
- 1956 01cc 1821     		movs	r1, #24
- 1957 01ce 40F22110 		movw	r0, #289
- 1958 01d2 A047     		blx	r4
- 1959              	.LVL163:
- 1960              	.L100:
+ 1955              		.loc 1 338 4 view .LVU382
+ 1956 01c6 0123     		movs	r3, #1
+ 1957 01c8 0095     		str	r5, [sp]
+ 1958 01ca 1A46     		mov	r2, r3
+ 1959 01cc 1821     		movs	r1, #24
+ 1960 01ce 40F22110 		movw	r0, #289
+ 1961 01d2 A047     		blx	r4
+ 1962              	.LVL163:
+ 1963              	.L100:
  339:src/lcd.c     ****         }
  340:src/lcd.c     **** 
  341:src/lcd.c     **** 	if (dots[INPUT]) {
- 1961              		.loc 1 341 2 view .LVU383
- 1962              		.loc 1 341 5 is_stmt 0 view .LVU384
- 1963 01d4 96F88630 		ldrb	r3, [r6, #134]	@ zero_extendqisi2
- 1964 01d8 53B1     		cbz	r3, .L101
+ 1964              		.loc 1 341 2 view .LVU383
+ 1965              		.loc 1 341 5 is_stmt 0 view .LVU384
+ 1966 01d4 96F88630 		ldrb	r3, [r6, #134]	@ zero_extendqisi2
+ 1967 01d8 53B1     		cbz	r3, .L101
  342:src/lcd.c     **** 	  lcd_setXY(t20, 305, y_ann-70);
- 1965              		.loc 1 342 4 is_stmt 1 view .LVU385
- 1966 01da 734C     		ldr	r4, .L231+8
- 1967 01dc 734B     		ldr	r3, .L231+12
- 1968 01de 206B     		ldr	r0, [r4, #48]
- 1969 01e0 40F23111 		movw	r1, #305
- 1970 01e4 0522     		movs	r2, #5
- 1971 01e6 9847     		blx	r3
- 1972              	.LVL164:
-ARM GAS  /tmp/ccNLenXV.s 			page 43
+ 1968              		.loc 1 342 4 is_stmt 1 view .LVU385
+ 1969 01da 724C     		ldr	r4, .L229+8
+ 1970 01dc 724B     		ldr	r3, .L229+12
+ 1971 01de 206B     		ldr	r0, [r4, #48]
+ 1972 01e0 40F23111 		movw	r1, #305
+ARM GAS  /tmp/ccLsYHtp.s 			page 43
 
 
+ 1973 01e4 0522     		movs	r2, #5
+ 1974 01e6 9847     		blx	r3
+ 1975              	.LVL164:
  343:src/lcd.c     **** 	  lcd_writeText(t20,"ALPHA");
- 1973              		.loc 1 343 4 view .LVU386
- 1974 01e8 206B     		ldr	r0, [r4, #48]
- 1975 01ea 714B     		ldr	r3, .L231+16
- 1976 01ec 7149     		ldr	r1, .L231+20
- 1977 01ee 9847     		blx	r3
- 1978              	.LVL165:
- 1979              	.L101:
+ 1976              		.loc 1 343 4 view .LVU386
+ 1977 01e8 206B     		ldr	r0, [r4, #48]
+ 1978 01ea 704B     		ldr	r3, .L229+16
+ 1979 01ec 7049     		ldr	r1, .L229+20
+ 1980 01ee 9847     		blx	r3
+ 1981              	.LVL165:
+ 1982              	.L101:
  344:src/lcd.c     ****         }
  345:src/lcd.c     **** 
  346:src/lcd.c     **** 	if (dots[LIT_EQ]) {
- 1980              		.loc 1 346 2 view .LVU387
- 1981              		.loc 1 346 5 is_stmt 0 view .LVU388
- 1982 01f0 96F88430 		ldrb	r3, [r6, #132]	@ zero_extendqisi2
- 1983 01f4 53B1     		cbz	r3, .L102
+ 1983              		.loc 1 346 2 view .LVU387
+ 1984              		.loc 1 346 5 is_stmt 0 view .LVU388
+ 1985 01f0 96F88430 		ldrb	r3, [r6, #132]	@ zero_extendqisi2
+ 1986 01f4 53B1     		cbz	r3, .L102
  347:src/lcd.c     **** 	  lcd_setXY (t20, 360, y_ann-70);
- 1984              		.loc 1 347 4 is_stmt 1 view .LVU389
- 1985 01f6 6C4C     		ldr	r4, .L231+8
- 1986 01f8 6C4B     		ldr	r3, .L231+12
- 1987 01fa 206B     		ldr	r0, [r4, #48]
- 1988 01fc 4FF4B471 		mov	r1, #360
- 1989 0200 0522     		movs	r2, #5
- 1990 0202 9847     		blx	r3
- 1991              	.LVL166:
+ 1987              		.loc 1 347 4 is_stmt 1 view .LVU389
+ 1988 01f6 6B4C     		ldr	r4, .L229+8
+ 1989 01f8 6B4B     		ldr	r3, .L229+12
+ 1990 01fa 206B     		ldr	r0, [r4, #48]
+ 1991 01fc 4FF4B471 		mov	r1, #360
+ 1992 0200 0522     		movs	r2, #5
+ 1993 0202 9847     		blx	r3
+ 1994              	.LVL166:
  348:src/lcd.c     **** 	  lcd_writeText(t20, "=");
- 1992              		.loc 1 348 4 view .LVU390
- 1993 0204 206B     		ldr	r0, [r4, #48]
- 1994 0206 6A4B     		ldr	r3, .L231+16
- 1995 0208 6B49     		ldr	r1, .L231+24
- 1996 020a 9847     		blx	r3
- 1997              	.LVL167:
- 1998              	.L102:
+ 1995              		.loc 1 348 4 view .LVU390
+ 1996 0204 206B     		ldr	r0, [r4, #48]
+ 1997 0206 694B     		ldr	r3, .L229+16
+ 1998 0208 6A49     		ldr	r1, .L229+24
+ 1999 020a 9847     		blx	r3
+ 2000              	.LVL167:
+ 2001              	.L102:
  349:src/lcd.c     ****         }
  350:src/lcd.c     **** 
  351:src/lcd.c     **** 	if (dots[BATTERY]) {
- 1999              		.loc 1 351 2 view .LVU391
+ 2002              		.loc 1 351 2 view .LVU391
  352:src/lcd.c     **** 	  //    MOVE(70, 10);   PRINTF("####-");
  353:src/lcd.c     ****         }
- 2000              		.loc 1 353 9 view .LVU392
- 354:src/lcd.c     **** 
+ 2003              		.loc 1 353 9 view .LVU392
+ 354:src/lcd.c     **** #ifdef MODIFY_BEG_SSIZE8
  355:src/lcd.c     **** 	if (dots[BEG]) {
- 2001              		.loc 1 355 2 view .LVU393
- 2002              		.loc 1 355 5 is_stmt 0 view .LVU394
- 2003 020c 96F88830 		ldrb	r3, [r6, #136]	@ zero_extendqisi2
- 2004 0210 53B1     		cbz	r3, .L103
+ 2004              		.loc 1 355 2 view .LVU393
+ 2005              		.loc 1 355 5 is_stmt 0 view .LVU394
+ 2006 020c 96F88830 		ldrb	r3, [r6, #136]	@ zero_extendqisi2
  356:src/lcd.c     **** 	  lcd_setXY (t20, 285, y_ann-50);
- 2005              		.loc 1 356 4 is_stmt 1 view .LVU395
- 2006 0212 654C     		ldr	r4, .L231+8
- 2007 0214 654B     		ldr	r3, .L231+12
- 2008 0216 206B     		ldr	r0, [r4, #48]
- 2009 0218 40F21D11 		movw	r1, #285
- 2010 021c 1922     		movs	r2, #25
- 2011 021e 9847     		blx	r3
- 2012              	.LVL168:
- 357:src/lcd.c     **** 	  lcd_writeText(t20, "BEG");
- 2013              		.loc 1 357 4 view .LVU396
- 2014 0220 206B     		ldr	r0, [r4, #48]
-ARM GAS  /tmp/ccNLenXV.s 			page 44
+ 2007              		.loc 1 356 4 view .LVU395
+ 2008 0210 644C     		ldr	r4, .L229+8
+ 355:src/lcd.c     **** 	  lcd_setXY (t20, 285, y_ann-50);
+ 2009              		.loc 1 355 5 view .LVU396
+ 2010 0212 002B     		cmp	r3, #0
+ 2011 0214 00F0B680 		beq	.L103
+ 2012              		.loc 1 356 4 is_stmt 1 view .LVU397
+ 2013 0218 634B     		ldr	r3, .L229+12
+ 2014 021a 206B     		ldr	r0, [r4, #48]
+ARM GAS  /tmp/ccLsYHtp.s 			page 44
 
 
- 2015 0222 634B     		ldr	r3, .L231+16
- 2016 0224 6549     		ldr	r1, .L231+28
- 2017 0226 9847     		blx	r3
- 2018              	.LVL169:
- 2019              	.L103:
+ 2015 021c 40F21D11 		movw	r1, #285
+ 2016 0220 1922     		movs	r2, #25
+ 2017 0222 9847     		blx	r3
+ 2018              	.LVL168:
+ 357:src/lcd.c     **** 	  lcd_writeText(t20, "S:8");
+ 2019              		.loc 1 357 4 view .LVU398
+ 2020 0224 206B     		ldr	r0, [r4, #48]
+ 2021 0226 614B     		ldr	r3, .L229+16
+ 2022 0228 6349     		ldr	r1, .L229+28
+ 2023 022a 9847     		blx	r3
+ 2024              	.LVL169:
+ 2025              	.L104:
  358:src/lcd.c     ****         }
- 359:src/lcd.c     **** 
- 360:src/lcd.c     **** 	if (dots[STO_annun]) {
- 2020              		.loc 1 360 2 view .LVU397
- 2021              		.loc 1 360 5 is_stmt 0 view .LVU398
- 2022 0228 96F88930 		ldrb	r3, [r6, #137]	@ zero_extendqisi2
- 2023 022c 53B1     		cbz	r3, .L104
- 361:src/lcd.c     **** 	  lcd_setXY (t20, 325, y_ann-50);
- 2024              		.loc 1 361 4 is_stmt 1 view .LVU399
- 2025 022e 5E4C     		ldr	r4, .L231+8
- 2026 0230 5E4B     		ldr	r3, .L231+12
- 2027 0232 206B     		ldr	r0, [r4, #48]
- 2028 0234 40F24511 		movw	r1, #325
- 2029 0238 1922     		movs	r2, #25
- 2030 023a 9847     		blx	r3
- 2031              	.LVL170:
- 362:src/lcd.c     **** 	  lcd_writeText(t20, "PGM");
- 2032              		.loc 1 362 4 view .LVU400
- 2033 023c 206B     		ldr	r0, [r4, #48]
- 2034 023e 5C4B     		ldr	r3, .L231+16
- 2035 0240 5F49     		ldr	r1, .L231+32
- 2036 0242 9847     		blx	r3
- 2037              	.LVL171:
- 2038              	.L104:
- 363:src/lcd.c     ****         }
- 364:src/lcd.c     **** 
- 365:src/lcd.c     **** 	if (dots[RCL_annun]) {
- 2039              		.loc 1 365 2 view .LVU401
- 2040              		.loc 1 365 5 is_stmt 0 view .LVU402
- 2041 0244 96F88A30 		ldrb	r3, [r6, #138]	@ zero_extendqisi2
- 2042 0248 53B1     		cbz	r3, .L105
- 366:src/lcd.c     **** 	  lcd_setXY (t20, 365, y_ann-50);
- 2043              		.loc 1 366 4 is_stmt 1 view .LVU403
- 2044 024a 574C     		ldr	r4, .L231+8
- 2045 024c 574B     		ldr	r3, .L231+12
- 2046 024e 206B     		ldr	r0, [r4, #48]
- 2047 0250 40F26D11 		movw	r1, #365
- 2048 0254 1922     		movs	r2, #25
- 2049 0256 9847     		blx	r3
- 2050              	.LVL172:
- 367:src/lcd.c     **** 	  lcd_writeText(t20, "RUN");
- 2051              		.loc 1 367 4 view .LVU404
- 2052 0258 206B     		ldr	r0, [r4, #48]
- 2053 025a 554B     		ldr	r3, .L231+16
- 2054 025c 5949     		ldr	r1, .L231+36
- 2055 025e 9847     		blx	r3
- 2056              	.LVL173:
- 2057              	.L105:
- 368:src/lcd.c     ****         }
- 369:src/lcd.c     **** 
- 370:src/lcd.c     **** 	if (dots[RAD]) {
- 2058              		.loc 1 370 2 view .LVU405
-ARM GAS  /tmp/ccNLenXV.s 			page 45
+ 359:src/lcd.c     **** 	else {
+ 360:src/lcd.c     **** 	  lcd_setXY (t20, 285, y_ann-50);
+ 361:src/lcd.c     **** 	  lcd_writeText(t20, "S:4");
+ 362:src/lcd.c     **** 	}	  
+ 363:src/lcd.c     **** #else
+ 364:src/lcd.c     **** 	if (dots[BEG]) {
+ 365:src/lcd.c     **** 	  lcd_setXY (t20, 285, y_ann-50);
+ 366:src/lcd.c     **** 	  lcd_writeText(t20, "BEG");
+ 367:src/lcd.c     ****         }
+ 368:src/lcd.c     **** #endif
+ 369:src/lcd.c     **** 	if (dots[STO_annun]) {
+ 2026              		.loc 1 369 2 view .LVU399
+ 2027              		.loc 1 369 5 is_stmt 0 view .LVU400
+ 2028 022c 96F88930 		ldrb	r3, [r6, #137]	@ zero_extendqisi2
+ 2029 0230 53B1     		cbz	r3, .L105
+ 370:src/lcd.c     **** 	  lcd_setXY (t20, 325, y_ann-50);
+ 2030              		.loc 1 370 4 is_stmt 1 view .LVU401
+ 2031 0232 5C4C     		ldr	r4, .L229+8
+ 2032 0234 5C4B     		ldr	r3, .L229+12
+ 2033 0236 206B     		ldr	r0, [r4, #48]
+ 2034 0238 40F24511 		movw	r1, #325
+ 2035 023c 1922     		movs	r2, #25
+ 2036 023e 9847     		blx	r3
+ 2037              	.LVL170:
+ 371:src/lcd.c     **** 	  lcd_writeText(t20, "PGM");
+ 2038              		.loc 1 371 4 view .LVU402
+ 2039 0240 206B     		ldr	r0, [r4, #48]
+ 2040 0242 5A4B     		ldr	r3, .L229+16
+ 2041 0244 5D49     		ldr	r1, .L229+32
+ 2042 0246 9847     		blx	r3
+ 2043              	.LVL171:
+ 2044              	.L105:
+ 372:src/lcd.c     ****         }
+ 373:src/lcd.c     **** 
+ 374:src/lcd.c     **** 	if (dots[RCL_annun]) {
+ 2045              		.loc 1 374 2 view .LVU403
+ 2046              		.loc 1 374 5 is_stmt 0 view .LVU404
+ 2047 0248 96F88A30 		ldrb	r3, [r6, #138]	@ zero_extendqisi2
+ 2048 024c 53B1     		cbz	r3, .L106
+ 375:src/lcd.c     **** 	  lcd_setXY (t20, 365, y_ann-50);
+ 2049              		.loc 1 375 4 is_stmt 1 view .LVU405
+ 2050 024e 554C     		ldr	r4, .L229+8
+ 2051 0250 554B     		ldr	r3, .L229+12
+ 2052 0252 206B     		ldr	r0, [r4, #48]
+ARM GAS  /tmp/ccLsYHtp.s 			page 45
 
 
- 2059              		.loc 1 370 5 is_stmt 0 view .LVU406
- 2060 0260 96F88B30 		ldrb	r3, [r6, #139]	@ zero_extendqisi2
- 2061 0264 53B1     		cbz	r3, .L106
- 371:src/lcd.c     **** 	  lcd_setXY (t20, 285, y_ann-30);
- 2062              		.loc 1 371 4 is_stmt 1 view .LVU407
- 2063 0266 504C     		ldr	r4, .L231+8
- 2064 0268 504B     		ldr	r3, .L231+12
- 2065 026a 206B     		ldr	r0, [r4, #48]
- 2066 026c 40F21D11 		movw	r1, #285
- 2067 0270 2D22     		movs	r2, #45
- 2068 0272 9847     		blx	r3
- 2069              	.LVL174:
- 372:src/lcd.c     **** 	  lcd_writeText(t20, "RAD");
- 2070              		.loc 1 372 4 view .LVU408
- 2071 0274 206B     		ldr	r0, [r4, #48]
- 2072 0276 4E4B     		ldr	r3, .L231+16
- 2073 0278 5349     		ldr	r1, .L231+40
- 2074 027a 9847     		blx	r3
- 2075              	.LVL175:
- 2076              	.L106:
- 373:src/lcd.c     **** 	}
- 374:src/lcd.c     **** 
- 375:src/lcd.c     **** 	if (dots[DEG]) {
- 2077              		.loc 1 375 2 view .LVU409
- 2078              		.loc 1 375 5 is_stmt 0 view .LVU410
- 2079 027c 96F88C30 		ldrb	r3, [r6, #140]	@ zero_extendqisi2
- 2080 0280 53B1     		cbz	r3, .L107
- 376:src/lcd.c     **** 	  lcd_setXY (t20, 325, y_ann-30);
- 2081              		.loc 1 376 4 is_stmt 1 view .LVU411
- 2082 0282 494C     		ldr	r4, .L231+8
- 2083 0284 494B     		ldr	r3, .L231+12
- 2084 0286 206B     		ldr	r0, [r4, #48]
- 2085 0288 40F24511 		movw	r1, #325
- 2086 028c 2D22     		movs	r2, #45
- 2087 028e 9847     		blx	r3
- 2088              	.LVL176:
- 377:src/lcd.c     **** 	  lcd_writeText(t20, "DEG");
- 2089              		.loc 1 377 4 view .LVU412
- 2090 0290 206B     		ldr	r0, [r4, #48]
- 2091 0292 474B     		ldr	r3, .L231+16
- 2092 0294 4D49     		ldr	r1, .L231+44
- 2093 0296 9847     		blx	r3
- 2094              	.LVL177:
- 2095              	.L107:
- 378:src/lcd.c     ****         }
- 379:src/lcd.c     ****         if (dots[RPN]) {
- 2096              		.loc 1 379 9 view .LVU413
- 2097              		.loc 1 379 12 is_stmt 0 view .LVU414
- 2098 0298 96F88D30 		ldrb	r3, [r6, #141]	@ zero_extendqisi2
- 2099 029c 53B1     		cbz	r3, .L108
- 380:src/lcd.c     **** 	  lcd_setXY (t20, 365, y_ann-30);
- 2100              		.loc 1 380 4 is_stmt 1 view .LVU415
- 2101 029e 424C     		ldr	r4, .L231+8
- 2102 02a0 424B     		ldr	r3, .L231+12
- 2103 02a2 206B     		ldr	r0, [r4, #48]
- 2104 02a4 40F26D11 		movw	r1, #365
- 2105 02a8 2D22     		movs	r2, #45
-ARM GAS  /tmp/ccNLenXV.s 			page 46
-
-
- 2106 02aa 9847     		blx	r3
- 2107              	.LVL178:
- 381:src/lcd.c     **** 	  lcd_writeText(t20, "RPN");
- 2108              		.loc 1 381 4 view .LVU416
- 2109 02ac 206B     		ldr	r0, [r4, #48]
- 2110 02ae 404B     		ldr	r3, .L231+16
- 2111 02b0 4749     		ldr	r1, .L231+48
- 2112 02b2 9847     		blx	r3
- 2113              	.LVL179:
- 2114              	.L108:
- 382:src/lcd.c     ****         }
+ 2053 0254 40F26D11 		movw	r1, #365
+ 2054 0258 1922     		movs	r2, #25
+ 2055 025a 9847     		blx	r3
+ 2056              	.LVL172:
+ 376:src/lcd.c     **** 	  lcd_writeText(t20, "RUN");
+ 2057              		.loc 1 376 4 view .LVU406
+ 2058 025c 206B     		ldr	r0, [r4, #48]
+ 2059 025e 534B     		ldr	r3, .L229+16
+ 2060 0260 5749     		ldr	r1, .L229+36
+ 2061 0262 9847     		blx	r3
+ 2062              	.LVL173:
+ 2063              	.L106:
+ 377:src/lcd.c     ****         }
+ 378:src/lcd.c     **** 
+ 379:src/lcd.c     **** 	if (dots[RAD]) {
+ 2064              		.loc 1 379 2 view .LVU407
+ 2065              		.loc 1 379 5 is_stmt 0 view .LVU408
+ 2066 0264 96F88B30 		ldrb	r3, [r6, #139]	@ zero_extendqisi2
+ 2067 0268 53B1     		cbz	r3, .L107
+ 380:src/lcd.c     **** 	  lcd_setXY (t20, 285, y_ann-30);
+ 2068              		.loc 1 380 4 is_stmt 1 view .LVU409
+ 2069 026a 4E4C     		ldr	r4, .L229+8
+ 2070 026c 4E4B     		ldr	r3, .L229+12
+ 2071 026e 206B     		ldr	r0, [r4, #48]
+ 2072 0270 40F21D11 		movw	r1, #285
+ 2073 0274 2D22     		movs	r2, #45
+ 2074 0276 9847     		blx	r3
+ 2075              	.LVL174:
+ 381:src/lcd.c     **** 	  lcd_writeText(t20, "RAD");
+ 2076              		.loc 1 381 4 view .LVU410
+ 2077 0278 206B     		ldr	r0, [r4, #48]
+ 2078 027a 4C4B     		ldr	r3, .L229+16
+ 2079 027c 5149     		ldr	r1, .L229+40
+ 2080 027e 9847     		blx	r3
+ 2081              	.LVL175:
+ 2082              	.L107:
+ 382:src/lcd.c     **** 	}
  383:src/lcd.c     **** 
- 384:src/lcd.c     **** 	/* The graphical bit last */
- 385:src/lcd.c     ****         for (i=0; i<BITMAP_WIDTH; i++) {
- 386:src/lcd.c     **** 	  for (j=0; j<6; j++) {
- 387:src/lcd.c     **** 	    if (dots[i*6+j+MATRIX_BASE]) {
- 388:src/lcd.c     **** 	      lcd_fill_rect( xleft-dwidth+5*i+15, ytop-(10+6*6)+j*6, 4, 5, 0xff);
- 2115              		.loc 1 388 8 is_stmt 0 view .LVU417
- 2116 02b4 DFF8EC90 		ldr	r9, .L231+4
- 2117 02b8 0027     		movs	r7, #0
- 2118 02ba 1026     		movs	r6, #16
- 2119 02bc 0BF18E0A 		add	r10, fp, #142
- 2120 02c0 4FF0FF08 		mov	r8, #255
- 2121              	.L111:
- 2122              	.LVL180:
- 386:src/lcd.c     **** 	    if (dots[i*6+j+MATRIX_BASE]) {
- 2123              		.loc 1 386 14 is_stmt 1 view .LVU418
- 2124 02c4 0AEB0705 		add	r5, r10, r7
- 2125 02c8 5424     		movs	r4, #84
- 2126              	.LVL181:
- 2127              	.L110:
- 387:src/lcd.c     **** 	      lcd_fill_rect( xleft-dwidth+5*i+15, ytop-(10+6*6)+j*6, 4, 5, 0xff);
- 2128              		.loc 1 387 6 view .LVU419
- 2129              		.loc 1 388 8 view .LVU420
- 387:src/lcd.c     **** 	      lcd_fill_rect( xleft-dwidth+5*i+15, ytop-(10+6*6)+j*6, 4, 5, 0xff);
- 2130              		.loc 1 387 14 is_stmt 0 view .LVU421
- 2131 02ca 15F801CB 		ldrb	ip, [r5], #1	@ zero_extendqisi2
- 2132              	.LVL182:
- 2133              		.loc 1 388 8 view .LVU422
- 2134 02ce 2146     		mov	r1, r4
- 2135 02d0 0523     		movs	r3, #5
- 2136 02d2 0634     		adds	r4, r4, #6
- 2137 02d4 0422     		movs	r2, #4
- 2138 02d6 3046     		mov	r0, r6
- 387:src/lcd.c     **** 	      lcd_fill_rect( xleft-dwidth+5*i+15, ytop-(10+6*6)+j*6, 4, 5, 0xff);
- 2139              		.loc 1 387 9 view .LVU423
- 2140 02d8 BCF1000F 		cmp	ip, #0
- 2141 02dc 02D0     		beq	.L109
- 2142              		.loc 1 388 8 view .LVU424
- 2143 02de CDF80080 		str	r8, [sp]
- 2144 02e2 C847     		blx	r9
- 2145              	.LVL183:
- 2146              	.L109:
- 386:src/lcd.c     **** 	    if (dots[i*6+j+MATRIX_BASE]) {
- 2147              		.loc 1 386 19 is_stmt 1 discriminator 2 view .LVU425
- 386:src/lcd.c     **** 	    if (dots[i*6+j+MATRIX_BASE]) {
- 2148              		.loc 1 386 14 discriminator 2 view .LVU426
-ARM GAS  /tmp/ccNLenXV.s 			page 47
+ 384:src/lcd.c     **** 	if (dots[DEG]) {
+ 2083              		.loc 1 384 2 view .LVU411
+ 2084              		.loc 1 384 5 is_stmt 0 view .LVU412
+ 2085 0280 96F88C30 		ldrb	r3, [r6, #140]	@ zero_extendqisi2
+ 2086 0284 53B1     		cbz	r3, .L108
+ 385:src/lcd.c     **** 	  lcd_setXY (t20, 325, y_ann-30);
+ 2087              		.loc 1 385 4 is_stmt 1 view .LVU413
+ 2088 0286 474C     		ldr	r4, .L229+8
+ 2089 0288 474B     		ldr	r3, .L229+12
+ 2090 028a 206B     		ldr	r0, [r4, #48]
+ 2091 028c 40F24511 		movw	r1, #325
+ 2092 0290 2D22     		movs	r2, #45
+ 2093 0292 9847     		blx	r3
+ 2094              	.LVL176:
+ 386:src/lcd.c     **** 	  lcd_writeText(t20, "DEG");
+ 2095              		.loc 1 386 4 view .LVU414
+ 2096 0294 206B     		ldr	r0, [r4, #48]
+ 2097 0296 454B     		ldr	r3, .L229+16
+ 2098 0298 4B49     		ldr	r1, .L229+44
+ARM GAS  /tmp/ccLsYHtp.s 			page 46
 
 
- 386:src/lcd.c     **** 	    if (dots[i*6+j+MATRIX_BASE]) {
- 2149              		.loc 1 386 4 is_stmt 0 discriminator 2 view .LVU427
- 2150 02e4 782C     		cmp	r4, #120
- 2151 02e6 F0D1     		bne	.L110
- 385:src/lcd.c     **** 	  for (j=0; j<6; j++) {
- 2152              		.loc 1 385 35 is_stmt 1 discriminator 2 view .LVU428
- 385:src/lcd.c     **** 	  for (j=0; j<6; j++) {
- 2153              		.loc 1 385 19 discriminator 2 view .LVU429
- 2154 02e8 0637     		adds	r7, r7, #6
- 2155              	.LVL184:
- 385:src/lcd.c     **** 	  for (j=0; j<6; j++) {
- 2156              		.loc 1 385 9 is_stmt 0 discriminator 2 view .LVU430
- 2157 02ea B7F5DE7F 		cmp	r7, #444
- 2158 02ee 06F10506 		add	r6, r6, #5
- 2159 02f2 E7D1     		bne	.L111
- 389:src/lcd.c     **** 	    }
- 390:src/lcd.c     **** 	  }
- 391:src/lcd.c     **** 	}
- 392:src/lcd.c     **** #ifdef TOP_ROW
- 393:src/lcd.c     ****         for (i=0; i<BW_TOP; i++) {
+ 2099 029a 9847     		blx	r3
+ 2100              	.LVL177:
+ 2101              	.L108:
+ 387:src/lcd.c     ****         }
+ 388:src/lcd.c     ****         if (dots[RPN]) {
+ 2102              		.loc 1 388 9 view .LVU415
+ 2103              		.loc 1 388 12 is_stmt 0 view .LVU416
+ 2104 029c 96F88D30 		ldrb	r3, [r6, #141]	@ zero_extendqisi2
+ 2105 02a0 53B1     		cbz	r3, .L109
+ 389:src/lcd.c     **** 	  lcd_setXY (t20, 365, y_ann-30);
+ 2106              		.loc 1 389 4 is_stmt 1 view .LVU417
+ 2107 02a2 404C     		ldr	r4, .L229+8
+ 2108 02a4 404B     		ldr	r3, .L229+12
+ 2109 02a6 206B     		ldr	r0, [r4, #48]
+ 2110 02a8 40F26D11 		movw	r1, #365
+ 2111 02ac 2D22     		movs	r2, #45
+ 2112 02ae 9847     		blx	r3
+ 2113              	.LVL178:
+ 390:src/lcd.c     **** 	  lcd_writeText(t20, "RPN");
+ 2114              		.loc 1 390 4 view .LVU418
+ 2115 02b0 206B     		ldr	r0, [r4, #48]
+ 2116 02b2 3E4B     		ldr	r3, .L229+16
+ 2117 02b4 4549     		ldr	r1, .L229+48
+ 2118 02b6 9847     		blx	r3
+ 2119              	.LVL179:
+ 2120              	.L109:
+ 391:src/lcd.c     ****         }
+ 392:src/lcd.c     **** 
+ 393:src/lcd.c     **** 	/* The graphical bit last */
+ 394:src/lcd.c     ****         for (i=0; i<BITMAP_WIDTH; i++) {
+ 395:src/lcd.c     **** 	  for (j=0; j<6; j++) {
+ 396:src/lcd.c     **** 	    if (dots[i*6+j+MATRIX_BASE]) {
+ 397:src/lcd.c     **** 	      lcd_fill_rect( xleft-dwidth+5*i+15, ytop-(10+6*6)+j*6, 4, 5, 0xff);
+ 2121              		.loc 1 397 8 is_stmt 0 view .LVU419
+ 2122 02b8 DFF8E490 		ldr	r9, .L229+4
+ 2123 02bc 0027     		movs	r7, #0
+ 2124 02be 1026     		movs	r6, #16
+ 2125 02c0 0BF18E0A 		add	r10, fp, #142
+ 2126 02c4 4FF0FF08 		mov	r8, #255
+ 2127              	.L112:
+ 2128              	.LVL180:
+ 395:src/lcd.c     **** 	    if (dots[i*6+j+MATRIX_BASE]) {
+ 2129              		.loc 1 395 14 is_stmt 1 view .LVU420
+ 2130 02c8 0AEB0705 		add	r5, r10, r7
+ 2131 02cc 5424     		movs	r4, #84
+ 2132              	.LVL181:
+ 2133              	.L111:
+ 396:src/lcd.c     **** 	      lcd_fill_rect( xleft-dwidth+5*i+15, ytop-(10+6*6)+j*6, 4, 5, 0xff);
+ 2134              		.loc 1 396 6 view .LVU421
+ 2135              		.loc 1 397 8 view .LVU422
+ 396:src/lcd.c     **** 	      lcd_fill_rect( xleft-dwidth+5*i+15, ytop-(10+6*6)+j*6, 4, 5, 0xff);
+ 2136              		.loc 1 396 14 is_stmt 0 view .LVU423
+ 2137 02ce 15F801CB 		ldrb	ip, [r5], #1	@ zero_extendqisi2
+ 2138              	.LVL182:
+ 2139              		.loc 1 397 8 view .LVU424
+ 2140 02d2 2146     		mov	r1, r4
+ 2141 02d4 0523     		movs	r3, #5
+ARM GAS  /tmp/ccLsYHtp.s 			page 47
+
+
+ 2142 02d6 0634     		adds	r4, r4, #6
+ 2143 02d8 0422     		movs	r2, #4
+ 2144 02da 3046     		mov	r0, r6
+ 396:src/lcd.c     **** 	      lcd_fill_rect( xleft-dwidth+5*i+15, ytop-(10+6*6)+j*6, 4, 5, 0xff);
+ 2145              		.loc 1 396 9 view .LVU425
+ 2146 02dc BCF1000F 		cmp	ip, #0
+ 2147 02e0 02D0     		beq	.L110
+ 2148              		.loc 1 397 8 view .LVU426
+ 2149 02e2 CDF80080 		str	r8, [sp]
+ 2150 02e6 C847     		blx	r9
+ 2151              	.LVL183:
+ 2152              	.L110:
+ 395:src/lcd.c     **** 	    if (dots[i*6+j+MATRIX_BASE]) {
+ 2153              		.loc 1 395 19 is_stmt 1 discriminator 2 view .LVU427
+ 395:src/lcd.c     **** 	    if (dots[i*6+j+MATRIX_BASE]) {
+ 2154              		.loc 1 395 14 discriminator 2 view .LVU428
+ 395:src/lcd.c     **** 	    if (dots[i*6+j+MATRIX_BASE]) {
+ 2155              		.loc 1 395 4 is_stmt 0 discriminator 2 view .LVU429
+ 2156 02e8 782C     		cmp	r4, #120
+ 2157 02ea F0D1     		bne	.L111
  394:src/lcd.c     **** 	  for (j=0; j<6; j++) {
- 395:src/lcd.c     **** 	    if (dots[i*6+j+MB_TOP]) {
- 396:src/lcd.c     **** 	      lcd_fill_rect( xleft-dwidth+5*i+15, 70-(10+6*5)+j*5, 4, 4, 0xff);
- 2160              		.loc 1 396 8 view .LVU431
- 2161 02f4 DFF8AC90 		ldr	r9, .L231+4
- 2162 02f8 0BF24A2B 		addw	fp, fp, #586
- 2163 02fc 4FF00008 		mov	r8, #0
- 2164 0300 1027     		movs	r7, #16
- 2165              	.LVL185:
- 2166              		.loc 1 396 8 view .LVU432
- 2167 0302 4FF0FF0A 		mov	r10, #255
- 2168              	.L112:
- 2169              	.LVL186:
- 394:src/lcd.c     **** 	    if (dots[i*6+j+MB_TOP]) {
- 2170              		.loc 1 394 14 is_stmt 1 view .LVU433
- 2171 0306 0BEB0805 		add	r5, fp, r8
- 2172 030a 1E24     		movs	r4, #30
- 2173              	.LVL187:
- 2174              	.L114:
- 395:src/lcd.c     **** 	      lcd_fill_rect( xleft-dwidth+5*i+15, 70-(10+6*5)+j*5, 4, 4, 0xff);
- 2175              		.loc 1 395 6 view .LVU434
- 2176              		.loc 1 396 8 view .LVU435
- 395:src/lcd.c     **** 	      lcd_fill_rect( xleft-dwidth+5*i+15, 70-(10+6*5)+j*5, 4, 4, 0xff);
- 2177              		.loc 1 395 14 is_stmt 0 view .LVU436
- 2178 030c 15F8016B 		ldrb	r6, [r5], #1	@ zero_extendqisi2
- 2179              	.LVL188:
- 2180              		.loc 1 396 8 view .LVU437
- 2181 0310 0423     		movs	r3, #4
- 2182 0312 2146     		mov	r1, r4
- 2183 0314 1A46     		mov	r2, r3
- 2184 0316 0534     		adds	r4, r4, #5
- 2185 0318 3846     		mov	r0, r7
- 395:src/lcd.c     **** 	      lcd_fill_rect( xleft-dwidth+5*i+15, 70-(10+6*5)+j*5, 4, 4, 0xff);
- 2186              		.loc 1 395 9 view .LVU438
- 2187 031a 16B1     		cbz	r6, .L113
- 2188              		.loc 1 396 8 view .LVU439
- 2189 031c CDF800A0 		str	r10, [sp]
-ARM GAS  /tmp/ccNLenXV.s 			page 48
+ 2158              		.loc 1 394 35 is_stmt 1 discriminator 2 view .LVU430
+ 394:src/lcd.c     **** 	  for (j=0; j<6; j++) {
+ 2159              		.loc 1 394 19 discriminator 2 view .LVU431
+ 2160 02ec 0637     		adds	r7, r7, #6
+ 2161              	.LVL184:
+ 394:src/lcd.c     **** 	  for (j=0; j<6; j++) {
+ 2162              		.loc 1 394 9 is_stmt 0 discriminator 2 view .LVU432
+ 2163 02ee B7F5DE7F 		cmp	r7, #444
+ 2164 02f2 06F10506 		add	r6, r6, #5
+ 2165 02f6 E7D1     		bne	.L112
+ 398:src/lcd.c     **** 	    }
+ 399:src/lcd.c     **** 	  }
+ 400:src/lcd.c     **** 	}
+ 401:src/lcd.c     **** #ifdef TOP_ROW
+ 402:src/lcd.c     ****         for (i=0; i<BW_TOP; i++) {
+ 403:src/lcd.c     **** 	  for (j=0; j<6; j++) {
+ 404:src/lcd.c     **** 	    if (dots[i*6+j+MB_TOP]) {
+ 405:src/lcd.c     **** 	      lcd_fill_rect( xleft-dwidth+5*i+15, 70-(10+6*5)+j*5, 4, 4, 0xff);
+ 2166              		.loc 1 405 8 view .LVU433
+ 2167 02f8 DFF8A490 		ldr	r9, .L229+4
+ 2168 02fc 0BF24A2B 		addw	fp, fp, #586
+ 2169 0300 4FF00008 		mov	r8, #0
+ 2170 0304 1027     		movs	r7, #16
+ 2171              	.LVL185:
+ 2172              		.loc 1 405 8 view .LVU434
+ 2173 0306 4FF0FF0A 		mov	r10, #255
+ 2174              	.L113:
+ 2175              	.LVL186:
+ 403:src/lcd.c     **** 	    if (dots[i*6+j+MB_TOP]) {
+ 2176              		.loc 1 403 14 is_stmt 1 view .LVU435
+ 2177 030a 0BEB0805 		add	r5, fp, r8
+ 2178 030e 1E24     		movs	r4, #30
+ 2179              	.LVL187:
+ 2180              	.L115:
+ 404:src/lcd.c     **** 	      lcd_fill_rect( xleft-dwidth+5*i+15, 70-(10+6*5)+j*5, 4, 4, 0xff);
+ 2181              		.loc 1 404 6 view .LVU436
+ARM GAS  /tmp/ccLsYHtp.s 			page 48
 
 
- 2190 0320 C847     		blx	r9
- 2191              	.LVL189:
- 2192              	.L113:
- 394:src/lcd.c     **** 	    if (dots[i*6+j+MB_TOP]) {
- 2193              		.loc 1 394 19 is_stmt 1 discriminator 2 view .LVU440
- 394:src/lcd.c     **** 	    if (dots[i*6+j+MB_TOP]) {
- 2194              		.loc 1 394 14 discriminator 2 view .LVU441
- 394:src/lcd.c     **** 	    if (dots[i*6+j+MB_TOP]) {
- 2195              		.loc 1 394 4 is_stmt 0 discriminator 2 view .LVU442
- 2196 0322 3C2C     		cmp	r4, #60
- 2197 0324 F2D1     		bne	.L114
- 393:src/lcd.c     **** 	  for (j=0; j<6; j++) {
- 2198              		.loc 1 393 29 is_stmt 1 discriminator 2 view .LVU443
- 393:src/lcd.c     **** 	  for (j=0; j<6; j++) {
- 2199              		.loc 1 393 19 discriminator 2 view .LVU444
- 2200 0326 08F10608 		add	r8, r8, #6
- 2201              	.LVL190:
- 393:src/lcd.c     **** 	  for (j=0; j<6; j++) {
- 2202              		.loc 1 393 9 is_stmt 0 discriminator 2 view .LVU445
- 2203 032a B8F5817F 		cmp	r8, #258
- 2204 032e 07F10507 		add	r7, r7, #5
- 2205 0332 E8D1     		bne	.L112
- 397:src/lcd.c     **** 	    }
- 398:src/lcd.c     **** 	  }
- 399:src/lcd.c     **** 	}
- 400:src/lcd.c     **** #endif
- 401:src/lcd.c     **** }
- 2206              		.loc 1 401 1 view .LVU446
- 2207 0334 03B0     		add	sp, sp, #12
- 2208              		.cfi_remember_state
- 2209              		.cfi_def_cfa_offset 36
- 2210              		@ sp needed
- 2211 0336 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
- 2212              	.LVL191:
- 2213              	.L226:
- 2214              		.cfi_restore_state
+ 2182              		.loc 1 405 8 view .LVU437
+ 404:src/lcd.c     **** 	      lcd_fill_rect( xleft-dwidth+5*i+15, 70-(10+6*5)+j*5, 4, 4, 0xff);
+ 2183              		.loc 1 404 14 is_stmt 0 view .LVU438
+ 2184 0310 15F8016B 		ldrb	r6, [r5], #1	@ zero_extendqisi2
+ 2185              	.LVL188:
+ 2186              		.loc 1 405 8 view .LVU439
+ 2187 0314 0423     		movs	r3, #4
+ 2188 0316 2146     		mov	r1, r4
+ 2189 0318 1A46     		mov	r2, r3
+ 2190 031a 0534     		adds	r4, r4, #5
+ 2191 031c 3846     		mov	r0, r7
+ 404:src/lcd.c     **** 	      lcd_fill_rect( xleft-dwidth+5*i+15, 70-(10+6*5)+j*5, 4, 4, 0xff);
+ 2192              		.loc 1 404 9 view .LVU440
+ 2193 031e 16B1     		cbz	r6, .L114
+ 2194              		.loc 1 405 8 view .LVU441
+ 2195 0320 CDF800A0 		str	r10, [sp]
+ 2196 0324 C847     		blx	r9
+ 2197              	.LVL189:
+ 2198              	.L114:
+ 403:src/lcd.c     **** 	    if (dots[i*6+j+MB_TOP]) {
+ 2199              		.loc 1 403 19 is_stmt 1 discriminator 2 view .LVU442
+ 403:src/lcd.c     **** 	    if (dots[i*6+j+MB_TOP]) {
+ 2200              		.loc 1 403 14 discriminator 2 view .LVU443
+ 403:src/lcd.c     **** 	    if (dots[i*6+j+MB_TOP]) {
+ 2201              		.loc 1 403 4 is_stmt 0 discriminator 2 view .LVU444
+ 2202 0326 3C2C     		cmp	r4, #60
+ 2203 0328 F2D1     		bne	.L115
+ 402:src/lcd.c     **** 	  for (j=0; j<6; j++) {
+ 2204              		.loc 1 402 29 is_stmt 1 discriminator 2 view .LVU445
+ 402:src/lcd.c     **** 	  for (j=0; j<6; j++) {
+ 2205              		.loc 1 402 19 discriminator 2 view .LVU446
+ 2206 032a 08F10608 		add	r8, r8, #6
+ 2207              	.LVL190:
+ 402:src/lcd.c     **** 	  for (j=0; j<6; j++) {
+ 2208              		.loc 1 402 9 is_stmt 0 discriminator 2 view .LVU447
+ 2209 032e B8F5817F 		cmp	r8, #258
+ 2210 0332 07F10507 		add	r7, r7, #5
+ 2211 0336 E8D1     		bne	.L113
+ 406:src/lcd.c     **** 	    }
+ 407:src/lcd.c     **** 	  }
+ 408:src/lcd.c     **** 	}
+ 409:src/lcd.c     **** #endif
+ 410:src/lcd.c     **** }
+ 2212              		.loc 1 410 1 view .LVU448
+ 2213 0338 03B0     		add	sp, sp, #12
+ 2214              		.cfi_remember_state
+ 2215              		.cfi_def_cfa_offset 36
+ 2216              		@ sp needed
+ 2217 033a BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 2218              	.LVL191:
+ 2219              	.L224:
+ 2220              		.cfi_restore_state
  315:src/lcd.c     ****                 }
- 2215              		.loc 1 315 5 is_stmt 1 view .LVU447
- 2216 033a 8221     		movs	r1, #130
- 2217 033c 2846     		mov	r0, r5
- 2218 033e FFF7FEFF 		bl	exp_bottom
- 2219              	.LVL192:
- 2220 0342 F3E6     		b	.L95
- 2221              	.L225:
+ 2221              		.loc 1 315 5 is_stmt 1 view .LVU449
+ 2222 033e 8221     		movs	r1, #130
+ 2223 0340 2846     		mov	r0, r5
+ 2224 0342 FFF7FEFF 		bl	exp_bottom
+ARM GAS  /tmp/ccLsYHtp.s 			page 49
+
+
+ 2225              	.LVL192:
+ 2226 0346 F1E6     		b	.L95
+ 2227              	.L223:
  312:src/lcd.c     ****                 }
- 2222              		.loc 1 312 5 view .LVU448
- 2223              	.LVL193:
- 2224              	.LBB77:
- 2225              	.LBI77:
+ 2228              		.loc 1 312 5 view .LVU450
+ 2229              	.LVL193:
+ 2230              	.LBB77:
+ 2231              	.LBI77:
  224:src/lcd.c     ****   exp_right_side(i-1, j+11);
- 2226              		.loc 1 224 6 view .LVU449
- 2227              	.LBB78:
+ 2232              		.loc 1 224 6 view .LVU451
+ 2233              	.LBB78:
  225:src/lcd.c     **** }
- 2228              		.loc 1 225 3 view .LVU450
- 2229 0344 8D21     		movs	r1, #141
- 2230 0346 681E     		subs	r0, r5, #1
- 2231 0348 FFF7FEFF 		bl	exp_right_side
-ARM GAS  /tmp/ccNLenXV.s 			page 49
-
-
- 2232              	.LVL194:
+ 2234              		.loc 1 225 3 view .LVU452
+ 2235 0348 8D21     		movs	r1, #141
+ 2236 034a 681E     		subs	r0, r5, #1
+ 2237 034c FFF7FEFF 		bl	exp_right_side
+ 2238              	.LVL194:
  226:src/lcd.c     **** void exp_top (int i, int j) {
- 2233              		.loc 1 226 1 is_stmt 0 view .LVU451
- 2234 034c E9E6     		b	.L94
- 2235              	.LVL195:
- 2236              	.L224:
+ 2239              		.loc 1 226 1 is_stmt 0 view .LVU453
+ 2240 0350 E7E6     		b	.L94
+ 2241              	.LVL195:
+ 2242              	.L222:
  226:src/lcd.c     **** void exp_top (int i, int j) {
- 2237              		.loc 1 226 1 view .LVU452
- 2238              	.LBE78:
- 2239              	.LBE77:
+ 2243              		.loc 1 226 1 view .LVU454
+ 2244              	.LBE78:
+ 2245              	.LBE77:
  309:src/lcd.c     ****                 }
- 2240              		.loc 1 309 5 is_stmt 1 view .LVU453
- 2241              	.LBB79:
- 2242              	.LBI79:
+ 2246              		.loc 1 309 5 is_stmt 1 view .LVU455
+ 2247              	.LBB79:
+ 2248              	.LBI79:
  212:src/lcd.c     ****   exp_left_side(i, j+11);
- 2243              		.loc 1 212 6 view .LVU454
- 2244              	.LBB80:
+ 2249              		.loc 1 212 6 view .LVU456
+ 2250              	.LBB80:
  213:src/lcd.c     **** }
- 2245              		.loc 1 213 3 view .LVU455
- 2246 034e 8D21     		movs	r1, #141
- 2247 0350 2846     		mov	r0, r5
- 2248 0352 FFF7FEFF 		bl	exp_left_side
- 2249              	.LVL196:
+ 2251              		.loc 1 213 3 view .LVU457
+ 2252 0352 8D21     		movs	r1, #141
+ 2253 0354 2846     		mov	r0, r5
+ 2254 0356 FFF7FEFF 		bl	exp_left_side
+ 2255              	.LVL196:
  214:src/lcd.c     **** void exp_right_side (int i, int j) {
- 2250              		.loc 1 214 1 is_stmt 0 view .LVU456
- 2251 0356 DFE6     		b	.L93
- 2252              	.LVL197:
- 2253              	.L223:
+ 2256              		.loc 1 214 1 is_stmt 0 view .LVU458
+ 2257 035a DDE6     		b	.L93
+ 2258              	.LVL197:
+ 2259              	.L221:
  214:src/lcd.c     **** void exp_right_side (int i, int j) {
- 2254              		.loc 1 214 1 view .LVU457
- 2255              	.LBE80:
- 2256              	.LBE79:
+ 2260              		.loc 1 214 1 view .LVU459
+ 2261              	.LBE80:
+ 2262              	.LBE79:
  306:src/lcd.c     ****                 }
- 2257              		.loc 1 306 5 is_stmt 1 view .LVU458
- 2258 0358 8221     		movs	r1, #130
- 2259 035a 2846     		mov	r0, r5
- 2260 035c FFF7FEFF 		bl	exp_middle
- 2261              	.LVL198:
- 2262 0360 D5E6     		b	.L92
- 2263              	.L222:
+ 2263              		.loc 1 306 5 is_stmt 1 view .LVU460
+ 2264 035c 8221     		movs	r1, #130
+ 2265 035e 2846     		mov	r0, r5
+ 2266 0360 FFF7FEFF 		bl	exp_middle
+ 2267              	.LVL198:
+ 2268 0364 D3E6     		b	.L92
+ 2269              	.L220:
  303:src/lcd.c     ****                 }
- 2264              		.loc 1 303 5 view .LVU459
- 2265              	.LVL199:
- 2266              	.LBB81:
- 2267              	.LBI81:
+ARM GAS  /tmp/ccLsYHtp.s 			page 50
+
+
+ 2270              		.loc 1 303 5 view .LVU461
+ 2271              	.LVL199:
+ 2272              	.LBB81:
+ 2273              	.LBI81:
  221:src/lcd.c     ****   exp_right_side(i, j);
- 2268              		.loc 1 221 6 view .LVU460
- 2269              	.LBB82:
+ 2274              		.loc 1 221 6 view .LVU462
+ 2275              	.LBB82:
  222:src/lcd.c     **** }
- 2270              		.loc 1 222 3 view .LVU461
- 2271 0362 8221     		movs	r1, #130
- 2272 0364 2846     		mov	r0, r5
- 2273 0366 FFF7FEFF 		bl	exp_right_side
- 2274              	.LVL200:
+ 2276              		.loc 1 222 3 view .LVU463
+ 2277 0366 8221     		movs	r1, #130
+ 2278 0368 2846     		mov	r0, r5
+ 2279 036a FFF7FEFF 		bl	exp_right_side
+ 2280              	.LVL200:
  223:src/lcd.c     **** void exp_right_side_bottom (int i, int j) {
- 2275              		.loc 1 223 1 is_stmt 0 view .LVU462
- 2276 036a CBE6     		b	.L91
-ARM GAS  /tmp/ccNLenXV.s 			page 50
-
-
- 2277              	.LVL201:
- 2278              	.L221:
+ 2281              		.loc 1 223 1 is_stmt 0 view .LVU464
+ 2282 036e C9E6     		b	.L91
+ 2283              	.LVL201:
+ 2284              	.L219:
  223:src/lcd.c     **** void exp_right_side_bottom (int i, int j) {
- 2279              		.loc 1 223 1 view .LVU463
- 2280              	.LBE82:
- 2281              	.LBE81:
+ 2285              		.loc 1 223 1 view .LVU465
+ 2286              	.LBE82:
+ 2287              	.LBE81:
  300:src/lcd.c     ****                 }
- 2282              		.loc 1 300 5 is_stmt 1 view .LVU464
- 2283              	.LBB83:
- 2284              	.LBI83:
+ 2288              		.loc 1 300 5 is_stmt 1 view .LVU466
+ 2289              	.LBB83:
+ 2290              	.LBI83:
  209:src/lcd.c     ****   exp_left_side(i+1, j);
- 2285              		.loc 1 209 6 view .LVU465
- 2286              	.LBB84:
+ 2291              		.loc 1 209 6 view .LVU467
+ 2292              	.LBB84:
  210:src/lcd.c     **** }
- 2287              		.loc 1 210 3 view .LVU466
- 2288 036c 8221     		movs	r1, #130
- 2289 036e 681C     		adds	r0, r5, #1
- 2290 0370 FFF7FEFF 		bl	exp_left_side
- 2291              	.LVL202:
+ 2293              		.loc 1 210 3 view .LVU468
+ 2294 0370 8221     		movs	r1, #130
+ 2295 0372 681C     		adds	r0, r5, #1
+ 2296 0374 FFF7FEFF 		bl	exp_left_side
+ 2297              	.LVL202:
  211:src/lcd.c     **** void exp_left_side_bottom (int i, int j) {
- 2292              		.loc 1 211 1 is_stmt 0 view .LVU467
- 2293 0374 C1E6     		b	.L90
- 2294              	.LVL203:
- 2295              	.L220:
+ 2298              		.loc 1 211 1 is_stmt 0 view .LVU469
+ 2299 0378 BFE6     		b	.L90
+ 2300              	.LVL203:
+ 2301              	.L218:
  211:src/lcd.c     **** void exp_left_side_bottom (int i, int j) {
- 2296              		.loc 1 211 1 view .LVU468
- 2297              	.LBE84:
- 2298              	.LBE83:
+ 2302              		.loc 1 211 1 view .LVU470
+ 2303              	.LBE84:
+ 2304              	.LBE83:
  297:src/lcd.c     ****                 }
- 2299              		.loc 1 297 5 is_stmt 1 view .LVU469
- 2300 0376 8221     		movs	r1, #130
- 2301 0378 2846     		mov	r0, r5
- 2302 037a FFF7FEFF 		bl	exp_top
- 2303              	.LVL204:
- 2304 037e B7E6     		b	.L89
- 2305              	.LVL205:
- 2306              	.L227:
+ 2305              		.loc 1 297 5 is_stmt 1 view .LVU471
+ 2306 037a 8221     		movs	r1, #130
+ 2307 037c 2846     		mov	r0, r5
+ 2308 037e FFF7FEFF 		bl	exp_top
+ 2309              	.LVL204:
+ 2310 0382 B5E6     		b	.L89
+ 2311              	.LVL205:
+ 2312              	.L103:
+ 360:src/lcd.c     **** 	  lcd_writeText(t20, "S:4");
+ 2313              		.loc 1 360 4 view .LVU472
+ 2314 0384 206B     		ldr	r0, [r4, #48]
+ 2315 0386 084B     		ldr	r3, .L229+12
+ARM GAS  /tmp/ccLsYHtp.s 			page 51
+
+
+ 2316 0388 1922     		movs	r2, #25
+ 2317 038a 40F21D11 		movw	r1, #285
+ 2318 038e 9847     		blx	r3
+ 2319              	.LVL206:
+ 361:src/lcd.c     **** 	}	  
+ 2320              		.loc 1 361 4 view .LVU473
+ 2321 0390 206B     		ldr	r0, [r4, #48]
+ 2322 0392 064B     		ldr	r3, .L229+16
+ 2323 0394 0E49     		ldr	r1, .L229+52
+ 2324 0396 9847     		blx	r3
+ 2325              	.LVL207:
+ 2326 0398 48E7     		b	.L104
+ 2327              	.L230:
+ 2328 039a 00BF     		.align	2
+ 2329              	.L229:
+ 2330 039c 00000000 		.word	.LANCHOR0
+ 2331 03a0 3D020008 		.word	134218301
+ 2332 03a4 00200010 		.word	268443648
+ 2333 03a8 6D020008 		.word	134218349
+ 2334 03ac 7D020008 		.word	134218365
+ 2335 03b0 00000000 		.word	.LC0
+ 2336 03b4 08000000 		.word	.LC1
+ 2337 03b8 0C000000 		.word	.LC2
+ 2338 03bc 14000000 		.word	.LC4
+ 2339 03c0 18000000 		.word	.LC5
+ 2340 03c4 1C000000 		.word	.LC6
+ 2341 03c8 20000000 		.word	.LC7
+ 2342 03cc 24000000 		.word	.LC8
+ 2343 03d0 10000000 		.word	.LC3
+ 2344              	.LVL208:
+ 2345              	.L225:
  320:src/lcd.c     ****         }
- 2307              		.loc 1 320 4 view .LVU470
- 2308 0380 8221     		movs	r1, #130
- 2309 0382 0120     		movs	r0, #1
- 2310 0384 FFF7FEFF 		bl	middle
- 2311              	.LVL206:
+ 2346              		.loc 1 320 4 view .LVU474
+ 2347 03d4 8221     		movs	r1, #130
+ 2348 03d6 0120     		movs	r0, #1
+ 2349 03d8 FFF7FEFF 		bl	middle
+ 2350              	.LVL209:
  322:src/lcd.c     **** 	  exp_middle (xleft_exp-dwidth_exp, ytop);
- 2312              		.loc 1 322 9 view .LVU471
+ 2351              		.loc 1 322 9 view .LVU475
  322:src/lcd.c     **** 	  exp_middle (xleft_exp-dwidth_exp, ytop);
- 2313              		.loc 1 322 12 is_stmt 0 view .LVU472
- 2314 0388 96F88230 		ldrb	r3, [r6, #130]	@ zero_extendqisi2
- 2315 038c 002B     		cmp	r3, #0
- 2316 038e 3FF4DDAE 		beq	.L98
- 2317              	.L228:
+ 2352              		.loc 1 322 12 is_stmt 0 view .LVU476
+ 2353 03dc 96F88230 		ldrb	r3, [r6, #130]	@ zero_extendqisi2
+ 2354 03e0 002B     		cmp	r3, #0
+ 2355 03e2 3FF4B3AE 		beq	.L98
+ 2356              	.L226:
  323:src/lcd.c     ****         }
- 2318              		.loc 1 323 4 is_stmt 1 view .LVU473
- 2319 0392 8221     		movs	r1, #130
- 2320 0394 4FF4A370 		mov	r0, #326
- 2321 0398 FFF7FEFF 		bl	exp_middle
- 2322              	.LVL207:
-ARM GAS  /tmp/ccNLenXV.s 			page 51
+ 2357              		.loc 1 323 4 is_stmt 1 view .LVU477
+ 2358 03e6 8221     		movs	r1, #130
+ 2359 03e8 4FF4A370 		mov	r0, #326
+ 2360 03ec FFF7FEFF 		bl	exp_middle
+ 2361              	.LVL210:
+ 2362 03f0 ACE6     		b	.L98
+ 2363              		.cfi_endproc
+ 2364              	.LFE25:
+ 2366 03f2 00BF     		.section	.text.show_stack,"ax",%progbits
+ 2367              		.align	1
+ 2368              		.p2align 2,,3
+ARM GAS  /tmp/ccLsYHtp.s 			page 52
 
 
- 2323 039c D6E6     		b	.L98
- 2324              	.L232:
- 2325 039e 00BF     		.align	2
- 2326              	.L231:
- 2327 03a0 00000000 		.word	.LANCHOR0
- 2328 03a4 3D020008 		.word	134218301
- 2329 03a8 00200010 		.word	268443648
- 2330 03ac 6D020008 		.word	134218349
- 2331 03b0 7D020008 		.word	134218365
- 2332 03b4 00000000 		.word	.LC0
- 2333 03b8 08000000 		.word	.LC1
- 2334 03bc 0C000000 		.word	.LC2
- 2335 03c0 10000000 		.word	.LC3
- 2336 03c4 14000000 		.word	.LC4
- 2337 03c8 18000000 		.word	.LC5
- 2338 03cc 1C000000 		.word	.LC6
- 2339 03d0 20000000 		.word	.LC7
- 2340              		.cfi_endproc
- 2341              	.LFE25:
- 2343              		.section	.text.show_stack,"ax",%progbits
- 2344              		.align	1
- 2345              		.p2align 2,,3
- 2346              		.global	show_stack
- 2347              		.syntax unified
- 2348              		.thumb
- 2349              		.thumb_func
- 2350              		.fpu fpv4-sp-d16
- 2352              	show_stack:
- 2353              	.LFB36:
- 2354              		.cfi_startproc
- 2355              		@ args = 0, pretend = 0, frame = 0
- 2356              		@ frame_needed = 0, uses_anonymous_args = 0
- 2357              		@ link register save eliminated.
- 2358 0000 7047     		bx	lr
- 2359              		.cfi_endproc
- 2360              	.LFE36:
- 2362 0002 00BF     		.section	.text.show_flags,"ax",%progbits
- 2363              		.align	1
- 2364              		.p2align 2,,3
- 2365              		.global	show_flags
- 2366              		.syntax unified
- 2367              		.thumb
- 2368              		.thumb_func
- 2369              		.fpu fpv4-sp-d16
- 2371              	show_flags:
- 2372              	.LFB34:
- 2373              		.cfi_startproc
- 2374              		@ args = 0, pretend = 0, frame = 0
- 2375              		@ frame_needed = 0, uses_anonymous_args = 0
- 2376              		@ link register save eliminated.
- 2377 0000 7047     		bx	lr
- 2378              		.cfi_endproc
- 2379              	.LFE34:
- 2381 0002 00BF     		.section	.text.wait_for_display,"ax",%progbits
- 2382              		.align	1
- 2383              		.p2align 2,,3
- 2384              		.global	wait_for_display
-ARM GAS  /tmp/ccNLenXV.s 			page 52
+ 2369              		.global	show_stack
+ 2370              		.syntax unified
+ 2371              		.thumb
+ 2372              		.thumb_func
+ 2373              		.fpu fpv4-sp-d16
+ 2375              	show_stack:
+ 2376              	.LFB36:
+ 2377              		.cfi_startproc
+ 2378              		@ args = 0, pretend = 0, frame = 0
+ 2379              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2380              		@ link register save eliminated.
+ 2381 0000 7047     		bx	lr
+ 2382              		.cfi_endproc
+ 2383              	.LFE36:
+ 2385 0002 00BF     		.section	.text.show_flags,"ax",%progbits
+ 2386              		.align	1
+ 2387              		.p2align 2,,3
+ 2388              		.global	show_flags
+ 2389              		.syntax unified
+ 2390              		.thumb
+ 2391              		.thumb_func
+ 2392              		.fpu fpv4-sp-d16
+ 2394              	show_flags:
+ 2395              	.LFB34:
+ 2396              		.cfi_startproc
+ 2397              		@ args = 0, pretend = 0, frame = 0
+ 2398              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2399              		@ link register save eliminated.
+ 2400 0000 7047     		bx	lr
+ 2401              		.cfi_endproc
+ 2402              	.LFE34:
+ 2404 0002 00BF     		.section	.text.wait_for_display,"ax",%progbits
+ 2405              		.align	1
+ 2406              		.p2align 2,,3
+ 2407              		.global	wait_for_display
+ 2408              		.syntax unified
+ 2409              		.thumb
+ 2410              		.thumb_func
+ 2411              		.fpu fpv4-sp-d16
+ 2413              	wait_for_display:
+ 2414              	.LFB28:
+ 411:src/lcd.c     **** #endif
+ 412:src/lcd.c     **** 
+ 413:src/lcd.c     **** #if defined(USECURSES) && !defined(DM42)
+ 414:src/lcd.c     **** void show_disp(void) {
+ 415:src/lcd.c     ****         int i, j, p, x;
+ 416:src/lcd.c     ****         const int dig_base = 16;
+ 417:src/lcd.c     **** 
+ 418:src/lcd.c     ****         /* Segments 0 - 107 are the main digits */
+ 419:src/lcd.c     ****         for (i=0; i<DISPLAY_DIGITS; i++) {
+ 420:src/lcd.c     **** 	  p = i*SEGS_PER_DIGIT; // 9 - 7 + dot and comma
+ 421:src/lcd.c     ****                 x = 3+5*i;
+ 422:src/lcd.c     ****                 if (dots[p]) {
+ 423:src/lcd.c     ****                         MOVE(x+1, dig_base);    PRINTF("--");
+ 424:src/lcd.c     ****                 }
+ 425:src/lcd.c     ****                 if (dots[p+1]) {
+ 426:src/lcd.c     ****                         MOVE(x, dig_base+1);    PRINTF("|");
+ARM GAS  /tmp/ccLsYHtp.s 			page 53
 
 
- 2385              		.syntax unified
- 2386              		.thumb
- 2387              		.thumb_func
- 2388              		.fpu fpv4-sp-d16
- 2390              	wait_for_display:
- 2391              	.LFB28:
- 402:src/lcd.c     **** #endif
- 403:src/lcd.c     **** 
- 404:src/lcd.c     **** #if defined(USECURSES) && !defined(DM42)
- 405:src/lcd.c     **** void show_disp(void) {
- 406:src/lcd.c     ****         int i, j, p, x;
- 407:src/lcd.c     ****         const int dig_base = 16;
- 408:src/lcd.c     **** 
- 409:src/lcd.c     ****         /* Segments 0 - 107 are the main digits */
- 410:src/lcd.c     ****         for (i=0; i<DISPLAY_DIGITS; i++) {
- 411:src/lcd.c     **** 	  p = i*SEGS_PER_DIGIT; // 9 - 7 + dot and comma
- 412:src/lcd.c     ****                 x = 3+5*i;
- 413:src/lcd.c     ****                 if (dots[p]) {
- 414:src/lcd.c     ****                         MOVE(x+1, dig_base);    PRINTF("--");
- 415:src/lcd.c     ****                 }
- 416:src/lcd.c     ****                 if (dots[p+1]) {
- 417:src/lcd.c     ****                         MOVE(x, dig_base+1);    PRINTF("|");
- 418:src/lcd.c     ****                         MOVE(x, dig_base+2);    PRINTF("|");
- 419:src/lcd.c     ****                 }
- 420:src/lcd.c     ****                 if (dots[p+3]) {
- 421:src/lcd.c     ****                         MOVE(x+3, dig_base+1);  PRINTF("|");
- 422:src/lcd.c     ****                         MOVE(x+3, dig_base+2);  PRINTF("|");
- 423:src/lcd.c     ****                 }
- 424:src/lcd.c     ****                 if (dots[p+2]) {
- 425:src/lcd.c     ****                         MOVE(x+1, dig_base+3);  PRINTF("--");
- 426:src/lcd.c     ****                 }
- 427:src/lcd.c     ****                 if (dots[p+4]) {
- 428:src/lcd.c     ****                         MOVE(x, dig_base+4);    PRINTF("|");
- 429:src/lcd.c     ****                         MOVE(x, dig_base+5);    PRINTF("|");
- 430:src/lcd.c     ****                 }
- 431:src/lcd.c     ****                 if (dots[p+6]) {
- 432:src/lcd.c     ****                         MOVE(x+3, dig_base+4);  PRINTF("|");
- 433:src/lcd.c     ****                         MOVE(x+3, dig_base+5);  PRINTF("|");
- 434:src/lcd.c     ****                 }
- 435:src/lcd.c     ****                 if (dots[p+5]) {
- 436:src/lcd.c     ****                         MOVE(x+1, dig_base+6);  PRINTF("--");
- 437:src/lcd.c     ****                 }
- 438:src/lcd.c     ****                 if (dots[p+7]) {
- 439:src/lcd.c     ****                         MOVE(x+4, dig_base+6);  PRINTF(".");
- 440:src/lcd.c     ****                 }
- 441:src/lcd.c     ****                 if (dots[p+8]) {
- 442:src/lcd.c     ****                         MOVE(x+3, dig_base+7);  PRINTF("/");
+ 427:src/lcd.c     ****                         MOVE(x, dig_base+2);    PRINTF("|");
+ 428:src/lcd.c     ****                 }
+ 429:src/lcd.c     ****                 if (dots[p+3]) {
+ 430:src/lcd.c     ****                         MOVE(x+3, dig_base+1);  PRINTF("|");
+ 431:src/lcd.c     ****                         MOVE(x+3, dig_base+2);  PRINTF("|");
+ 432:src/lcd.c     ****                 }
+ 433:src/lcd.c     ****                 if (dots[p+2]) {
+ 434:src/lcd.c     ****                         MOVE(x+1, dig_base+3);  PRINTF("--");
+ 435:src/lcd.c     ****                 }
+ 436:src/lcd.c     ****                 if (dots[p+4]) {
+ 437:src/lcd.c     ****                         MOVE(x, dig_base+4);    PRINTF("|");
+ 438:src/lcd.c     ****                         MOVE(x, dig_base+5);    PRINTF("|");
+ 439:src/lcd.c     ****                 }
+ 440:src/lcd.c     ****                 if (dots[p+6]) {
+ 441:src/lcd.c     ****                         MOVE(x+3, dig_base+4);  PRINTF("|");
+ 442:src/lcd.c     ****                         MOVE(x+3, dig_base+5);  PRINTF("|");
  443:src/lcd.c     ****                 }
- 444:src/lcd.c     ****         }
- 445:src/lcd.c     ****         /* Segments 108 - 128 are the exponent digits */
- 446:src/lcd.c     ****         for (i=0; i<3; i++) {
- 447:src/lcd.c     ****                 p = i*7+108;
- 448:src/lcd.c     ****                 x = 66 + i * 4;
- 449:src/lcd.c     ****                 if (dots[p]) {
- 450:src/lcd.c     ****                         MOVE(x+1, dig_base-1);  PRINTF("-");
- 451:src/lcd.c     ****                 }
- 452:src/lcd.c     ****                 if (dots[p+1]) {
-ARM GAS  /tmp/ccNLenXV.s 			page 53
-
-
- 453:src/lcd.c     ****                         MOVE(x, dig_base);      PRINTF("|");
- 454:src/lcd.c     ****                 }
- 455:src/lcd.c     ****                 if (dots[p+3]) {
- 456:src/lcd.c     ****                         MOVE(x+2, dig_base);    PRINTF("|");
- 457:src/lcd.c     ****                 }
- 458:src/lcd.c     ****                 if (dots[p+2]) {
- 459:src/lcd.c     ****                         MOVE(x+1, dig_base+1);  PRINTF("-");
+ 444:src/lcd.c     ****                 if (dots[p+5]) {
+ 445:src/lcd.c     ****                         MOVE(x+1, dig_base+6);  PRINTF("--");
+ 446:src/lcd.c     ****                 }
+ 447:src/lcd.c     ****                 if (dots[p+7]) {
+ 448:src/lcd.c     ****                         MOVE(x+4, dig_base+6);  PRINTF(".");
+ 449:src/lcd.c     ****                 }
+ 450:src/lcd.c     ****                 if (dots[p+8]) {
+ 451:src/lcd.c     ****                         MOVE(x+3, dig_base+7);  PRINTF("/");
+ 452:src/lcd.c     ****                 }
+ 453:src/lcd.c     ****         }
+ 454:src/lcd.c     ****         /* Segments 108 - 128 are the exponent digits */
+ 455:src/lcd.c     ****         for (i=0; i<3; i++) {
+ 456:src/lcd.c     ****                 p = i*7+108;
+ 457:src/lcd.c     ****                 x = 66 + i * 4;
+ 458:src/lcd.c     ****                 if (dots[p]) {
+ 459:src/lcd.c     ****                         MOVE(x+1, dig_base-1);  PRINTF("-");
  460:src/lcd.c     ****                 }
- 461:src/lcd.c     ****                 if (dots[p+4]) {
- 462:src/lcd.c     ****                         MOVE(x, dig_base+2);    PRINTF("|");
+ 461:src/lcd.c     ****                 if (dots[p+1]) {
+ 462:src/lcd.c     ****                         MOVE(x, dig_base);      PRINTF("|");
  463:src/lcd.c     ****                 }
- 464:src/lcd.c     ****                 if (dots[p+6]) {
- 465:src/lcd.c     ****                         MOVE(x+2, dig_base+2);  PRINTF("|");
+ 464:src/lcd.c     ****                 if (dots[p+3]) {
+ 465:src/lcd.c     ****                         MOVE(x+2, dig_base);    PRINTF("|");
  466:src/lcd.c     ****                 }
- 467:src/lcd.c     ****                 if (dots[p+5]) {
- 468:src/lcd.c     ****                         MOVE(x+1, dig_base+3);  PRINTF("-");
+ 467:src/lcd.c     ****                 if (dots[p+2]) {
+ 468:src/lcd.c     ****                         MOVE(x+1, dig_base+1);  PRINTF("-");
  469:src/lcd.c     ****                 }
- 470:src/lcd.c     ****         }
- 471:src/lcd.c     ****         /* Segments 129 & 130 are the signs */
- 472:src/lcd.c     ****         if (dots[MANT_SIGN]) {
- 473:src/lcd.c     ****                 MOVE(0, dig_base+3);
- 474:src/lcd.c     ****                 PRINTF("--");
- 475:src/lcd.c     ****         }
- 476:src/lcd.c     ****         if (dots[EXP_SIGN]) {
- 477:src/lcd.c     ****                 MOVE(64, dig_base+1);
- 478:src/lcd.c     ****                 PRINTF("-");
+ 470:src/lcd.c     ****                 if (dots[p+4]) {
+ 471:src/lcd.c     ****                         MOVE(x, dig_base+2);    PRINTF("|");
+ 472:src/lcd.c     ****                 }
+ 473:src/lcd.c     ****                 if (dots[p+6]) {
+ 474:src/lcd.c     ****                         MOVE(x+2, dig_base+2);  PRINTF("|");
+ 475:src/lcd.c     ****                 }
+ 476:src/lcd.c     ****                 if (dots[p+5]) {
+ 477:src/lcd.c     ****                         MOVE(x+1, dig_base+3);  PRINTF("-");
+ 478:src/lcd.c     ****                 }
  479:src/lcd.c     ****         }
- 480:src/lcd.c     ****         if (dots[BIG_EQ]) {
- 481:src/lcd.c     ****                 MOVE(47, 12);   PRINTF("==");
- 482:src/lcd.c     ****         }
- 483:src/lcd.c     ****         if (dots[LIT_EQ]) {
- 484:src/lcd.c     ****                 MOVE(64, 10);   PRINTF("=");
- 485:src/lcd.c     ****         }
- 486:src/lcd.c     ****         if (dots[DOWN_ARR]) {
- 487:src/lcd.c     ****                 MOVE(52, 10);   PRINTF("v");
+ 480:src/lcd.c     ****         /* Segments 129 & 130 are the signs */
+ 481:src/lcd.c     ****         if (dots[MANT_SIGN]) {
+ 482:src/lcd.c     ****                 MOVE(0, dig_base+3);
+ 483:src/lcd.c     ****                 PRINTF("--");
+ARM GAS  /tmp/ccLsYHtp.s 			page 54
+
+
+ 484:src/lcd.c     ****         }
+ 485:src/lcd.c     ****         if (dots[EXP_SIGN]) {
+ 486:src/lcd.c     ****                 MOVE(64, dig_base+1);
+ 487:src/lcd.c     ****                 PRINTF("-");
  488:src/lcd.c     ****         }
- 489:src/lcd.c     ****         if (dots[INPUT]) {
- 490:src/lcd.c     ****                 MOVE(55, 10);   PRINTF("INPUT");
+ 489:src/lcd.c     ****         if (dots[BIG_EQ]) {
+ 490:src/lcd.c     ****                 MOVE(47, 12);   PRINTF("==");
  491:src/lcd.c     ****         }
- 492:src/lcd.c     ****         if (dots[BATTERY]) {
- 493:src/lcd.c     ****                 MOVE(70, 10);   PRINTF("####-");
+ 492:src/lcd.c     ****         if (dots[LIT_EQ]) {
+ 493:src/lcd.c     ****                 MOVE(64, 10);   PRINTF("=");
  494:src/lcd.c     ****         }
- 495:src/lcd.c     ****         if (dots[BEG]) {
- 496:src/lcd.c     ****                 MOVE(52, 12);   PRINTF("BEG");
+ 495:src/lcd.c     ****         if (dots[DOWN_ARR]) {
+ 496:src/lcd.c     ****                 MOVE(52, 10);   PRINTF("v");
  497:src/lcd.c     ****         }
- 498:src/lcd.c     ****         if (dots[STO_annun]) {
- 499:src/lcd.c     ****                 MOVE(62, 12);   PRINTF("STO");
+ 498:src/lcd.c     ****         if (dots[INPUT]) {
+ 499:src/lcd.c     ****                 MOVE(55, 10);   PRINTF("INPUT");
  500:src/lcd.c     ****         }
- 501:src/lcd.c     ****         if (dots[RCL_annun]) {
- 502:src/lcd.c     ****                 MOVE(72, 12);   PRINTF("RCL");
+ 501:src/lcd.c     ****         if (dots[BATTERY]) {
+ 502:src/lcd.c     ****                 MOVE(70, 10);   PRINTF("####-");
  503:src/lcd.c     ****         }
- 504:src/lcd.c     ****         if (dots[RAD]) {
- 505:src/lcd.c     ****                 MOVE(52, 14);   PRINTF("RAD");
+ 504:src/lcd.c     ****         if (dots[BEG]) {
+ 505:src/lcd.c     ****                 MOVE(52, 12);   PRINTF("BEG");
  506:src/lcd.c     ****         }
- 507:src/lcd.c     ****         if (dots[DEG]) {
- 508:src/lcd.c     ****                 MOVE(62, 14);   PRINTF("360");
+ 507:src/lcd.c     ****         if (dots[STO_annun]) {
+ 508:src/lcd.c     ****                 MOVE(62, 12);   PRINTF("STO");
  509:src/lcd.c     ****         }
-ARM GAS  /tmp/ccNLenXV.s 			page 54
-
-
- 510:src/lcd.c     ****         if (dots[RPN]) {
- 511:src/lcd.c     ****                 MOVE(72, 14);   PRINTF("RPN");
+ 510:src/lcd.c     ****         if (dots[RCL_annun]) {
+ 511:src/lcd.c     ****                 MOVE(72, 12);   PRINTF("RCL");
  512:src/lcd.c     ****         }
- 513:src/lcd.c     ****         /* The graphical bit last */
- 514:src/lcd.c     ****         for (i=0; i<BITMAP_WIDTH; i++)
- 515:src/lcd.c     ****                 for (j=0; j<6; j++) {
- 516:src/lcd.c     ****                         if (dots[i*6+j+MATRIX_BASE]) {
- 517:src/lcd.c     ****                                 MOVE(1+i, 9+j);
- 518:src/lcd.c     ****                                 PRINTF("#");
- 519:src/lcd.c     ****                         }
- 520:src/lcd.c     ****                 }
- 521:src/lcd.c     **** }
- 522:src/lcd.c     **** #endif
- 523:src/lcd.c     **** 
- 524:src/lcd.c     **** void show_stack(void) {
- 525:src/lcd.c     **** #ifdef USECURSES
- 526:src/lcd.c     ****   int i;
- 527:src/lcd.c     **** 
- 528:src/lcd.c     ****         if (!State2.flags)
- 529:src/lcd.c     ****                 return;
- 530:src/lcd.c     **** 
- 531:src/lcd.c     ****         // Stack display smashes the stack registers
- 532:src/lcd.c     ****         for (i=4; i<STACK_SIZE; i++) {
- 533:src/lcd.c     ****                 MOVE(26, 8-i);
- 534:src/lcd.c     ****                 PRINTF("%c ", i<stack_size()?'*':' ');
- 535:src/lcd.c     ****                 dispreg(REGNAMES[i], regX_idx + i);
- 536:src/lcd.c     ****         }
- 537:src/lcd.c     ****         MOVE(53, 2);    dispreg(REGNAMES[regJ_idx-regX_idx], regJ_idx);
- 538:src/lcd.c     ****         MOVE(53, 1);    dispreg(REGNAMES[regK_idx-regX_idx], regK_idx);
- 539:src/lcd.c     ****         for (i=0; i<4; i++) {
- 540:src/lcd.c     ****                 MOVE(0, 4-i);
- 541:src/lcd.c     ****                 dispreg(REGNAMES[i], regX_idx + i);
- 542:src/lcd.c     ****         }
- 543:src/lcd.c     ****         MOVE(53, 4);
- 544:src/lcd.c     ****         dispreg(REGNAMES[regL_idx-regX_idx], regL_idx);
- 545:src/lcd.c     ****         MOVE(53, 3);
- 546:src/lcd.c     ****         dispreg(REGNAMES[regI_idx-regX_idx], regI_idx);
- 547:src/lcd.c     ****         MOVE(53, 0);
- 548:src/lcd.c     ****         PRINTF("stack depth: %d", stack_size());
- 549:src/lcd.c     **** #endif
- 550:src/lcd.c     **** }
- 551:src/lcd.c     **** 
- 552:src/lcd.c     **** void show_flags(void) {
- 553:src/lcd.c     **** #if defined(CONSOLE) && !defined(DM42)
- 554:src/lcd.c     **** 	extern unsigned int get_local_flags(void);
- 555:src/lcd.c     **** 
- 556:src/lcd.c     **** 	if (!State2.flags)
- 557:src/lcd.c     **** 		return;
- 558:src/lcd.c     **** 	MOVE(0, 0);
- 559:src/lcd.c     **** 	PRINTF(" %c ", JustDisplayed ? '*' : ' ');
- 560:src/lcd.c     **** 	MOVE(5, 0);
- 561:src/lcd.c     **** 	switch (cur_shift()) {
- 562:src/lcd.c     **** 	case SHIFT_F:   PRINTF("[f-shift]");    break;
- 563:src/lcd.c     **** 	case SHIFT_G:   PRINTF("[g-shift]");    break;
- 564:src/lcd.c     **** 	case SHIFT_H:   PRINTF("[h-shift]");    break;
- 565:src/lcd.c     **** 	default:                                break;
- 566:src/lcd.c     **** 	}
-ARM GAS  /tmp/ccNLenXV.s 			page 55
+ 513:src/lcd.c     ****         if (dots[RAD]) {
+ 514:src/lcd.c     ****                 MOVE(52, 14);   PRINTF("RAD");
+ 515:src/lcd.c     ****         }
+ 516:src/lcd.c     ****         if (dots[DEG]) {
+ 517:src/lcd.c     ****                 MOVE(62, 14);   PRINTF("360");
+ 518:src/lcd.c     ****         }
+ 519:src/lcd.c     ****         if (dots[RPN]) {
+ 520:src/lcd.c     ****                 MOVE(72, 14);   PRINTF("RPN");
+ 521:src/lcd.c     ****         }
+ 522:src/lcd.c     ****         /* The graphical bit last */
+ 523:src/lcd.c     ****         for (i=0; i<BITMAP_WIDTH; i++)
+ 524:src/lcd.c     ****                 for (j=0; j<6; j++) {
+ 525:src/lcd.c     ****                         if (dots[i*6+j+MATRIX_BASE]) {
+ 526:src/lcd.c     ****                                 MOVE(1+i, 9+j);
+ 527:src/lcd.c     ****                                 PRINTF("#");
+ 528:src/lcd.c     ****                         }
+ 529:src/lcd.c     ****                 }
+ 530:src/lcd.c     **** }
+ 531:src/lcd.c     **** #endif
+ 532:src/lcd.c     **** 
+ 533:src/lcd.c     **** void show_stack(void) {
+ 534:src/lcd.c     **** #ifdef USECURSES
+ 535:src/lcd.c     ****   int i;
+ 536:src/lcd.c     **** 
+ 537:src/lcd.c     ****         if (!State2.flags)
+ 538:src/lcd.c     ****                 return;
+ 539:src/lcd.c     **** 
+ 540:src/lcd.c     ****         // Stack display smashes the stack registers
+ARM GAS  /tmp/ccLsYHtp.s 			page 55
 
 
- 567:src/lcd.c     **** 	if (State2.hyp) {
- 568:src/lcd.c     **** 		MOVE(14, 0);
- 569:src/lcd.c     **** 		if (State2.dot)
- 570:src/lcd.c     **** 			PRINTF("[hyp]");
- 571:src/lcd.c     **** 		else
- 572:src/lcd.c     **** 			PRINTF("[hyp-1]");
- 573:src/lcd.c     **** 	}
- 574:src/lcd.c     **** 	if (!State2.runmode) {
- 575:src/lcd.c     **** 		MOVE(21, 0);
- 576:src/lcd.c     **** 		PRINTF("[prog]");
- 577:src/lcd.c     **** 	}
- 578:src/lcd.c     **** 	if (view_instruction_counter) {
- 579:src/lcd.c     **** 		MOVE(28, 0);
- 580:src/lcd.c     **** 		PRINTF("#%llu", instruction_count);
- 581:src/lcd.c     **** 	}
- 582:src/lcd.c     **** 	MOVE(0, 0);
- 583:src/lcd.c     **** 
- 584:src/lcd.c     **** #ifdef USECURSES
- 585:src/lcd.c     **** #define FLAG_BASE       5
- 586:src/lcd.c     **** 	MOVE(10, FLAG_BASE);
- 587:src/lcd.c     **** 	if (State2.rarg)
- 588:src/lcd.c     **** 		PRINTF("[rcmd]");
- 589:src/lcd.c     **** 	else if (State2.arrow)
- 590:src/lcd.c     **** 		PRINTF("[arr]");
- 591:src/lcd.c     **** 	if (State2.dot) {
- 592:src/lcd.c     **** 		MOVE(18, FLAG_BASE);
- 593:src/lcd.c     **** 		PRINTF("[dot]");
- 594:src/lcd.c     **** 	}
- 595:src/lcd.c     **** 	if (State2.ind) {
- 596:src/lcd.c     **** 		MOVE(24, FLAG_BASE);
- 597:src/lcd.c     **** 		PRINTF("[ind]");
- 598:src/lcd.c     **** 	}
- 599:src/lcd.c     **** 	if (State2.trace) {
- 600:src/lcd.c     **** 		MOVE(30, FLAG_BASE);
- 601:src/lcd.c     **** 		PRINTF("[trace]");
- 602:src/lcd.c     **** 	}
- 603:src/lcd.c     **** 	if (State2.cmplx) {
- 604:src/lcd.c     **** 		MOVE(40, FLAG_BASE);
- 605:src/lcd.c     **** 		PRINTF("[cmplx]");
- 606:src/lcd.c     **** 	}
- 607:src/lcd.c     **** 	if (State2.catalogue) {
- 608:src/lcd.c     **** 		MOVE(50, FLAG_BASE);
- 609:src/lcd.c     **** 		PRINTF("[cat %03u]", State2.catalogue);
- 610:src/lcd.c     **** 	}
- 611:src/lcd.c     **** 	if (State2.hms) {
- 612:src/lcd.c     **** 		MOVE(64, FLAG_BASE);
- 613:src/lcd.c     **** 		PRINTF("[H.MS]");
- 614:src/lcd.c     **** 	}
- 615:src/lcd.c     **** 	if (UState.fract) {
- 616:src/lcd.c     **** 		MOVE(71, FLAG_BASE);
- 617:src/lcd.c     **** 		PRINTF("[FRACT]");
- 618:src/lcd.c     **** 	}
- 619:src/lcd.c     **** 	if (State2.multi) {
- 620:src/lcd.c     **** 		MOVE(71, FLAG_BASE+1);
- 621:src/lcd.c     **** 		PRINTF("[MULTI]");
- 622:src/lcd.c     **** 	}
- 623:src/lcd.c     **** 	MOVE(50, FLAG_BASE+1);
-ARM GAS  /tmp/ccNLenXV.s 			page 56
+ 541:src/lcd.c     ****         for (i=4; i<STACK_SIZE; i++) {
+ 542:src/lcd.c     ****                 MOVE(26, 8-i);
+ 543:src/lcd.c     ****                 PRINTF("%c ", i<stack_size()?'*':' ');
+ 544:src/lcd.c     ****                 dispreg(REGNAMES[i], regX_idx + i);
+ 545:src/lcd.c     ****         }
+ 546:src/lcd.c     ****         MOVE(53, 2);    dispreg(REGNAMES[regJ_idx-regX_idx], regJ_idx);
+ 547:src/lcd.c     ****         MOVE(53, 1);    dispreg(REGNAMES[regK_idx-regX_idx], regK_idx);
+ 548:src/lcd.c     ****         for (i=0; i<4; i++) {
+ 549:src/lcd.c     ****                 MOVE(0, 4-i);
+ 550:src/lcd.c     ****                 dispreg(REGNAMES[i], regX_idx + i);
+ 551:src/lcd.c     ****         }
+ 552:src/lcd.c     ****         MOVE(53, 4);
+ 553:src/lcd.c     ****         dispreg(REGNAMES[regL_idx-regX_idx], regL_idx);
+ 554:src/lcd.c     ****         MOVE(53, 3);
+ 555:src/lcd.c     ****         dispreg(REGNAMES[regI_idx-regX_idx], regI_idx);
+ 556:src/lcd.c     ****         MOVE(53, 0);
+ 557:src/lcd.c     ****         PRINTF("stack depth: %d", stack_size());
+ 558:src/lcd.c     **** #endif
+ 559:src/lcd.c     **** }
+ 560:src/lcd.c     **** 
+ 561:src/lcd.c     **** void show_flags(void) {
+ 562:src/lcd.c     **** #if defined(CONSOLE) && !defined(DM42)
+ 563:src/lcd.c     **** 	extern unsigned int get_local_flags(void);
+ 564:src/lcd.c     **** 
+ 565:src/lcd.c     **** 	if (!State2.flags)
+ 566:src/lcd.c     **** 		return;
+ 567:src/lcd.c     **** 	MOVE(0, 0);
+ 568:src/lcd.c     **** 	PRINTF(" %c ", JustDisplayed ? '*' : ' ');
+ 569:src/lcd.c     **** 	MOVE(5, 0);
+ 570:src/lcd.c     **** 	switch (cur_shift()) {
+ 571:src/lcd.c     **** 	case SHIFT_F:   PRINTF("[f-shift]");    break;
+ 572:src/lcd.c     **** 	case SHIFT_G:   PRINTF("[g-shift]");    break;
+ 573:src/lcd.c     **** 	case SHIFT_H:   PRINTF("[h-shift]");    break;
+ 574:src/lcd.c     **** 	default:                                break;
+ 575:src/lcd.c     **** 	}
+ 576:src/lcd.c     **** 	if (State2.hyp) {
+ 577:src/lcd.c     **** 		MOVE(14, 0);
+ 578:src/lcd.c     **** 		if (State2.dot)
+ 579:src/lcd.c     **** 			PRINTF("[hyp]");
+ 580:src/lcd.c     **** 		else
+ 581:src/lcd.c     **** 			PRINTF("[hyp-1]");
+ 582:src/lcd.c     **** 	}
+ 583:src/lcd.c     **** 	if (!State2.runmode) {
+ 584:src/lcd.c     **** 		MOVE(21, 0);
+ 585:src/lcd.c     **** 		PRINTF("[prog]");
+ 586:src/lcd.c     **** 	}
+ 587:src/lcd.c     **** 	if (view_instruction_counter) {
+ 588:src/lcd.c     **** 		MOVE(28, 0);
+ 589:src/lcd.c     **** 		PRINTF("#%llu", instruction_count);
+ 590:src/lcd.c     **** 	}
+ 591:src/lcd.c     **** 	MOVE(0, 0);
+ 592:src/lcd.c     **** 
+ 593:src/lcd.c     **** #ifdef USECURSES
+ 594:src/lcd.c     **** #define FLAG_BASE       5
+ 595:src/lcd.c     **** 	MOVE(10, FLAG_BASE);
+ 596:src/lcd.c     **** 	if (State2.rarg)
+ 597:src/lcd.c     **** 		PRINTF("[rcmd]");
+ARM GAS  /tmp/ccLsYHtp.s 			page 56
 
 
- 624:src/lcd.c     **** 	PRINTF("[RRS %03u]", ProgSize);
- 625:src/lcd.c     **** 	if (State2.state_lift) {
- 626:src/lcd.c     **** 		MOVE(10, FLAG_BASE+1);
- 627:src/lcd.c     **** 		PRINTF("[lift]");
- 628:src/lcd.c     **** 	}
- 629:src/lcd.c     **** 	if (Running) {
- 630:src/lcd.c     **** 		MOVE(18, FLAG_BASE+1);
- 631:src/lcd.c     **** 		PRINTF("[running]");
- 632:src/lcd.c     **** 	}
- 633:src/lcd.c     **** 	MOVE(70, 5);
- 634:src/lcd.c     **** 	PRINTF("iw = %u/%u", State2.window, IntMaxWindow);
- 635:src/lcd.c     **** 	MOVE(30, FLAG_BASE+1);
- 636:src/lcd.c     **** 	PRINTF("shft = %u", cur_shift());
- 637:src/lcd.c     **** 	MOVE(40, FLAG_BASE+1);
- 638:src/lcd.c     **** 	PRINTF("trig = %u", UState.trigmode);
- 639:src/lcd.c     **** 	MOVE(60, FLAG_BASE+1);
- 640:src/lcd.c     **** 	PRINTF("r = %u", ShowRegister);
- 641:src/lcd.c     **** //	MOVE(60, FLAG_BASE+1);
- 642:src/lcd.c     **** //	PRINTF("apos = %u", State2.alpha_pos);
- 643:src/lcd.c     **** 	MOVE(10, FLAG_BASE+2);
- 644:src/lcd.c     **** 	PRINTF("numdig = %u   alpha '%-31s'   lflags = %03o-%03o",
- 645:src/lcd.c     **** 			State2.numdigit, Alpha, get_local_flags() >> 8,
- 646:src/lcd.c     **** 			get_local_flags() & 0xff);
- 647:src/lcd.c     **** 	if (State.entryp) {
- 648:src/lcd.c     **** 		MOVE(0, FLAG_BASE+2);
- 649:src/lcd.c     **** 		PRINTF("entryp");
- 650:src/lcd.c     **** 	}
- 651:src/lcd.c     **** 	MOVE(10, FLAG_BASE+3);
- 652:src/lcd.c     **** 	PRINTF("digval=%u", State2.digval);
- 653:src/lcd.c     **** 	MOVE(23, FLAG_BASE+3);
- 654:src/lcd.c     **** 	PRINTF("pc = %03u", state_pc());
- 655:src/lcd.c     **** 	MOVE(34, FLAG_BASE+3);
- 656:src/lcd.c     **** 	PRINTF("ap = %u", State2.alpha_pos);
- 657:src/lcd.c     **** 	MOVE(45, FLAG_BASE+3);
- 658:src/lcd.c     **** 	PRINTF("cmddot = %u  cmdeex = %u  eol = %u",
- 659:src/lcd.c     **** 			CmdLineDot, CmdLineEex, CmdLineLength);
- 660:src/lcd.c     **** 	MOVE(0, FLAG_BASE+3);
- 661:src/lcd.c     **** 	PRINTF("JG=%d", UState.jg1582?1582:1752);
- 662:src/lcd.c     **** #endif
- 663:src/lcd.c     **** #endif
- 664:src/lcd.c     **** }
- 665:src/lcd.c     **** 
- 666:src/lcd.c     **** void wait_for_display(void)
- 667:src/lcd.c     **** {
- 2392              		.loc 1 667 1 view -0
- 2393              		.cfi_startproc
- 2394              		@ args = 0, pretend = 0, frame = 0
- 2395              		@ frame_needed = 0, uses_anonymous_args = 0
- 2396              		@ link register save eliminated.
- 668:src/lcd.c     **** }
- 2397              		.loc 1 668 1 view .LVU475
- 2398 0000 7047     		bx	lr
- 2399              		.cfi_endproc
- 2400              	.LFE28:
- 2402 0002 00BF     		.section	.text.finish_display,"ax",%progbits
- 2403              		.align	1
- 2404              		.p2align 2,,3
-ARM GAS  /tmp/ccNLenXV.s 			page 57
+ 598:src/lcd.c     **** 	else if (State2.arrow)
+ 599:src/lcd.c     **** 		PRINTF("[arr]");
+ 600:src/lcd.c     **** 	if (State2.dot) {
+ 601:src/lcd.c     **** 		MOVE(18, FLAG_BASE);
+ 602:src/lcd.c     **** 		PRINTF("[dot]");
+ 603:src/lcd.c     **** 	}
+ 604:src/lcd.c     **** 	if (State2.ind) {
+ 605:src/lcd.c     **** 		MOVE(24, FLAG_BASE);
+ 606:src/lcd.c     **** 		PRINTF("[ind]");
+ 607:src/lcd.c     **** 	}
+ 608:src/lcd.c     **** 	if (State2.trace) {
+ 609:src/lcd.c     **** 		MOVE(30, FLAG_BASE);
+ 610:src/lcd.c     **** 		PRINTF("[trace]");
+ 611:src/lcd.c     **** 	}
+ 612:src/lcd.c     **** 	if (State2.cmplx) {
+ 613:src/lcd.c     **** 		MOVE(40, FLAG_BASE);
+ 614:src/lcd.c     **** 		PRINTF("[cmplx]");
+ 615:src/lcd.c     **** 	}
+ 616:src/lcd.c     **** 	if (State2.catalogue) {
+ 617:src/lcd.c     **** 		MOVE(50, FLAG_BASE);
+ 618:src/lcd.c     **** 		PRINTF("[cat %03u]", State2.catalogue);
+ 619:src/lcd.c     **** 	}
+ 620:src/lcd.c     **** 	if (State2.hms) {
+ 621:src/lcd.c     **** 		MOVE(64, FLAG_BASE);
+ 622:src/lcd.c     **** 		PRINTF("[H.MS]");
+ 623:src/lcd.c     **** 	}
+ 624:src/lcd.c     **** 	if (UState.fract) {
+ 625:src/lcd.c     **** 		MOVE(71, FLAG_BASE);
+ 626:src/lcd.c     **** 		PRINTF("[FRACT]");
+ 627:src/lcd.c     **** 	}
+ 628:src/lcd.c     **** 	if (State2.multi) {
+ 629:src/lcd.c     **** 		MOVE(71, FLAG_BASE+1);
+ 630:src/lcd.c     **** 		PRINTF("[MULTI]");
+ 631:src/lcd.c     **** 	}
+ 632:src/lcd.c     **** 	MOVE(50, FLAG_BASE+1);
+ 633:src/lcd.c     **** 	PRINTF("[RRS %03u]", ProgSize);
+ 634:src/lcd.c     **** 	if (State2.state_lift) {
+ 635:src/lcd.c     **** 		MOVE(10, FLAG_BASE+1);
+ 636:src/lcd.c     **** 		PRINTF("[lift]");
+ 637:src/lcd.c     **** 	}
+ 638:src/lcd.c     **** 	if (Running) {
+ 639:src/lcd.c     **** 		MOVE(18, FLAG_BASE+1);
+ 640:src/lcd.c     **** 		PRINTF("[running]");
+ 641:src/lcd.c     **** 	}
+ 642:src/lcd.c     **** 	MOVE(70, 5);
+ 643:src/lcd.c     **** 	PRINTF("iw = %u/%u", State2.window, IntMaxWindow);
+ 644:src/lcd.c     **** 	MOVE(30, FLAG_BASE+1);
+ 645:src/lcd.c     **** 	PRINTF("shft = %u", cur_shift());
+ 646:src/lcd.c     **** 	MOVE(40, FLAG_BASE+1);
+ 647:src/lcd.c     **** 	PRINTF("trig = %u", UState.trigmode);
+ 648:src/lcd.c     **** 	MOVE(60, FLAG_BASE+1);
+ 649:src/lcd.c     **** 	PRINTF("r = %u", ShowRegister);
+ 650:src/lcd.c     **** //	MOVE(60, FLAG_BASE+1);
+ 651:src/lcd.c     **** //	PRINTF("apos = %u", State2.alpha_pos);
+ 652:src/lcd.c     **** 	MOVE(10, FLAG_BASE+2);
+ 653:src/lcd.c     **** 	PRINTF("numdig = %u   alpha '%-31s'   lflags = %03o-%03o",
+ 654:src/lcd.c     **** 			State2.numdigit, Alpha, get_local_flags() >> 8,
+ARM GAS  /tmp/ccLsYHtp.s 			page 57
 
 
- 2405              		.global	finish_display
- 2406              		.syntax unified
- 2407              		.thumb
- 2408              		.thumb_func
- 2409              		.fpu fpv4-sp-d16
- 2411              	finish_display:
- 2412              	.LFB29:
- 669:src/lcd.c     **** 
- 670:src/lcd.c     **** #if defined(USECURSES) && !defined(DM42) 
- 671:src/lcd.c     **** void finish_display(void) {
- 672:src/lcd.c     ****         show_disp();
- 673:src/lcd.c     ****         MOVE(0, 0);
- 674:src/lcd.c     ****         refresh();
- 675:src/lcd.c     **** 
- 676:src/lcd.c     **** }
- 677:src/lcd.c     **** #endif
- 678:src/lcd.c     **** #if defined(DM42) 
- 679:src/lcd.c     **** void finish_display(void) {
- 2413              		.loc 1 679 27 view -0
- 2414              		.cfi_startproc
- 2415              		@ args = 0, pretend = 0, frame = 0
- 2416              		@ frame_needed = 0, uses_anonymous_args = 0
- 680:src/lcd.c     ****   //  lcd_clear_buf();
- 681:src/lcd.c     ****   lcd_fill_rect (0, 0, 400, 188, 0); //leave bottom 52 rows for menu 
- 2417              		.loc 1 681 3 view .LVU477
- 679:src/lcd.c     ****   //  lcd_clear_buf();
- 2418              		.loc 1 679 27 is_stmt 0 view .LVU478
- 2419 0000 10B5     		push	{r4, lr}
- 2420              		.cfi_def_cfa_offset 8
- 2421              		.cfi_offset 4, -8
- 2422              		.cfi_offset 14, -4
- 2423 0002 82B0     		sub	sp, sp, #8
- 2424              		.cfi_def_cfa_offset 16
- 2425              		.loc 1 681 3 view .LVU479
- 2426 0004 0021     		movs	r1, #0
- 2427 0006 0091     		str	r1, [sp]
- 2428 0008 0846     		mov	r0, r1
- 2429 000a BC23     		movs	r3, #188
- 2430 000c 4FF4C872 		mov	r2, #400
- 2431 0010 044C     		ldr	r4, .L238
- 2432 0012 A047     		blx	r4
- 2433              	.LVL208:
- 682:src/lcd.c     ****   show_disp();
- 2434              		.loc 1 682 3 is_stmt 1 view .LVU480
- 2435 0014 FFF7FEFF 		bl	show_disp
- 2436              	.LVL209:
- 683:src/lcd.c     ****   lcd_refresh();
- 2437              		.loc 1 683 3 view .LVU481
- 2438 0018 034B     		ldr	r3, .L238+4
- 684:src/lcd.c     **** }
- 2439              		.loc 1 684 1 is_stmt 0 view .LVU482
- 2440 001a 02B0     		add	sp, sp, #8
- 2441              		.cfi_def_cfa_offset 8
- 2442              		@ sp needed
- 2443 001c BDE81040 		pop	{r4, lr}
- 2444              		.cfi_restore 14
- 2445              		.cfi_restore 4
-ARM GAS  /tmp/ccNLenXV.s 			page 58
+ 655:src/lcd.c     **** 			get_local_flags() & 0xff);
+ 656:src/lcd.c     **** 	if (State.entryp) {
+ 657:src/lcd.c     **** 		MOVE(0, FLAG_BASE+2);
+ 658:src/lcd.c     **** 		PRINTF("entryp");
+ 659:src/lcd.c     **** 	}
+ 660:src/lcd.c     **** 	MOVE(10, FLAG_BASE+3);
+ 661:src/lcd.c     **** 	PRINTF("digval=%u", State2.digval);
+ 662:src/lcd.c     **** 	MOVE(23, FLAG_BASE+3);
+ 663:src/lcd.c     **** 	PRINTF("pc = %03u", state_pc());
+ 664:src/lcd.c     **** 	MOVE(34, FLAG_BASE+3);
+ 665:src/lcd.c     **** 	PRINTF("ap = %u", State2.alpha_pos);
+ 666:src/lcd.c     **** 	MOVE(45, FLAG_BASE+3);
+ 667:src/lcd.c     **** 	PRINTF("cmddot = %u  cmdeex = %u  eol = %u",
+ 668:src/lcd.c     **** 			CmdLineDot, CmdLineEex, CmdLineLength);
+ 669:src/lcd.c     **** 	MOVE(0, FLAG_BASE+3);
+ 670:src/lcd.c     **** 	PRINTF("JG=%d", UState.jg1582?1582:1752);
+ 671:src/lcd.c     **** #endif
+ 672:src/lcd.c     **** #endif
+ 673:src/lcd.c     **** }
+ 674:src/lcd.c     **** 
+ 675:src/lcd.c     **** void wait_for_display(void)
+ 676:src/lcd.c     **** {
+ 2415              		.loc 1 676 1 view -0
+ 2416              		.cfi_startproc
+ 2417              		@ args = 0, pretend = 0, frame = 0
+ 2418              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2419              		@ link register save eliminated.
+ 677:src/lcd.c     **** }
+ 2420              		.loc 1 677 1 view .LVU479
+ 2421 0000 7047     		bx	lr
+ 2422              		.cfi_endproc
+ 2423              	.LFE28:
+ 2425 0002 00BF     		.section	.text.finish_display,"ax",%progbits
+ 2426              		.align	1
+ 2427              		.p2align 2,,3
+ 2428              		.global	finish_display
+ 2429              		.syntax unified
+ 2430              		.thumb
+ 2431              		.thumb_func
+ 2432              		.fpu fpv4-sp-d16
+ 2434              	finish_display:
+ 2435              	.LFB29:
+ 678:src/lcd.c     **** 
+ 679:src/lcd.c     **** #if defined(USECURSES) && !defined(DM42) 
+ 680:src/lcd.c     **** void finish_display(void) {
+ 681:src/lcd.c     ****         show_disp();
+ 682:src/lcd.c     ****         MOVE(0, 0);
+ 683:src/lcd.c     ****         refresh();
+ 684:src/lcd.c     **** 
+ 685:src/lcd.c     **** }
+ 686:src/lcd.c     **** #endif
+ 687:src/lcd.c     **** #if defined(DM42) 
+ 688:src/lcd.c     **** void finish_display(void) {
+ 2436              		.loc 1 688 27 view -0
+ 2437              		.cfi_startproc
+ 2438              		@ args = 0, pretend = 0, frame = 0
+ 2439              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/ccLsYHtp.s 			page 58
 
 
- 2446              		.cfi_def_cfa_offset 0
- 683:src/lcd.c     ****   lcd_refresh();
- 2447              		.loc 1 683 3 view .LVU483
- 2448 0020 1847     		bx	r3	@ indirect register sibling call
- 2449              	.LVL210:
- 2450              	.L239:
- 2451 0022 00BF     		.align	2
- 2452              	.L238:
- 2453 0024 3D020008 		.word	134218301
- 2454 0028 31020008 		.word	134218289
- 2455              		.cfi_endproc
- 2456              	.LFE29:
- 2458              		.section	.text.finish_RPN,"ax",%progbits
- 2459              		.align	1
- 2460              		.p2align 2,,3
- 2461              		.global	finish_RPN
- 2462              		.syntax unified
- 2463              		.thumb
- 2464              		.thumb_func
- 2465              		.fpu fpv4-sp-d16
- 2467              	finish_RPN:
- 2468              	.LFB30:
- 685:src/lcd.c     **** void finish_RPN(void) {//only refreshes the RPN flag
- 2469              		.loc 1 685 23 is_stmt 1 view -0
- 2470              		.cfi_startproc
- 2471              		@ args = 0, pretend = 0, frame = 0
- 2472              		@ frame_needed = 0, uses_anonymous_args = 0
- 686:src/lcd.c     ****   t20->inv = !dots[RPN];
- 2473              		.loc 1 686 3 view .LVU485
- 685:src/lcd.c     **** void finish_RPN(void) {//only refreshes the RPN flag
- 2474              		.loc 1 685 23 is_stmt 0 view .LVU486
- 2475 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 2476              		.cfi_def_cfa_offset 24
- 2477              		.cfi_offset 4, -24
- 2478              		.cfi_offset 5, -20
- 2479              		.cfi_offset 6, -16
- 2480              		.cfi_offset 7, -12
- 2481              		.cfi_offset 8, -8
- 2482              		.cfi_offset 14, -4
- 2483              		.loc 1 686 19 view .LVU487
- 2484 0004 114F     		ldr	r7, .L242
- 2485              		.loc 1 686 3 view .LVU488
- 2486 0006 124C     		ldr	r4, .L242+4
- 2487              		.loc 1 686 14 view .LVU489
- 2488 0008 97F88D30 		ldrb	r3, [r7, #141]	@ zero_extendqisi2
- 2489              		.loc 1 686 3 view .LVU490
- 2490 000c 206B     		ldr	r0, [r4, #48]
- 687:src/lcd.c     **** #ifdef BIGGER_DISPLAY
- 688:src/lcd.c     ****   lcd_setXY (t20, 365, 75-30); // 70 is y_ann
- 2491              		.loc 1 688 3 view .LVU491
- 2492 000e 114E     		ldr	r6, .L242+8
- 689:src/lcd.c     **** #else
- 690:src/lcd.c     ****   lcd_setXY (t20, 365, 130-30); // 130 is y_ann
- 691:src/lcd.c     **** #endif
- 692:src/lcd.c     ****   lcd_writeText(t20, "RPN");
- 2493              		.loc 1 692 3 view .LVU492
- 2494 0010 114D     		ldr	r5, .L242+12
-ARM GAS  /tmp/ccNLenXV.s 			page 59
+ 689:src/lcd.c     ****   //  lcd_clear_buf();
+ 690:src/lcd.c     ****   lcd_fill_rect (0, 0, 400, 188, 0); //leave bottom 52 rows for menu 
+ 2440              		.loc 1 690 3 view .LVU481
+ 688:src/lcd.c     ****   //  lcd_clear_buf();
+ 2441              		.loc 1 688 27 is_stmt 0 view .LVU482
+ 2442 0000 10B5     		push	{r4, lr}
+ 2443              		.cfi_def_cfa_offset 8
+ 2444              		.cfi_offset 4, -8
+ 2445              		.cfi_offset 14, -4
+ 2446 0002 82B0     		sub	sp, sp, #8
+ 2447              		.cfi_def_cfa_offset 16
+ 2448              		.loc 1 690 3 view .LVU483
+ 2449 0004 0021     		movs	r1, #0
+ 2450 0006 0091     		str	r1, [sp]
+ 2451 0008 0846     		mov	r0, r1
+ 2452 000a BC23     		movs	r3, #188
+ 2453 000c 4FF4C872 		mov	r2, #400
+ 2454 0010 044C     		ldr	r4, .L236
+ 2455 0012 A047     		blx	r4
+ 2456              	.LVL211:
+ 691:src/lcd.c     ****   show_disp();
+ 2457              		.loc 1 691 3 is_stmt 1 view .LVU484
+ 2458 0014 FFF7FEFF 		bl	show_disp
+ 2459              	.LVL212:
+ 692:src/lcd.c     ****   lcd_refresh();
+ 2460              		.loc 1 692 3 view .LVU485
+ 2461 0018 034B     		ldr	r3, .L236+4
+ 693:src/lcd.c     **** }
+ 2462              		.loc 1 693 1 is_stmt 0 view .LVU486
+ 2463 001a 02B0     		add	sp, sp, #8
+ 2464              		.cfi_def_cfa_offset 8
+ 2465              		@ sp needed
+ 2466 001c BDE81040 		pop	{r4, lr}
+ 2467              		.cfi_restore 14
+ 2468              		.cfi_restore 4
+ 2469              		.cfi_def_cfa_offset 0
+ 692:src/lcd.c     ****   lcd_refresh();
+ 2470              		.loc 1 692 3 view .LVU487
+ 2471 0020 1847     		bx	r3	@ indirect register sibling call
+ 2472              	.LVL213:
+ 2473              	.L237:
+ 2474 0022 00BF     		.align	2
+ 2475              	.L236:
+ 2476 0024 3D020008 		.word	134218301
+ 2477 0028 31020008 		.word	134218289
+ 2478              		.cfi_endproc
+ 2479              	.LFE29:
+ 2481              		.section	.text.finish_RPN,"ax",%progbits
+ 2482              		.align	1
+ 2483              		.p2align 2,,3
+ 2484              		.global	finish_RPN
+ 2485              		.syntax unified
+ 2486              		.thumb
+ 2487              		.thumb_func
+ 2488              		.fpu fpv4-sp-d16
+ 2490              	finish_RPN:
+ 2491              	.LFB30:
+ARM GAS  /tmp/ccLsYHtp.s 			page 59
 
 
- 686:src/lcd.c     **** #ifdef BIGGER_DISPLAY
- 2495              		.loc 1 686 14 view .LVU493
- 2496 0012 B3FA83F3 		clz	r3, r3
- 2497 0016 5B09     		lsrs	r3, r3, #5
- 2498 0018 4374     		strb	r3, [r0, #17]
- 688:src/lcd.c     **** #else
- 2499              		.loc 1 688 3 is_stmt 1 view .LVU494
- 2500 001a 2D22     		movs	r2, #45
- 2501 001c 40F26D11 		movw	r1, #365
- 2502 0020 B047     		blx	r6
- 2503              	.LVL211:
- 2504              		.loc 1 692 3 view .LVU495
- 2505 0022 206B     		ldr	r0, [r4, #48]
- 2506 0024 0D49     		ldr	r1, .L242+16
- 2507 0026 A847     		blx	r5
- 2508              	.LVL212:
- 693:src/lcd.c     ****   t20->inv = !dots[RCL_annun];
- 2509              		.loc 1 693 3 view .LVU496
- 2510              		.loc 1 693 14 is_stmt 0 view .LVU497
- 2511 0028 97F88A30 		ldrb	r3, [r7, #138]	@ zero_extendqisi2
- 2512              		.loc 1 693 3 view .LVU498
- 2513 002c 206B     		ldr	r0, [r4, #48]
- 2514              		.loc 1 693 14 view .LVU499
- 2515 002e B3FA83F3 		clz	r3, r3
- 2516 0032 5B09     		lsrs	r3, r3, #5
- 2517 0034 4374     		strb	r3, [r0, #17]
- 694:src/lcd.c     **** #ifdef BIGGER_DISPLAY
- 695:src/lcd.c     ****   lcd_setXY (t20, 365, 75-50); // 70 is y_ann
- 2518              		.loc 1 695 3 is_stmt 1 view .LVU500
- 2519 0036 1922     		movs	r2, #25
- 2520 0038 40F26D11 		movw	r1, #365
- 2521 003c B047     		blx	r6
- 2522              	.LVL213:
- 696:src/lcd.c     **** #else
- 697:src/lcd.c     ****   lcd_setXY (t20, 365, 130-50); // 130 is y_ann
- 698:src/lcd.c     **** #endif
- 699:src/lcd.c     ****   lcd_writeText(t20, "RUN");
- 2523              		.loc 1 699 3 view .LVU501
- 2524 003e 206B     		ldr	r0, [r4, #48]
- 2525 0040 0749     		ldr	r1, .L242+20
- 2526 0042 A847     		blx	r5
- 2527              	.LVL214:
- 700:src/lcd.c     ****   lcd_refresh();
- 2528              		.loc 1 700 3 view .LVU502
- 701:src/lcd.c     **** }
- 2529              		.loc 1 701 1 is_stmt 0 view .LVU503
- 2530 0044 BDE8F041 		pop	{r4, r5, r6, r7, r8, lr}
- 2531              		.cfi_restore 14
- 2532              		.cfi_restore 8
- 2533              		.cfi_restore 7
- 2534              		.cfi_restore 6
- 2535              		.cfi_restore 5
- 2536              		.cfi_restore 4
- 2537              		.cfi_def_cfa_offset 0
- 700:src/lcd.c     ****   lcd_refresh();
- 2538              		.loc 1 700 3 view .LVU504
- 2539 0048 064B     		ldr	r3, .L242+24
-ARM GAS  /tmp/ccNLenXV.s 			page 60
+ 694:src/lcd.c     **** void finish_RPN(void) {//only refreshes the RPN flag
+ 2492              		.loc 1 694 23 is_stmt 1 view -0
+ 2493              		.cfi_startproc
+ 2494              		@ args = 0, pretend = 0, frame = 0
+ 2495              		@ frame_needed = 0, uses_anonymous_args = 0
+ 695:src/lcd.c     ****   t20->inv = !dots[RPN];
+ 2496              		.loc 1 695 3 view .LVU489
+ 694:src/lcd.c     **** void finish_RPN(void) {//only refreshes the RPN flag
+ 2497              		.loc 1 694 23 is_stmt 0 view .LVU490
+ 2498 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 2499              		.cfi_def_cfa_offset 24
+ 2500              		.cfi_offset 4, -24
+ 2501              		.cfi_offset 5, -20
+ 2502              		.cfi_offset 6, -16
+ 2503              		.cfi_offset 7, -12
+ 2504              		.cfi_offset 8, -8
+ 2505              		.cfi_offset 14, -4
+ 2506              		.loc 1 695 19 view .LVU491
+ 2507 0004 114F     		ldr	r7, .L240
+ 2508              		.loc 1 695 3 view .LVU492
+ 2509 0006 124C     		ldr	r4, .L240+4
+ 2510              		.loc 1 695 14 view .LVU493
+ 2511 0008 97F88D30 		ldrb	r3, [r7, #141]	@ zero_extendqisi2
+ 2512              		.loc 1 695 3 view .LVU494
+ 2513 000c 206B     		ldr	r0, [r4, #48]
+ 696:src/lcd.c     **** #ifdef BIGGER_DISPLAY
+ 697:src/lcd.c     ****   lcd_setXY (t20, 365, 75-30); // 70 is y_ann
+ 2514              		.loc 1 697 3 view .LVU495
+ 2515 000e 114E     		ldr	r6, .L240+8
+ 698:src/lcd.c     **** #else
+ 699:src/lcd.c     ****   lcd_setXY (t20, 365, 130-30); // 130 is y_ann
+ 700:src/lcd.c     **** #endif
+ 701:src/lcd.c     ****   lcd_writeText(t20, "RPN");
+ 2516              		.loc 1 701 3 view .LVU496
+ 2517 0010 114D     		ldr	r5, .L240+12
+ 695:src/lcd.c     **** #ifdef BIGGER_DISPLAY
+ 2518              		.loc 1 695 14 view .LVU497
+ 2519 0012 B3FA83F3 		clz	r3, r3
+ 2520 0016 5B09     		lsrs	r3, r3, #5
+ 2521 0018 4374     		strb	r3, [r0, #17]
+ 697:src/lcd.c     **** #else
+ 2522              		.loc 1 697 3 is_stmt 1 view .LVU498
+ 2523 001a 2D22     		movs	r2, #45
+ 2524 001c 40F26D11 		movw	r1, #365
+ 2525 0020 B047     		blx	r6
+ 2526              	.LVL214:
+ 2527              		.loc 1 701 3 view .LVU499
+ 2528 0022 206B     		ldr	r0, [r4, #48]
+ 2529 0024 0D49     		ldr	r1, .L240+16
+ 2530 0026 A847     		blx	r5
+ 2531              	.LVL215:
+ 702:src/lcd.c     ****   t20->inv = !dots[RCL_annun];
+ 2532              		.loc 1 702 3 view .LVU500
+ 2533              		.loc 1 702 14 is_stmt 0 view .LVU501
+ 2534 0028 97F88A30 		ldrb	r3, [r7, #138]	@ zero_extendqisi2
+ 2535              		.loc 1 702 3 view .LVU502
+ 2536 002c 206B     		ldr	r0, [r4, #48]
+ARM GAS  /tmp/ccLsYHtp.s 			page 60
 
 
- 2540 004a 1847     		bx	r3	@ indirect register sibling call
- 2541              	.LVL215:
- 2542              	.L243:
- 2543              		.align	2
- 2544              	.L242:
- 2545 004c 00000000 		.word	.LANCHOR0
- 2546 0050 00200010 		.word	268443648
- 2547 0054 6D020008 		.word	134218349
- 2548 0058 7D020008 		.word	134218365
- 2549 005c 20000000 		.word	.LC7
- 2550 0060 14000000 		.word	.LC4
- 2551 0064 31020008 		.word	134218289
- 2552              		.cfi_endproc
- 2553              	.LFE30:
- 2555              		.section	.text.do_all_dots,"ax",%progbits
- 2556              		.align	1
- 2557              		.p2align 2,,3
- 2558              		.global	do_all_dots
- 2559              		.syntax unified
- 2560              		.thumb
- 2561              		.thumb_func
- 2562              		.fpu fpv4-sp-d16
- 2564              	do_all_dots:
- 2565              	.LFB31:
- 702:src/lcd.c     **** 
- 703:src/lcd.c     **** extern void all_menu_dots (void);
- 704:src/lcd.c     **** 
- 705:src/lcd.c     **** void do_all_dots(void) {
- 2566              		.loc 1 705 24 is_stmt 1 view -0
- 2567              		.cfi_startproc
- 2568              		@ args = 0, pretend = 0, frame = 0
- 2569              		@ frame_needed = 0, uses_anonymous_args = 0
- 706:src/lcd.c     ****   for (int i=0; i<TOP_DOTS; i++) {
- 2570              		.loc 1 706 3 view .LVU506
- 2571              	.LBB85:
- 2572              		.loc 1 706 8 view .LVU507
- 2573              	.LVL216:
- 2574              		.loc 1 706 17 view .LVU508
- 2575              	.LBE85:
- 705:src/lcd.c     ****   for (int i=0; i<TOP_DOTS; i++) {
- 2576              		.loc 1 705 24 is_stmt 0 view .LVU509
- 2577 0000 08B5     		push	{r3, lr}
- 2578              		.cfi_def_cfa_offset 8
- 2579              		.cfi_offset 3, -8
- 2580              		.cfi_offset 14, -4
- 2581 0002 094B     		ldr	r3, .L248
- 2582              	.LBB90:
- 2583              	.LBB86:
- 2584              	.LBB87:
+ 2537              		.loc 1 702 14 view .LVU503
+ 2538 002e B3FA83F3 		clz	r3, r3
+ 2539 0032 5B09     		lsrs	r3, r3, #5
+ 2540 0034 4374     		strb	r3, [r0, #17]
+ 703:src/lcd.c     **** #ifdef BIGGER_DISPLAY
+ 704:src/lcd.c     ****   lcd_setXY (t20, 365, 75-50); // 70 is y_ann
+ 2541              		.loc 1 704 3 is_stmt 1 view .LVU504
+ 2542 0036 1922     		movs	r2, #25
+ 2543 0038 40F26D11 		movw	r1, #365
+ 2544 003c B047     		blx	r6
+ 2545              	.LVL216:
+ 705:src/lcd.c     **** #else
+ 706:src/lcd.c     ****   lcd_setXY (t20, 365, 130-50); // 130 is y_ann
+ 707:src/lcd.c     **** #endif
+ 708:src/lcd.c     ****   lcd_writeText(t20, "RUN");
+ 2546              		.loc 1 708 3 view .LVU505
+ 2547 003e 206B     		ldr	r0, [r4, #48]
+ 2548 0040 0749     		ldr	r1, .L240+20
+ 2549 0042 A847     		blx	r5
+ 2550              	.LVL217:
+ 709:src/lcd.c     ****   lcd_refresh();
+ 2551              		.loc 1 709 3 view .LVU506
+ 710:src/lcd.c     **** }
+ 2552              		.loc 1 710 1 is_stmt 0 view .LVU507
+ 2553 0044 BDE8F041 		pop	{r4, r5, r6, r7, r8, lr}
+ 2554              		.cfi_restore 14
+ 2555              		.cfi_restore 8
+ 2556              		.cfi_restore 7
+ 2557              		.cfi_restore 6
+ 2558              		.cfi_restore 5
+ 2559              		.cfi_restore 4
+ 2560              		.cfi_def_cfa_offset 0
+ 709:src/lcd.c     ****   lcd_refresh();
+ 2561              		.loc 1 709 3 view .LVU508
+ 2562 0048 064B     		ldr	r3, .L240+24
+ 2563 004a 1847     		bx	r3	@ indirect register sibling call
+ 2564              	.LVL218:
+ 2565              	.L241:
+ 2566              		.align	2
+ 2567              	.L240:
+ 2568 004c 00000000 		.word	.LANCHOR0
+ 2569 0050 00200010 		.word	268443648
+ 2570 0054 6D020008 		.word	134218349
+ 2571 0058 7D020008 		.word	134218365
+ 2572 005c 24000000 		.word	.LC8
+ 2573 0060 18000000 		.word	.LC5
+ 2574 0064 31020008 		.word	134218289
+ 2575              		.cfi_endproc
+ 2576              	.LFE30:
+ 2578              		.section	.text.do_all_dots,"ax",%progbits
+ 2579              		.align	1
+ 2580              		.p2align 2,,3
+ 2581              		.global	do_all_dots
+ 2582              		.syntax unified
+ 2583              		.thumb
+ 2584              		.thumb_func
+ 2585              		.fpu fpv4-sp-d16
+ARM GAS  /tmp/ccLsYHtp.s 			page 61
+
+
+ 2587              	do_all_dots:
+ 2588              	.LFB31:
+ 711:src/lcd.c     **** 
+ 712:src/lcd.c     **** extern void all_menu_dots (void);
+ 713:src/lcd.c     **** 
+ 714:src/lcd.c     **** void do_all_dots(void) {
+ 2589              		.loc 1 714 24 is_stmt 1 view -0
+ 2590              		.cfi_startproc
+ 2591              		@ args = 0, pretend = 0, frame = 0
+ 2592              		@ frame_needed = 0, uses_anonymous_args = 0
+ 715:src/lcd.c     ****   for (int i=0; i<TOP_DOTS; i++) {
+ 2593              		.loc 1 715 3 view .LVU510
+ 2594              	.LBB85:
+ 2595              		.loc 1 715 8 view .LVU511
+ 2596              	.LVL219:
+ 2597              		.loc 1 715 17 view .LVU512
+ 2598              	.LBE85:
+ 714:src/lcd.c     ****   for (int i=0; i<TOP_DOTS; i++) {
+ 2599              		.loc 1 714 24 is_stmt 0 view .LVU513
+ 2600 0000 08B5     		push	{r3, lr}
+ 2601              		.cfi_def_cfa_offset 8
+ 2602              		.cfi_offset 3, -8
+ 2603              		.cfi_offset 14, -4
+ 2604 0002 094B     		ldr	r3, .L246
+ 2605              	.LBB90:
+ 2606              	.LBB86:
+ 2607              	.LBB87:
   52:src/lcd.c     **** }
- 2585              		.loc 1 52 17 view .LVU510
- 2586 0004 0121     		movs	r1, #1
- 2587 0006 03F55372 		add	r2, r3, #844
- 2588              	.LVL217:
- 2589              	.L245:
+ 2608              		.loc 1 52 17 view .LVU514
+ 2609 0004 0121     		movs	r1, #1
+ 2610 0006 03F55372 		add	r2, r3, #844
+ 2611              	.LVL220:
+ 2612              	.L243:
   52:src/lcd.c     **** }
- 2590              		.loc 1 52 17 view .LVU511
-ARM GAS  /tmp/ccNLenXV.s 			page 61
-
-
- 2591              	.LBE87:
- 2592              	.LBE86:
- 707:src/lcd.c     ****     set_dot(i);
- 2593              		.loc 1 707 5 is_stmt 1 view .LVU512
- 2594              	.LBB89:
- 2595              	.LBI86:
+ 2613              		.loc 1 52 17 view .LVU515
+ 2614              	.LBE87:
+ 2615              	.LBE86:
+ 716:src/lcd.c     ****     set_dot(i);
+ 2616              		.loc 1 716 5 is_stmt 1 view .LVU516
+ 2617              	.LBB89:
+ 2618              	.LBI86:
   51:src/lcd.c     ****         dots[n] = 1;
- 2596              		.loc 1 51 6 view .LVU513
- 2597              	.LBB88:
+ 2619              		.loc 1 51 6 view .LVU517
+ 2620              	.LBB88:
   52:src/lcd.c     **** }
- 2598              		.loc 1 52 9 view .LVU514
+ 2621              		.loc 1 52 9 view .LVU518
   52:src/lcd.c     **** }
- 2599              		.loc 1 52 17 is_stmt 0 view .LVU515
- 2600 000a 03F8011F 		strb	r1, [r3, #1]!
- 2601              	.LVL218:
+ 2622              		.loc 1 52 17 is_stmt 0 view .LVU519
+ 2623 000a 03F8011F 		strb	r1, [r3, #1]!
+ 2624              	.LVL221:
   52:src/lcd.c     **** }
- 2602              		.loc 1 52 17 view .LVU516
- 2603              	.LBE88:
- 2604              	.LBE89:
- 706:src/lcd.c     ****     set_dot(i);
- 2605              		.loc 1 706 29 is_stmt 1 view .LVU517
- 706:src/lcd.c     ****     set_dot(i);
- 2606              		.loc 1 706 17 view .LVU518
- 706:src/lcd.c     ****     set_dot(i);
- 2607              		.loc 1 706 3 is_stmt 0 view .LVU519
- 2608 000e 9342     		cmp	r3, r2
- 2609 0010 FBD1     		bne	.L245
- 2610              	.LBE90:
- 708:src/lcd.c     ****   }
- 709:src/lcd.c     ****   all_menu_dots();
- 2611              		.loc 1 709 3 is_stmt 1 view .LVU520
- 2612 0012 FFF7FEFF 		bl	all_menu_dots
- 2613              	.LVL219:
- 710:src/lcd.c     ****   finish_display();
- 2614              		.loc 1 710 3 view .LVU521
- 2615 0016 FFF7FEFF 		bl	finish_display
- 2616              	.LVL220:
- 711:src/lcd.c     ****   clr_dot(RCL_annun);
- 2617              		.loc 1 711 3 view .LVU522
- 2618              	.LBB91:
- 2619              	.LBI91:
+ 2625              		.loc 1 52 17 view .LVU520
+ 2626              	.LBE88:
+ 2627              	.LBE89:
+ 715:src/lcd.c     ****     set_dot(i);
+ 2628              		.loc 1 715 29 is_stmt 1 view .LVU521
+ 715:src/lcd.c     ****     set_dot(i);
+ARM GAS  /tmp/ccLsYHtp.s 			page 62
+
+
+ 2629              		.loc 1 715 17 view .LVU522
+ 715:src/lcd.c     ****     set_dot(i);
+ 2630              		.loc 1 715 3 is_stmt 0 view .LVU523
+ 2631 000e 9342     		cmp	r3, r2
+ 2632 0010 FBD1     		bne	.L243
+ 2633              	.LBE90:
+ 717:src/lcd.c     ****   }
+ 718:src/lcd.c     ****   all_menu_dots();
+ 2634              		.loc 1 718 3 is_stmt 1 view .LVU524
+ 2635 0012 FFF7FEFF 		bl	all_menu_dots
+ 2636              	.LVL222:
+ 719:src/lcd.c     ****   finish_display();
+ 2637              		.loc 1 719 3 view .LVU525
+ 2638 0016 FFF7FEFF 		bl	finish_display
+ 2639              	.LVL223:
+ 720:src/lcd.c     ****   clr_dot(RCL_annun);
+ 2640              		.loc 1 720 3 view .LVU526
+ 2641              	.LBB91:
+ 2642              	.LBI91:
   54:src/lcd.c     ****         dots[n] = 0;
- 2620              		.loc 1 54 6 view .LVU523
- 2621              	.LBB92:
+ 2643              		.loc 1 54 6 view .LVU527
+ 2644              	.LBB92:
   55:src/lcd.c     **** }
- 2622              		.loc 1 55 9 view .LVU524
+ 2645              		.loc 1 55 9 view .LVU528
   55:src/lcd.c     **** }
- 2623              		.loc 1 55 17 is_stmt 0 view .LVU525
- 2624 001a 044B     		ldr	r3, .L248+4
- 2625 001c 0022     		movs	r2, #0
- 2626 001e 83F88A20 		strb	r2, [r3, #138]
- 2627              	.LVL221:
+ 2646              		.loc 1 55 17 is_stmt 0 view .LVU529
+ 2647 001a 044B     		ldr	r3, .L246+4
+ 2648 001c 0022     		movs	r2, #0
+ 2649 001e 83F88A20 		strb	r2, [r3, #138]
+ 2650              	.LVL224:
   55:src/lcd.c     **** }
- 2628              		.loc 1 55 17 view .LVU526
- 2629              	.LBE92:
- 2630              	.LBE91:
- 712:src/lcd.c     ****   clr_dot(LIT_EQ);
-ARM GAS  /tmp/ccNLenXV.s 			page 62
-
-
- 2631              		.loc 1 712 3 is_stmt 1 view .LVU527
- 2632              	.LBB93:
- 2633              	.LBI93:
+ 2651              		.loc 1 55 17 view .LVU530
+ 2652              	.LBE92:
+ 2653              	.LBE91:
+ 721:src/lcd.c     ****   clr_dot(LIT_EQ);
+ 2654              		.loc 1 721 3 is_stmt 1 view .LVU531
+ 2655              	.LBB93:
+ 2656              	.LBI93:
   54:src/lcd.c     ****         dots[n] = 0;
- 2634              		.loc 1 54 6 view .LVU528
- 2635              	.LBB94:
+ 2657              		.loc 1 54 6 view .LVU532
+ 2658              	.LBB94:
   55:src/lcd.c     **** }
- 2636              		.loc 1 55 9 view .LVU529
+ 2659              		.loc 1 55 9 view .LVU533
   55:src/lcd.c     **** }
- 2637              		.loc 1 55 17 is_stmt 0 view .LVU530
- 2638 0022 83F88420 		strb	r2, [r3, #132]
- 2639              	.LVL222:
+ 2660              		.loc 1 55 17 is_stmt 0 view .LVU534
+ 2661 0022 83F88420 		strb	r2, [r3, #132]
+ 2662              	.LVL225:
   55:src/lcd.c     **** }
- 2640              		.loc 1 55 17 view .LVU531
- 2641              	.LBE94:
- 2642              	.LBE93:
- 713:src/lcd.c     **** }
- 2643              		.loc 1 713 1 view .LVU532
- 2644 0026 08BD     		pop	{r3, pc}
- 2645              	.L249:
- 2646              		.align	2
- 2647              	.L248:
- 2648 0028 FFFFFFFF 		.word	.LANCHOR0-1
- 2649 002c 00000000 		.word	.LANCHOR0
- 2650              		.cfi_endproc
- 2651              	.LFE31:
- 2653              		.section	.text.show_progtrace,"ax",%progbits
- 2654              		.align	1
- 2655              		.p2align 2,,3
- 2656              		.global	show_progtrace
- 2657              		.syntax unified
- 2658              		.thumb
- 2659              		.thumb_func
- 2660              		.fpu fpv4-sp-d16
- 2662              	show_progtrace:
- 2663              	.LVL223:
- 2664              	.LFB32:
- 714:src/lcd.c     **** #endif
- 715:src/lcd.c     **** 
- 716:src/lcd.c     **** #ifdef CONSOLE
- 717:src/lcd.c     **** #ifndef DM42
- 718:src/lcd.c     **** /* Take a string and cleanse all non-printing characters from it.
- 719:src/lcd.c     ****  * Replace them with the usual [xxx] sequences.
- 720:src/lcd.c     ****  */
- 721:src/lcd.c     **** extern const char *pretty(unsigned char);
- 722:src/lcd.c     **** 
- 723:src/lcd.c     **** static char *cleanse(const char *s) {
- 724:src/lcd.c     ****         static char res[50];
- 725:src/lcd.c     ****         char *p;
- 726:src/lcd.c     **** 
- 727:src/lcd.c     ****         for (p=res; *s != '\0'; s++) {
- 728:src/lcd.c     ****                 unsigned char c = 0xff & *s;
- 729:src/lcd.c     ****                 const char *m = pretty(c);
- 730:src/lcd.c     ****                 if (m == NULL) {
- 731:src/lcd.c     ****                         *p++ = c;
- 732:src/lcd.c     ****                 } else {
- 733:src/lcd.c     ****                         *p++ = '[';
-ARM GAS  /tmp/ccNLenXV.s 			page 63
+ 2663              		.loc 1 55 17 view .LVU535
+ 2664              	.LBE94:
+ 2665              	.LBE93:
+ 722:src/lcd.c     **** }
+ 2666              		.loc 1 722 1 view .LVU536
+ 2667 0026 08BD     		pop	{r3, pc}
+ 2668              	.L247:
+ 2669              		.align	2
+ 2670              	.L246:
+ARM GAS  /tmp/ccLsYHtp.s 			page 63
 
 
- 734:src/lcd.c     ****                         p = scopy_char(p, m, ']');
- 735:src/lcd.c     ****                 }
- 736:src/lcd.c     ****         }
- 737:src/lcd.c     ****         *p = '\0';
- 738:src/lcd.c     ****         return res;
- 739:src/lcd.c     **** }
- 740:src/lcd.c     **** #endif
- 741:src/lcd.c     **** #endif
- 742:src/lcd.c     **** 
- 743:src/lcd.c     **** void show_progtrace(char *buf) {
- 2665              		.loc 1 743 32 is_stmt 1 view -0
- 2666              		.cfi_startproc
- 2667              		@ args = 0, pretend = 0, frame = 0
- 2668              		@ frame_needed = 0, uses_anonymous_args = 0
- 2669              		@ link register save eliminated.
- 744:src/lcd.c     **** #ifndef DM42
- 745:src/lcd.c     **** #ifdef CONSOLE
- 746:src/lcd.c     ****         int pc = state_pc();
- 747:src/lcd.c     **** 
- 748:src/lcd.c     **** #ifdef USECURSES
- 749:src/lcd.c     ****         int i;
- 750:src/lcd.c     **** 
- 751:src/lcd.c     ****         if (!State2.flags)
- 752:src/lcd.c     ****                 return;
- 753:src/lcd.c     **** 
- 754:src/lcd.c     ****         for (i=4; i>0 && pc >= 0; i--) {
- 755:src/lcd.c     ****                 MOVE(0, i);
- 756:src/lcd.c     ****                 if (pc) {
- 757:src/lcd.c     ****                         opcode op = getprog(pc);
- 758:src/lcd.c     ****                         PRINTF("%03d %08x: %s", pc, op, cleanse(prt(op, buf)));
- 759:src/lcd.c     ****                 } else
- 760:src/lcd.c     ****                         PRINTF("000:");
- 761:src/lcd.c     ****                 pc = do_dec(pc, 1);
- 762:src/lcd.c     ****         }
- 763:src/lcd.c     **** #endif
- 764:src/lcd.c     **** #endif
- 765:src/lcd.c     **** #endif       
- 766:src/lcd.c     **** }
- 2670              		.loc 1 766 1 view .LVU534
- 2671 0000 7047     		bx	lr
- 2672              		.cfi_endproc
- 2673              	.LFE32:
- 2675 0002 00BF     		.section	.bss.dots,"aw",%nobits
- 2676              		.align	2
- 2677              		.set	.LANCHOR0,. + 0
- 2680              	dots:
- 2681 0000 00000000 		.space	844
- 2681      00000000 
- 2681      00000000 
- 2681      00000000 
- 2681      00000000 
- 2682              		.text
- 2683              	.Letext0:
- 2684              		.file 2 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h"
- 2685              		.file 3 "dmcp/ff_ifc.h"
- 2686              		.file 4 "dmcp/dmcp.h"
- 2687              		.file 5 "src/decNumber/decContext.h"
-ARM GAS  /tmp/ccNLenXV.s 			page 64
+ 2671 0028 FFFFFFFF 		.word	.LANCHOR0-1
+ 2672 002c 00000000 		.word	.LANCHOR0
+ 2673              		.cfi_endproc
+ 2674              	.LFE31:
+ 2676              		.section	.text.show_progtrace,"ax",%progbits
+ 2677              		.align	1
+ 2678              		.p2align 2,,3
+ 2679              		.global	show_progtrace
+ 2680              		.syntax unified
+ 2681              		.thumb
+ 2682              		.thumb_func
+ 2683              		.fpu fpv4-sp-d16
+ 2685              	show_progtrace:
+ 2686              	.LVL226:
+ 2687              	.LFB32:
+ 723:src/lcd.c     **** #endif
+ 724:src/lcd.c     **** 
+ 725:src/lcd.c     **** #ifdef CONSOLE
+ 726:src/lcd.c     **** #ifndef DM42
+ 727:src/lcd.c     **** /* Take a string and cleanse all non-printing characters from it.
+ 728:src/lcd.c     ****  * Replace them with the usual [xxx] sequences.
+ 729:src/lcd.c     ****  */
+ 730:src/lcd.c     **** extern const char *pretty(unsigned char);
+ 731:src/lcd.c     **** 
+ 732:src/lcd.c     **** static char *cleanse(const char *s) {
+ 733:src/lcd.c     ****         static char res[50];
+ 734:src/lcd.c     ****         char *p;
+ 735:src/lcd.c     **** 
+ 736:src/lcd.c     ****         for (p=res; *s != '\0'; s++) {
+ 737:src/lcd.c     ****                 unsigned char c = 0xff & *s;
+ 738:src/lcd.c     ****                 const char *m = pretty(c);
+ 739:src/lcd.c     ****                 if (m == NULL) {
+ 740:src/lcd.c     ****                         *p++ = c;
+ 741:src/lcd.c     ****                 } else {
+ 742:src/lcd.c     ****                         *p++ = '[';
+ 743:src/lcd.c     ****                         p = scopy_char(p, m, ']');
+ 744:src/lcd.c     ****                 }
+ 745:src/lcd.c     ****         }
+ 746:src/lcd.c     ****         *p = '\0';
+ 747:src/lcd.c     ****         return res;
+ 748:src/lcd.c     **** }
+ 749:src/lcd.c     **** #endif
+ 750:src/lcd.c     **** #endif
+ 751:src/lcd.c     **** 
+ 752:src/lcd.c     **** void show_progtrace(char *buf) {
+ 2688              		.loc 1 752 32 is_stmt 1 view -0
+ 2689              		.cfi_startproc
+ 2690              		@ args = 0, pretend = 0, frame = 0
+ 2691              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2692              		@ link register save eliminated.
+ 753:src/lcd.c     **** #ifndef DM42
+ 754:src/lcd.c     **** #ifdef CONSOLE
+ 755:src/lcd.c     ****         int pc = state_pc();
+ 756:src/lcd.c     **** 
+ 757:src/lcd.c     **** #ifdef USECURSES
+ 758:src/lcd.c     ****         int i;
+ 759:src/lcd.c     **** 
+ARM GAS  /tmp/ccLsYHtp.s 			page 64
 
 
- 2688              		.file 6 "src/decNumber/decNumber.h"
- 2689              		.file 7 "src/decNumber/decimal64.h"
- 2690              		.file 8 "src/decNumber/decimal128.h"
- 2691              		.file 9 "src/xeq.h"
- 2692              		.file 10 "src/data.h"
- 2693              		.file 11 "src/display.h"
- 2694              		.file 12 "src/pretty.h"
-ARM GAS  /tmp/ccNLenXV.s 			page 65
+ 760:src/lcd.c     ****         if (!State2.flags)
+ 761:src/lcd.c     ****                 return;
+ 762:src/lcd.c     **** 
+ 763:src/lcd.c     ****         for (i=4; i>0 && pc >= 0; i--) {
+ 764:src/lcd.c     ****                 MOVE(0, i);
+ 765:src/lcd.c     ****                 if (pc) {
+ 766:src/lcd.c     ****                         opcode op = getprog(pc);
+ 767:src/lcd.c     ****                         PRINTF("%03d %08x: %s", pc, op, cleanse(prt(op, buf)));
+ 768:src/lcd.c     ****                 } else
+ 769:src/lcd.c     ****                         PRINTF("000:");
+ 770:src/lcd.c     ****                 pc = do_dec(pc, 1);
+ 771:src/lcd.c     ****         }
+ 772:src/lcd.c     **** #endif
+ 773:src/lcd.c     **** #endif
+ 774:src/lcd.c     **** #endif       
+ 775:src/lcd.c     **** }
+ 2693              		.loc 1 775 1 view .LVU538
+ 2694 0000 7047     		bx	lr
+ 2695              		.cfi_endproc
+ 2696              	.LFE32:
+ 2698 0002 00BF     		.section	.bss.dots,"aw",%nobits
+ 2699              		.align	2
+ 2700              		.set	.LANCHOR0,. + 0
+ 2703              	dots:
+ 2704 0000 00000000 		.space	844
+ 2704      00000000 
+ 2704      00000000 
+ 2704      00000000 
+ 2704      00000000 
+ 2705              		.text
+ 2706              	.Letext0:
+ 2707              		.file 2 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h"
+ 2708              		.file 3 "dmcp/ff_ifc.h"
+ 2709              		.file 4 "dmcp/dmcp.h"
+ 2710              		.file 5 "src/decNumber/decContext.h"
+ 2711              		.file 6 "src/decNumber/decNumber.h"
+ 2712              		.file 7 "src/decNumber/decimal64.h"
+ 2713              		.file 8 "src/decNumber/decimal128.h"
+ 2714              		.file 9 "src/xeq.h"
+ 2715              		.file 10 "src/data.h"
+ 2716              		.file 11 "src/display.h"
+ 2717              		.file 12 "src/pretty.h"
+ARM GAS  /tmp/ccLsYHtp.s 			page 65
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 lcd.c
-     /tmp/ccNLenXV.s:18     .text.set_dot:0000000000000000 $t
-     /tmp/ccNLenXV.s:27     .text.set_dot:0000000000000000 set_dot
-     /tmp/ccNLenXV.s:46     .text.set_dot:0000000000000008 $d
-     /tmp/ccNLenXV.s:51     .text.clr_dot:0000000000000000 $t
-     /tmp/ccNLenXV.s:59     .text.clr_dot:0000000000000000 clr_dot
-     /tmp/ccNLenXV.s:77     .text.clr_dot:0000000000000008 $d
-     /tmp/ccNLenXV.s:82     .text.is_dot:0000000000000000 $t
-     /tmp/ccNLenXV.s:90     .text.is_dot:0000000000000000 is_dot
-     /tmp/ccNLenXV.s:109    .text.is_dot:0000000000000008 $d
-     /tmp/ccNLenXV.s:114    .text.setuptty:0000000000000000 $t
-     /tmp/ccNLenXV.s:122    .text.setuptty:0000000000000000 setuptty
-     /tmp/ccNLenXV.s:140    .text.reset_disp:0000000000000000 $t
-     /tmp/ccNLenXV.s:148    .text.reset_disp:0000000000000000 reset_disp
-     /tmp/ccNLenXV.s:346    .text.reset_disp:0000000000000068 $d
-     /tmp/ccNLenXV.s:351    .text.left_side:0000000000000000 $t
-     /tmp/ccNLenXV.s:359    .text.left_side:0000000000000000 left_side
-     /tmp/ccNLenXV.s:442    .text.left_side:0000000000000054 $d
-     /tmp/ccNLenXV.s:447    .text.left_side_top:0000000000000000 $t
-     /tmp/ccNLenXV.s:455    .text.left_side_top:0000000000000000 left_side_top
-     /tmp/ccNLenXV.s:471    .text.left_side_bottom:0000000000000000 $t
-     /tmp/ccNLenXV.s:479    .text.left_side_bottom:0000000000000000 left_side_bottom
-     /tmp/ccNLenXV.s:501    .text.right_side:0000000000000000 $t
-     /tmp/ccNLenXV.s:509    .text.right_side:0000000000000000 right_side
-     /tmp/ccNLenXV.s:591    .text.right_side:000000000000005c $d
-     /tmp/ccNLenXV.s:596    .text.right_side_top:0000000000000000 $t
-     /tmp/ccNLenXV.s:604    .text.right_side_top:0000000000000000 right_side_top
-     /tmp/ccNLenXV.s:620    .text.right_side_bottom:0000000000000000 $t
-     /tmp/ccNLenXV.s:628    .text.right_side_bottom:0000000000000000 right_side_bottom
-     /tmp/ccNLenXV.s:650    .text.top:0000000000000000 $t
-     /tmp/ccNLenXV.s:658    .text.top:0000000000000000 top
-     /tmp/ccNLenXV.s:725    .text.top:0000000000000040 $d
-     /tmp/ccNLenXV.s:730    .text.middle:0000000000000000 $t
-     /tmp/ccNLenXV.s:738    .text.middle:0000000000000000 middle
-     /tmp/ccNLenXV.s:808    .text.middle:0000000000000040 $d
-     /tmp/ccNLenXV.s:814    .text.bottom:0000000000000000 $t
-     /tmp/ccNLenXV.s:822    .text.bottom:0000000000000000 bottom
-     /tmp/ccNLenXV.s:892    .text.bottom:0000000000000048 $d
-     /tmp/ccNLenXV.s:897    .text.decimal:0000000000000000 $t
-     /tmp/ccNLenXV.s:905    .text.decimal:0000000000000000 decimal
-     /tmp/ccNLenXV.s:942    .text.decimal:0000000000000018 $d
-     /tmp/ccNLenXV.s:947    .text.comma:0000000000000000 $t
-     /tmp/ccNLenXV.s:955    .text.comma:0000000000000000 comma
-     /tmp/ccNLenXV.s:1009   .text.comma:000000000000002c $d
-     /tmp/ccNLenXV.s:1014   .text.exp_left_side:0000000000000000 $t
-     /tmp/ccNLenXV.s:1022   .text.exp_left_side:0000000000000000 exp_left_side
-     /tmp/ccNLenXV.s:1089   .text.exp_left_side:0000000000000040 $d
-     /tmp/ccNLenXV.s:1094   .text.exp_left_side_top:0000000000000000 $t
-     /tmp/ccNLenXV.s:1102   .text.exp_left_side_top:0000000000000000 exp_left_side_top
-     /tmp/ccNLenXV.s:1121   .text.exp_left_side_bottom:0000000000000000 $t
-     /tmp/ccNLenXV.s:1129   .text.exp_left_side_bottom:0000000000000000 exp_left_side_bottom
-     /tmp/ccNLenXV.s:1148   .text.exp_right_side:0000000000000000 $t
-     /tmp/ccNLenXV.s:1156   .text.exp_right_side:0000000000000000 exp_right_side
-     /tmp/ccNLenXV.s:1223   .text.exp_right_side:0000000000000044 $d
-     /tmp/ccNLenXV.s:1228   .text.exp_right_side_top:0000000000000000 $t
-     /tmp/ccNLenXV.s:1236   .text.exp_right_side_top:0000000000000000 exp_right_side_top
-ARM GAS  /tmp/ccNLenXV.s 			page 66
+     /tmp/ccLsYHtp.s:18     .text.set_dot:0000000000000000 $t
+     /tmp/ccLsYHtp.s:27     .text.set_dot:0000000000000000 set_dot
+     /tmp/ccLsYHtp.s:46     .text.set_dot:0000000000000008 $d
+     /tmp/ccLsYHtp.s:51     .text.clr_dot:0000000000000000 $t
+     /tmp/ccLsYHtp.s:59     .text.clr_dot:0000000000000000 clr_dot
+     /tmp/ccLsYHtp.s:77     .text.clr_dot:0000000000000008 $d
+     /tmp/ccLsYHtp.s:82     .text.is_dot:0000000000000000 $t
+     /tmp/ccLsYHtp.s:90     .text.is_dot:0000000000000000 is_dot
+     /tmp/ccLsYHtp.s:109    .text.is_dot:0000000000000008 $d
+     /tmp/ccLsYHtp.s:114    .text.setuptty:0000000000000000 $t
+     /tmp/ccLsYHtp.s:122    .text.setuptty:0000000000000000 setuptty
+     /tmp/ccLsYHtp.s:140    .text.reset_disp:0000000000000000 $t
+     /tmp/ccLsYHtp.s:148    .text.reset_disp:0000000000000000 reset_disp
+     /tmp/ccLsYHtp.s:346    .text.reset_disp:0000000000000068 $d
+     /tmp/ccLsYHtp.s:351    .text.left_side:0000000000000000 $t
+     /tmp/ccLsYHtp.s:359    .text.left_side:0000000000000000 left_side
+     /tmp/ccLsYHtp.s:442    .text.left_side:0000000000000054 $d
+     /tmp/ccLsYHtp.s:447    .text.left_side_top:0000000000000000 $t
+     /tmp/ccLsYHtp.s:455    .text.left_side_top:0000000000000000 left_side_top
+     /tmp/ccLsYHtp.s:471    .text.left_side_bottom:0000000000000000 $t
+     /tmp/ccLsYHtp.s:479    .text.left_side_bottom:0000000000000000 left_side_bottom
+     /tmp/ccLsYHtp.s:501    .text.right_side:0000000000000000 $t
+     /tmp/ccLsYHtp.s:509    .text.right_side:0000000000000000 right_side
+     /tmp/ccLsYHtp.s:591    .text.right_side:000000000000005c $d
+     /tmp/ccLsYHtp.s:596    .text.right_side_top:0000000000000000 $t
+     /tmp/ccLsYHtp.s:604    .text.right_side_top:0000000000000000 right_side_top
+     /tmp/ccLsYHtp.s:620    .text.right_side_bottom:0000000000000000 $t
+     /tmp/ccLsYHtp.s:628    .text.right_side_bottom:0000000000000000 right_side_bottom
+     /tmp/ccLsYHtp.s:650    .text.top:0000000000000000 $t
+     /tmp/ccLsYHtp.s:658    .text.top:0000000000000000 top
+     /tmp/ccLsYHtp.s:725    .text.top:0000000000000040 $d
+     /tmp/ccLsYHtp.s:730    .text.middle:0000000000000000 $t
+     /tmp/ccLsYHtp.s:738    .text.middle:0000000000000000 middle
+     /tmp/ccLsYHtp.s:808    .text.middle:0000000000000040 $d
+     /tmp/ccLsYHtp.s:814    .text.bottom:0000000000000000 $t
+     /tmp/ccLsYHtp.s:822    .text.bottom:0000000000000000 bottom
+     /tmp/ccLsYHtp.s:892    .text.bottom:0000000000000048 $d
+     /tmp/ccLsYHtp.s:897    .text.decimal:0000000000000000 $t
+     /tmp/ccLsYHtp.s:905    .text.decimal:0000000000000000 decimal
+     /tmp/ccLsYHtp.s:942    .text.decimal:0000000000000018 $d
+     /tmp/ccLsYHtp.s:947    .text.comma:0000000000000000 $t
+     /tmp/ccLsYHtp.s:955    .text.comma:0000000000000000 comma
+     /tmp/ccLsYHtp.s:1009   .text.comma:000000000000002c $d
+     /tmp/ccLsYHtp.s:1014   .text.exp_left_side:0000000000000000 $t
+     /tmp/ccLsYHtp.s:1022   .text.exp_left_side:0000000000000000 exp_left_side
+     /tmp/ccLsYHtp.s:1089   .text.exp_left_side:0000000000000040 $d
+     /tmp/ccLsYHtp.s:1094   .text.exp_left_side_top:0000000000000000 $t
+     /tmp/ccLsYHtp.s:1102   .text.exp_left_side_top:0000000000000000 exp_left_side_top
+     /tmp/ccLsYHtp.s:1121   .text.exp_left_side_bottom:0000000000000000 $t
+     /tmp/ccLsYHtp.s:1129   .text.exp_left_side_bottom:0000000000000000 exp_left_side_bottom
+     /tmp/ccLsYHtp.s:1148   .text.exp_right_side:0000000000000000 $t
+     /tmp/ccLsYHtp.s:1156   .text.exp_right_side:0000000000000000 exp_right_side
+     /tmp/ccLsYHtp.s:1223   .text.exp_right_side:0000000000000044 $d
+     /tmp/ccLsYHtp.s:1228   .text.exp_right_side_top:0000000000000000 $t
+     /tmp/ccLsYHtp.s:1236   .text.exp_right_side_top:0000000000000000 exp_right_side_top
+ARM GAS  /tmp/ccLsYHtp.s 			page 66
 
 
-     /tmp/ccNLenXV.s:1252   .text.exp_right_side_bottom:0000000000000000 $t
-     /tmp/ccNLenXV.s:1260   .text.exp_right_side_bottom:0000000000000000 exp_right_side_bottom
-     /tmp/ccNLenXV.s:1282   .text.exp_top:0000000000000000 $t
-     /tmp/ccNLenXV.s:1290   .text.exp_top:0000000000000000 exp_top
-     /tmp/ccNLenXV.s:1349   .text.exp_top:0000000000000034 $d
-     /tmp/ccNLenXV.s:1354   .text.exp_bottom:0000000000000000 $t
-     /tmp/ccNLenXV.s:1362   .text.exp_bottom:0000000000000000 exp_bottom
-     /tmp/ccNLenXV.s:1424   .text.exp_bottom:0000000000000038 $d
-     /tmp/ccNLenXV.s:1429   .text.exp_middle:0000000000000000 $t
-     /tmp/ccNLenXV.s:1437   .text.exp_middle:0000000000000000 exp_middle
-     /tmp/ccNLenXV.s:1503   .text.exp_middle:0000000000000040 $d
-     /tmp/ccNLenXV.s:1508   .rodata.show_disp.str1.4:0000000000000000 $d
-     /tmp/ccNLenXV.s:1533   .text.show_disp:0000000000000000 $t
-     /tmp/ccNLenXV.s:1541   .text.show_disp:0000000000000000 show_disp
-     /tmp/ccNLenXV.s:1782   .text.show_disp:00000000000000c4 $d
-     /tmp/ccNLenXV.s:1786   .text.show_disp:00000000000000cc $t
-     /tmp/ccNLenXV.s:2327   .text.show_disp:00000000000003a0 $d
-     /tmp/ccNLenXV.s:2344   .text.show_stack:0000000000000000 $t
-     /tmp/ccNLenXV.s:2352   .text.show_stack:0000000000000000 show_stack
-     /tmp/ccNLenXV.s:2363   .text.show_flags:0000000000000000 $t
-     /tmp/ccNLenXV.s:2371   .text.show_flags:0000000000000000 show_flags
-     /tmp/ccNLenXV.s:2382   .text.wait_for_display:0000000000000000 $t
-     /tmp/ccNLenXV.s:2390   .text.wait_for_display:0000000000000000 wait_for_display
-     /tmp/ccNLenXV.s:2403   .text.finish_display:0000000000000000 $t
-     /tmp/ccNLenXV.s:2411   .text.finish_display:0000000000000000 finish_display
-     /tmp/ccNLenXV.s:2453   .text.finish_display:0000000000000024 $d
-     /tmp/ccNLenXV.s:2459   .text.finish_RPN:0000000000000000 $t
-     /tmp/ccNLenXV.s:2467   .text.finish_RPN:0000000000000000 finish_RPN
-     /tmp/ccNLenXV.s:2545   .text.finish_RPN:000000000000004c $d
-     /tmp/ccNLenXV.s:2556   .text.do_all_dots:0000000000000000 $t
-     /tmp/ccNLenXV.s:2564   .text.do_all_dots:0000000000000000 do_all_dots
-     /tmp/ccNLenXV.s:2648   .text.do_all_dots:0000000000000028 $d
-     /tmp/ccNLenXV.s:2654   .text.show_progtrace:0000000000000000 $t
-     /tmp/ccNLenXV.s:2662   .text.show_progtrace:0000000000000000 show_progtrace
-     /tmp/ccNLenXV.s:2676   .bss.dots:0000000000000000 $d
-     /tmp/ccNLenXV.s:2680   .bss.dots:0000000000000000 dots
+     /tmp/ccLsYHtp.s:1252   .text.exp_right_side_bottom:0000000000000000 $t
+     /tmp/ccLsYHtp.s:1260   .text.exp_right_side_bottom:0000000000000000 exp_right_side_bottom
+     /tmp/ccLsYHtp.s:1282   .text.exp_top:0000000000000000 $t
+     /tmp/ccLsYHtp.s:1290   .text.exp_top:0000000000000000 exp_top
+     /tmp/ccLsYHtp.s:1349   .text.exp_top:0000000000000034 $d
+     /tmp/ccLsYHtp.s:1354   .text.exp_bottom:0000000000000000 $t
+     /tmp/ccLsYHtp.s:1362   .text.exp_bottom:0000000000000000 exp_bottom
+     /tmp/ccLsYHtp.s:1424   .text.exp_bottom:0000000000000038 $d
+     /tmp/ccLsYHtp.s:1429   .text.exp_middle:0000000000000000 $t
+     /tmp/ccLsYHtp.s:1437   .text.exp_middle:0000000000000000 exp_middle
+     /tmp/ccLsYHtp.s:1503   .text.exp_middle:0000000000000040 $d
+     /tmp/ccLsYHtp.s:1508   .rodata.show_disp.str1.4:0000000000000000 $d
+     /tmp/ccLsYHtp.s:1536   .text.show_disp:0000000000000000 $t
+     /tmp/ccLsYHtp.s:1544   .text.show_disp:0000000000000000 show_disp
+     /tmp/ccLsYHtp.s:1785   .text.show_disp:00000000000000c4 $d
+     /tmp/ccLsYHtp.s:1789   .text.show_disp:00000000000000cc $t
+     /tmp/ccLsYHtp.s:2330   .text.show_disp:000000000000039c $d
+     /tmp/ccLsYHtp.s:2347   .text.show_disp:00000000000003d4 $t
+     /tmp/ccLsYHtp.s:2367   .text.show_stack:0000000000000000 $t
+     /tmp/ccLsYHtp.s:2375   .text.show_stack:0000000000000000 show_stack
+     /tmp/ccLsYHtp.s:2386   .text.show_flags:0000000000000000 $t
+     /tmp/ccLsYHtp.s:2394   .text.show_flags:0000000000000000 show_flags
+     /tmp/ccLsYHtp.s:2405   .text.wait_for_display:0000000000000000 $t
+     /tmp/ccLsYHtp.s:2413   .text.wait_for_display:0000000000000000 wait_for_display
+     /tmp/ccLsYHtp.s:2426   .text.finish_display:0000000000000000 $t
+     /tmp/ccLsYHtp.s:2434   .text.finish_display:0000000000000000 finish_display
+     /tmp/ccLsYHtp.s:2476   .text.finish_display:0000000000000024 $d
+     /tmp/ccLsYHtp.s:2482   .text.finish_RPN:0000000000000000 $t
+     /tmp/ccLsYHtp.s:2490   .text.finish_RPN:0000000000000000 finish_RPN
+     /tmp/ccLsYHtp.s:2568   .text.finish_RPN:000000000000004c $d
+     /tmp/ccLsYHtp.s:2579   .text.do_all_dots:0000000000000000 $t
+     /tmp/ccLsYHtp.s:2587   .text.do_all_dots:0000000000000000 do_all_dots
+     /tmp/ccLsYHtp.s:2671   .text.do_all_dots:0000000000000028 $d
+     /tmp/ccLsYHtp.s:2677   .text.show_progtrace:0000000000000000 $t
+     /tmp/ccLsYHtp.s:2685   .text.show_progtrace:0000000000000000 show_progtrace
+     /tmp/ccLsYHtp.s:2699   .bss.dots:0000000000000000 $d
+     /tmp/ccLsYHtp.s:2703   .bss.dots:0000000000000000 dots
 
 UNDEFINED SYMBOLS
 dot

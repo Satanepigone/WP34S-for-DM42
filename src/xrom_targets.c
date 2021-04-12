@@ -27,6 +27,7 @@ const unsigned short int xrom_targets[] = {
 	1833, // virtual LBL 22
 	1410, // virtual LBL 23
 	1434, // virtual LBL 24
-	1516  // virtual LBL 25
+	1516, // virtual LBL 25
+	2633  // virtual LBL 26
 }; // xrom_targets[]
 

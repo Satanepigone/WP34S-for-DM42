@@ -351,12 +351,21 @@ void show_disp(void) { // This function re-draws everything.
 	if (dots[BATTERY]) {
 	  //    MOVE(70, 10);   PRINTF("####-");
         }
-
+#ifdef MODIFY_BEG_SSIZE8
+	if (dots[BEG]) {
+	  lcd_setXY (t20, 285, y_ann-50);
+	  lcd_writeText(t20, "S:8");
+        }
+	else {
+	  lcd_setXY (t20, 285, y_ann-50);
+	  lcd_writeText(t20, "S:4");
+	}	  
+#else
 	if (dots[BEG]) {
 	  lcd_setXY (t20, 285, y_ann-50);
 	  lcd_writeText(t20, "BEG");
         }
-
+#endif
 	if (dots[STO_annun]) {
 	  lcd_setXY (t20, 325, y_ann-50);
 	  lcd_writeText(t20, "PGM");

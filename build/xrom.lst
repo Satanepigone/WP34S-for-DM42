@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccLmAKY9.s 			page 1
+ARM GAS  /tmp/cccU55mT.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
   57 0042 712A     		.short	10865
   58 0044 8101     		.short	385
   59 0046 8201     		.short	386
-ARM GAS  /tmp/ccLmAKY9.s 			page 2
+ARM GAS  /tmp/cccU55mT.s 			page 2
 
 
   60 0048 7423     		.short	9076
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  114 00b4 7423     		.short	9076
  115 00b6 702A     		.short	10864
  116 00b8 6B23     		.short	9067
-ARM GAS  /tmp/ccLmAKY9.s 			page 3
+ARM GAS  /tmp/cccU55mT.s 			page 3
 
 
  117 00ba 7376     		.short	30323
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  171 0126 682A     		.short	10856
  172 0128 7323     		.short	9075
  173 012a 0456     		.short	22020
-ARM GAS  /tmp/ccLmAKY9.s 			page 4
+ARM GAS  /tmp/cccU55mT.s 			page 4
 
 
  174 012c 722A     		.short	10866
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  228 0198 0203     		.short	770
  229 019a 6957     		.short	22377
  230 019c 722A     		.short	10866
-ARM GAS  /tmp/ccLmAKY9.s 			page 5
+ARM GAS  /tmp/cccU55mT.s 			page 5
 
 
  231 019e 7023     		.short	9072
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  285 020a C9A6     		.short	-22839
  286 020c 0A03     		.short	778
  287 020e 663F     		.short	16230
-ARM GAS  /tmp/ccLmAKY9.s 			page 6
+ARM GAS  /tmp/cccU55mT.s 			page 6
 
 
  288 0210 6751     		.short	20839
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  342 027c 0403     		.short	772
  343 027e 6B2D     		.short	11627
  344 0280 3901     		.short	313
-ARM GAS  /tmp/ccLmAKY9.s 			page 7
+ARM GAS  /tmp/cccU55mT.s 			page 7
 
 
  345 0282 9F01     		.short	415
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  399 02ee 0300     		.short	3
  400 02f0 B701     		.short	439
  401 02f2 0756     		.short	22023
-ARM GAS  /tmp/ccLmAKY9.s 			page 8
+ARM GAS  /tmp/cccU55mT.s 			page 8
 
 
  402 02f4 09A7     		.short	-22775
@@ -466,7 +466,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  444 0348 7575     		.short	30069
  445 034a 642B     		.short	11108
  446 034c 642B     		.short	11108
- 447 034e 5520     		.short	8277
+ 447 034e 6620     		.short	8294
  448 0350 0403     		.short	772
  449 0352 0802     		.short	520
  450 0354 7723     		.short	9079
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  456 0360 7923     		.short	9081
  457 0362 01A7     		.short	-22783
  458 0364 7A23     		.short	9082
-ARM GAS  /tmp/ccLmAKY9.s 			page 9
+ARM GAS  /tmp/cccU55mT.s 			page 9
 
 
  459 0366 02A7     		.short	-22782
@@ -489,7 +489,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  464 0370 1602     		.short	534
  465 0372 6460     		.short	24676
  466 0374 0A02     		.short	522
- 467 0376 5620     		.short	8278
+ 467 0376 6720     		.short	8295
  468 0378 0303     		.short	771
  469 037a 7274     		.short	29810
  470 037c 0902     		.short	521
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  513 03d2 7924     		.short	9337
  514 03d4 7675     		.short	30070
  515 03d6 1A56     		.short	22042
-ARM GAS  /tmp/ccLmAKY9.s 			page 10
+ARM GAS  /tmp/cccU55mT.s 			page 10
 
 
  516 03d8 7A61     		.short	24954
@@ -587,7 +587,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  559 042e 7E2A     		.short	10878
  560 0430 722D     		.short	11634
  561 0432 782D     		.short	11640
- 562 0434 5620     		.short	8278
+ 562 0434 6720     		.short	8295
  563 0436 0303     		.short	771
  564 0438 7174     		.short	29809
  565 043a 0300     		.short	3
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  570 0444 7E2C     		.short	11390
  571 0446 0502     		.short	517
  572 0448 752A     		.short	10869
-ARM GAS  /tmp/ccLmAKY9.s 			page 11
+ARM GAS  /tmp/cccU55mT.s 			page 11
 
 
  573 044a 7E2D     		.short	11646
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  627 04b6 2956     		.short	22057
  628 04b8 1EA7     		.short	-22754
  629 04ba 0303     		.short	771
-ARM GAS  /tmp/ccLmAKY9.s 			page 12
+ARM GAS  /tmp/cccU55mT.s 			page 12
 
 
  630 04bc 7125     		.short	9585
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  684 0528 5258     		.short	22610
  685 052a 01A7     		.short	-22783
  686 052c 2E58     		.short	22574
-ARM GAS  /tmp/ccLmAKY9.s 			page 13
+ARM GAS  /tmp/cccU55mT.s 			page 13
 
 
  687 052e 1257     		.short	22290
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  741 059a 1700     		.short	23
  742 059c 0A56     		.short	22026
  743 059e 0300     		.short	3
-ARM GAS  /tmp/ccLmAKY9.s 			page 14
+ARM GAS  /tmp/cccU55mT.s 			page 14
 
 
  744 05a0 742D     		.short	11636
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  798 060c 3256     		.short	22066
  799 060e 7123     		.short	9073
  800 0610 00A7     		.short	-22784
-ARM GAS  /tmp/ccLmAKY9.s 			page 15
+ARM GAS  /tmp/cccU55mT.s 			page 15
 
 
  801 0612 7223     		.short	9074
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  855 067e 0000     		.short	0
  856 0680 662B     		.short	11110
  857 0682 1700     		.short	23
-ARM GAS  /tmp/ccLmAKY9.s 			page 16
+ARM GAS  /tmp/cccU55mT.s 			page 16
 
 
  858 0684 0465     		.short	25860
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  912 06f0 00A4     		.short	-23552
  913 06f2 0957     		.short	22281
  914 06f4 CAA3     		.short	-23606
-ARM GAS  /tmp/ccLmAKY9.s 			page 17
+ARM GAS  /tmp/cccU55mT.s 			page 17
 
 
  915 06f6 663D     		.short	15718
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  969 0762 702A     		.short	10864
  970 0764 6552     		.short	21093
  971 0766 2156     		.short	22049
-ARM GAS  /tmp/ccLmAKY9.s 			page 18
+ARM GAS  /tmp/cccU55mT.s 			page 18
 
 
  972 0768 4D20     		.short	8269
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1026 07d4 6531     		.short	12645
  1027 07d6 6461     		.short	24932
  1028 07d8 0403     		.short	772
-ARM GAS  /tmp/ccLmAKY9.s 			page 19
+ARM GAS  /tmp/cccU55mT.s 			page 19
 
 
  1029 07da 6C2A     		.short	10860
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1083 0846 0403     		.short	772
  1084 0848 6531     		.short	12645
  1085 084a 3002     		.short	560
-ARM GAS  /tmp/ccLmAKY9.s 			page 20
+ARM GAS  /tmp/cccU55mT.s 			page 20
 
 
  1086 084c 0303     		.short	771
@@ -1177,7 +1177,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1119 088e 49A3     		.short	-23735
  1120 0890 0020     		.short	8192
  1121 0892 0303     		.short	771
- 1122 0894 5520     		.short	8277
+ 1122 0894 6620     		.short	8294
  1123 0896 04A7     		.short	-22780
  1124 0898 0403     		.short	772
  1125 089a 0103     		.short	769
@@ -1187,7 +1187,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1129 08a2 C9A3     		.short	-23607
  1130 08a4 0021     		.short	8448
  1131 08a6 0306     		.short	1539
- 1132 08a8 5521     		.short	8533
+ 1132 08a8 6621     		.short	8550
  1133 08aa 04A7     		.short	-22780
  1134 08ac 0403     		.short	772
  1135 08ae 0106     		.short	1537
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1140 08b8 02A7     		.short	-22782
  1141 08ba 0A02     		.short	522
  1142 08bc 0303     		.short	771
-ARM GAS  /tmp/ccLmAKY9.s 			page 21
+ARM GAS  /tmp/cccU55mT.s 			page 21
 
 
  1143 08be 0300     		.short	3
@@ -1229,7 +1229,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1168 08f0 642D     		.short	11620
  1169 08f2 6461     		.short	24932
  1170 08f4 6F2D     		.short	11631
- 1171 08f6 5520     		.short	8277
+ 1171 08f6 6620     		.short	8294
  1172 08f8 0303     		.short	771
  1173 08fa 0B02     		.short	523
  1174 08fc 00A4     		.short	-23552
@@ -1241,7 +1241,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1180 0908 8501     		.short	389
  1181 090a 0965     		.short	25865
  1182 090c 2502     		.short	549
- 1183 090e 5520     		.short	8277
+ 1183 090e 6620     		.short	8294
  1184 0910 0403     		.short	772
  1185 0912 7074     		.short	29808
  1186 0914 0300     		.short	3
@@ -1258,10 +1258,10 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1197 092a 0C64     		.short	25612
  1198 092c 0020     		.short	8192
  1199 092e 0203     		.short	770
-ARM GAS  /tmp/ccLmAKY9.s 			page 22
+ARM GAS  /tmp/cccU55mT.s 			page 22
 
 
- 1200 0930 5520     		.short	8277
+ 1200 0930 6620     		.short	8294
  1201 0932 0303     		.short	771
  1202 0934 2202     		.short	546
  1203 0936 6F2A     		.short	10863
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1254 099c 6E2A     		.short	10862
  1255 099e 0E64     		.short	25614
  1256 09a0 0303     		.short	771
-ARM GAS  /tmp/ccLmAKY9.s 			page 23
+ARM GAS  /tmp/cccU55mT.s 			page 23
 
 
  1257 09a2 0902     		.short	521
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1311 0a0e 0458     		.short	22532
  1312 0a10 7250     		.short	20594
  1313 0a12 7161     		.short	24945
-ARM GAS  /tmp/ccLmAKY9.s 			page 24
+ARM GAS  /tmp/cccU55mT.s 			page 24
 
 
  1314 0a14 712A     		.short	10865
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1368 0a80 0103     		.short	769
  1369 0a82 00A4     		.short	-23552
  1370 0a84 49A3     		.short	-23735
-ARM GAS  /tmp/ccLmAKY9.s 			page 25
+ARM GAS  /tmp/cccU55mT.s 			page 25
 
 
  1371 0a86 019C     		.short	-25599
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1425 0af2 6F2A     		.short	10863
  1426 0af4 0B64     		.short	25611
  1427 0af6 0303     		.short	771
-ARM GAS  /tmp/ccLmAKY9.s 			page 26
+ARM GAS  /tmp/cccU55mT.s 			page 26
 
 
  1428 0af8 6E2A     		.short	10862
@@ -1513,7 +1513,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1437 0b0a 0303     		.short	771
  1438 0b0c 0300     		.short	3
  1439 0b0e 0902     		.short	521
- 1440 0b10 5720     		.short	8279
+ 1440 0b10 6820     		.short	8296
  1441 0b12 0403     		.short	772
  1442 0b14 3801     		.short	312
  1443 0b16 49A3     		.short	-23735
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1482 0b64 7123     		.short	9073
  1483 0b66 662A     		.short	10854
  1484 0b68 0502     		.short	517
-ARM GAS  /tmp/ccLmAKY9.s 			page 27
+ARM GAS  /tmp/cccU55mT.s 			page 27
 
 
  1485 0b6a 0C01     		.short	268
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1539 0bd6 0000     		.short	0
  1540 0bd8 0300     		.short	3
  1541 0bda 6461     		.short	24932
-ARM GAS  /tmp/ccLmAKY9.s 			page 28
+ARM GAS  /tmp/cccU55mT.s 			page 28
 
 
  1542 0bdc 0903     		.short	777
@@ -1635,7 +1635,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1553 0bf2 0300     		.short	3
  1554 0bf4 0000     		.short	0
  1555 0bf6 6460     		.short	24676
- 1556 0bf8 5520     		.short	8277
+ 1556 0bf8 6620     		.short	8294
  1557 0bfa 0303     		.short	771
  1558 0bfc 6424     		.short	9316
  1559 0bfe 0A02     		.short	522
@@ -1656,7 +1656,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1574 0c1c 0300     		.short	3
  1575 0c1e 0020     		.short	8192
  1576 0c20 0103     		.short	769
- 1577 0c22 5520     		.short	8277
+ 1577 0c22 6620     		.short	8294
  1578 0c24 6424     		.short	9316
  1579 0c26 0A02     		.short	522
  1580 0c28 0303     		.short	771
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1596 0c48 6531     		.short	12645
  1597 0c4a 0003     		.short	768
  1598 0c4c 6623     		.short	9062
-ARM GAS  /tmp/ccLmAKY9.s 			page 29
+ARM GAS  /tmp/cccU55mT.s 			page 29
 
 
  1599 0c4e 0300     		.short	3
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1653 0cba 0565     		.short	25861
  1654 0cbc 1A00     		.short	26
  1655 0cbe 1022     		.short	8720
-ARM GAS  /tmp/ccLmAKY9.s 			page 30
+ARM GAS  /tmp/cccU55mT.s 			page 30
 
 
  1656 0cc0 2300     		.short	35
@@ -1786,7 +1786,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1698 0d14 652A     		.short	10853
  1699 0d16 3102     		.short	561
  1700 0d18 0203     		.short	770
- 1701 0d1a 5320     		.short	8275
+ 1701 0d1a 6420     		.short	8292
  1702 0d1c D2A6     		.short	-22830
  1703 0d1e 0303     		.short	771
  1704 0d20 0203     		.short	770
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1710 0d2c 00A4     		.short	-23552
  1711 0d2e 1B00     		.short	27
  1712 0d30 2257     		.short	22306
-ARM GAS  /tmp/ccLmAKY9.s 			page 31
+ARM GAS  /tmp/cccU55mT.s 			page 31
 
 
  1713 0d32 8301     		.short	387
@@ -1845,7 +1845,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1754 0d84 6460     		.short	24676
  1755 0d86 0300     		.short	3
  1756 0d88 0003     		.short	768
- 1757 0d8a 5520     		.short	8277
+ 1757 0d8a 6620     		.short	8294
  1758 0d8c 0403     		.short	772
  1759 0d8e 702A     		.short	10864
  1760 0d90 6550     		.short	20581
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1767 0d9e 0A02     		.short	522
  1768 0da0 0303     		.short	771
  1769 0da2 6461     		.short	24932
-ARM GAS  /tmp/ccLmAKY9.s 			page 32
+ARM GAS  /tmp/cccU55mT.s 			page 32
 
 
  1770 0da4 652C     		.short	11365
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1824 0e10 6625     		.short	9574
  1825 0e12 0203     		.short	770
  1826 0e14 702E     		.short	11888
-ARM GAS  /tmp/ccLmAKY9.s 			page 33
+ARM GAS  /tmp/cccU55mT.s 			page 33
 
 
  1827 0e16 1102     		.short	529
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1881 0e82 6461     		.short	24932
  1882 0e84 3102     		.short	561
  1883 0e86 0203     		.short	770
-ARM GAS  /tmp/ccLmAKY9.s 			page 34
+ARM GAS  /tmp/cccU55mT.s 			page 34
 
 
  1884 0e88 0902     		.short	521
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1938 0ef4 2757     		.short	22311
  1939 0ef6 49A3     		.short	-23735
  1940 0ef8 0158     		.short	22529
-ARM GAS  /tmp/ccLmAKY9.s 			page 35
+ARM GAS  /tmp/cccU55mT.s 			page 35
 
 
  1941 0efa 1C57     		.short	22300
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  1995 0f66 0B56     		.short	22027
  1996 0f68 7276     		.short	30322
  1997 0f6a 0756     		.short	22023
-ARM GAS  /tmp/ccLmAKY9.s 			page 36
+ARM GAS  /tmp/cccU55mT.s 			page 36
 
 
  1998 0f6c 762A     		.short	10870
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  2052 0fd8 7074     		.short	29808
  2053 0fda 0356     		.short	22019
  2054 0fdc 03A5     		.short	-23293
-ARM GAS  /tmp/ccLmAKY9.s 			page 37
+ARM GAS  /tmp/cccU55mT.s 			page 37
 
 
  2055 0fde 0B56     		.short	22027
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  2109 104a 8A56     		.short	22154
  2110 104c D057     		.short	22480
  2111 104e 2656     		.short	22054
-ARM GAS  /tmp/ccLmAKY9.s 			page 38
+ARM GAS  /tmp/cccU55mT.s 			page 38
 
 
  2112 1050 49A3     		.short	-23735
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  2166 10bc 0F58     		.short	22543
  2167 10be 0C64     		.short	25612
  2168 10c0 1B00     		.short	27
-ARM GAS  /tmp/ccLmAKY9.s 			page 39
+ARM GAS  /tmp/cccU55mT.s 			page 39
 
 
  2169 10c2 0865     		.short	25864
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  2223 112e 6531     		.short	12645
  2224 1130 0403     		.short	772
  2225 1132 3801     		.short	312
-ARM GAS  /tmp/ccLmAKY9.s 			page 40
+ARM GAS  /tmp/cccU55mT.s 			page 40
 
 
  2226 1134 49A3     		.short	-23735
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  2280 11a0 7135     		.short	13681
  2281 11a2 0103     		.short	769
  2282 11a4 02A7     		.short	-22782
-ARM GAS  /tmp/ccLmAKY9.s 			page 41
+ARM GAS  /tmp/cccU55mT.s 			page 41
 
 
  2283 11a6 6531     		.short	12645
@@ -2458,12 +2458,12 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  2337 1212 6E2E     		.short	11886
  2338 1214 1102     		.short	529
  2339 1216 6D2D     		.short	11629
-ARM GAS  /tmp/ccLmAKY9.s 			page 42
+ARM GAS  /tmp/cccU55mT.s 			page 42
 
 
  2340 1218 0203     		.short	770
  2341 121a 0902     		.short	521
- 2342 121c 5520     		.short	8277
+ 2342 121c 6620     		.short	8294
  2343 121e 6E2D     		.short	11630
  2344 1220 0A02     		.short	522
  2345 1222 0403     		.short	772
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  2394 1284 3801     		.short	312
  2395 1286 1A00     		.short	26
  2396 1288 0F65     		.short	25871
-ARM GAS  /tmp/ccLmAKY9.s 			page 43
+ARM GAS  /tmp/cccU55mT.s 			page 43
 
 
  2397 128a 1065     		.short	25872
@@ -2556,7 +2556,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  2429 12ca 6E2A     		.short	10862
  2430 12cc 6424     		.short	9316
  2431 12ce 0303     		.short	771
- 2432 12d0 5520     		.short	8277
+ 2432 12d0 6620     		.short	8294
  2433 12d2 6C2A     		.short	10860
  2434 12d4 0020     		.short	8192
  2435 12d6 1602     		.short	534
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  2451 12f6 6E2D     		.short	11630
  2452 12f8 0B02     		.short	523
  2453 12fa 6461     		.short	24932
-ARM GAS  /tmp/ccLmAKY9.s 			page 44
+ARM GAS  /tmp/cccU55mT.s 			page 44
 
 
  2454 12fc 0303     		.short	771
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  2508 1368 0356     		.short	22019
  2509 136a 0B64     		.short	25611
  2510 136c 0E01     		.short	270
-ARM GAS  /tmp/ccLmAKY9.s 			page 45
+ARM GAS  /tmp/cccU55mT.s 			page 45
 
 
  2511 136e 3801     		.short	312
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  2565 13da 0D58     		.short	22541
  2566 13dc 702A     		.short	10864
  2567 13de 6823     		.short	9064
-ARM GAS  /tmp/ccLmAKY9.s 			page 46
+ARM GAS  /tmp/cccU55mT.s 			page 46
 
 
  2568 13e0 7561     		.short	24949
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  2622 144c 6A61     		.short	24938
  2623 144e 6A2A     		.short	10858
  2624 1450 7427     		.short	10100
-ARM GAS  /tmp/ccLmAKY9.s 			page 47
+ARM GAS  /tmp/cccU55mT.s 			page 47
 
 
  2625 1452 7075     		.short	30064
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  2679 14be 8301     		.short	387
  2680 14c0 0122     		.short	8705
  2681 14c2 8601     		.short	390
-ARM GAS  /tmp/ccLmAKY9.s 			page 48
+ARM GAS  /tmp/cccU55mT.s 			page 48
 
 
  2682 14c4 6461     		.short	24932
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  2736 1530 15A2     		.short	-24043
  2737 1532 3801     		.short	312
  2738 1534 36A2     		.short	-24010
-ARM GAS  /tmp/ccLmAKY9.s 			page 49
+ARM GAS  /tmp/cccU55mT.s 			page 49
 
 
  2739 1536 0156     		.short	22017
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  2793 15a2 3801     		.short	312
  2794 15a4 04A2     		.short	-24060
  2795 15a6 05A1     		.short	-24315
-ARM GAS  /tmp/ccLmAKY9.s 			page 50
+ARM GAS  /tmp/cccU55mT.s 			page 50
 
 
  2796 15a8 3801     		.short	312
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  2850 1614 6C2A     		.short	10860
  2851 1616 0C02     		.short	524
  2852 1618 652E     		.short	11877
-ARM GAS  /tmp/ccLmAKY9.s 			page 51
+ARM GAS  /tmp/cccU55mT.s 			page 51
 
 
  2853 161a 0203     		.short	770
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  2907 1686 1158     		.short	22545
  2908 1688 6424     		.short	9316
  2909 168a 0502     		.short	517
-ARM GAS  /tmp/ccLmAKY9.s 			page 52
+ARM GAS  /tmp/cccU55mT.s 			page 52
 
 
  2910 168c 00A4     		.short	-23552
@@ -3110,7 +3110,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  2956 16e8 772D     		.short	11639
  2957 16ea 2002     		.short	544
  2958 16ec 0303     		.short	771
- 2959 16ee 5520     		.short	8277
+ 2959 16ee 6620     		.short	8294
  2960 16f0 6527     		.short	10085
  2961 16f2 6424     		.short	9316
  2962 16f4 772A     		.short	10871
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  2964 16f8 0303     		.short	771
  2965 16fa 7131     		.short	12657
  2966 16fc 3002     		.short	560
-ARM GAS  /tmp/ccLmAKY9.s 			page 53
+ARM GAS  /tmp/cccU55mT.s 			page 53
 
 
  2967 16fe 712D     		.short	11633
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  3021 176a 00A4     		.short	-23552
  3022 176c 1700     		.short	23
  3023 176e 3801     		.short	312
-ARM GAS  /tmp/ccLmAKY9.s 			page 54
+ARM GAS  /tmp/cccU55mT.s 			page 54
 
 
  3024 1770 1A00     		.short	26
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  3078 17dc 6531     		.short	12645
  3079 17de 00A4     		.short	-23552
  3080 17e0 6531     		.short	12645
-ARM GAS  /tmp/ccLmAKY9.s 			page 55
+ARM GAS  /tmp/cccU55mT.s 			page 55
 
 
  3081 17e2 3B59     		.short	22843
@@ -3280,7 +3280,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  3117 182a C9A3     		.short	-23607
  3118 182c 0759     		.short	22791
  3119 182e 3805     		.short	1336
- 3120 1830 5620     		.short	8278
+ 3120 1830 6720     		.short	8295
  3121 1832 0103     		.short	769
  3122 1834 00A4     		.short	-23552
  3123 1836 C9A3     		.short	-23607
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  3135 184e 00A7     		.short	-22784
  3136 1850 0306     		.short	1539
  3137 1852 00A4     		.short	-23552
-ARM GAS  /tmp/ccLmAKY9.s 			page 56
+ARM GAS  /tmp/cccU55mT.s 			page 56
 
 
  3138 1854 C9A3     		.short	-23607
@@ -3349,16 +3349,16 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  3183 18ae 00A4     		.short	-23552
  3184 18b0 C9A3     		.short	-23607
  3185 18b2 0805     		.short	1288
- 3186 18b4 5221     		.short	8530
+ 3186 18b4 6321     		.short	8547
  3187 18b6 0356     		.short	22019
  3188 18b8 C9A3     		.short	-23607
  3189 18ba 0805     		.short	1288
- 3190 18bc 5421     		.short	8532
+ 3190 18bc 6521     		.short	8549
  3191 18be 0306     		.short	1539
  3192 18c0 00A4     		.short	-23552
  3193 18c2 C9A3     		.short	-23607
  3194 18c4 0AA8     		.short	-22518
-ARM GAS  /tmp/ccLmAKY9.s 			page 57
+ARM GAS  /tmp/cccU55mT.s 			page 57
 
 
  3195 18c6 0256     		.short	22018
@@ -3418,35 +3418,351 @@ ARM GAS  /tmp/ccLmAKY9.s 			page 1
  3249 1932 3F01     		.short	319
  3250 1934 6461     		.short	24932
  3251 1936 3801     		.short	312
-ARM GAS  /tmp/ccLmAKY9.s 			page 58
+ARM GAS  /tmp/cccU55mT.s 			page 58
 
 
  3252 1938 4AA3     		.short	-23734
  3253 193a 0403     		.short	772
  3254 193c 0402     		.short	516
  3255 193e 00A4     		.short	-23552
- 3256              		.section	.rodata.xrom_size,"a"
- 3257              		.align	1
- 3260              	xrom_size:
- 3261 0000 A00C     		.short	3232
- 3262              		.text
- 3263              	.Letext0:
- 3264              		.file 1 "src/decNumber/decContext.h"
- 3265              		.file 2 "src/decNumber/decNumber.h"
- 3266              		.file 3 "src/decNumber/decimal64.h"
- 3267              		.file 4 "src/decNumber/decimal128.h"
- 3268              		.file 5 "src/xeq.h"
- 3269              		.file 6 "src/data.h"
- 3270              		.file 7 "src/xrom.h"
- 3271              		.file 8 "src/xrom.c"
-ARM GAS  /tmp/ccLmAKY9.s 			page 59
+ 3256 1940 4AA3     		.short	-23734
+ 3257 1942 8501     		.short	389
+ 3258 1944 1A65     		.short	25882
+ 3259 1946 7171     		.short	29041
+ 3260 1948 0356     		.short	22019
+ 3261 194a 4AA3     		.short	-23734
+ 3262 194c 8501     		.short	389
+ 3263 194e 0865     		.short	25864
+ 3264 1950 0158     		.short	22529
+ 3265 1952 00A4     		.short	-23552
+ 3266 1954 2600     		.short	38
+ 3267 1956 0256     		.short	22018
+ 3268 1958 01A7     		.short	-22783
+ 3269 195a 3801     		.short	312
+ 3270 195c 1700     		.short	23
+ 3271 195e 3801     		.short	312
+ 3272 1960 0020     		.short	8192
+ 3273 1962 0303     		.short	771
+ 3274 1964 6E35     		.short	13678
+ 3275 1966 6531     		.short	12645
+ 3276 1968 8701     		.short	391
+ 3277 196a 1C56     		.short	22044
+ 3278 196c 01A7     		.short	-22783
+ 3279 196e 0C01     		.short	268
+ 3280 1970 6D23     		.short	9069
+ 3281 1972 6631     		.short	12646
+ 3282 1974 7175     		.short	30065
+ 3283 1976 0300     		.short	3
+ 3284 1978 6E2D     		.short	11630
+ 3285 197a 6E2D     		.short	11630
+ 3286 197c 6D2A     		.short	10861
+ 3287 197e 6527     		.short	10085
+ 3288 1980 6F2A     		.short	10863
+ 3289 1982 0103     		.short	769
+ 3290 1984 0403     		.short	772
+ 3291 1986 6D61     		.short	24941
+ 3292 1988 54A6     		.short	-22956
+ 3293 198a 6524     		.short	9317
+ 3294 198c 6631     		.short	12646
+ 3295 198e 02A5     		.short	-23294
+ 3296 1990 0156     		.short	22017
+ 3297 1992 1057     		.short	22288
+ 3298 1994 6E2A     		.short	10862
+ 3299 1996 6F2A     		.short	10863
+ 3300 1998 0003     		.short	768
+ 3301 199a 0303     		.short	771
+ 3302 199c 6F2A     		.short	10863
+ 3303 199e 2F02     		.short	559
+ 3304 19a0 0403     		.short	772
+ 3305 19a2 3801     		.short	312
+ 3306 19a4 0122     		.short	8705
+ 3307 19a6 3801     		.short	312
+ 3308 19a8 4AA3     		.short	-23734
+ARM GAS  /tmp/cccU55mT.s 			page 59
+
+
+ 3309 19aa 1700     		.short	23
+ 3310 19ac 1A65     		.short	25882
+ 3311 19ae 8501     		.short	389
+ 3312 19b0 0865     		.short	25864
+ 3313 19b2 039C     		.short	-25597
+ 3314 19b4 7171     		.short	29041
+ 3315 19b6 0656     		.short	22022
+ 3316 19b8 4AA3     		.short	-23734
+ 3317 19ba 1700     		.short	23
+ 3318 19bc 0465     		.short	25860
+ 3319 19be 8501     		.short	389
+ 3320 19c0 0865     		.short	25864
+ 3321 19c2 039C     		.short	-25597
+ 3322 19c4 7035     		.short	13680
+ 3323 19c6 6531     		.short	12645
+ 3324 19c8 8701     		.short	391
+ 3325 19ca 1956     		.short	22041
+ 3326 19cc 0300     		.short	3
+ 3327 19ce 6531     		.short	12645
+ 3328 19d0 3E59     		.short	22846
+ 3329 19d2 7223     		.short	9074
+ 3330 19d4 703A     		.short	14960
+ 3331 19d6 4159     		.short	22849
+ 3332 19d8 7174     		.short	29809
+ 3333 19da 0656     		.short	22022
+ 3334 19dc 6620     		.short	8294
+ 3335 19de 712D     		.short	11633
+ 3336 19e0 2102     		.short	545
+ 3337 19e2 0303     		.short	771
+ 3338 19e4 722C     		.short	11378
+ 3339 19e6 0656     		.short	22022
+ 3340 19e8 722C     		.short	11378
+ 3341 19ea 0300     		.short	3
+ 3342 19ec 6620     		.short	8294
+ 3343 19ee 0303     		.short	771
+ 3344 19f0 0020     		.short	8192
+ 3345 19f2 0303     		.short	771
+ 3346 19f4 6620     		.short	8294
+ 3347 19f6 712D     		.short	11633
+ 3348 19f8 2002     		.short	544
+ 3349 19fa 0403     		.short	772
+ 3350 19fc 00A4     		.short	-23552
+ 3351 19fe 0122     		.short	8705
+ 3352 1a00 3801     		.short	312
+ 3353 1a02 CAA3     		.short	-23606
+ 3354 1a04 0B9C     		.short	-25589
+ 3355 1a06 7171     		.short	29041
+ 3356 1a08 0558     		.short	22533
+ 3357 1a0a 00A4     		.short	-23552
+ 3358 1a0c CAA3     		.short	-23606
+ 3359 1a0e 0B9C     		.short	-25589
+ 3360 1a10 0158     		.short	22529
+ 3361 1a12 00A4     		.short	-23552
+ 3362 1a14 7135     		.short	13681
+ 3363 1a16 663F     		.short	16230
+ 3364 1a18 7535     		.short	13685
+ 3365 1a1a 02A7     		.short	-22782
+ARM GAS  /tmp/cccU55mT.s 			page 60
+
+
+ 3366 1a1c 7127     		.short	10097
+ 3367 1a1e 7227     		.short	10098
+ 3368 1a20 713A     		.short	14961
+ 3369 1a22 643D     		.short	15716
+ 3370 1a24 7935     		.short	13689
+ 3371 1a26 01A8     		.short	-22527
+ 3372 1a28 7023     		.short	9072
+ 3373 1a2a 7335     		.short	13683
+ 3374 1a2c 7735     		.short	13687
+ 3375 1a2e 793A     		.short	14969
+ 3376 1a30 733D     		.short	15731
+ 3377 1a32 702A     		.short	10864
+ 3378 1a34 7175     		.short	30065
+ 3379 1a36 0300     		.short	3
+ 3380 1a38 6627     		.short	10086
+ 3381 1a3a 0403     		.short	772
+ 3382 1a3c 753A     		.short	14965
+ 3383 1a3e 702B     		.short	11120
+ 3384 1a40 0406     		.short	1540
+ 3385 1a42 7335     		.short	13683
+ 3386 1a44 773B     		.short	15223
+ 3387 1a46 773F     		.short	16247
+ 3388 1a48 773A     		.short	14967
+ 3389 1a4a 7061     		.short	24944
+ 3390 1a4c 0AA5     		.short	-23286
+ 3391 1a4e 0156     		.short	22017
+ 3392 1a50 1157     		.short	22289
+ 3393 1a52 713A     		.short	14961
+ 3394 1a54 753A     		.short	14965
+ 3395 1a56 0006     		.short	1536
+ 3396 1a58 0306     		.short	1539
+ 3397 1a5a 753A     		.short	14965
+ 3398 1a5c 6461     		.short	24932
+ 3399 1a5e 3005     		.short	1328
+ 3400 1a60 0406     		.short	1540
+ 3401 1a62 3801     		.short	312
+ 3402 1a64 CAA3     		.short	-23606
+ 3403 1a66 0F9C     		.short	-25585
+ 3404 1a68 7171     		.short	29041
+ 3405 1a6a 0256     		.short	22018
+ 3406 1a6c CAA3     		.short	-23606
+ 3407 1a6e 0F9C     		.short	-25585
+ 3408 1a70 7B35     		.short	13691
+ 3409 1a72 663F     		.short	16230
+ 3410 1a74 8701     		.short	391
+ 3411 1a76 1C56     		.short	22044
+ 3412 1a78 663F     		.short	16230
+ 3413 1a7a 3359     		.short	22835
+ 3414 1a7c 7174     		.short	29809
+ 3415 1a7e 0456     		.short	22020
+ 3416 1a80 6621     		.short	8550
+ 3417 1a82 753D     		.short	15733
+ 3418 1a84 2105     		.short	1313
+ 3419 1a86 0306     		.short	1539
+ 3420 1a88 7D35     		.short	13693
+ 3421 1a8a 753A     		.short	14965
+ 3422 1a8c 3805     		.short	1336
+ARM GAS  /tmp/cccU55mT.s 			page 61
+
+
+ 3423 1a8e 7B3A     		.short	14971
+ 3424 1a90 3E59     		.short	22846
+ 3425 1a92 7D37     		.short	14205
+ 3426 1a94 6621     		.short	8550
+ 3427 1a96 753D     		.short	15733
+ 3428 1a98 2005     		.short	1312
+ 3429 1a9a 7D39     		.short	14717
+ 3430 1a9c 7174     		.short	29809
+ 3431 1a9e 0356     		.short	22019
+ 3432 1aa0 01A8     		.short	-22527
+ 3433 1aa2 0300     		.short	3
+ 3434 1aa4 0356     		.short	22019
+ 3435 1aa6 6621     		.short	8550
+ 3436 1aa8 0020     		.short	8192
+ 3437 1aaa 0303     		.short	771
+ 3438 1aac 7D3D     		.short	15741
+ 3439 1aae 00A4     		.short	-23552
+ 3440 1ab0 6531     		.short	12645
+ 3441 1ab2 1700     		.short	23
+ 3442 1ab4 0256     		.short	22018
+ 3443 1ab6 1EA6     		.short	-23010
+ 3444 1ab8 1F57     		.short	22303
+ 3445 1aba 1EA6     		.short	-23010
+ 3446 1abc 0122     		.short	8705
+ 3447 1abe 49A3     		.short	-23735
+ 3448 1ac0 039C     		.short	-25597
+ 3449 1ac2 6058     		.short	22624
+ 3450 1ac4 1A00     		.short	26
+ 3451 1ac6 7071     		.short	29040
+ 3452 1ac8 0502     		.short	517
+ 3453 1aca 7223     		.short	9074
+ 3454 1acc 5758     		.short	22615
+ 3455 1ace 6531     		.short	12645
+ 3456 1ad0 0B02     		.short	523
+ 3457 1ad2 7024     		.short	9328
+ 3458 1ad4 6C31     		.short	12652
+ 3459 1ad6 6461     		.short	24932
+ 3460 1ad8 6550     		.short	20581
+ 3461 1ada 0557     		.short	22277
+ 3462 1adc 0B02     		.short	523
+ 3463 1ade 7123     		.short	9073
+ 3464 1ae0 1602     		.short	534
+ 3465 1ae2 0C01     		.short	268
+ 3466 1ae4 00A7     		.short	-22784
+ 3467 1ae6 EEA9     		.short	-22034
+ 3468 1ae8 0B02     		.short	523
+ 3469 1aea 0103     		.short	769
+ 3470 1aec 0303     		.short	771
+ 3471 1aee 6E5C     		.short	23662
+ 3472 1af0 0557     		.short	22277
+ 3473 1af2 712A     		.short	10865
+ 3474 1af4 0802     		.short	520
+ 3475 1af6 0020     		.short	8192
+ 3476 1af8 6C2D     		.short	11628
+ 3477 1afa 0103     		.short	769
+ 3478 1afc 0203     		.short	770
+ 3479 1afe 702C     		.short	11376
+ARM GAS  /tmp/cccU55mT.s 			page 62
+
+
+ 3480 1b00 7075     		.short	30064
+ 3481 1b02 00A4     		.short	-23552
+ 3482 1b04 722A     		.short	10866
+ 3483 1b06 0B02     		.short	523
+ 3484 1b08 0103     		.short	769
+ 3485 1b0a 6620     		.short	8294
+ 3486 1b0c 722A     		.short	10866
+ 3487 1b0e 722A     		.short	10866
+ 3488 1b10 0302     		.short	515
+ 3489 1b12 0203     		.short	770
+ 3490 1b14 6620     		.short	8294
+ 3491 1b16 0303     		.short	771
+ 3492 1b18 2202     		.short	546
+ 3493 1b1a 0403     		.short	772
+ 3494 1b1c 0103     		.short	769
+ 3495 1b1e 00A4     		.short	-23552
+ 3496 1b20 C9A3     		.short	-23607
+ 3497 1b22 069C     		.short	-25594
+ 3498 1b24 2F58     		.short	22575
+ 3499 1b26 1A00     		.short	26
+ 3500 1b28 7071     		.short	29040
+ 3501 1b2a 7074     		.short	29808
+ 3502 1b2c 3805     		.short	1336
+ 3503 1b2e 7435     		.short	13684
+ 3504 1b30 2558     		.short	22565
+ 3505 1b32 09A6     		.short	-23031
+ 3506 1b34 0B05     		.short	1291
+ 3507 1b36 7036     		.short	13936
+ 3508 1b38 6C3F     		.short	16236
+ 3509 1b3a 6461     		.short	24932
+ 3510 1b3c 6650     		.short	20582
+ 3511 1b3e 0557     		.short	22277
+ 3512 1b40 0B05     		.short	1291
+ 3513 1b42 7235     		.short	13682
+ 3514 1b44 643D     		.short	15716
+ 3515 1b46 0D01     		.short	269
+ 3516 1b48 00A8     		.short	-22528
+ 3517 1b4a EEAA     		.short	-21778
+ 3518 1b4c 0B02     		.short	523
+ 3519 1b4e 0106     		.short	1537
+ 3520 1b50 0306     		.short	1539
+ 3521 1b52 6E5C     		.short	23662
+ 3522 1b54 0557     		.short	22277
+ 3523 1b56 723A     		.short	14962
+ 3524 1b58 0805     		.short	1288
+ 3525 1b5a 0021     		.short	8448
+ 3526 1b5c 6C3D     		.short	15724
+ 3527 1b5e 0106     		.short	1537
+ 3528 1b60 0206     		.short	1538
+ 3529 1b62 703C     		.short	15472
+ 3530 1b64 7075     		.short	30064
+ 3531 1b66 00A4     		.short	-23552
+ 3532 1b68 743A     		.short	14964
+ 3533 1b6a 0B05     		.short	1291
+ 3534 1b6c 0106     		.short	1537
+ 3535 1b6e 6621     		.short	8550
+ 3536 1b70 743A     		.short	14964
+ARM GAS  /tmp/cccU55mT.s 			page 63
+
+
+ 3537 1b72 663D     		.short	15718
+ 3538 1b74 2205     		.short	1314
+ 3539 1b76 0406     		.short	1540
+ 3540 1b78 0106     		.short	1537
+ 3541 1b7a 00A4     		.short	-23552
+ 3542 1b7c 0AA7     		.short	-22774
+ 3543 1b7e 7B74     		.short	29819
+ 3544 1b80 642B     		.short	11108
+ 3545 1b82 3801     		.short	312
+ 3546 1b84 52A7     		.short	-22702
+ 3547 1b86 0392     		.short	-28157
+ 3548 1b88 5CA7     		.short	-22692
+ 3549 1b8a 7B75     		.short	30075
+ 3550 1b8c 0256     		.short	22018
+ 3551 1b8e 0E01     		.short	270
+ 3552 1b90 62A7     		.short	-22686
+ 3553 1b92 0103     		.short	769
+ 3554 1b94 6E23     		.short	9070
+ 3555 1b96 0E01     		.short	270
+ 3556 1b98 3801     		.short	312
+ 3557              		.section	.rodata.xrom_size,"a"
+ 3558              		.align	1
+ 3561              	xrom_size:
+ 3562 0000 CD0D     		.short	3533
+ 3563              		.text
+ 3564              	.Letext0:
+ 3565              		.file 1 "src/decNumber/decContext.h"
+ 3566              		.file 2 "src/decNumber/decNumber.h"
+ 3567              		.file 3 "src/decNumber/decimal64.h"
+ 3568              		.file 4 "src/decNumber/decimal128.h"
+ 3569              		.file 5 "src/xeq.h"
+ 3570              		.file 6 "src/data.h"
+ 3571              		.file 7 "src/xrom.h"
+ 3572              		.file 8 "src/xrom.c"
+ARM GAS  /tmp/cccU55mT.s 			page 64
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 xrom.c
-     /tmp/ccLmAKY9.s:3260   .rodata.xrom_size:0000000000000000 xrom_size
-     /tmp/ccLmAKY9.s:23     .rodata.xrom:0000000000000000 xrom
-     /tmp/ccLmAKY9.s:20     .rodata.xrom:0000000000000000 $d
-     /tmp/ccLmAKY9.s:3257   .rodata.xrom_size:0000000000000000 $d
+     /tmp/cccU55mT.s:3561   .rodata.xrom_size:0000000000000000 xrom_size
+     /tmp/cccU55mT.s:23     .rodata.xrom:0000000000000000 xrom
+     /tmp/cccU55mT.s:20     .rodata.xrom:0000000000000000 $d
+     /tmp/cccU55mT.s:3558   .rodata.xrom_size:0000000000000000 $d
 
 NO UNDEFINED SYMBOLS

@@ -280,12 +280,6 @@ const struct monfunc monfuncs[ NUM_MONADIC ] = {
 	FUNC(OP_Bn,	XMR(Bn),		NOFN,		NOFN,		"B\275",	"Bn")
 	FUNC(OP_BnS,	XMR(Bn_star),		NOFN,		NOFN,		"B\275\220",	"Bn*")
 
-#ifdef INCLUDE_EASTER
-	FUNC(OP_EASTER,	&dateEaster,		NOFN,		NOFN,		"EASTER",	CNULL)
-#endif
-#ifdef INCLUDE_FACTOR
-	FUNC(OP_FACTOR,	&decFactor,		NOFN,		&intFactor,	"FACTOR",	CNULL)
-#endif
 	FUNC(OP_DATE_YEAR, &dateExtraction,	NOFN,		NOFN,		"YEAR",		CNULL)
 	FUNC(OP_DATE_MONTH, &dateExtraction,	NOFN,		NOFN,		"MONTH",	CNULL)
 	FUNC(OP_DATE_DAY, &dateExtraction,	NOFN,		NOFN,		"DAY",		CNULL)
@@ -309,6 +303,12 @@ const struct monfunc monfuncs[ NUM_MONADIC ] = {
 #endif
 #ifdef INCLUDE_XROM_DIGAMMA
 	FUNC(OP_DIGAMMA,XMR(DIGAMMA),		XMC(CPX_DIGAMMA),	NOFN,	"\226",		"DIGAMMA")
+#endif
+#ifdef INCLUDE_EASTER
+	FUNC(OP_EASTER,	&dateEaster,		NOFN,		NOFN,		"EASTER",	CNULL)
+#endif
+#ifdef INCLUDE_FACTOR
+	FUNC(OP_FACTOR,	&decFactor,		NOFN,		&intFactor,	"FACTOR",	CNULL)
 #endif
 #undef FUNC
 };
