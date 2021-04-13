@@ -865,7 +865,9 @@ static void set_exp(int exp, int flags, char *res) {
 	   * after we execute so we need to show ShowRegister instead.
 	   */
 	  if (is_intmode()) {
-	    set_int_x(get_reg_n_int(regY_idx), p);
+	    set_int_x(get_reg_n_int((ShowRegister >= regX_idx && ShowRegister < regX_idx + stack_size() && get_cmdline()
+			   && !(yreg_enabled && !State2.state_lift) // unless stack lift is disabled...
+				     ) ? ShowRegister : ShowRegister+1), p);
 	    goto skip;
 	  }
 		      
