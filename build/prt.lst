@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccf7b7DY.s 			page 1
+ARM GAS  /tmp/cc2oQhUn.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
   23:src/prt.c     **** static const char *prt_monadic(const unsigned int f, char *instr) {
   24:src/prt.c     **** 	if (f < NUM_MONADIC && (! isNULL(monfuncs[f].mondreal) || ! isNULL(monfuncs[f].monint)))
   25:src/prt.c     **** 		return sncopy(instr, monfuncs[f].fname, NAME_LEN);
-ARM GAS  /tmp/ccf7b7DY.s 			page 2
+ARM GAS  /tmp/cc2oQhUn.s 			page 2
 
 
   26:src/prt.c     **** 	return "???";
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
   80:src/prt.c     **** static const char *prt_specials(unsigned int opm, char *instr) {
   81:src/prt.c     **** 	static const char digits[16] = "0123456789ABCDEF";
   82:src/prt.c     **** 	char cmp = '0';
-ARM GAS  /tmp/ccf7b7DY.s 			page 3
+ARM GAS  /tmp/cc2oQhUn.s 			page 3
 
 
   83:src/prt.c     **** 
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  137:src/prt.c     **** 
  138:src/prt.c     **** 
  139:src/prt.c     **** /* The number of argument digits needed for a command */
-ARM GAS  /tmp/ccf7b7DY.s 			page 4
+ARM GAS  /tmp/cc2oQhUn.s 			page 4
 
 
  140:src/prt.c     **** int num_arg_digits(int cmd) {
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  194:src/prt.c     **** 
  195:src/prt.c     **** 		case RARG_SHUFFLE:
  196:src/prt.c     **** 			p = scopy(instr, "\027" SPACE_AFTER_CMD);
-ARM GAS  /tmp/ccf7b7DY.s 			page 5
+ARM GAS  /tmp/cc2oQhUn.s 			page 5
 
 
  197:src/prt.c     **** 			for (n = 0; n < 4; n++) {
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
   35              		.cfi_startproc
   36              		@ args = 0, pretend = 0, frame = 0
   37              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccf7b7DY.s 			page 6
+ARM GAS  /tmp/cc2oQhUn.s 			page 6
 
 
  250:src/prt.c     **** 	char *p, c;
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
   70 0016 01EB0211 		add	r1, r1, r2, lsl #4
   71 001a 2846     		mov	r0, r5
   72              	.LVL5:
-ARM GAS  /tmp/ccf7b7DY.s 			page 7
+ARM GAS  /tmp/cc2oQhUn.s 			page 7
 
 
  255:src/prt.c     **** 	p = sncopy_char(instr, multicmds[cmd].cmd, NAME_LEN, '\'');
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  110 003a 4370     		strb	r3, [r0, #1]
  260:src/prt.c     **** 		if (c != '\0')
  111              		.loc 1 260 3 is_stmt 1 view .LVU31
-ARM GAS  /tmp/ccf7b7DY.s 			page 8
+ARM GAS  /tmp/cc2oQhUn.s 			page 8
 
 
  112              	.LVL12:
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  157              		@ args = 0, pretend = 0, frame = 0
  158              		@ frame_needed = 0, uses_anonymous_args = 0
  123:src/prt.c     **** 	const unsigned int dirn = arg & 1;
-ARM GAS  /tmp/ccf7b7DY.s 			page 9
+ARM GAS  /tmp/cc2oQhUn.s 			page 9
 
 
  159              		.loc 1 123 2 view .LVU45
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  129:src/prt.c     **** 				cnsts_conv[conv].imperial, IMPERIAL_NAMELEN);
  199              		.loc 1 129 3 view .LVU60
  200 002c 3144     		add	r1, r1, r6
-ARM GAS  /tmp/ccf7b7DY.s 			page 10
+ARM GAS  /tmp/cc2oQhUn.s 			page 10
 
 
  201 002e 0622     		movs	r2, #6
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  243              		.loc 1 136 1 view .LVU72
  244 005a 7047     		bx	lr
  245              	.L24:
-ARM GAS  /tmp/ccf7b7DY.s 			page 11
+ARM GAS  /tmp/cc2oQhUn.s 			page 11
 
 
  246              		.align	2
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
   88:src/prt.c     **** 		opm += OP_Xeq0 - OP_Xeq1;
  297              		.loc 1 88 5 view .LVU76
  298 0004 062A     		cmp	r2, #6
-ARM GAS  /tmp/ccf7b7DY.s 			page 12
+ARM GAS  /tmp/cc2oQhUn.s 			page 12
 
 
  299 0006 0BD8     		bhi	.L26
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
   75:src/prt.c     **** 	*p++ = '?';
  335              		.loc 1 75 2 view .LVU95
   76:src/prt.c     **** 	return instr;
-ARM GAS  /tmp/ccf7b7DY.s 			page 13
+ARM GAS  /tmp/cc2oQhUn.s 			page 13
 
 
  336              		.loc 1 76 2 view .LVU96
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  380 0041 55       		.byte	(.L30-.L32)/2
  381 0042 55       		.byte	(.L30-.L32)/2
  382 0043 55       		.byte	(.L30-.L32)/2
-ARM GAS  /tmp/ccf7b7DY.s 			page 14
+ARM GAS  /tmp/cc2oQhUn.s 			page 14
 
 
  383 0044 55       		.byte	(.L30-.L32)/2
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  433              	.L31:
  434              		.cfi_restore_state
  115:src/prt.c     **** 	}
-ARM GAS  /tmp/ccf7b7DY.s 			page 15
+ARM GAS  /tmp/cc2oQhUn.s 			page 15
 
 
  435              		.loc 1 115 3 is_stmt 1 view .LVU111
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
   75:src/prt.c     **** 	*p++ = '?';
  473              		.loc 1 75 2 view .LVU128
   75:src/prt.c     **** 	*p++ = '?';
-ARM GAS  /tmp/ccf7b7DY.s 			page 16
+ARM GAS  /tmp/cc2oQhUn.s 			page 16
 
 
  474              		.loc 1 75 7 is_stmt 0 view .LVU129
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  513 009a 1424     		movs	r4, #20
   74:src/prt.c     **** 	*p++ = r;
  514              		.loc 1 74 7 view .LVU145
-ARM GAS  /tmp/ccf7b7DY.s 			page 17
+ARM GAS  /tmp/cc2oQhUn.s 			page 17
 
 
  515 009c D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  554              		.loc 1 75 7 view .LVU160
  555 00b6 3022     		movs	r2, #48
  556 00b8 E2E7     		b	.L45
-ARM GAS  /tmp/ccf7b7DY.s 			page 18
+ARM GAS  /tmp/cc2oQhUn.s 			page 18
 
 
  557              	.LVL43:
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  597              	.L38:
  104:src/prt.c     **** 	case OP_SIGMAPLUS:	return "\221+";
  598              		.loc 1 104 15 is_stmt 1 view .LVU175
-ARM GAS  /tmp/ccf7b7DY.s 			page 19
+ARM GAS  /tmp/cc2oQhUn.s 			page 19
 
 
  104:src/prt.c     **** 	case OP_SIGMAPLUS:	return "\221+";
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  648              		@ args = 0, pretend = 0, frame = 0
  649              		@ frame_needed = 0, uses_anonymous_args = 0
  650              		@ link register save eliminated.
-ARM GAS  /tmp/ccf7b7DY.s 			page 20
+ARM GAS  /tmp/cc2oQhUn.s 			page 20
 
 
  149:src/prt.c     **** #endif
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  695              		.thumb
  696              		.thumb_func
  697              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/ccf7b7DY.s 			page 21
+ARM GAS  /tmp/cc2oQhUn.s 			page 21
 
 
  699              	num_arg_digits:
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  741              		.cfi_endproc
  742              	.LFE10:
  744              		.section	.rodata.prt.str1.4,"aMS",%progbits,1
-ARM GAS  /tmp/ccf7b7DY.s 			page 22
+ARM GAS  /tmp/cc2oQhUn.s 			page 22
 
 
  745              		.align	2
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  791              		.loc 1 270 2 view .LVU212
  792 000a 0846     		mov	r0, r1
  793              	.LVL64:
-ARM GAS  /tmp/ccf7b7DY.s 			page 23
+ARM GAS  /tmp/cc2oQhUn.s 			page 23
 
 
  794              		.loc 1 270 2 view .LVU213
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  837 0038 BF2C     		cmp	r4, #191
  838 003a 40F2BC80 		bls	.L159
  839              	.LVL69:
-ARM GAS  /tmp/ccf7b7DY.s 			page 24
+ARM GAS  /tmp/cc2oQhUn.s 			page 24
 
 
  840              	.L123:
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  876              	.LBB97:
   81:src/prt.c     **** 	char cmp = '0';
  877              		.loc 1 81 2 view .LVU238
-ARM GAS  /tmp/ccf7b7DY.s 			page 25
+ARM GAS  /tmp/cc2oQhUn.s 			page 25
 
 
   82:src/prt.c     **** 
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  923 0066 02E0     		b	.L147
  924              	.LVL74:
  925              	.L91:
-ARM GAS  /tmp/ccf7b7DY.s 			page 26
+ARM GAS  /tmp/cc2oQhUn.s 			page 26
 
 
   24:src/prt.c     **** 		return sncopy(instr, monfuncs[f].fname, NAME_LEN);
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  965              	.LBE104:
  966              	.LBE103:
  967              		.loc 1 286 1 view .LVU266
-ARM GAS  /tmp/ccf7b7DY.s 			page 27
+ARM GAS  /tmp/cc2oQhUn.s 			page 27
 
 
  968 008e BDE8F047 		pop	{r4, r5, r6, r7, r8, r9, r10, lr}
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  1011 00ae 4268     		ldr	r2, [r0, #4]
  1012 00b0 002A     		cmp	r2, #0
  1013 00b2 C4D0     		beq	.L123
-ARM GAS  /tmp/ccf7b7DY.s 			page 28
+ARM GAS  /tmp/cc2oQhUn.s 			page 28
 
 
  1014              	.L98:
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  1058 00ca B8D8     		bhi	.L123
   50:src/prt.c     **** 		return prt_cmplx(! isNULL(monfuncs[f].mondreal), monfuncs[f].fname, instr);
  1059              		.loc 1 50 27 view .LVU289
-ARM GAS  /tmp/ccf7b7DY.s 			page 29
+ARM GAS  /tmp/cc2oQhUn.s 			page 29
 
 
  1060 00cc 7549     		ldr	r1, .L162+8
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
   44:src/prt.c     **** 	sncopy(p, name, NAME_LEN);
  1101              		.loc 1 44 8 is_stmt 0 view .LVU303
  1102 00e8 1423     		movs	r3, #20
-ARM GAS  /tmp/ccf7b7DY.s 			page 30
+ARM GAS  /tmp/cc2oQhUn.s 			page 30
 
 
  1103 00ea 00F8013B 		strb	r3, [r0], #1
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  1142 0108 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2
  168:src/prt.c     **** 		if (ind) arg += RARG_IND;
  1143              		.loc 1 168 5 view .LVU319
-ARM GAS  /tmp/ccf7b7DY.s 			page 31
+ARM GAS  /tmp/cc2oQhUn.s 			page 31
 
 
  1144 010a DB07     		lsls	r3, r3, #31
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  184:src/prt.c     **** 
  1181              		.loc 1 184 3 view .LVU337
  1182 012c 6C2E     		cmp	r6, #108
-ARM GAS  /tmp/ccf7b7DY.s 			page 32
+ARM GAS  /tmp/cc2oQhUn.s 			page 32
 
 
  1183 012e 00F0A380 		beq	.L73
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  1226              		.cfi_remember_state
  1227              		.cfi_restore 14
  1228              		.cfi_restore 10
-ARM GAS  /tmp/ccf7b7DY.s 			page 33
+ARM GAS  /tmp/cc2oQhUn.s 			page 33
 
 
  1229              		.cfi_restore 9
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  1270              		.loc 1 226 3 is_stmt 1 view .LVU362
  226:src/prt.c     **** #ifdef SHOW_COMPLEX_REGS
  1271              		.loc 1 226 6 is_stmt 0 view .LVU363
-ARM GAS  /tmp/ccf7b7DY.s 			page 34
+ARM GAS  /tmp/cc2oQhUn.s 			page 34
 
 
  1272 018e 0B2B     		cmp	r3, #11
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  1312              	.LBB116:
  1313              	.LBB73:
  1314              	.LBB71:
-ARM GAS  /tmp/ccf7b7DY.s 			page 35
+ARM GAS  /tmp/cc2oQhUn.s 			page 35
 
 
   63:src/prt.c     **** 		return sncopy(instr, p, NAME_LEN);
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  174:src/prt.c     **** 	} 
  1361              		.loc 1 174 41 view .LVU387
  1362 01d4 83F80080 		strb	r8, [r3]
-ARM GAS  /tmp/ccf7b7DY.s 			page 36
+ARM GAS  /tmp/cc2oQhUn.s 			page 36
 
 
  1363 01d8 32E7     		b	.L63
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  1403              		.loc 1 46 2 is_stmt 1 view .LVU401
  1404              	.LBE91:
  1405              	.LBE93:
-ARM GAS  /tmp/ccf7b7DY.s 			page 37
+ARM GAS  /tmp/cc2oQhUn.s 			page 37
 
 
   57:src/prt.c     **** 	return "???";
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  1446              		.loc 1 141 24 is_stmt 0 view .LVU415
  1447 020e 07EB0903 		add	r3, r7, r9
  141:src/prt.c     **** 	if (lim < 10)
-ARM GAS  /tmp/ccf7b7DY.s 			page 38
+ARM GAS  /tmp/cc2oQhUn.s 			page 38
 
 
  1448              		.loc 1 141 6 view .LVU416
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  1487              		.loc 1 236 17 is_stmt 0 view .LVU431
  1488 0238 224A     		ldr	r2, .L162+40
  236:src/prt.c     **** #endif
-ARM GAS  /tmp/ccf7b7DY.s 			page 39
+ARM GAS  /tmp/cc2oQhUn.s 			page 39
 
 
  1489              		.loc 1 236 7 view .LVU432
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  1529              	.LVL130:
  211:src/prt.c     **** 			}
  1530              		.loc 1 211 8 view .LVU447
-ARM GAS  /tmp/ccf7b7DY.s 			page 40
+ARM GAS  /tmp/cc2oQhUn.s 			page 40
 
 
  1531 0270 84F80180 		strb	r8, [r4, #1]
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  1577              		.loc 1 239 7 is_stmt 0 view .LVU456
  1578 028c B8F16F0F 		cmp	r8, #111
  1579 0290 89D9     		bls	.L84
-ARM GAS  /tmp/ccf7b7DY.s 			page 41
+ARM GAS  /tmp/cc2oQhUn.s 			page 41
 
 
  239:src/prt.c     **** 				arg -= LOCAL_REG_BASE;
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  1627 0000 38B5     		push	{r3, r4, r5, lr}
  1628              		.cfi_def_cfa_offset 16
  1629              		.cfi_offset 3, -16
-ARM GAS  /tmp/ccf7b7DY.s 			page 42
+ARM GAS  /tmp/cc2oQhUn.s 			page 42
 
 
  1630              		.cfi_offset 4, -12
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  306:src/prt.c     **** 			else if (f == RARG_CONST || f == RARG_CONST_CMPLX) {
  1670              		.loc 1 306 9 is_stmt 1 view .LVU480
  1671              		.loc 1 306 12 is_stmt 0 view .LVU481
-ARM GAS  /tmp/ccf7b7DY.s 			page 43
+ARM GAS  /tmp/cc2oQhUn.s 			page 43
 
 
  1672 002a 012B     		cmp	r3, #1
@@ -2552,38 +2552,40 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  323:src/prt.c     **** 		default:
  324:src/prt.c     **** 			break;
  325:src/prt.c     **** 		case KIND_SPEC:
- 326:src/prt.c     **** 			return prt_specials(f, instr);
- 327:src/prt.c     **** 
- 328:src/prt.c     **** 		case KIND_NIL:
- 329:src/prt.c     **** 			if (f >= NUM_NILADIC) break;
- 330:src/prt.c     **** 			name = niladics[f].nname;
- 331:src/prt.c     **** 			goto copy;
- 332:src/prt.c     **** 
- 333:src/prt.c     **** 		case KIND_MON:
- 334:src/prt.c     **** 		case KIND_CMON:
- 335:src/prt.c     **** 			if (f >= NUM_MONADIC) break;
- 336:src/prt.c     **** 			name = monfuncs[f].fname;
- 337:src/prt.c     **** 			goto copy;
- 338:src/prt.c     **** 
- 339:src/prt.c     **** 		case KIND_DYA:
- 340:src/prt.c     **** 		case KIND_CDYA:
- 341:src/prt.c     **** 			if (f >= NUM_DYADIC) break;
- 342:src/prt.c     **** 			name = dyfuncs[f].fname;
- 343:src/prt.c     **** 			goto copy;
- 344:src/prt.c     **** 
- 345:src/prt.c     **** 		case KIND_TRI:
- 346:src/prt.c     **** 			if (f >= NUM_TRIADIC) break;
- 347:src/prt.c     **** 			name = trifuncs[f].fname;
- 348:src/prt.c     **** 		copy:
- 349:src/prt.c     **** 			return sncopy(instr, name, NAME_LEN);
- 350:src/prt.c     **** 		}
- 351:src/prt.c     **** 	}
-ARM GAS  /tmp/ccf7b7DY.s 			page 44
+ 326:src/prt.c     **** 		  //    return prt_specials(f, instr);
+ 327:src/prt.c     **** 			name = prt_specials(f, instr); 
+ 328:src/prt.c     **** 			goto copy;
+ 329:src/prt.c     **** 			// ND change - without this, it returns the string but doesn't copy it to instr.
+ 330:src/prt.c     **** 		case KIND_NIL:
+ 331:src/prt.c     **** 			if (f >= NUM_NILADIC) break;
+ 332:src/prt.c     **** 			name = niladics[f].nname;
+ 333:src/prt.c     **** 			goto copy;
+ 334:src/prt.c     **** 
+ 335:src/prt.c     **** 		case KIND_MON:
+ 336:src/prt.c     **** 		case KIND_CMON:
+ 337:src/prt.c     **** 			if (f >= NUM_MONADIC) break;
+ 338:src/prt.c     **** 			name = monfuncs[f].fname;
+ 339:src/prt.c     **** 			goto copy;
+ 340:src/prt.c     **** 
+ 341:src/prt.c     **** 		case KIND_DYA:
+ 342:src/prt.c     **** 		case KIND_CDYA:
+ 343:src/prt.c     **** 			if (f >= NUM_DYADIC) break;
+ 344:src/prt.c     **** 			name = dyfuncs[f].fname;
+ 345:src/prt.c     **** 			goto copy;
+ 346:src/prt.c     **** 
+ 347:src/prt.c     **** 		case KIND_TRI:
+ 348:src/prt.c     **** 			if (f >= NUM_TRIADIC) break;
+ 349:src/prt.c     **** 			name = trifuncs[f].fname;
+ 350:src/prt.c     **** 		copy:
+ 351:src/prt.c     **** 			return sncopy(instr, name, NAME_LEN);
+ARM GAS  /tmp/cc2oQhUn.s 			page 44
 
 
- 352:src/prt.c     **** 	return "???";
- 353:src/prt.c     **** }
- 1684              		.loc 1 353 1 view .LVU488
+ 352:src/prt.c     **** 		}
+ 353:src/prt.c     **** 	}
+ 354:src/prt.c     **** 	return "???";
+ 355:src/prt.c     **** }
+ 1684              		.loc 1 355 1 view .LVU488
  1685 0036 38BD     		pop	{r3, r4, r5, pc}
  1686              	.LVL140:
  1687              	.L166:
@@ -2604,7 +2606,7 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  1699 0047 1A       		.byte	(.L175-.L172)/2
  1700 0048 12       		.byte	(.L173-.L172)/2
  1701 0049 0A       		.byte	(.L171-.L172)/2
- 1702 004a 28       		.byte	(.L174-.L172)/2
+ 1702 004a 2D       		.byte	(.L174-.L172)/2
  1703 004b 12       		.byte	(.L173-.L172)/2
  1704 004c 0A       		.byte	(.L171-.L172)/2
  1705              	.LVL142:
@@ -2628,83 +2630,83 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  308:src/prt.c     **** 					return sncopy(instr, cnsts[arg].cname, CONST_NAMELEN);
  1719              		.loc 1 308 8 view .LVU496
  1720              	.LBE123:
- 352:src/prt.c     **** }
- 1721              		.loc 1 352 9 view .LVU497
+ 354:src/prt.c     **** }
+ 1721              		.loc 1 354 9 view .LVU497
  1722 0056 2A48     		ldr	r0, .L192
- 1723              		.loc 1 353 1 view .LVU498
+ 1723              		.loc 1 355 1 view .LVU498
  1724 0058 38BD     		pop	{r3, r4, r5, pc}
  1725              	.LVL145:
  1726              	.L171:
- 341:src/prt.c     **** 			name = dyfuncs[f].fname;
- 1727              		.loc 1 341 4 is_stmt 1 view .LVU499
- 341:src/prt.c     **** 			name = dyfuncs[f].fname;
-ARM GAS  /tmp/ccf7b7DY.s 			page 45
+ 343:src/prt.c     **** 			name = dyfuncs[f].fname;
+ARM GAS  /tmp/cc2oQhUn.s 			page 45
 
 
- 1728              		.loc 1 341 7 is_stmt 0 view .LVU500
+ 1727              		.loc 1 343 4 is_stmt 1 view .LVU499
+ 343:src/prt.c     **** 			name = dyfuncs[f].fname;
+ 1728              		.loc 1 343 7 is_stmt 0 view .LVU500
  1729 005a 3228     		cmp	r0, #50
  1730 005c FBD8     		bhi	.L185
- 342:src/prt.c     **** 			goto copy;
- 1731              		.loc 1 342 4 is_stmt 1 view .LVU501
- 342:src/prt.c     **** 			goto copy;
- 1732              		.loc 1 342 9 is_stmt 0 view .LVU502
+ 344:src/prt.c     **** 			goto copy;
+ 1731              		.loc 1 344 4 is_stmt 1 view .LVU501
+ 344:src/prt.c     **** 			goto copy;
+ 1732              		.loc 1 344 9 is_stmt 0 view .LVU502
  1733 005e 2949     		ldr	r1, .L192+4
  1734 0060 00EB4004 		add	r4, r0, r0, lsl #1
  1735              	.LVL146:
- 342:src/prt.c     **** 			goto copy;
- 1736              		.loc 1 342 9 view .LVU503
+ 344:src/prt.c     **** 			goto copy;
+ 1736              		.loc 1 344 9 view .LVU503
  1737 0064 01EBC401 		add	r1, r1, r4, lsl #3
  1738              	.LVL147:
- 343:src/prt.c     **** 
- 1739              		.loc 1 343 4 is_stmt 1 view .LVU504
- 1740 0068 1CE0     		b	.L178
+ 345:src/prt.c     **** 
+ 1739              		.loc 1 345 4 is_stmt 1 view .LVU504
+ 1740 0068 14E0     		b	.L178
  1741              	.LVL148:
  1742              	.L173:
- 335:src/prt.c     **** 			name = monfuncs[f].fname;
- 1743              		.loc 1 335 4 view .LVU505
- 335:src/prt.c     **** 			name = monfuncs[f].fname;
- 1744              		.loc 1 335 7 is_stmt 0 view .LVU506
+ 337:src/prt.c     **** 			name = monfuncs[f].fname;
+ 1743              		.loc 1 337 4 view .LVU505
+ 337:src/prt.c     **** 			name = monfuncs[f].fname;
+ 1744              		.loc 1 337 7 is_stmt 0 view .LVU506
  1745 006a 9B28     		cmp	r0, #155
  1746 006c F3D8     		bhi	.L185
- 336:src/prt.c     **** 			goto copy;
- 1747              		.loc 1 336 4 is_stmt 1 view .LVU507
- 336:src/prt.c     **** 			goto copy;
- 1748              		.loc 1 336 9 is_stmt 0 view .LVU508
+ 338:src/prt.c     **** 			goto copy;
+ 1747              		.loc 1 338 4 is_stmt 1 view .LVU507
+ 338:src/prt.c     **** 			goto copy;
+ 1748              		.loc 1 338 9 is_stmt 0 view .LVU508
  1749 006e 2649     		ldr	r1, .L192+8
  1750 0070 00EB4004 		add	r4, r0, r0, lsl #1
  1751              	.LVL149:
- 336:src/prt.c     **** 			goto copy;
- 1752              		.loc 1 336 9 view .LVU509
+ 338:src/prt.c     **** 			goto copy;
+ 1752              		.loc 1 338 9 view .LVU509
  1753 0074 01EBC401 		add	r1, r1, r4, lsl #3
  1754              	.LVL150:
- 337:src/prt.c     **** 
- 1755              		.loc 1 337 4 is_stmt 1 view .LVU510
- 1756 0078 14E0     		b	.L178
+ 339:src/prt.c     **** 
+ 1755              		.loc 1 339 4 is_stmt 1 view .LVU510
+ 1756 0078 0CE0     		b	.L178
  1757              	.LVL151:
  1758              	.L175:
- 329:src/prt.c     **** 			name = niladics[f].nname;
- 1759              		.loc 1 329 4 view .LVU511
- 329:src/prt.c     **** 			name = niladics[f].nname;
- 1760              		.loc 1 329 7 is_stmt 0 view .LVU512
+ 331:src/prt.c     **** 			name = niladics[f].nname;
+ 1759              		.loc 1 331 4 view .LVU511
+ 331:src/prt.c     **** 			name = niladics[f].nname;
+ 1760              		.loc 1 331 7 is_stmt 0 view .LVU512
  1761 007a BF28     		cmp	r0, #191
  1762 007c EBD8     		bhi	.L185
- 330:src/prt.c     **** 			goto copy;
- 1763              		.loc 1 330 4 is_stmt 1 view .LVU513
- 330:src/prt.c     **** 			goto copy;
- 1764              		.loc 1 330 9 is_stmt 0 view .LVU514
+ 332:src/prt.c     **** 			goto copy;
+ 1763              		.loc 1 332 4 is_stmt 1 view .LVU513
+ 332:src/prt.c     **** 			goto copy;
+ 1764              		.loc 1 332 9 is_stmt 0 view .LVU514
  1765 007e 2349     		ldr	r1, .L192+12
  1766 0080 01EB0011 		add	r1, r1, r0, lsl #4
  1767              	.LVL152:
- 331:src/prt.c     **** 
- 1768              		.loc 1 331 4 is_stmt 1 view .LVU515
- 1769 0084 0EE0     		b	.L178
-ARM GAS  /tmp/ccf7b7DY.s 			page 46
+ 333:src/prt.c     **** 
+ARM GAS  /tmp/cc2oQhUn.s 			page 46
 
 
+ 1768              		.loc 1 333 4 is_stmt 1 view .LVU515
+ 1769 0084 06E0     		b	.L178
  1770              	.LVL153:
  1771              	.L176:
- 326:src/prt.c     **** 
- 1772              		.loc 1 326 4 view .LVU516
+ 327:src/prt.c     **** 			goto copy;
+ 1772              		.loc 1 327 4 view .LVU516
  1773              	.LBB124:
  1774              	.LBI124:
   80:src/prt.c     **** 	static const char digits[16] = "0123456789ABCDEF";
@@ -2724,277 +2726,266 @@ ARM GAS  /tmp/ccf7b7DY.s 			page 1
  1783 0088 0F2B     		cmp	r3, #15
  1784 008a 28D9     		bls	.L191
  1785 008c 2946     		mov	r1, r5
- 1786              	.LBE125:
- 1787              	.LBE124:
- 1788              		.loc 1 353 1 view .LVU523
- 1789 008e BDE83840 		pop	{r3, r4, r5, lr}
- 1790              		.cfi_remember_state
- 1791              		.cfi_restore 14
- 1792              		.cfi_restore 5
- 1793              		.cfi_restore 4
- 1794              		.cfi_restore 3
- 1795              		.cfi_def_cfa_offset 0
- 1796              	.LVL154:
- 1797              	.LBB128:
- 1798              	.LBB126:
- 1799              		.loc 1 353 1 view .LVU524
- 1800 0092 FFF7FEBF 		b	prt_specials.part.0
- 1801              	.LVL155:
- 1802              	.L174:
- 1803              		.cfi_restore_state
- 1804              		.loc 1 353 1 view .LVU525
- 1805              	.LBE126:
- 1806              	.LBE128:
- 346:src/prt.c     **** 			name = trifuncs[f].fname;
- 1807              		.loc 1 346 4 is_stmt 1 view .LVU526
- 346:src/prt.c     **** 			name = trifuncs[f].fname;
- 1808              		.loc 1 346 7 is_stmt 0 view .LVU527
- 1809 0096 0B28     		cmp	r0, #11
- 1810 0098 DDD8     		bhi	.L185
- 347:src/prt.c     **** 		copy:
- 1811              		.loc 1 347 4 is_stmt 1 view .LVU528
- 347:src/prt.c     **** 		copy:
- 1812              		.loc 1 347 9 is_stmt 0 view .LVU529
- 1813 009a 1D49     		ldr	r1, .L192+16
- 1814 009c 00EB8004 		add	r4, r0, r0, lsl #2
- 1815              	.LVL156:
-ARM GAS  /tmp/ccf7b7DY.s 			page 47
+ 1786 008e FFF7FEFF 		bl	prt_specials.part.0
+ 1787              	.LVL154:
+  84:src/prt.c     **** 		*instr = digits[opm - OP_0];
+ 1788              		.loc 1 84 5 view .LVU523
+ 1789 0092 0146     		mov	r1, r0
+ 1790              	.LVL155:
+ 1791              	.L178:
+  84:src/prt.c     **** 		*instr = digits[opm - OP_0];
+ 1792              		.loc 1 84 5 view .LVU524
+ 1793              	.LBE125:
+ 1794              	.LBE124:
+ 351:src/prt.c     **** 		}
+ 1795              		.loc 1 351 4 is_stmt 1 view .LVU525
+ 351:src/prt.c     **** 		}
+ 1796              		.loc 1 351 11 is_stmt 0 view .LVU526
+ 1797 0094 2846     		mov	r0, r5
+ 1798 0096 0622     		movs	r2, #6
+ 1799              		.loc 1 355 1 view .LVU527
+ 1800 0098 BDE83840 		pop	{r3, r4, r5, lr}
+ 1801              		.cfi_remember_state
+ 1802              		.cfi_restore 14
+ 1803              		.cfi_restore 5
+ 1804              		.cfi_restore 4
+ 1805              		.cfi_restore 3
+ 1806              		.cfi_def_cfa_offset 0
+ 1807              	.LVL156:
+ 351:src/prt.c     **** 		}
+ 1808              		.loc 1 351 11 view .LVU528
+ 1809 009c FFF7FEBF 		b	sncopy
+ 1810              	.LVL157:
+ 1811              	.L174:
+ 1812              		.cfi_restore_state
+ARM GAS  /tmp/cc2oQhUn.s 			page 47
 
 
- 347:src/prt.c     **** 		copy:
- 1816              		.loc 1 347 9 view .LVU530
- 1817 00a0 01EB8401 		add	r1, r1, r4, lsl #2
- 1818              	.LVL157:
- 1819              	.L178:
- 349:src/prt.c     **** 		}
- 1820              		.loc 1 349 4 is_stmt 1 view .LVU531
- 349:src/prt.c     **** 		}
- 1821              		.loc 1 349 11 is_stmt 0 view .LVU532
- 1822 00a4 2846     		mov	r0, r5
- 1823              	.LVL158:
- 349:src/prt.c     **** 		}
- 1824              		.loc 1 349 11 view .LVU533
- 1825 00a6 0622     		movs	r2, #6
- 1826              		.loc 1 353 1 view .LVU534
- 1827 00a8 BDE83840 		pop	{r3, r4, r5, lr}
- 1828              		.cfi_remember_state
- 1829              		.cfi_restore 14
- 1830              		.cfi_restore 5
- 1831              		.cfi_restore 4
- 1832              		.cfi_restore 3
- 1833              		.cfi_def_cfa_offset 0
- 1834              	.LVL159:
- 349:src/prt.c     **** 		}
- 1835              		.loc 1 349 11 view .LVU535
- 1836 00ac FFF7FEBF 		b	sncopy
- 1837              	.LVL160:
- 1838              	.L187:
- 1839              		.cfi_restore_state
+ 348:src/prt.c     **** 			name = trifuncs[f].fname;
+ 1813              		.loc 1 348 4 is_stmt 1 view .LVU529
+ 348:src/prt.c     **** 			name = trifuncs[f].fname;
+ 1814              		.loc 1 348 7 is_stmt 0 view .LVU530
+ 1815 00a0 0B28     		cmp	r0, #11
+ 1816 00a2 D8D8     		bhi	.L185
+ 349:src/prt.c     **** 		copy:
+ 1817              		.loc 1 349 4 is_stmt 1 view .LVU531
+ 349:src/prt.c     **** 		copy:
+ 1818              		.loc 1 349 9 is_stmt 0 view .LVU532
+ 1819 00a4 1A49     		ldr	r1, .L192+16
+ 1820 00a6 00EB8004 		add	r4, r0, r0, lsl #2
+ 1821              	.LVL158:
+ 349:src/prt.c     **** 		copy:
+ 1822              		.loc 1 349 9 view .LVU533
+ 1823 00aa 01EB8401 		add	r1, r1, r4, lsl #2
+ 1824              	.LVL159:
+ 349:src/prt.c     **** 		copy:
+ 1825              		.loc 1 349 9 view .LVU534
+ 1826 00ae F1E7     		b	.L178
+ 1827              	.LVL160:
+ 1828              	.L187:
  294:src/prt.c     **** 	} else if (isRARG(op)) {
- 1840              		.loc 1 294 3 is_stmt 1 view .LVU536
+ 1829              		.loc 1 294 3 is_stmt 1 view .LVU535
  294:src/prt.c     **** 	} else if (isRARG(op)) {
- 1841              		.loc 1 294 10 is_stmt 0 view .LVU537
- 1842 00b0 2946     		mov	r1, r5
- 1843 00b2 2046     		mov	r0, r4
- 1844              		.loc 1 353 1 view .LVU538
- 1845 00b4 BDE83840 		pop	{r3, r4, r5, lr}
- 1846              		.cfi_remember_state
- 1847              		.cfi_restore 14
- 1848              		.cfi_restore 5
- 1849              		.cfi_restore 4
- 1850              		.cfi_restore 3
- 1851              		.cfi_def_cfa_offset 0
- 1852              	.LVL161:
+ 1830              		.loc 1 294 10 is_stmt 0 view .LVU536
+ 1831 00b0 2946     		mov	r1, r5
+ 1832 00b2 2046     		mov	r0, r4
+ 1833              		.loc 1 355 1 view .LVU537
+ 1834 00b4 BDE83840 		pop	{r3, r4, r5, lr}
+ 1835              		.cfi_remember_state
+ 1836              		.cfi_restore 14
+ 1837              		.cfi_restore 5
+ 1838              		.cfi_restore 4
+ 1839              		.cfi_restore 3
+ 1840              		.cfi_def_cfa_offset 0
+ 1841              	.LVL161:
  294:src/prt.c     **** 	} else if (isRARG(op)) {
- 1853              		.loc 1 294 10 view .LVU539
- 1854 00b8 FFF7FEBF 		b	prt_multi
- 1855              	.LVL162:
- 1856              	.L170:
- 1857              		.cfi_restore_state
+ 1842              		.loc 1 294 10 view .LVU538
+ 1843 00b8 FFF7FEBF 		b	prt_multi
+ 1844              	.LVL162:
+ 1845              	.L170:
+ 1846              		.cfi_restore_state
  317:src/prt.c     **** 			}
- 1858              		.loc 1 317 5 is_stmt 1 view .LVU540
+ 1847              		.loc 1 317 5 is_stmt 1 view .LVU539
  317:src/prt.c     **** 			}
- 1859              		.loc 1 317 36 is_stmt 0 view .LVU541
- 1860 00bc 1549     		ldr	r1, .L192+20
- 1861 00be 0622     		movs	r2, #6
- 1862 00c0 02EB0313 		add	r3, r2, r3, lsl #4
-ARM GAS  /tmp/ccf7b7DY.s 			page 48
+ 1848              		.loc 1 317 36 is_stmt 0 view .LVU540
+ 1849 00bc 1549     		ldr	r1, .L192+20
+ 1850 00be 0622     		movs	r2, #6
+ 1851 00c0 02EB0313 		add	r3, r2, r3, lsl #4
+ 1852              	.LVL163:
+ 317:src/prt.c     **** 			}
+ 1853              		.loc 1 317 12 view .LVU541
+ 1854 00c4 2846     		mov	r0, r5
+ 1855 00c6 1944     		add	r1, r1, r3
+ 1856              		.loc 1 355 1 view .LVU542
+ 1857 00c8 BDE83840 		pop	{r3, r4, r5, lr}
+ARM GAS  /tmp/cc2oQhUn.s 			page 48
 
 
- 1863              	.LVL163:
+ 1858              		.cfi_remember_state
+ 1859              		.cfi_restore 14
+ 1860              		.cfi_restore 5
+ 1861              		.cfi_restore 4
+ 1862              		.cfi_restore 3
+ 1863              		.cfi_def_cfa_offset 0
+ 1864              	.LVL164:
  317:src/prt.c     **** 			}
- 1864              		.loc 1 317 12 view .LVU542
- 1865 00c4 2846     		mov	r0, r5
- 1866 00c6 1944     		add	r1, r1, r3
- 1867              		.loc 1 353 1 view .LVU543
- 1868 00c8 BDE83840 		pop	{r3, r4, r5, lr}
- 1869              		.cfi_remember_state
- 1870              		.cfi_restore 14
- 1871              		.cfi_restore 5
- 1872              		.cfi_restore 4
- 1873              		.cfi_restore 3
- 1874              		.cfi_def_cfa_offset 0
- 1875              	.LVL164:
- 317:src/prt.c     **** 			}
- 1876              		.loc 1 317 12 view .LVU544
- 1877 00cc FFF7FEBF 		b	sncopy
- 1878              	.LVL165:
- 1879              	.L188:
- 1880              		.cfi_restore_state
+ 1865              		.loc 1 317 12 view .LVU543
+ 1866 00cc FFF7FEBF 		b	sncopy
+ 1867              	.LVL165:
+ 1868              	.L188:
+ 1869              		.cfi_restore_state
  299:src/prt.c     **** 			}
- 1881              		.loc 1 299 5 is_stmt 1 view .LVU545
+ 1870              		.loc 1 299 5 is_stmt 1 view .LVU544
  299:src/prt.c     **** 			}
- 1882              		.loc 1 299 12 is_stmt 0 view .LVU546
- 1883 00d0 2946     		mov	r1, r5
- 1884 00d2 04F07F00 		and	r0, r4, #127
- 1885              		.loc 1 353 1 view .LVU547
- 1886 00d6 BDE83840 		pop	{r3, r4, r5, lr}
- 1887              		.cfi_remember_state
- 1888              		.cfi_restore 14
- 1889              		.cfi_restore 5
- 1890              		.cfi_restore 4
- 1891              		.cfi_restore 3
- 1892              		.cfi_def_cfa_offset 0
- 1893              	.LVL166:
+ 1871              		.loc 1 299 12 is_stmt 0 view .LVU545
+ 1872 00d0 2946     		mov	r1, r5
+ 1873 00d2 04F07F00 		and	r0, r4, #127
+ 1874              		.loc 1 355 1 view .LVU546
+ 1875 00d6 BDE83840 		pop	{r3, r4, r5, lr}
+ 1876              		.cfi_remember_state
+ 1877              		.cfi_restore 14
+ 1878              		.cfi_restore 5
+ 1879              		.cfi_restore 4
+ 1880              		.cfi_restore 3
+ 1881              		.cfi_def_cfa_offset 0
+ 1882              	.LVL166:
  299:src/prt.c     **** 			}
- 1894              		.loc 1 299 12 view .LVU548
- 1895 00da FFF7FEBF 		b	prt_conv
- 1896              	.LVL167:
- 1897              	.L191:
- 1898              		.cfi_restore_state
- 1899              	.LBB129:
- 1900              	.LBB127:
+ 1883              		.loc 1 299 12 view .LVU547
+ 1884 00da FFF7FEBF 		b	prt_conv
+ 1885              	.LVL167:
+ 1886              	.L191:
+ 1887              		.cfi_restore_state
+ 1888              	.LBB127:
+ 1889              	.LBB126:
   85:src/prt.c     **** 		return instr;
- 1901              		.loc 1 85 3 is_stmt 1 view .LVU549
+ 1890              		.loc 1 85 3 is_stmt 1 view .LVU548
   85:src/prt.c     **** 		return instr;
- 1902              		.loc 1 85 18 is_stmt 0 view .LVU550
- 1903 00de 0E4A     		ldr	r2, .L192+24
+ 1891              		.loc 1 85 18 is_stmt 0 view .LVU549
+ 1892 00de 0E4A     		ldr	r2, .L192+24
   85:src/prt.c     **** 		return instr;
- 1904              		.loc 1 85 10 view .LVU551
- 1905 00e0 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
- 1906 00e2 2B70     		strb	r3, [r5]
+ 1893              		.loc 1 85 10 view .LVU550
+ 1894 00e0 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
+ 1895 00e2 2B70     		strb	r3, [r5]
   86:src/prt.c     **** 	}
- 1907              		.loc 1 86 3 is_stmt 1 view .LVU552
+ 1896              		.loc 1 86 3 is_stmt 1 view .LVU551
   86:src/prt.c     **** 	}
- 1908              		.loc 1 86 10 is_stmt 0 view .LVU553
- 1909 00e4 2846     		mov	r0, r5
-ARM GAS  /tmp/ccf7b7DY.s 			page 49
+ 1897              		.loc 1 86 10 is_stmt 0 view .LVU552
+ 1898 00e4 2946     		mov	r1, r5
+ 1899 00e6 D5E7     		b	.L178
+ 1900              	.LVL168:
+ 1901              	.L190:
+  86:src/prt.c     **** 	}
+ 1902              		.loc 1 86 10 view .LVU553
+ 1903              	.LBE126:
+ 1904              	.LBE127:
+ARM GAS  /tmp/cc2oQhUn.s 			page 49
 
 
- 1910              	.LVL168:
-  86:src/prt.c     **** 	}
- 1911              		.loc 1 86 10 view .LVU554
- 1912              	.LBE127:
- 1913              	.LBE129:
- 1914              		.loc 1 353 1 view .LVU555
- 1915 00e6 38BD     		pop	{r3, r4, r5, pc}
- 1916              	.LVL169:
- 1917              	.L190:
- 1918              	.LBB130:
+ 1905              	.LBB128:
  309:src/prt.c     **** 			}
- 1919              		.loc 1 309 6 is_stmt 1 view .LVU556
+ 1906              		.loc 1 309 6 is_stmt 1 view .LVU554
  309:src/prt.c     **** 			}
- 1920              		.loc 1 309 37 is_stmt 0 view .LVU557
- 1921 00e8 0C49     		ldr	r1, .L192+28
- 1922 00ea 04EB4404 		add	r4, r4, r4, lsl #1
+ 1907              		.loc 1 309 37 is_stmt 0 view .LVU555
+ 1908 00e8 0C49     		ldr	r1, .L192+28
+ 1909 00ea 04EB4404 		add	r4, r4, r4, lsl #1
+ 1910              	.LVL169:
+ 309:src/prt.c     **** 			}
+ 1911              		.loc 1 309 13 view .LVU556
+ 1912 00ee 2846     		mov	r0, r5
+ 1913 00f0 01EB8401 		add	r1, r1, r4, lsl #2
+ 1914 00f4 0422     		movs	r2, #4
+ 1915              	.LBE128:
+ 1916              		.loc 1 355 1 view .LVU557
+ 1917 00f6 BDE83840 		pop	{r3, r4, r5, lr}
+ 1918              		.cfi_restore 14
+ 1919              		.cfi_restore 5
+ 1920              		.cfi_restore 4
+ 1921              		.cfi_restore 3
+ 1922              		.cfi_def_cfa_offset 0
  1923              	.LVL170:
+ 1924              	.LBB129:
  309:src/prt.c     **** 			}
- 1924              		.loc 1 309 13 view .LVU558
- 1925 00ee 2846     		mov	r0, r5
- 1926 00f0 01EB8401 		add	r1, r1, r4, lsl #2
- 1927 00f4 0422     		movs	r2, #4
- 1928              	.LBE130:
- 1929              		.loc 1 353 1 view .LVU559
- 1930 00f6 BDE83840 		pop	{r3, r4, r5, lr}
- 1931              		.cfi_restore 14
- 1932              		.cfi_restore 5
- 1933              		.cfi_restore 4
- 1934              		.cfi_restore 3
- 1935              		.cfi_def_cfa_offset 0
- 1936              	.LVL171:
- 1937              	.LBB131:
+ 1925              		.loc 1 309 13 view .LVU558
+ 1926 00fa FFF7FEBF 		b	sncopy
+ 1927              	.LVL171:
+ 1928              	.L193:
  309:src/prt.c     **** 			}
- 1938              		.loc 1 309 13 view .LVU560
- 1939 00fa FFF7FEBF 		b	sncopy
- 1940              	.LVL172:
- 1941              	.L193:
- 309:src/prt.c     **** 			}
- 1942              		.loc 1 309 13 view .LVU561
- 1943 00fe 00BF     		.align	2
- 1944              	.L192:
- 1945 0100 00000000 		.word	.LC0
- 1946 0104 0C000000 		.word	dyfuncs+12
- 1947 0108 0C000000 		.word	monfuncs+12
- 1948 010c 05000000 		.word	niladics+5
- 1949 0110 08000000 		.word	trifuncs+8
- 1950 0114 00000000 		.word	argcmds
- 1951 0118 00000000 		.word	.LANCHOR0
- 1952 011c 01000000 		.word	cnsts+1
- 1953              	.LBE131:
- 1954              		.cfi_endproc
- 1955              	.LFE14:
- 1957              		.section	.rodata.digits.8230,"a"
- 1958              		.align	2
- 1959              		.set	.LANCHOR0,. + 0
- 1962              	digits.8230:
- 1963 0000 30313233 		.ascii	"0123456789ABCDEF"
-ARM GAS  /tmp/ccf7b7DY.s 			page 50
+ 1929              		.loc 1 309 13 view .LVU559
+ 1930 00fe 00BF     		.align	2
+ 1931              	.L192:
+ 1932 0100 00000000 		.word	.LC0
+ 1933 0104 0C000000 		.word	dyfuncs+12
+ 1934 0108 0C000000 		.word	monfuncs+12
+ 1935 010c 05000000 		.word	niladics+5
+ 1936 0110 08000000 		.word	trifuncs+8
+ 1937 0114 00000000 		.word	argcmds
+ 1938 0118 00000000 		.word	.LANCHOR0
+ 1939 011c 01000000 		.word	cnsts+1
+ 1940              	.LBE129:
+ 1941              		.cfi_endproc
+ 1942              	.LFE14:
+ 1944              		.section	.rodata.digits.8230,"a"
+ 1945              		.align	2
+ 1946              		.set	.LANCHOR0,. + 0
+ 1949              	digits.8230:
+ 1950 0000 30313233 		.ascii	"0123456789ABCDEF"
+ 1950      34353637 
+ 1950      38394142 
+ 1950      43444546 
+ 1951              		.text
+ 1952              	.Letext0:
+ 1953              		.file 2 "src/decNumber/decContext.h"
+ 1954              		.file 3 "src/decNumber/decNumber.h"
+ 1955              		.file 4 "src/decNumber/decimal64.h"
+ 1956              		.file 5 "src/decNumber/decimal128.h"
+ARM GAS  /tmp/cc2oQhUn.s 			page 50
 
 
- 1963      34353637 
- 1963      38394142 
- 1963      43444546 
- 1964              		.text
- 1965              	.Letext0:
- 1966              		.file 2 "src/decNumber/decContext.h"
- 1967              		.file 3 "src/decNumber/decNumber.h"
- 1968              		.file 4 "src/decNumber/decimal64.h"
- 1969              		.file 5 "src/decNumber/decimal128.h"
- 1970              		.file 6 "src/xeq.h"
- 1971              		.file 7 "src/data.h"
- 1972              		.file 8 "src/storage.h"
- 1973              		.file 9 "src/display.h"
- 1974              		.file 10 "src/consts.h"
-ARM GAS  /tmp/ccf7b7DY.s 			page 51
+ 1957              		.file 6 "src/xeq.h"
+ 1958              		.file 7 "src/data.h"
+ 1959              		.file 8 "src/storage.h"
+ 1960              		.file 9 "src/display.h"
+ 1961              		.file 10 "src/consts.h"
+ARM GAS  /tmp/cc2oQhUn.s 			page 51
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 prt.c
-     /tmp/ccf7b7DY.s:18     .rodata.prt_multi.str1.4:0000000000000000 $d
-     /tmp/ccf7b7DY.s:22     .text.prt_multi:0000000000000000 $t
-     /tmp/ccf7b7DY.s:30     .text.prt_multi:0000000000000000 prt_multi
-     /tmp/ccf7b7DY.s:139    .text.prt_multi:0000000000000050 $d
-     /tmp/ccf7b7DY.s:145    .text.prt_conv:0000000000000000 $t
-     /tmp/ccf7b7DY.s:152    .text.prt_conv:0000000000000000 prt_conv
-     /tmp/ccf7b7DY.s:248    .text.prt_conv:000000000000005c $d
-     /tmp/ccf7b7DY.s:254    .rodata.prt_specials.part.0.str1.4:0000000000000000 $d
-     /tmp/ccf7b7DY.s:279    .text.prt_specials.part.0:0000000000000000 $t
-     /tmp/ccf7b7DY.s:286    .text.prt_specials.part.0:0000000000000000 prt_specials.part.0
-     /tmp/ccf7b7DY.s:365    .text.prt_specials.part.0:0000000000000032 $d
-     /tmp/ccf7b7DY.s:622    .text.prt_specials.part.0:00000000000000e4 $d
-     /tmp/ccf7b7DY.s:636    .text.num_arg_digits.part.0:0000000000000000 $t
-     /tmp/ccf7b7DY.s:643    .text.num_arg_digits.part.0:0000000000000000 num_arg_digits.part.0
-     /tmp/ccf7b7DY.s:685    .text.num_arg_digits.part.0:000000000000002c $d
-     /tmp/ccf7b7DY.s:691    .text.num_arg_digits:0000000000000000 $t
-     /tmp/ccf7b7DY.s:699    .text.num_arg_digits:0000000000000000 num_arg_digits
-     /tmp/ccf7b7DY.s:740    .text.num_arg_digits:000000000000001c $d
-     /tmp/ccf7b7DY.s:745    .rodata.prt.str1.4:0000000000000000 $d
-     /tmp/ccf7b7DY.s:758    .text.prt:0000000000000000 $t
-     /tmp/ccf7b7DY.s:766    .text.prt:0000000000000000 prt
-     /tmp/ccf7b7DY.s:820    .text.prt:0000000000000030 $d
-     /tmp/ccf7b7DY.s:1590   .text.prt:000000000000029c $d
-     /tmp/ccf7b7DY.s:1608   .text.catcmd:0000000000000000 $t
-     /tmp/ccf7b7DY.s:1616   .text.catcmd:0000000000000000 catcmd
-     /tmp/ccf7b7DY.s:1698   .text.catcmd:0000000000000046 $d
-     /tmp/ccf7b7DY.s:1945   .text.catcmd:0000000000000100 $d
-     /tmp/ccf7b7DY.s:1958   .rodata.digits.8230:0000000000000000 $d
-     /tmp/ccf7b7DY.s:1962   .rodata.digits.8230:0000000000000000 digits.8230
-     /tmp/ccf7b7DY.s:408    .text.prt_specials.part.0:000000000000005d $d
-     /tmp/ccf7b7DY.s:408    .text.prt_specials.part.0:000000000000005e $t
-     /tmp/ccf7b7DY.s:827    .text.prt:0000000000000037 $d
-     /tmp/ccf7b7DY.s:827    .text.prt:0000000000000038 $t
-     /tmp/ccf7b7DY.s:1706   .text.catcmd:000000000000004d $d
-     /tmp/ccf7b7DY.s:1706   .text.catcmd:000000000000004e $t
+     /tmp/cc2oQhUn.s:18     .rodata.prt_multi.str1.4:0000000000000000 $d
+     /tmp/cc2oQhUn.s:22     .text.prt_multi:0000000000000000 $t
+     /tmp/cc2oQhUn.s:30     .text.prt_multi:0000000000000000 prt_multi
+     /tmp/cc2oQhUn.s:139    .text.prt_multi:0000000000000050 $d
+     /tmp/cc2oQhUn.s:145    .text.prt_conv:0000000000000000 $t
+     /tmp/cc2oQhUn.s:152    .text.prt_conv:0000000000000000 prt_conv
+     /tmp/cc2oQhUn.s:248    .text.prt_conv:000000000000005c $d
+     /tmp/cc2oQhUn.s:254    .rodata.prt_specials.part.0.str1.4:0000000000000000 $d
+     /tmp/cc2oQhUn.s:279    .text.prt_specials.part.0:0000000000000000 $t
+     /tmp/cc2oQhUn.s:286    .text.prt_specials.part.0:0000000000000000 prt_specials.part.0
+     /tmp/cc2oQhUn.s:365    .text.prt_specials.part.0:0000000000000032 $d
+     /tmp/cc2oQhUn.s:622    .text.prt_specials.part.0:00000000000000e4 $d
+     /tmp/cc2oQhUn.s:636    .text.num_arg_digits.part.0:0000000000000000 $t
+     /tmp/cc2oQhUn.s:643    .text.num_arg_digits.part.0:0000000000000000 num_arg_digits.part.0
+     /tmp/cc2oQhUn.s:685    .text.num_arg_digits.part.0:000000000000002c $d
+     /tmp/cc2oQhUn.s:691    .text.num_arg_digits:0000000000000000 $t
+     /tmp/cc2oQhUn.s:699    .text.num_arg_digits:0000000000000000 num_arg_digits
+     /tmp/cc2oQhUn.s:740    .text.num_arg_digits:000000000000001c $d
+     /tmp/cc2oQhUn.s:745    .rodata.prt.str1.4:0000000000000000 $d
+     /tmp/cc2oQhUn.s:758    .text.prt:0000000000000000 $t
+     /tmp/cc2oQhUn.s:766    .text.prt:0000000000000000 prt
+     /tmp/cc2oQhUn.s:820    .text.prt:0000000000000030 $d
+     /tmp/cc2oQhUn.s:1590   .text.prt:000000000000029c $d
+     /tmp/cc2oQhUn.s:1608   .text.catcmd:0000000000000000 $t
+     /tmp/cc2oQhUn.s:1616   .text.catcmd:0000000000000000 catcmd
+     /tmp/cc2oQhUn.s:1698   .text.catcmd:0000000000000046 $d
+     /tmp/cc2oQhUn.s:1932   .text.catcmd:0000000000000100 $d
+     /tmp/cc2oQhUn.s:1945   .rodata.digits.8230:0000000000000000 $d
+     /tmp/cc2oQhUn.s:1949   .rodata.digits.8230:0000000000000000 digits.8230
+     /tmp/cc2oQhUn.s:408    .text.prt_specials.part.0:000000000000005d $d
+     /tmp/cc2oQhUn.s:408    .text.prt_specials.part.0:000000000000005e $t
+     /tmp/cc2oQhUn.s:827    .text.prt:0000000000000037 $d
+     /tmp/cc2oQhUn.s:827    .text.prt:0000000000000038 $t
+     /tmp/cc2oQhUn.s:1706   .text.catcmd:000000000000004d $d
+     /tmp/cc2oQhUn.s:1706   .text.catcmd:000000000000004e $t
 
 UNDEFINED SYMBOLS
 sncopy_char

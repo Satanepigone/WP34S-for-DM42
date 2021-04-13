@@ -17,6 +17,7 @@
 #define DOTS 11
 #define SSHOT 12
 #define DEFMEN 13
+#define SETUMEN 14
 
 struct _key {
   struct _ndmap unshifted;
@@ -30,6 +31,24 @@ struct _menu {
   struct _key keys[6];
 };
 
+struct _menu UserMenu =
+  {
+    "User Menu", 
+    {
+      { NO_KEY, NO_KEY, "", "" },
+      { NO_KEY, NO_KEY, "", "" },
+      { NO_KEY, NO_KEY, "", "" },
+      { NO_KEY, NO_KEY, "", "" },
+      { ARROW_KEY, NO_KEY, "--\015", "" },
+      { CMPLX_KEY, { K_MULTI, DOTS }, "CPX", "" },
+    }
+  };
+
+char* arrow_key_string = "--\015";
+char* cmplx_key_string = "CPX";
+
+#define USER_MENU 99
+
 #define MENU_WIDTH 32
 
 static int current_menu = 0;
@@ -39,3 +58,4 @@ static int default_menu = 0;
 static void set_menu_label (const char *str, int smallp, int dotcol, int shifted);
 void mdot(int i, int j, int s, int on);
 extern void all_menu_dots ( void );
+extern void build_user_menu (void);

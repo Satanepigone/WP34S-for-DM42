@@ -115,6 +115,7 @@ extern int get_menu ();
 extern void display_menu (int current_menu);
 extern void set_last_menu ( void );
 extern void display_current_menu ( void );
+extern void build_user_menu(void);
 
 #endif
 #endif

@@ -68,27 +68,51 @@ static struct _ndmap remap (const int c) {
   if (Running | Pause) {
     return mapping_running[c];
   }
-  
-  switch (c) {
-  case KEY_F1:
-    if (cur_shift() == SHIFT_N) return Menus[current_menu].keys[0].unshifted;
-    if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[0].shifted;
-  case KEY_F2:
-    if (cur_shift() == SHIFT_N) return Menus[current_menu].keys[1].unshifted;
-    if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[1].shifted;
-  case KEY_F3:
-    if (cur_shift() == SHIFT_N) return Menus[current_menu].keys[2].unshifted;
-    if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[2].shifted;
-  case KEY_F4:
-    if (cur_shift() == SHIFT_N) return Menus[current_menu].keys[3].unshifted;
-    if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[3].shifted;
-  case KEY_F5:
-    if (cur_shift() == SHIFT_N) return Menus[current_menu].keys[4].unshifted;
-    if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[4].shifted;
-  case KEY_F6:
-    if (cur_shift() == SHIFT_N) return Menus[current_menu].keys[5].unshifted;
-    if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[5].shifted;
+
+  if (current_menu == USER_MENU) {
+    switch (c) {
+    case KEY_F1:
+      if (cur_shift() == SHIFT_N) return UserMenu.keys[0].unshifted;
+      if (cur_shift() == SHIFT_F) return UserMenu.keys[0].shifted;
+    case KEY_F2:
+      if (cur_shift() == SHIFT_N) return UserMenu.keys[1].unshifted;
+      if (cur_shift() == SHIFT_F) return UserMenu.keys[1].shifted;
+    case KEY_F3:
+      if (cur_shift() == SHIFT_N) return UserMenu.keys[2].unshifted;
+      if (cur_shift() == SHIFT_F) return UserMenu.keys[2].shifted;
+    case KEY_F4:
+      if (cur_shift() == SHIFT_N) return UserMenu.keys[3].unshifted;
+      if (cur_shift() == SHIFT_F) return UserMenu.keys[3].shifted;
+    case KEY_F5:
+      if (cur_shift() == SHIFT_N) return UserMenu.keys[4].unshifted;
+      if (cur_shift() == SHIFT_F) return UserMenu.keys[4].shifted;
+    case KEY_F6:
+      if (cur_shift() == SHIFT_N) return UserMenu.keys[5].unshifted;
+      if (cur_shift() == SHIFT_F) return UserMenu.keys[5].shifted;
+    }
   }
+  else {
+    switch (c) {
+    case KEY_F1:
+      if (cur_shift() == SHIFT_N) return Menus[current_menu].keys[0].unshifted;
+      if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[0].shifted;
+    case KEY_F2:
+      if (cur_shift() == SHIFT_N) return Menus[current_menu].keys[1].unshifted;
+      if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[1].shifted;
+    case KEY_F3:
+      if (cur_shift() == SHIFT_N) return Menus[current_menu].keys[2].unshifted;
+      if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[2].shifted;
+    case KEY_F4:
+      if (cur_shift() == SHIFT_N) return Menus[current_menu].keys[3].unshifted;
+      if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[3].shifted;
+    case KEY_F5:
+      if (cur_shift() == SHIFT_N) return Menus[current_menu].keys[4].unshifted;
+      if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[4].shifted;
+    case KEY_F6:
+      if (cur_shift() == SHIFT_N) return Menus[current_menu].keys[5].unshifted;
+      if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[5].shifted;
+    }
+  }    
   
   if ( get_alpha_state() ) {
     if (c == KEY_SHIFT) { //deal with shift keys
@@ -270,7 +294,7 @@ void print_debug (int i, int j) {
   moveto (3, 1);
   lcd_print (fReg , (const char*) print_string );
   lcd_refresh();
-  sys_delay (100);
+  sys_delay (500);
   /* wait_for_key_press(); */
   //  key_pop_all();
   // while ((key_pop()<=0) || (key_pop()==K_HEARTBEAT));;
@@ -366,6 +390,10 @@ struct _ndmap do_multi (struct _ndmap r) {
   case DEFMEN:
     toggle_default_menu();
     r = f_shift; // clears f-shift that called this function
+    break;
+  case SETUMEN:
+    build_user_menu();
+    r = g_shift;
     break;
   default:
     r = no_key;

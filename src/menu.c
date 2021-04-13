@@ -446,14 +446,26 @@ void display_menu (int current_menu) {
     */
     // Label is Menus[current.menu].keys[item].unshifted_label
     // Unshifted first
-    len = pixel_length (Menus[current_menu].keys[item].unshifted_label, 0); // 0 means not small font
-    set_menu_label ( Menus[current_menu].keys[item].unshifted_label, 0, item*32 + (32 - len)/2, 0 );
-    // Now shifted ...	
-    len = pixel_length (Menus[current_menu].keys[item].shifted_label, 0); // 0 means not small font
-    len = item*32 + (32-len)/2;
-    if (len<0) len = 0;
-    if (len>199) len = 199;
-    set_menu_label ( Menus[current_menu].keys[item].shifted_label, 0, len, 1 );
+    if (current_menu == USER_MENU) {
+      len = pixel_length (UserMenu.keys[item].unshifted_label, 0); // 0 means not small font
+      set_menu_label ( UserMenu.keys[item].unshifted_label, 0, item*32 + (32 - len)/2, 0 );
+      // Now shifted ...	
+      len = pixel_length (UserMenu.keys[item].shifted_label, 0); // 0 means not small font
+      len = item*32 + (32-len)/2;
+      if (len<0) len = 0;
+      if (len>199) len = 199;
+      set_menu_label ( UserMenu.keys[item].shifted_label, 0, len, 1 );
+    }
+    else {
+      len = pixel_length (Menus[current_menu].keys[item].unshifted_label, 0); // 0 means not small font
+      set_menu_label ( Menus[current_menu].keys[item].unshifted_label, 0, item*32 + (32 - len)/2, 0 );
+      // Now shifted ...	
+      len = pixel_length (Menus[current_menu].keys[item].shifted_label, 0); // 0 means not small font
+      len = item*32 + (32-len)/2;
+      if (len<0) len = 0;
+      if (len>199) len = 199;
+      set_menu_label ( Menus[current_menu].keys[item].shifted_label, 0, len, 1 );
+    }      
   }
 
   for (int col = 0; col < 196; col++) {
@@ -476,49 +488,66 @@ void all_menu_dots () {
     }
   }
 }  
-/*
-dots is a char array.
 
-I'm currently haveing dots 2 pixels wide, with no gaps between dots. 400/6 is 66; allowing for spaces
-I need three pixels between one label and the next, for a line. 5*3=15; (400-15) / 6 = 64 with one over.
-So, 32 dots per label.
+void build_user_menu(void)
+{
+  // find the label 'MNU'
+  const int lbl = OP_DBL + (DBL_LBL << DBL_SHIFT) + 'M' + ('N' << 16) + ('U' << 24);
+  unsigned int pc = findmultilbl(lbl, 0);
+  int i=0;
+  for (int j = 0; j<6; j++) { // clear user menu
+      UserMenu.keys[j].unshifted_label[0] = '\0';
+      UserMenu.keys[j].unshifted.shift = 0;
+      UserMenu.keys[j].unshifted.key_34s = K_NOP;
+      UserMenu.keys[j].shifted_label[0] = '\0';
+      UserMenu.keys[j].shifted.shift = 0;
+      UserMenu.keys[j].shifted.key_34s = K_NOP;
+  }
+  while (pc && i < 12) {
+    s_opcode op;
+    char buf1[16];
 
-One long one - one byte per column.
-cmap contains the character dots.
-Each element in mdot
-
-    for (i=0; i<6; i++) // rows of character. cmap[i] contains width bits.
-      for (j=0; j<width; j++) { // ( (cmap[i] & (1 << j)) ? 1:0 ) is the pixel in the ith row of the jth column. If it's 1 we need to set bit j 
-	if (x+j >= MENU_WIDTH)
-	  break;
-//	mdot(x+j) |= (cmap[i] & (1 << j))?1:0);
-	mdot(x+j) |= (cmap[i] & (1 << j))?1:0);
+    pc = do_inc(pc, 0);
+    op = (s_opcode) getprog(pc);
+    if (op == (OP_NIL | OP_END))
+      break;
+    if (op == (OP_NIL | OP_NOP)) {
+      if (i==4) {
+	UserMenu.keys[i].unshifted.shift = -1;
+	UserMenu.keys[i].unshifted.key_34s = K_ARROW;
+	strncpy(UserMenu.keys[i].unshifted_label, arrow_key_string,5);
       }
-      
-To set dot y in column x, row[x] = row[x] | (1 << y)
-To read dot y in column x, ( row[x] & (1 << y) )
-To test dot y in column x, 
-void m
-
-c5 asdfg
-c4 qwert
-c3 ;lkjh
-c2 zxcvb
-c1 poiuy
-c0 12345
-
-dots(0) - aq;zp1
-...
-dots(4) - 5ybhtq
-
-void mdot(int i, int j, int on) { // Column i, row j, state on
-if (on) {
-mdots(i) |= ( 1 << j );
-else {
-mdots(i) |= ~( 1 << j );
+      else if (i==5) {
+	UserMenu.keys[i].unshifted.shift = -1;
+	UserMenu.keys[i].unshifted.key_34s = K_CMPLX;
+	strncpy(UserMenu.keys[i].unshifted_label, cmplx_key_string,5);
+      }
+      i += 1;
+      continue;
+    }
+    if (isDBL(op)) {
+      i += 1;
+      continue;
+    }
+    if (isRARG(op)) {
+      const s_opcode rarg = RARG_CMD(op);
+      if (rarg != RARG_ALPHA && rarg != RARG_CONV
+	  && rarg != RARG_CONST && rarg != RARG_CONST_CMPLX)
+	op = op & 0xff00;	// remove argument
+    }
+    catcmd(op, buf1);
+    if (i<6) {
+      strncpy(UserMenu.keys[i].unshifted_label, buf1, 7);
+      UserMenu.keys[i].unshifted_label[7]='\0';
+      UserMenu.keys[i].unshifted.shift = op;
+      UserMenu.keys[i].unshifted.key_34s = K_OP;
+    }
+    else {
+      strncpy(UserMenu.keys[i-6].shifted_label, buf1, 7);
+      UserMenu.keys[i-6].shifted_label[7]='\0';
+      UserMenu.keys[i-6].shifted.shift = op;
+      UserMenu.keys[i-6].shifted.key_34s = K_OP;
+    }
+    i++;
+  }
 }
-}
-for j = 0 to width-1
-for i = 0 to 5
-dots(j) bit i = c[i] 
-*/

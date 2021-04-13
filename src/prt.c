@@ -323,8 +323,10 @@ const char *catcmd(opcode op, char instr[16]) {
 		default:
 			break;
 		case KIND_SPEC:
-			return prt_specials(f, instr);
-
+		  //    return prt_specials(f, instr);
+			name = prt_specials(f, instr); 
+			goto copy;
+			// ND change - without this, it returns the string but doesn't copy it to instr.
 		case KIND_NIL:
 			if (f >= NUM_NILADIC) break;
 			name = niladics[f].nname;

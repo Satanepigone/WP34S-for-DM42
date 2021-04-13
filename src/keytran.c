@@ -93,7 +93,7 @@ static const struct _ndmap mapping_none[] = {
     // Sixth row of DM42 28--32
     {K_G, 0}, // gshift
     {K_MULTI, DEFMEN}, // toggle default menu
-    {K_NOP, 0}, // no function
+    {K_SETMENU, USER_MENU}, // select user menu
     {K52, 3}, // P.FCN cat
     {K_NOP, 0}, // no function
     // Last row of DM42 33--37
@@ -151,7 +151,7 @@ static const struct _ndmap mapping_none[] = {
     // Sixth row of DM42 28--32
     {K_G, -1}, // gshift (clears shift state)
     {K_NOP, 0}, // no function
-    {K_NOP, 0}, // no function
+    {K_MULTI, SETUMEN}, // Set up user menu
     {K53, 3}, // X.FCN catalogue.
     {K_NOP, 0}, // no function
     // Last row of DM42 33--37

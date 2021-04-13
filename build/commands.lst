@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cccwWf7C.s 			page 1
+ARM GAS  /tmp/ccS9oClz.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
   49 003c 52434C4D 		.ascii	"RCLMIN\000"
   49      494E00
   50 0043 00       		.align	2
-ARM GAS  /tmp/cccwWf7C.s 			page 2
+ARM GAS  /tmp/ccS9oClz.s 			page 2
 
 
   51              	.LC10:
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
   94      2F00
   95 00aa 0000     		.align	2
   96              	.LC25:
-ARM GAS  /tmp/cccwWf7C.s 			page 3
+ARM GAS  /tmp/ccS9oClz.s 			page 3
 
 
   97 00ac 63783C3E 		.ascii	"cx<>\000"
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  142 010c 6378213D 		.ascii	"cx!=?\000"
  142      3F00
  143 0112 0000     		.align	2
-ARM GAS  /tmp/cccwWf7C.s 			page 4
+ARM GAS  /tmp/ccS9oClz.s 			page 4
 
 
  144              	.LC41:
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  187              	.LC55:
  188 0178 53554D78 		.ascii	"SUMx2\000"
  188      3200
-ARM GAS  /tmp/cccwWf7C.s 			page 5
+ARM GAS  /tmp/ccS9oClz.s 			page 5
 
 
  189 017e 0000     		.align	2
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  230 01e8 65707369 		.ascii	"epsilon\000"
  230      6C6F6E00 
  231              		.align	2
-ARM GAS  /tmp/cccwWf7C.s 			page 6
+ARM GAS  /tmp/ccS9oClz.s 			page 6
 
 
  232              	.LC70:
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  272 025c 61444159 		.ascii	"aDAY\000"
  272      00
  273 0261 000000   		.align	2
-ARM GAS  /tmp/cccwWf7C.s 			page 7
+ARM GAS  /tmp/ccS9oClz.s 			page 7
 
 
  274              	.LC84:
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  317      2A00
  318 02ca 0000     		.align	2
  319              	.LC99:
-ARM GAS  /tmp/cccwWf7C.s 			page 8
+ARM GAS  /tmp/ccS9oClz.s 			page 8
 
 
  320 02cc 4D524F57 		.ascii	"MROW+*\000"
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  363              	.LC113:
  364 0330 2A00     		.ascii	"*\000"
  365 0332 0000     		.align	2
-ARM GAS  /tmp/cccwWf7C.s 			page 9
+ARM GAS  /tmp/ccS9oClz.s 			page 9
 
 
  366              	.LC114:
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  411 0392 0000     		.align	2
  412              	.LC129:
  413 0394 45585000 		.ascii	"EXP\000"
-ARM GAS  /tmp/cccwWf7C.s 			page 10
+ARM GAS  /tmp/ccS9oClz.s 			page 10
 
 
  414              		.align	2
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  461 03f0 3E524144 		.ascii	">RAD\000"
  461      00
  462 03f5 000000   		.align	2
-ARM GAS  /tmp/cccwWf7C.s 			page 11
+ARM GAS  /tmp/ccS9oClz.s 			page 11
 
 
  463              	.LC146:
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  502              	.LC159:
  503 0468 47524144 		.ascii	"GRAD>RAD\000"
  503      3E524144 
-ARM GAS  /tmp/cccwWf7C.s 			page 12
+ARM GAS  /tmp/ccS9oClz.s 			page 12
 
 
  503      00
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  543              		.align	2
  544              	.LC173:
  545 04e0 494E562D 		.ascii	"INV-Weibl\000"
-ARM GAS  /tmp/cccwWf7C.s 			page 13
+ARM GAS  /tmp/ccS9oClz.s 			page 13
 
 
  545      57656962 
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  581      00
  582 055d 000000   		.align	2
  583              	.LC186:
-ARM GAS  /tmp/cccwWf7C.s 			page 14
+ARM GAS  /tmp/ccS9oClz.s 			page 14
 
 
  584 0560 4E6F726D 		.ascii	"Norml-p\000"
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  623 05d0 4578706F 		.ascii	"Expon-u\000"
  623      6E2D7500 
  624              		.align	2
-ARM GAS  /tmp/cccwWf7C.s 			page 15
+ARM GAS  /tmp/ccS9oClz.s 			page 15
 
 
  625              	.LC200:
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  667              	.LC214:
  668 0640 443E4A00 		.ascii	"D>J\000"
  669              		.align	2
-ARM GAS  /tmp/cccwWf7C.s 			page 16
+ARM GAS  /tmp/ccS9oClz.s 			page 16
 
 
  670              	.LC215:
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  720 0024 18       		.byte	24
  721 0025 01       		.byte	1
  722 0026 45525200 		.ascii	"ERR\000"
-ARM GAS  /tmp/cccwWf7C.s 			page 17
+ARM GAS  /tmp/ccS9oClz.s 			page 17
 
 
  723 002a 0000     		.space	2
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  771 00aa 0000     		.space	2
  772 00ac 00000000 		.word	0
  773 00b0 00000000 		.word	cmdrcl
-ARM GAS  /tmp/cccwWf7C.s 			page 18
+ARM GAS  /tmp/ccS9oClz.s 			page 18
 
 
  774 00b4 FF       		.byte	-1
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  822 0134 FF       		.byte	-1
  823 0135 0F       		.byte	15
  824 0136 7A1700   		.ascii	"z\027\000"
-ARM GAS  /tmp/cccwWf7C.s 			page 19
+ARM GAS  /tmp/ccS9oClz.s 			page 19
 
 
  825 0139 000000   		.space	3
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  872 01c5 1F       		.byte	31
  873 01c6 1452434C 		.ascii	"\024RCL-\000"
  873      2D00
-ARM GAS  /tmp/cccwWf7C.s 			page 20
+ARM GAS  /tmp/ccS9oClz.s 			page 20
 
 
  874 01cc 94000000 		.word	.LC22
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  922 0254 FF       		.byte	-1
  923 0255 0F       		.byte	15
  924 0256 A0524323 		.ascii	"\240RC#\000"
-ARM GAS  /tmp/cccwWf7C.s 			page 21
+ARM GAS  /tmp/ccS9oClz.s 			page 21
 
 
  924      00
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  976 02e4 FF       		.byte	-1
  977 02e5 0F       		.byte	15
  978 02e6 780B3F00 		.ascii	"x\013?\000"
-ARM GAS  /tmp/cccwWf7C.s 			page 22
+ARM GAS  /tmp/ccS9oClz.s 			page 22
 
 
  979 02ea 0000     		.space	2
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  1030 0374 FF       		.byte	-1
  1031 0375 00       		.byte	0
  1032 0376 4241434B 		.ascii	"BACK\000"
-ARM GAS  /tmp/cccwWf7C.s 			page 23
+ARM GAS  /tmp/ccS9oClz.s 			page 23
 
 
  1032      00
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  1084 0404 FF       		.byte	-1
  1085 0405 0F       		.byte	15
  1086 0406 44454300 		.ascii	"DEC\000"
-ARM GAS  /tmp/cccwWf7C.s 			page 24
+ARM GAS  /tmp/ccS9oClz.s 			page 24
 
 
  1087 040a 0000     		.space	2
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  1140 0496 66272878 		.ascii	"f'(x)\000"
  1140      2900
  1141 049c 00000000 		.word	0
-ARM GAS  /tmp/cccwWf7C.s 			page 25
+ARM GAS  /tmp/ccS9oClz.s 			page 25
 
 
  1142 04a0 90040000 		.word	xrom+1168
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  1194 052c 00000000 		.word	0
  1195 0530 00000000 		.word	cmdflag
  1196 0534 7F       		.byte	127
-ARM GAS  /tmp/cccwWf7C.s 			page 26
+ARM GAS  /tmp/ccS9oClz.s 			page 26
 
 
  1197 0535 4D       		.byte	77
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  1246 05b6 46433F46 		.ascii	"FC?F\000"
  1246      00
  1247 05bb 00       		.space	1
-ARM GAS  /tmp/cccwWf7C.s 			page 27
+ARM GAS  /tmp/ccS9oClz.s 			page 27
 
 
  1248 05bc 00000000 		.word	0
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  1301 064c 00000000 		.word	0
  1302 0650 00000000 		.word	intbits
  1303 0654 3F       		.byte	63
-ARM GAS  /tmp/cccwWf7C.s 			page 28
+ARM GAS  /tmp/ccS9oClz.s 			page 28
 
 
  1304 0655 01       		.byte	1
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  1354 06e0 00000000 		.word	cmdkeyp
  1355 06e4 FF       		.byte	-1
  1356 06e5 0F       		.byte	15
-ARM GAS  /tmp/cccwWf7C.s 			page 29
+ARM GAS  /tmp/ccS9oClz.s 			page 29
 
 
  1357 06e6 4B45593F 		.ascii	"KEY?\000"
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  1407 076c 00000000 		.word	0
  1408 0770 00000000 		.word	cmdsavem
  1409 0774 FF       		.byte	-1
-ARM GAS  /tmp/cccwWf7C.s 			page 30
+ARM GAS  /tmp/ccS9oClz.s 			page 30
 
 
  1410 0775 0F       		.byte	15
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  1457 07f4 FF       		.byte	-1
  1458 07f5 0F       		.byte	15
  1459 07f6 7352434C 		.ascii	"sRCL\000"
-ARM GAS  /tmp/cccwWf7C.s 			page 31
+ARM GAS  /tmp/ccS9oClz.s 			page 31
 
 
  1459      00
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  1508 0884 FF       		.byte	-1
  1509 0885 00       		.byte	0
  1510 0886 142300   		.ascii	"\024#\000"
-ARM GAS  /tmp/cccwWf7C.s 			page 32
+ARM GAS  /tmp/ccS9oClz.s 			page 32
 
 
  1511 0889 000000   		.space	3
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  1562 0024 2B00     		.ascii	"+\000"
  1563 0026 00000000 		.space	4
  1564 002a 0000     		.space	2
-ARM GAS  /tmp/cccwWf7C.s 			page 33
+ARM GAS  /tmp/ccS9oClz.s 			page 33
 
 
  1565 002c 00000000 		.word	0
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  1616 00dc 00000000 		.word	0
  1617 00e0 00000000 		.word	intMin
  1618 00e4 4D494E00 		.ascii	"MIN\000"
-ARM GAS  /tmp/cccwWf7C.s 			page 34
+ARM GAS  /tmp/ccS9oClz.s 			page 34
 
 
  1619 00e8 0000     		.space	2
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  1672 01a0 00000000 		.word	0
  1673 01a4 829300   		.ascii	"\202\223\000"
  1674 01a7 000000   		.space	3
-ARM GAS  /tmp/cccwWf7C.s 			page 35
+ARM GAS  /tmp/ccS9oClz.s 			page 35
 
 
  1675 01aa 0000     		.space	2
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  1725 0258 00000000 		.word	decNumberHMSSub
  1726 025c 00000000 		.word	0
  1727 0260 00000000 		.word	0
-ARM GAS  /tmp/cccwWf7C.s 			page 36
+ARM GAS  /tmp/ccS9oClz.s 			page 36
 
 
  1728 0264 482E4D53 		.ascii	"H.MS-\000"
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  1780 0318 00000000 		.word	decNumberBooleanOp
  1781 031c 00000000 		.word	0
  1782 0320 00000000 		.word	intBooleanOp
-ARM GAS  /tmp/cccwWf7C.s 			page 37
+ARM GAS  /tmp/ccS9oClz.s 			page 37
 
 
  1783 0324 584E4F52 		.ascii	"XNOR\000"
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  1834 03d8 E4130000 		.word	xrom+5092
  1835 03dc 00000000 		.word	0
  1836 03e0 00000000 		.word	0
-ARM GAS  /tmp/cccwWf7C.s 			page 38
+ARM GAS  /tmp/ccS9oClz.s 			page 38
 
 
  1837 03e4 48BDBE00 		.ascii	"H\275\276\000"
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  1887 049c 6C1A0000 		.word	xrom+6764
  1888 04a0 00000000 		.word	0
  1889 04a4 596E00   		.ascii	"Yn\000"
-ARM GAS  /tmp/cccwWf7C.s 			page 39
+ARM GAS  /tmp/ccS9oClz.s 			page 39
 
 
  1890 04a7 000000   		.space	3
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  1943 008a 0000     		.space	2
  1944 008c 00000000 		.word	0
  1945 0090 00000000 		.word	decNumberRnd
-ARM GAS  /tmp/cccwWf7C.s 			page 40
+ARM GAS  /tmp/ccS9oClz.s 			page 40
 
 
  1946 0094 88170000 		.word	xrom+6024
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  1996 014a 0000     		.space	2
  1997 014c AC030000 		.word	.LC133
  1998 0150 00000000 		.word	dn_log2
-ARM GAS  /tmp/cccwWf7C.s 			page 41
+ARM GAS  /tmp/ccS9oClz.s 			page 41
 
 
  1999 0154 B8180000 		.word	xrom+6328
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  2050 0207 000000   		.space	3
  2051 020a 0000     		.space	2
  2052 020c D0030000 		.word	.LC140
-ARM GAS  /tmp/cccwWf7C.s 			page 42
+ARM GAS  /tmp/ccS9oClz.s 			page 42
 
 
  2053 0210 00000000 		.word	decNumberSquare
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  2104 02c4 4445470D 		.ascii	"DEG\015\000"
  2104      00
  2105 02c9 00       		.space	1
-ARM GAS  /tmp/cccwWf7C.s 			page 43
+ARM GAS  /tmp/ccS9oClz.s 			page 43
 
 
  2106 02ca 0000     		.space	2
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  2156 0378 00000000 		.word	decNumberArcTan
  2157 037c 36180000 		.word	xrom+6198
  2158 0380 00000000 		.word	0
-ARM GAS  /tmp/cccwWf7C.s 			page 44
+ARM GAS  /tmp/ccS9oClz.s 			page 44
 
 
  2159 0384 4154414E 		.ascii	"ATAN\000"
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  2206 042c 4154414E 		.ascii	"ATANH\000"
  2206      4800
  2207 0432 0000     		.space	2
-ARM GAS  /tmp/cccwWf7C.s 			page 45
+ARM GAS  /tmp/ccS9oClz.s 			page 45
 
 
  2208 0434 00000000 		.word	0
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  2260 04f0 0000     		.space	2
  2261 04f2 0000     		.space	2
  2262 04f4 44040000 		.word	.LC156
-ARM GAS  /tmp/cccwWf7C.s 			page 46
+ARM GAS  /tmp/ccS9oClz.s 			page 46
 
 
  2263 04f8 00000000 		.word	decNumberG2D
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  2312 05ac B4287829 		.ascii	"\264(x)\000"
  2312      00
  2313 05b1 00       		.space	1
-ARM GAS  /tmp/cccwWf7C.s 			page 47
+ARM GAS  /tmp/ccS9oClz.s 			page 47
 
 
  2314 05b2 0000     		.space	2
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  2363 0664 00000000 		.word	0
  2364 0668 00000000 		.word	0
  2365 066c 749D2870 		.ascii	"t\235(p)\000"
-ARM GAS  /tmp/cccwWf7C.s 			page 48
+ARM GAS  /tmp/ccS9oClz.s 			page 48
 
 
  2365      2900
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  2412 0724 00000000 		.word	0
  2413 0728 00000000 		.word	0
  2414 072c 4578706F 		.ascii	"Expon\000"
-ARM GAS  /tmp/cccwWf7C.s 			page 49
+ARM GAS  /tmp/ccS9oClz.s 			page 49
 
 
  2414      6E00
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  2461 07e8 00000000 		.word	0
  2462 07ec 506F6973 		.ascii	"Poiss\276"
  2462      73BE
-ARM GAS  /tmp/cccwWf7C.s 			page 50
+ARM GAS  /tmp/ccS9oClz.s 			page 50
 
 
  2463 07f2 0000     		.space	2
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  2510 08a8 00000000 		.word	0
  2511 08ac 4E6F726D 		.ascii	"Norml\235"
  2511      6C9D
-ARM GAS  /tmp/cccwWf7C.s 			page 51
+ARM GAS  /tmp/ccS9oClz.s 			page 51
 
 
  2512 08b2 0000     		.space	2
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  2559 096c 43617563 		.ascii	"Cauch\000"
  2559      6800
  2560 0972 0000     		.space	2
-ARM GAS  /tmp/cccwWf7C.s 			page 52
+ARM GAS  /tmp/ccS9oClz.s 			page 52
 
 
  2561 0974 00000000 		.word	0
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  2608      6DBF
  2609 0a32 0000     		.space	2
  2610 0a34 D8050000 		.word	.LC200
-ARM GAS  /tmp/cccwWf7C.s 			page 53
+ARM GAS  /tmp/ccS9oClz.s 			page 53
 
 
  2611 0a38 8C0E0000 		.word	xrom+3724
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  2658 0af2 0000     		.space	2
  2659 0af4 18060000 		.word	.LC208
  2660 0af8 00000000 		.word	stats_yhat
-ARM GAS  /tmp/cccwWf7C.s 			page 54
+ARM GAS  /tmp/ccS9oClz.s 			page 54
 
 
  2661 0afc 00000000 		.word	0
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  2714 0bb4 00000000 		.word	0
  2715 0bb8 00000000 		.word	0
  2716 0bbc 00000000 		.word	0
-ARM GAS  /tmp/cccwWf7C.s 			page 55
+ARM GAS  /tmp/ccS9oClz.s 			page 55
 
 
  2717 0bc0 00000000 		.word	intNumBits
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  2765 0c74 50060000 		.word	.LC218
  2766 0c78 00000000 		.word	convAR2DB
  2767 0c7c 00000000 		.word	0
-ARM GAS  /tmp/cccwWf7C.s 			page 56
+ARM GAS  /tmp/ccS9oClz.s 			page 56
 
 
  2768 0c80 00000000 		.word	0
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  2817 0d34 00000000 		.word	0
  2818 0d38 00000000 		.word	dateExtraction
  2819 0d3c 00000000 		.word	0
-ARM GAS  /tmp/cccwWf7C.s 			page 57
+ARM GAS  /tmp/ccS9oClz.s 			page 57
 
 
  2820 0d40 00000000 		.word	0
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  2868 0df1 00       		.space	1
  2869 0df2 0000     		.space	2
  2870 0df4 00000000 		.word	0
-ARM GAS  /tmp/cccwWf7C.s 			page 58
+ARM GAS  /tmp/ccS9oClz.s 			page 58
 
 
  2871 0df8 00000000 		.word	matrix_colq
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  2922              	multicmds:
  2923 0000 00000000 		.word	0
  2924 0004 4C424C00 		.ascii	"LBL\000"
-ARM GAS  /tmp/cccwWf7C.s 			page 59
+ARM GAS  /tmp/ccS9oClz.s 			page 59
 
 
  2925 0008 0000     		.space	2
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  2976              		.section	.rodata.niladics,"a"
  2977              		.align	2
  2980              	niladics:
-ARM GAS  /tmp/cccwWf7C.s 			page 60
+ARM GAS  /tmp/ccS9oClz.s 			page 60
 
 
  2981 0000 00000000 		.word	0
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  3030 008c 44010000 		.word	.LC48
  3031 0090 00000000 		.word	cpx_roll_down
  3032 0094 00       		.byte	0
-ARM GAS  /tmp/cccwWf7C.s 			page 61
+ARM GAS  /tmp/ccS9oClz.s 			page 61
 
 
  3033 0095 14520F00 		.ascii	"\024R\017\000"
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  3081 011c 78010000 		.word	.LC55
  3082 0120 00000000 		.word	sigma_val
  3083 0124 81       		.byte	-127
-ARM GAS  /tmp/cccwWf7C.s 			page 62
+ARM GAS  /tmp/ccS9oClz.s 			page 62
 
 
  3084 0125 91799A00 		.ascii	"\221y\232\000"
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  3133 01b0 00000000 		.word	sigma_val
  3134 01b4 81       		.byte	-127
  3135 01b5 91786C6E 		.ascii	"\221xlny\000"
-ARM GAS  /tmp/cccwWf7C.s 			page 63
+ARM GAS  /tmp/ccS9oClz.s 			page 63
 
 
  3135      7900
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  3188 0247 00000000 		.space	4
  3189 024b 00       		.space	1
  3190 024c 04020000 		.word	.LC72
-ARM GAS  /tmp/cccwWf7C.s 			page 64
+ARM GAS  /tmp/ccS9oClz.s 			page 64
 
 
  3191 0250 00000000 		.word	stats_wmean
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  3241 02d9 0000     		.space	2
  3242 02db 00       		.space	1
  3243 02dc 28020000 		.word	.LC76
-ARM GAS  /tmp/cccwWf7C.s 			page 65
+ARM GAS  /tmp/ccS9oClz.s 			page 65
 
 
  3244 02e0 00000000 		.word	stats_mode
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  3291 0364 00       		.byte	0
  3292 0365 52414400 		.ascii	"RAD\000"
  3293 0369 0000     		.space	2
-ARM GAS  /tmp/cccwWf7C.s 			page 66
+ARM GAS  /tmp/ccS9oClz.s 			page 66
 
 
  3294 036b 00       		.space	1
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  3343 03f5 434C7800 		.ascii	"CLx\000"
  3344 03f9 0000     		.space	2
  3345 03fb 00       		.space	1
-ARM GAS  /tmp/cccwWf7C.s 			page 67
+ARM GAS  /tmp/ccS9oClz.s 			page 67
 
 
  3346 03fc 00000000 		.word	0
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  3391      4158
  3392 048b 00       		.space	1
  3393 048c 00000000 		.word	0
-ARM GAS  /tmp/cccwWf7C.s 			page 68
+ARM GAS  /tmp/ccS9oClz.s 			page 68
 
 
  3394 0490 00000000 		.word	op_2frac
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  3439 051a 00       		.space	1
  3440 051b 00       		.space	1
  3441 051c 44020000 		.word	.LC80
-ARM GAS  /tmp/cccwWf7C.s 			page 69
+ARM GAS  /tmp/ccS9oClz.s 			page 69
 
 
  3442 0520 68150000 		.word	xrom+5480
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  3487 05b0 00000000 		.word	op_float
  3488 05b4 00       		.byte	0
  3489 05b5 4445434D 		.ascii	"DECM\000"
-ARM GAS  /tmp/cccwWf7C.s 			page 70
+ARM GAS  /tmp/ccS9oClz.s 			page 70
 
 
  3489      00
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  3538 063c 00000000 		.word	0
  3539 0640 54150000 		.word	xrom+5460
  3540 0644 00       		.byte	0
-ARM GAS  /tmp/cccwWf7C.s 			page 71
+ARM GAS  /tmp/ccS9oClz.s 			page 71
 
 
  3541 0645 442E4D59 		.ascii	"D.MY\000"
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  3586 06cb 00       		.space	1
  3587 06cc 6C020000 		.word	.LC85
  3588 06d0 00000000 		.word	date_alphatime
-ARM GAS  /tmp/cccwWf7C.s 			page 72
+ARM GAS  /tmp/ccS9oClz.s 			page 72
 
 
  3589 06d4 80       		.byte	-128
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  3637 075c 80020000 		.word	.LC88
  3638 0760 00000000 		.word	alpha_length
  3639 0764 01       		.byte	1
-ARM GAS  /tmp/cccwWf7C.s 			page 73
+ARM GAS  /tmp/ccS9oClz.s 			page 73
 
 
  3640 0765 A04C454E 		.ascii	"\240LENG\000"
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  3688 07f4 00       		.byte	0
  3689 07f5 0D412E2E 		.ascii	"\015A..D\000"
  3689      4400
-ARM GAS  /tmp/cccwWf7C.s 			page 74
+ARM GAS  /tmp/ccS9oClz.s 			page 74
 
 
  3690 07fb 00       		.space	1
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  3737 0885 46503F00 		.ascii	"FP?\000"
  3738 0889 0000     		.space	2
  3739 088b 00       		.space	1
-ARM GAS  /tmp/cccwWf7C.s 			page 75
+ARM GAS  /tmp/ccS9oClz.s 			page 75
 
 
  3740 088c 00000000 		.word	0
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  3786 0915 53455455 		.ascii	"SETUK\000"
  3786      4B00
  3787 091b 00       		.space	1
-ARM GAS  /tmp/cccwWf7C.s 			page 76
+ARM GAS  /tmp/ccS9oClz.s 			page 76
 
 
  3788 091c 00000000 		.word	0
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  3835      00
  3836 09aa 00       		.space	1
  3837 09ab 00       		.space	1
-ARM GAS  /tmp/cccwWf7C.s 			page 77
+ARM GAS  /tmp/ccS9oClz.s 			page 77
 
 
  3838 09ac 00000000 		.word	0
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  3883      1700
  3884 0a3b 00       		.space	1
  3885 0a3c BC020000 		.word	.LC97
-ARM GAS  /tmp/cccwWf7C.s 			page 78
+ARM GAS  /tmp/ccS9oClz.s 			page 78
 
 
  3886 0a40 00000000 		.word	matrix_rowops
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  3932 0acc 00000000 		.word	0
  3933 0ad0 00000000 		.word	flash_backup
  3934 0ad4 00       		.byte	0
-ARM GAS  /tmp/cccwWf7C.s 			page 79
+ARM GAS  /tmp/ccS9oClz.s 			page 79
 
 
  3935 0ad5 53415645 		.ascii	"SAVE\000"
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  3980 0b5b 00       		.space	1
  3981 0b5c 00000000 		.word	0
  3982 0b60 00000000 		.word	op_double
-ARM GAS  /tmp/cccwWf7C.s 			page 80
+ARM GAS  /tmp/ccS9oClz.s 			page 80
 
 
  3983 0b64 00       		.byte	0
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  4030 0beb 00       		.space	1
  4031 0bec 00000000 		.word	0
  4032 0bf0 B6150000 		.word	xrom+5558
-ARM GAS  /tmp/cccwWf7C.s 			page 81
+ARM GAS  /tmp/ccS9oClz.s 			page 81
 
 
  4033 0bf4 00       		.byte	0
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  4085 0090 00000000 		.word	0
  4086 0094 4D2E5245 		.ascii	"M.REG\000"
  4086      4700
-ARM GAS  /tmp/cccwWf7C.s 			page 82
+ARM GAS  /tmp/ccS9oClz.s 			page 82
 
 
  4087 009a 0000     		.space	2
@@ -4903,24 +4903,24 @@ ARM GAS  /tmp/cccwWf7C.s 			page 1
  4122              		.file 10 "src/consts.h"
  4123              		.file 11 "src/storage.h"
  4124              		.file 12 "src/commands.c"
-ARM GAS  /tmp/cccwWf7C.s 			page 83
+ARM GAS  /tmp/ccS9oClz.s 			page 83
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 commands.c
-     /tmp/cccwWf7C.s:2922   .rodata.multicmds:0000000000000000 multicmds
-     /tmp/cccwWf7C.s:19     .rodata.str1.4:0000000000000000 $d
-     /tmp/cccwWf7C.s:706    .rodata.argcmds:0000000000000000 argcmds
-     /tmp/cccwWf7C.s:2980   .rodata.niladics:0000000000000000 niladics
-     /tmp/cccwWf7C.s:4041   .rodata.trifuncs:0000000000000000 trifuncs
-     /tmp/cccwWf7C.s:1551   .rodata.dyfuncs:0000000000000000 dyfuncs
-     /tmp/cccwWf7C.s:1904   .rodata.monfuncs:0000000000000000 monfuncs
-     /tmp/cccwWf7C.s:703    .rodata.argcmds:0000000000000000 $d
-     /tmp/cccwWf7C.s:1548   .rodata.dyfuncs:0000000000000000 $d
-     /tmp/cccwWf7C.s:1901   .rodata.monfuncs:0000000000000000 $d
-     /tmp/cccwWf7C.s:2919   .rodata.multicmds:0000000000000000 $d
-     /tmp/cccwWf7C.s:2977   .rodata.niladics:0000000000000000 $d
-     /tmp/cccwWf7C.s:4038   .rodata.trifuncs:0000000000000000 $d
+     /tmp/ccS9oClz.s:2922   .rodata.multicmds:0000000000000000 multicmds
+     /tmp/ccS9oClz.s:19     .rodata.str1.4:0000000000000000 $d
+     /tmp/ccS9oClz.s:706    .rodata.argcmds:0000000000000000 argcmds
+     /tmp/ccS9oClz.s:2980   .rodata.niladics:0000000000000000 niladics
+     /tmp/ccS9oClz.s:4041   .rodata.trifuncs:0000000000000000 trifuncs
+     /tmp/ccS9oClz.s:1551   .rodata.dyfuncs:0000000000000000 dyfuncs
+     /tmp/ccS9oClz.s:1904   .rodata.monfuncs:0000000000000000 monfuncs
+     /tmp/ccS9oClz.s:703    .rodata.argcmds:0000000000000000 $d
+     /tmp/ccS9oClz.s:1548   .rodata.dyfuncs:0000000000000000 $d
+     /tmp/ccS9oClz.s:1901   .rodata.monfuncs:0000000000000000 $d
+     /tmp/ccS9oClz.s:2919   .rodata.multicmds:0000000000000000 $d
+     /tmp/ccS9oClz.s:2977   .rodata.niladics:0000000000000000 $d
+     /tmp/ccS9oClz.s:4038   .rodata.trifuncs:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 cmdconst
@@ -4963,7 +4963,7 @@ cmdpause
 cmdkeyp
 cmdalphagto
 op_shift_digit
-ARM GAS  /tmp/cccwWf7C.s 			page 84
+ARM GAS  /tmp/ccS9oClz.s 			page 84
 
 
 alpha_view_reg
@@ -5023,7 +5023,7 @@ decNumberXRoot
 cmplxXRoot
 matrix_row
 matrix_col
-ARM GAS  /tmp/cccwWf7C.s 			page 85
+ARM GAS  /tmp/ccS9oClz.s 			page 85
 
 
 matrix_copy
@@ -5083,7 +5083,7 @@ decNumberArcTan
 decNumberSinc
 cmplxSinc
 decNumberSinh
-ARM GAS  /tmp/cccwWf7C.s 			page 86
+ARM GAS  /tmp/ccS9oClz.s 			page 86
 
 
 cmplxSinh
@@ -5143,7 +5143,7 @@ cmdmultilblp
 cmdmultigto
 multialpha
 version
-ARM GAS  /tmp/cccwWf7C.s 			page 87
+ARM GAS  /tmp/ccS9oClz.s 			page 87
 
 
 cmd_off
@@ -5203,7 +5203,7 @@ alpha_fromx
 alpha_onoff
 op_regcopy
 op_regswap
-ARM GAS  /tmp/cccwWf7C.s 			page 88
+ARM GAS  /tmp/ccS9oClz.s 			page 88
 
 
 op_regclr
