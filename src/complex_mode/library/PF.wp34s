@@ -1,0 +1,75 @@
+/* This file is part of 34S.
+ * 
+ * 34S is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * 34S is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with 34S.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/*
+  Prime Factorization: list of 'true' prime factors (1<pf<n)
+
+  Input:  X:n (positive integer)
+  Output: X:pf1 (primefactor1) Alpha:^exp1 (exponent1)
+   [R/S]  X:pf2 (primefactor2) Alpha:^exp2 (exponent2)
+   [R/S]  .....
+   [R/S]  n
+  Used:   XYZT
+*/
+
+0001 LBL'PF'
+0002 LocR 004
+0003 INT?
+0004 x<1?
+0005 RTN
+0006 STO .00
+0007 # 002
+0008 RCL Y
+0009 [sqrt]
+0010 IP
+0011 STO .03
+0012 DROP
+0013 x>? .03
+0014 SKIP 013
+0015 [cmplx]ENTER
+0016 MOD
+0017 x=0?
+0018 SKIP 005
+0019 DROP
+0020 INC X
+0021 EVEN?
+0022 INC X
+0023 BACK 010
+0024 DROP
+0025 XEQ 00
+0026 STO/ Y
+0027 BACK 019
+0028 DROP
+0029 XEQ 00
+0030 CLSTK
+0031 RCL .00
+0032 LBL 00
+0033 x[!=]? .01
+0034 SKIP 002
+0035 INC .02
+0036 SKIP 011
+0037 # 001
+0038 RCL Y
+0039 [cmplx]x[<->] .01
+0040 x=0?
+0041 SKIP 005
+0042 CL[alpha]
+0043 [alpha] ^
+0044 [alpha]IP Y
+0045 PROMPT
+0046 CL[alpha]
+0047 [cmplx]DROP
+0048 END
