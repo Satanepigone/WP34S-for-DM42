@@ -72,7 +72,7 @@
 // functions and their complex variants with one universal dispatch function.
 // It saves approximately 280 bytes in the firmware.
 // This is an EXPERIMENTAL FEATURE that hasn't yet received adequate testing.
-//#define UNIVERSAL_DISPATCH
+// #define UNIVERSAL_DISPATCH
 
 // Code to allow access to caller's local data from xIN-code
 // #define ENABLE_COPYLOCALS
@@ -322,6 +322,19 @@
 // Enable Y-register display (not just for complex results)
 #define INCLUDE_YREG_CODE
 
+// Enable complex lock mode. Requires RP_PREFIX, INCLUDE_YREG_CODE, INCLUDE_YREG_HMS, and EXTRA_FLAGS
+#define INCLUDE_C_LOCK
+
+//Various complex lock mode defaults
+
+#define DEFAULT_TO_SSIZE8 //Fix default to 8 deep stack, to allow seamless back and forth to Complex mode without losing stack content. Also see keys.c //JM3
+//#define DEFAULT_TO_J // Still possible to change between I and J if this is selected
+//#define DEFAULT_TO_C_LOCK // Complex Lock mode on by default
+#define DEFAULT_TO_CPX_YES // No need to XEQ CPXYES to turn on complex lock 
+
+// Enable Entry RPN (pressing Enter doesn't duplicate the x-register)
+// #define ENTRY_RPN
+
 // Y register is always displayed (cannot be turned off)
 //#define YREG_ALWAYS_ON
 
@@ -349,6 +362,10 @@
 // Rectangular - Polar y-reg prefix change:
 #define RP_PREFIX
 
+// Reduces RAM program steps by 2 and provides 4 bytes of extra flags
+// in persistent RAM. About 10 of these are used by C_LOCK_MODE but there are others!
+#define EXTRA_FLAGS
+
 // h ./, in DECM mode switches E3 separator on/off (instead of chnaging radix symbol)
 //#define MODIFY_K62_E3_SWITCH
 
@@ -366,7 +383,7 @@
  * See enum date_modes for values of
  *	DATE_DMY=0,	DATE_YMD=1,	DATE_MDY=2
 */
-//#define DEFAULT_DATEMODE 0
+#define DEFAULT_DATEMODE 0
 
 /* This setting supresses the date mode display entirely if enabled.
  */
@@ -376,6 +393,13 @@
 /*******************************************************************/
 /* Below here are the automatic defines depending on other defines */
 /*******************************************************************/
+
+#if defined(INCLUDE_C_LOCK)
+#define RP_PREFIX
+#define INCLUDE_YREG_CODE
+#define INCLUDE_YREG_HMS
+#define EXTRA_FLAGS
+#endif
 
 #if defined(INCLUDE_DOUBLEDOT_FRACTIONS)
 #define PRETTY_FRACTION_ENTRY
