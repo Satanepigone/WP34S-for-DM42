@@ -186,6 +186,9 @@ void error_message(const unsigned int e)
       MSG1("Too big"),
 #  endif
 #endif
+#ifdef INCLUDE_C_LOCK
+      MSG2("Use even reg","for CoMmPLEH"),
+#endif
       MSG2("\004 \035", "X"),		// Integral ~
 #if INTERRUPT_XROM_TICKS > 0
       MSG2("Interrupted", "X"),
@@ -223,6 +226,9 @@ void error_message(const unsigned int e)
       " I n s t a l l e d ",
 #ifndef SHIFT_EXPONENT
       "",
+      "",
+#endif
+#ifdef INCLUDE_C_LOCK
       "",
 #endif
       "",
@@ -685,7 +691,11 @@ static void set_exp(int exp, int flags, char *res) {
 	}
 	if (yreg_enabled) goto display_yreg;
       }
+#ifdef INCLUDE_C_LOCK
+      else if ( (!yreg_enabled && !C_LOCKED) // force y-reg display in complex lock mode
+#else
       else if (!yreg_enabled
+#endif
 #ifdef SHIFT_AND_CMPLX_SUPPRESS_YREG
 	       || shift_char != ' ' || State2.cmplx
 #endif
@@ -782,6 +792,7 @@ static void set_exp(int exp, int flags, char *res) {
 	}
 	//	else
 #endif
+	
 	  if (State2.wascomplex) {
 	    q = "\007\207i";
 	    p = scopy(p, q);
