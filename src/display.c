@@ -776,73 +776,49 @@ static void set_exp(int exp, int flags, char *res) {
 #endif
       }
       else { // yreg_enabled
+	// do top-related things first
 #ifndef SHIFT_AND_CMPLX_SUPPRESS_YREG
 	if (State2.cmplx) {
 	  *p2++ = '\007';
 	  *p2++ = '\344'; // small font; 4 px wide
 	  *p2++ = shift_char;
-	  //	  q = "\024";
 	  *p2++ = '\024';
 	}
 	else {// if (shift_char != ' ') {
 	  *p2++ = '\007';
 	  *p2++ = '\307'; // big font; 7 px wide 
 	  *p2++ = shift_char;
-	  //	  goto no_copy;
 	}
-	//	else
 #endif
-	
-	  if (State2.wascomplex) {
-	    q = "\007\207i";
-	    p = scopy(p, q);
-	    //	    goto no_copy;
-	  }
-	  else if (rp_prefix && RectPolConv == 1) {
-	    q = "\007\307<";
-	    p = scopy(p, q);
-	    //	    goto no_copy;
-	  }
-	  else if (rp_prefix && RectPolConv == 2) {
-	    q = "\007\307y";
-	    p = scopy(p, q);
-	    //	    goto no_copy;
-	  }
 #ifdef SHOW_GRADIAN_PREFIX
-	  //	  else
-	    if (get_trig_mode() == TRIG_GRAD) {
-	    //	    q = "\007\207\007";
-	      *p2++ = '\007';
-	      *p2++ = '\207';
-	      *p2++ = '\007';	    
-	    }
-	    else {
-	      *p2++ = '\007';
-	      *p2++ = '\207';
-	      *p2++ = ' ';
-	    }
+	if (get_trig_mode() == TRIG_GRAD) {
+	  *p2++ = '\007';
+	  *p2++ = '\207';
+	  *p2++ = '\007';	    
+	}
+	else {
+	  *p2++ = '\007';
+	  *p2++ = '\207';
+	  *p2++ = ' ';
+	}
 #endif
-	    //	else { 
 #ifndef SHOW_STACK_SIZE
-	  q = (is_dblmode() ? "\007\307D" : "\007\207 ");
-	  p2 = scopy(p2, q);
+	q = (is_dblmode() ? "\007\307D" : "\007\207 ");
+	p2 = scopy(p2, q);
 #else
-	  if (is_dblmode()) {
-	    *p2++ = '\007';
-	    *p2++ = '\342';
-	    *p2++ = (UState.stack_depth ? ':' : '.');
-	    //	    q = "\007\345D";
-	    *p2++ = '\007';
-	    *p2++ = '\345';
-	    *p2++ = 'D';
-	  }
-	  else {
-	    q = (UState.stack_depth ? "\007\347:" : "\007\347.");
-	    p2 = scopy(p2, q);
-	  }
+	if (is_dblmode()) {
+	  *p2++ = '\007';
+	  *p2++ = '\342';
+	  *p2++ = (UState.stack_depth ? ':' : '.');
+	  *p2++ = '\007';
+	  *p2++ = '\345';
+	  *p2++ = 'D';
+	}
+	else {
+	  q = (UState.stack_depth ? "\007\347:" : "\007\347.");
+	  p2 = scopy(p2, q);
+	}
 #endif
-	  //	}
-	//	p2 = scopy(p2, q);
 
 	switch (UState.date_mode) {
 #ifndef NO_DATEMODE_INDICATION
@@ -867,6 +843,44 @@ static void set_exp(int exp, int flags, char *res) {
 	else {
 	  p2 = scopy(p2, q);
 	}
+	// now do the annotations, if any, for the middle row:
+#ifdef INCLUDE_C_LOCK
+	if ( (REAL_FLAG || IMAG_FLAG) && C_LOCKED ) {
+	  if ( POLAR_DISPLAY ) {
+	    q = (REAL_FLAG ? "Length:" : "Angle:");
+	  }
+	  else {
+	    q = (REAL_FLAG ? "Real:" : "Imag:");
+	  }
+	  scopy(p, q);
+	  goto skip;
+	}
+	else if ((rp_prefix && RectPolConv == 1) || (C_LOCKED && POLAR_DISPLAY)) {
+	  q = "\007\307<";
+	}
+	else if (State2.wascomplex || C_LOCKED) {
+	  q = CPX_J ? "\007\207j" : "\007\207i";
+	}
+#else
+	
+	if (State2.wascomplex) {
+	  q = "\007\207i";
+	  p = scopy(p, q);
+	  //	    goto no_copy;
+	}
+	else if (rp_prefix && RectPolConv == 1) {
+	  q = "\007\307<";
+	  p = scopy(p, q);
+	  //	    goto no_copy;
+	}
+	else
+#endif
+	  if (rp_prefix && RectPolConv == 2) {
+	    q = "\007\307y";
+	    p = scopy(p, q);
+	    //	    goto no_copy;
+	  }
+      
 	if (State2.runmode) {
 	  decNumber y;
 	display_yreg:
@@ -879,12 +893,26 @@ static void set_exp(int exp, int flags, char *res) {
 	    set_int_x(get_reg_n_int(regY_idx), p);
 	    goto skip;
 	  }
-		      
+#ifdef INCLUDE_C_LOCK
+	  if ( C_LOCKED && POLAR_DISPLAY && !POLAR_FORM_NOT_READY) {
+	    getRegister(&y, regK_idx);
+	  }
+	  else {
+	    getRegister(&y, (ShowRegister >= regX_idx && ShowRegister < regX_idx + stack_size() && get_cmdline()
+			     && !(yreg_enabled && !State2.state_lift) // unless stack lift is disabled...
+			     ) ? ShowRegister : ShowRegister+1);
+	  }
+#else
 	  getRegister(&y, (ShowRegister >= regX_idx && ShowRegister < regX_idx + stack_size() && get_cmdline()
-			   && !(yreg_enabled && !State2.state_lift) // unless stack lift is disabled...
+	      && !(yreg_enabled && !State2.state_lift) // unless stack lift is disabled...
 			   ) ? ShowRegister : ShowRegister+1);
+#endif
 	  if ((yreg_hms || yreg_fract) && !decNumberIsSpecial(&y)) {
+#ifdef INCLUDE_C_LOCK
+	    if (yreg_hms && State2.hms && ( !C_LOCKED || ( C_LOCKED && (POLAR_DISPLAY && ((enum trig_modes) UState.trigmode) == TRIG_DEG) ) ) ){
+#else
 	    if (yreg_hms && State2.hms) {
+#endif
 	      const int saved_nothousands = UState.nothousands;
 
 	      xset(buf, '\0', sizeof(buf));
@@ -1040,7 +1068,11 @@ static void set_exp(int exp, int flags, char *res) {
 	    *p++ = State2.window == n ? '|' : '\'';
 	}
       }
+#ifdef INCLUDE_C_LOCK
+      else if ( (!yreg_enabled && !C_LOCKED) // force y-reg display in complex lock mode
+#else
       else if (!yreg_enabled
+#endif
 #ifdef SHIFT_AND_CMPLX_SUPPRESS_YREG
 	       || shift_char != ' ' || State2.cmplx
 #endif
@@ -1136,12 +1168,31 @@ static void set_exp(int exp, int flags, char *res) {
 	}
 	else
 #endif
+#ifdef INCLUDE_C_LOCK
+		if ( (REAL_FLAG || IMAG_FLAG) && C_LOCKED ) {
+			if ( POLAR_DISPLAY ) {
+				q = (REAL_FLAG ? "Length:" : "Angle:");
+			}
+			else {
+				q = (REAL_FLAG ? "Real:" : "Imag:");
+			}
+			scopy(p, q);
+			goto skip;
+		}
+		else if ((rp_prefix && RectPolConv == 1) || (C_LOCKED && POLAR_DISPLAY)) {
+			q = "\007\307<";
+		}
+		else if (State2.wascomplex || C_LOCKED) {
+			q = CPX_J ? "\007\207j" : "\007\207i";
+		}
+#else
 	  if (State2.wascomplex) {
 	    q = "\007\207i";
 	  }
 	  else if (rp_prefix && RectPolConv == 1) {
 	    q = "\007\307<";
 	  }
+#endif
 	  else if (rp_prefix && RectPolConv == 2) {
 	    q = "\007\307y";
 	  }
@@ -1180,11 +1231,26 @@ static void set_exp(int exp, int flags, char *res) {
 	   * examined is on the stack and there is a command line present, the stack will be lifted
 	   * after we execute so we need to show ShowRegister instead.
 	   */
+#ifdef INCLUDE_C_LOCK
+		  if ( C_LOCKED && POLAR_DISPLAY && !POLAR_FORM_NOT_READY) {
+		    getRegister(&y, regK_idx);
+		  }
+		  else {
+		    getRegister(&y, (ShowRegister >= regX_idx && ShowRegister < regX_idx + stack_size() && get_cmdline()
+				     && !(yreg_enabled && !State2.state_lift) // unless stack lift is disabled...
+				     ) ? ShowRegister : ShowRegister+1);
+		  }
+#else
 	  getRegister(&y, (ShowRegister >= regX_idx && ShowRegister < regX_idx + stack_size() && get_cmdline()
 			   && !(yreg_enabled && !State2.state_lift) // unless stack lift is disabled...
 			   ) ? ShowRegister : ShowRegister+1);
+#endif
 	  if ((yreg_hms || yreg_fract) && !decNumberIsSpecial(&y)) {
+#ifdef INCLUDE_C_LOCK
+		    if (yreg_hms && State2.hms && ( !C_LOCKED || ( C_LOCKED && (POLAR_DISPLAY && ((enum trig_modes) UState.trigmode) == TRIG_DEG) ) ) ){
+#else
 	    if (yreg_hms && State2.hms) {
+#endif
 	      const int saved_nothousands = UState.nothousands;
 
 	      xset(buf, '\0', sizeof(buf));
@@ -2557,6 +2623,10 @@ static void set_exp(int exp, int flags, char *res) {
 #else
 	dot(BEG, state_pc() <= 1 && ! Running);
 #endif
+#ifdef INCLUDE_C_LOCK
+	dot(LIT_EQ, C_LOCKED);
+#endif
+
 	dot(INPUT, State2.catalogue || State2.alphas || State2.confirm);
 	dot(DOWN_ARR, (State2.alphas || State2.multi) && State2.alphashift);
 	dot(BIG_EQ, get_user_flag(A_FLAG));
@@ -2901,8 +2971,30 @@ static void set_exp(int exp, int flags, char *res) {
 	    p = get_cmdline();
 	    if (p == NULL || cata) {
 	      if (ShowRegister != -1) {
+#ifdef INCLUDE_C_LOCK
+		if ( C_LOCKED && POLAR_DISPLAY && !(REAL_FLAG || IMAG_FLAG) ) {
+		  if ( POLAR_FORM_NOT_READY ) {
+		    op_r2p(OP_NOP); // note: argument not being OP_R2P signals to function that results go to J, K
+		    SET_POLAR_READY;
+		  }
+		  if (State2.hms) { // no hms display for mod, only arg
+		    State2.hms = 0;
+		    format_reg(regJ_idx, CNULL);
+		    State2.hms = 1;
+		  }
+		  else {
+		    format_reg(regJ_idx, CNULL);
+		  }
+		  x_disp = 1;
+		}
+		else {
+		  x_disp = (ShowRegister == regX_idx) && !State2.hms;
+		  format_reg(ShowRegister, CNULL);
+		}
+#else		
 		x_disp = (ShowRegister == regX_idx) && !State2.hms;
 		format_reg(ShowRegister, CNULL);
+#endif
 	      }
 	      else
 		set_digits_string(" ---", 4 * SEGS_PER_DIGIT);
@@ -3232,8 +3324,31 @@ static void set_exp(int exp, int flags, char *res) {
 	    p = get_cmdline();
 	    if (p == NULL || cata) {
 	      if (ShowRegister != -1) {
+#ifdef INCLUDE_C_LOCK
+		if ( C_LOCKED && POLAR_DISPLAY && !(REAL_FLAG || IMAG_FLAG) ) {
+		  if ( POLAR_FORM_NOT_READY ) {
+		    op_r2p(OP_NOP); // note: argument not being OP_R2P signals to function that results go to J, K
+		    SET_POLAR_READY;
+		  }
+		  if (State2.hms) { // no hms display for mod, only arg
+		    State2.hms = 0;
+		    format_reg(regJ_idx, CNULL);
+		    State2.hms = 1;
+		  }
+		  else {
+		    format_reg(regJ_idx, CNULL);
+		  }
+		  x_disp = 1;
+		}
+		else {
+		  x_disp = (ShowRegister == regX_idx) && !State2.hms;
+		  format_reg(ShowRegister, CNULL);
+		}
+#else
+
 		x_disp = (ShowRegister == regX_idx) && !State2.hms;
 		format_reg(ShowRegister, CNULL);
+#endif
 	      }
 	      else
 		set_digits_string(" ---", 4 * SEGS_PER_DIGIT);
