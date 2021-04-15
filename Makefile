@@ -165,7 +165,7 @@ all :	top
 top :	top_setup clean_some $(BUILD_DIR)/wp34s_top.elf
 
 top_setup:
-	$(eval TARGET = wp34s_top)
+	$(eval TARGET = wp34c_top)
 	$(eval LDFLAGS = --specs=nosys.specs $(CPUFLAGS) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections -Wl,--wrap=_malloc_r)
 	$(shell cat src/main_0.h | sed -e 's/pversion/$(VERSION_NO)/g' -e 's/pname/$(TARGET)/g' > src/main.h)
 	$(eval CFLAGS += -DBIGGER_DISPLAY -DTOP_ROW)
@@ -173,14 +173,14 @@ top_setup:
 normal: normal_setup clean_some $(BUILD_DIR)/wp34s.elf 
 
 normal_setup:
-	$(eval TARGET = wp34s)
+	$(eval TARGET = wp34c)
 	$(eval LDFLAGS = --specs=nosys.specs $(CPUFLAGS) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections -Wl,--wrap=_malloc_r)
 	$(shell cat src/main_0.h | sed -e 's/pversion/$(VERSION_NO)/g' -e 's/pname/$(TARGET)/g' > src/main.h)
 
 long :	long_setup clean_some $(BUILD_DIR)/wp34s_long.elf
 
 long_setup:
-	$(eval TARGET = wp34s_long)
+	$(eval TARGET = wp34c_long)
 	$(eval LDFLAGS = --specs=nosys.specs $(CPUFLAGS) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections -Wl,--wrap=_malloc_r)
 	$(shell cat src/main_0.h | sed -e 's/pversion/$(VERSION_NO)/g' -e 's/pname/$(TARGET)/g' > src/main.h)
 	$(eval CFLAGS += -DBIGGER_DISPLAY)

@@ -3335,7 +3335,11 @@ static int process(const int c) {
 		return i;
 #endif
 	}
-
+#ifdef INCLUDE_C_LOCK
+	if (C_LOCKED) {
+		return process_c_lock ((const keycode)c);
+	}
+#endif
 	if (State2.cmplx) {
 		return process_cmplx((const keycode)c);
 	} else {

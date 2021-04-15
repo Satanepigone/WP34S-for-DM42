@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccvZKbKw.s 			page 1
+ARM GAS  /tmp/ccSexUSp.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccvZKbKw.s 			page 1
   26:dmcp/sys/pgm_syscalls.c **** FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
   27:dmcp/sys/pgm_syscalls.c **** DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
   28:dmcp/sys/pgm_syscalls.c **** SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-ARM GAS  /tmp/ccvZKbKw.s 			page 2
+ARM GAS  /tmp/ccSexUSp.s 			page 2
 
 
   29:dmcp/sys/pgm_syscalls.c **** CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccvZKbKw.s 			page 1
   33              		@ args = 0, pretend = 0, frame = 0
   34              		@ frame_needed = 0, uses_anonymous_args = 0
   35              		@ link register save eliminated.
-ARM GAS  /tmp/ccvZKbKw.s 			page 3
+ARM GAS  /tmp/ccSexUSp.s 			page 3
 
 
   81:dmcp/sys/pgm_syscalls.c **** 	return len;
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccvZKbKw.s 			page 1
   82              		.fpu fpv4-sp-d16
   84              	_close:
   85              	.LVL4:
-ARM GAS  /tmp/ccvZKbKw.s 			page 4
+ARM GAS  /tmp/ccSexUSp.s 			page 4
 
 
   86              	.LFB27:
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccvZKbKw.s 			page 1
  127 0008 7047     		bx	lr
  128              		.cfi_endproc
  129              	.LFE28:
-ARM GAS  /tmp/ccvZKbKw.s 			page 5
+ARM GAS  /tmp/ccSexUSp.s 			page 5
 
 
  131 000a 00BF     		.section	.text._isatty,"ax",%progbits
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccvZKbKw.s 			page 1
  178              		.loc 1 116 1 view .LVU25
  179 0002 7047     		bx	lr
  180              		.cfi_endproc
-ARM GAS  /tmp/ccvZKbKw.s 			page 6
+ARM GAS  /tmp/ccSexUSp.s 			page 6
 
 
  181              	.LFE30:
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccvZKbKw.s 			page 1
  229              		.loc 1 125 1 is_stmt 1 view -0
  230              		.cfi_startproc
  231              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccvZKbKw.s 			page 7
+ARM GAS  /tmp/ccSexUSp.s 			page 7
 
 
  232              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccvZKbKw.s 			page 1
  134:dmcp/sys/pgm_syscalls.c **** 
  135:dmcp/sys/pgm_syscalls.c **** 
  136:dmcp/sys/pgm_syscalls.c **** void *malloc(size_t size) {
-ARM GAS  /tmp/ccvZKbKw.s 			page 8
+ARM GAS  /tmp/ccSexUSp.s 			page 8
 
 
  282              		.loc 1 136 27 is_stmt 1 view -0
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccvZKbKw.s 			page 1
  333              		.global	realloc
  334              		.syntax unified
  335              		.thumb
-ARM GAS  /tmp/ccvZKbKw.s 			page 9
+ARM GAS  /tmp/ccSexUSp.s 			page 9
 
 
  336              		.thumb_func
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccvZKbKw.s 			page 1
    3:/usr/include/newlib/stdlib.h ****  *
    4:/usr/include/newlib/stdlib.h ****  * Definitions for common types, variables, and functions.
    5:/usr/include/newlib/stdlib.h ****  */
-ARM GAS  /tmp/ccvZKbKw.s 			page 10
+ARM GAS  /tmp/ccSexUSp.s 			page 10
 
 
    6:/usr/include/newlib/stdlib.h **** 
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccvZKbKw.s 			page 1
   60:/usr/include/newlib/stdlib.h **** #define EXIT_FAILURE 1
   61:/usr/include/newlib/stdlib.h **** #define EXIT_SUCCESS 0
   62:/usr/include/newlib/stdlib.h **** 
-ARM GAS  /tmp/ccvZKbKw.s 			page 11
+ARM GAS  /tmp/ccSexUSp.s 			page 11
 
 
   63:/usr/include/newlib/stdlib.h **** #define RAND_MAX __RAND_MAX
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccvZKbKw.s 			page 1
  387              	.LVL23:
  137:dmcp/sys/pgm_syscalls.c **** }
  388              		.loc 1 137 9 view .LVU56
-ARM GAS  /tmp/ccvZKbKw.s 			page 12
+ARM GAS  /tmp/ccSexUSp.s 			page 12
 
 
  389 0004 1847     		bx	r3
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccvZKbKw.s 			page 1
  142:dmcp/sys/pgm_syscalls.c **** }
  435              		.loc 1 142 9 view .LVU65
  436              		.align	2
-ARM GAS  /tmp/ccvZKbKw.s 			page 13
+ARM GAS  /tmp/ccSexUSp.s 			page 13
 
 
  437              	.L29:
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccvZKbKw.s 			page 1
  134:/usr/include/newlib/stdlib.h **** char *	mktemp (char *) _ATTRIBUTE ((__deprecated__("the use of `mktemp' is dangerous; use `mkstemp'
  135:/usr/include/newlib/stdlib.h **** #endif
  136:/usr/include/newlib/stdlib.h **** #endif /* !_REENT_ONLY */
-ARM GAS  /tmp/ccvZKbKw.s 			page 14
+ARM GAS  /tmp/ccSexUSp.s 			page 14
 
 
  137:/usr/include/newlib/stdlib.h **** char *	_mkdtemp_r (struct _reent *, char *);
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccvZKbKw.s 			page 1
  503              		@ link register save eliminated.
  164:dmcp/sys/pgm_syscalls.c **** 	free(ptr);
  504              		.loc 1 164 2 view .LVU75
-ARM GAS  /tmp/ccvZKbKw.s 			page 15
+ARM GAS  /tmp/ccSexUSp.s 			page 15
 
 
  505              	.LBB16:
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccvZKbKw.s 			page 1
  550 0006 9847     		blx	r3
  551              	.LVL36:
  171:dmcp/sys/pgm_syscalls.c **** 	sys_reset();
-ARM GAS  /tmp/ccvZKbKw.s 			page 16
+ARM GAS  /tmp/ccSexUSp.s 			page 16
 
 
  552              		.loc 1 171 2 is_stmt 1 view .LVU84
@@ -932,12 +932,12 @@ ARM GAS  /tmp/ccvZKbKw.s 			page 1
  581 0010 0F000000 		.word	15
  582 0014 00000000 		.word	0
  583 0018 00000000 		.word	0
- 584 001c 77703334 		.ascii	"wp34s_top\000"
- 584      735F746F 
+ 584 001c 77703334 		.ascii	"wp34c_top\000"
+ 584      635F746F 
  584      7000
  585 0026 00000000 		.space	6
  585      0000
- 586 002c 343800   		.ascii	"48\000"
+ 586 002c 353400   		.ascii	"54\000"
  587 002f 00000000 		.space	13
  587      00000000 
  587      00000000 
@@ -958,60 +958,60 @@ ARM GAS  /tmp/ccvZKbKw.s 			page 1
  601              		.file 13 "/usr/include/newlib/sys/stat.h"
  602              		.file 14 "/usr/include/newlib/sys/errno.h"
  603              		.file 15 "dmcp/dmcp.h"
-ARM GAS  /tmp/ccvZKbKw.s 			page 17
+ARM GAS  /tmp/ccSexUSp.s 			page 17
 
 
-ARM GAS  /tmp/ccvZKbKw.s 			page 18
+ARM GAS  /tmp/ccSexUSp.s 			page 18
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 pgm_syscalls.c
-     /tmp/ccvZKbKw.s:18     .text._read:0000000000000000 $t
-     /tmp/ccvZKbKw.s:27     .text._read:0000000000000000 _read
-     /tmp/ccvZKbKw.s:46     .text._write:0000000000000000 $t
-     /tmp/ccvZKbKw.s:54     .text._write:0000000000000000 _write
-     /tmp/ccvZKbKw.s:71     .text._write:0000000000000004 $d
-     /tmp/ccvZKbKw.s:76     .text._close:0000000000000000 $t
-     /tmp/ccvZKbKw.s:84     .text._close:0000000000000000 _close
-     /tmp/ccvZKbKw.s:102    .text._fstat:0000000000000000 $t
-     /tmp/ccvZKbKw.s:110    .text._fstat:0000000000000000 _fstat
-     /tmp/ccvZKbKw.s:132    .text._isatty:0000000000000000 $t
-     /tmp/ccvZKbKw.s:140    .text._isatty:0000000000000000 _isatty
-     /tmp/ccvZKbKw.s:158    .text._lseek:0000000000000000 $t
-     /tmp/ccvZKbKw.s:166    .text._lseek:0000000000000000 _lseek
-     /tmp/ccvZKbKw.s:184    .text._kill:0000000000000000 $t
-     /tmp/ccvZKbKw.s:192    .text._kill:0000000000000000 _kill
-     /tmp/ccvZKbKw.s:219    .text._getpid:0000000000000000 $t
-     /tmp/ccvZKbKw.s:227    .text._getpid:0000000000000000 _getpid
-     /tmp/ccvZKbKw.s:242    .text.free:0000000000000000 $t
-     /tmp/ccvZKbKw.s:250    .text.free:0000000000000000 free
-     /tmp/ccvZKbKw.s:266    .text.free:0000000000000004 $d
-     /tmp/ccvZKbKw.s:271    .text.malloc:0000000000000000 $t
-     /tmp/ccvZKbKw.s:279    .text.malloc:0000000000000000 malloc
-     /tmp/ccvZKbKw.s:296    .text.malloc:0000000000000004 $d
-     /tmp/ccvZKbKw.s:301    .text.calloc:0000000000000000 $t
-     /tmp/ccvZKbKw.s:309    .text.calloc:0000000000000000 calloc
-     /tmp/ccvZKbKw.s:326    .text.calloc:0000000000000004 $d
-     /tmp/ccvZKbKw.s:331    .text.realloc:0000000000000000 $t
-     /tmp/ccvZKbKw.s:339    .text.realloc:0000000000000000 realloc
-     /tmp/ccvZKbKw.s:356    .text.realloc:0000000000000004 $d
-     /tmp/ccvZKbKw.s:361    .text.__wrap__malloc_r:0000000000000000 $t
-     /tmp/ccvZKbKw.s:369    .text.__wrap__malloc_r:0000000000000000 __wrap__malloc_r
-     /tmp/ccvZKbKw.s:395    .text.__wrap__malloc_r:0000000000000008 $d
-     /tmp/ccvZKbKw.s:402    .text._calloc_r:0000000000000000 $t
-     /tmp/ccvZKbKw.s:410    .text._calloc_r:0000000000000000 _calloc_r
-     /tmp/ccvZKbKw.s:438    .text._calloc_r:0000000000000008 $d
-     /tmp/ccvZKbKw.s:445    .text._realloc_r:0000000000000000 $t
-     /tmp/ccvZKbKw.s:453    .text._realloc_r:0000000000000000 _realloc_r
-     /tmp/ccvZKbKw.s:481    .text._realloc_r:0000000000000008 $d
-     /tmp/ccvZKbKw.s:488    .text._free_r:0000000000000000 $t
-     /tmp/ccvZKbKw.s:496    .text._free_r:0000000000000000 _free_r
-     /tmp/ccvZKbKw.s:520    .text._free_r:0000000000000008 $d
-     /tmp/ccvZKbKw.s:527    .text.post_main:0000000000000000 $t
-     /tmp/ccvZKbKw.s:535    .text.post_main:0000000000000000 post_main
-     /tmp/ccvZKbKw.s:565    .text.post_main:0000000000000010 $d
-     /tmp/ccvZKbKw.s:576    .rodata.prog_info:0000000000000000 prog_info
-     /tmp/ccvZKbKw.s:573    .rodata.prog_info:0000000000000000 $d
+     /tmp/ccSexUSp.s:18     .text._read:0000000000000000 $t
+     /tmp/ccSexUSp.s:27     .text._read:0000000000000000 _read
+     /tmp/ccSexUSp.s:46     .text._write:0000000000000000 $t
+     /tmp/ccSexUSp.s:54     .text._write:0000000000000000 _write
+     /tmp/ccSexUSp.s:71     .text._write:0000000000000004 $d
+     /tmp/ccSexUSp.s:76     .text._close:0000000000000000 $t
+     /tmp/ccSexUSp.s:84     .text._close:0000000000000000 _close
+     /tmp/ccSexUSp.s:102    .text._fstat:0000000000000000 $t
+     /tmp/ccSexUSp.s:110    .text._fstat:0000000000000000 _fstat
+     /tmp/ccSexUSp.s:132    .text._isatty:0000000000000000 $t
+     /tmp/ccSexUSp.s:140    .text._isatty:0000000000000000 _isatty
+     /tmp/ccSexUSp.s:158    .text._lseek:0000000000000000 $t
+     /tmp/ccSexUSp.s:166    .text._lseek:0000000000000000 _lseek
+     /tmp/ccSexUSp.s:184    .text._kill:0000000000000000 $t
+     /tmp/ccSexUSp.s:192    .text._kill:0000000000000000 _kill
+     /tmp/ccSexUSp.s:219    .text._getpid:0000000000000000 $t
+     /tmp/ccSexUSp.s:227    .text._getpid:0000000000000000 _getpid
+     /tmp/ccSexUSp.s:242    .text.free:0000000000000000 $t
+     /tmp/ccSexUSp.s:250    .text.free:0000000000000000 free
+     /tmp/ccSexUSp.s:266    .text.free:0000000000000004 $d
+     /tmp/ccSexUSp.s:271    .text.malloc:0000000000000000 $t
+     /tmp/ccSexUSp.s:279    .text.malloc:0000000000000000 malloc
+     /tmp/ccSexUSp.s:296    .text.malloc:0000000000000004 $d
+     /tmp/ccSexUSp.s:301    .text.calloc:0000000000000000 $t
+     /tmp/ccSexUSp.s:309    .text.calloc:0000000000000000 calloc
+     /tmp/ccSexUSp.s:326    .text.calloc:0000000000000004 $d
+     /tmp/ccSexUSp.s:331    .text.realloc:0000000000000000 $t
+     /tmp/ccSexUSp.s:339    .text.realloc:0000000000000000 realloc
+     /tmp/ccSexUSp.s:356    .text.realloc:0000000000000004 $d
+     /tmp/ccSexUSp.s:361    .text.__wrap__malloc_r:0000000000000000 $t
+     /tmp/ccSexUSp.s:369    .text.__wrap__malloc_r:0000000000000000 __wrap__malloc_r
+     /tmp/ccSexUSp.s:395    .text.__wrap__malloc_r:0000000000000008 $d
+     /tmp/ccSexUSp.s:402    .text._calloc_r:0000000000000000 $t
+     /tmp/ccSexUSp.s:410    .text._calloc_r:0000000000000000 _calloc_r
+     /tmp/ccSexUSp.s:438    .text._calloc_r:0000000000000008 $d
+     /tmp/ccSexUSp.s:445    .text._realloc_r:0000000000000000 $t
+     /tmp/ccSexUSp.s:453    .text._realloc_r:0000000000000000 _realloc_r
+     /tmp/ccSexUSp.s:481    .text._realloc_r:0000000000000008 $d
+     /tmp/ccSexUSp.s:488    .text._free_r:0000000000000000 $t
+     /tmp/ccSexUSp.s:496    .text._free_r:0000000000000000 _free_r
+     /tmp/ccSexUSp.s:520    .text._free_r:0000000000000008 $d
+     /tmp/ccSexUSp.s:527    .text.post_main:0000000000000000 $t
+     /tmp/ccSexUSp.s:535    .text.post_main:0000000000000000 post_main
+     /tmp/ccSexUSp.s:565    .text.post_main:0000000000000010 $d
+     /tmp/ccSexUSp.s:576    .rodata.prog_info:0000000000000000 prog_info
+     /tmp/ccSexUSp.s:573    .rodata.prog_info:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 __errno
