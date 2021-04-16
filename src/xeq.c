@@ -989,7 +989,7 @@ void cpx_nop(enum nilop op) { // miscellaneous complex operations
 	reset_shift();
 	switch (op) {
 	case OP_CYES: // set flag to allow complex mode to be entered - can be called at any time
-		SET_CPX_YES;
+	        SET_CPX_YES;
 		CLEAR_REAL; // tidy a few flags when mode enabled
 		CLEAR_IMAG;
 		SET_RECTANGULAR_DISPLAY; 

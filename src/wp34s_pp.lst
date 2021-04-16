@@ -1,6 +1,6 @@
 // wp34s_asm.pl: Source file(s): xrom_pre.wp34s
-// wp34s_pp.pl: Command line: -m  235  -cat  .__0.639029720638977.tmp  -v3  -xrom  -e2so  -sd  4  -colour_mode  1
-// wp34s_pp.pl: Source file(s): .__0.639029720638977.tmp
+// wp34s_pp.pl: Command line: -m  235  -cat  .__0.428258352753804.tmp  -v3  -xrom  -e2so  -sd  4  -colour_mode  1
+// wp34s_pp.pl: Source file(s): .__0.428258352753804.tmp
 // wp34s_pp.pl: Preprocessor revision: $Rev: 2956 $ 
 //  XLBL"START"
 0001 /* slv_ridders::           */ [cmplx]RCL .03
@@ -548,7 +548,7 @@
 0541 /*                         */ FS? .01
 0542 /*                         */ +/-
 0543 /*                         */ TOP?
-0544 /*                         */ MSG 25
+0544 /*                         */ MSG 26 // 25 +1
 0545 /*                         */ RCL .09
 0546 /*                         */ RCL+ X
 0547 /*                         */ RCL- .14
@@ -577,7 +577,7 @@
 0570 /*                         */ STO T
 0571 /* DEI_res_okay::          */ x<> T
 0572 /* DEI_exit::              */ TOP?
-0573 /*                         */ MSG 25
+0573 /*                         */ MSG 26 // 25 +1
 0574 /*                         */ cRCL .00
 0575 /*                         */ STO L
 0576 /*                         */ cx<> Z

@@ -66,7 +66,7 @@ static const struct _ndmap mapping_none[] = {
     {K30, 1}, // e^x
     {K30, 3}, // GTO
     // Next row of DM42 7--12
-    {K_CMPLX, 0},
+    {K_MULTI, KCPX},
     {K54, 1}, // %
     {K23, 3}, // pi
     {K01, 2}, // asin

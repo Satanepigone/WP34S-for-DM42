@@ -18,6 +18,7 @@
 #define SSHOT 12
 #define DEFMEN 13
 #define SETUMEN 14
+#define KCPX 15
 
 struct _key {
   struct _ndmap unshifted;

@@ -4,7 +4,7 @@ build/lcd.o: src/lcd.c dmcp/dmcp.h \
  src/decNumber/decNumber.h src/decNumber/../features.h \
  src/decNumber/decContext.h src/decNumber/decContext.h \
  src/decNumber/decimal64.h src/decNumber/decimal128.h src/data.h \
- src/display.h src/decn.h src/pretty.h
+ src/display.h src/decn.h src/storage.h src/pretty.h
 
 dmcp/dmcp.h:
 
@@ -39,5 +39,7 @@ src/data.h:
 src/display.h:
 
 src/decn.h:
+
+src/storage.h:
 
 src/pretty.h:

@@ -996,6 +996,7 @@ static int process_fg_shifted(const keycode c) {
 	switch (c) {
 	case K00:
 	  if (! UState.intm) {
+	    //	    print_debug(100,0);
 	    State2.hyp = 1;
 	    State2.dot = op;
 	    // State2.cmplx = 0;
@@ -1274,7 +1275,7 @@ void stack_begin ( int zero_y ) {
 
 static int process_c_lock ( const keycode c ) { // main function - called from process (c) function in complex lock mode
 
-	enum shifts shift = cur_shift();
+	enum shifts shift = reset_shift();
 
 // Individual keys needing special treatment
 
@@ -1319,6 +1320,8 @@ static int process_c_lock ( const keycode c ) { // main function - called from p
 	if (shift != SHIFT_N) { // other shifted keys - special cases first.
 		finish_cpx_entry(0); // finish entry for all of them - no lift
 		switch (c) {
+		case (K60):
+		  if (shift == SHIFT_H) return (OP_NIL | OP_OFF);
 		case (K21): // x<->y key
 			if (shift == SHIFT_F || shift == SHIFT_G) { // exchanges real and imag parts with either shift
 				reset_shift();
@@ -1417,7 +1420,8 @@ static int process_c_lock ( const keycode c ) { // main function - called from p
 		}
 	case (K24): // backspace
 	case (K04): // arrow
-		return process_normal(c);
+	case (K_ARROW):
+	  return process_normal(c);
 	case (K_CMPLX):
 		if (REAL_FLAG) { // Something - at least one digit - has been entered; real part now complete
 			CLEAR_REAL;
@@ -1514,6 +1518,7 @@ static int process_cmplx(const keycode c) {
 	if (c == K00) {
 		// HYP
 		process_cmdline_set_lift();
+		//		print_debug(100,1);
 		State2.hyp = 1;
 		State2.dot = op;
 		State2.cmplx = 1;
@@ -1602,7 +1607,9 @@ static int process_hyp(const keycode c) {
 #endif
 	stay:
 		// process_cmdline_set_lift();
-		State2.hyp = 1;
+	  //	  print_debug(100,2);
+	  
+	  State2.hyp = 1;
 		State2.cmplx = cmplx;
 		State2.dot = f;
 		break;
@@ -1635,21 +1642,29 @@ static int process_arrow(const keycode c) {
 	set_last_menu ();
 	display_current_menu ();
 #endif
+#ifdef INCLUDE_C_LOCK
+	if (c == K_CMPLX && CPX_ENABLED) { // need this before the SHIFT_N test
+	  if (!C_LOCK_ON) {
+	    set_menu (17);
+	    display_current_menu();
+	    return OP_NIL | OP_C_ON;
+	  }
+	  else {
+	    if (get_last_menu() != 17) {
+	      set_last_menu();
+	    }
+	    else {
+	      set_default_menu();
+	    }
+	    display_current_menu();
+	    return OP_NIL | OP_C_OFF;
+	  }
+	}
+#endif
 	if (shift == SHIFT_N) return STATE_UNFINISHED;
 	
 	if (c >= K10 && c <= K12)
 		return op_map[c - K10][f];
-
-#ifdef INCLUDE_C_LOCK
-	if (c == K_CMPLX && CPX_ENABLED) {
-		if (!C_LOCK_ON) {
-			return OP_NIL | OP_C_ON;
-		}
-		else {
-			return OP_NIL | OP_C_OFF;
-		}
-	}
-#endif
 
 	if (c == K22 || c == K23)
 		set_smode(disp[c - K22][f]);
@@ -3385,6 +3400,7 @@ void process_keycode(int c)
   static int was_paused;
   //volatile int cmdline_empty; // volatile because it's uninitialized in some cases
   int cmdline_empty = 0;        // Visual studio chokes in debug mode over the above
+  //print_debug(60,c);
   if (was_paused && Pause == 0)
     {
     /*
@@ -3494,12 +3510,14 @@ void process_keycode(int c)
    */
   if (c == K_RELEASE)
     {
+      //      print_debug (80,c);
     if (OpCode != 0) {
       /*
        * Execute the key on release
        */
       GoFast = 1;
       c = OpCode;
+      //      print_debug(81,c);
       OpCode = 0;
 
       if (c == STATE_SST)
@@ -3541,12 +3559,14 @@ void process_keycode(int c)
     /*
      *  Decode the key 
      */
-    // print_debug (100, c);
+    //    print_debug (90, c);
     WasDataEntry = 0;
     ShowRPN = ! Running;	// Default behaviour, may be turned off later
 #ifdef DM42
     if (c != K_OP) {
-      c = process(c);		// returns an op-code or state
+      c = process(c);
+      //      print_debug (91,c);
+      // returns an op-code or state
     }
     else {
       if (isRARG(nd_opcode)) {
@@ -3620,6 +3640,7 @@ void process_keycode(int c)
 	}
 	else {
 	  // Save the op-code for execution on key-up
+	  //print_debug(70,c);
 	  OpCode = c;
 	  OpCodeDisplayPending = 1;
 	  finish_RPN(); // Update the RPN annunciator

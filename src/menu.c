@@ -52,19 +52,18 @@ void disp_about() {
   lcd_writeClr(t24);
 
   lcd_setXY(t24, 0, 5);
-  lcd_printR(t24, "WP34s calculator for DM42:");
+  lcd_printR(t24, "WP34C calculator for DM42:");
   t24->y += 5;
 #ifdef TOP_ROW
-  lcd_print(t24, "with top row for annunciators,");
-  lcd_print(t24, "a longer alpha display,");
-  lcd_print(t24, "and some annunciators renamed.");
+  lcd_print(t24, "top row version,");
+  lcd_print(t24, "including COMPLEX LOCK mode!");
 #elif defined(BIGGER_DISPLAY)
-  lcd_print(t24, "with a longer alpha display");
-  lcd_print(t24, "than the original calculator,");
-  lcd_print(t24, "and some annunciators renamed.");
+  lcd_print(t24, "with a longer alpha display,");
+  lcd_print(t24, "and COMPLEX LOCK mode!");
   #else
   lcd_print(t24, "Just like the original calculator");
-  lcd_print(t24, "but with some annunciators renamed.");
+  lcd_print(t24, "but with some annunciators renamed,");
+  lcd_print(t24, "and COMPLEX LOCK mode!");
 #endif
   t24->y += 5;
   lcd_printR(t24, "This software is neither provided");
@@ -97,6 +96,10 @@ void set_menu ( int new_menu ) {
   if ( (m != 9) && (m != 16) ) last_menu = m; // store menu as last menu unless arrow or alpha
 }
 
+void set_default_menu () {
+  set_menu (default_menu);
+}
+
 void toggle_default_menu () {
   if (current_menu == default_menu) {
     current_menu = default_menu = 15 - default_menu;
@@ -105,6 +108,10 @@ void toggle_default_menu () {
 
 int get_menu () {
   return current_menu;
+}
+
+int get_last_menu () {
+  return last_menu;
 }
 
 void display_current_menu () {
@@ -313,6 +320,17 @@ static const struct _menu Menus[] = {
       { { K_OP, OP_NIL | OP_ALPHALEN }, { K_OP, OP_NIL | OP_ALPHAMONTH }, "\240LENG", "\240MNTH" },
       { ARROW_KEY, { K_ARROW, 1 }, "--\015", "" },
       { CMPLX_KEY, { K_CMPLX, 1 }, "CPX", "" },
+    }    
+  },
+  {
+    "C_LOCK", // 17
+    { 
+      { { K40, 2 }, { K04, 2 }, "POLAR", "\015 P" },
+      { { K40, 1 }, { K04, 1 }, "RECT", "\015 R" },
+      { { K22, 1 }, { K22, 3 }, "CHS\006y", "CHS\006x" },
+      { { K21, 1 }, { K00, 1 }, "x\027y", "HYP" },
+      { ARROW_KEY, { K23, 1 }, "--\015", "\021\006\257" },
+      { CMPLX_KEY, { K20, 1 }, "CPX", "\021\006CNST" },
     }    
   },
 };  

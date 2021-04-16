@@ -554,7 +554,7 @@ DEI_chk_conv:: RCL .14
                 FS? .01
                   +/-
                 TOP?
-                  MSG 25
+                  MSG (25 +1)
                 RCL .09
                 RCL+ X
                 RCL- .14
@@ -583,7 +583,7 @@ DEI_chk_bad:: RCL X
                 STO T
 DEI_res_okay:: x<> T
 DEI_exit:: TOP?
-                  MSG 25
+                  MSG (25 +1)
                 cRCL .00
                 STO L
                 cx<> Z

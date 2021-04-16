@@ -1,6 +1,6 @@
 # $Rev$
 version=33
-maxsteps=928
+maxsteps=926
 maxlibsteps=8190
 0x0000	cmd	ENTER[^]
 0x0000	alias-c	ENTER
@@ -310,6 +310,19 @@ maxlibsteps=8190
 0x01bd	alias-c	PRT?
 0x01be	cmd	YDON
 0x01bf	cmd	YDOFF
+0x01c0	cmd	CPX
+0x01c1	cmd	C_LK
+0x01c2	cmd	UNLK
+0x01c3	cmd	-IM
+0x01c4	cmd	-RE
+0x01c5	cmd	REAL
+0x01c6	cmd	IMAG
+0x01c7	cmd	->PI
+0x01c8	cmd	*PI
+0x01c9	cmd	CPXI
+0x01ca	cmd	CPXJ
+0x01cb	cmd	CPXYES
+0x01cc	cmd	CPXNO
 0x0200	cmd	FP
 0x0201	cmd	FLOOR
 0x0202	cmd	CEIL
@@ -767,6 +780,10 @@ maxlibsteps=8190
 0x0631	alias-c	cYn
 0x0632	cmd	[cmplx]Kn
 0x0632	alias-c	cKn
+0x0633	cmd	[cmplx]c.
+0x0633	alias-c	cc.
+0x0634	cmd	[cmplx]c/
+0x0634	alias-c	cc/
 0x2000	cmd	# 1/2
 0x2001	cmd	# a
 0x2002	cmd	# a[sub-0]
@@ -1146,7 +1163,7 @@ maxlibsteps=8190
 0x2168	alias-c	c# SQRT_2_PI
 0x2169	cmd	[cmplx]# [integral]RgB
 0x2169	alias-c	c# INT_R_BOUNDS
-0x2200	arg	ERR	max=25,indirect
+0x2200	arg	ERR	max=26,indirect
 0x2300	arg	STO	max=128,indirect,stack
 0x2400	arg	STO+	max=128,indirect,stack
 0x2500	arg	STO-	max=128,indirect,stack
@@ -2136,7 +2153,7 @@ maxlibsteps=8190
 0x9800	arg	RCLM	max=128,indirect,stack
 0x9900	arg	PUTK	max=128,indirect,stack
 0x9a00	arg	KTP?	max=128,indirect,stack
-0x9b00	arg	MSG	max=26,indirect
+0x9b00	arg	MSG	max=27,indirect
 0x9c00	arg	LocR	max=128,indirect
 0x9d00	arg	REGS	max=101,indirect
 0x9e00	arg	iRCL	max=128,indirect,stack

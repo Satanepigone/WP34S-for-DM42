@@ -112,10 +112,12 @@ extern void process_keycode_with_shift ( struct _ndmap remapped );
 extern unsigned int get_alpha_state ( void );
 extern void set_menu (int new_menu);
 extern int get_menu ();
+extern int get_last_menu ();
 extern void display_menu (int current_menu);
 extern void set_last_menu ( void );
 extern void display_current_menu ( void );
 extern void build_user_menu(void);
+extern void set_default_menu(void);
 
 #endif
 #endif

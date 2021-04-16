@@ -56,6 +56,8 @@ static struct _ndmap remap (const int c) {
 
 #include "keytran.c"
 
+  //  print_debug(40,c);
+  //  print_debug(41,current_menu);
   if (c==K_HEARTBEAT) return heartbeat;
 
   if (c == 99) return release; // turn KEY_DOUBLE_RELEASE into ordinary release
@@ -68,7 +70,7 @@ static struct _ndmap remap (const int c) {
   if (Running | Pause) {
     return mapping_running[c];
   }
-
+  //  print_debug(42,0);
   if (current_menu == USER_MENU) {
     switch (c) {
     case KEY_F1:
@@ -113,7 +115,7 @@ static struct _ndmap remap (const int c) {
       if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[5].shifted;
     }
   }    
-  
+  //  print_debug(44, get_alpha_state());  
   if ( get_alpha_state() ) {
     if (c == KEY_SHIFT) { //deal with shift keys
       switch (cur_shift()) { 
@@ -134,7 +136,7 @@ static struct _ndmap remap (const int c) {
     }
     return mapping_alpha [c];
   }
-
+  //  print_debug(54,cur_shift());
   switch (cur_shift()) {
   case SHIFT_N:    
     return mapping_none[c];
@@ -294,7 +296,7 @@ void print_debug (int i, int j) {
   moveto (3, 1);
   lcd_print (fReg , (const char*) print_string );
   lcd_refresh();
-  sys_delay (500);
+  sys_delay (1000);
   /* wait_for_key_press(); */
   //  key_pop_all();
   // while ((key_pop()<=0) || (key_pop()==K_HEARTBEAT));;
@@ -395,6 +397,16 @@ struct _ndmap do_multi (struct _ndmap r) {
     build_user_menu();
     r = g_shift;
     break;
+  case KCPX:
+    if (CPX_ENABLED) {
+      set_menu(17);
+      reset_shift();
+    }
+    else {
+      do_now (K10, 1);
+      do_now (K_RELEASE, 0);
+      r = no_key;
+    }
   default:
     r = no_key;
   }
@@ -505,7 +517,10 @@ void program_main(){
       start_key_timer();
     }
     if (c >= 0) {
+      //      print_debug(49,c);
       remapped = remap(c);
+      //      print_debug(50,remapped.key_34s);
+      //      print_debug(51,remapped.shift);
       if (remapped.key_34s == K_SETMENU) {
 	set_menu ( remapped.shift );
 	display_current_menu ();

@@ -22,6 +22,12 @@
 #include "lcd.h"
 #include "display.h"
 #include "xeq.h"
+
+#ifdef INCLUDE_C_LOCK
+#include "data.h"
+#include "storage.h"
+#endif
+
 #undef DM42SAFE
 
 #include "pretty.h"
@@ -345,7 +351,12 @@ void show_disp(void) { // This function re-draws everything.
 
 	if (dots[LIT_EQ]) {
 	  lcd_setXY (t20, 360, y_ann-70);
-	  lcd_writeText(t20, "=");
+	  if (C_LOCKED) {
+	    lcd_writeText(t20, "C_LK");
+	  }
+	  else {
+	    lcd_writeText(t20, "=");
+	  }
         }
 
 	if (dots[BATTERY]) {
