@@ -60,15 +60,15 @@
 
 #ifdef DM42
 
-#define STATE_FILE "wp34s/wp34s.dat"
-#define BACKUP_FILE "wp34s/wp34s-backup.dat"
+#define STATE_FILE "wp34s/wp34c.dat"
+#define BACKUP_FILE "wp34s/wp34c-backup.dat"
 #define LIBRARY_FILE "wp34s/wp34s-lib.dat"
 #define FPT ppgm_fp //use this as the file pointer
 
 #else
 
-#define STATE_FILE "wp34s.dat"
-#define BACKUP_FILE "wp34s-backup.dat"
+#define STATE_FILE "wp34c.dat"
+#define BACKUP_FILE "wp34c-backup.dat"
 #define LIBRARY_FILE "wp34s-lib.dat"
 
 #endif
@@ -515,7 +515,7 @@ void sam_ba_boot(void)
 #else // below here, it's not REALBUILD
 
 /*
- *  Emulate the flash in a file wp34s-lib.dat or wp34s-backup.dat
+ *  Emulate the flash in a file wp34s-lib.dat or wp34c-backup.dat
  *  Page numbers are relative to the start of the user flash
  *  count is in pages, destination % PAGE_SIZE needs to be 0.
  */

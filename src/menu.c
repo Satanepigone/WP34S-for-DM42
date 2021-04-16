@@ -554,6 +554,8 @@ void build_user_menu(void)
 	op = op & 0xff00;	// remove argument
     }
     catcmd(op, buf1);
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wstringop-truncation"
     if (i<6) {
       strncpy(UserMenu.keys[i].unshifted_label, buf1, 7);
       UserMenu.keys[i].unshifted_label[7]='\0';
@@ -566,6 +568,7 @@ void build_user_menu(void)
       UserMenu.keys[i-6].shifted.shift = op;
       UserMenu.keys[i-6].shifted.key_34s = K_OP;
     }
+#pragma GCC diagnostic pop
     i++;
   }
 }

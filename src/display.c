@@ -857,9 +857,11 @@ static void set_exp(int exp, int flags, char *res) {
 	}
 	else if ((rp_prefix && RectPolConv == 1) || (C_LOCKED && POLAR_DISPLAY)) {
 	  q = "\007\307<";
+	  p = scopy(p, q);
 	}
 	else if (State2.wascomplex || C_LOCKED) {
 	  q = CPX_J ? "\007\207j" : "\007\207i";
+	  p = scopy(p, q);
 	}
 #else
 	
