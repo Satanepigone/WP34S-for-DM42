@@ -1275,7 +1275,7 @@ void stack_begin ( int zero_y ) {
 
 static int process_c_lock ( const keycode c ) { // main function - called from process (c) function in complex lock mode
 
-	enum shifts shift = reset_shift();
+	enum shifts shift = cur_shift();
 
 // Individual keys needing special treatment
 
@@ -1321,6 +1321,7 @@ static int process_c_lock ( const keycode c ) { // main function - called from p
 		finish_cpx_entry(0); // finish entry for all of them - no lift
 		switch (c) {
 		case (K60):
+		  reset_shift();
 		  if (shift == SHIFT_H) return (OP_NIL | OP_OFF);
 		case (K21): // x<->y key
 			if (shift == SHIFT_F || shift == SHIFT_G) { // exchanges real and imag parts with either shift
@@ -1343,21 +1344,23 @@ static int process_c_lock ( const keycode c ) { // main function - called from p
 			}
 			break;
 		case (K22): // +/- key
-			if (shift == SHIFT_F ) {
-				return OP_NIL | OP_C_MIM;
-			}
-			else if (shift == SHIFT_H) {
-				return OP_NIL | OP_C_MRE;
-			}
-			break;
+		  reset_shift();
+		  if (shift == SHIFT_F ) {
+		    return OP_NIL | OP_C_MIM;
+		  }
+		  else if (shift == SHIFT_H) {
+		    return OP_NIL | OP_C_MRE;
+		  }
+		  break;
 		case (K62): // IP/FP key
-			if (shift == SHIFT_F) {
-				return OP_NIL | OP_C_IM;
-			}
-			else if (shift == SHIFT_G) {
-				return OP_NIL | OP_C_RE;
-			}
-			break;
+		  reset_shift();
+		  if (shift == SHIFT_F) {
+		    return OP_NIL | OP_C_IM;
+		  }
+		  else if (shift == SHIFT_G) {
+		    return OP_NIL | OP_C_RE;
+		  }
+		  break;
 		case (K44): // x (times) key
 			if (shift == SHIFT_H) { // real*real + i imag*imag
 				reset_shift();
@@ -3559,13 +3562,13 @@ void process_keycode(int c)
     /*
      *  Decode the key 
      */
-    //    print_debug (90, c);
+    //    print_debug (90, cur_shift());
     WasDataEntry = 0;
     ShowRPN = ! Running;	// Default behaviour, may be turned off later
 #ifdef DM42
     if (c != K_OP) {
       c = process(c);
-      //      print_debug (91,c);
+      //print_debug (91,cur_shift());
       // returns an op-code or state
     }
     else {

@@ -986,7 +986,9 @@ void cpx_pi (enum nilop op) {
 }
 
 void cpx_nop(enum nilop op) { // miscellaneous complex operations
-	reset_shift();
+  //  print_debug(1,cur_shift());
+  reset_shift();
+  //  print_debug(2,cur_shift());
 	switch (op) {
 	case OP_CYES: // set flag to allow complex mode to be entered - can be called at any time
 	        SET_CPX_YES;
