@@ -54,6 +54,9 @@ extern unsigned long long strtoull(const char *, char **, int);
 #define XEQ_INTERNAL 1
 #define DM42SAFE
 #include "xeq.h"
+#ifdef DM42
+#include "keys.h"
+#endif
 #include "storage.h"
 #include "decn.h"
 #include "complex.h"
@@ -1005,6 +1008,10 @@ void cpx_nop(enum nilop op) { // miscellaneous complex operations
 		}
 		LOCK_C;
 		UState.stack_depth = 1; // set stack size to 8
+#ifdef DM42
+		set_menu(M_C_Lock);
+		display_current_menu();
+#endif
 		break;
 	case OP_CNO: // reset flag so that complex mode cannot be entered
 		if (!C_LOCKED) { 
@@ -1018,6 +1025,10 @@ void cpx_nop(enum nilop op) { // miscellaneous complex operations
 		UNLOCK_C;
 		UState.stack_depth = TRUE_8; // restore prior stack size
 		State2.wascomplex = 0;
+#ifdef DM42
+		set_default_menu();
+		display_current_menu();
+#endif
 		return;
 	case OP_C_MIM: // change sign of imaginary part
 		{

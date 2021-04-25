@@ -4,8 +4,8 @@ build/keys.o: src/keys.c dmcp/dmcp.h \
  src/decNumber/decNumber.h src/decNumber/../features.h \
  src/decNumber/decContext.h src/decNumber/decContext.h \
  src/decNumber/decimal64.h src/decNumber/decimal128.h src/data.h \
- src/keys.h src/display.h src/decn.h src/lcd.h src/int.h src/consts.h \
- src/storage.h src/stats.h src/catalogues.h
+ src/keys.h src/menu.h src/display.h src/decn.h src/lcd.h src/int.h \
+ src/consts.h src/storage.h src/stats.h src/catalogues.h
 
 dmcp/dmcp.h:
 
@@ -36,6 +36,8 @@ src/decNumber/decimal128.h:
 src/data.h:
 
 src/keys.h:
+
+src/menu.h:
 
 src/display.h:
 

@@ -1,8 +1,8 @@
-# WP34C calculator for DM42 hardware
+# WP34c calculator for DM42 hardware
 
 ## A project to bring the WP34c calculator firmware to the DM42 hardware. 
 
-The WP34c calculator is 99% the same as the WP34s, but with some interface changes to make working with complex numbers more straightforward.
+The WP34c calculator is almost the same as the WP34s, but with some interface changes to make working with complex numbers more straightforward.
 
 <img src="help/screens/wp34c_02.png" width="400">
 
@@ -20,7 +20,7 @@ As with the WP34s there are three versions of the WP34c with differing displays 
 
 Just as with the WP34s, SwissMicros neither provide nor support this code. All of the code is covered either by the GPL3 licence or by the BSD 3-clause licence, both available in this repository.
 
-You can find documentation for the original WP34c calculator in the help/ folder. Due to its different keyboard the DM42 version works slightly differently to this; the documentation will be brought up to date before long.
+You can find documentation for the original WP34c calculator in the help/ folder. There is now also updated documentation that describes how the DM42 version works.
 
 As yet, there is no WP34c-specific help file for the calculator.
 

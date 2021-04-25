@@ -1072,8 +1072,6 @@ static char *expand_filename( char *buffer, const char *filename )
 
 #ifdef DM42
 
-extern void display_current_menu ();
-
 #define DISP_NEW 1
 #define OVERWRITE_CHECK 1
 #define NO_DISP_NEW 0

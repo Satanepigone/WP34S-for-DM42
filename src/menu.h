@@ -32,31 +32,25 @@ struct _menu {
   struct _key keys[6];
 };
 
-struct _menu UserMenu =
-  {
-    "User Menu", 
-    {
-      { NO_KEY, NO_KEY, "", "" },
-      { NO_KEY, NO_KEY, "", "" },
-      { NO_KEY, NO_KEY, "", "" },
-      { NO_KEY, NO_KEY, "", "" },
-      { ARROW_KEY, NO_KEY, "--\015", "" },
-      { CMPLX_KEY, { K_MULTI, DOTS }, "CPX", "" },
-    }
-  };
+extern struct _menu UserMenu;
 
-char* arrow_key_string = "--\015";
-char* cmplx_key_string = "CPX";
-
-#define USER_MENU 99
+extern const char* arrow_key_string;
+extern const char* cmplx_key_string;
 
 #define MENU_WIDTH 32
 
-static int current_menu = 0;
-static int last_menu = 0;
-static int default_menu = 0;
+extern menu_name current_menu;
+extern menu_name last_menu;
+extern menu_name default_menu;
 
-static void set_menu_label (const char *str, int smallp, int dotcol, int shifted);
-void mdot(int i, int j, int s, int on);
 extern void all_menu_dots ( void );
-extern void build_user_menu (void);
+extern void build_user_menu(void);
+extern void display_menu (struct _menu Ref);
+extern void display_current_menu ( void );
+extern menu_name get_menu ();
+extern struct _menu get_current_menu_ref(void);
+extern menu_name get_last_menu ();
+extern void mdot(int i, int j, int s, int on);
+extern void set_menu (menu_name new_menu);
+extern void set_default_menu(void);
+extern void set_last_menu ( void );

@@ -327,7 +327,7 @@
 
 //Various complex lock mode defaults
 
-#define DEFAULT_TO_SSIZE8 //Fix default to 8 deep stack, to allow seamless back and forth to Complex mode without losing stack content. Also see keys.c //JM3
+//#define DEFAULT_TO_SSIZE8 //Fix default to 8 deep stack, to allow seamless back and forth to Complex mode without losing stack content. Also see keys.c //JM3
 //#define DEFAULT_TO_J // Still possible to change between I and J if this is selected
 //#define DEFAULT_TO_C_LOCK // Complex Lock mode on by default
 //#define DEFAULT_TO_CPX_YES // No need to XEQ CPXYES to turn on complex lock 

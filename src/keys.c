@@ -882,7 +882,7 @@ static int process_normal(const keycode c)
 		process_cmdline_set_lift();
 		State2.arrow = 1;
 #ifdef DM42
-		set_menu (9); // arrow menu
+		set_menu (M_Arrow); // arrow menu
 		display_current_menu ();
 		lcd_refresh ();
 #else
@@ -1032,7 +1032,7 @@ static int process_fg_shifted(const keycode c) {
 			process_cmdline_set_lift();
 			State2.alphas = 1;
 #ifdef DM42
-			set_menu(16);
+			set_menu(M_Alpha);
 			display_current_menu();
 #endif
 		}
@@ -1273,180 +1273,183 @@ void stack_begin ( int zero_y ) {
 	}
 }
 
-static int process_c_lock ( const keycode c ) { // main function - called from process (c) function in complex lock mode
+ static int process_c_lock ( const keycode c ) { // main function - called from process (c) function in complex lock mode
 
-	enum shifts shift = cur_shift();
+   enum shifts shift = cur_shift();
 
-// Individual keys needing special treatment
+   // Individual keys needing special treatment
 
-	if ( (c < K05) && shift == SHIFT_H ){ // display modes
-		return process_h_shifted (c);
-	}
+   if ( (c < K05) && shift == SHIFT_H ){ // display modes
+     return process_h_shifted (c);
+   }
 
 
-	if ( (shift == SHIFT_G) && (c >= K10) && (c <= K12) ) { // angle mode change; needed because otherwise the new display does not appear in time
-		convert_regK ((enum trig_modes) (c-K10));
-	}
-	if ( (c >= K05) && (c <= K12) && (shift == SHIFT_F || shift == SHIFT_G) ) { // Deg, rad, grad, HMS, H.d; complex RAN# has now been removed; RAN# just puts a random number in X.
-		return process_fg_shifted (c);
-	}
+   if ( (shift == SHIFT_G) && (c >= K10) && (c <= K12) ) { // angle mode change; needed because otherwise the new display does not appear in time
+     convert_regK ((enum trig_modes) (c-K10));
+   }
+   if ( (c >= K05) && (c <= K12) && (shift == SHIFT_F || shift == SHIFT_G) ) { // Deg, rad, grad, HMS, H.d; complex RAN# has now been removed; RAN# just puts a random number in X.
+     return process_fg_shifted (c);
+   }
 
-	if (c==K23) { // pi key - needs to be separate from what follows as it doesn't want entry completed before its action
-		if (shift == SHIFT_F) { // special pi processing
-			reset_shift();
-			if ( CmdLineLength ) {
-				State2.state_lift = 0;
-				return OP_NIL | OP_PIB;
-			}
-			else {
-				return OP_NIL | OP_PIA;
-			}
-		}
-		else {
+   if (c==K23) { // pi key - needs to be separate from what follows as it doesn't want entry completed before its action
+     if (shift == SHIFT_F) { // special pi processing
+       reset_shift();
+       if ( CmdLineLength ) {
+	 State2.state_lift = 0;
+	 return OP_NIL | OP_PIB;
+       }
+       else {
+	 return OP_NIL | OP_PIA;
+       }
+     }
+     else {
 #if INCLUDE_EEX_PI == 2
-			const int eex_pi = 1;
+       const int eex_pi = 1;
 #elif INCLUDE_EEX_PI == 1
-			const int eex_pi = get_user_flag(regL_idx);
+       const int eex_pi = get_user_flag(regL_idx);
 #else
-			const int eex_pi = 0;
+       const int eex_pi = 0;
 #endif
-			if ( (shift == SHIFT_H) || (eex_pi && (shift == SHIFT_N) && CmdLineLength == 0) ) { // normal pi key - enables stack lift; now works with INCLUDE_EEX_PI too
-				finish_cpx_entry(1);
-				return process_cmplx(c);
-			}
-		}
-	}
+       if ( (shift == SHIFT_H) || (eex_pi && (shift == SHIFT_N) && CmdLineLength == 0) ) { // normal pi key - enables stack lift; now works with INCLUDE_EEX_PI too
+	 finish_cpx_entry(1);
+	 return process_cmplx(c);
+       }
+     }
+   }
 
-	if (shift != SHIFT_N) { // other shifted keys - special cases first.
-		finish_cpx_entry(0); // finish entry for all of them - no lift
-		switch (c) {
-		case (K60):
-		  reset_shift();
-		  if (shift == SHIFT_H) return (OP_NIL | OP_OFF);
-		case (K21): // x<->y key
-			if (shift == SHIFT_F || shift == SHIFT_G) { // exchanges real and imag parts with either shift
-				reset_shift();
-				CLEAR_POLAR_READY;
-				return RARG(RARG_SWAPX, regY_idx);
-			}
-			else if (shift == SHIFT_H) {
-				return process_cmplx(c); // complex exchange of (x,y) with register
-			}
-			break;
-		case (K40): // up-arrow key
-			if (shift == SHIFT_F) {
-				SET_RECTANGULAR_DISPLAY;
-			}
-			else if (shift == SHIFT_G) {
-				SET_POLAR_DISPLAY;
-				CLEAR_POLAR_READY;
-				update_speed(0); // new polar display calculated from keyboard needs a speed boost
-			}
-			break;
-		case (K22): // +/- key
-		  reset_shift();
-		  if (shift == SHIFT_F ) {
-		    return OP_NIL | OP_C_MIM;
-		  }
-		  else if (shift == SHIFT_H) {
-		    return OP_NIL | OP_C_MRE;
-		  }
-		  break;
-		case (K62): // IP/FP key
-		  reset_shift();
-		  if (shift == SHIFT_F) {
-		    return OP_NIL | OP_C_IM;
-		  }
-		  else if (shift == SHIFT_G) {
-		    return OP_NIL | OP_C_RE;
-		  }
-		  break;
-		case (K44): // x (times) key
-			if (shift == SHIFT_H) { // real*real + i imag*imag
-				reset_shift();
-				return OP_CDYA | OP_CDOT;
-			}
-			else {
-				return process_cmplx(c);
-			}
-			break;
-		case (K34): // divide key
-			if (shift == SHIFT_H) { // real/real + i imag/imag
-				reset_shift();
-				return OP_CDYA | OP_CDOTDIV;
-			}
-			else {
-				return process_cmplx(c);
-			}
-			break;
-		case (K24): // <- key
-			if (POLAR_DISPLAY) break;
-			if (shift == SHIFT_H) { // adds the rather strange ability to delete and replace the real part of a complex number
-				zero_X ();
-				State2.state_lift = 0;
-				SET_REAL;
-				stack_begin (0);
-			}
-			break;
-		default:
-			return process_cmplx(c); // for shifted keys not listed above
-		}
-		reset_shift(); // for the keys listed above; functions complete
-		return STATE_UNFINISHED;
-	}
+   if (shift != SHIFT_N) { // other shifted keys - special cases first.
+     finish_cpx_entry(0); // finish entry for all of them - no lift
+     switch (c) {
+     case (K60):
+       reset_shift();
+       if (shift == SHIFT_H) return (OP_NIL | OP_OFF);
+     case (K21): // x<->y key
+       if (shift == SHIFT_F || shift == SHIFT_G) { // exchanges real and imag parts with either shift
+	 reset_shift();
+	 CLEAR_POLAR_READY;
+	 return RARG(RARG_SWAPX, regY_idx);
+       }
+       else if (shift == SHIFT_H) {
+	 return process_cmplx(c); // complex exchange of (x,y) with register
+       }
+       break;
+     case (K40): // up-arrow key
+       if (shift == SHIFT_F) {
+	 SET_RECTANGULAR_DISPLAY;
+       }
+       else if (shift == SHIFT_G) {
+	 SET_POLAR_DISPLAY;
+	 CLEAR_POLAR_READY;
+	 update_speed(0); // new polar display calculated from keyboard needs a speed boost
+       }
+       else if (shift == SHIFT_H) { // ND addition on DM42 - should work on ordinary calculator too
+	 return process_cmplx (c);
+       }
+       break;
+     case (K22): // +/- key
+       reset_shift();
+       if (shift == SHIFT_F ) {
+	 return OP_NIL | OP_C_MIM;
+       }
+       else if (shift == SHIFT_H) {
+	 return OP_NIL | OP_C_MRE;
+       }
+       break;
+     case (K62): // IP/FP key
+       reset_shift();
+       if (shift == SHIFT_F) {
+	 return OP_NIL | OP_C_IM;
+       }
+       else if (shift == SHIFT_G) {
+	 return OP_NIL | OP_C_RE;
+       }
+       break;
+     case (K44): // x (times) key
+       if (shift == SHIFT_H) { // real*real + i imag*imag
+	 reset_shift();
+	 return OP_CDYA | OP_CDOT;
+       }
+       else {
+	 return process_cmplx(c);
+       }
+       break;
+     case (K34): // divide key
+       if (shift == SHIFT_H) { // real/real + i imag/imag
+	 reset_shift();
+	 return OP_CDYA | OP_CDOTDIV;
+       }
+       else {
+	 return process_cmplx(c);
+       }
+       break;
+     case (K24): // <- key
+       if (POLAR_DISPLAY) break;
+       if (shift == SHIFT_H) { // adds the rather strange ability to delete and replace the real part of a complex number
+	 zero_X ();
+	 State2.state_lift = 0;
+	 SET_REAL;
+	 stack_begin (0);
+       }
+       break;
+     default:
+       return process_cmplx(c); // for shifted keys not listed above
+     }
+     reset_shift(); // for the keys listed above; functions complete
+     return STATE_UNFINISHED;
+   }
 
-	switch (c) { // non-shifted keys including numbers - in general, keys to be processed normally not complexly
-	case (K61):
-	case (K62):
-	case (K51):
-	case (K52):
-	case (K53):
-	case (K41):
-	case (K42):
-	case (K43):
-	case (K31):
-	case (K32):
-	case (K33):
-	case (K23): // 0.123456789EEX
-		if (!REAL_FLAG && !IMAG_FLAG) {
-			SET_REAL; // start and continuation of real entry
-			stack_begin (1);
-		}
-		return process_normal(c);
-	case (K22): // CHS
-//	case (K23): // EEX
-		if (!REAL_FLAG && !IMAG_FLAG) {
-			return process_cmplx(c);
-		}
-		else {
-			return process_normal(c);
-		}
-	case (K24): // backspace
-	case (K04): // arrow
-	case (K_ARROW):
-	  return process_normal(c);
-	case (K_CMPLX):
-		if (REAL_FLAG) { // Something - at least one digit - has been entered; real part now complete
-			CLEAR_REAL;
-			SET_IMAG;
-			do_command_line();
-			State2.state_lift = 0;
-			swap_reg(get_reg_n(regX_idx), get_reg_n(regY_idx));
-		}
-		else if (IMAG_FLAG) { // finishing off imag part; nothing has necessarily been entered
-			finish_cpx_entry (1);
-		}
-		else { // down here we need a part that deals with CPX being pressed without a real part being entered
-			SET_IMAG;
-			stack_begin (1);
-		}
-		return STATE_UNFINISHED;
-	default:;
-	}
-	finish_cpx_entry(0);
-	return process_cmplx(c);
+   switch (c) { // non-shifted keys including numbers - in general, keys to be processed normally not complexly
+   case (K61):
+   case (K62):
+   case (K51):
+   case (K52):
+   case (K53):
+   case (K41):
+   case (K42):
+   case (K43):
+   case (K31):
+   case (K32):
+   case (K33):
+   case (K23): // 0.123456789EEX
+     if (!REAL_FLAG && !IMAG_FLAG) {
+       SET_REAL; // start and continuation of real entry
+       stack_begin (1);
+     }
+     return process_normal(c);
+   case (K22): // CHS
+     //	case (K23): // EEX
+     if (!REAL_FLAG && !IMAG_FLAG) {
+       return process_cmplx(c);
+     }
+     else {
+       return process_normal(c);
+     }
+   case (K24): // backspace
+   case (K04): // arrow
+   case (K_ARROW):
+     return process_normal(c);
+   case (K_CMPLX):
+     if (REAL_FLAG) { // Something - at least one digit - has been entered; real part now complete
+       CLEAR_REAL;
+       SET_IMAG;
+       do_command_line();
+       State2.state_lift = 0;
+       swap_reg(get_reg_n(regX_idx), get_reg_n(regY_idx));
+     }
+     else if (IMAG_FLAG) { // finishing off imag part; nothing has necessarily been entered
+       finish_cpx_entry (1);
+     }
+     else { // down here we need a part that deals with CPX being pressed without a real part being entered
+       SET_IMAG;
+       stack_begin (1);
+     }
+     return STATE_UNFINISHED;
+   default:;
+   }
+   finish_cpx_entry(0);
+   return process_cmplx(c);
 
-}
+ }
 
 #endif
 
@@ -1648,18 +1651,9 @@ static int process_arrow(const keycode c) {
 #ifdef INCLUDE_C_LOCK
 	if (c == K_CMPLX && CPX_ENABLED) { // need this before the SHIFT_N test
 	  if (!C_LOCK_ON) {
-	    set_menu (17);
-	    display_current_menu();
 	    return OP_NIL | OP_C_ON;
 	  }
 	  else {
-	    if (get_last_menu() != 17) {
-	      set_last_menu();
-	    }
-	    else {
-	      set_default_menu();
-	    }
-	    display_current_menu();
 	    return OP_NIL | OP_C_OFF;
 	  }
 	}
@@ -1807,7 +1801,7 @@ static int process_alpha(const keycode c) {
 		State2.alphas = 0;
 		State2.alphashift = 0;
 #ifdef DM42
-		set_menu(-1);
+		set_menu(M_Last);
 		display_current_menu();
 #endif
 		return op;
@@ -1867,7 +1861,7 @@ static int process_alpha(const keycode c) {
 			return OP_NIL | OP_OFF;
 		else if (shift == SHIFT_N) {
 #ifdef DM42
-		  set_menu(-1);
+		  set_menu(M_Last);
 		  display_current_menu();
 #endif
 		  init_state();
