@@ -65,6 +65,7 @@ SRCS := keys.c display.c xeq.c prt.c decn.c complex.c stats.c \
 		lcd.c int.c date.c consts.c alpha.c charmap.c \
 		commands.c string.c storage.c matrix.c \
 		font.c xrom.c console.c
+
 C_SRCS := $(addprefix src/,$(SRCS))
 
 C_SOURCES += $(C_SRCS)

@@ -401,7 +401,7 @@ void show_disp(void) { // This function re-draws everything.
 	/*     lcd_writeText(t20, "RPN"); */
 	/*   } */
         /* } */
-	finish_RPN();
+	draw_RPN_RCL();
 	
 	/* The graphical bit last */
         for (i=0; i<BITMAP_WIDTH; i++) {
@@ -705,7 +705,7 @@ void finish_display(void) {
   lcd_refresh();
 }
 
-void finish_RPN(void) { // refreshes the RPN and RUN flags only
+void draw_RPN_RCL(void) {
   t20->inv = !dots[RPN];
   if (ENTRY_RPN_ENABLED) {
     lcd_setXY (t20, 355, Y_ANNUNC-30); // 70 is y_ann
@@ -718,7 +718,10 @@ void finish_RPN(void) { // refreshes the RPN and RUN flags only
   t20->inv = !dots[RCL_annun];
   lcd_setXY (t20, 365, Y_ANNUNC-50); // 70 is y_ann
   lcd_writeText(t20, "RUN");
+}
 
+void finish_RPN(void) { // refreshes the RPN and RUN flags only
+  draw_RPN_RCL();  
   lcd_refresh();
 }
 
