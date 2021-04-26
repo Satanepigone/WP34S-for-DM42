@@ -913,6 +913,10 @@ static s_opcode mode_catalogue[] = {
 	NILIC(OP_CYES, "CPXYES")
 	NILIC(OP_CNO, "CPXNO")
 #endif
+#ifdef ENTRY_RPN
+	NILIC(OP_ENTRY_ON, "eRPon")
+	NILIC(OP_ENTRY_OFF, "eRPoff")
+#endif
 };
 
 static s_opcode alpha_catalogue[] = {

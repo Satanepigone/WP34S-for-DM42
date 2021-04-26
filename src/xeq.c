@@ -913,21 +913,21 @@ void cpx_roll_up(enum nilop op) {
 }
 
 void cpx_enter(enum nilop op) {
-#ifdef ENTRY_RPN
-	if(	State2.state_lift || (XromRunning || Running) ) {
-//Only duplicate if needed, otherwise ignore. CPX LOCK mode cannot run code, but the same exception as with non-cpx lock enter is added to make sure Xrom code does not break.
-		lift();
-		lift();
-		copyreg(get_reg_n(regY_idx), get_reg_n(regT_idx));
-		set_was_complex();
-	}
-#else
-	lift();
-	lift();
-	copyreg(get_reg_n(regY_idx), get_reg_n(regT_idx));
-	set_was_complex();
-#endif
+  if( (State2.state_lift || (XromRunning || Running)) && ENTRY_RPN_ENABLED ) { // flag is zero if entry_rpn not defined, so long as c_lock is defined ...
+    //Only duplicate if needed, otherwise ignore. CPX LOCK mode cannot run code, but the same exception as with non-cpx lock enter is added to make sure Xrom code does not break.
+    lift();
+    lift();
+    copyreg(get_reg_n(regY_idx), get_reg_n(regT_idx));
+    set_was_complex();
+  }
+  else {
+    lift();
+    lift();
+    copyreg(get_reg_n(regY_idx), get_reg_n(regT_idx));
+    set_was_complex();
+  }
 }
+
 #ifdef INCLUDE_C_LOCK
 
 void convert_regK ( enum trig_modes i ) { // needed to change the displayed angular part in polar mode after a mode change to i from j
@@ -988,10 +988,22 @@ void cpx_pi (enum nilop op) {
 	CLEAR_POLAR_READY;
 }
 
+#ifdef ENTRY_RPN
+void entry_rpn_on_off(enum nilop op) { // turn entry_rpn on/off
+  switch (op) {
+  case OP_ENTRY_ON:
+    ENTRY_RPN_ON;
+    return;
+  case OP_ENTRY_OFF:
+    ENTRY_RPN_OFF;
+    return;
+  default:;
+  }
+}
+#endif
+
 void cpx_nop(enum nilop op) { // miscellaneous complex operations
-  //  print_debug(1,cur_shift());
   reset_shift();
-  //  print_debug(2,cur_shift());
 	switch (op) {
 	case OP_CYES: // set flag to allow complex mode to be entered - can be called at any time
 	        SET_CPX_YES;
@@ -4007,25 +4019,26 @@ static void specials(const opcode op) {
 			clrx(OP_rCLX);
 		break;
 
-	case OP_ENTER:
-#ifdef ENTRY_RPN
-		if (CmdLineLength && !(XromRunning || Running) ) { 
-//exclude stack lift if there is something in the input line AND if NOT running code i.e. Xrom or program
-			process_cmdline();     //JM
-		} else {                       //JM
-			process_cmdline();
-			lift();
-			if ( (XromRunning || Running) ) {//JMTEST Explicitly including standard functionality if code is running
-				clr_lift();
-			}   
-		}                              //JM
-#else
-		process_cmdline();
-		lift();
-		clr_lift();
-#endif
-		break;
-
+		case OP_ENTER:
+		  if (ENTRY_RPN_ENABLED) {  
+		    if ( CmdLineLength && !(XromRunning || Running) ) { 
+		      //exclude stack lift if there is something in the input line AND if NOT running code i.e. Xrom or program
+		      process_cmdline();     //JM
+		    } else {                       //JM
+		      process_cmdline();
+		      lift();
+		      if ( (XromRunning || Running) ) {//JMTEST Explicitly including standard functionality if code is running
+			clr_lift();
+		      }   
+		    }                              //JM
+		  }
+		  else {
+		    process_cmdline();
+		    lift();
+		    clr_lift();
+		  }
+		  break;
+		  
 	case OP_SIGMAPLUS:
 	case OP_SIGMAMINUS:
 		if (is_intmode()) {
@@ -4621,15 +4634,15 @@ static void niladic(const opcode op) {
 	} else
 		illegal(op);
 #ifdef INCLUDE_C_LOCK
-#ifdef ENTRY_RPN
-	if (idx != OP_rCLX) // in entry_rpn mode, lift must be on after enter so the second part below isn't wanted
+	if (ENTRY_RPN_ENABLED && (idx != OP_rCLX)) {
+	  set_lift(); // in entry_rpn mode, lift must be on after enter so the second part below isn't wanted
+	}
+	else if ( (idx != OP_rCLX) && ( ((idx != OP_CENTER) ) && (C_LOCKED) ) ) {
+	  set_lift(); // don't turn on lift after CENTER (complex enter) in C_LOCK mode
+	}
 #else
-	if ( (idx != OP_rCLX) && ( ((idx != OP_CENTER) ) && (C_LOCKED) ) ) // don't turn on lift after CENTER (complex enter) in C_LOCK mode
+	if (idx != OP_rCLX) set_lift();// normally, just don't turn on lift after CLX
 #endif
-#else
-	if (idx != OP_rCLX) // normally, just don't turn on lift after CLX
-#endif
-		set_lift();
 }
 
 

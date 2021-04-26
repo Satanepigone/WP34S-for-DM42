@@ -739,7 +739,10 @@ const struct niladic niladics[ NUM_NILADIC ] = {
 	FUNC0(OP_CYES,		&cpx_nop,	"CPXYES",		CNULL)
 	FUNC0(OP_CNO,		&cpx_nop,	"CPXNO",		CNULL)
 #endif
-
+#ifdef ENTRY_RPN
+	FUNC0(OP_ENTRY_ON,		&entry_rpn_on_off,	"eRPon",		CNULL)
+	FUNC0(OP_ENTRY_OFF,		&entry_rpn_on_off,	"eRPoff",		CNULL)
+#endif
 #ifdef INCLUDE_STOPWATCH
 	FUNC0(OP_STOPWATCH,	&stopwatch,		"STOPW",	CNULL)
 #endif

@@ -854,7 +854,9 @@ enum nilop {
 		OP_CPXI, OP_CPXJ,
 		OP_CYES, OP_CNO,
 #endif
-	
+#ifdef ENTRY_RPN
+		OP_ENTRY_ON, OP_ENTRY_OFF,
+#endif
 #ifdef INCLUDE_STOPWATCH // ny?
         OP_STOPWATCH,
 #endif // INCLUDE_STOPWATCH
@@ -1334,6 +1336,9 @@ extern void cpx_roll_down(enum nilop op);
 extern void cpx_roll_up(enum nilop op);
 extern void cpx_enter(enum nilop op);
 #ifdef INCLUDE_C_LOCK
+#ifdef ENTRY_RPN
+extern void entry_rpn_on_off(enum nilop op);
+#endif
 extern void cpx_nop(enum nilop op);
 extern void cpx_pi(enum nilop op);
 extern void convert_regK ( enum trig_modes i );

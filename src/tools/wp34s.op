@@ -323,6 +323,8 @@ maxlibsteps=8190
 0x01ca	cmd	CPXJ
 0x01cb	cmd	CPXYES
 0x01cc	cmd	CPXNO
+0x01cd	cmd	eRPon
+0x01ce	cmd	eRPoff
 0x0200	cmd	FP
 0x0201	cmd	FLOOR
 0x0202	cmd	CEIL

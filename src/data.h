@@ -144,17 +144,22 @@ struct _state {
 #ifdef EXTRA_FLAGS
 
 typedef struct extra_flags { // total 32 bits - either use the "unused" or delete the c_lock stuff if you don't want it
-		unsigned int c_lock_on :	1;
-		unsigned int real_entry :	1;
-		unsigned int imag_entry :	1;
-		unsigned int init_stack_size :	1;
-		unsigned int init_lift :	1;
-		unsigned int cpx_ij :	1;
-		unsigned int cpx_enabled :	1;
-		unsigned int polar_display :	1;
-		unsigned int polar_form :	1;
-		unsigned int unused : 23;
-	} extra_flag_structure;
+  unsigned int c_lock_on :	1;
+  unsigned int real_entry :	1;
+  unsigned int imag_entry :	1;
+  unsigned int init_stack_size :	1;
+  unsigned int init_lift :	1;
+  unsigned int cpx_ij :	1;
+  unsigned int cpx_enabled :	1;
+  unsigned int polar_display :	1;
+  unsigned int polar_form :	1;
+#ifdef ENTRY_RPN
+  unsigned int entry_on : 1;
+  unsigned int unused : 22;
+#else
+  unsigned int unused : 23;
+#endif
+} extra_flag_structure;
 	
 #endif
 
@@ -532,6 +537,10 @@ extern SMALL_INT RectPolConv; // 1 - R->P just done; 2 - P->R just done
 extern volatile unsigned int OnKeyTicks; // ON (EXIT) key has been held down for this many ticks
 #endif
 
+#ifndef ENTRY_RPN // needed as in xeq.c entry_rpn_enabled is used as a variable
+#define ENTRY_RPN_ENABLED 0
+#endif
+
 #ifdef INCLUDE_C_LOCK
 
 #define CLflags PersistentRam._extra_flags
@@ -569,6 +578,12 @@ extern volatile unsigned int OnKeyTicks; // ON (EXIT) key has been held down for
 #define POLAR_DISPLAY CLflags.polar_display
 #define SET_POLAR_DISPLAY POLAR_DISPLAY = 1
 #define SET_RECTANGULAR_DISPLAY POLAR_DISPLAY = 0
+
+#ifdef ENTRY_RPN
+#define ENTRY_RPN_ENABLED CLflags.entry_on
+#define ENTRY_RPN_ON CLflags.entry_on = 1
+#define ENTRY_RPN_OFF CLflags.entry_on = 0
+#endif
 
 /*
 Polar form flag: stack always contains rectangular form of complex numbers.

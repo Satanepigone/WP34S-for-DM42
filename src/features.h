@@ -333,7 +333,8 @@
 //#define DEFAULT_TO_CPX_YES // No need to XEQ CPXYES to turn on complex lock 
 
 // Enable Entry RPN (pressing Enter doesn't duplicate the x-register)
-// #define ENTRY_RPN
+#define ENTRY_RPN
+//#define DEFAULT_TO_ENTRY_RPN
 
 // Y register is always displayed (cannot be turned off)
 //#define YREG_ALWAYS_ON

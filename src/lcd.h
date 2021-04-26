@@ -65,9 +65,11 @@ extern void show_stack(void);
 #ifdef BIGGER_DISPLAY
 #define BITMAP_WIDTH		74
 #define ALPHA_SWITCH		20
+#define Y_ANNUNC                75
 #else
 #define BITMAP_WIDTH		43
 #define ALPHA_SWITCH		12
+#define Y_ANNUNC               130
 #endif
 
 #ifdef TOP_ROW

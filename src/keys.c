@@ -634,7 +634,6 @@ void init_state(void) {
 	UState.stack_depth = 1; // set stack size to 8 	//JM3
 #endif  									//JM3
 
-
 #ifdef DEFAULT_DATE_YMD			//JM5
 	UState.date_mode = 1;		//JM5
 #endif							//JM5
@@ -659,6 +658,17 @@ void init_state(void) {
 	cpx_nop(OP_CYES);
 	cpx_nop(OP_C_ON);
 #endif
+
+#ifdef ENTRY_RPN
+
+#ifdef DEFAULT_TO_ENTRY_RPN
+	ENTRY_RPN_ON;
+#else
+	ENTRY_RPN_OFF;
+#endif
+
+#endif
+	
 #endif
 
 	State2.test = TST_NONE;
