@@ -45,7 +45,7 @@
 //#define INCLUDE_STOPWATCH
 #endif
 
-//#define INCLUDE_STOPWATCH
+#define INCLUDE_STOPWATCH
 
 // Interrupt XROM code if the EXIT key is held down for at least the number
 // of ticks (100 ms) specified below. Zero disables this feature. Without it

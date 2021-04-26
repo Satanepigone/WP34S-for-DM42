@@ -371,6 +371,7 @@ extern TStateWhileOn StateWhileOn;
 
 #define Ticker DM42_Ticker()
 #define Keyticks keyticks()
+extern long int DM42_Ticker(void);
 
 #endif
 

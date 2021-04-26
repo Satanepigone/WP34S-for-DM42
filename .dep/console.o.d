@@ -26,7 +26,7 @@ build/console.o: src/console.c /usr/include/newlib/stdlib.h \
  src/decNumber/../features.h src/decNumber/decContext.h \
  src/decNumber/decContext.h src/decNumber/decimal64.h \
  src/decNumber/decimal128.h src/data.h src/lcd.h src/int.h src/consts.h \
- src/storage.h src/catalogues.h src/menu.c src/keytran.c
+ src/storage.h src/catalogues.h src/stopwatch.h src/menu.c src/keytran.c
 
 /usr/include/newlib/stdlib.h:
 
@@ -147,6 +147,8 @@ src/consts.h:
 src/storage.h:
 
 src/catalogues.h:
+
+src/stopwatch.h:
 
 src/menu.c:
 

@@ -35,6 +35,9 @@
 #include "consts.h"
 #include "storage.h"
 #include "catalogues.h"
+#ifdef INCLUDE_STOPWATCH
+#include "stopwatch.h"
+#endif
 #undef DM42SAFE
 
 
@@ -500,6 +503,15 @@ void program_main(){
     //  > 0 -> Key pressed
     // == 0 -> Key released
     c = key_pop();
+#ifdef INCLUDE_STOPWATCH
+    if ( KeyCallback != NULL ) {
+      c = (*KeyCallback)( c );
+    }
+    else if ( StopWatchRunning && ( Ticker % STOPWATCH_BLINK ) == 0 ) {
+      dot( LIT_EQ, !is_dot( LIT_EQ ) );
+      finish_display();
+    }
+#endif
     if ( (c != K_HEARTBEAT) && (c > 0) ) {
       reset_auto_off();
       start_key_timer();
