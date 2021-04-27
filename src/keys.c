@@ -728,7 +728,7 @@ static int check_confirm(int op) {
 			|| nilop == OP_PRINT_PGM
 #endif
 #ifdef INCLUDE_STOPWATCH
-			|| nilop == OP_STOPWATCH
+//			|| nilop == OP_STOPWATCH // so it can go in a user menu
 #endif
 		) {
 			// These commands are not programmable
@@ -3583,6 +3583,9 @@ void process_keycode(int c)
 	else if (rarg >= RARG_TEST_EQ && rarg <= RARG_TEST_GE) {
 	  State2.test = TST_EQ + (RARG_CMD(nd_opcode) - RARG_TEST_EQ);
 	  c = STATE_UNFINISHED;
+	}
+	else if ( (nd_opcode & 0x00ff) != 0 ) { // has argument
+	  c = nd_opcode;
 	}
 	else {
 	  init_arg(RARG_CMD(nd_opcode));

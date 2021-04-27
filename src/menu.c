@@ -647,10 +647,12 @@ void build_user_menu(void)
   }
   while (pc && i < 12) {
     s_opcode op;
+    opcode opc;
     char buf1[16];
 
     pc = do_inc(pc, 0);
-    op = (s_opcode) getprog(pc);
+    opc = getprog(pc);
+    op = (s_opcode) opc;
     if (op == (OP_NIL | OP_END))
       break;
     if (op == (OP_NIL | OP_NOP)) {
@@ -667,29 +669,33 @@ void build_user_menu(void)
       i += 1;
       continue;
     }
-    if (isDBL(op)) {
-      i += 1;
-      continue;
-    }
     if (isRARG(op)) {
       const s_opcode rarg = RARG_CMD(op);
-      if (rarg != RARG_ALPHA && rarg != RARG_CONV
-	  && rarg != RARG_CONST && rarg != RARG_CONST_CMPLX)
-	op = op & 0xff00;	// remove argument
+      if ( rarg != RARG_ALPHA && rarg != RARG_CONV
+	  && rarg != RARG_CONST && rarg != RARG_CONST_CMPLX
+	   && ( (op & 0xff) == 0 ) ) { // argument = 0 
+	catcmd (op, buf1);
+      }
+      else {
+	prt_umen(op, buf1);	
+      }
     }
-    catcmd(op, buf1);
+    else {
+	prt_umen(opc, buf1);	
+    }      
+
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wstringop-truncation"
     if (i<6) {
       strncpy(UserMenu.keys[i].unshifted_label, buf1, 7);
       UserMenu.keys[i].unshifted_label[7]='\0';
-      UserMenu.keys[i].unshifted.shift = op;
+      UserMenu.keys[i].unshifted.shift = opc;
       UserMenu.keys[i].unshifted.key_34s = K_OP;
     }
     else {
       strncpy(UserMenu.keys[i-6].shifted_label, buf1, 7);
       UserMenu.keys[i-6].shifted_label[7]='\0';
-      UserMenu.keys[i-6].shifted.shift = op;
+      UserMenu.keys[i-6].shifted.shift = opc;
       UserMenu.keys[i-6].shifted.key_34s = K_OP;
     }
 #pragma GCC diagnostic pop

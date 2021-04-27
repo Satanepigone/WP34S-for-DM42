@@ -198,6 +198,9 @@ static s_opcode program_xfcn[] = {
 	TRI(OP_MULMOD,		"mulmod")
 	TRI(OP_EXPMOD,		"powmod")
 #endif
+#ifdef INCLUDE_STOPWATCH
+	NILIC(OP_STOPWATCH,	"STOPW")
+#endif
 };
 
 

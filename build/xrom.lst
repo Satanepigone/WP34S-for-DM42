@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cckfShP4.s 			page 1
+ARM GAS  /tmp/cc2BAjd3.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
   57 0042 712A     		.short	10865
   58 0044 8101     		.short	385
   59 0046 8201     		.short	386
-ARM GAS  /tmp/cckfShP4.s 			page 2
+ARM GAS  /tmp/cc2BAjd3.s 			page 2
 
 
   60 0048 7423     		.short	9076
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  114 00b4 7423     		.short	9076
  115 00b6 702A     		.short	10864
  116 00b8 6B23     		.short	9067
-ARM GAS  /tmp/cckfShP4.s 			page 3
+ARM GAS  /tmp/cc2BAjd3.s 			page 3
 
 
  117 00ba 7376     		.short	30323
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  171 0126 682A     		.short	10856
  172 0128 7323     		.short	9075
  173 012a 0456     		.short	22020
-ARM GAS  /tmp/cckfShP4.s 			page 4
+ARM GAS  /tmp/cc2BAjd3.s 			page 4
 
 
  174 012c 722A     		.short	10866
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  228 0198 0203     		.short	770
  229 019a 6957     		.short	22377
  230 019c 722A     		.short	10866
-ARM GAS  /tmp/cckfShP4.s 			page 5
+ARM GAS  /tmp/cc2BAjd3.s 			page 5
 
 
  231 019e 7023     		.short	9072
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  285 020a C9A6     		.short	-22839
  286 020c 0A03     		.short	778
  287 020e 663F     		.short	16230
-ARM GAS  /tmp/cckfShP4.s 			page 6
+ARM GAS  /tmp/cc2BAjd3.s 			page 6
 
 
  288 0210 6751     		.short	20839
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  342 027c 0403     		.short	772
  343 027e 6B2D     		.short	11627
  344 0280 3901     		.short	313
-ARM GAS  /tmp/cckfShP4.s 			page 7
+ARM GAS  /tmp/cc2BAjd3.s 			page 7
 
 
  345 0282 9F01     		.short	415
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  399 02ee 0300     		.short	3
  400 02f0 B701     		.short	439
  401 02f2 0756     		.short	22023
-ARM GAS  /tmp/cckfShP4.s 			page 8
+ARM GAS  /tmp/cc2BAjd3.s 			page 8
 
 
  402 02f4 09A7     		.short	-22775
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  456 0360 7923     		.short	9081
  457 0362 01A7     		.short	-22783
  458 0364 7A23     		.short	9082
-ARM GAS  /tmp/cckfShP4.s 			page 9
+ARM GAS  /tmp/cc2BAjd3.s 			page 9
 
 
  459 0366 02A7     		.short	-22782
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  513 03d2 7924     		.short	9337
  514 03d4 7675     		.short	30070
  515 03d6 1A56     		.short	22042
-ARM GAS  /tmp/cckfShP4.s 			page 10
+ARM GAS  /tmp/cc2BAjd3.s 			page 10
 
 
  516 03d8 7A61     		.short	24954
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  570 0444 7E2C     		.short	11390
  571 0446 0502     		.short	517
  572 0448 752A     		.short	10869
-ARM GAS  /tmp/cckfShP4.s 			page 11
+ARM GAS  /tmp/cc2BAjd3.s 			page 11
 
 
  573 044a 7E2D     		.short	11646
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  627 04b6 2956     		.short	22057
  628 04b8 1EA7     		.short	-22754
  629 04ba 0303     		.short	771
-ARM GAS  /tmp/cckfShP4.s 			page 12
+ARM GAS  /tmp/cc2BAjd3.s 			page 12
 
 
  630 04bc 7125     		.short	9585
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  684 0528 5258     		.short	22610
  685 052a 01A7     		.short	-22783
  686 052c 2E58     		.short	22574
-ARM GAS  /tmp/cckfShP4.s 			page 13
+ARM GAS  /tmp/cc2BAjd3.s 			page 13
 
 
  687 052e 1257     		.short	22290
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  741 059a 1700     		.short	23
  742 059c 0A56     		.short	22026
  743 059e 0300     		.short	3
-ARM GAS  /tmp/cckfShP4.s 			page 14
+ARM GAS  /tmp/cc2BAjd3.s 			page 14
 
 
  744 05a0 742D     		.short	11636
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  798 060c 3256     		.short	22066
  799 060e 7123     		.short	9073
  800 0610 00A7     		.short	-22784
-ARM GAS  /tmp/cckfShP4.s 			page 15
+ARM GAS  /tmp/cc2BAjd3.s 			page 15
 
 
  801 0612 7223     		.short	9074
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  855 067e 0000     		.short	0
  856 0680 662B     		.short	11110
  857 0682 1700     		.short	23
-ARM GAS  /tmp/cckfShP4.s 			page 16
+ARM GAS  /tmp/cc2BAjd3.s 			page 16
 
 
  858 0684 0465     		.short	25860
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  912 06f0 00A4     		.short	-23552
  913 06f2 0957     		.short	22281
  914 06f4 CAA3     		.short	-23606
-ARM GAS  /tmp/cckfShP4.s 			page 17
+ARM GAS  /tmp/cc2BAjd3.s 			page 17
 
 
  915 06f6 663D     		.short	15718
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  969 0762 702A     		.short	10864
  970 0764 6552     		.short	21093
  971 0766 2156     		.short	22049
-ARM GAS  /tmp/cckfShP4.s 			page 18
+ARM GAS  /tmp/cc2BAjd3.s 			page 18
 
 
  972 0768 4D20     		.short	8269
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  1026 07d4 6531     		.short	12645
  1027 07d6 6461     		.short	24932
  1028 07d8 0403     		.short	772
-ARM GAS  /tmp/cckfShP4.s 			page 19
+ARM GAS  /tmp/cc2BAjd3.s 			page 19
 
 
  1029 07da 6C2A     		.short	10860
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  1083 0846 0403     		.short	772
  1084 0848 6531     		.short	12645
  1085 084a 3002     		.short	560
-ARM GAS  /tmp/cckfShP4.s 			page 20
+ARM GAS  /tmp/cc2BAjd3.s 			page 20
 
 
  1086 084c 0303     		.short	771
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  1140 08b8 02A7     		.short	-22782
  1141 08ba 0A02     		.short	522
  1142 08bc 0303     		.short	771
-ARM GAS  /tmp/cckfShP4.s 			page 21
+ARM GAS  /tmp/cc2BAjd3.s 			page 21
 
 
  1143 08be 0300     		.short	3
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  1197 092a 0C64     		.short	25612
  1198 092c 0020     		.short	8192
  1199 092e 0203     		.short	770
-ARM GAS  /tmp/cckfShP4.s 			page 22
+ARM GAS  /tmp/cc2BAjd3.s 			page 22
 
 
  1200 0930 6620     		.short	8294
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  1254 099c 6E2A     		.short	10862
  1255 099e 0E64     		.short	25614
  1256 09a0 0303     		.short	771
-ARM GAS  /tmp/cckfShP4.s 			page 23
+ARM GAS  /tmp/cc2BAjd3.s 			page 23
 
 
  1257 09a2 0902     		.short	521
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  1311 0a0e 0458     		.short	22532
  1312 0a10 7250     		.short	20594
  1313 0a12 7161     		.short	24945
-ARM GAS  /tmp/cckfShP4.s 			page 24
+ARM GAS  /tmp/cc2BAjd3.s 			page 24
 
 
  1314 0a14 712A     		.short	10865
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  1368 0a80 0103     		.short	769
  1369 0a82 00A4     		.short	-23552
  1370 0a84 49A3     		.short	-23735
-ARM GAS  /tmp/cckfShP4.s 			page 25
+ARM GAS  /tmp/cc2BAjd3.s 			page 25
 
 
  1371 0a86 019C     		.short	-25599
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  1425 0af2 6F2A     		.short	10863
  1426 0af4 0B64     		.short	25611
  1427 0af6 0303     		.short	771
-ARM GAS  /tmp/cckfShP4.s 			page 26
+ARM GAS  /tmp/cc2BAjd3.s 			page 26
 
 
  1428 0af8 6E2A     		.short	10862
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  1482 0b64 7123     		.short	9073
  1483 0b66 662A     		.short	10854
  1484 0b68 0502     		.short	517
-ARM GAS  /tmp/cckfShP4.s 			page 27
+ARM GAS  /tmp/cc2BAjd3.s 			page 27
 
 
  1485 0b6a 0C01     		.short	268
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  1539 0bd6 0000     		.short	0
  1540 0bd8 0300     		.short	3
  1541 0bda 6461     		.short	24932
-ARM GAS  /tmp/cckfShP4.s 			page 28
+ARM GAS  /tmp/cc2BAjd3.s 			page 28
 
 
  1542 0bdc 0903     		.short	777
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  1596 0c48 6531     		.short	12645
  1597 0c4a 0003     		.short	768
  1598 0c4c 6623     		.short	9062
-ARM GAS  /tmp/cckfShP4.s 			page 29
+ARM GAS  /tmp/cc2BAjd3.s 			page 29
 
 
  1599 0c4e 0300     		.short	3
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  1653 0cba 0565     		.short	25861
  1654 0cbc 1A00     		.short	26
  1655 0cbe 1022     		.short	8720
-ARM GAS  /tmp/cckfShP4.s 			page 30
+ARM GAS  /tmp/cc2BAjd3.s 			page 30
 
 
  1656 0cc0 2300     		.short	35
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  1710 0d2c 00A4     		.short	-23552
  1711 0d2e 1B00     		.short	27
  1712 0d30 2257     		.short	22306
-ARM GAS  /tmp/cckfShP4.s 			page 31
+ARM GAS  /tmp/cc2BAjd3.s 			page 31
 
 
  1713 0d32 8301     		.short	387
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  1767 0d9e 0A02     		.short	522
  1768 0da0 0303     		.short	771
  1769 0da2 6461     		.short	24932
-ARM GAS  /tmp/cckfShP4.s 			page 32
+ARM GAS  /tmp/cc2BAjd3.s 			page 32
 
 
  1770 0da4 652C     		.short	11365
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  1824 0e10 6625     		.short	9574
  1825 0e12 0203     		.short	770
  1826 0e14 702E     		.short	11888
-ARM GAS  /tmp/cckfShP4.s 			page 33
+ARM GAS  /tmp/cc2BAjd3.s 			page 33
 
 
  1827 0e16 1102     		.short	529
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  1881 0e82 6461     		.short	24932
  1882 0e84 3102     		.short	561
  1883 0e86 0203     		.short	770
-ARM GAS  /tmp/cckfShP4.s 			page 34
+ARM GAS  /tmp/cc2BAjd3.s 			page 34
 
 
  1884 0e88 0902     		.short	521
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  1938 0ef4 2757     		.short	22311
  1939 0ef6 49A3     		.short	-23735
  1940 0ef8 0158     		.short	22529
-ARM GAS  /tmp/cckfShP4.s 			page 35
+ARM GAS  /tmp/cc2BAjd3.s 			page 35
 
 
  1941 0efa 1C57     		.short	22300
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  1995 0f66 0B56     		.short	22027
  1996 0f68 7276     		.short	30322
  1997 0f6a 0756     		.short	22023
-ARM GAS  /tmp/cckfShP4.s 			page 36
+ARM GAS  /tmp/cc2BAjd3.s 			page 36
 
 
  1998 0f6c 762A     		.short	10870
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  2052 0fd8 7074     		.short	29808
  2053 0fda 0356     		.short	22019
  2054 0fdc 03A5     		.short	-23293
-ARM GAS  /tmp/cckfShP4.s 			page 37
+ARM GAS  /tmp/cc2BAjd3.s 			page 37
 
 
  2055 0fde 0B56     		.short	22027
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  2109 104a 8A56     		.short	22154
  2110 104c D057     		.short	22480
  2111 104e 2656     		.short	22054
-ARM GAS  /tmp/cckfShP4.s 			page 38
+ARM GAS  /tmp/cc2BAjd3.s 			page 38
 
 
  2112 1050 49A3     		.short	-23735
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  2166 10bc 0F58     		.short	22543
  2167 10be 0C64     		.short	25612
  2168 10c0 1B00     		.short	27
-ARM GAS  /tmp/cckfShP4.s 			page 39
+ARM GAS  /tmp/cc2BAjd3.s 			page 39
 
 
  2169 10c2 0865     		.short	25864
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  2223 112e 6531     		.short	12645
  2224 1130 0403     		.short	772
  2225 1132 3801     		.short	312
-ARM GAS  /tmp/cckfShP4.s 			page 40
+ARM GAS  /tmp/cc2BAjd3.s 			page 40
 
 
  2226 1134 49A3     		.short	-23735
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  2280 11a0 7135     		.short	13681
  2281 11a2 0103     		.short	769
  2282 11a4 02A7     		.short	-22782
-ARM GAS  /tmp/cckfShP4.s 			page 41
+ARM GAS  /tmp/cc2BAjd3.s 			page 41
 
 
  2283 11a6 6531     		.short	12645
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  2337 1212 6E2E     		.short	11886
  2338 1214 1102     		.short	529
  2339 1216 6D2D     		.short	11629
-ARM GAS  /tmp/cckfShP4.s 			page 42
+ARM GAS  /tmp/cc2BAjd3.s 			page 42
 
 
  2340 1218 0203     		.short	770
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  2394 1284 3801     		.short	312
  2395 1286 1A00     		.short	26
  2396 1288 0F65     		.short	25871
-ARM GAS  /tmp/cckfShP4.s 			page 43
+ARM GAS  /tmp/cc2BAjd3.s 			page 43
 
 
  2397 128a 1065     		.short	25872
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  2451 12f6 6E2D     		.short	11630
  2452 12f8 0B02     		.short	523
  2453 12fa 6461     		.short	24932
-ARM GAS  /tmp/cckfShP4.s 			page 44
+ARM GAS  /tmp/cc2BAjd3.s 			page 44
 
 
  2454 12fc 0303     		.short	771
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  2508 1368 0356     		.short	22019
  2509 136a 0B64     		.short	25611
  2510 136c 0E01     		.short	270
-ARM GAS  /tmp/cckfShP4.s 			page 45
+ARM GAS  /tmp/cc2BAjd3.s 			page 45
 
 
  2511 136e 3801     		.short	312
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  2565 13da 0D58     		.short	22541
  2566 13dc 702A     		.short	10864
  2567 13de 6823     		.short	9064
-ARM GAS  /tmp/cckfShP4.s 			page 46
+ARM GAS  /tmp/cc2BAjd3.s 			page 46
 
 
  2568 13e0 7561     		.short	24949
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  2622 144c 6A61     		.short	24938
  2623 144e 6A2A     		.short	10858
  2624 1450 7427     		.short	10100
-ARM GAS  /tmp/cckfShP4.s 			page 47
+ARM GAS  /tmp/cc2BAjd3.s 			page 47
 
 
  2625 1452 7075     		.short	30064
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  2679 14be 8301     		.short	387
  2680 14c0 0122     		.short	8705
  2681 14c2 8601     		.short	390
-ARM GAS  /tmp/cckfShP4.s 			page 48
+ARM GAS  /tmp/cc2BAjd3.s 			page 48
 
 
  2682 14c4 6461     		.short	24932
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  2736 1530 15A2     		.short	-24043
  2737 1532 3801     		.short	312
  2738 1534 36A2     		.short	-24010
-ARM GAS  /tmp/cckfShP4.s 			page 49
+ARM GAS  /tmp/cc2BAjd3.s 			page 49
 
 
  2739 1536 0156     		.short	22017
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  2793 15a2 3801     		.short	312
  2794 15a4 04A2     		.short	-24060
  2795 15a6 05A1     		.short	-24315
-ARM GAS  /tmp/cckfShP4.s 			page 50
+ARM GAS  /tmp/cc2BAjd3.s 			page 50
 
 
  2796 15a8 3801     		.short	312
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  2850 1614 6C2A     		.short	10860
  2851 1616 0C02     		.short	524
  2852 1618 652E     		.short	11877
-ARM GAS  /tmp/cckfShP4.s 			page 51
+ARM GAS  /tmp/cc2BAjd3.s 			page 51
 
 
  2853 161a 0203     		.short	770
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  2907 1686 1158     		.short	22545
  2908 1688 6424     		.short	9316
  2909 168a 0502     		.short	517
-ARM GAS  /tmp/cckfShP4.s 			page 52
+ARM GAS  /tmp/cc2BAjd3.s 			page 52
 
 
  2910 168c 00A4     		.short	-23552
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  2964 16f8 0303     		.short	771
  2965 16fa 7131     		.short	12657
  2966 16fc 3002     		.short	560
-ARM GAS  /tmp/cckfShP4.s 			page 53
+ARM GAS  /tmp/cc2BAjd3.s 			page 53
 
 
  2967 16fe 712D     		.short	11633
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  3021 176a 00A4     		.short	-23552
  3022 176c 1700     		.short	23
  3023 176e 3801     		.short	312
-ARM GAS  /tmp/cckfShP4.s 			page 54
+ARM GAS  /tmp/cc2BAjd3.s 			page 54
 
 
  3024 1770 1A00     		.short	26
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  3078 17dc 6531     		.short	12645
  3079 17de 00A4     		.short	-23552
  3080 17e0 6531     		.short	12645
-ARM GAS  /tmp/cckfShP4.s 			page 55
+ARM GAS  /tmp/cc2BAjd3.s 			page 55
 
 
  3081 17e2 3B59     		.short	22843
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  3135 184e 00A7     		.short	-22784
  3136 1850 0306     		.short	1539
  3137 1852 00A4     		.short	-23552
-ARM GAS  /tmp/cckfShP4.s 			page 56
+ARM GAS  /tmp/cc2BAjd3.s 			page 56
 
 
  3138 1854 C9A3     		.short	-23607
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  3192 18c0 00A4     		.short	-23552
  3193 18c2 C9A3     		.short	-23607
  3194 18c4 0AA8     		.short	-22518
-ARM GAS  /tmp/cckfShP4.s 			page 57
+ARM GAS  /tmp/cc2BAjd3.s 			page 57
 
 
  3195 18c6 0256     		.short	22018
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  3249 1932 3F01     		.short	319
  3250 1934 6461     		.short	24932
  3251 1936 3801     		.short	312
-ARM GAS  /tmp/cckfShP4.s 			page 58
+ARM GAS  /tmp/cc2BAjd3.s 			page 58
 
 
  3252 1938 4AA3     		.short	-23734
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  3306 19a4 0122     		.short	8705
  3307 19a6 3801     		.short	312
  3308 19a8 4AA3     		.short	-23734
-ARM GAS  /tmp/cckfShP4.s 			page 59
+ARM GAS  /tmp/cc2BAjd3.s 			page 59
 
 
  3309 19aa 1700     		.short	23
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  3363 1a16 663F     		.short	16230
  3364 1a18 7535     		.short	13685
  3365 1a1a 02A7     		.short	-22782
-ARM GAS  /tmp/cckfShP4.s 			page 60
+ARM GAS  /tmp/cc2BAjd3.s 			page 60
 
 
  3366 1a1c 7127     		.short	10097
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  3420 1a88 7D35     		.short	13693
  3421 1a8a 753A     		.short	14965
  3422 1a8c 3805     		.short	1336
-ARM GAS  /tmp/cckfShP4.s 			page 61
+ARM GAS  /tmp/cc2BAjd3.s 			page 61
 
 
  3423 1a8e 7B3A     		.short	14971
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  3477 1afa 0103     		.short	769
  3478 1afc 0203     		.short	770
  3479 1afe 702C     		.short	11376
-ARM GAS  /tmp/cckfShP4.s 			page 62
+ARM GAS  /tmp/cc2BAjd3.s 			page 62
 
 
  3480 1b00 7075     		.short	30064
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  3534 1b6c 0106     		.short	1537
  3535 1b6e 6621     		.short	8550
  3536 1b70 743A     		.short	14964
-ARM GAS  /tmp/cckfShP4.s 			page 63
+ARM GAS  /tmp/cc2BAjd3.s 			page 63
 
 
  3537 1b72 663D     		.short	15718
@@ -3755,14 +3755,14 @@ ARM GAS  /tmp/cckfShP4.s 			page 1
  3570              		.file 6 "src/data.h"
  3571              		.file 7 "src/xrom.h"
  3572              		.file 8 "src/xrom.c"
-ARM GAS  /tmp/cckfShP4.s 			page 64
+ARM GAS  /tmp/cc2BAjd3.s 			page 64
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 xrom.c
-     /tmp/cckfShP4.s:3561   .rodata.xrom_size:0000000000000000 xrom_size
-     /tmp/cckfShP4.s:23     .rodata.xrom:0000000000000000 xrom
-     /tmp/cckfShP4.s:20     .rodata.xrom:0000000000000000 $d
-     /tmp/cckfShP4.s:3558   .rodata.xrom_size:0000000000000000 $d
+     /tmp/cc2BAjd3.s:3561   .rodata.xrom_size:0000000000000000 xrom_size
+     /tmp/cc2BAjd3.s:23     .rodata.xrom:0000000000000000 xrom
+     /tmp/cc2BAjd3.s:20     .rodata.xrom:0000000000000000 $d
+     /tmp/cc2BAjd3.s:3558   .rodata.xrom_size:0000000000000000 $d
 
 NO UNDEFINED SYMBOLS

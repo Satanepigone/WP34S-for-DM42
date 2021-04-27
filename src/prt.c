@@ -265,6 +265,36 @@ static const char *prt_multi(const opcode op, char *instr) {
 	return instr;
 }
 
+static const char *prt_multi_umen(const opcode op, char *instr) {
+	char *p, c;
+	int cmd = opDBL(op);
+
+	if (cmd >= NUM_MULTI)
+		return "???";
+	switch (cmd) {
+	case DBL_XEQ:
+	  p = sncopy_char(instr, "XQ", NAME_LEN, '\'');
+	  break;
+	case DBL_GTO:
+	  p = sncopy_char(instr, "GT", NAME_LEN, '\'');
+	  break;
+	case DBL_SOLVE:
+	  p = sncopy_char(instr, "SL", NAME_LEN, '\'');
+	  break;
+	default:
+	  p = sncopy_char(instr, multicmds[cmd].cmd, NAME_LEN, '\'');
+	}
+	  *p++ = op & 0xff;
+	c = (op >> 16) & 0xff;
+	if (c != '\0') {
+		*p++ = c;
+		c = op>>24;
+		if (c != '\0')
+			*p++ = c;
+	}
+	return instr;
+}
+
 const char *prt(opcode op, char *instr) {
 	unsigned int arg;
 	xset(instr, '\0', 16);
@@ -284,72 +314,91 @@ const char *prt(opcode op, char *instr) {
 	}
 	return "???";
 }
-
-const char *catcmd(opcode op, char instr[16]) {
-	unsigned int f;
-	const char *name;
-
+const char *prt_umen(opcode op, char *instr) {
+	unsigned int arg;
 	xset(instr, '\0', 16);
-	if (isDBL(op)) {
-		return prt_multi(op, instr);
-	} else if (isRARG(op)) {
-		f = RARG_CMD(op);
-		if (f < NUM_RARG) {
-			if (f == RARG_CONV) {
-				return prt_conv(op & RARG_MASK, instr);
-			}
-#if defined(INCLUDE_USER_CATALOGUE) && !defined(COMPILE_CATALOGUES)
-			else if (f == RARG_CONST || f == RARG_CONST_CMPLX || f == RARG_ALPHA) {
-				return prt(op, instr);
-			}
-#else
-			else if (f == RARG_CONST || f == RARG_CONST_CMPLX) {
-				const unsigned int arg = op & RARG_MASK;
-				if (arg < NUM_CONSTS)
-					return sncopy(instr, cnsts[arg].cname, CONST_NAMELEN);
-			}
-			else if (f == RARG_ALPHA) {
-				*instr = op & 0xff;
-				return instr;
-			}
-#endif
-			else {
-				return sncopy(instr, argcmds[f].cmd, NAME_LEN);
-			}
-		}
-	} else {
-		f = argKIND(op);
-		switch (opKIND(op)) {
-		default:
-			break;
-		case KIND_SPEC:
-		  //    return prt_specials(f, instr);
-			name = prt_specials(f, instr); 
-			goto copy;
-			// ND change - without this, it returns the string but doesn't copy it to instr.
-		case KIND_NIL:
-			if (f >= NUM_NILADIC) break;
-			name = niladics[f].nname;
-			goto copy;
-
-		case KIND_MON:
-		case KIND_CMON:
-			if (f >= NUM_MONADIC) break;
-			name = monfuncs[f].fname;
-			goto copy;
-
-		case KIND_DYA:
-		case KIND_CDYA:
-			if (f >= NUM_DYADIC) break;
-			name = dyfuncs[f].fname;
-			goto copy;
-
-		case KIND_TRI:
-			if (f >= NUM_TRIADIC) break;
-			name = trifuncs[f].fname;
-		copy:
-			return sncopy(instr, name, NAME_LEN);
-		}
+	if (isDBL(op))
+	  return prt_multi_umen(op, instr);
+	if (isRARG(op))
+		return prt_rargs(op, instr);
+	arg = argKIND(op);
+	switch (opKIND(op)) {
+	case KIND_SPEC:	return prt_specials(arg, instr);
+	case KIND_NIL:	return prt_niladic(arg, instr);
+	case KIND_MON:	return prt_monadic(arg, instr);
+	case KIND_DYA:	return prt_dyadic(arg, instr);
+	case KIND_TRI:	return prt_triadic(arg, instr);
+	case KIND_CMON:	return prt_monadic_cmplx(arg, instr);
+	case KIND_CDYA:	return prt_dyadic_cmplx(arg, instr);
 	}
 	return "???";
+}
+
+const char *catcmd(opcode op, char instr[16]) {
+  unsigned int f;
+  const char *name;
+
+  xset(instr, '\0', 16);
+  if (isDBL(op)) {
+    return prt_multi(op, instr);
+  } else if (isRARG(op)) {
+    f = RARG_CMD(op);
+    if (f < NUM_RARG) {
+      if (f == RARG_CONV) {
+	return prt_conv(op & RARG_MASK, instr);
+      }
+#if defined(INCLUDE_USER_CATALOGUE) && !defined(COMPILE_CATALOGUES)
+      else if (f == RARG_CONST || f == RARG_CONST_CMPLX || f == RARG_ALPHA) {
+	return prt(op, instr);
+      }
+#else
+      else if (f == RARG_CONST || f == RARG_CONST_CMPLX) {
+	const unsigned int arg = op & RARG_MASK;
+	if (arg < NUM_CONSTS)
+	  return sncopy(instr, cnsts[arg].cname, CONST_NAMELEN);
+      }
+      else if (f == RARG_ALPHA) {
+	*instr = op & 0xff;
+	return instr;
+      }
+#endif
+      else {
+	return sncopy(instr, argcmds[f].cmd, NAME_LEN);
+      }
+    }
+  } else {
+    f = argKIND(op);
+    switch (opKIND(op)) {
+    default:
+      break;
+    case KIND_SPEC:
+      //    return prt_specials(f, instr);
+      name = prt_specials(f, instr); 
+      goto copy;
+      // ND change - without this, it returns the string but doesn't copy it to instr.
+    case KIND_NIL:
+      if (f >= NUM_NILADIC) break;
+      name = niladics[f].nname;
+      goto copy;
+
+    case KIND_MON:
+    case KIND_CMON:
+      if (f >= NUM_MONADIC) break;
+      name = monfuncs[f].fname;
+      goto copy;
+
+    case KIND_DYA:
+    case KIND_CDYA:
+      if (f >= NUM_DYADIC) break;
+      name = dyfuncs[f].fname;
+      goto copy;
+
+    case KIND_TRI:
+      if (f >= NUM_TRIADIC) break;
+      name = trifuncs[f].fname;
+    copy:
+      return sncopy(instr, name, NAME_LEN);
+    }
+  }
+  return "???";
 }

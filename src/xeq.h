@@ -1217,6 +1217,9 @@ extern unsigned int findmultilbl(const opcode, int);
 extern void fin_tst(const int);
 
 extern const char *prt(opcode, char *);
+#ifdef DM42
+extern const char *prt_umen(opcode, char *);
+#endif
 extern const char *catcmd(opcode, char *);
 
 extern int stack_size(void);
