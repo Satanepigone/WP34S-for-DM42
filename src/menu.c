@@ -630,6 +630,7 @@ void all_menu_dots () {
     }
   }
 }  
+void umen_store (int i, opcode opc, char* buf1);
 
 void build_user_menu(void)
 {
@@ -637,6 +638,13 @@ void build_user_menu(void)
   const int lbl = OP_DBL + (DBL_LBL << DBL_SHIFT) + 'M' + ('N' << 16) + ('U' << 24);
   unsigned int pc = findmultilbl(lbl, 0);
   int i=0;
+  s_opcode op;
+  opcode opc;
+  char buf1[16];
+  char *p = buf1;
+  char c;
+  int finished = 0;
+
   for (int j = 0; j<6; j++) { // clear user menu
       UserMenu.keys[j].unshifted_label[0] = '\0';
       UserMenu.keys[j].unshifted.shift = 0;
@@ -646,59 +654,85 @@ void build_user_menu(void)
       UserMenu.keys[j].shifted.key_34s = K_NOP;
   }
   while (pc && i < 12) {
-    s_opcode op;
-    opcode opc;
-    char buf1[16];
 
     pc = do_inc(pc, 0);
     opc = getprog(pc);
     op = (s_opcode) opc;
+
     if (op == (OP_NIL | OP_END))
       break;
     if (op == (OP_NIL | OP_NOP)) {
       if (i==4) {
-	UserMenu.keys[i].unshifted.shift = -1;
-	UserMenu.keys[i].unshifted.key_34s = K_ARROW;
+	UserMenu.keys[i].unshifted = (struct _ndmap) {K_ARROW, -1};
 	strncpy(UserMenu.keys[i].unshifted_label, arrow_key_string,5);
       }
       else if (i==5) {
-	UserMenu.keys[i].unshifted.shift = -1;
-	UserMenu.keys[i].unshifted.key_34s = K_CMPLX;
+	UserMenu.keys[i].unshifted = (struct _ndmap) {K_CMPLX, -1};
 	strncpy(UserMenu.keys[i].unshifted_label, cmplx_key_string,5);
       }
       i += 1;
       continue;
     }
-    if (isRARG(op)) {
-      const s_opcode rarg = RARG_CMD(op);
-      if ( rarg != RARG_ALPHA && rarg != RARG_CONV
-	  && rarg != RARG_CONST && rarg != RARG_CONST_CMPLX
-	   && ( (op & 0xff) == 0 ) ) { // argument = 0 
-	catcmd (op, buf1);
+
+    if (isDBL(opc) && (opDBL(opc) == DBL_ALPHA)) { // is it double alpha?
+      if ( finished==1 || p - buf1 == 6 ) { // if we've already finished an alpha...
+	umen_store (i, OP_NIL | OP_NOP, buf1); // no command, so store a NOP
+	i++;
+    	p = buf1;
+	finished = 0;
+      } // ..and start reading the new alpha
+      *p++ = opc & 0xff; // character 1
+      c = (opc >> 16) & 0xff;
+      if (c != '\0') { // if character 2 isn't null..
+	*p++ = c;
+	c = opc>>24;
+	if (c != '\0') // if character 3 isn't null..
+	  *p++ = c;
       }
-      else {
-	prt_umen(op, buf1);	
+      *p = '\0'; // no ++: next character can overwrite the 0.
+      if (c == '\0' || p - buf1 == 6) {
+	finished = 1;
       }
     }
-    else {
-	prt_umen(opc, buf1);	
-    }      
+    else { // Not a DBL_ALPHA op - the usual case
+      if ( p == buf1 ) { // no alpha label to use
+	if (isRARG(op) && p == buf1) {
+	  const s_opcode rarg = RARG_CMD(op);
+	  if ( rarg != RARG_ALPHA && rarg != RARG_CONV
+	       && rarg != RARG_CONST && rarg != RARG_CONST_CMPLX
+	       && ( (op & 0xff) == 0 ) ) { // argument = 0 
+	    catcmd (op, buf1); // display rarg without argument
+	  }
+	  else {
+	    prt_umen(opc, buf1); // display rarg with argument
+	  }
+	}
+	else {
+	  prt_umen(opc, buf1); // display non-rarg thing
+	}
+      }
+      else { // there is an alpha label to use, so reset
+	p = buf1;
+	finished = 0;
+      }
+      umen_store (i, opc, buf1);
+      i++;
+    }
+  }
+}
 
+void umen_store (int i, opcode opc, char* buf1) {
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wstringop-truncation"
     if (i<6) {
       strncpy(UserMenu.keys[i].unshifted_label, buf1, 7);
       UserMenu.keys[i].unshifted_label[7]='\0';
-      UserMenu.keys[i].unshifted.shift = opc;
-      UserMenu.keys[i].unshifted.key_34s = K_OP;
+      UserMenu.keys[i].unshifted = (struct _ndmap) {K_OP, opc};
     }
     else {
       strncpy(UserMenu.keys[i-6].shifted_label, buf1, 7);
       UserMenu.keys[i-6].shifted_label[7]='\0';
-      UserMenu.keys[i-6].shifted.shift = opc;
-      UserMenu.keys[i-6].shifted.key_34s = K_OP;
+      UserMenu.keys[i-6].shifted = (struct _ndmap) {K_OP, opc};
     }
 #pragma GCC diagnostic pop
-    i++;
-  }
-}
+}  
