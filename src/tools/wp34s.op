@@ -2704,3 +2704,5 @@ maxlibsteps=8190
 0xf900	alias-m	INTG
 0xfa00	mult	[alpha]
 0xfa00	alias-m	a
+0xfb00	mult	UMEN
+0xfb00	alias-m	MNU

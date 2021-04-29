@@ -509,7 +509,7 @@ void program_main(){
     }
     else if ( StopWatchRunning && ( Ticker % STOPWATCH_BLINK ) == 0 ) {
       dot( LIT_EQ, !is_dot( LIT_EQ ) );
-      finish_display();
+      finish_LEQ();
     }
 #endif
     if ( (c != K_HEARTBEAT) && (c > 0) ) {

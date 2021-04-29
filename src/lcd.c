@@ -345,16 +345,18 @@ void show_disp(void) { // This function re-draws everything.
 	  lcd_writeText(t20,"ALPHA");
         }
 
-	if (dots[LIT_EQ]) {
-	  lcd_setXY (t20, 360, y_ann-70);
-	  if (C_LOCKED) {
-	    lcd_writeText(t20, "C_LK");
-	  }
-	  else {
-	    lcd_writeText(t20, "=");
-	  }
-        }
+	/* if (dots[LIT_EQ]) { */
+	/*   lcd_setXY (t20, 360, y_ann-70); */
+	/*   if (C_LOCKED) { */
+	/*     lcd_writeText(t20, "C_LK"); */
+	/*   } */
+	/*   else { */
+	/*     lcd_writeText(t20, "="); */
+	/*   } */
+        /* } */
 
+	draw_LEQ();
+	
 	if (dots[BATTERY]) {
 	  //    MOVE(70, 10);   PRINTF("####-");
         }
@@ -720,6 +722,22 @@ void draw_RPN_RCL(void) {
   lcd_writeText(t20, "RUN");
 }
 
+void draw_LEQ(void) { // little equals
+  t20->inv = !dots[LIT_EQ];
+  lcd_setXY (t20, 360, Y_ANNUNC-70);
+  if (C_LOCKED) {
+    lcd_writeText(t20, "C_LK");
+  }
+  else {
+    lcd_writeText(t20, "=");
+  }
+}
+
+void finish_LEQ(void) { // refreshes the RPN and RUN flags only
+  draw_LEQ();  
+  lcd_refresh();
+}
+  
 void finish_RPN(void) { // refreshes the RPN and RUN flags only
   draw_RPN_RCL();  
   lcd_refresh();

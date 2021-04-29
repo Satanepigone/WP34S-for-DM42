@@ -33,6 +33,8 @@ extern void finish_display(void);
 #ifdef DM42
 extern void draw_RPN_RCL(void);
 extern void finish_RPN(void);
+extern void draw_LEQ(void);
+extern void finish_LEQ(void);
 extern void do_all_dots(void);
 #endif
 extern void show_flags(void);

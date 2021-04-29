@@ -477,8 +477,8 @@ static int keycode_to_alpha(const keycode c, unsigned int shift)
 		{ 0000, 0000, 0000, 0000, 0000, 0000,  },  // K60
 		{ ':',  '0',  0207, ' ',  ';',  0247,  },  // K61
 		{ '.',  '.',  0226, 0000, '.',  0266,  },  // K62
-		{ '?',  0000, 0041, 0000, '?',  0000,  },  // K63
-		{ ' ',  '+',  '=',  0000, ' ',  ' ',   },  // K64
+		{ '?',  '!',  0041, 0000, '?',  '!',  },  // K63
+		{ ' ',  '+',  '=',  0006, ' ',  ' ',   },  // K64
 
 		{ 0000, 0000, 0000, 0000, 0000, 0000   },  // shifts etc.
 	};
@@ -3590,6 +3590,18 @@ void process_keycode(int c)
 	else {
 	  init_arg(RARG_CMD(nd_opcode));
 	  c = STATE_UNFINISHED;
+	}
+      }
+      else if (isDBL(nd_opcode)) {
+	if ( (nd_opcode & 0xffff00ff) == 0 ) { // no argument
+	  init_arg(opDBL(nd_opcode));
+	  State2.multi = 1;
+	  State2.alphashift = 0;
+	  State2.rarg = 0;
+	  c = STATE_UNFINISHED;
+	}
+	else { // let argument through
+	  c = nd_opcode;
 	}
       }
       else {

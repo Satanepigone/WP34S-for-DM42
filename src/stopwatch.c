@@ -227,11 +227,40 @@ static void store_stopwatch_in_memory() {
 /*
  * What is the digit for this key?
  */
+#ifdef DM42
+static int get_digit(int key) {
+  int digit = -1;
+  switch (key) {
+  case KEY_0: digit = 0;
+    break;
+  case KEY_1: digit = 1;
+    break;
+  case KEY_2: digit = 2;
+    break;
+  case KEY_3: digit = 3;
+    break;
+  case KEY_4: digit = 4;
+    break;
+  case KEY_5: digit = 5;
+    break;
+  case KEY_6: digit = 6;
+    break;
+  case KEY_7: digit = 7;
+    break;
+  case KEY_8: digit = 8;
+    break;
+  case KEY_9: digit = 9;
+    break;
+  default:;
+  }
+  return digit>=0 && digit<=9 && global_regs() > 0 ? digit : -1;
+}
+#else
 static int get_digit(int key) {
 	int digit=keycode_to_digit_or_register(key);
 	return digit>=0 && digit<=9 && global_regs() > 0 ? digit : -1;
 }
-
+#endif
 /*
  * R/S has been pressed
  */

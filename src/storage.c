@@ -322,7 +322,9 @@ void reset( void )
   xset( &PersistentRam, 0, sizeof( PersistentRam ) );
 	clrall();
 	init_state();
+#ifndef DM42
 	UState.contrast = 6;
+#endif
 #ifdef INFRARED
 	State.print_delay = 10;
 #endif

@@ -22,6 +22,12 @@ Just as with the WP34s, SwissMicros neither provide nor support this code. All o
 
 You can find documentation for the original WP34c calculator in the help/ folder. There is now also updated documentation that describes how the DM42 version works.
 
+The user-defined menu feature has been developed further. There is a document describing its operation in the help/ folder. (Early adopters who called their user menu program MNU will have to rename it, or type the name in by hand! Sorry.)
+
+The WP34S stopwatch feature is now included. To run it, use the STOPW command in the X.FCN menu (shift shift 3). So far as I can see, all of the stopwatch features described in the manual work on the DM42. Note that the stopwatch will "continue running" even if the DM42 is turned off. This isn't a problem: the stopwatch works by recording the ticks from the real-time clock when it is started, and then subtracting this from the current ticks whenever a time has to be displayed. When a time isn't displayed, nothing special is happening, apart from the blinking "=" sign.
+
+There is also an option to turn on "Entry RPN" (eRPon and eRPoff in the MODES menu). There is a document describing this in the help/ folder.
+
 As yet, there is no WP34c-specific help file for the calculator.
 
 Nigel (UK)

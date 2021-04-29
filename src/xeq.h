@@ -1018,6 +1018,9 @@ enum multiops {
         DBL_LBL=0, DBL_LBLP, DBL_XEQ, DBL_GTO,
         DBL_SUM, DBL_PROD, DBL_SOLVE, DBL_DERIV, DBL_2DERIV, DBL_INTG,
         DBL_ALPHA,
+#ifdef DM42
+	DBL_UMENU,
+#endif
 #ifdef XROM_LONG_BRANCH // no
         DBL_XBR,
 #endif
@@ -1377,6 +1380,9 @@ extern void cmdgto(unsigned int arg, enum rarg op);
 extern void cmdalphagto(unsigned int arg, enum rarg op);
 extern void op_gtoalpha(enum nilop op);
 extern void op_xeqalpha(enum nilop op);
+#ifdef DM42
+extern void multiumenu(const opcode o, enum multiops mopr);
+#endif
 extern void cmdmultigto(const opcode o, enum multiops mopr);
 extern void cmdlblp(unsigned int arg, enum rarg op);
 extern void cmdmultilblp(const opcode o, enum multiops mopr);

@@ -288,17 +288,23 @@ static void raw_set_pc(unsigned int pc) {
  *  Where do the program regions start?
  */
 #ifdef DM42
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdiscarded-qualifiers"
 static s_opcode * RegionTab[] = {
 	NULL,
 	NULL,
 	NULL,
 	xrom
 };
+#pragma GCC diagnostic pop
+
 void init_RegionTab (void) {
   RegionTab[0] = (s_opcode*) Prog;
   RegionTab[1] = (s_opcode*) UserFlash.prog;
   RegionTab[2] = (s_opcode*) BackupFlash._prog;
 }
+
 #else
 static const s_opcode *const RegionTab[] = {
 	Prog,
@@ -2377,6 +2383,13 @@ void cmdmultigto(const opcode o, enum multiops mopr) {
 	}
 }
 
+void multiumenu(const opcode o, enum multiops mopr) {
+  opcode op = (o & 0xFFFFF0FF) + ((DBL_LBL) << DBL_SHIFT); // change opcode to LBL
+  build_user_menu_from_program(op);
+  set_menu (M_User);
+  display_current_menu ();
+}
+
 static void branchtoalpha(int is_gsb, char buf[]) {
 	unsigned int op;
 
@@ -3778,9 +3791,10 @@ void cmdrestm(unsigned int arg, enum rarg op) {
 	xcopy( &UState, get_reg_n(arg), sizeof(unsigned long long int) );
 
 	// Fix things
+#ifndef DM42
 	if ( UState.contrast == 0 )
 		UState.contrast = 6;
-
+#endif
 	if (intm != is_intmode()) {
 		// Switch back to decimal or integer mode
 		UState.intm = intm;

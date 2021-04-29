@@ -430,6 +430,17 @@ static const struct _menu Menus[] = {
       { CMPLX_KEY, { K34, 3 }, "CPX", "./" },
     }
   },
+  {
+    "M_Usermenu", // 24
+    { 
+      { { K_OP, 0x0000fb00  }, NO_KEY, "UMEN", "" },
+      { { K_OP, 0x314dfb55 }, { K_OP, 0x344dfb55 }, "UM1", "UM4" },
+      { { K_OP, 0x324dfb55 }, { K_OP, 0x354dfb55 }, "UM2", "UM5" },
+      { { K_OP, 0x334dfb55 }, { K_OP, 0x364dfb55 }, "UM3", "UM6" },
+      { ARROW_KEY, { K44, 3 }, "--\015", "" },
+      { CMPLX_KEY, { K34, 3 }, "CPX", "" },
+    }
+  },
 
 };  
 
@@ -632,10 +643,16 @@ void all_menu_dots () {
 }  
 void umen_store (int i, opcode opc, char* buf1);
 
-void build_user_menu(void)
+void build_user_menu(void){
+  // find the label 'MNU'
+   const int lbl = OP_DBL + (DBL_LBL << DBL_SHIFT) + 'M' + ('N' << 16) + ('U' << 24);
+   build_user_menu_from_program (lbl);
+}
+
+void build_user_menu_from_program(int lbl)
 {
   // find the label 'MNU'
-  const int lbl = OP_DBL + (DBL_LBL << DBL_SHIFT) + 'M' + ('N' << 16) + ('U' << 24);
+  // const int lbl = OP_DBL + (DBL_LBL << DBL_SHIFT) + 'M' + ('N' << 16) + ('U' << 24);
   unsigned int pc = findmultilbl(lbl, 0);
   int i=0;
   s_opcode op;

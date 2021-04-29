@@ -45,6 +45,7 @@ extern menu_name default_menu;
 
 extern void all_menu_dots ( void );
 extern void build_user_menu(void);
+extern void build_user_menu_from_program(int);
 extern void display_menu (struct _menu Ref);
 extern void display_current_menu ( void );
 extern menu_name get_menu ();

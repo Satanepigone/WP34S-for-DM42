@@ -34,7 +34,14 @@
  *  User visible state
  */
 struct _ustate {
+#ifdef DM42
+  	unsigned int unused_c1 :      1;	// free
+  	unsigned int unused_c2 :      1;	// free
+  	unsigned int unused_c3 :      1;	// free
+  	unsigned int unused_c4 :      1;	// free
+#else
 	unsigned int contrast :      4;	// Display contrast
+#endif
 	unsigned int denom_mode :    2;	// Fractions denominator mode
 	unsigned int denom_max :    14;	// Maximum denominator
 	unsigned int improperfrac :  1;	// proper or improper fraction display
@@ -79,7 +86,10 @@ struct _ustate {
 /*
  *  Bit offsets for XROM use
  */
+#ifdef DM42
+#else
 #define UState_contrast       00 // 4	// Display contrast
+#endif
 #define UState_denom_mode1    04 // 1	// Fractions denominator mode
 #define UState_denom_mode2    05 // 1	// Fractions denominator mode
 #define UState_denom_max      06 // 14	// Maximum denominator
