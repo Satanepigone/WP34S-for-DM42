@@ -25,8 +25,10 @@
 #include "stats.h"
 #include "decn.h"
 #include "revision.h"
-#ifndef DM42
+#ifdef INFRARED
 #include "printer.h"
+#endif
+#ifndef DM42
 #include "serial.h"
 #endif
 
@@ -900,7 +902,8 @@ static void set_exp(int exp, int flags, char *res) {
 	    getRegister(&y, regK_idx);
 	  }
 	  else {
-	    getRegister(&y, (ShowRegister >= regX_idx && ShowRegister < regX_idx + stack_size() && get_cmdline()
+	    getRegister(&y, (ShowRegister >= regX_idx && ShowRegister < regX_idx + stack_size()
+			     && (get_cmdline() && !State2.catalogue)
 			     && !(yreg_enabled && !State2.state_lift) // unless stack lift is disabled...
 			     ) ? ShowRegister : ShowRegister+1);
 	  }
@@ -1238,7 +1241,8 @@ static void set_exp(int exp, int flags, char *res) {
 		    getRegister(&y, regK_idx);
 		  }
 		  else {
-		    getRegister(&y, (ShowRegister >= regX_idx && ShowRegister < regX_idx + stack_size() && get_cmdline()
+		    getRegister(&y, (ShowRegister >= regX_idx && ShowRegister < regX_idx + stack_size()
+				     && (get_cmdline() && !State2.catalogue)
 				     && !(yreg_enabled && !State2.state_lift) // unless stack lift is disabled...
 				     ) ? ShowRegister : ShowRegister+1);
 		  }

@@ -305,26 +305,48 @@ maxlibsteps=8190
 0x01ba	alias-c	cDOT
 0x01bb	cmd	[cmplx]CROSS
 0x01bb	alias-c	cCROSS
-0x01bc	cmd	XTAL?
-0x01bd	cmd	[print]?
-0x01bd	alias-c	PRT?
-0x01be	cmd	YDON
-0x01bf	cmd	YDOFF
-0x01c0	cmd	CPX
-0x01c1	cmd	C_LK
-0x01c2	cmd	UNLK
-0x01c3	cmd	-IM
-0x01c4	cmd	-RE
-0x01c5	cmd	REAL
-0x01c6	cmd	IMAG
-0x01c7	cmd	->PI
-0x01c8	cmd	*PI
-0x01c9	cmd	CPXI
-0x01ca	cmd	CPXJ
-0x01cb	cmd	CPXYES
-0x01cc	cmd	CPXNO
-0x01cd	cmd	eRPon
-0x01ce	cmd	eRPoff
+0x01bc	cmd	[print]PROG
+0x01bc	alias-c	P.PROG
+0x01bd	cmd	[print]REGS
+0x01bd	alias-c	P.REGS
+0x01be	cmd	[print]STK
+0x01be	alias-c	P.STK
+0x01bf	cmd	[print][SIGMA]
+0x01bf	alias-c	P.SUMS
+0x01c0	cmd	[print][alpha]
+0x01c0	alias-c	P.a
+0x01c1	cmd	[print][alpha]+
+0x01c1	alias-c	P.a+
+0x01c2	cmd	[print]+[alpha]
+0x01c2	alias-c	P.+a
+0x01c3	cmd	[print]ADV
+0x01c3	alias-c	P.ADV
+0x01c4	cmd	[print]WIDTH
+0x01c4	alias-c	P.WIDTH
+0x01c5	cmd	XTAL?
+0x01c6	cmd	[print]?
+0x01c6	alias-c	PRT?
+0x01c7	cmd	YDON
+0x01c8	cmd	YDOFF
+0x01c9	cmd	CPX
+0x01ca	cmd	C_LK
+0x01cb	cmd	UNLK
+0x01cc	cmd	-IM
+0x01cd	cmd	-RE
+0x01ce	cmd	REAL
+0x01cf	cmd	IMAG
+0x01d0	cmd	->PI
+0x01d1	cmd	*PI
+0x01d2	cmd	CPXI
+0x01d3	cmd	CPXJ
+0x01d4	cmd	CPXYES
+0x01d5	cmd	CPXNO
+0x01d6	cmd	eRPon
+0x01d7	cmd	eRPoff
+0x01d9	cmd	[print].ON
+0x01d9	alias-c	P.ON
+0x01da	cmd	[print].OFF
+0x01da	alias-c	P.OFF
 0x0200	cmd	FP
 0x0201	cmd	FLOOR
 0x0202	cmd	CEIL
@@ -2684,11 +2706,27 @@ maxlibsteps=8190
 0xa900	arg	CNST	max=106,indirect
 0xaa00	arg	[cmplx]CNST	max=106,indirect
 0xaa00	alias-a	cCNST	max=106,indirect
-0xab00	arg	CASE	max=128,indirect,stack
-0xac00	arg	[cmplx]VIEW	max=128,indirect,stack,complex
-0xac00	alias-a	cVIEW	max=128,indirect,stack,complex
-0xad00	arg	SIG	max=8,indirect
-0xae00	arg	SIG0	max=8,indirect
+0xab00	arg	[print]r	max=128,indirect,stack
+0xab00	alias-a	P.r	max=128,indirect,stack
+0xac00	arg	[print]#	max=128,indirect
+0xac00	alias-a	P.#	max=128,indirect
+0xad00	arg	[print]CHR	max=128,indirect
+0xad00	alias-a	P.CHR	max=128,indirect
+0xae00	arg	[print]TAB	max=128,indirect
+0xae00	alias-a	P.TAB	max=128,indirect
+0xaf00	arg	[print]MODE	max=4,indirect
+0xaf00	alias-a	P.MODE	max=4,indirect
+0xb000	arg	[print]DLAY	max=32,indirect
+0xb000	alias-a	P.DLAY	max=32,indirect
+0xb100	arg	[print][cmplx]r[sub-x][sub-y]	max=128,indirect,stack,complex
+0xb100	alias-a	P.crect	max=128,indirect,stack,complex
+0xb200	arg	CASE	max=128,indirect,stack
+0xb300	arg	[cmplx]VIEW	max=128,indirect,stack,complex
+0xb300	alias-a	cVIEW	max=128,indirect,stack,complex
+0xb400	arg	SIG	max=8,indirect
+0xb500	arg	SIG0	max=8,indirect
+0xb600	arg	[print]DBSP	max=2,indirect
+0xb600	alias-a	P.DBSP	max=2,indirect
 0xf000	mult	LBL
 0xf100	mult	LBL?
 0xf200	mult	XEQ

@@ -35,9 +35,14 @@
  */
 struct _ustate {
 #ifdef DM42
-  	unsigned int unused_c1 :      1;	// free
+#ifdef INFRARED
+        unsigned int print_on :      1;	// Printing on/off
+  	unsigned int print_blank_line :      1;	// Print space between lines
+#else
+        unsigned int unused_c1 :      1;	// free
   	unsigned int unused_c2 :      1;	// free
-  	unsigned int unused_c3 :      1;	// free
+#endif
+        unsigned int unused_c3 :      1;	// free
   	unsigned int unused_c4 :      1;	// free
 #else
 	unsigned int contrast :      4;	// Display contrast
@@ -87,6 +92,10 @@ struct _ustate {
  *  Bit offsets for XROM use
  */
 #ifdef DM42
+#ifdef INFRARED
+#define UState_print_on 00 // 1 // printing on/off
+#define UState_print_blank_line 01 // 1 // print blank line between lines
+#endif
 #else
 #define UState_contrast       00 // 4	// Display contrast
 #endif

@@ -65,7 +65,8 @@ SRCS := keys.c display.c xeq.c prt.c decn.c complex.c stats.c \
 		lcd.c int.c date.c consts.c alpha.c charmap.c \
 		commands.c string.c storage.c matrix.c \
 		font.c xrom.c console.c \
-		stopwatch.c 
+		stopwatch.c \
+		printer.c
 C_SRCS := $(addprefix src/,$(SRCS))
 
 C_SOURCES += $(C_SRCS)
@@ -74,8 +75,8 @@ HEADERS := alpha.h charset7.h complex.h consts.h data.h \
 		date.h decn.h display.h features.h int.h keys.h lcd.h \
 		stats.h xeq.h xrom.h storage.h matrix.h menu.h menu.c keytran.c \
 		main.h \
-		stopwatch.h
-
+		stopwatch.h \
+		printer.h
 
 # Libraries
 #ifeq ($(DEBUG), 1)

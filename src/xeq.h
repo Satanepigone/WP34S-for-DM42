@@ -837,7 +837,7 @@ enum nilop {
         OP_DATE_TO,
 
         OP_DOTPROD, OP_CROSSPROD,
-#ifndef DM42 // ny?
+#ifdef INFRARED // ny?
         /* INFRARED commands */
         OP_PRINT_PGM, OP_PRINT_REGS, OP_PRINT_STACK, OP_PRINT_SIGMA,
         OP_PRINT_ALPHA, OP_PRINT_ALPHA_NOADV, OP_PRINT_ALPHA_JUST, OP_PRINT_ADV,
@@ -860,6 +860,9 @@ enum nilop {
 #ifdef INCLUDE_STOPWATCH // ny?
         OP_STOPWATCH,
 #endif // INCLUDE_STOPWATCH
+#ifdef INFRARED
+	OP_PRINT_ON, OP_PRINT_OFF,
+#endif
 #ifdef _DEBUG // no
         OP_DEBUG,
 #endif
@@ -967,7 +970,7 @@ enum rarg {
         RARG_IND_CONST,
         RARG_IND_CONST_CMPLX,
 #endif
-#ifndef DM42 // ny?
+#ifdef INFRARED
         /* INFRARED commands */
         RARG_PRINT_REG, RARG_PRINT_BYTE, RARG_PRINT_CHAR, RARG_PRINT_TAB, 
         RARG_PMODE, RARG_PDELAY,
@@ -989,6 +992,9 @@ enum rarg {
         RARG_CVIEW,
 #ifdef INCLUDE_SIGFIG_MODE // ok
 	RARG_SIG, RARG_SIG0,
+#endif
+#ifdef INFRARED
+	RARG_DBLSP,
 #endif
         NUM_RARG        // Last entry defines number of operations
 };

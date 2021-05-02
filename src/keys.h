@@ -90,6 +90,7 @@ typedef enum {
   M_Blank2_C,
   M_Misc_C, // 23
   M_Usermenu,
+  M_Print,
   M_User = 99,
 } menu_name;
 

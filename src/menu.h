@@ -4,7 +4,7 @@
 
 //K_MULTI defines
 
-#define LASTX 1
+//#define LASTX 1
 #define ONSTO 2
 #define ONRCL 3
 #define WRLIB 4

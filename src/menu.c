@@ -441,6 +441,17 @@ static const struct _menu Menus[] = {
       { CMPLX_KEY, { K34, 3 }, "CPX", "" },
     }
   },
+  {
+    "M_Print", // 25
+    { 
+      { { K_OP, OP_NIL | OP_PRINT_ON  }, { K_OP, OP_NIL | OP_PRINT_OFF }, "\222\006On", "\222\006Off" },
+      { { K_OP, RARG_BASEOP(RARG_PMODE) }, { K_OP, RARG_BASEOP(RARG_DBLSP) }, "\222\006Mode", "\222\006DbSp" },
+      { { K_OP, OP_NIL | OP_PRINT_PGM }, { K_OP, OP_NIL | OP_PRINT_REGS }, "\222\006Prog", "\222\006Regs" },
+      { { K_OP, OP_NIL | OP_PRINT_STACK }, { K_OP, OP_NIL | OP_PRINT_SIGMA }, "\222\006Stck", "\222\006\221" },
+      { ARROW_KEY, { K_OP, OP_NIL | OP_PRINT_ALPHA }, "--\015", "\222\006\240" },
+      { CMPLX_KEY, { K_OP, OP_NIL | OP_PRINT_ADV }, "CPX", "\222\006ADV" },
+    }
+  },
 
 };  
 

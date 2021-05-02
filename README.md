@@ -2,7 +2,32 @@
 
 ## A project to bring the WP34c calculator firmware to the DM42 hardware. 
 
-The WP34c calculator is almost the same as the WP34s, but with some interface changes to make working with complex numbers more straightforward.
+###**Note:** all of the new features below are available [here](https://gitlab.com/njdowrick/wp34s-for-dm42/-/tree/wp34c), in the `build/` folder of the wp34c branch of the project. You want either `wp34c.pgm`, `wp34c_long.pgm`, or `wp34c_top.pgm`. These differ only in their displays: the first is most like the wp34c, while `wp34c_top.pgm` adds an extra top row for annunciators. Most people seem to prefer `wp34c_top.pgm`.
+
+####**New!** 
+IR printing is now supported (first version). I have tested this on an HP 82240B printer and all commands seem to be working. I don't see how sending the wrong control codes could damage your printer, but be aware that it's **not** my responsibility if they do!
+
+There are a few differences from the printing commands of the WP34s (of which I have no direct experience.)
+
+  * Print mode 3 (Serial) is not supported, as that would be silly.
+  * Printing can be turned on and off, using the [P].ON and [P].OFF commands ('P' is the printer icon) in the MODE catalogue (also available from the PRINT menu - see below). When on, a new annunciator (PRT) appears on the screen. When off, no print commands print anything, although print mode, delay time, etc., can still be changed.
+  * Pressing SHIFT 3 (PRINT) brings up a menu with lots of nice printing commands in it. These and the other printing commands are also available from the usual catalogues (see the WP34s manual for details).
+  * Due to a bug, the first version of the code printed a blank line every other line. I liked this so much that I added it as an option - [P]DBSP with an argument of 1 turns this on, while an argument of 0 turns it off.
+  * The default print delay of 1.8s seems fine on my battery-powered printer.
+
+####**New!** 
+The WP34S stopwatch feature is now included. To use it, use the STOPW command in the X.FCN menu (shift shift 3). So far as I can see, all of the stopwatch features described in the manual work on the DM42. 
+
+Note that the stopwatch continues to "run" even if the DM42 is turned off. This isn't a problem: the stopwatch works by recording the ticks from the real-time clock when it is started, and then subtracting this from the current ticks whenever a time has to be displayed. When a time isn't displayed, nothing special is happening, apart from the blinking "=" sign.
+
+####**New!** 
+There is now an "Entry RPN" (eRPon and eRPoff in the MODES menu). There is a document describing this in the help/ folder.
+
+####**New!**
+The user-defined menu feature has been developed further. There is a document describing its operation in the help/ folder. (Early adopters who called their user menu program MNU will have to rename it, or type the name in by hand. Sorry.)
+
+###**The WP34c calculator...**
+...is almost the same as the WP34s, but with some interface changes to make working with complex numbers more straightforward.
 
 <img src="help/screens/wp34c_02.png" width="400">
 
@@ -22,12 +47,6 @@ Just as with the WP34s, SwissMicros neither provide nor support this code. All o
 
 You can find documentation for the original WP34c calculator in the help/ folder. There is now also updated documentation that describes how the DM42 version works.
 
-The user-defined menu feature has been developed further. There is a document describing its operation in the help/ folder. (Early adopters who called their user menu program MNU will have to rename it, or type the name in by hand! Sorry.)
-
-The WP34S stopwatch feature is now included. To run it, use the STOPW command in the X.FCN menu (shift shift 3). So far as I can see, all of the stopwatch features described in the manual work on the DM42. Note that the stopwatch will "continue running" even if the DM42 is turned off. This isn't a problem: the stopwatch works by recording the ticks from the real-time clock when it is started, and then subtracting this from the current ticks whenever a time has to be displayed. When a time isn't displayed, nothing special is happening, apart from the blinking "=" sign.
-
-There is also an option to turn on "Entry RPN" (eRPon and eRPoff in the MODES menu). There is a document describing this in the help/ folder.
-
-As yet, there is no WP34c-specific help file for the calculator.
+As yet, there is *still* no WP34c-specific help file for the calculator.
 
 Nigel (UK)

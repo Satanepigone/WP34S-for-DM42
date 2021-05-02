@@ -704,7 +704,7 @@ const struct niladic niladics[ NUM_NILADIC ] = {
 
 	FUNC0(OP_DOTPROD,	XNIL(cpx_DOT),		"\024DOT",	"cDOT")
 	FUNC0(OP_CROSSPROD,	XNIL(cpx_CROSS),	"\024CROSS",	"cCROSS")
-#ifndef DM42
+#ifdef INFRARED
 	/* INFRARED commands */
 	FUNC0(OP_PRINT_PGM,	IRN(print_program),	"\222PROG",	"P.PROG")
 	FUNC0(OP_PRINT_REGS,	IRN(print_registers),	"\222REGS",	"P.REGS")
@@ -745,6 +745,10 @@ const struct niladic niladics[ NUM_NILADIC ] = {
 #endif
 #ifdef INCLUDE_STOPWATCH
 	FUNC0(OP_STOPWATCH,	&stopwatch,		"STOPW",	CNULL)
+#endif
+#ifdef INFRARED
+	FUNC0(OP_PRINT_ON,	IRN(print_on_off),	"\222.ON",	"P.ON")
+	FUNC0(OP_PRINT_OFF,	IRN(print_on_off),	"\222.OFF",	"P.OFF")
 #endif
 #ifdef _DEBUG
 	FUNC0(OP_DEBUG,		XNIL(DBG),		"DBG",		CNULL)
@@ -981,7 +985,7 @@ const struct argcmd argcmds[ NUM_RARG ] = {
 	CMD(RARG_IND_CONST,	  &cmdconst,	NUM_CONSTS,		"CNST",		CNULL)
 	CMD(RARG_IND_CONST_CMPLX, &cmdconst,	NUM_CONSTS,		"\024CNST",	"cCNST")
 #endif
-#ifndef DM42
+#ifdef INFRARED
 	/* INFRARED commands */
 	CMDstk(RARG_PRINT_REG,	IRA(cmdprintreg),			"\222r",	"P.r")
 	CMD(RARG_PRINT_BYTE,	IRA(cmdprint),	256,			"\222#",	"P.#")
@@ -1015,7 +1019,9 @@ const struct argcmd argcmds[ NUM_RARG ] = {
 	CMD(RARG_SIG,		&cmddisp,	8,			"SIG",		CNULL)
 	CMD(RARG_SIG0,		&cmddisp,	8,			"SIG0",		CNULL)
 #endif
-
+#ifdef INFRARED
+	CMD(RARG_DBLSP,	        IRA(cmdprintmode),  2,			"\222DBSP",	"P.DBSP")
+#endif
 #undef CMDlbl
 #undef CMDlblnI
 #undef CMDnoI

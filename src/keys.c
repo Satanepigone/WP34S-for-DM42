@@ -31,7 +31,7 @@
 #include "storage.h"
 #include "stats.h"
 #include "catalogues.h"
-#ifndef DM42
+#ifdef INFRARED
 #include "printer.h"
 #endif
 #ifdef INCLUDE_C_LOCK

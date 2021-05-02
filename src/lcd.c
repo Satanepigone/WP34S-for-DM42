@@ -23,7 +23,7 @@
 #include "display.h"
 #include "xeq.h"
 
-#ifdef INCLUDE_C_LOCK
+#if defined(INCLUDE_C_LOCK) || defined(INFRARED)
 #include "data.h"
 #include "storage.h"
 #endif
@@ -331,6 +331,11 @@ void show_disp(void) { // This function re-draws everything.
         }
 	t20->inv = 0;
 	
+	if (UState.print_on) {
+	  lcd_setXY(t20, 250, y_ann-70);
+	  lcd_writeText(t20,"PRT");
+        }
+
         if (dots[DOWN_ARR]) {
 	  lcd_fill_rect(287,y_ann-67,5,12,0xff);
 	  lcd_fill_rect(285,y_ann-55,9,1,0xff);
@@ -720,6 +725,7 @@ void draw_RPN_RCL(void) {
   t20->inv = !dots[RCL_annun];
   lcd_setXY (t20, 365, Y_ANNUNC-50); // 70 is y_ann
   lcd_writeText(t20, "RUN");
+  t20->inv = 0;
 }
 
 void draw_LEQ(void) { // little equals
@@ -731,6 +737,7 @@ void draw_LEQ(void) { // little equals
   else {
     lcd_writeText(t20, "=");
   }
+  t20->inv = 0;
 }
 
 void finish_LEQ(void) { // refreshes the RPN and RUN flags only

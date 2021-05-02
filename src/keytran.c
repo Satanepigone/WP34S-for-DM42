@@ -74,7 +74,8 @@ static const struct _ndmap mapping_none[] = {
     {K03, 2}, // atan
     // Third row of DM42 13--17
     {K20, 1}, // alpha
-    {K_MULTI, 1}, // lastX not available; it's RCL L; so just RCL for now;
+    //    {K_MULTI, 1}, // lastX 
+    {K_OP, RARG( RARG_RCL, regL_idx )}, // lastX 
     {K_SETMENU,  M_Angles}, // ANGLES menu
     {K_SETMENU,  M_Disp}, // DISP menu
     {K_SETMENU,  M_Clear}, // CLR menu
@@ -95,7 +96,7 @@ static const struct _ndmap mapping_none[] = {
     {K_MULTI, DEFMEN}, // toggle default menu
     {K_SETMENU,  M_User}, // select user menu
     {K52, 3}, // P.FCN cat
-    {K_NOP, 0}, // no function
+    {K_SETMENU, M_Print}, // Print menu
     // Last row of DM42 33--37
     {K60, 3}, // off
     {K_SETMENU,  M_Setup1}, // SETUP menu

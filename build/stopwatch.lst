@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cca1cmLj.s 			page 1
+ARM GAS  /tmp/cc6B2BGM.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
   27:src/stopwatch.c **** #include "consts.h"
   28:src/stopwatch.c **** #include "alpha.h"
   29:src/stopwatch.c **** #include "lcd.h"
-ARM GAS  /tmp/cca1cmLj.s 			page 2
+ARM GAS  /tmp/cc6B2BGM.s 			page 2
 
 
   30:src/stopwatch.c **** #include "keys.h"
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
   84:src/stopwatch.c **** 
   85:src/stopwatch.c **** #ifdef DM42
   86:src/stopwatch.c **** #define STOPWATCH_RS KEY_RUN
-ARM GAS  /tmp/cca1cmLj.s 			page 3
+ARM GAS  /tmp/cc6B2BGM.s 			page 3
 
 
   87:src/stopwatch.c **** #define STOPWATCH_EXIT KEY_EXIT
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  141:src/stopwatch.c **** }
  142:src/stopwatch.c **** 
  143:src/stopwatch.c **** /*
-ARM GAS  /tmp/cca1cmLj.s 			page 4
+ARM GAS  /tmp/cc6B2BGM.s 			page 4
 
 
  144:src/stopwatch.c ****  * Converts a ticker count to a String
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  198:src/stopwatch.c **** 		display_rcl_message=1;
  199:src/stopwatch.c **** 	}
  200:src/stopwatch.c **** 	stopwatch_message(display_rcl_message?message:STOPWATCH_MESSAGE, buf, StopWatchStatus.sigma_displa
-ARM GAS  /tmp/cca1cmLj.s 			page 5
+ARM GAS  /tmp/cc6B2BGM.s 			page 5
 
 
  201:src/stopwatch.c **** }
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  255:src/stopwatch.c ****   }
  256:src/stopwatch.c ****   return digit>=0 && digit<=9 && global_regs() > 0 ? digit : -1;
  257:src/stopwatch.c **** }
-ARM GAS  /tmp/cca1cmLj.s 			page 6
+ARM GAS  /tmp/cc6B2BGM.s 			page 6
 
 
  258:src/stopwatch.c **** #else
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  287:src/stopwatch.c **** 	RclMemory=index;
   50              		.loc 1 287 27 view .LVU9
   51 0008 174D     		ldr	r5, .L4+8
-ARM GAS  /tmp/cca1cmLj.s 			page 7
+ARM GAS  /tmp/cc6B2BGM.s 			page 7
 
 
  290:src/stopwatch.c **** 	StopWatchStatus.sigma_display_mode=0;
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
   88              		.loc 1 295 2 view .LVU27
   89 002e 104A     		ldr	r2, .L4+16
   90 0030 13A9     		add	r1, sp, #76
-ARM GAS  /tmp/cca1cmLj.s 			page 8
+ARM GAS  /tmp/cc6B2BGM.s 			page 8
 
 
   91 0032 0AA8     		add	r0, sp, #40
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  131              		.loc 1 299 11 view .LVU43
  132 0052 0C60     		str	r4, [r1]
  133              	.LBB39:
-ARM GAS  /tmp/cca1cmLj.s 			page 9
+ARM GAS  /tmp/cc6B2BGM.s 			page 9
 
 
  134              	.LBB37:
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  183              		.cfi_def_cfa_offset 4
  184              		.cfi_offset 14, -4
  207:src/stopwatch.c **** 	dn_divide(number, number, &const_36000);
-ARM GAS  /tmp/cca1cmLj.s 			page 10
+ARM GAS  /tmp/cc6B2BGM.s 			page 10
 
 
  185              		.loc 1 207 2 view .LVU53
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  233              		@ args = 0, pretend = 0, frame = 72
  234              		@ frame_needed = 0, uses_anonymous_args = 0
  215:src/stopwatch.c **** 	if(max_registers>0) {
-ARM GAS  /tmp/cca1cmLj.s 			page 11
+ARM GAS  /tmp/cc6B2BGM.s 			page 11
 
 
  235              		.loc 1 215 2 view .LVU62
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  275 0026 2878     		ldrb	r0, [r5]	@ zero_extendqisi2
  276 0028 09A9     		add	r1, sp, #36
  277 002a FFF7FEFF 		bl	setRegister
-ARM GAS  /tmp/cca1cmLj.s 			page 12
+ARM GAS  /tmp/cc6B2BGM.s 			page 12
 
 
  278              	.LVL17:
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  152:src/stopwatch.c **** 	p=num_arg_0(p, hours, 2);
  324              		.loc 1 152 25 view .LVU87
  325 0002 264A     		ldr	r2, .L19+4
-ARM GAS  /tmp/cca1cmLj.s 			page 13
+ARM GAS  /tmp/cc6B2BGM.s 			page 13
 
 
  146:src/stopwatch.c **** 	int tenths, secs, mins, hours;
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  151:src/stopwatch.c **** 	hours=(stopwatch/36000)%100;
  365              		.loc 1 151 17 view .LVU103
  366 002a 8909     		lsrs	r1, r1, #6
-ARM GAS  /tmp/cca1cmLj.s 			page 14
+ARM GAS  /tmp/cc6B2BGM.s 			page 14
 
 
  151:src/stopwatch.c **** 	hours=(stopwatch/36000)%100;
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  404 0060 A5EB8101 		sub	r1, r5, r1, lsl #2
  405 0064 FFF7FEFF 		bl	num_arg_0
  406              	.LVL28:
-ARM GAS  /tmp/cca1cmLj.s 			page 15
+ARM GAS  /tmp/cc6B2BGM.s 			page 15
 
 
  158:src/stopwatch.c **** 	if(StopWatchStatus.display_tenths) {
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  444 008c FFF7FEFF 		bl	num_arg_0
  445              	.LVL32:
  163:src/stopwatch.c **** }
-ARM GAS  /tmp/cca1cmLj.s 			page 16
+ARM GAS  /tmp/cc6B2BGM.s 			page 16
 
 
  446              		.loc 1 163 2 is_stmt 1 view .LVU138
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  492              		.loc 1 267 30 is_stmt 0 view .LVU148
  493 0010 10B5     		push	{r4, lr}
  494              		.cfi_def_cfa_offset 8
-ARM GAS  /tmp/cca1cmLj.s 			page 17
+ARM GAS  /tmp/cc6B2BGM.s 			page 17
 
 
  495              		.cfi_offset 4, -8
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  535              		.cfi_offset 14, -4
  536              	.LBB51:
  537              	.LBI51:
-ARM GAS  /tmp/cca1cmLj.s 			page 18
+ARM GAS  /tmp/cc6B2BGM.s 			page 18
 
 
  267:src/stopwatch.c **** 	StopWatchStatus.running=!StopWatchStatus.running;
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  576              		.loc 1 274 15 view .LVU178
  577 0044 2060     		str	r0, [r4]
  578              	.LBE52:
-ARM GAS  /tmp/cca1cmLj.s 			page 19
+ARM GAS  /tmp/cc6B2BGM.s 			page 19
 
 
  579              	.LBE51:
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  613              		.cfi_offset 5, -8
  614              		.cfi_offset 14, -4
  615 0002 A0F11303 		sub	r3, r0, #19
-ARM GAS  /tmp/cca1cmLj.s 			page 20
+ARM GAS  /tmp/cc6B2BGM.s 			page 20
 
 
  616 0006 0F2B     		cmp	r3, #15
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  664              	.LVL40:
  665              		.p2align 1
  666              	.L66:
-ARM GAS  /tmp/cca1cmLj.s 			page 21
+ARM GAS  /tmp/cc6B2BGM.s 			page 21
 
 
  667              		.loc 1 321 2 view .LVU190
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  346:src/stopwatch.c **** 				if(StopWatchMemoryFirstDigit>=0) {
  347:src/stopwatch.c **** 					end_memory_selection(StopWatchMemoryFirstDigit);
  348:src/stopwatch.c **** 				}
-ARM GAS  /tmp/cca1cmLj.s 			page 22
+ARM GAS  /tmp/cc6B2BGM.s 			page 22
 
 
  349:src/stopwatch.c **** 				break;
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  306:src/stopwatch.c **** 		recall_memory(index);
  726              		.loc 1 306 4 view .LVU212
  727 0060 13F01000 		ands	r0, r3, #16
-ARM GAS  /tmp/cca1cmLj.s 			page 23
+ARM GAS  /tmp/cc6B2BGM.s 			page 23
 
 
  728              	.LVL48:
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  761 0078 93F90020 		ldrsb	r2, [r3]
  762 007c 002A     		cmp	r2, #0
  763 007e 1FDA     		bge	.L40
-ARM GAS  /tmp/cca1cmLj.s 			page 24
+ARM GAS  /tmp/cc6B2BGM.s 			page 24
 
 
  764              	.LVL51:
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  804              	.LBI73:
  305:src/stopwatch.c **** 	if(StopWatchStatus.rcl_mode){
  805              		.loc 1 305 13 view .LVU244
-ARM GAS  /tmp/cca1cmLj.s 			page 25
+ARM GAS  /tmp/cc6B2BGM.s 			page 25
 
 
  806              	.LBB74:
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  846              	.LBB67:
  307:src/stopwatch.c **** 	}
  847              		.loc 1 307 3 is_stmt 1 view .LVU261
-ARM GAS  /tmp/cca1cmLj.s 			page 26
+ARM GAS  /tmp/cc6B2BGM.s 			page 26
 
 
  848 00c6 2846     		mov	r0, r5
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  893 00e2 38BD     		pop	{r3, r4, r5, pc}
  894              	.LVL61:
  895              	.L45:
-ARM GAS  /tmp/cca1cmLj.s 			page 27
+ARM GAS  /tmp/cc6B2BGM.s 			page 27
 
 
  896              	.LBB77:
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  941              		.loc 1 379 2 view .LVU281
  942 0004 01A8     		add	r0, sp, #4
  943 0006 FFF7FEFF 		bl	stopwatch_to_decNumber
-ARM GAS  /tmp/cca1cmLj.s 			page 28
+ARM GAS  /tmp/cc6B2BGM.s 			page 28
 
 
  944              	.LVL63:
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  983 0032 0D4C     		ldr	r4, .L77+16
  385:src/stopwatch.c **** 			TotalFirstTicker=FirstTicker;
  984              		.loc 1 385 5 view .LVU302
-ARM GAS  /tmp/cca1cmLj.s 			page 29
+ARM GAS  /tmp/cc6B2BGM.s 			page 29
 
 
  985 0034 68B1     		cbz	r0, .L75
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  1023              		.loc 1 391 12 is_stmt 0 view .LVU318
  1024 004c 1A60     		str	r2, [r3]
  1025              	.L71:
-ARM GAS  /tmp/cca1cmLj.s 			page 30
+ARM GAS  /tmp/cc6B2BGM.s 			page 30
 
 
  1026              	.LBE83:
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  1071              		.fpu fpv4-sp-d16
  1073              	stopwatch_callback:
  1074              	.LVL66:
-ARM GAS  /tmp/cca1cmLj.s 			page 31
+ARM GAS  /tmp/cc6B2BGM.s 			page 31
 
 
  1075              	.LFB13:
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  450:src/stopwatch.c **** 			}
  451:src/stopwatch.c **** 			case STOPWATCH_UP: {
  452:src/stopwatch.c **** 				if(StopWatchMemory<max_registers-1) {
-ARM GAS  /tmp/cca1cmLj.s 			page 32
+ARM GAS  /tmp/cc6B2BGM.s 			page 32
 
 
  453:src/stopwatch.c **** 					StopWatchMemory++;
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  1090              		.loc 1 491 5 view .LVU326
  1091 0002 A84C     		ldr	r4, .L149
  1092 0004 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
-ARM GAS  /tmp/cca1cmLj.s 			page 33
+ARM GAS  /tmp/cc6B2BGM.s 			page 33
 
 
  489:src/stopwatch.c **** 	unsigned long currentTicker;
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  1134              	.LBB106:
  122:src/stopwatch.c ****   return f;
  1135              		.loc 1 122 11 view .LVU344
-ARM GAS  /tmp/cca1cmLj.s 			page 34
+ARM GAS  /tmp/cc6B2BGM.s 			page 34
 
 
  1136 001e 20F07043 		bic	r3, r0, #-268435456
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  1175 0044 0021     		movs	r1, #0
  503:src/stopwatch.c **** 		if(StopWatchStatus.select_memory_mode || StopWatchStatus.rcl_mode) {
  1176              		.loc 1 503 5 view .LVU363
-ARM GAS  /tmp/cca1cmLj.s 			page 35
+ARM GAS  /tmp/cc6B2BGM.s 			page 35
 
 
  1177 0046 13F0180F 		tst	r3, #24
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  1212              		.loc 1 131 5 view .LVU380
  1213 0062 002B     		cmp	r3, #0
  1214 0064 C0F28680 		blt	.L108
-ARM GAS  /tmp/cca1cmLj.s 			page 36
+ARM GAS  /tmp/cc6B2BGM.s 			page 36
 
 
  132:src/stopwatch.c **** 		} else {
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  1255 0094 70DB     		blt	.L146
  1256              	.L110:
  1257              	.LVL76:
-ARM GAS  /tmp/cca1cmLj.s 			page 37
+ARM GAS  /tmp/cc6B2BGM.s 			page 37
 
 
  178:src/stopwatch.c **** 		char* rp=scopy(message, StopWatchStatus.sigma_display_mode?"\221+\006":"RCL\006\006");
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  1296              	.LVL79:
  189:src/stopwatch.c **** 				}
  1297              		.loc 1 189 15 view .LVU411
-ARM GAS  /tmp/cca1cmLj.s 			page 38
+ARM GAS  /tmp/cc6B2BGM.s 			page 38
 
 
  1298 00c8 3032     		adds	r2, r2, #48
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  1337              		.loc 1 496 12 view .LVU426
  1338 00ea 89B2     		uxth	r1, r1
  496:src/stopwatch.c **** 		KeyCallback=(int(*)(int)) NULL;
-ARM GAS  /tmp/cca1cmLj.s 			page 39
+ARM GAS  /tmp/cc6B2BGM.s 			page 39
 
 
  1339              		.loc 1 496 11 view .LVU427
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  1388 0136 7B00     		.2byte	(.L85-.L87)/2
  1389 0138 7B00     		.2byte	(.L85-.L87)/2
  1390 013a 7B00     		.2byte	(.L85-.L87)/2
-ARM GAS  /tmp/cca1cmLj.s 			page 40
+ARM GAS  /tmp/cc6B2BGM.s 			page 40
 
 
  1391 013c 7B00     		.2byte	(.L85-.L87)/2
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  1435              	.LBE119:
  1436              	.LBE124:
  1437              	.LBE140:
-ARM GAS  /tmp/cca1cmLj.s 			page 41
+ARM GAS  /tmp/cc6B2BGM.s 			page 41
 
 
  1438              	.LBB141:
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  196:src/stopwatch.c **** 		stopwatch_to_string(TotalStopWatch, message);
  1475              		.loc 1 196 9 view .LVU461
  1476 017a 1268     		ldr	r2, [r2]
-ARM GAS  /tmp/cca1cmLj.s 			page 42
+ARM GAS  /tmp/cc6B2BGM.s 			page 42
 
 
  1477 017c 002A     		cmp	r2, #0
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  1522              		.loc 1 512 12 is_stmt 0 view .LVU478
  1523 01b6 2A70     		strb	r2, [r5]
  1524              	.L134:
-ARM GAS  /tmp/cca1cmLj.s 			page 43
+ARM GAS  /tmp/cc6B2BGM.s 			page 43
 
 
  513:src/stopwatch.c **** 	}
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  1567              	.LBE126:
  1568              	.LBE143:
  497:src/stopwatch.c **** 		return K_HEARTBEAT;
-ARM GAS  /tmp/cca1cmLj.s 			page 44
+ARM GAS  /tmp/cc6B2BGM.s 			page 44
 
 
  1569              		.loc 1 497 3 is_stmt 1 view .LVU488
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  1613              	.LBE144:
  1614              	.LBB145:
  1615              	.LBB139:
-ARM GAS  /tmp/cca1cmLj.s 			page 45
+ARM GAS  /tmp/cc6B2BGM.s 			page 45
 
 
  474:src/stopwatch.c **** 					//Digits
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  477:src/stopwatch.c **** 					StopWatchStatus.show_memory=1;
  1655              		.loc 1 477 6 view .LVU515
  477:src/stopwatch.c **** 					StopWatchStatus.show_memory=1;
-ARM GAS  /tmp/cca1cmLj.s 			page 46
+ARM GAS  /tmp/cc6B2BGM.s 			page 46
 
 
  1656              		.loc 1 477 31 is_stmt 0 view .LVU516
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  1695 0240 1A4F     		ldr	r7, .L149+8
  436:src/stopwatch.c **** 					TotalFirstTicker=FirstTicker;
  1696              		.loc 1 436 7 view .LVU532
-ARM GAS  /tmp/cca1cmLj.s 			page 47
+ARM GAS  /tmp/cc6B2BGM.s 			page 47
 
 
  1697 0242 1A68     		ldr	r2, [r3]
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  1735              		.loc 1 407 5 view .LVU548
  1736 0264 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
  1737 0266 F6E6     		b	.L83
-ARM GAS  /tmp/cca1cmLj.s 			page 48
+ARM GAS  /tmp/cc6B2BGM.s 			page 48
 
 
  1738              	.LVL114:
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  1779              		.loc 1 428 5 is_stmt 1 view .LVU561
  1780 02a0 DBB2     		uxtb	r3, r3
  1781 02a2 D8E6     		b	.L83
-ARM GAS  /tmp/cca1cmLj.s 			page 49
+ARM GAS  /tmp/cc6B2BGM.s 			page 49
 
 
  1782              	.L150:
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  1825              	.LBB137:
  120:src/stopwatch.c ****   t = get_rtc_ticks();
  1826              		.loc 1 120 3 view .LVU573
-ARM GAS  /tmp/cca1cmLj.s 			page 50
+ARM GAS  /tmp/cc6B2BGM.s 			page 50
 
 
  121:src/stopwatch.c ****   f = ((t & 0xfffffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  453:src/stopwatch.c **** 				}
  1865              		.loc 1 453 21 is_stmt 0 view .LVU590
  1866 031c 0133     		adds	r3, r3, #1
-ARM GAS  /tmp/cca1cmLj.s 			page 51
+ARM GAS  /tmp/cc6B2BGM.s 			page 51
 
 
  1867 031e 1370     		strb	r3, [r2]
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  1908              	.L151:
  1909 0348 00000000 		.word	TotalFirstTicker
  1910 034c 00000000 		.word	FirstTicker
-ARM GAS  /tmp/cca1cmLj.s 			page 52
+ARM GAS  /tmp/cc6B2BGM.s 			page 52
 
 
  1911 0350 B9040008 		.word	134218937
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  1957 0014 B9040008 		.word	134218937
  1958              		.cfi_endproc
  1959              	.LFE0:
-ARM GAS  /tmp/cca1cmLj.s 			page 53
+ARM GAS  /tmp/cc6B2BGM.s 			page 53
 
 
  1961              		.section	.text.stopwatch,"ax",%progbits
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  533:src/stopwatch.c **** 		StopWatchMemory=0;
  1999              		.loc 1 533 18 is_stmt 0 view .LVU624
  2000 0012 1449     		ldr	r1, .L162+8
-ARM GAS  /tmp/cca1cmLj.s 			page 54
+ARM GAS  /tmp/cc6B2BGM.s 			page 54
 
 
  534:src/stopwatch.c **** 		RclMemory=-1;
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  2036 0034 0A60     		str	r2, [r1]
  2037              	.L159:
  539:src/stopwatch.c **** 	}
-ARM GAS  /tmp/cca1cmLj.s 			page 55
+ARM GAS  /tmp/cc6B2BGM.s 			page 55
 
 
  540:src/stopwatch.c **** 	clr_dot(LIT_EQ);
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  2076              		.loc 1 526 3 view .LVU662
  2077 0056 0720     		movs	r0, #7
  2078              	.LVL133:
-ARM GAS  /tmp/cca1cmLj.s 			page 56
+ARM GAS  /tmp/cc6B2BGM.s 			page 56
 
 
  526:src/stopwatch.c **** 		return;
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  2137 003c 00000000 		.word	0
  2138              		.text
  2139              	.Letext0:
-ARM GAS  /tmp/cca1cmLj.s 			page 57
+ARM GAS  /tmp/cc6B2BGM.s 			page 57
 
 
  2140              		.file 2 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h"
@@ -3377,67 +3377,67 @@ ARM GAS  /tmp/cca1cmLj.s 			page 1
  2153              		.file 15 "src/display.h"
  2154              		.file 16 "src/lcd.h"
  2155              		.file 17 "src/decn.h"
-ARM GAS  /tmp/cca1cmLj.s 			page 58
+ARM GAS  /tmp/cc6B2BGM.s 			page 58
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stopwatch.c
-     /tmp/cca1cmLj.s:18     .text.recall_memory:0000000000000000 $t
-     /tmp/cca1cmLj.s:26     .text.recall_memory:0000000000000000 recall_memory
-     /tmp/cca1cmLj.s:154    .text.recall_memory:0000000000000060 $d
+     /tmp/cc6B2BGM.s:18     .text.recall_memory:0000000000000000 $t
+     /tmp/cc6B2BGM.s:26     .text.recall_memory:0000000000000000 recall_memory
+     /tmp/cc6B2BGM.s:154    .text.recall_memory:0000000000000060 $d
                             *COM*:0000000000000004 StopWatchStatus
                             *COM*:0000000000000001 RclMemory
                             *COM*:0000000000000001 StopWatchMemoryFirstDigit
                             *COM*:0000000000000001 RclMemoryRemanentDisplay
                             *COM*:0000000000000004 StopWatch
                             *COM*:0000000000000004 FirstTicker
-     /tmp/cca1cmLj.s:166    .text.stopwatch_to_decNumber:0000000000000000 $t
-     /tmp/cca1cmLj.s:173    .text.stopwatch_to_decNumber:0000000000000000 stopwatch_to_decNumber
-     /tmp/cca1cmLj.s:216    .text.stopwatch_to_decNumber:0000000000000020 $d
-     /tmp/cca1cmLj.s:222    .text.store_stopwatch_in_memory:0000000000000000 $t
-     /tmp/cca1cmLj.s:229    .text.store_stopwatch_in_memory:0000000000000000 store_stopwatch_in_memory
-     /tmp/cca1cmLj.s:300    .text.store_stopwatch_in_memory:0000000000000040 $d
+     /tmp/cc6B2BGM.s:166    .text.stopwatch_to_decNumber:0000000000000000 $t
+     /tmp/cc6B2BGM.s:173    .text.stopwatch_to_decNumber:0000000000000000 stopwatch_to_decNumber
+     /tmp/cc6B2BGM.s:216    .text.stopwatch_to_decNumber:0000000000000020 $d
+     /tmp/cc6B2BGM.s:222    .text.store_stopwatch_in_memory:0000000000000000 $t
+     /tmp/cc6B2BGM.s:229    .text.store_stopwatch_in_memory:0000000000000000 store_stopwatch_in_memory
+     /tmp/cc6B2BGM.s:300    .text.store_stopwatch_in_memory:0000000000000040 $d
                             *COM*:0000000000000001 StopWatchMemory
-     /tmp/cca1cmLj.s:306    .text.stopwatch_to_string:0000000000000000 $t
-     /tmp/cca1cmLj.s:313    .text.stopwatch_to_string:0000000000000000 stopwatch_to_string
-     /tmp/cca1cmLj.s:457    .text.stopwatch_to_string:0000000000000098 $d
-     /tmp/cca1cmLj.s:467    .text.toggle_running:0000000000000000 $t
-     /tmp/cca1cmLj.s:474    .text.toggle_running:0000000000000000 toggle_running
-     /tmp/cca1cmLj.s:585    .text.toggle_running:0000000000000048 $d
-     /tmp/cca1cmLj.s:593    .text.process_select_memory_key:0000000000000000 $t
-     /tmp/cca1cmLj.s:600    .text.process_select_memory_key:0000000000000000 process_select_memory_key
-     /tmp/cca1cmLj.s:640    .text.process_select_memory_key:0000000000000016 $d
-     /tmp/cca1cmLj.s:665    .text.process_select_memory_key:000000000000002e $t
-     /tmp/cca1cmLj.s:909    .text.process_select_memory_key:00000000000000ec $d
-     /tmp/cca1cmLj.s:918    .text.stopwatch_sigma_plus:0000000000000000 $t
-     /tmp/cca1cmLj.s:925    .text.stopwatch_sigma_plus:0000000000000000 stopwatch_sigma_plus
-     /tmp/cca1cmLj.s:1044   .text.stopwatch_sigma_plus:0000000000000058 $d
+     /tmp/cc6B2BGM.s:306    .text.stopwatch_to_string:0000000000000000 $t
+     /tmp/cc6B2BGM.s:313    .text.stopwatch_to_string:0000000000000000 stopwatch_to_string
+     /tmp/cc6B2BGM.s:457    .text.stopwatch_to_string:0000000000000098 $d
+     /tmp/cc6B2BGM.s:467    .text.toggle_running:0000000000000000 $t
+     /tmp/cc6B2BGM.s:474    .text.toggle_running:0000000000000000 toggle_running
+     /tmp/cc6B2BGM.s:585    .text.toggle_running:0000000000000048 $d
+     /tmp/cc6B2BGM.s:593    .text.process_select_memory_key:0000000000000000 $t
+     /tmp/cc6B2BGM.s:600    .text.process_select_memory_key:0000000000000000 process_select_memory_key
+     /tmp/cc6B2BGM.s:640    .text.process_select_memory_key:0000000000000016 $d
+     /tmp/cc6B2BGM.s:665    .text.process_select_memory_key:000000000000002e $t
+     /tmp/cc6B2BGM.s:909    .text.process_select_memory_key:00000000000000ec $d
+     /tmp/cc6B2BGM.s:918    .text.stopwatch_sigma_plus:0000000000000000 $t
+     /tmp/cc6B2BGM.s:925    .text.stopwatch_sigma_plus:0000000000000000 stopwatch_sigma_plus
+     /tmp/cc6B2BGM.s:1044   .text.stopwatch_sigma_plus:0000000000000058 $d
                             *COM*:0000000000000004 TotalFirstTicker
-     /tmp/cca1cmLj.s:1055   .rodata.stopwatch_callback.str1.4:0000000000000000 $d
-     /tmp/cca1cmLj.s:1065   .text.stopwatch_callback:0000000000000000 $t
-     /tmp/cca1cmLj.s:1073   .text.stopwatch_callback:0000000000000000 stopwatch_callback
-     /tmp/cca1cmLj.s:1362   .text.stopwatch_callback:0000000000000102 $d
-     /tmp/cca1cmLj.s:1404   .text.stopwatch_callback:0000000000000156 $t
-     /tmp/cca1cmLj.s:1785   .text.stopwatch_callback:00000000000002a4 $d
+     /tmp/cc6B2BGM.s:1055   .rodata.stopwatch_callback.str1.4:0000000000000000 $d
+     /tmp/cc6B2BGM.s:1065   .text.stopwatch_callback:0000000000000000 $t
+     /tmp/cc6B2BGM.s:1073   .text.stopwatch_callback:0000000000000000 stopwatch_callback
+     /tmp/cc6B2BGM.s:1362   .text.stopwatch_callback:0000000000000102 $d
+     /tmp/cc6B2BGM.s:1404   .text.stopwatch_callback:0000000000000156 $t
+     /tmp/cc6B2BGM.s:1785   .text.stopwatch_callback:00000000000002a4 $d
                             *COM*:0000000000000004 TotalStopWatch
-     /tmp/cca1cmLj.s:1804   .text.stopwatch_callback:00000000000002e4 $t
-     /tmp/cca1cmLj.s:1909   .text.stopwatch_callback:0000000000000348 $d
-     /tmp/cca1cmLj.s:1919   .text.getTicker:0000000000000000 $t
-     /tmp/cca1cmLj.s:1927   .text.getTicker:0000000000000000 getTicker
-     /tmp/cca1cmLj.s:1957   .text.getTicker:0000000000000014 $d
-     /tmp/cca1cmLj.s:1962   .text.stopwatch:0000000000000000 $t
-     /tmp/cca1cmLj.s:1970   .text.stopwatch:0000000000000000 stopwatch
-     /tmp/cca1cmLj.s:2085   .text.stopwatch:000000000000005c $d
-     /tmp/cca1cmLj.s:2114   .bss.KeyCallback:0000000000000000 KeyCallback
-     /tmp/cca1cmLj.s:2110   .bss.KeyCallback:0000000000000000 $d
-     /tmp/cca1cmLj.s:2117   .rodata.CSWTCH.61:0000000000000000 $d
-     /tmp/cca1cmLj.s:2121   .rodata.CSWTCH.61:0000000000000000 CSWTCH.61
+     /tmp/cc6B2BGM.s:1804   .text.stopwatch_callback:00000000000002e4 $t
+     /tmp/cc6B2BGM.s:1909   .text.stopwatch_callback:0000000000000348 $d
+     /tmp/cc6B2BGM.s:1919   .text.getTicker:0000000000000000 $t
+     /tmp/cc6B2BGM.s:1927   .text.getTicker:0000000000000000 getTicker
+     /tmp/cc6B2BGM.s:1957   .text.getTicker:0000000000000014 $d
+     /tmp/cc6B2BGM.s:1962   .text.stopwatch:0000000000000000 $t
+     /tmp/cc6B2BGM.s:1970   .text.stopwatch:0000000000000000 stopwatch
+     /tmp/cc6B2BGM.s:2085   .text.stopwatch:000000000000005c $d
+     /tmp/cc6B2BGM.s:2114   .bss.KeyCallback:0000000000000000 KeyCallback
+     /tmp/cc6B2BGM.s:2110   .bss.KeyCallback:0000000000000000 $d
+     /tmp/cc6B2BGM.s:2117   .rodata.CSWTCH.61:0000000000000000 $d
+     /tmp/cc6B2BGM.s:2121   .rodata.CSWTCH.61:0000000000000000 CSWTCH.61
 
 UNDEFINED SYMBOLS
 getRegister
 decNumberHMS2HR
 dn_multiply
-ARM GAS  /tmp/cca1cmLj.s 			page 59
+ARM GAS  /tmp/cc6B2BGM.s 			page 59
 
 
 dn_to_ull

@@ -71,7 +71,7 @@ extern unsigned long long strtoull(const char *, char **, int);
 #ifdef INCLUDE_STOPWATCH
 #include "stopwatch.h"
 #endif
-#ifndef DM42
+#ifdef INFRARED
 #include "printer.h"
 #endif
 #undef DM42SAFE
