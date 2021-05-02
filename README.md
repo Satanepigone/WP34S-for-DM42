@@ -2,7 +2,7 @@
 
 ## A project to bring the WP34c calculator firmware to the DM42 hardware. 
 
-###**Note:** all of the new features below are available [here](https://gitlab.com/njdowrick/wp34s-for-dm42/-/tree/wp34c), in the `build/` folder of the wp34c branch of the project. You want either `wp34c.pgm`, `wp34c_long.pgm`, or `wp34c_top.pgm`. These differ only in their displays: the first is most like the wp34c, while `wp34c_top.pgm` adds an extra top row for annunciators. Most people seem to prefer `wp34c_top.pgm`.
+###**Note:** all of the new features below are available in the `build/` folder of this branch of the project. You want either `wp34c.pgm`, `wp34c_long.pgm`, or `wp34c_top.pgm`. These differ only in their displays: the first is most like the wp34c, while `wp34c_top.pgm` adds an extra top row for annunciators. Most people seem to prefer `wp34c_top.pgm`.
 
 ####**New!** 
 IR printing is now supported (first version). I have tested this on an HP 82240B printer and all commands seem to be working. I don't see how sending the wrong control codes could damage your printer, but be aware that it's **not** my responsibility if they do!
