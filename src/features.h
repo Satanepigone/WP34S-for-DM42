@@ -18,6 +18,8 @@
 
 #define INFRARED
 
+#define FOUR_K
+
 //#define DM42 // for DM42! //no - define DM42 in the makefile
 
 #if !defined(REALBUILD) && !defined(WINGUI) && !defined(QTGUI) && !defined(IOS) && !defined(DM42)

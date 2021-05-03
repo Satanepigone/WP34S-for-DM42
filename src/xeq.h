@@ -448,10 +448,23 @@ long int keyticks (void);
  * relatively easily.
  */
 #ifdef EXTRA_FLAGS
-#define RET_STACK_SIZE  532      /* Combined return stack and program space reduced by two words for flag space (reducing by odd no.of words ruins alignment) */
+
+#ifdef FOUR_K
+#define RET_STACK_SIZE  1556      /* Combined return stack and program space reduced by two words for flag space (reducing by odd no.of words ruins alignment) */
+#else
+#define RET_STACK_SIZE 532
+#endif
+
+#else
+
+#ifdef FOUR_K
+#define RET_STACK_SIZE  1558      /* Combined return stack and program space */
 #else
 #define RET_STACK_SIZE  534      /* Combined return stack and program space */
 #endif
+
+#endif
+
 #define MINIMUM_RET_STACK_SIZE 6 /* Minimum headroom for program execution */
 #define NUMPROG_LIMIT   (RET_STACK_SIZE - MINIMUM_RET_STACK_SIZE + TOPREALREG * 4) /* Absolute maximum for sanity checks */
 

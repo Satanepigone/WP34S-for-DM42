@@ -53,6 +53,14 @@
 
 #endif
 
+#define DM42SAFE
+#include "xeq.h"
+#include "storage.h"
+#include "display.h"
+#include "stats.h"
+#include "alpha.h"
+#undef DM42SAFE
+
 #define PERSISTENT_RAM
 #define SLCDCMEM
 #define VOLATILE_RAM
@@ -60,8 +68,14 @@
 
 #ifdef DM42
 
+#ifdef FOUR_K
+#define STATE_FILE "wp34s/wp34c_4k.dat"
+#define BACKUP_FILE "wp34s/wp34c-backup_4k.dat"
+#else
 #define STATE_FILE "wp34s/wp34c.dat"
 #define BACKUP_FILE "wp34s/wp34c-backup.dat"
+#endif
+
 #define LIBRARY_FILE "wp34s/wp34s-lib.dat"
 #define FPT ppgm_fp //use this as the file pointer
 
@@ -74,13 +88,6 @@
 #endif
 #endif
 
-#define DM42SAFE
-#include "xeq.h"
-#include "storage.h"
-#include "display.h"
-#include "stats.h"
-#include "alpha.h"
-#undef DM42SAFE
 
 #ifdef DM42
 #define PAGE_SIZE	 256 // if saving to flash need page size of 2k on DM42

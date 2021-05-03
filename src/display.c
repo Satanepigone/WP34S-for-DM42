@@ -55,7 +55,7 @@ const char *DispMsg; // What to display in message area
 short int DispPlot;
 short int no_status_top = 0;
 
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42) 
 char LastDisplayedText[NUMALPHA + 1];	   // For clipboard export
 char LastDisplayedNumber[NUMBER_LENGTH + 1];
 char LastDisplayedExponent[EXPONENT_LENGTH + 1];
@@ -75,17 +75,17 @@ static const char S_SURE[] = "Sure?";
 
 static const char S7_ERROR[] = "Error";		/* Default lower line error display */
 static const char S7_NaN[] = "not nuMmEric";	/* Displaying NaN in lower line */
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42)
 static const char S7_NaN_Text[] = " N o t   n u m e r i c ";
 #endif
 static const char S7_INF[] = "Infinity";	/* Displaying infinity in lower line */
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42)
 static const char S7_INF_Text[] = " I n f i n i t y ";
 static const char S7_NEG_INF_Text[] = "-I n f i n i t y ";
 #endif
 
 static const char S7_STEP[] = "StEP ";		/* Step marker in program mode (lower line) */
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42)
 static const char S7_STEP_ShortText[] = "STEP";
 #endif
 
@@ -100,7 +100,7 @@ static const char libname[][5] = {
 #endif
 };
 
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42)
 static const char libname_text[][10] = {
   " R a m ", " L i b ", " B u p ",	" R o m "
 };
@@ -198,7 +198,7 @@ void error_message(const unsigned int e)
     };
 #undef MSG1
 #undef MSG2
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42)
   static const char *const error_table_text[] =
     {
       " P r o g r a m ",
@@ -253,7 +253,7 @@ void error_message(const unsigned int e)
 #endif
       message(p, q);
       State2.disp_freeze = (e != ERR_NONE);
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42)
       scopy(LastDisplayedNumber, error_table_text[e]);
 #endif
     }
@@ -295,7 +295,7 @@ void error_message(const unsigned int e)
 
 #include "charset7.h"
 
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42) 
 #define SET_MANT_SIGN set_mant_sign_dot()
 #define CLR_MANT_SIGN clr_mant_sign_dot()
 #define SET_EXP_SIGN set_exp_sign_dot()
@@ -361,7 +361,7 @@ static char *set_decimal(const int posn, const enum decimal_modes decimal, char 
     set_dot(posn+7);
     if (decimal != DECIMAL_DOT)
       set_dot(posn+8);
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42)
     LastDisplayedNumber[(posn/9)*2+2]= decimal == DECIMAL_DOT?'.':',';
 #endif
   }
@@ -383,7 +383,7 @@ static char *set_separator(int posn, const enum separator_modes sep, char *res) 
     set_dot(posn+7);
     if (sep == SEP_COMMA)
       set_dot(posn+8);
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42)
     LastDisplayedNumber[(posn/9)*2+2] = sep == SEP_COMMA?',':'.';
 #endif
   }
@@ -395,7 +395,7 @@ static void set_dig(int base, int ch)
 {
   int i;
   int c = getdig(ch);
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42)
   if(base<SEGS_EXP_BASE)
     LastDisplayedNumber[(base/9)*2+1] = ch==0?' ':ch;
   else
@@ -1629,7 +1629,7 @@ static void set_exp(int exp, int flags, char *res) {
 	      scopy(res, "NaN");
 	    } else {
 	      set_digits_string(S7_NaN, 0);
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42)
 	      scopy(LastDisplayedNumber, S7_NaN_Text);
 	      forceDispPlot=0;
 #endif
@@ -1644,7 +1644,7 @@ static void set_exp(int exp, int flags, char *res) {
 	      *res++ = '\237';
 	    else {
 	      set_digits_string(S7_INF, SEGS_PER_DIGIT * 2);
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42)
 	      if (decNumberIsNegative(x)) {
 		scopy(LastDisplayedNumber, S7_NEG_INF_Text);
 	      }
@@ -2554,7 +2554,7 @@ static void set_exp(int exp, int flags, char *res) {
 
 	set_status(prt((opcode)op, buf));
 	set_digits_string(libname[n], 0);
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42)
 	scopy(LastDisplayedNumber, libname_text[n]);
 #endif
 
@@ -2567,7 +2567,7 @@ static void set_exp(int exp, int flags, char *res) {
 	      set_exp(lblpc, 1, CNULL);
 	    else {
 	      set_exp_digits_string(libname[n], CNULL);
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42)
 	      scopy(LastDisplayedNumber, libname_text[n]);
 #endif
 	    }
@@ -2733,7 +2733,7 @@ static void set_exp(int exp, int flags, char *res) {
 	  char vers[VERS_SVN_OFFSET + 5] = VERS_DISPLAY;
 	  set_digits_string("pAULI, WwALtE", 0);
 	  set_dig_s(SEGS_EXP_BASE, 'r', CNULL);
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42)
 	  scopy(LastDisplayedNumber, " P A U L I,  W A L T E R ");
 	  scopy(LastDisplayedExponent, " ");
 #endif
@@ -3017,10 +3017,20 @@ static void set_exp(int exp, int flags, char *res) {
 	    const int n = nLIB(pc);
 	    xset(buf, '\0', sizeof(buf));
 	    set_exp(ProgFree, 1, CNULL);
+#ifdef FOUR_K
+	    if ((upc<1000) && n == 0) {
+	      num_arg_0(scopy_spc(buf, S7_STEP), upc, 3);
+	    }
+	    else {
+	      num_arg_0(scopy(buf, n == 0 ? S7_STEP : libname[n]), 
+		      upc, 4);  // 4 digits in ROM and Library
+	    }	      
+#else
 	    num_arg_0(scopy_spc(buf, n == 0 ? S7_STEP : libname[n]), 
 		      upc, 3 + (n & 1));  // 4 digits in ROM and Library
+#endif
 	    set_digits_string(buf, SEGS_PER_DIGIT);
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42)
 	    xset(buf, '\0', sizeof(buf));
 	    set_exp(ProgFree, 1, CNULL);
 	    num_arg_0(scopy_spc(buf, n == 0 ? S7_STEP_ShortText : libname_shorttext[n]),
@@ -3125,7 +3135,7 @@ static void set_exp(int exp, int flags, char *res) {
 	  char vers[VERS_SVN_OFFSET + 5] = VERS_DISPLAY;
 	  set_digits_string("pAULI, WwALtE", 0);
 	  set_dig_s(SEGS_EXP_BASE, 'r', CNULL);
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42)
 	  scopy(LastDisplayedNumber, " P A U L I,  W A L T E R ");
 	  scopy(LastDisplayedExponent, " ");
 #endif
@@ -3371,10 +3381,20 @@ static void set_exp(int exp, int flags, char *res) {
 	    const int n = nLIB(pc);
 	    xset(buf, '\0', sizeof(buf));
 	    set_exp(ProgFree, 1, CNULL);
+#ifdef FOUR_K
+	    if ((upc<1000) && n == 0) {
+	      num_arg_0(scopy_spc(buf, S7_STEP), upc, 3);
+	    }
+	    else {
+	      num_arg_0(scopy(buf, n == 0 ? S7_STEP : libname[n]), 
+		      upc, 4);  // 4 digits in ROM and Library
+	    }	      
+#else
 	    num_arg_0(scopy_spc(buf, n == 0 ? S7_STEP : libname[n]), 
 		      upc, 3 + (n & 1));  // 4 digits in ROM and Library
+#endif
 	    set_digits_string(buf, SEGS_PER_DIGIT);
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42)
 	    xset(buf, '\0', sizeof(buf));
 	    set_exp(ProgFree, 1, CNULL);
 	    num_arg_0(scopy_spc(buf, n == 0 ? S7_STEP_ShortText : libname_shorttext[n]),
@@ -3447,7 +3467,7 @@ static void set_exp(int exp, int flags, char *res) {
 
 	xset(mat, 0, sizeof(mat));
 #endif
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42)
 	forceDispPlot=1;
 #endif
 	if (glen <= 0)			return;
@@ -3495,7 +3515,7 @@ static void set_exp(int exp, int flags, char *res) {
 
 	xset(mat, 0, sizeof(mat));
 #endif
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42)
 	scopy(LastDisplayedText, str);
 #ifdef INCLUDE_FONT_ESCAPE
 	for (i = 0; LastDisplayedText[i] != '\0'; ) { // Remove 007 escapes
@@ -3687,7 +3707,7 @@ static void set_exp(int exp, int flags, char *res) {
 
       void stopwatch_message(const char *str1, const char *str2, int force_small, char* exponent)
       {
-#ifndef REALBUILD
+#if !defined(REALBUILD) && !defined(DM42)
 	xset(LastDisplayedNumber, ' ', NUMBER_LENGTH);
 #endif
 	reset_disp();
