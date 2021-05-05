@@ -35,6 +35,8 @@ extern void draw_RPN_RCL(void);
 extern void finish_RPN(void);
 extern void draw_LEQ(void);
 extern void finish_LEQ(void);
+extern void draw_PRT(void);
+extern void finish_PRT(void);
 extern void do_all_dots(void);
 #endif
 extern void show_flags(void);

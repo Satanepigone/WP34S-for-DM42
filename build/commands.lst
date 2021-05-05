@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccBFZ8MU.s 			page 1
+ARM GAS  /tmp/cc1qZLtv.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
   49      00
   50 003d 000000   		.align	2
   51              	.LC10:
-ARM GAS  /tmp/ccBFZ8MU.s 			page 2
+ARM GAS  /tmp/cc1qZLtv.s 			page 2
 
 
   52 0040 52434C4D 		.ascii	"RCLMIN\000"
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
   95 00a6 0000     		.align	2
   96              	.LC25:
   97 00a8 6352434C 		.ascii	"cRCL/\000"
-ARM GAS  /tmp/ccBFZ8MU.s 			page 3
+ARM GAS  /tmp/cc1qZLtv.s 			page 3
 
 
   97      2F00
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  142      00
  143 010d 000000   		.align	2
  144              	.LC41:
-ARM GAS  /tmp/ccBFZ8MU.s 			page 4
+ARM GAS  /tmp/cc1qZLtv.s 			page 4
 
 
  145 0110 6378213D 		.ascii	"cx!=?\000"
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  187      535000
  188              		.global	niladics
  189 017b 00       		.align	2
-ARM GAS  /tmp/ccBFZ8MU.s 			page 5
+ARM GAS  /tmp/cc1qZLtv.s 			page 5
 
 
  190              	.LC56:
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  232              	.LC70:
  233 01e4 53554D6C 		.ascii	"SUMln2x\000"
  233      6E327800 
-ARM GAS  /tmp/ccBFZ8MU.s 			page 6
+ARM GAS  /tmp/cc1qZLtv.s 			page 6
 
 
  234              		.align	2
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  274              	.LC84:
  275 0258 65707369 		.ascii	"epsilon-m\000"
  275      6C6F6E2D 
-ARM GAS  /tmp/ccBFZ8MU.s 			page 7
+ARM GAS  /tmp/cc1qZLtv.s 			page 7
 
 
  275      6D00
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  317      4700
  318 02ca 0000     		.align	2
  319              	.LC99:
-ARM GAS  /tmp/ccBFZ8MU.s 			page 8
+ARM GAS  /tmp/cc1qZLtv.s 			page 8
 
 
  320 02cc 613E7800 		.ascii	"a>x\000"
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  362      00
  363 0335 000000   		.align	2
  364              	.LC114:
-ARM GAS  /tmp/ccBFZ8MU.s 			page 9
+ARM GAS  /tmp/cc1qZLtv.s 			page 9
 
 
  365 0338 6343524F 		.ascii	"cCROSS\000"
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  406 03a2 0000     		.align	2
  407              	.LC128:
  408 03a4 4C6E416C 		.ascii	"LnAlpha\000"
-ARM GAS  /tmp/ccBFZ8MU.s 			page 10
+ARM GAS  /tmp/cc1qZLtv.s 			page 10
 
 
  408      70686100 
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  453              	.LC143:
  454 0408 546E00   		.ascii	"Tn\000"
  455 040b 00       		.align	2
-ARM GAS  /tmp/ccBFZ8MU.s 			page 11
+ARM GAS  /tmp/cc1qZLtv.s 			page 11
 
 
  456              	.LC144:
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  505              	.LC160:
  506 0460 494E562D 		.ascii	"INV-W\000"
  506      5700
-ARM GAS  /tmp/ccBFZ8MU.s 			page 12
+ARM GAS  /tmp/cc1qZLtv.s 			page 12
 
 
  507 0466 0000     		.align	2
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  550              	.LC175:
  551 04cc 5241443E 		.ascii	"RAD>DEG\000"
  551      44454700 
-ARM GAS  /tmp/ccBFZ8MU.s 			page 13
+ARM GAS  /tmp/cc1qZLtv.s 			page 13
 
 
  552              		.align	2
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  589              	.LC188:
  590 0548 742D7028 		.ascii	"t-p(x)\000"
  590      782900
-ARM GAS  /tmp/ccBFZ8MU.s 			page 14
+ARM GAS  /tmp/cc1qZLtv.s 			page 14
 
 
  591 054f 00       		.align	2
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  629 05c0 506F6973 		.ascii	"Pois2-p\000"
  629      322D7000 
  630              		.align	2
-ARM GAS  /tmp/ccBFZ8MU.s 			page 15
+ARM GAS  /tmp/cc1qZLtv.s 			page 15
 
 
  631              	.LC202:
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  666 0642 0000     		.align	2
  667              	.LC214:
  668 0644 512D7500 		.ascii	"Q-u\000"
-ARM GAS  /tmp/ccBFZ8MU.s 			page 16
+ARM GAS  /tmp/cc1qZLtv.s 			page 16
 
 
  669              		.align	2
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  711 06ae 0000     		.align	2
  712              	.LC229:
  713 06b0 46435354 		.ascii	"FCSTy\000"
-ARM GAS  /tmp/ccBFZ8MU.s 			page 17
+ARM GAS  /tmp/cc1qZLtv.s 			page 17
 
 
  713      7900
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  760              	.LC245:
  761 0710 44494741 		.ascii	"DIGAMMA\000"
  761      4D4D4100 
-ARM GAS  /tmp/ccBFZ8MU.s 			page 18
+ARM GAS  /tmp/cc1qZLtv.s 			page 18
 
 
  762              		.section	.rodata.argcmds,"a"
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  814 007c 00000000 		.word	0
  815 0080 00000000 		.word	cmdsto
  816 0084 FF       		.byte	-1
-ARM GAS  /tmp/ccBFZ8MU.s 			page 19
+ARM GAS  /tmp/cc1qZLtv.s 			page 19
 
 
  817 0085 0F       		.byte	15
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  864 0104 FF       		.byte	-1
  865 0105 0F       		.byte	15
  866 0106 52434C10 		.ascii	"RCL\020\000"
-ARM GAS  /tmp/ccBFZ8MU.s 			page 20
+ARM GAS  /tmp/cc1qZLtv.s 			page 20
 
 
  866      00
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  916 0195 1F       		.byte	31
  917 0196 1453544F 		.ascii	"\024STO/\000"
  917      2F00
-ARM GAS  /tmp/ccBFZ8MU.s 			page 21
+ARM GAS  /tmp/cc1qZLtv.s 			page 21
 
 
  918 019c 80000000 		.word	.LC20
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  966 0226 53544F53 		.ascii	"STOS\000"
  966      00
  967 022b 00       		.space	1
-ARM GAS  /tmp/ccBFZ8MU.s 			page 22
+ARM GAS  /tmp/cc1qZLtv.s 			page 22
 
 
  968 022c 00000000 		.word	0
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  1017 02b0 00000000 		.word	alpha_shift_l
  1018 02b4 1E       		.byte	30
  1019 02b5 01       		.byte	1
-ARM GAS  /tmp/ccBFZ8MU.s 			page 23
+ARM GAS  /tmp/cc1qZLtv.s 			page 23
 
 
  1020 02b6 A0534C00 		.ascii	"\240SL\000"
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  1074 0346 14783D3F 		.ascii	"\024x=?\000"
  1074      00
  1075 034b 00       		.space	1
-ARM GAS  /tmp/ccBFZ8MU.s 			page 24
+ARM GAS  /tmp/cc1qZLtv.s 			page 24
 
 
  1076 034c 08010000 		.word	.LC40
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  1125 03d0 00000000 		.word	cmdloop
  1126 03d4 FF       		.byte	-1
  1127 03d5 0F       		.byte	15
-ARM GAS  /tmp/ccBFZ8MU.s 			page 25
+ARM GAS  /tmp/cc1qZLtv.s 			page 25
 
 
  1128 03d6 49534500 		.ascii	"ISE\000"
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  1181 0465 21       		.byte	33
  1182 0466 9100     		.ascii	"\221\000"
  1183 0468 00000000 		.space	4
-ARM GAS  /tmp/ccBFZ8MU.s 			page 26
+ARM GAS  /tmp/cc1qZLtv.s 			page 26
 
 
  1184 046c 00000000 		.word	.LC0
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  1236 04fc 00000000 		.word	0
  1237 0500 00000000 		.word	cmddisp
  1238 0504 0B       		.byte	11
-ARM GAS  /tmp/ccBFZ8MU.s 			page 27
+ARM GAS  /tmp/cc1qZLtv.s 			page 27
 
 
  1239 0505 01       		.byte	1
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  1289 058b 00       		.space	1
  1290 058c 00000000 		.word	0
  1291 0590 00000000 		.word	cmdflag
-ARM GAS  /tmp/ccBFZ8MU.s 			page 28
+ARM GAS  /tmp/cc1qZLtv.s 			page 28
 
 
  1292 0594 7F       		.byte	127
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  1342 0619 000000   		.space	3
  1343 061c 00000000 		.word	0
  1344 0620 00000000 		.word	introt
-ARM GAS  /tmp/ccBFZ8MU.s 			page 29
+ARM GAS  /tmp/cc1qZLtv.s 			page 29
 
 
  1345 0624 40       		.byte	64
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  1397 06b4 10       		.byte	16
  1398 06b5 01       		.byte	1
  1399 06b6 42415345 		.ascii	"BASE\000"
-ARM GAS  /tmp/ccBFZ8MU.s 			page 30
+ARM GAS  /tmp/cc1qZLtv.s 			page 30
 
 
  1399      00
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  1448 073b 00       		.space	1
  1449 073c 28010000 		.word	.LC44
  1450 0740 00000000 		.word	rarg_roundingmode
-ARM GAS  /tmp/ccBFZ8MU.s 			page 31
+ARM GAS  /tmp/cc1qZLtv.s 			page 31
 
 
  1451 0744 06       		.byte	6
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  1501 07c6 4C6F6352 		.ascii	"LocR\000"
  1501      00
  1502 07cb 00       		.space	1
-ARM GAS  /tmp/ccBFZ8MU.s 			page 32
+ARM GAS  /tmp/cc1qZLtv.s 			page 32
 
 
  1503 07cc 00000000 		.word	0
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  1550 0850 00000000 		.word	cmdconverged
  1551 0854 1F       		.byte	31
  1552 0855 00       		.byte	0
-ARM GAS  /tmp/ccBFZ8MU.s 			page 33
+ARM GAS  /tmp/cc1qZLtv.s 			page 33
 
 
  1553 0856 434E5647 		.ascii	"CNVG?\000"
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  1603 08e4 A5       		.byte	-91
  1604 08e5 01       		.byte	1
  1605 08e6 92544142 		.ascii	"\222TAB\000"
-ARM GAS  /tmp/ccBFZ8MU.s 			page 34
+ARM GAS  /tmp/cc1qZLtv.s 			page 34
 
 
  1605      00
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  1652              		.align	2
  1655              	dyfuncs:
  1656 0000 00000000 		.word	dn_power
-ARM GAS  /tmp/ccBFZ8MU.s 			page 35
+ARM GAS  /tmp/cc1qZLtv.s 			page 35
 
 
  1657 0004 00000000 		.word	cmplxPower
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  1709 00b8 0000     		.space	2
  1710 00ba 0000     		.space	2
  1711 00bc 00000000 		.word	0
-ARM GAS  /tmp/ccBFZ8MU.s 			page 36
+ARM GAS  /tmp/cc1qZLtv.s 			page 36
 
 
  1712 00c0 00000000 		.word	decNumberLogxy
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  1764 0178 0000     		.space	2
  1765 017a 0000     		.space	2
  1766 017c E4030000 		.word	.LC138
-ARM GAS  /tmp/ccBFZ8MU.s 			page 37
+ARM GAS  /tmp/cc1qZLtv.s 			page 37
 
 
  1767 0180 00000000 		.word	decNumberGammap
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  1818 0230 00000000 		.word	0
  1819 0234 41474D00 		.ascii	"AGM\000"
  1820 0238 0000     		.space	2
-ARM GAS  /tmp/ccBFZ8MU.s 			page 38
+ARM GAS  /tmp/cc1qZLtv.s 			page 38
 
 
  1821 023a 0000     		.space	2
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  1873 02f4 4E414E44 		.ascii	"NAND\000"
  1873      00
  1874 02f9 00       		.space	1
-ARM GAS  /tmp/ccBFZ8MU.s 			page 39
+ARM GAS  /tmp/cc1qZLtv.s 			page 39
 
 
  1875 02fa 0000     		.space	2
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  1926 03b0 00000000 		.word	0
  1927 03b4 4CBD00   		.ascii	"L\275\000"
  1928 03b7 000000   		.space	3
-ARM GAS  /tmp/ccBFZ8MU.s 			page 40
+ARM GAS  /tmp/cc1qZLtv.s 			page 40
 
 
  1929 03ba 0000     		.space	2
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  1979 0474 4A6E00   		.ascii	"Jn\000"
  1980 0477 000000   		.space	3
  1981 047a 0000     		.space	2
-ARM GAS  /tmp/ccBFZ8MU.s 			page 41
+ARM GAS  /tmp/cc1qZLtv.s 			page 41
 
 
  1982 047c 00000000 		.word	0
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  2037 0034 00000000 		.word	0
  2038 0038 00000000 		.word	mask_value
  2039 003c 4345494C 		.ascii	"CEIL\000"
-ARM GAS  /tmp/ccBFZ8MU.s 			page 42
+ARM GAS  /tmp/cc1qZLtv.s 			page 42
 
 
  2039      00
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  2090 00f0 00000000 		.word	dn_sqrt
  2091 00f4 00000000 		.word	cmplxSqrt
  2092 00f8 00000000 		.word	intSqrt
-ARM GAS  /tmp/ccBFZ8MU.s 			page 43
+ARM GAS  /tmp/cc1qZLtv.s 			page 43
 
 
  2093 00fc 0300     		.ascii	"\003\000"
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  2143 01b0 00000000 		.word	decNumberExpm1
  2144 01b4 D2180000 		.word	xrom+6354
  2145 01b8 00000000 		.word	0
-ARM GAS  /tmp/ccBFZ8MU.s 			page 44
+ARM GAS  /tmp/cc1qZLtv.s 			page 44
 
 
  2146 01bc 659C2D31 		.ascii	"e\234-1\000"
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  2199 0270 00000000 		.word	decNumberDRG
  2200 0274 00000000 		.word	0
  2201 0278 00000000 		.word	0
-ARM GAS  /tmp/ccBFZ8MU.s 			page 45
+ARM GAS  /tmp/cc1qZLtv.s 			page 45
 
 
  2202 027c 0D444547 		.ascii	"\015DEG\000"
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  2250 0328 0000     		.space	2
  2251 032a 0000     		.space	2
  2252 032c 00000000 		.word	0
-ARM GAS  /tmp/ccBFZ8MU.s 			page 46
+ARM GAS  /tmp/cc1qZLtv.s 			page 46
 
 
  2253 0330 00000000 		.word	decNumberTan
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  2301 03d4 00000000 		.word	0
  2302 03d8 00000000 		.word	decNumberTanh
  2303 03dc 00000000 		.word	cmplxTanh
-ARM GAS  /tmp/ccBFZ8MU.s 			page 47
+ARM GAS  /tmp/cc1qZLtv.s 			page 47
 
 
  2304 03e0 00000000 		.word	0
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  2354 0494 B4040000 		.word	.LC172
  2355 0498 00000000 		.word	decNumberLnGamma
  2356 049c 00000000 		.word	cmplxLnGamma
-ARM GAS  /tmp/ccBFZ8MU.s 			page 48
+ARM GAS  /tmp/cc1qZLtv.s 			page 48
 
 
  2357 04a0 00000000 		.word	0
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  2406 0554 04050000 		.word	.LC180
  2407 0558 00000000 		.word	0
  2408 055c A8170000 		.word	xrom+6056
-ARM GAS  /tmp/ccBFZ8MU.s 			page 49
+ARM GAS  /tmp/cc1qZLtv.s 			page 49
 
 
  2409 0560 00000000 		.word	0
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  2458 060f 000000   		.space	3
  2459 0612 0000     		.space	2
  2460 0614 34050000 		.word	.LC186
-ARM GAS  /tmp/ccBFZ8MU.s 			page 50
+ARM GAS  /tmp/cc1qZLtv.s 			page 50
 
 
  2461 0618 6A0D0000 		.word	xrom+3434
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  2508 06cc 57656962 		.ascii	"Weibl\276"
  2508      6CBE
  2509 06d2 0000     		.space	2
-ARM GAS  /tmp/ccBFZ8MU.s 			page 51
+ARM GAS  /tmp/cc1qZLtv.s 			page 51
 
 
  2510 06d4 68050000 		.word	.LC192
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  2556      6D9D
  2557 0792 0000     		.space	2
  2558 0794 98050000 		.word	.LC197
-ARM GAS  /tmp/ccBFZ8MU.s 			page 52
+ARM GAS  /tmp/cc1qZLtv.s 			page 52
 
 
  2559 0798 700E0000 		.word	xrom+3696
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  2605 0851 00       		.space	1
  2606 0852 0000     		.space	2
  2607 0854 00000000 		.word	0
-ARM GAS  /tmp/ccBFZ8MU.s 			page 53
+ARM GAS  /tmp/cc1qZLtv.s 			page 53
 
 
  2608 0858 E8090000 		.word	xrom+2536
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  2654 0912 0000     		.space	2
  2655 0914 1C060000 		.word	.LC210
  2656 0918 460A0000 		.word	xrom+2630
-ARM GAS  /tmp/ccBFZ8MU.s 			page 54
+ARM GAS  /tmp/cc1qZLtv.s 			page 54
 
 
  2657 091c 00000000 		.word	0
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  2704 09d4 50060000 		.word	.LC216
  2705 09d8 34110000 		.word	xrom+4404
  2706 09dc 00000000 		.word	0
-ARM GAS  /tmp/ccBFZ8MU.s 			page 55
+ARM GAS  /tmp/cc1qZLtv.s 			page 55
 
 
  2707 09e0 00000000 		.word	0
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  2753 0a98 920A0000 		.word	xrom+2706
  2754 0a9c 00000000 		.word	0
  2755 0aa0 00000000 		.word	0
-ARM GAS  /tmp/ccBFZ8MU.s 			page 56
+ARM GAS  /tmp/cc1qZLtv.s 			page 56
 
 
  2756 0aa4 4C674E72 		.ascii	"LgNrm\277"
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  2807 0b5c 00000000 		.word	0
  2808 0b60 00000000 		.word	0
  2809 0b64 255400   		.ascii	"%T\000"
-ARM GAS  /tmp/ccBFZ8MU.s 			page 57
+ARM GAS  /tmp/cc1qZLtv.s 			page 57
 
 
  2810 0b67 000000   		.space	3
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  2860 0c1c 00000000 		.word	0
  2861 0c20 00000000 		.word	0
  2862 0c24 4A0D4400 		.ascii	"J\015D\000"
-ARM GAS  /tmp/ccBFZ8MU.s 			page 58
+ARM GAS  /tmp/cc1qZLtv.s 			page 58
 
 
  2863 0c28 0000     		.space	2
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  2911 0ce0 00000000 		.word	0
  2912 0ce4 42BD00   		.ascii	"B\275\000"
  2913 0ce7 000000   		.space	3
-ARM GAS  /tmp/ccBFZ8MU.s 			page 59
+ARM GAS  /tmp/cc1qZLtv.s 			page 59
 
 
  2914 0cea 0000     		.space	2
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  2964 0d98 00000000 		.word	matrix_all
  2965 0d9c 00000000 		.word	0
  2966 0da0 00000000 		.word	0
-ARM GAS  /tmp/ccBFZ8MU.s 			page 60
+ARM GAS  /tmp/cc1qZLtv.s 			page 60
 
 
  2967 0da4 4D2D414C 		.ascii	"M-ALL\000"
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  3014 0e51 00       		.space	1
  3015 0e52 0000     		.space	2
  3016 0e54 00000000 		.word	0
-ARM GAS  /tmp/ccBFZ8MU.s 			page 61
+ARM GAS  /tmp/cc1qZLtv.s 			page 61
 
 
  3017 0e58 BE1A0000 		.word	xrom+6846
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  3070 005c 04000000 		.word	.LC1
  3071 0060 24000000 		.word	xrom+36
  3072 0064 534C5600 		.ascii	"SLV\000"
-ARM GAS  /tmp/ccBFZ8MU.s 			page 62
+ARM GAS  /tmp/cc1qZLtv.s 			page 62
 
 
  3073 0068 0000     		.space	2
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  3124      453F
  3125 003b 00       		.space	1
  3126 003c 00000000 		.word	0
-ARM GAS  /tmp/ccBFZ8MU.s 			page 63
+ARM GAS  /tmp/cc1qZLtv.s 			page 63
 
 
  3127 0040 AA150000 		.word	xrom+5546
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  3176 00cc 00000000 		.word	0
  3177 00d0 00000000 		.word	cpx_fill
  3178 00d4 00       		.byte	0
-ARM GAS  /tmp/ccBFZ8MU.s 			page 64
+ARM GAS  /tmp/cc1qZLtv.s 			page 64
 
 
  3179 00d5 1446494C 		.ascii	"\024FILL\000"
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  3229 0160 00000000 		.word	sigma_val
  3230 0164 81       		.byte	-127
  3231 0165 916C6E78 		.ascii	"\221lnx\000"
-ARM GAS  /tmp/ccBFZ8MU.s 			page 65
+ARM GAS  /tmp/cc1qZLtv.s 			page 65
 
 
  3231      00
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  3279 01f4 82       		.byte	-126
  3280 01f5 B100     		.ascii	"\261\000"
  3281 01f7 00000000 		.space	4
-ARM GAS  /tmp/ccBFZ8MU.s 			page 66
+ARM GAS  /tmp/cc1qZLtv.s 			page 66
 
 
  3282 01fb 00       		.space	1
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  3334      00
  3335 028a 00       		.space	1
  3336 028b 00       		.space	1
-ARM GAS  /tmp/ccBFZ8MU.s 			page 67
+ARM GAS  /tmp/cc1qZLtv.s 			page 67
 
 
  3337 028c 00000000 		.word	0
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  3386 0315 4C6F6746 		.ascii	"LogF\000"
  3386      00
  3387 031a 00       		.space	1
-ARM GAS  /tmp/ccBFZ8MU.s 			page 68
+ARM GAS  /tmp/cc1qZLtv.s 			page 68
 
 
  3388 031b 00       		.space	1
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  3437 03a4 00       		.byte	0
  3438 03a5 454E4400 		.ascii	"END\000"
  3439 03a9 0000     		.space	2
-ARM GAS  /tmp/ccBFZ8MU.s 			page 69
+ARM GAS  /tmp/cc1qZLtv.s 			page 69
 
 
  3440 03ab 00       		.space	1
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  3487      4F47
  3488 043b 00       		.space	1
  3489 043c 00000000 		.word	0
-ARM GAS  /tmp/ccBFZ8MU.s 			page 70
+ARM GAS  /tmp/cc1qZLtv.s 			page 70
 
 
  3490 0440 00000000 		.word	0
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  3535 04cb 00       		.space	1
  3536 04cc 00000000 		.word	0
  3537 04d0 00000000 		.word	op_fract
-ARM GAS  /tmp/ccBFZ8MU.s 			page 71
+ARM GAS  /tmp/cc1qZLtv.s 			page 71
 
 
  3538 04d4 00       		.byte	0
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  3583 055b 00       		.space	1
  3584 055c 00000000 		.word	0
  3585 0560 94150000 		.word	xrom+5524
-ARM GAS  /tmp/ccBFZ8MU.s 			page 72
+ARM GAS  /tmp/cc1qZLtv.s 			page 72
 
 
  3586 0564 00       		.byte	0
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  3631 05eb 00       		.space	1
  3632 05ec 00000000 		.word	0
  3633 05f0 8C150000 		.word	xrom+5516
-ARM GAS  /tmp/ccBFZ8MU.s 			page 73
+ARM GAS  /tmp/cc1qZLtv.s 			page 73
 
 
  3634 05f4 00       		.byte	0
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  3682      3532
  3683 067b 00       		.space	1
  3684 067c 00000000 		.word	0
-ARM GAS  /tmp/ccBFZ8MU.s 			page 74
+ARM GAS  /tmp/cc1qZLtv.s 			page 74
 
 
  3685 0680 44150000 		.word	xrom+5444
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  3731 0709 0000     		.space	2
  3732 070b 00       		.space	1
  3733 070c 00000000 		.word	0
-ARM GAS  /tmp/ccBFZ8MU.s 			page 75
+ARM GAS  /tmp/cc1qZLtv.s 			page 75
 
 
  3734 0710 4C150000 		.word	xrom+5452
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  3784 07a0 00000000 		.word	alpha_onoff
  3785 07a4 00       		.byte	0
  3786 07a5 A04F4646 		.ascii	"\240OFF\000"
-ARM GAS  /tmp/ccBFZ8MU.s 			page 76
+ARM GAS  /tmp/cc1qZLtv.s 			page 76
 
 
  3786      00
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  3832 0835 9F3F00   		.ascii	"\237?\000"
  3833 0838 000000   		.space	3
  3834 083b 00       		.space	1
-ARM GAS  /tmp/ccBFZ8MU.s 			page 77
+ARM GAS  /tmp/cc1qZLtv.s 			page 77
 
 
  3835 083c E0020000 		.word	.LC103
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  3882 08c5 5449434B 		.ascii	"TICKS\000"
  3882      5300
  3883 08cb 00       		.space	1
-ARM GAS  /tmp/ccBFZ8MU.s 			page 78
+ARM GAS  /tmp/cc1qZLtv.s 			page 78
 
 
  3884 08cc 00000000 		.word	0
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  3929      504E
  3930 095b 00       		.space	1
  3931 095c 00000000 		.word	0
-ARM GAS  /tmp/ccBFZ8MU.s 			page 79
+ARM GAS  /tmp/cc1qZLtv.s 			page 79
 
 
  3932 0960 BA150000 		.word	xrom+5562
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  3980 09e4 01       		.byte	1
  3981 09e5 534D4F44 		.ascii	"SMODE?"
  3981      453F
-ARM GAS  /tmp/ccBFZ8MU.s 			page 80
+ARM GAS  /tmp/cc1qZLtv.s 			page 80
 
 
  3982 09eb 00       		.space	1
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  4028 0a7b 00       		.space	1
  4029 0a7c 10030000 		.word	.LC109
  4030 0a80 00000000 		.word	cmdlpop
-ARM GAS  /tmp/ccBFZ8MU.s 			page 81
+ARM GAS  /tmp/cc1qZLtv.s 			page 81
 
 
  4031 0a84 00       		.byte	0
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  4076 0b0b 00       		.space	1
  4077 0b0c 00000000 		.word	0
  4078 0b10 00000000 		.word	recall_program
-ARM GAS  /tmp/ccBFZ8MU.s 			page 82
+ARM GAS  /tmp/cc1qZLtv.s 			page 82
 
 
  4079 0b14 00       		.byte	0
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  4125 0b9b 00       		.space	1
  4126 0b9c 28030000 		.word	.LC112
  4127 0ba0 F8170000 		.word	xrom+6136
-ARM GAS  /tmp/ccBFZ8MU.s 			page 83
+ARM GAS  /tmp/cc1qZLtv.s 			page 83
 
 
  4128 0ba4 00       		.byte	0
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  4177 0c2c 6C030000 		.word	.LC121
  4178 0c30 00000000 		.word	print_lf
  4179 0c34 00       		.byte	0
-ARM GAS  /tmp/ccBFZ8MU.s 			page 84
+ARM GAS  /tmp/cc1qZLtv.s 			page 84
 
 
  4180 0c35 92414456 		.ascii	"\222ADV\000"
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  4227 0cbb 00       		.space	1
  4228 0cbc 00000000 		.word	0
  4229 0cc0 00000000 		.word	cpx_nop
-ARM GAS  /tmp/ccBFZ8MU.s 			page 85
+ARM GAS  /tmp/cc1qZLtv.s 			page 85
 
 
  4230 0cc4 00       		.byte	0
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  4279 0d45 43505859 		.ascii	"CPXYES"
  4279      4553
  4280 0d4b 00       		.space	1
-ARM GAS  /tmp/ccBFZ8MU.s 			page 86
+ARM GAS  /tmp/cc1qZLtv.s 			page 86
 
 
  4281 0d4c 00000000 		.word	0
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  4330 0028 00000000 		.word	0
  4331 002c 00000000 		.word	intDblRmdr
  4332 0030 44424C52 		.ascii	"DBLR\000"
-ARM GAS  /tmp/ccBFZ8MU.s 			page 87
+ARM GAS  /tmp/cc1qZLtv.s 			page 87
 
 
  4332      00
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  4381 00dc 00000000 		.word	0
  4382 00e0 00000000 		.word	intmodop
  4383 00e4 5E4D4F44 		.ascii	"^MOD\000"
-ARM GAS  /tmp/ccBFZ8MU.s 			page 88
+ARM GAS  /tmp/cc1qZLtv.s 			page 88
 
 
  4383      00
@@ -5241,24 +5241,24 @@ ARM GAS  /tmp/ccBFZ8MU.s 			page 1
  4400              		.file 12 "src/printer.h"
  4401              		.file 13 "src/stopwatch.h"
  4402              		.file 14 "src/commands.c"
-ARM GAS  /tmp/ccBFZ8MU.s 			page 89
+ARM GAS  /tmp/cc1qZLtv.s 			page 89
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 commands.c
-     /tmp/ccBFZ8MU.s:3040   .rodata.multicmds:0000000000000000 multicmds
-     /tmp/ccBFZ8MU.s:19     .rodata.str1.4:0000000000000000 $d
-     /tmp/ccBFZ8MU.s:766    .rodata.argcmds:0000000000000000 argcmds
-     /tmp/ccBFZ8MU.s:3103   .rodata.niladics:0000000000000000 niladics
-     /tmp/ccBFZ8MU.s:4317   .rodata.trifuncs:0000000000000000 trifuncs
-     /tmp/ccBFZ8MU.s:1655   .rodata.dyfuncs:0000000000000000 dyfuncs
-     /tmp/ccBFZ8MU.s:2022   .rodata.monfuncs:0000000000000000 monfuncs
-     /tmp/ccBFZ8MU.s:763    .rodata.argcmds:0000000000000000 $d
-     /tmp/ccBFZ8MU.s:1652   .rodata.dyfuncs:0000000000000000 $d
-     /tmp/ccBFZ8MU.s:2019   .rodata.monfuncs:0000000000000000 $d
-     /tmp/ccBFZ8MU.s:3037   .rodata.multicmds:0000000000000000 $d
-     /tmp/ccBFZ8MU.s:3100   .rodata.niladics:0000000000000000 $d
-     /tmp/ccBFZ8MU.s:4314   .rodata.trifuncs:0000000000000000 $d
+     /tmp/cc1qZLtv.s:3040   .rodata.multicmds:0000000000000000 multicmds
+     /tmp/cc1qZLtv.s:19     .rodata.str1.4:0000000000000000 $d
+     /tmp/cc1qZLtv.s:766    .rodata.argcmds:0000000000000000 argcmds
+     /tmp/cc1qZLtv.s:3103   .rodata.niladics:0000000000000000 niladics
+     /tmp/cc1qZLtv.s:4317   .rodata.trifuncs:0000000000000000 trifuncs
+     /tmp/cc1qZLtv.s:1655   .rodata.dyfuncs:0000000000000000 dyfuncs
+     /tmp/cc1qZLtv.s:2022   .rodata.monfuncs:0000000000000000 monfuncs
+     /tmp/cc1qZLtv.s:763    .rodata.argcmds:0000000000000000 $d
+     /tmp/cc1qZLtv.s:1652   .rodata.dyfuncs:0000000000000000 $d
+     /tmp/cc1qZLtv.s:2019   .rodata.monfuncs:0000000000000000 $d
+     /tmp/cc1qZLtv.s:3037   .rodata.multicmds:0000000000000000 $d
+     /tmp/cc1qZLtv.s:3100   .rodata.niladics:0000000000000000 $d
+     /tmp/cc1qZLtv.s:4314   .rodata.trifuncs:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 cmdconst
@@ -5301,7 +5301,7 @@ cmdpause
 cmdkeyp
 cmdalphagto
 op_shift_digit
-ARM GAS  /tmp/ccBFZ8MU.s 			page 90
+ARM GAS  /tmp/cc1qZLtv.s 			page 90
 
 
 alpha_view_reg
@@ -5361,7 +5361,7 @@ decNumberLCM
 intLCM
 decNumberBooleanOp
 intBooleanOp
-ARM GAS  /tmp/ccBFZ8MU.s 			page 91
+ARM GAS  /tmp/cc1qZLtv.s 			page 91
 
 
 decNumberXRoot
@@ -5421,7 +5421,7 @@ decNumberCos
 cmplxCos
 decNumberTan
 cmplxTan
-ARM GAS  /tmp/ccBFZ8MU.s 			page 92
+ARM GAS  /tmp/cc1qZLtv.s 			page 92
 
 
 decNumberArcSin
@@ -5481,7 +5481,7 @@ matrix_getrc
 matrix_determinant
 matrix_lu_decomp
 dateEaster
-ARM GAS  /tmp/ccBFZ8MU.s 			page 93
+ARM GAS  /tmp/cc1qZLtv.s 			page 93
 
 
 decFactor
@@ -5541,7 +5541,7 @@ date_time
 date_setdate
 date_settime
 clralpha
-ARM GAS  /tmp/ccBFZ8MU.s 			page 94
+ARM GAS  /tmp/cc1qZLtv.s 			page 94
 
 
 alpha_view
@@ -5601,7 +5601,7 @@ cpx_pi
 entry_rpn_on_off
 stopwatch
 print_on_off
-ARM GAS  /tmp/ccBFZ8MU.s 			page 95
+ARM GAS  /tmp/cc1qZLtv.s 			page 95
 
 
 betai

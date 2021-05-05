@@ -331,10 +331,12 @@ void show_disp(void) { // This function re-draws everything.
         }
 	t20->inv = 0;
 	
-	if (UState.print_on) {
-	  lcd_setXY(t20, 250, y_ann-70);
-	  lcd_writeText(t20,"PRT");
-        }
+	draw_PRT();
+	
+	/* if (UState.print_on) { */
+	/*   lcd_setXY(t20, 250, y_ann-70); */
+	/*   lcd_writeText(t20,"PRT"); */
+        /* } */
 
         if (dots[DOWN_ARR]) {
 	  lcd_fill_rect(287,y_ann-67,5,12,0xff);
@@ -738,6 +740,17 @@ void draw_LEQ(void) { // little equals
     lcd_writeText(t20, "=");
   }
   t20->inv = 0;
+}
+
+void draw_PRT (void) {
+  t20->inv = !UState.print_on;
+  lcd_setXY(t20, 250, Y_ANNUNC-70);
+  lcd_writeText(t20,"PRT");
+}
+
+void finish_PRT (void) {
+  draw_PRT();
+  lcd_refresh();
 }
 
 void finish_LEQ(void) { // refreshes the RPN and RUN flags only

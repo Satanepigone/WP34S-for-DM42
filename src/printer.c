@@ -26,11 +26,14 @@
 #include "display.h"
 #include "complex.h"
 #include "storage.h"
+#include "lcd.h"
 #undef DM42SAFE
 
 #ifdef INFRARED
 
 #define RETURN_IF_PRINT_OFF if (!UState.print_on) return
+#define BREAK_IF_EXIT  if (key_pop() == KEY_EXIT) break
+
 /*
 void goto_new_line(void) {
   print('\n');
@@ -40,12 +43,17 @@ void goto_new_line(void) {
 
 void prepare_new_line(void) {
   int i = 0;
+  UState.print_on = 0;
+  finish_PRT();
   printer_advance_buf(PRINT_GRA_LN);
   while ( printer_busy_for (PRINT_GRA_LN) && i<50 ) { // return after 5.0s anyway 
     sys_timer_start(0, 100);  // Timer 0: wake up for heartbeat 
     sys_sleep();
+    sys_timer_disable(0); // stop timer
     i++;
   }
+  UState.print_on = 1;
+  finish_PRT();
 }
 
 void put_ir( int byte ) {
@@ -652,6 +660,7 @@ void print_program( enum nilop op )
     print( ' ' );
     p = prt( op, buffer );
     print_line( p, 1 );
+    BREAK_IF_EXIT;
     pc = do_inc( pc, runmode );
   }
 }
