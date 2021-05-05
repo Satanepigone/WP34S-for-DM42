@@ -660,10 +660,6 @@ maxlibsteps=8190
 0x032c	cmd	M-COL
 0x032d	cmd	M.COPY
 0x032e	cmd	NEIGHB
-0x032f	cmd	Jn
-0x0330	cmd	In
-0x0331	cmd	Yn
-0x0332	cmd	Kn
 0x0400	cmd	I[sub-x]
 0x0400	alias-c	IBETA
 0x0401	cmd	DBL/
@@ -796,18 +792,10 @@ maxlibsteps=8190
 0x0617	alias-c	cAGM
 0x062a	cmd	[cmplx][^x][sqrt]y
 0x062a	alias-c	cXROOT
-0x062f	cmd	[cmplx]Jn
-0x062f	alias-c	cJn
-0x0630	cmd	[cmplx]In
-0x0630	alias-c	cIn
-0x0631	cmd	[cmplx]Yn
-0x0631	alias-c	cYn
-0x0632	cmd	[cmplx]Kn
-0x0632	alias-c	cKn
-0x0633	cmd	[cmplx]c.
-0x0633	alias-c	cc.
-0x0634	cmd	[cmplx]c/
-0x0634	alias-c	cc/
+0x062f	cmd	[cmplx]c.
+0x062f	alias-c	cc.
+0x0630	cmd	[cmplx]c/
+0x0630	alias-c	cc/
 0x2000	cmd	# 1/2
 0x2001	cmd	# a
 0x2002	cmd	# a[sub-0]

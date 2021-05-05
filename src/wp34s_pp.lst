@@ -1,6 +1,6 @@
 // wp34s_asm.pl: Source file(s): xrom_pre.wp34s
-// wp34s_pp.pl: Command line: -m  235  -cat  .__0.592215490135462.tmp  -v3  -xrom  -e2so  -sd  4  -colour_mode  1
-// wp34s_pp.pl: Source file(s): .__0.592215490135462.tmp
+// wp34s_pp.pl: Command line: -m  235  -cat  .__0.946074275839241.tmp  -v3  -xrom  -e2so  -sd  4  -colour_mode  1
+// wp34s_pp.pl: Source file(s): .__0.946074275839241.tmp
 // wp34s_pp.pl: Preprocessor revision: $Rev: 2956 $ 
 //  XLBL"START"
 0001 /* slv_ridders::           */ [cmplx]RCL .03
@@ -3392,317 +3392,118 @@
 3230 /*                         */ /
 3231 /*                         */ IP
 3232 /*                         */ xOUT 0 // 0
-//    XLBL"BES_IN"
-3233 /*                         */ xIN 74 // ((2 & 7) | ((1 & 7) << 3)) | (64)
-3234 /*                         */ SPEC?
-3235 /*                         */ GTO 26 // JMP ret_posinf
-3236 /*                         */ SF .01
-3237 /*                         */ SKIP 003 // JMP bessel1_common
-//    XLBL"BES_JN"
-3238 /*                         */ xIN 74 // ((2 & 7) | ((1 & 7) << 3)) | (64)
-3239 /*                         */ SPEC?
-3240 /*                         */ GTO 08 // JMP ret_0
-3241 /* bessel1_common::        */ BSRF 001 // GSB bessel1
-3242 /*                         */ xOUT 0 // 0
-3243 /* bessel1::               */ [cmplx]x[!=]0?
-3244 /*                         */ SKIP 002 // JMP bessel1_nonzero
-3245 /*                         */ # 1
-3246 /*                         */ RTN
-3247 /* bessel1_nonzero::       */ x=0?
-3248 /*                         */ RTN
-3249 /*                         */ # 1/2
-3250 /*                         */ [times]
-3251 /*                         */ [cmplx]STO J
-3252 /*                         */ x[<->] Y
-3253 /*                         */ INT?
-3254 /*                         */ SKIP 028 // JMP bessel1_int
-3255 /*                         */ # 1
-3256 /*                         */ FILL
-3257 /*                         */ STO I
-3258 /* bessel1_lp1::           */ x[<->] Z
-3259 /*                         */ FC? .01
-3260 /*                         */ +/-
-3261 /*                         */ RCL[times] J
-3262 /*                         */ RCL[times] J
-3263 /*                         */ RCL I
-3264 /*                         */ STO/ Y
-3265 /*                         */ RCL K
-3266 /*                         */ +
-3267 /*                         */ /
-3268 /*                         */ INC I
-3269 /*                         */ [<->] XYYY
-3270 /*                         */ STO+ Y
-3271 /*                         */ x[<->] Z
-3272 /*                         */ CNVG? 02
-3273 /*                         */ SKIP 001 // JMP bessel1_fin
-3274 /*                         */ BACK 016 // JMP bessel1_lp1
-3275 /* bessel1_fin::           */ RCL J
-3276 /*                         */ RCL K
-3277 /*                         */ y[^x]
-3278 /*                         */ [times]
-3279 /*                         */ RCL K
-3280 /*                         */ x!
-3281 /*                         */ /
-3282 /*                         */ RTN
-3283 /* bessel1_int::           */ ERR 1
-3284 /*                         */ RTN
-//    XLBL"BES_KN"
-3285 /*                         */ xIN 74 // ((2 & 7) | ((1 & 7) << 3)) | (64)
-3286 /*                         */ x=0?
-3287 /*                         */ GTO 26 // JMP ret_posinf
-3288 /*                         */ SPEC?
-3289 /*                         */ GTO 08 // JMP ret_0
-3290 /*                         */ LocR 3
-3291 /*                         */ SF .01
-3292 /*                         */ SKIP 006 // JMP bessel2_entry
-//    XLBL"BES_YN"
-3293 /*                         */ xIN 74 // ((2 & 7) | ((1 & 7) << 3)) | (64)
-3294 /*                         */ x=0?
-3295 /*                         */ GTO 04 // JMP ret_neginf
-3296 /*                         */ SPEC?
-3297 /*                         */ GTO 08 // JMP ret_0
-3298 /*                         */ LocR 3
-3299 /* bessel2_entry::         */ [cmplx]STO .00
-3300 /*                         */ x[<->] Y
-3301 /*                         */ INT?
-3302 /*                         */ SKIP 025 // JMP bessel2_int
-3303 /*                         */ +/-
-3304 /*                         */ x[<->] Y
-3305 /*                         */ BSRB 062 // GSB bessel1
-3306 /*                         */ STO .02
-3307 /*                         */ [cmplx]RCL .00
-3308 /*                         */ BSRB 065 // GSB bessel1
-3309 /*                         */ FS? .01
-3310 /*                         */ SKIP 006 // JMP bessel2_Kn
-3311 /*                         */ # [pi]
-3312 /*                         */ RCL[times] .01
-3313 /*                         */ COS
-3314 /*                         */ [times]
-3315 /*                         */ RCL- .02
-3316 /*                         */ SKIP 006 // JMP bessel_denom
-3317 /* bessel2_Kn::            */ RCL- .02
-3318 /*                         */ +/-
-3319 /*                         */ # [pi]
-3320 /*                         */ [times]
-3321 /*                         */ # 1/2
-3322 /*                         */ [times]
-3323 /* bessel_denom::          */ # [pi]
-3324 /*                         */ RCL[times] .01
-3325 /*                         */ SIN
-3326 /*                         */ /
-3327 /*                         */ xOUT 0 // 0
-3328 /* bessel2_int::           */ ERR 1
-3329 /*                         */ RTN
-//    XLBL"CPX_IN"
-3330 /*                         */ xIN 202 // (((2 & 7) | ((1 & 7) << 3)) | (64)) | (128)
-3331 /*                         */ LocR 11
-3332 /*                         */ SF .01
-3333 /*                         */ BSRF 005 // GSB cpx_bessel1_entry
-3334 /*                         */ xOUT 0 // 0
-//    XLBL"CPX_JN"
-3335 /*                         */ xIN 202 // (((2 & 7) | ((1 & 7) << 3)) | (64)) | (128)
-3336 /*                         */ LocR 11
-3337 /*                         */ BSRF 001 // GSB cpx_bessel1_entry
-3338 /*                         */ xOUT 0 // 0
-3339 /* cpx_bessel1_entry::     */ [cmplx]STO .01
-3340 /*                         */ [cmplx]x[<->] Z
-3341 /*                         */ [cmplx]STO .05
-3342 /*                         */ # 2
-3343 /*                         */ STO/ .01
-3344 /*                         */ STO/ .02
-3345 /*                         */ [cmplx]RCL .01
-3346 /*                         */ [cmplx]RCL[times] X
-3347 /*                         */ [cmplx]STO .09
-3348 /*                         */ [cmplx]# 1
-3349 /*                         */ STO .00
-3350 /*                         */ [cmplx]STO .03
-3351 /*                         */ [cmplx]STO .07
-3352 /* cpx_bessel1_loop::      */ [cmplx]RCL .09
-3353 /*                         */ [cmplx]RCL[times] .03
-3354 /*                         */ RCL .00
-3355 /*                         */ FC? .01
-3356 /*                         */ +/-
-3357 /*                         */ STO/ Z
-3358 /*                         */ /
-3359 /*                         */ [cmplx]RCL .05
-3360 /*                         */ RCL+ .00
-3361 /*                         */ [cmplx]/
-3362 /*                         */ [cmplx]STO .03
-3363 /*                         */ [cmplx]RCL+ .07
-3364 /*                         */ [cmplx]x[<->] .07
-3365 /*                         */ [cmplx]RCL .07
-3366 /*                         */ INC .00
-3367 /*                         */ CNVG? 10
-3368 /*                         */ SKIP 001 // JMP cpx_bessel1_fin
-3369 /*                         */ BACK 017 // JMP cpx_bessel1_loop
-3370 /* cpx_bessel1_fin::       */ [cmplx]RCL .01
-3371 /*                         */ [cmplx]RCL .05
-3372 /*                         */ [cmplx]y[^x]
-3373 /*                         */ [cmplx][times]
-3374 /*                         */ [cmplx]RCL .05
-3375 /*                         */ INC X
-3376 /*                         */ [cmplx][GAMMA]
-3377 /*                         */ [cmplx]/
-3378 /*                         */ RTN
-//    XLBL"CPX_KN"
-3379 /*                         */ xIN 202 // (((2 & 7) | ((1 & 7) << 3)) | (64)) | (128)
-3380 /*                         */ LocR 15
-3381 /*                         */ SF .01
-3382 /*                         */ SKIP 002 // JMP cpx_bessel2_entry
-//    XLBL"CPX_YN"
-3383 /*                         */ xIN 202 // (((2 & 7) | ((1 & 7) << 3)) | (64)) | (128)
-3384 /*                         */ LocR 15
-3385 /* cpx_bessel2_entry::     */ [cmplx]STO .11
-3386 /*                         */ [cmplx]x[<->] Z
-3387 /*                         */ INT?
-3388 /*                         */ SKIP 028 // JMP cpx_bessel2_int_check
-3389 /*                         */ [cmplx]x[<->] Z
-3390 /* cpx_bessel2_notint::    */ BSRB 051 // GSB cpx_bessel1_entry
-3391 /*                         */ FS? .01
-3392 /*                         */ SKIP 004 // JMP cpx_bessel2_kn_skip
-3393 /*                         */ [cmplx]# [pi]
-3394 /*                         */ [cmplx]RCL[times] .05
-3395 /*                         */ [cmplx]COS
-3396 /*                         */ [cmplx][times]
-3397 /* cpx_bessel2_kn_skip::   */ [cmplx]STO .13
-3398 /*                         */ [cmplx]RCL .05
-3399 /*                         */ [cmplx]+/-
-3400 /*                         */ [cmplx]RCL .11
-3401 /*                         */ BSRB 062 // GSB cpx_bessel1_entry
-3402 /*                         */ [cmplx]STO- .13
-3403 /*                         */ [cmplx]# [pi]
-3404 /*                         */ [cmplx]RCL[times] .05
-3405 /*                         */ [cmplx]SIN
-3406 /*                         */ [cmplx]STO/ .13
-3407 /*                         */ FS? .01
-3408 /*                         */ SKIP 003 // JMP cpx_bessel2_2pi
-3409 /*                         */ [cmplx]# 1
-3410 /*                         */ +/-
-3411 /*                         */ SKIP 003 // JMP cpx_bessel2_skip
-3412 /* cpx_bessel2_2pi::       */ [cmplx]# [pi]
-3413 /*                         */ # 1/2
-3414 /*                         */ [times]
-3415 /* cpx_bessel2_skip::      */ [cmplx]RCL[times] .13
-3416 /*                         */ xOUT 0 // 0
-3417 /* cpx_bessel2_int_check:: */ x[<->] Y
-3418 /*                         */ x=0?
-3419 /*                         */ SKIP 002 // JMP cpx_bessel2_int
-3420 /*                         */ [<->] ZTYX
-3421 /*                         */ BACK 031 // JMP cpx_bessel2_notint
-3422 /* cpx_bessel2_int::       */ [<->] ZTYX
-3423 /*                         */ ERR 1
 //   XLBL"DIGAMMA"
-3424 /*                         */ xIN 73 // ((1 & 7) | ((1 & 7) << 3)) | (64)
-3425 /*                         */ LocR 3
-3426 /*                         */ BSRF 096 // GSB digamma_loop
-3427 /*                         */ x<0?
-3428 /*                         */ SF .00
-3429 /*                         */ ABS
-3430 /*                         */ STO .02
-3431 /*                         */ BSRF 087 // GSB digamma_lower
-3432 /*                         */ x[<->] Y
-3433 /* digamma_lp::            */ 1/x
-3434 /*                         */ STO+ .00
-3435 /*                         */ x[<->] L
-3436 /*                         */ INC X
-3437 /*                         */ x<? Y
-3438 /*                         */ BACK 005 // JMP digamma_lp
-3439 /*                         */ 1/x
-3440 /*                         */ STO .01
-3441 /*                         */ x[^2]
-3442 /*                         */ FILL
-3443 /*                         */ # 0
-3444 /* digamma_horner::        */ CNST[->]J
-3445 /*                         */ 1/x
-3446 /*                         */ +
-3447 /*                         */ [times]
-3448 /*                         */ DSL J
-3449 /*                         */ BACK 005 // JMP digamma_horner
-3450 /*                         */ RCL .01
-3451 /*                         */ LN
-3452 /*                         */ # 1/2
-3453 /*                         */ RCL[times] L
-3454 /*                         */ +
-3455 /*                         */ -
-3456 /*                         */ RCL- .00
-3457 /*                         */ FC? .00
-3458 /*                         */ xOUT 0 // 0
-3459 /*                         */ RCL .02
-3460 /*                         */ 1/x
-3461 /*                         */ +
-3462 /*                         */ # [pi]
-3463 /*                         */ RCL .02
-3464 /*                         */ RCL .02
-3465 /*                         */ ROUNDI
-3466 /*                         */ -
-3467 /*                         */ # [pi]
-3468 /*                         */ [times]
-3469 /*                         */ TAN
-3470 /*                         */ /
-3471 /*                         */ +
-3472 /*                         */ xOUT 0 // 0
+3233 /*                         */ xIN 73 // ((1 & 7) | ((1 & 7) << 3)) | (64)
+3234 /*                         */ LocR 3
+3235 /*                         */ BSRF 096 // GSB digamma_loop
+3236 /*                         */ x<0?
+3237 /*                         */ SF .00
+3238 /*                         */ ABS
+3239 /*                         */ STO .02
+3240 /*                         */ BSRF 087 // GSB digamma_lower
+3241 /*                         */ x[<->] Y
+3242 /* digamma_lp::            */ 1/x
+3243 /*                         */ STO+ .00
+3244 /*                         */ x[<->] L
+3245 /*                         */ INC X
+3246 /*                         */ x<? Y
+3247 /*                         */ BACK 005 // JMP digamma_lp
+3248 /*                         */ 1/x
+3249 /*                         */ STO .01
+3250 /*                         */ x[^2]
+3251 /*                         */ FILL
+3252 /*                         */ # 0
+3253 /* digamma_horner::        */ CNST[->]J
+3254 /*                         */ 1/x
+3255 /*                         */ +
+3256 /*                         */ [times]
+3257 /*                         */ DSL J
+3258 /*                         */ BACK 005 // JMP digamma_horner
+3259 /*                         */ RCL .01
+3260 /*                         */ LN
+3261 /*                         */ # 1/2
+3262 /*                         */ RCL[times] L
+3263 /*                         */ +
+3264 /*                         */ -
+3265 /*                         */ RCL- .00
+3266 /*                         */ FC? .00
+3267 /*                         */ xOUT 0 // 0
+3268 /*                         */ RCL .02
+3269 /*                         */ 1/x
+3270 /*                         */ +
+3271 /*                         */ # [pi]
+3272 /*                         */ RCL .02
+3273 /*                         */ RCL .02
+3274 /*                         */ ROUNDI
+3275 /*                         */ -
+3276 /*                         */ # [pi]
+3277 /*                         */ [times]
+3278 /*                         */ TAN
+3279 /*                         */ /
+3280 /*                         */ +
+3281 /*                         */ xOUT 0 // 0
 //   XLBL"CPX_DIGAMMA"
-3473 /*                         */ xIN 201 // (((1 & 7) | ((1 & 7) << 3)) | (64)) | (128)
-3474 /*                         */ LocR 6
-3475 /*                         */ BSRF 047 // GSB digamma_loop
-3476 /*                         */ x<0?
-3477 /*                         */ SF .00
-3478 /*                         */ FS? .00
-3479 /*                         */ [cmplx]+/-
-3480 /*                         */ [cmplx]STO .04
-3481 /*                         */ BSRF 037 // GSB digamma_lower
-3482 /*                         */ [<->] YZXX
-3483 /* c_digamma_lp::          */ [cmplx]1/x
-3484 /*                         */ [cmplx]STO+ .00
-3485 /*                         */ [cmplx]x[<->] L
-3486 /*                         */ INC X
-3487 /*                         */ x<? Z
-3488 /*                         */ BACK 005 // JMP c_digamma_lp
-3489 /*                         */ [cmplx]1/x
-3490 /*                         */ [cmplx]STO .02
-3491 /*                         */ [cmplx]RCL[times] X
-3492 /*                         */ [cmplx]FILL
-3493 /*                         */ [cmplx]# 0
-3494 /* cpx_digamma_horner::    */ [cmplx]CNST[->]J
-3495 /*                         */ 1/x
-3496 /*                         */ [cmplx]+
-3497 /*                         */ [cmplx][times]
-3498 /*                         */ DSL J
-3499 /*                         */ BACK 005 // JMP cpx_digamma_horner
-3500 /*                         */ [cmplx]RCL .02
-3501 /*                         */ [cmplx]LN
-3502 /*                         */ [cmplx]# 1/2
-3503 /*                         */ [cmplx]RCL[times] L
-3504 /*                         */ [cmplx]+
-3505 /*                         */ [cmplx]-
-3506 /*                         */ [cmplx]RCL- .00
-3507 /*                         */ FC? .00
-3508 /*                         */ xOUT 0 // 0
-3509 /*                         */ [cmplx]RCL .04
-3510 /*                         */ [cmplx]1/x
-3511 /*                         */ [cmplx]+
-3512 /*                         */ [cmplx]# [pi]
-3513 /*                         */ [cmplx]RCL .04
-3514 /*                         */ [cmplx]RCL[times] Z
-3515 /*                         */ [cmplx]TAN
-3516 /*                         */ [cmplx]/
-3517 /*                         */ [cmplx]+
-3518 /*                         */ xOUT 0 // 0
-3519 /* digamma_lower::         */ # 10
-3520 /*                         */ FS? .11
-3521 /*                         */ RCL+ X
-3522 /*                         */ RTN
-3523 /* digamma_loop::          */ # 82 // (82)
-3524 /*                         */ SDR 3
-3525 /*                         */ # 92 // (92)
-3526 /*                         */ FC? .11
-3527 /*                         */ SKIP 002 // JMP digamma_single_loop
-3528 /*                         */ DROP
-3529 /*                         */ # 98 // (98)
-3530 /* digamma_single_loop::   */ +
-3531 /*                         */ STO J
-3532 /*                         */ DROP
-3533 /*                         */ RTN
+3282 /*                         */ xIN 201 // (((1 & 7) | ((1 & 7) << 3)) | (64)) | (128)
+3283 /*                         */ LocR 6
+3284 /*                         */ BSRF 047 // GSB digamma_loop
+3285 /*                         */ x<0?
+3286 /*                         */ SF .00
+3287 /*                         */ FS? .00
+3288 /*                         */ [cmplx]+/-
+3289 /*                         */ [cmplx]STO .04
+3290 /*                         */ BSRF 037 // GSB digamma_lower
+3291 /*                         */ [<->] YZXX
+3292 /* c_digamma_lp::          */ [cmplx]1/x
+3293 /*                         */ [cmplx]STO+ .00
+3294 /*                         */ [cmplx]x[<->] L
+3295 /*                         */ INC X
+3296 /*                         */ x<? Z
+3297 /*                         */ BACK 005 // JMP c_digamma_lp
+3298 /*                         */ [cmplx]1/x
+3299 /*                         */ [cmplx]STO .02
+3300 /*                         */ [cmplx]RCL[times] X
+3301 /*                         */ [cmplx]FILL
+3302 /*                         */ [cmplx]# 0
+3303 /* cpx_digamma_horner::    */ [cmplx]CNST[->]J
+3304 /*                         */ 1/x
+3305 /*                         */ [cmplx]+
+3306 /*                         */ [cmplx][times]
+3307 /*                         */ DSL J
+3308 /*                         */ BACK 005 // JMP cpx_digamma_horner
+3309 /*                         */ [cmplx]RCL .02
+3310 /*                         */ [cmplx]LN
+3311 /*                         */ [cmplx]# 1/2
+3312 /*                         */ [cmplx]RCL[times] L
+3313 /*                         */ [cmplx]+
+3314 /*                         */ [cmplx]-
+3315 /*                         */ [cmplx]RCL- .00
+3316 /*                         */ FC? .00
+3317 /*                         */ xOUT 0 // 0
+3318 /*                         */ [cmplx]RCL .04
+3319 /*                         */ [cmplx]1/x
+3320 /*                         */ [cmplx]+
+3321 /*                         */ [cmplx]# [pi]
+3322 /*                         */ [cmplx]RCL .04
+3323 /*                         */ [cmplx]RCL[times] Z
+3324 /*                         */ [cmplx]TAN
+3325 /*                         */ [cmplx]/
+3326 /*                         */ [cmplx]+
+3327 /*                         */ xOUT 0 // 0
+3328 /* digamma_lower::         */ # 10
+3329 /*                         */ FS? .11
+3330 /*                         */ RCL+ X
+3331 /*                         */ RTN
+3332 /* digamma_loop::          */ # 82 // (82)
+3333 /*                         */ SDR 3
+3334 /*                         */ # 92 // (92)
+3335 /*                         */ FC? .11
+3336 /*                         */ SKIP 002 // JMP digamma_single_loop
+3337 /*                         */ DROP
+3338 /*                         */ # 98 // (98)
+3339 /* digamma_single_loop::   */ +
+3340 /*                         */ STO J
+3341 /*                         */ DROP
+3342 /*                         */ RTN
 // Max SKIP offset: 219
 // Max BACK offset: 227
 // Max BSRB offset: 223
@@ -3734,5 +3535,4 @@
 //  23 => 1410
 //  24 => 1434
 //  25 => 1516
-//  26 => 2633
-// 27 LBLs used.
+// 26 LBLs used.

@@ -6,10 +6,6 @@
 
 #define XROM_2DERIV           585
 #define XROM_AGM              875
-#define XROM_BES_IN           3233
-#define XROM_BES_JN           3238
-#define XROM_BES_KN           3285
-#define XROM_BES_YN           3293
 #define XROM_Bn               2888
 #define XROM_Bn_star          2877
 #define XROM_CDFU_BINOMIAL    2110
@@ -42,17 +38,13 @@
 #define XROM_CDF_WEIB         1595
 #define XROM_CPX_AGM          891
 #define XROM_CPX_COMB         905
-#define XROM_CPX_DIGAMMA      3473
+#define XROM_CPX_DIGAMMA      3282
 #define XROM_CPX_FIB          2834
 #define XROM_CPX_I            2635
-#define XROM_CPX_IN           3330
-#define XROM_CPX_JN           3335
-#define XROM_CPX_KN           3379
 #define XROM_CPX_PARL         839
 #define XROM_CPX_PERM         902
 #define XROM_CPX_W0           1023
 #define XROM_CPX_W_INVERSE    1051
-#define XROM_CPX_YN           3383
 #define XROM_ChebychevTn      2501
 #define XROM_ChebychevUn      2505
 #define XROM_DATE_ADD         2681
@@ -60,7 +52,7 @@
 #define XROM_DATE_TO          2668
 #define XROM_DEGREES          2715
 #define XROM_DERIV            655
-#define XROM_DIGAMMA          3424
+#define XROM_DIGAMMA          3233
 #define XROM_D_DMY            2731
 #define XROM_D_MDY            2736
 #define XROM_D_YMD            2733

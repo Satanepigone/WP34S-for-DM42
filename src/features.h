@@ -104,7 +104,7 @@
 
 // Include first and second order Bessel functions Jn, In, Yn and Kn for
 // both real and complex arguments.  These are implemented in XROM.
-#define INCLUDE_XROM_BESSEL
+// #define INCLUDE_XROM_BESSEL
 
 // Inlcude real and complex flavours of the digamma function.  These are
 // implemented in XROM.  The first setting is sufficient for accuracy for
