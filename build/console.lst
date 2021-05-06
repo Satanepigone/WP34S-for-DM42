@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cczIC8Cx.s 			page 1
+ARM GAS  /tmp/ccxXvVvI.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
   21:src/menu.c    **** 
   22:src/menu.c    **** static void set_menu_label (const char *str, int smallp, int dotcol, int shifted);
   23:src/menu.c    **** 
-ARM GAS  /tmp/cczIC8Cx.s 			page 2
+ARM GAS  /tmp/ccxXvVvI.s 			page 2
 
 
   24:src/menu.c    **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
   45 0002 0B28     		cmp	r0, #11
   67:src/menu.c    ****     break;
   68:src/menu.c    ****   }
-ARM GAS  /tmp/cczIC8Cx.s 			page 3
+ARM GAS  /tmp/ccxXvVvI.s 			page 3
 
 
   69:src/menu.c    **** 
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  100:src/menu.c    **** 
  101:src/menu.c    ****   wait_for_key_press();
  102:src/menu.c    **** }
-ARM GAS  /tmp/cczIC8Cx.s 			page 4
+ARM GAS  /tmp/ccxXvVvI.s 			page 4
 
 
  103:src/menu.c    **** 
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  157:src/menu.c    **** 
  158:src/menu.c    **** static const struct _menu Menus[] = {
  159:src/menu.c    ****   {
-ARM GAS  /tmp/cczIC8Cx.s 			page 5
+ARM GAS  /tmp/ccxXvVvI.s 			page 5
 
 
  160:src/menu.c    ****     "M_Blank", // 0
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  214:src/menu.c    ****   },
  215:src/menu.c    ****   {
  216:src/menu.c    ****     "M_Misc", // 5
-ARM GAS  /tmp/cczIC8Cx.s 			page 6
+ARM GAS  /tmp/ccxXvVvI.s 			page 6
 
 
  217:src/menu.c    ****     { 
@@ -346,10 +346,10 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  259:src/menu.c    ****   {
  260:src/menu.c    ****     "M_Arrow", // 9
  261:src/menu.c    ****     { 
- 262:src/menu.c    ****       { { K22, 1 }, { K10, 2 }, "Bin", "DEG" },
- 263:src/menu.c    ****       { { K22, 2 }, { K11, 2 }, "Oct", "RAD" },
- 264:src/menu.c    ****       { { K23, 1 }, { K12, 2 }, "Dec", "Grad" },
- 265:src/menu.c    ****       { { K23, 2 }, { K10, 1 }, "Hex", "\015HMS" },
+ 262:src/menu.c    ****       { { K22, 1 }, { K10, 2 }, "\015Bin", "\015DEG" },
+ 263:src/menu.c    ****       { { K22, 2 }, { K11, 2 }, "\015Oct", "\015RAD" },
+ 264:src/menu.c    ****       { { K23, 1 }, { K12, 2 }, "\015Dec", "\015Grad" },
+ 265:src/menu.c    ****       { { K23, 2 }, { K10, 1 }, "\015Hex", "\015HMS" },
  266:src/menu.c    ****       { ARROW_KEY, { K11, 1 }, "--\015", "HMS\015" },
  267:src/menu.c    ****       { CMPLX_KEY, NO_KEY, "CPX", "" },
  268:src/menu.c    ****     }
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  271:src/menu.c    ****     "M_Flags", // 10
  272:src/menu.c    ****     { 
  273:src/menu.c    ****       { { K50, 1 }, { K_OP, RARG_BASEOP(RARG_FS) }, "SF_", "FS?" },
-ARM GAS  /tmp/cczIC8Cx.s 			page 7
+ARM GAS  /tmp/ccxXvVvI.s 			page 7
 
 
  274:src/menu.c    ****       { { K50, 2 }, { K_OP, RARG_BASEOP(RARG_FC)}, "CF_", "FC?" },
@@ -404,8 +404,8 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  314:src/menu.c    ****     { 
  315:src/menu.c    ****       { { K_MULTI, WRLIB}, NO_KEY, "SvLIB", "" },
  316:src/menu.c    ****       { { K_MULTI, LLIB }, NO_KEY, "LdLIB", "" },
- 317:src/menu.c    ****       { { K_MULTI, SVPRG }, NO_KEY, "SvCPRG", "" },
- 318:src/menu.c    ****       { { K_MULTI, LDPRG }, NO_KEY, "LdPRG", "" },
+ 317:src/menu.c    ****       { { K_MULTI, SVPRG }, { K_OP, OP_NIL | OP_PSTO }, "SvCPRG", "PSTO" },
+ 318:src/menu.c    ****       { { K_MULTI, LDPRG }, { K_OP, OP_NIL | OP_PRCL }, "LdPRG", "PRCL" },
  319:src/menu.c    ****       { ARROW_KEY, NO_KEY, "--\015", "" },
  320:src/menu.c    ****       { CMPLX_KEY, NO_KEY, "CPX", "" },
  321:src/menu.c    ****     }
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  328:src/menu.c    ****       { { K53, 2 }, NO_KEY, "SUM", "" },
  329:src/menu.c    ****       { { K53, 1 }, NO_KEY, "PROD", "" },
  330:src/menu.c    ****       { ARROW_KEY, NO_KEY, "--\015", "" },
-ARM GAS  /tmp/cczIC8Cx.s 			page 8
+ARM GAS  /tmp/ccxXvVvI.s 			page 8
 
 
  331:src/menu.c    ****       { CMPLX_KEY, NO_KEY, "CPX", "" },
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  385:src/menu.c    ****       { ARROW_KEY, NO_KEY, "--\015", "" },
  386:src/menu.c    ****       { CMPLX_KEY, NO_KEY, "CPX", "" },
  387:src/menu.c    ****     }    
-ARM GAS  /tmp/cczIC8Cx.s 			page 9
+ARM GAS  /tmp/ccxXvVvI.s 			page 9
 
 
  388:src/menu.c    ****   },
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  442:src/menu.c    ****     }
  443:src/menu.c    ****   },
  444:src/menu.c    ****   {
-ARM GAS  /tmp/cczIC8Cx.s 			page 10
+ARM GAS  /tmp/ccxXvVvI.s 			page 10
 
 
  445:src/menu.c    ****     "M_Print", // 25
@@ -546,7 +546,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  447:src/menu.c    ****       { { K_OP, OP_NIL | OP_PRINT_ON  }, { K_OP, OP_NIL | OP_PRINT_OFF }, "\222\006On", "\222\006Of
  448:src/menu.c    ****       { { K_OP, RARG_BASEOP(RARG_PMODE) }, { K_OP, RARG_BASEOP(RARG_DBLSP) }, "\222\006Mode", "\222
  449:src/menu.c    ****       { { K_OP, OP_NIL | OP_PRINT_PGM }, { K_OP, OP_NIL | OP_PRINT_REGS }, "\222\006Prog", "\222\00
- 450:src/menu.c    ****       { { K_OP, OP_NIL | OP_PRINT_STACK }, { K_OP, OP_NIL | OP_PRINT_SIGMA }, "\222\006Stck", "\222
+ 450:src/menu.c    ****       { { K_OP, OP_NIL | OP_PRINT_STACK }, { K_OP, OP_NIL | OP_PRINT_SIGMA }, "\222\006Stk", "\222\
  451:src/menu.c    ****       { ARROW_KEY, { K_OP, OP_NIL | OP_PRINT_ALPHA }, "--\015", "\222\006\240" },
  452:src/menu.c    ****       { CMPLX_KEY, { K_OP, OP_NIL | OP_PRINT_ADV }, "CPX", "\222\006ADV" },
  453:src/menu.c    ****     }
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  474:src/menu.c    ****   xmax = ((dotcol/MENU_WIDTH)+1)*MENU_WIDTH;
   94              		.loc 1 474 18 view .LVU13
   95 000c 0029     		cmp	r1, #0
-ARM GAS  /tmp/cczIC8Cx.s 			page 11
+ARM GAS  /tmp/ccxXvVvI.s 			page 11
 
 
   96 000e B4BF     		ite	lt
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  132              		.loc 1 482 23 is_stmt 0 view .LVU30
  133 0032 4F45     		cmp	r7, r9
  134 0034 76DC     		bgt	.L7
-ARM GAS  /tmp/cczIC8Cx.s 			page 12
+ARM GAS  /tmp/ccxXvVvI.s 			page 12
 
 
  135              	.LBB39:
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  157 0042 019B     		ldr	r3, [sp, #4]
  158 0044 5E78     		ldrb	r6, [r3, #1]	@ zero_extendqisi2
  159 0046 06F06003 		and	r3, r6, #96
-ARM GAS  /tmp/cczIC8Cx.s 			page 13
+ARM GAS  /tmp/ccxXvVvI.s 			page 13
 
 
  499:src/menu.c    ****       default:
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  196              	.LVL15:
  197              		.loc 1 518 8 view .LVU57
  198 0070 9945     		cmp	r9, r3
-ARM GAS  /tmp/cczIC8Cx.s 			page 14
+ARM GAS  /tmp/ccxXvVvI.s 			page 14
 
 
  199 0072 57DB     		blt	.L7
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  241 00a8 002E     		cmp	r6, #0
  242 00aa 1FDD     		ble	.L25
  529:src/menu.c    **** 	if (x+j >= xmax)
-ARM GAS  /tmp/cczIC8Cx.s 			page 15
+ARM GAS  /tmp/ccxXvVvI.s 			page 15
 
 
  243              		.loc 1 529 2 is_stmt 1 view .LVU71
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  261              	.LBB53:
  262              	.LBB50:
  263              	.LBB47:
-ARM GAS  /tmp/cczIC8Cx.s 			page 16
+ARM GAS  /tmp/ccxXvVvI.s 			page 16
 
 
  264              	.LBB44:
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  307              	.LBB49:
  308              	.LBB46:
  561:src/menu.c    ****   }
-ARM GAS  /tmp/cczIC8Cx.s 			page 17
+ARM GAS  /tmp/ccxXvVvI.s 			page 17
 
 
  309              		.loc 1 561 5 is_stmt 1 view .LVU88
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  482:src/menu.c    ****     int c;
  350              		.loc 1 482 10 is_stmt 0 view .LVU104
  351 00fa 019B     		ldr	r3, [sp, #4]
-ARM GAS  /tmp/cczIC8Cx.s 			page 18
+ARM GAS  /tmp/ccxXvVvI.s 			page 18
 
 
  352 00fc 1D78     		ldrb	r5, [r3]	@ zero_extendqisi2
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  390              		.loc 1 514 7 is_stmt 1 view .LVU120
  515:src/menu.c    ****     }
  391              		.loc 1 515 7 view .LVU121
-ARM GAS  /tmp/cczIC8Cx.s 			page 19
+ARM GAS  /tmp/ccxXvVvI.s 			page 19
 
 
  515:src/menu.c    ****     }
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  434 013c 00000000 		.word	RectPolConv
  435 0140 00000000 		.word	.LANCHOR0
  436              	.LBE60:
-ARM GAS  /tmp/cczIC8Cx.s 			page 20
+ARM GAS  /tmp/ccxXvVvI.s 			page 20
 
 
  437              		.cfi_endproc
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  469              	.LFB5:
   73:src/menu.c    ****   lcd_clear_buf();
  470              		.loc 1 73 19 is_stmt 1 view -0
-ARM GAS  /tmp/cczIC8Cx.s 			page 21
+ARM GAS  /tmp/ccxXvVvI.s 			page 21
 
 
  471              		.cfi_startproc
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
   78:src/menu.c    ****   t24->y += 5;
  514              		.loc 1 78 3 view .LVU146
  515 0026 606B     		ldr	r0, [r4, #52]
-ARM GAS  /tmp/cczIC8Cx.s 			page 22
+ARM GAS  /tmp/ccxXvVvI.s 			page 22
 
 
   81:src/menu.c    ****   lcd_print(t24, "including COMPLEX LOCK mode!");
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
   92:src/menu.c    ****   lcd_printR(t24, "by nor supported by SwissMicros.");
  553              		.loc 1 92 3 view .LVU164
  554 004a 606B     		ldr	r0, [r4, #52]
-ARM GAS  /tmp/cczIC8Cx.s 			page 23
+ARM GAS  /tmp/ccxXvVvI.s 			page 23
 
 
   92:src/menu.c    ****   lcd_printR(t24, "by nor supported by SwissMicros.");
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
   97:src/menu.c    **** 
  590              		.loc 1 97 3 view .LVU184
  591 006a 1846     		mov	r0, r3
-ARM GAS  /tmp/cczIC8Cx.s 			page 24
+ARM GAS  /tmp/ccxXvVvI.s 			page 24
 
 
  592 006c A847     		blx	r5
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  639              		.align	1
  640              		.p2align 2,,3
  641              		.global	run_menu_item
-ARM GAS  /tmp/cczIC8Cx.s 			page 25
+ARM GAS  /tmp/ccxXvVvI.s 			page 25
 
 
  642              		.syntax unified
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  686              		.section	.text.set_menu,"ax",%progbits
  687              		.align	1
  688              		.p2align 2,,3
-ARM GAS  /tmp/cczIC8Cx.s 			page 26
+ARM GAS  /tmp/ccxXvVvI.s 			page 26
 
 
  689              		.global	set_menu
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  119:src/menu.c    ****   // store menu as last menu unless arrow or alpha
  730              		.loc 1 119 23 discriminator 1 view .LVU219
  731 001a 102B     		cmp	r3, #16
-ARM GAS  /tmp/cczIC8Cx.s 			page 27
+ARM GAS  /tmp/ccxXvVvI.s 			page 27
 
 
  119:src/menu.c    ****   // store menu as last menu unless arrow or alpha
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  124:src/menu.c    **** }
  780              		.loc 1 124 3 view .LVU228
  781 0004 93F90020 		ldrsb	r2, [r3]
-ARM GAS  /tmp/cczIC8Cx.s 			page 28
+ARM GAS  /tmp/ccxXvVvI.s 			page 28
 
 
  782              	.LVL56:
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  819 0022 044A     		ldrne	r2, .L80+8
  820 0024 1370     		strbne	r3, [r2]
  821              	.LVL60:
-ARM GAS  /tmp/cczIC8Cx.s 			page 29
+ARM GAS  /tmp/ccxXvVvI.s 			page 29
 
 
  822              	.L68:
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  869 0004 92F90030 		ldrsb	r3, [r2]
  128:src/menu.c    ****     current_menu = default_menu = M_Blank2;
  870              		.loc 1 128 6 view .LVU255
-ARM GAS  /tmp/cczIC8Cx.s 			page 30
+ARM GAS  /tmp/ccxXvVvI.s 			page 30
 
 
  871 0008 ABB1     		cbz	r3, .L95
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  908              		.loc 1 119 3 is_stmt 1 view .LVU272
  119:src/menu.c    ****   // store menu as last menu unless arrow or alpha
  909              		.loc 1 119 6 is_stmt 0 view .LVU273
-ARM GAS  /tmp/cczIC8Cx.s 			page 31
+ARM GAS  /tmp/ccxXvVvI.s 			page 31
 
 
  910 0020 092B     		cmp	r3, #9
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  951              		.loc 1 111 5 view .LVU286
  111:src/menu.c    ****   }
  952              		.loc 1 111 18 is_stmt 0 view .LVU287
-ARM GAS  /tmp/cczIC8Cx.s 			page 32
+ARM GAS  /tmp/ccxXvVvI.s 			page 32
 
 
  953 003e 1370     		strb	r3, [r2]
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  1007              	.LFB10:
  144:src/menu.c    ****   return last_menu;
  1008              		.loc 1 144 28 is_stmt 1 view -0
-ARM GAS  /tmp/cczIC8Cx.s 			page 33
+ARM GAS  /tmp/ccxXvVvI.s 			page 33
 
 
  1009              		.cfi_startproc
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  1055 0006 591C     		adds	r1, r3, #1
  1056 0008 09D0     		beq	.L116
  113:src/menu.c    ****     current_menu = last_menu;
-ARM GAS  /tmp/cczIC8Cx.s 			page 34
+ARM GAS  /tmp/ccxXvVvI.s 			page 34
 
 
  1057              		.loc 1 113 8 is_stmt 1 view .LVU303
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  1097 0020 0349     		ldr	r1, .L119+4
  1098 0022 0078     		ldrb	r0, [r0]	@ zero_extendqisi2
  1099 0024 1070     		strb	r0, [r2]
-ARM GAS  /tmp/cczIC8Cx.s 			page 35
+ARM GAS  /tmp/ccxXvVvI.s 			page 35
 
 
  119:src/menu.c    ****   // store menu as last menu unless arrow or alpha
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  558:src/menu.c    ****   if ( (i<0) || (i>199) ) return;
  1147              		.loc 1 558 40 is_stmt 0 view .LVU327
  1148 0004 10B4     		push	{r4}
-ARM GAS  /tmp/cczIC8Cx.s 			page 36
+ARM GAS  /tmp/ccxXvVvI.s 			page 36
 
 
  1149              		.cfi_def_cfa_offset 4
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  561:src/menu.c    ****   }
  1196              		.loc 1 561 17 view .LVU342
  1197 002a 835C     		ldrb	r3, [r0, r2]	@ zero_extendqisi2
-ARM GAS  /tmp/cczIC8Cx.s 			page 37
+ARM GAS  /tmp/ccxXvVvI.s 			page 37
 
 
  561:src/menu.c    ****   }
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  1246              		.loc 1 569 7 view .LVU351
  1247 0004 294A     		ldr	r2, .L147+4
  1248              		.loc 1 570 7 view .LVU352
-ARM GAS  /tmp/cczIC8Cx.s 			page 38
+ARM GAS  /tmp/ccxXvVvI.s 			page 38
 
 
  1249 0006 1B68     		ldr	r3, [r3]
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  600:src/menu.c    ****     return UserMenu;
  601:src/menu.c    ****   }
  602:src/menu.c    ****   else {
-ARM GAS  /tmp/cczIC8Cx.s 			page 39
+ARM GAS  /tmp/ccxXvVvI.s 			page 39
 
 
  603:src/menu.c    ****     return Menus[i];
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  1320              	.LVL92:
  1321              	.L138:
  570:src/menu.c    ****     switch (current_menu) {
-ARM GAS  /tmp/cczIC8Cx.s 			page 40
+ARM GAS  /tmp/ccxXvVvI.s 			page 40
 
 
  1322              		.loc 1 570 6 view .LVU370
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  589:src/menu.c    ****     case (M_Base): // These menus aren't appropriate in complex mode
  1362              		.loc 1 589 7 view .LVU386
  588:src/menu.c    ****       break;
-ARM GAS  /tmp/cczIC8Cx.s 			page 41
+ARM GAS  /tmp/ccxXvVvI.s 			page 41
 
 
  1363              		.loc 1 588 9 is_stmt 0 view .LVU387
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  1409 0000 84B0     		sub	sp, sp, #16
  1410              		.cfi_def_cfa_offset 16
  1411 0002 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
-ARM GAS  /tmp/cczIC8Cx.s 			page 42
+ARM GAS  /tmp/ccxXvVvI.s 			page 42
 
 
  1412              		.cfi_def_cfa_offset 52
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  1460              	.LBB90:
  1461              		.loc 1 613 5 is_stmt 1 discriminator 3 view .LVU406
  1462              		.loc 1 613 19 is_stmt 0 discriminator 3 view .LVU407
-ARM GAS  /tmp/cczIC8Cx.s 			page 43
+ARM GAS  /tmp/ccxXvVvI.s 			page 43
 
 
  1463 003a 1A70     		strb	r2, [r3]
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  1499              	.LVL110:
  627:src/menu.c    ****       // Now shifted ...	
  628:src/menu.c    ****       len = pixel_length (Ref.keys[item].shifted_label, 0); // 0 means not small font
-ARM GAS  /tmp/cczIC8Cx.s 			page 44
+ARM GAS  /tmp/ccxXvVvI.s 			page 44
 
 
  1500              		.loc 1 628 7 is_stmt 1 view .LVU421
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  637:src/menu.c    ****       if ((mdots[col][0] & (1 << row)) != 0) 
  638:src/menu.c    **** 	//	lcd_fill_rect( col*2-1, 230 - row*3, 3, 3, 0xff);
  639:src/menu.c    **** 	lcd_fill_rect( 4+col*2, 233 - row*3, 3, 3, 0xff);
-ARM GAS  /tmp/cczIC8Cx.s 			page 45
+ARM GAS  /tmp/ccxXvVvI.s 			page 45
 
 
  1541              		.loc 1 639 2 view .LVU434
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  641:src/menu.c    **** 	//	lcd_fill_rect( col*2-1, 230 - 5*3 -10 - row*3, 3, 3, 0xff);
  642:src/menu.c    **** 	lcd_fill_rect( 4+col*2, 233 - 5*3 -10 - row*3, 3, 3, 0xff);
  1586              		.loc 1 642 2 view .LVU449
-ARM GAS  /tmp/cczIC8Cx.s 			page 46
+ARM GAS  /tmp/ccxXvVvI.s 			page 46
 
 
  640:src/menu.c    ****       if ((mdots[col][1] & (1 << row)) != 0) 
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  1628 0104 BDE8F04F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
  1629              		.cfi_restore 14
  1630              		.cfi_restore 11
-ARM GAS  /tmp/cczIC8Cx.s 			page 47
+ARM GAS  /tmp/ccxXvVvI.s 			page 47
 
 
  1631              		.cfi_restore 10
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  1683 0010 6846     		mov	r0, sp
  1684 0012 FFF7FEFF 		bl	memcpy
  1685              	.LVL125:
-ARM GAS  /tmp/cczIC8Cx.s 			page 48
+ARM GAS  /tmp/ccxXvVvI.s 			page 48
 
 
  1686 0016 94E80F00 		ldm	r4, {r0, r1, r2, r3}
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  1734              		.cfi_def_cfa_offset 32
  647:src/menu.c    ****   for (int col = 0; col < 200; col++) {
  1735              		.loc 1 647 23 view .LVU478
-ARM GAS  /tmp/cczIC8Cx.s 			page 49
+ARM GAS  /tmp/ccxXvVvI.s 			page 49
 
 
  1736 0006 0025     		movs	r5, #0
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  1781              	.LBE103:
  652:src/menu.c    ****     }
  653:src/menu.c    ****   }
-ARM GAS  /tmp/cczIC8Cx.s 			page 50
+ARM GAS  /tmp/ccxXvVvI.s 			page 50
 
 
  654:src/menu.c    **** }  
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  686:src/menu.c    ****     pc = do_inc(pc, 0);
  687:src/menu.c    ****     opc = getprog(pc);
  688:src/menu.c    ****     op = (s_opcode) opc;
-ARM GAS  /tmp/cczIC8Cx.s 			page 51
+ARM GAS  /tmp/ccxXvVvI.s 			page 51
 
 
  689:src/menu.c    **** 
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  743:src/menu.c    **** 	p = buf1;
  744:src/menu.c    **** 	finished = 0;
  745:src/menu.c    ****       }
-ARM GAS  /tmp/cczIC8Cx.s 			page 52
+ARM GAS  /tmp/ccxXvVvI.s 			page 52
 
 
  746:src/menu.c    ****       umen_store (i, opc, buf1);
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  1843 001a FFF7FEFF 		bl	strncpy
  1844              	.LVL138:
  1845              		.loc 1 757 7 is_stmt 1 view .LVU503
-ARM GAS  /tmp/cczIC8Cx.s 			page 53
+ARM GAS  /tmp/ccxXvVvI.s 			page 53
 
 
  1846              		.loc 1 757 42 is_stmt 0 view .LVU504
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  1882              		.loc 1 762 7 is_stmt 1 view .LVU517
  762:src/menu.c    ****       UserMenu.keys[i-6].shifted = (struct _ndmap) {K_OP, opc};
  1883              		.loc 1 762 42 is_stmt 0 view .LVU518
-ARM GAS  /tmp/cczIC8Cx.s 			page 54
+ARM GAS  /tmp/ccxXvVvI.s 			page 54
 
 
  1884 0040 0022     		movs	r2, #0
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  1933              		.cfi_offset 9, -16
  1934              		.cfi_offset 10, -12
  1935              		.cfi_offset 11, -8
-ARM GAS  /tmp/cczIC8Cx.s 			page 55
+ARM GAS  /tmp/ccxXvVvI.s 			page 55
 
 
  1936              		.cfi_offset 14, -4
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  1971              		.loc 1 678 7 is_stmt 1 discriminator 3 view .LVU546
  678:src/menu.c    ****       UserMenu.keys[j].unshifted.key_34s = K_NOP;
  1972              		.loc 1 678 40 is_stmt 0 discriminator 3 view .LVU547
-ARM GAS  /tmp/cczIC8Cx.s 			page 56
+ARM GAS  /tmp/ccxXvVvI.s 			page 56
 
 
  1973 001c 5A61     		str	r2, [r3, #20]
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  2009 003e C346     		mov	fp, r8
  672:src/menu.c    ****   char c;
  2010              		.loc 1 672 9 view .LVU566
-ARM GAS  /tmp/cczIC8Cx.s 			page 57
+ARM GAS  /tmp/ccxXvVvI.s 			page 57
 
 
  2011 0040 3746     		mov	r7, r6
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  726:src/menu.c    **** 	if (isRARG(op) && p == buf1) {
  2049              		.loc 1 726 10 is_stmt 0 view .LVU583
  2050 006a B742     		cmp	r7, r6
-ARM GAS  /tmp/cczIC8Cx.s 			page 58
+ARM GAS  /tmp/ccxXvVvI.s 			page 58
 
 
  2051 006c 26D0     		beq	.L230
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  2093 0098 B8F1000F 		cmp	r8, #0
  2094 009c 40D1     		bne	.L194
  706:src/menu.c    **** 	umen_store (i, OP_NIL | OP_NOP, buf1); // no command, so store a NOP
-ARM GAS  /tmp/cczIC8Cx.s 			page 59
+ARM GAS  /tmp/ccxXvVvI.s 			page 59
 
 
  2095              		.loc 1 706 29 discriminator 1 view .LVU596
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  2134 00be 72B1     		cbz	r2, .L200
  727:src/menu.c    **** 	  const s_opcode rarg = RARG_CMD(op);
  2135              		.loc 1 727 6 discriminator 1 view .LVU612
-ARM GAS  /tmp/cczIC8Cx.s 			page 60
+ARM GAS  /tmp/ccxXvVvI.s 			page 60
 
 
  2136 00c0 B2F5704F 		cmp	r2, #61440
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  697:src/menu.c    **** 	UserMenu.keys[i].unshifted = (struct _ndmap) {K_CMPLX, -1};
  2177              		.loc 1 697 15 is_stmt 0 view .LVU626
  2178 00ee BBF1050F 		cmp	fp, #5
-ARM GAS  /tmp/cczIC8Cx.s 			page 61
+ARM GAS  /tmp/ccxXvVvI.s 			page 61
 
 
  2179 00f2 32D0     		beq	.L234
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  2216 0114 B970     		strb	r1, [r7, #2]
  720:src/menu.c    ****       if (c == '\0' || p - buf1 == 6) {
  2217              		.loc 1 720 7 is_stmt 1 view .LVU644
-ARM GAS  /tmp/cczIC8Cx.s 			page 62
+ARM GAS  /tmp/ccxXvVvI.s 			page 62
 
 
  720:src/menu.c    ****       if (c == '\0' || p - buf1 == 6) {
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  714:src/menu.c    **** 	*p++ = c;
  2255              		.loc 1 714 7 is_stmt 1 view .LVU662
  714:src/menu.c    **** 	*p++ = c;
-ARM GAS  /tmp/cczIC8Cx.s 			page 63
+ARM GAS  /tmp/ccxXvVvI.s 			page 63
 
 
  2256              		.loc 1 714 10 is_stmt 0 view .LVU663
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  2297 0160 0C4B     		ldr	r3, .L236+20
  698:src/menu.c    **** 	strncpy(UserMenu.keys[i].unshifted_label, cmplx_key_string,5);
  2298              		.loc 1 698 29 view .LVU677
-ARM GAS  /tmp/cczIC8Cx.s 			page 64
+ARM GAS  /tmp/ccxXvVvI.s 			page 64
 
 
  2299 0162 89E80300 		stm	r9, {r0, r1}
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  2349              	build_user_menu:
  2350              	.LFB18:
  657:src/menu.c    ****   // find the label 'MNU'
-ARM GAS  /tmp/cczIC8Cx.s 			page 65
+ARM GAS  /tmp/ccxXvVvI.s 			page 65
 
 
  2351              		.loc 1 657 27 is_stmt 1 view -0
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
   25:src/console.c **** #ifdef DM42
   26:src/console.c **** #include "dmcp.h"
   27:src/console.c **** #endif
-ARM GAS  /tmp/cczIC8Cx.s 			page 66
+ARM GAS  /tmp/ccxXvVvI.s 			page 66
 
 
   28:src/console.c **** 
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
   82:src/console.c ****     if (cur_shift() == SHIFT_N) return Ref.keys[1].unshifted;
   83:src/console.c ****     if (cur_shift() == SHIFT_F) return Ref.keys[1].shifted;
   84:src/console.c ****   case KEY_F3:
-ARM GAS  /tmp/cczIC8Cx.s 			page 67
+ARM GAS  /tmp/ccxXvVvI.s 			page 67
 
 
   85:src/console.c ****     if (cur_shift() == SHIFT_N) return Ref.keys[2].unshifted;
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  2382              		.cfi_startproc
  2383              		@ args = 0, pretend = 0, frame = 0
  2384              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/cczIC8Cx.s 			page 68
+ARM GAS  /tmp/ccxXvVvI.s 			page 68
 
 
  2385              		@ link register save eliminated.
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  2421              		.loc 2 156 11 view .LVU693
  2422 0002 034B     		ldr	r3, .L246
  2423 0004 9847     		blx	r3
-ARM GAS  /tmp/cczIC8Cx.s 			page 69
+ARM GAS  /tmp/ccxXvVvI.s 			page 69
 
 
  2424              	.LVL199:
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  2473              	put_key:
  2474              	.LVL201:
  2475              	.LFB25:
-ARM GAS  /tmp/cczIC8Cx.s 			page 70
+ARM GAS  /tmp/ccxXvVvI.s 			page 70
 
 
  166:src/console.c ****   #else
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  2505              		.loc 2 187 6 view .LVU706
  2506 0018 282E     		cmp	r6, #40
  178:src/console.c ****     KEY_SIGMA, KEY_INV, KEY_SQRT, KEY_LOG, KEY_F5, KEY_F6, // 0-5
-ARM GAS  /tmp/cczIC8Cx.s 			page 71
+ARM GAS  /tmp/ccxXvVvI.s 			page 71
 
 
  2507              		.loc 2 178 14 view .LVU707
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  2551              	.L254:
  2552 003c 10000000 		.word	.LANCHOR5+16
  2553 0040 81030008 		.word	134218625
-ARM GAS  /tmp/cczIC8Cx.s 			page 72
+ARM GAS  /tmp/ccxXvVvI.s 			page 72
 
 
  2554              		.cfi_endproc
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  218:src/console.c **** {
  219:src/console.c **** }
  220:src/console.c **** 
-ARM GAS  /tmp/cczIC8Cx.s 			page 73
+ARM GAS  /tmp/ccxXvVvI.s 			page 73
 
 
  221:src/console.c **** 
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  2610              	.L260:
  2611              		.align	2
  2612              	.L259:
-ARM GAS  /tmp/cczIC8Cx.s 			page 74
+ARM GAS  /tmp/ccxXvVvI.s 			page 74
 
 
  2613 000c B9040008 		.word	134218937
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  2660              		.cfi_endproc
  2661              	.LFE28:
  2663              		.section	.text.moveto,"ax",%progbits
-ARM GAS  /tmp/cczIC8Cx.s 			page 75
+ARM GAS  /tmp/ccxXvVvI.s 			page 75
 
 
  2664              		.align	1
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  2708 0016 B0F90620 		ldrsh	r2, [r0, #6]
  2709              		.loc 2 269 33 view .LVU746
  2710 001a 0979     		ldrb	r1, [r1, #4]	@ zero_extendqisi2
-ARM GAS  /tmp/cczIC8Cx.s 			page 76
+ARM GAS  /tmp/ccxXvVvI.s 			page 76
 
 
  2711              		.loc 2 269 43 view .LVU747
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  272:src/console.c ****   strcpy( print_string, spaces );
  2759              		.loc 2 272 33 is_stmt 0 view .LVU754
  2760 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
-ARM GAS  /tmp/cczIC8Cx.s 			page 77
+ARM GAS  /tmp/ccxXvVvI.s 			page 77
 
 
  2761              		.cfi_def_cfa_offset 24
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  2803 0032 2146     		mov	r1, r4
  2804 0034 B06B     		ldr	r0, [r6, #56]
  2805 0036 A847     		blx	r5
-ARM GAS  /tmp/cczIC8Cx.s 			page 78
+ARM GAS  /tmp/ccxXvVvI.s 			page 78
 
 
  2806              	.LVL222:
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  2847              		.loc 2 286 3 view .LVU774
  2848 0060 1847     		bx	r3	@ indirect register sibling call
  2849              	.LVL230:
-ARM GAS  /tmp/cczIC8Cx.s 			page 79
+ARM GAS  /tmp/ccxXvVvI.s 			page 79
 
 
  2850              	.L272:
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  2897 0008 184E     		ldr	r6, .L275+8
  2898 000a 194D     		ldr	r5, .L275+12
  296:src/console.c ****   lcd_refresh();
-ARM GAS  /tmp/cczIC8Cx.s 			page 80
+ARM GAS  /tmp/ccxXvVvI.s 			page 80
 
 
  2899              		.loc 2 296 3 view .LVU780
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  302:src/console.c ****   strcpy( print_string, spaces );
  2940              		.loc 2 302 3 view .LVU791
  2941 0042 3946     		mov	r1, r7
-ARM GAS  /tmp/cczIC8Cx.s 			page 81
+ARM GAS  /tmp/ccxXvVvI.s 			page 81
 
 
  2942 0044 2046     		mov	r0, r4
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  2990              		.p2align 2,,3
  2991              		.global	do_now
  2992              		.syntax unified
-ARM GAS  /tmp/cczIC8Cx.s 			page 82
+ARM GAS  /tmp/ccxXvVvI.s 			page 82
 
 
  2993              		.thumb
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  3034      3334735F 
  3034      68656C70 
  3034      2E68746D 
-ARM GAS  /tmp/cczIC8Cx.s 			page 83
+ARM GAS  /tmp/ccxXvVvI.s 			page 83
 
 
  3035              		.section	.text.do_multi,"ax",%progbits
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  3085 0021 AA       		.byte	(.L284-.L282)/2
  3086 0022 B4       		.byte	(.L283-.L282)/2
  3087 0023 07       		.byte	(.L281-.L282)/2
-ARM GAS  /tmp/cczIC8Cx.s 			page 84
+ARM GAS  /tmp/ccxXvVvI.s 			page 84
 
 
  3088              		.p2align 1
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  371:src/console.c ****   case DOTS:
  372:src/console.c ****     do_all_dots();
  373:src/console.c ****     reset_shift();
-ARM GAS  /tmp/cczIC8Cx.s 			page 85
+ARM GAS  /tmp/ccxXvVvI.s 			page 85
 
 
  374:src/console.c ****     r = no_key;
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  3116              		.loc 1 117 18 is_stmt 0 view .LVU826
  3117 0042 1121     		movs	r1, #17
  119:src/menu.c    ****   // store menu as last menu unless arrow or alpha
-ARM GAS  /tmp/cczIC8Cx.s 			page 86
+ARM GAS  /tmp/ccxXvVvI.s 			page 86
 
 
  3118              		.loc 1 119 6 view .LVU827
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  3155              		.cfi_def_cfa_offset 20
  3156              		@ sp needed
  3157 006c F0BD     		pop	{r4, r5, r6, r7, pc}
-ARM GAS  /tmp/cczIC8Cx.s 			page 87
+ARM GAS  /tmp/ccxXvVvI.s 			page 87
 
 
  3158              	.LVL258:
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  3199              		.loc 2 337 5 view .LVU852
  3200 009a 0120     		movs	r0, #1
  3201              	.LVL269:
-ARM GAS  /tmp/cczIC8Cx.s 			page 88
+ARM GAS  /tmp/ccxXvVvI.s 			page 88
 
 
  337:src/console.c ****     reset_shift();
@@ -5278,7 +5278,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  348:src/console.c ****     r = no_key;
  3243              		.loc 2 348 5 is_stmt 1 view .LVU866
  3244 00cc FFF7FEFF 		bl	reset_shift
-ARM GAS  /tmp/cczIC8Cx.s 			page 89
+ARM GAS  /tmp/ccxXvVvI.s 			page 89
 
 
  3245              	.LVL281:
@@ -5338,7 +5338,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  3286              	.LVL291:
  360:src/console.c ****   case SVPRG:
  3287              		.loc 2 360 5 is_stmt 1 view .LVU880
-ARM GAS  /tmp/cczIC8Cx.s 			page 90
+ARM GAS  /tmp/ccxXvVvI.s 			page 90
 
 
  3288 0104 ABE7     		b	.L296
@@ -5398,7 +5398,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  373:src/console.c ****     r = no_key;
  3330              		.loc 2 373 5 view .LVU893
  3331 0134 FFF7FEFF 		bl	reset_shift
-ARM GAS  /tmp/cczIC8Cx.s 			page 91
+ARM GAS  /tmp/ccxXvVvI.s 			page 91
 
 
  3332              	.LVL303:
@@ -5458,7 +5458,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  3370              	.LBB125:
  3371              	.LBI125:
  310:src/console.c ****   struct _ndmap temp;
-ARM GAS  /tmp/cczIC8Cx.s 			page 92
+ARM GAS  /tmp/ccxXvVvI.s 			page 92
 
 
  3372              		.loc 2 310 6 view .LVU910
@@ -5518,7 +5518,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  3412              	.LVL313:
  385:src/console.c ****   case SETUMEN:
  3413              		.loc 2 385 5 is_stmt 1 view .LVU925
-ARM GAS  /tmp/cczIC8Cx.s 			page 93
+ARM GAS  /tmp/ccxXvVvI.s 			page 93
 
 
  3414 017c 6FE7     		b	.L296
@@ -5578,7 +5578,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  3453 0194 2D23     		movs	r3, #45
  313:src/console.c ****   process_keycode_with_shift (temp);
  3454              		.loc 2 313 14 view .LVU941
-ARM GAS  /tmp/cczIC8Cx.s 			page 94
+ARM GAS  /tmp/ccxXvVvI.s 			page 94
 
 
  3455 0196 0027     		movs	r7, #0
@@ -5638,7 +5638,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  3494              	.L299:
  119:src/menu.c    ****   // store menu as last menu unless arrow or alpha
  3495              		.loc 1 119 43 view .LVU957
-ARM GAS  /tmp/cczIC8Cx.s 			page 95
+ARM GAS  /tmp/ccxXvVvI.s 			page 95
 
 
  119:src/menu.c    ****   // store menu as last menu unless arrow or alpha
@@ -5698,7 +5698,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  3544              		.cfi_offset 14, -4
  3545 0004 B8B0     		sub	sp, sp, #224
  3546              		.cfi_def_cfa_offset 256
-ARM GAS  /tmp/cczIC8Cx.s 			page 96
+ARM GAS  /tmp/ccxXvVvI.s 			page 96
 
 
  3547              		.loc 2 411 3 view .LVU964
@@ -5758,7 +5758,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  432:src/console.c ****     Returns a positive integer when a key is pressed. Doesn't return until a key is pressed.
  433:src/console.c ****     Sleeps peacefully while waiting for a key.
  434:src/console.c ****     Handles (in principle!) turning off and on.
-ARM GAS  /tmp/cczIC8Cx.s 			page 97
+ARM GAS  /tmp/ccxXvVvI.s 			page 97
 
 
  435:src/console.c ****     =================
@@ -5818,7 +5818,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  422:src/console.c ****   t20->bgfill = 0;
  3605              		.loc 2 422 13 view .LVU988
  3606 004c FE21     		movs	r1, #254
-ARM GAS  /tmp/cczIC8Cx.s 			page 98
+ARM GAS  /tmp/ccxXvVvI.s 			page 98
 
 
  3607 004e 9973     		strb	r1, [r3, #14]
@@ -5878,7 +5878,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  3643              		.loc 2 447 30 discriminator 1 view .LVU1006
  3644 0072 2368     		ldr	r3, [r4]
  447:src/console.c ****       {
-ARM GAS  /tmp/cczIC8Cx.s 			page 99
+ARM GAS  /tmp/ccxXvVvI.s 			page 99
 
 
  3645              		.loc 2 447 27 discriminator 1 view .LVU1007
@@ -5938,7 +5938,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  480:src/console.c ****     // Well, we are woken-up
  481:src/console.c ****     SET_ST(STAT_RUNNING);
  3671              		.loc 2 481 5 is_stmt 1 view .LVU1017
-ARM GAS  /tmp/cczIC8Cx.s 			page 100
+ARM GAS  /tmp/ccxXvVvI.s 			page 100
 
 
  3672 0096 2368     		ldr	r3, [r4]
@@ -5998,7 +5998,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  3711 00c6 934B     		ldr	r3, .L415+56
  3712 00c8 9847     		blx	r3
  3713              	.LVL338:
-ARM GAS  /tmp/cczIC8Cx.s 			page 101
+ARM GAS  /tmp/ccxXvVvI.s 			page 101
 
 
  3714              	.L327:
@@ -6058,7 +6058,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  3746 00e8 9847     		blx	r3
  3747              	.LVL343:
  517:src/console.c ****       //      start_key_timer();
-ARM GAS  /tmp/cczIC8Cx.s 			page 102
+ARM GAS  /tmp/ccxXvVvI.s 			page 102
 
 
  518:src/console.c ****     }
@@ -6118,7 +6118,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
   41:src/keytran.c ****     // Last row of DM42 33--37
   42:src/keytran.c ****     {K60, 0}, // EXIT
   43:src/keytran.c ****     {K61, 0}, // 0
-ARM GAS  /tmp/cczIC8Cx.s 			page 103
+ARM GAS  /tmp/ccxXvVvI.s 			page 103
 
 
   44:src/keytran.c ****     {K62, 0}, // .
@@ -6178,7 +6178,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
   97:src/keytran.c ****     {K_SETMENU,  M_User}, // select user menu
   98:src/keytran.c ****     {K52, 3}, // P.FCN cat
   99:src/keytran.c ****     {K_SETMENU, M_Print}, // Print menu
-ARM GAS  /tmp/cczIC8Cx.s 			page 104
+ARM GAS  /tmp/ccxXvVvI.s 			page 104
 
 
  100:src/keytran.c ****     // Last row of DM42 33--37
@@ -6238,7 +6238,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  153:src/keytran.c ****     {K_G, -1}, // gshift (clears shift state)
  154:src/keytran.c ****     {K_NOP, 0}, // no function
  155:src/keytran.c ****     //    {K_MULTI, SETUMEN}, // Set up user menu
-ARM GAS  /tmp/cczIC8Cx.s 			page 105
+ARM GAS  /tmp/ccxXvVvI.s 			page 105
 
 
  156:src/keytran.c ****     {K_SETMENU, M_Usermenu}, //User menu create
@@ -6298,7 +6298,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  209:src/keytran.c ****     {K43, -1},
  210:src/keytran.c ****     {K44, -1},
  211:src/keytran.c ****     // Sixth row of DM42 28--32
-ARM GAS  /tmp/cczIC8Cx.s 			page 106
+ARM GAS  /tmp/ccxXvVvI.s 			page 106
 
 
  212:src/keytran.c ****     {K50, -1},
@@ -6358,7 +6358,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  3780              		.loc 2 75 22 is_stmt 0 view .LVU1063
  3781 0108 04A8     		add	r0, sp, #16
  3782 010a FFF7FEFF 		bl	get_current_menu_ref
-ARM GAS  /tmp/cczIC8Cx.s 			page 107
+ARM GAS  /tmp/ccxXvVvI.s 			page 107
 
 
  3783              	.LVL344:
@@ -6418,7 +6418,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
   85:src/console.c ****     if (cur_shift() == SHIFT_F) return Ref.keys[2].shifted;
  3825              		.loc 2 85 8 view .LVU1076
  3826 014a 0028     		cmp	r0, #0
-ARM GAS  /tmp/cczIC8Cx.s 			page 108
+ARM GAS  /tmp/ccxXvVvI.s 			page 108
 
 
  3827 014c 00F08F81 		beq	.L401
@@ -6478,7 +6478,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
   94:src/console.c ****     if (cur_shift() == SHIFT_F) return Ref.keys[5].shifted;
  3866              		.loc 2 94 5 is_stmt 1 view .LVU1092
   94:src/console.c ****     if (cur_shift() == SHIFT_F) return Ref.keys[5].shifted;
-ARM GAS  /tmp/cczIC8Cx.s 			page 109
+ARM GAS  /tmp/ccxXvVvI.s 			page 109
 
 
  3867              		.loc 2 94 9 is_stmt 0 view .LVU1093
@@ -6538,7 +6538,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  3911              		.loc 1 108 6 is_stmt 1 view .LVU1106
  3912              	.LBB156:
  109:src/menu.c    ****   if (new_menu == current_menu) { // return to default
-ARM GAS  /tmp/cczIC8Cx.s 			page 110
+ARM GAS  /tmp/ccxXvVvI.s 			page 110
 
 
  3913              		.loc 1 109 3 view .LVU1107
@@ -6598,7 +6598,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  3951              	.LVL362:
  524:src/console.c **** 	reset_shift();
  3952              		.loc 2 524 2 view .LVU1124
-ARM GAS  /tmp/cczIC8Cx.s 			page 111
+ARM GAS  /tmp/ccxXvVvI.s 			page 111
 
 
  3953 01cc FFF7FEFF 		bl	reset_shift
@@ -6658,7 +6658,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  3996              	.LVL369:
  457:src/console.c **** 	key_push (K_HEARTBEAT);
  3997              		.loc 2 457 7 view .LVU1139
-ARM GAS  /tmp/cczIC8Cx.s 			page 112
+ARM GAS  /tmp/ccxXvVvI.s 			page 112
 
 
  457:src/console.c **** 	key_push (K_HEARTBEAT);
@@ -6718,7 +6718,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  466:src/console.c ****         // Going to off mode
  4038              		.loc 2 466 10 view .LVU1154
  4039 0234 15F00405 		ands	r5, r5, #4
-ARM GAS  /tmp/cczIC8Cx.s 			page 113
+ARM GAS  /tmp/ccxXvVvI.s 			page 113
 
 
  4040 0238 7FF417AF 		bne	.L314
@@ -6778,7 +6778,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  4079              		.loc 2 62 23 view .LVU1170
   62:src/console.c **** 
  4080              		.loc 2 62 30 is_stmt 0 view .LVU1171
-ARM GAS  /tmp/cczIC8Cx.s 			page 114
+ARM GAS  /tmp/ccxXvVvI.s 			page 114
 
 
  4081 0260 3A4B     		ldr	r3, .L415+112
@@ -6838,7 +6838,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  4123              		.loc 2 530 2 view .LVU1186
  4124 028c 2368     		ldr	r3, [r4]
  4125 028e 23F04003 		bic	r3, r3, #64
-ARM GAS  /tmp/cczIC8Cx.s 			page 115
+ARM GAS  /tmp/ccxXvVvI.s 			page 115
 
 
  4126 0292 2360     		str	r3, [r4]
@@ -6898,7 +6898,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  4169              	.LVL388:
  4170              	.L356:
  4171              		.loc 2 541 59 is_stmt 1 view .LVU1201
-ARM GAS  /tmp/cczIC8Cx.s 			page 116
+ARM GAS  /tmp/ccxXvVvI.s 			page 116
 
 
  4172              	.LBB160:
@@ -6958,7 +6958,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  4221 035c 00000000 		.word	.LANCHOR8
  4222 0360 F9030008 		.word	134218745
  4223              	.LVL390:
-ARM GAS  /tmp/cczIC8Cx.s 			page 117
+ARM GAS  /tmp/ccxXvVvI.s 			page 117
 
 
  4224              	.L329:
@@ -7018,7 +7018,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  4267 03a4 94E7     		b	.L356
  4268              	.LVL396:
  4269              	.L334:
-ARM GAS  /tmp/cczIC8Cx.s 			page 118
+ARM GAS  /tmp/ccxXvVvI.s 			page 118
 
 
  521:src/console.c **** 	set_menu ( remapped.shift );
@@ -7078,7 +7078,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  4310              		.loc 2 544 3 is_stmt 1 view .LVU1230
  4311 03de 0020     		movs	r0, #0
  545:src/console.c ****   //  free_storage();
-ARM GAS  /tmp/cczIC8Cx.s 			page 119
+ARM GAS  /tmp/ccxXvVvI.s 			page 119
 
 
  546:src/console.c ****   return;
@@ -7138,7 +7138,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  4356 0406 2CE7     		b	.L395
  4357              	.LVL407:
  4358              	.L407:
-ARM GAS  /tmp/cczIC8Cx.s 			page 120
+ARM GAS  /tmp/ccxXvVvI.s 			page 120
 
 
   64:src/console.c **** 
@@ -7198,7 +7198,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  4398              		.loc 2 116 26 is_stmt 0 view .LVU1254
  4399 0424 644B     		ldr	r3, .L417+28
  4400 0426 E1E7     		b	.L394
-ARM GAS  /tmp/cczIC8Cx.s 			page 121
+ARM GAS  /tmp/ccxXvVvI.s 			page 121
 
 
  4401              	.L343:
@@ -7258,7 +7258,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  4442 0466 9DF88050 		ldrb	r5, [sp, #128]	@ zero_extendqisi2
  4443              	.LVL419:
   88:src/console.c ****     if (cur_shift() == SHIFT_F) return Ref.keys[3].shifted;
-ARM GAS  /tmp/cczIC8Cx.s 			page 122
+ARM GAS  /tmp/ccxXvVvI.s 			page 122
 
 
  4444              		.loc 2 88 51 view .LVU1268
@@ -7318,7 +7318,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  4486 049e 0228     		cmp	r0, #2
  4487 04a0 02D0     		beq	.L358
  4488 04a2 70B1     		cbz	r0, .L359
-ARM GAS  /tmp/cczIC8Cx.s 			page 123
+ARM GAS  /tmp/ccxXvVvI.s 			page 123
 
 
   58:src/console.c **** 
@@ -7378,7 +7378,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  4530              	.LVL436:
  4531              	.L404:
   89:src/console.c ****   case KEY_F5:
-ARM GAS  /tmp/cczIC8Cx.s 			page 124
+ARM GAS  /tmp/ccxXvVvI.s 			page 124
 
 
  4532              		.loc 2 89 33 is_stmt 1 view .LVU1294
@@ -7438,7 +7438,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  4574              		.loc 2 83 33 is_stmt 1 view .LVU1306
   83:src/console.c ****   case KEY_F3:
  4575              		.loc 2 83 51 is_stmt 0 view .LVU1307
-ARM GAS  /tmp/cczIC8Cx.s 			page 125
+ARM GAS  /tmp/ccxXvVvI.s 			page 125
 
 
  4576 0516 DDE91201 		ldrd	r0, r1, [sp, #72]
@@ -7498,7 +7498,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  4616              		.loc 2 527 7 view .LVU1321
  535:src/console.c **** 	remapped = do_multi (remapped);
  4617              		.loc 2 535 7 view .LVU1322
-ARM GAS  /tmp/cczIC8Cx.s 			page 126
+ARM GAS  /tmp/ccxXvVvI.s 			page 126
 
 
  539:src/console.c ****       process_keycode_with_shift(remapped);
@@ -7558,7 +7558,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  4659 0580 8AE80300 		stm	r10, {r0, r1}
  4660              	.LVL456:
  102:src/console.c **** 	break;
-ARM GAS  /tmp/cczIC8Cx.s 			page 127
+ARM GAS  /tmp/ccxXvVvI.s 			page 127
 
 
  4661              		.loc 2 102 21 view .LVU1336
@@ -7618,7 +7618,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  4701 05a8 00000000 		.word	JustStopped
  4702 05ac 00000000 		.word	.LANCHOR12
  4703 05b0 00000000 		.word	.LANCHOR11
-ARM GAS  /tmp/cczIC8Cx.s 			page 128
+ARM GAS  /tmp/ccxXvVvI.s 			page 128
 
 
  4704 05b4 00000000 		.word	.LANCHOR2
@@ -7678,7 +7678,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  4755 001f 10110006 		.ascii	"\020\021\000\006\023\024\025\026\000\022\030\031\032"
  4755      13141516 
  4755      00121819 
-ARM GAS  /tmp/cczIC8Cx.s 			page 129
+ARM GAS  /tmp/ccxXvVvI.s 			page 129
 
 
  4755      1A
@@ -7738,7 +7738,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  4812 0028 00       		.ascii	"\000"
  4813 0029 00000000 		.space	7
  4813      000000
-ARM GAS  /tmp/cczIC8Cx.s 			page 130
+ARM GAS  /tmp/ccxXvVvI.s 			page 130
 
 
  4814 0030 2E       		.byte	46
@@ -7798,7 +7798,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  4861 00c4 00000000 		.space	4
  4862 00c8 00       		.ascii	"\000"
  4863 00c9 00000000 		.space	7
-ARM GAS  /tmp/cczIC8Cx.s 			page 131
+ARM GAS  /tmp/ccxXvVvI.s 			page 131
 
 
  4863      000000
@@ -7858,7 +7858,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  4935              	spaces:
  4936 0000 20202020 		.ascii	"                     \000"
  4936      20202020 
-ARM GAS  /tmp/cczIC8Cx.s 			page 132
+ARM GAS  /tmp/ccxXvVvI.s 			page 132
 
 
  4936      20202020 
@@ -7918,7 +7918,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  4984      000000
  4985 0070 2E       		.byte	46
  4986 0071 000000   		.space	3
-ARM GAS  /tmp/cczIC8Cx.s 			page 133
+ARM GAS  /tmp/ccxXvVvI.s 			page 133
 
 
  4987 0074 FFFFFFFF 		.word	-1
@@ -7978,7 +7978,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  5033 010c 3E010000 		.word	318
  5034 0110 434C9100 		.ascii	"CL\221\000"
  5035 0114 00000000 		.space	4
-ARM GAS  /tmp/cczIC8Cx.s 			page 134
+ARM GAS  /tmp/ccxXvVvI.s 			page 134
 
 
  5036 0118 434C5265 		.ascii	"CLReg\000"
@@ -8038,7 +8038,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  5082 01b1 000000   		.space	3
  5083 01b4 03000000 		.word	3
  5084 01b8 05       		.byte	5
-ARM GAS  /tmp/cczIC8Cx.s 			page 135
+ARM GAS  /tmp/ccxXvVvI.s 			page 135
 
 
  5085 01b9 000000   		.space	3
@@ -8098,7 +8098,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  5137 0260 43505800 		.ascii	"CPX\000"
  5138 0264 00000000 		.space	4
  5139 0268 00       		.ascii	"\000"
-ARM GAS  /tmp/cczIC8Cx.s 			page 136
+ARM GAS  /tmp/ccxXvVvI.s 			page 136
 
 
  5140 0269 00000000 		.space	7
@@ -8158,7 +8158,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  5190 0310 2D2D0D00 		.ascii	"--\015\000"
  5191 0314 00000000 		.space	4
  5192 0318 524D4452 		.ascii	"RMDR\000"
-ARM GAS  /tmp/cczIC8Cx.s 			page 137
+ARM GAS  /tmp/ccxXvVvI.s 			page 137
 
 
  5192      00
@@ -8218,7 +8218,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  5242 03bc 01000000 		.word	1
  5243 03c0 482E4D53 		.ascii	"H.MS\000"
  5243      00
-ARM GAS  /tmp/cczIC8Cx.s 			page 138
+ARM GAS  /tmp/ccxXvVvI.s 			page 138
 
 
  5244 03c5 000000   		.space	3
@@ -8278,7 +8278,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  5292 0464 01000000 		.word	1
  5293 0468 15       		.byte	21
  5294 0469 000000   		.space	3
-ARM GAS  /tmp/cczIC8Cx.s 			page 139
+ARM GAS  /tmp/ccxXvVvI.s 			page 139
 
 
  5295 046c 02000000 		.word	2
@@ -8338,7 +8338,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  5340 0506 0000     		.space	2
  5341 0508 5B175D00 		.ascii	"[\027]\000"
  5342 050c 00000000 		.space	4
-ARM GAS  /tmp/cczIC8Cx.s 			page 140
+ARM GAS  /tmp/ccxXvVvI.s 			page 140
 
 
  5343 0510 0D       		.byte	13
@@ -8398,7 +8398,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  5393 05b0 4D5F5072 		.ascii	"M_Program\000"
  5393      6F677261 
  5393      6D00
-ARM GAS  /tmp/cczIC8Cx.s 			page 141
+ARM GAS  /tmp/ccxXvVvI.s 			page 141
 
 
  5394 05ba 00000000 		.space	5
@@ -8458,7 +8458,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  5445 065d 000000   		.space	3
  5446 0660 2D       		.byte	45
  5447 0661 000000   		.space	3
-ARM GAS  /tmp/cczIC8Cx.s 			page 142
+ARM GAS  /tmp/ccxXvVvI.s 			page 142
 
 
  5448 0664 FFFFFFFF 		.word	-1
@@ -8518,7 +8518,7 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  5492 06f8 31       		.byte	49
  5493 06f9 000000   		.space	3
  5494 06fc 07000000 		.word	7
-ARM GAS  /tmp/cczIC8Cx.s 			page 143
+ARM GAS  /tmp/ccxXvVvI.s 			page 143
 
 
  5495 0700 4F6E5243 		.ascii	"OnRCL\000"
@@ -8560,42 +8560,48 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  5525 0768 06       		.byte	6
  5526 0769 000000   		.space	3
  5527 076c 02000000 		.word	2
- 5528 0770 42696E00 		.ascii	"Bin\000"
- 5529 0774 00000000 		.space	4
- 5530 0778 44454700 		.ascii	"DEG\000"
- 5531 077c 00000000 		.space	4
+ 5528 0770 0D42696E 		.ascii	"\015Bin\000"
+ 5528      00
+ 5529 0775 000000   		.space	3
+ 5530 0778 0D444547 		.ascii	"\015DEG\000"
+ 5530      00
+ 5531 077d 000000   		.space	3
  5532 0780 0E       		.byte	14
  5533 0781 000000   		.space	3
  5534 0784 02000000 		.word	2
  5535 0788 07       		.byte	7
  5536 0789 000000   		.space	3
  5537 078c 02000000 		.word	2
- 5538 0790 4F637400 		.ascii	"Oct\000"
- 5539 0794 00000000 		.space	4
- 5540 0798 52414400 		.ascii	"RAD\000"
- 5541 079c 00000000 		.space	4
+ 5538 0790 0D4F6374 		.ascii	"\015Oct\000"
+ 5538      00
+ 5539 0795 000000   		.space	3
+ 5540 0798 0D524144 		.ascii	"\015RAD\000"
+ 5540      00
+ 5541 079d 000000   		.space	3
+ARM GAS  /tmp/ccxXvVvI.s 			page 144
+
+
  5542 07a0 0F       		.byte	15
  5543 07a1 000000   		.space	3
  5544 07a4 01000000 		.word	1
  5545 07a8 08       		.byte	8
-ARM GAS  /tmp/cczIC8Cx.s 			page 144
-
-
  5546 07a9 000000   		.space	3
  5547 07ac 02000000 		.word	2
- 5548 07b0 44656300 		.ascii	"Dec\000"
- 5549 07b4 00000000 		.space	4
- 5550 07b8 47726164 		.ascii	"Grad\000"
- 5550      00
- 5551 07bd 000000   		.space	3
+ 5548 07b0 0D446563 		.ascii	"\015Dec\000"
+ 5548      00
+ 5549 07b5 000000   		.space	3
+ 5550 07b8 0D477261 		.ascii	"\015Grad\000"
+ 5550      6400
+ 5551 07be 0000     		.space	2
  5552 07c0 0F       		.byte	15
  5553 07c1 000000   		.space	3
  5554 07c4 02000000 		.word	2
  5555 07c8 06       		.byte	6
  5556 07c9 000000   		.space	3
  5557 07cc 01000000 		.word	1
- 5558 07d0 48657800 		.ascii	"Hex\000"
- 5559 07d4 00000000 		.space	4
+ 5558 07d0 0D486578 		.ascii	"\015Hex\000"
+ 5558      00
+ 5559 07d5 000000   		.space	3
  5560 07d8 0D484D53 		.ascii	"\015HMS\000"
  5560      00
  5561 07dd 000000   		.space	3
@@ -8632,15 +8638,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  5588 0838 34       		.byte	52
  5589 0839 000000   		.space	3
  5590 083c 00740000 		.word	29696
+ARM GAS  /tmp/ccxXvVvI.s 			page 145
+
+
  5591 0840 53465F00 		.ascii	"SF_\000"
  5592 0844 00000000 		.space	4
  5593 0848 46533F00 		.ascii	"FS?\000"
  5594 084c 00000000 		.space	4
  5595 0850 1E       		.byte	30
  5596 0851 000000   		.space	3
-ARM GAS  /tmp/cczIC8Cx.s 			page 145
-
-
  5597 0854 02000000 		.word	2
  5598 0858 34       		.byte	52
  5599 0859 000000   		.space	3
@@ -8692,15 +8698,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  5643 08e8 783E3F00 		.ascii	"x>?\000"
  5644 08ec 00000000 		.space	4
  5645 08f0 4D5F5072 		.ascii	"M_Prob\000"
+ARM GAS  /tmp/ccxXvVvI.s 			page 146
+
+
  5645      6F6200
  5646 08f7 00000000 		.space	8
  5646      00000000 
  5647 08ff 00       		.space	1
  5648 0900 18       		.byte	24
  5649 0901 000000   		.space	3
-ARM GAS  /tmp/cczIC8Cx.s 			page 146
-
-
  5650 0904 03000000 		.word	3
  5651 0908 34       		.byte	52
  5652 0909 000000   		.space	3
@@ -8752,15 +8758,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  5690 0984 FFFFFFFF 		.word	-1
  5691 0988 2E       		.byte	46
  5692 0989 000000   		.space	3
+ARM GAS  /tmp/ccxXvVvI.s 			page 147
+
+
  5693 098c FFFFFFFF 		.word	-1
  5694 0990 2D2D0D00 		.ascii	"--\015\000"
  5695 0994 00000000 		.space	4
  5696 0998 00       		.ascii	"\000"
  5697 0999 00000000 		.space	7
  5697      000000
-ARM GAS  /tmp/cczIC8Cx.s 			page 147
-
-
  5698 09a0 2D       		.byte	45
  5699 09a1 000000   		.space	3
  5700 09a4 FFFFFFFF 		.word	-1
@@ -8812,15 +8818,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  5738 0a25 000000   		.space	3
  5739 0a28 4C2E522E 		.ascii	"L.R.\000"
  5739      00
+ARM GAS  /tmp/ccxXvVvI.s 			page 148
+
+
  5740 0a2d 000000   		.space	3
  5741 0a30 34       		.byte	52
  5742 0a31 000000   		.space	3
  5743 0a34 32010000 		.word	306
  5744 0a38 34       		.byte	52
  5745 0a39 000000   		.space	3
-ARM GAS  /tmp/cczIC8Cx.s 			page 148
-
-
  5746 0a3c 31010000 		.word	305
  5747 0a40 42657374 		.ascii	"BestF\000"
  5747      4600
@@ -8872,42 +8878,42 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  5784 0ac0 31       		.byte	49
  5785 0ac1 000000   		.space	3
  5786 0ac4 05000000 		.word	5
+ARM GAS  /tmp/ccxXvVvI.s 			page 149
+
+
  5787 0ac8 2E       		.byte	46
  5788 0ac9 000000   		.space	3
  5789 0acc FFFFFFFF 		.word	-1
  5790 0ad0 4C644C49 		.ascii	"LdLIB\000"
  5790      4200
  5791 0ad6 0000     		.space	2
-ARM GAS  /tmp/cczIC8Cx.s 			page 149
-
-
  5792 0ad8 00       		.ascii	"\000"
  5793 0ad9 00000000 		.space	7
  5793      000000
  5794 0ae0 31       		.byte	49
  5795 0ae1 000000   		.space	3
  5796 0ae4 0A000000 		.word	10
- 5797 0ae8 2E       		.byte	46
+ 5797 0ae8 34       		.byte	52
  5798 0ae9 000000   		.space	3
- 5799 0aec FFFFFFFF 		.word	-1
+ 5799 0aec B2010000 		.word	434
  5800 0af0 53764350 		.ascii	"SvCPRG\000"
  5800      524700
  5801 0af7 00       		.space	1
- 5802 0af8 00       		.ascii	"\000"
- 5803 0af9 00000000 		.space	7
- 5803      000000
+ 5802 0af8 5053544F 		.ascii	"PSTO\000"
+ 5802      00
+ 5803 0afd 000000   		.space	3
  5804 0b00 31       		.byte	49
  5805 0b01 000000   		.space	3
  5806 0b04 08000000 		.word	8
- 5807 0b08 2E       		.byte	46
+ 5807 0b08 34       		.byte	52
  5808 0b09 000000   		.space	3
- 5809 0b0c FFFFFFFF 		.word	-1
+ 5809 0b0c B1010000 		.word	433
  5810 0b10 4C645052 		.ascii	"LdPRG\000"
  5810      4700
  5811 0b16 0000     		.space	2
- 5812 0b18 00       		.ascii	"\000"
- 5813 0b19 00000000 		.space	7
- 5813      000000
+ 5812 0b18 5052434C 		.ascii	"PRCL\000"
+ 5812      00
+ 5813 0b1d 000000   		.space	3
  5814 0b20 2C       		.byte	44
  5815 0b21 000000   		.space	3
  5816 0b24 FFFFFFFF 		.word	-1
@@ -8932,15 +8938,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  5833      000000
  5834 0b60 4D5F536F 		.ascii	"M_Solve\000"
  5834      6C766500 
+ARM GAS  /tmp/ccxXvVvI.s 			page 150
+
+
  5835 0b68 00000000 		.space	7
  5835      000000
  5836 0b6f 00       		.space	1
  5837 0b70 20       		.byte	32
  5838 0b71 000000   		.space	3
  5839 0b74 01000000 		.word	1
-ARM GAS  /tmp/cczIC8Cx.s 			page 150
-
-
  5840 0b78 2E       		.byte	46
  5841 0b79 000000   		.space	3
  5842 0b7c FFFFFFFF 		.word	-1
@@ -8992,15 +8998,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  5882 0bfc FFFFFFFF 		.word	-1
  5883 0c00 2D2D0D00 		.ascii	"--\015\000"
  5884 0c04 00000000 		.space	4
+ARM GAS  /tmp/ccxXvVvI.s 			page 151
+
+
  5885 0c08 00       		.ascii	"\000"
  5886 0c09 00000000 		.space	7
  5886      000000
  5887 0c10 2D       		.byte	45
  5888 0c11 000000   		.space	3
  5889 0c14 FFFFFFFF 		.word	-1
-ARM GAS  /tmp/cczIC8Cx.s 			page 151
-
-
  5890 0c18 2E       		.byte	46
  5891 0c19 000000   		.space	3
  5892 0c1c FFFFFFFF 		.word	-1
@@ -9052,15 +9058,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  5929      000000
  5930 0ca0 13       		.byte	19
  5931 0ca1 000000   		.space	3
+ARM GAS  /tmp/ccxXvVvI.s 			page 152
+
+
  5932 0ca4 02000000 		.word	2
  5933 0ca8 2E       		.byte	46
  5934 0ca9 000000   		.space	3
  5935 0cac FFFFFFFF 		.word	-1
  5936 0cb0 4C4F4700 		.ascii	"LOG\000"
  5937 0cb4 00000000 		.space	4
-ARM GAS  /tmp/cczIC8Cx.s 			page 152
-
-
  5938 0cb8 00       		.ascii	"\000"
  5939 0cb9 00000000 		.space	7
  5939      000000
@@ -9112,15 +9118,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  5979 0d40 A02D3E58 		.ascii	"\240->X\000"
  5979      00
  5980 0d45 000000   		.space	3
+ARM GAS  /tmp/ccxXvVvI.s 			page 153
+
+
  5981 0d48 A0444154 		.ascii	"\240DATE\000"
  5981      4500
  5982 0d4e 0000     		.space	2
  5983 0d50 34       		.byte	52
  5984 0d51 000000   		.space	3
  5985 0d54 00480000 		.word	18432
-ARM GAS  /tmp/cczIC8Cx.s 			page 153
-
-
  5986 0d58 34       		.byte	52
  5987 0d59 000000   		.space	3
  5988 0d5c 6A010000 		.word	362
@@ -9172,15 +9178,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  6026 0de0 18       		.byte	24
  6027 0de1 000000   		.space	3
  6028 0de4 02000000 		.word	2
+ARM GAS  /tmp/ccxXvVvI.s 			page 154
+
+
  6029 0de8 04       		.byte	4
  6030 0de9 000000   		.space	3
  6031 0dec 02000000 		.word	2
  6032 0df0 504F4C41 		.ascii	"POLAR\000"
  6032      5200
  6033 0df6 0000     		.space	2
-ARM GAS  /tmp/cczIC8Cx.s 			page 154
-
-
  6034 0df8 0D205000 		.ascii	"\015 P\000"
  6035 0dfc 00000000 		.space	4
  6036 0e00 18       		.byte	24
@@ -9232,15 +9238,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  6078 0e84 FFFFFFFF 		.word	-1
  6079 0e88 0C       		.byte	12
  6080 0e89 000000   		.space	3
+ARM GAS  /tmp/ccxXvVvI.s 			page 155
+
+
  6081 0e8c 01000000 		.word	1
  6082 0e90 43505800 		.ascii	"CPX\000"
  6083 0e94 00000000 		.space	4
  6084 0e98 1106434E 		.ascii	"\021\006CNST\000"
  6084      535400
  6085 0e9f 00       		.space	1
-ARM GAS  /tmp/cczIC8Cx.s 			page 155
-
-
  6086 0ea0 4D5F436C 		.ascii	"M_Clear_C\000"
  6086      6561725F 
  6086      4300
@@ -9292,15 +9298,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  6125      6B00
  6126 0f26 0000     		.space	2
  6127 0f28 00       		.ascii	"\000"
+ARM GAS  /tmp/ccxXvVvI.s 			page 156
+
+
  6128 0f29 00000000 		.space	7
  6128      000000
  6129 0f30 2C       		.byte	44
  6130 0f31 000000   		.space	3
  6131 0f34 FFFFFFFF 		.word	-1
  6132 0f38 2E       		.byte	46
-ARM GAS  /tmp/cczIC8Cx.s 			page 156
-
-
  6133 0f39 000000   		.space	3
  6134 0f3c FFFFFFFF 		.word	-1
  6135 0f40 2D2D0D00 		.ascii	"--\015\000"
@@ -9352,15 +9358,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  6172 0fc0 0D       		.byte	13
  6173 0fc1 000000   		.space	3
  6174 0fc4 03000000 		.word	3
+ARM GAS  /tmp/ccxXvVvI.s 			page 157
+
+
  6175 0fc8 2E       		.byte	46
  6176 0fc9 000000   		.space	3
  6177 0fcc FFFFFFFF 		.word	-1
  6178 0fd0 78173F00 		.ascii	"x\027?\000"
  6179 0fd4 00000000 		.space	4
  6180 0fd8 00       		.ascii	"\000"
-ARM GAS  /tmp/cczIC8Cx.s 			page 157
-
-
  6181 0fd9 00000000 		.space	7
  6181      000000
  6182 0fe0 2E       		.byte	46
@@ -9412,15 +9418,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  6221 1060 00       		.ascii	"\000"
  6222 1061 00000000 		.space	7
  6222      000000
+ARM GAS  /tmp/ccxXvVvI.s 			page 158
+
+
  6223 1068 44454700 		.ascii	"DEG\000"
  6224 106c 00000000 		.space	4
  6225 1070 2E       		.byte	46
  6226 1071 000000   		.space	3
  6227 1074 FFFFFFFF 		.word	-1
  6228 1078 07       		.byte	7
-ARM GAS  /tmp/cczIC8Cx.s 			page 158
-
-
  6229 1079 000000   		.space	3
  6230 107c 02000000 		.word	2
  6231 1080 00       		.ascii	"\000"
@@ -9472,15 +9478,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  6271 1100 43505800 		.ascii	"CPX\000"
  6272 1104 00000000 		.space	4
  6273 1108 00       		.ascii	"\000"
+ARM GAS  /tmp/ccxXvVvI.s 			page 159
+
+
  6274 1109 00000000 		.space	7
  6274      000000
  6275 1110 4D5F5072 		.ascii	"M_Prob_C\000"
  6275      6F625F43 
  6275      00
  6276 1119 00000000 		.space	6
-ARM GAS  /tmp/cczIC8Cx.s 			page 159
-
-
  6276      0000
  6277 111f 00       		.space	1
  6278 1120 18       		.byte	24
@@ -9532,15 +9538,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  6317      000000
  6318 11a0 2C       		.byte	44
  6319 11a1 000000   		.space	3
+ARM GAS  /tmp/ccxXvVvI.s 			page 160
+
+
  6320 11a4 FFFFFFFF 		.word	-1
  6321 11a8 2E       		.byte	46
  6322 11a9 000000   		.space	3
  6323 11ac FFFFFFFF 		.word	-1
  6324 11b0 2D2D0D00 		.ascii	"--\015\000"
  6325 11b4 00000000 		.space	4
-ARM GAS  /tmp/cczIC8Cx.s 			page 160
-
-
  6326 11b8 00       		.ascii	"\000"
  6327 11b9 00000000 		.space	7
  6327      000000
@@ -9592,15 +9598,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  6368 1243 00000000 		.space	5
  6368      00
  6369 1248 00       		.ascii	"\000"
+ARM GAS  /tmp/ccxXvVvI.s 			page 161
+
+
  6370 1249 00000000 		.space	7
  6370      000000
  6371 1250 13       		.byte	19
  6372 1251 000000   		.space	3
  6373 1254 02000000 		.word	2
  6374 1258 2E       		.byte	46
-ARM GAS  /tmp/cczIC8Cx.s 			page 161
-
-
  6375 1259 000000   		.space	3
  6376 125c FFFFFFFF 		.word	-1
  6377 1260 4C4F4700 		.ascii	"LOG\000"
@@ -9652,15 +9658,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  6417 12e8 14       		.byte	20
  6418 12e9 000000   		.space	3
  6419 12ec 02000000 		.word	2
+ARM GAS  /tmp/ccxXvVvI.s 			page 162
+
+
  6420 12f0 524E4400 		.ascii	"RND\000"
  6421 12f4 00000000 		.space	4
  6422 12f8 144C6F67 		.ascii	"\024Log\272\000"
  6422      BA00
  6423 12fe 0000     		.space	2
  6424 1300 26       		.byte	38
-ARM GAS  /tmp/cczIC8Cx.s 			page 162
-
-
  6425 1301 000000   		.space	3
  6426 1304 01000000 		.word	1
  6427 1308 15       		.byte	21
@@ -9712,15 +9718,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  6467 1390 34       		.byte	52
  6468 1391 000000   		.space	3
  6469 1394 00FB0000 		.word	64256
+ARM GAS  /tmp/ccxXvVvI.s 			page 163
+
+
  6470 1398 2E       		.byte	46
  6471 1399 000000   		.space	3
  6472 139c FFFFFFFF 		.word	-1
  6473 13a0 554D454E 		.ascii	"UMEN\000"
  6473      00
  6474 13a5 000000   		.space	3
-ARM GAS  /tmp/cczIC8Cx.s 			page 163
-
-
  6475 13a8 00       		.ascii	"\000"
  6476 13a9 00000000 		.space	7
  6476      000000
@@ -9772,15 +9778,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  6521 1439 000000   		.space	3
  6522 143c 03000000 		.word	3
  6523 1440 43505800 		.ascii	"CPX\000"
+ARM GAS  /tmp/ccxXvVvI.s 			page 164
+
+
  6524 1444 00000000 		.space	4
  6525 1448 00       		.ascii	"\000"
  6526 1449 00000000 		.space	7
  6526      000000
  6527 1450 4D5F5072 		.ascii	"M_Print\000"
  6527      696E7400 
-ARM GAS  /tmp/cczIC8Cx.s 			page 164
-
-
  6528 1458 00000000 		.space	7
  6528      000000
  6529 145f 00       		.space	1
@@ -9826,21 +9832,21 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  6563 14c8 34       		.byte	52
  6564 14c9 000000   		.space	3
  6565 14cc BF010000 		.word	447
- 6566 14d0 92065374 		.ascii	"\222\006Stck\000"
- 6566      636B00
- 6567 14d7 00       		.space	1
+ 6566 14d0 92065374 		.ascii	"\222\006Stk\000"
+ 6566      6B00
+ 6567 14d6 0000     		.space	2
  6568 14d8 92069100 		.ascii	"\222\006\221\000"
  6569 14dc 00000000 		.space	4
  6570 14e0 2C       		.byte	44
+ARM GAS  /tmp/ccxXvVvI.s 			page 165
+
+
  6571 14e1 000000   		.space	3
  6572 14e4 FFFFFFFF 		.word	-1
  6573 14e8 34       		.byte	52
  6574 14e9 000000   		.space	3
  6575 14ec C0010000 		.word	448
  6576 14f0 2D2D0D00 		.ascii	"--\015\000"
-ARM GAS  /tmp/cczIC8Cx.s 			page 165
-
-
  6577 14f4 00000000 		.space	4
  6578 14f8 9206A000 		.ascii	"\222\006\240\000"
  6579 14fc 00000000 		.space	4
@@ -9892,15 +9898,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  6626 0050 09       		.byte	9
  6627 0051 000000   		.space	3
  6628 0054 FFFFFFFF 		.word	-1
+ARM GAS  /tmp/ccxXvVvI.s 			page 166
+
+
  6629 0058 0A       		.byte	10
  6630 0059 000000   		.space	3
  6631 005c FFFFFFFF 		.word	-1
  6632 0060 0B       		.byte	11
  6633 0061 000000   		.space	3
  6634 0064 FFFFFFFF 		.word	-1
-ARM GAS  /tmp/cczIC8Cx.s 			page 166
-
-
  6635 0068 0C       		.byte	12
  6636 0069 000000   		.space	3
  6637 006c FFFFFFFF 		.word	-1
@@ -9952,15 +9958,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  6683 00e8 1F       		.byte	31
  6684 00e9 000000   		.space	3
  6685 00ec FFFFFFFF 		.word	-1
+ARM GAS  /tmp/ccxXvVvI.s 			page 167
+
+
  6686 00f0 20       		.byte	32
  6687 00f1 000000   		.space	3
  6688 00f4 FFFFFFFF 		.word	-1
  6689 00f8 21       		.byte	33
  6690 00f9 000000   		.space	3
  6691 00fc FFFFFFFF 		.word	-1
-ARM GAS  /tmp/cczIC8Cx.s 			page 167
-
-
  6692 0100 22       		.byte	34
  6693 0101 000000   		.space	3
  6694 0104 FFFFFFFF 		.word	-1
@@ -10012,15 +10018,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  6742              	mapping_fshift.11149:
  6743 0000 63       		.byte	99
  6744 0001 000000   		.space	3
+ARM GAS  /tmp/ccxXvVvI.s 			page 168
+
+
  6745 0004 FFFFFFFF 		.word	-1
  6746 0008 22       		.byte	34
  6747 0009 000000   		.space	3
  6748 000c 03000000 		.word	3
  6749 0010 15       		.byte	21
  6750 0011 000000   		.space	3
-ARM GAS  /tmp/cczIC8Cx.s 			page 168
-
-
  6751 0014 01000000 		.word	1
  6752 0018 1C       		.byte	28
  6753 0019 000000   		.space	3
@@ -10072,15 +10078,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  6799 0094 00000000 		.word	0
  6800 0098 20       		.byte	32
  6801 0099 000000   		.space	3
+ARM GAS  /tmp/ccxXvVvI.s 			page 169
+
+
  6802 009c 01000000 		.word	1
  6803 00a0 2F       		.byte	47
  6804 00a1 000000   		.space	3
  6805 00a4 0E000000 		.word	14
  6806 00a8 1C       		.byte	28
  6807 00a9 000000   		.space	3
-ARM GAS  /tmp/cczIC8Cx.s 			page 169
-
-
  6808 00ac 03000000 		.word	3
  6809 00b0 2F       		.byte	47
  6810 00b1 000000   		.space	3
@@ -10132,15 +10138,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  6856 012c 03000000 		.word	3
  6857 0130 2E       		.byte	46
  6858 0131 000000   		.space	3
+ARM GAS  /tmp/ccxXvVvI.s 			page 170
+
+
  6859 0134 00000000 		.word	0
  6860 0138 2E       		.byte	46
  6861 0139 000000   		.space	3
  6862 013c 00000000 		.word	0
  6863 0140 2E       		.byte	46
  6864 0141 000000   		.space	3
-ARM GAS  /tmp/cczIC8Cx.s 			page 170
-
-
  6865 0144 00000000 		.word	0
  6866 0148 2E       		.byte	46
  6867 0149 000000   		.space	3
@@ -10192,15 +10198,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  6915 0041 000000   		.space	3
  6916 0044 03000000 		.word	3
  6917 0048 08       		.byte	8
+ARM GAS  /tmp/ccxXvVvI.s 			page 171
+
+
  6918 0049 000000   		.space	3
  6919 004c 03000000 		.word	3
  6920 0050 2F       		.byte	47
  6921 0051 000000   		.space	3
  6922 0054 04000000 		.word	4
  6923 0058 2F       		.byte	47
-ARM GAS  /tmp/cczIC8Cx.s 			page 171
-
-
  6924 0059 000000   		.space	3
  6925 005c 04000000 		.word	4
  6926 0060 2F       		.byte	47
@@ -10252,15 +10258,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  6972 00d9 000000   		.space	3
  6973 00dc 03000000 		.word	3
  6974 00e0 2A       		.byte	42
+ARM GAS  /tmp/ccxXvVvI.s 			page 172
+
+
  6975 00e1 000000   		.space	3
  6976 00e4 FFFFFFFF 		.word	-1
  6977 00e8 2E       		.byte	46
  6978 00e9 000000   		.space	3
  6979 00ec 00000000 		.word	0
  6980 00f0 2F       		.byte	47
-ARM GAS  /tmp/cczIC8Cx.s 			page 172
-
-
  6981 00f1 000000   		.space	3
  6982 00f4 18000000 		.word	24
  6983 00f8 21       		.byte	33
@@ -10312,15 +10318,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  7029 0171 000000   		.space	3
  7030 0174 00000000 		.word	0
  7031              		.section	.rodata.mapping_none.11148,"a"
+ARM GAS  /tmp/ccxXvVvI.s 			page 173
+
+
  7032              		.align	2
  7033              		.set	.LANCHOR13,. + 0
  7036              	mapping_none.11148:
  7037 0000 63       		.byte	99
  7038 0001 000000   		.space	3
  7039 0004 FFFFFFFF 		.word	-1
-ARM GAS  /tmp/cczIC8Cx.s 			page 173
-
-
  7040 0008 00       		.byte	0
  7041 0009 000000   		.space	3
  7042 000c 00000000 		.word	0
@@ -10372,15 +10378,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  7088 0088 10       		.byte	16
  7089 0089 000000   		.space	3
  7090 008c 00000000 		.word	0
+ARM GAS  /tmp/ccxXvVvI.s 			page 174
+
+
  7091 0090 18       		.byte	24
  7092 0091 000000   		.space	3
  7093 0094 00000000 		.word	0
  7094 0098 13       		.byte	19
  7095 0099 000000   		.space	3
  7096 009c 00000000 		.word	0
-ARM GAS  /tmp/cczIC8Cx.s 			page 174
-
-
  7097 00a0 14       		.byte	20
  7098 00a1 000000   		.space	3
  7099 00a4 00000000 		.word	0
@@ -10432,15 +10438,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  7145 0120 27       		.byte	39
  7146 0121 000000   		.space	3
  7147 0124 00000000 		.word	0
+ARM GAS  /tmp/ccxXvVvI.s 			page 175
+
+
  7148 0128 28       		.byte	40
  7149 0129 000000   		.space	3
  7150 012c 00000000 		.word	0
  7151 0130 2E       		.byte	46
  7152 0131 000000   		.space	3
  7153 0134 00000000 		.word	0
-ARM GAS  /tmp/cczIC8Cx.s 			page 175
-
-
  7154 0138 2E       		.byte	46
  7155 0139 000000   		.space	3
  7156 013c 00000000 		.word	0
@@ -10492,15 +10498,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  7204 0034 00000000 		.word	0
  7205 0038 06       		.byte	6
  7206 0039 000000   		.space	3
+ARM GAS  /tmp/ccxXvVvI.s 			page 176
+
+
  7207 003c 00000000 		.word	0
  7208 0040 07       		.byte	7
  7209 0041 000000   		.space	3
  7210 0044 00000000 		.word	0
  7211 0048 08       		.byte	8
  7212 0049 000000   		.space	3
-ARM GAS  /tmp/cczIC8Cx.s 			page 176
-
-
  7213 004c 00000000 		.word	0
  7214 0050 09       		.byte	9
  7215 0051 000000   		.space	3
@@ -10552,15 +10558,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  7261 00cc 00000000 		.word	0
  7262 00d0 1B       		.byte	27
  7263 00d1 000000   		.space	3
+ARM GAS  /tmp/ccxXvVvI.s 			page 177
+
+
  7264 00d4 00000000 		.word	0
  7265 00d8 1C       		.byte	28
  7266 00d9 000000   		.space	3
  7267 00dc 00000000 		.word	0
  7268 00e0 09       		.byte	9
  7269 00e1 000000   		.space	3
-ARM GAS  /tmp/cczIC8Cx.s 			page 177
-
-
  7270 00e4 00000000 		.word	0
  7271 00e8 1F       		.byte	31
  7272 00e9 000000   		.space	3
@@ -10612,15 +10618,15 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  7318 0164 00000000 		.word	0
  7319 0168 2E       		.byte	46
  7320 0169 000000   		.space	3
+ARM GAS  /tmp/ccxXvVvI.s 			page 178
+
+
  7321 016c 00000000 		.word	0
  7322 0170 2E       		.byte	46
  7323 0171 000000   		.space	3
  7324 0174 00000000 		.word	0
  7325              		.section	.rodata.mid_menu,"a"
  7326              		.align	2
-ARM GAS  /tmp/cczIC8Cx.s 			page 178
-
-
  7329              	mid_menu:
  7330 0000 C8C40B00 		.ascii	"\310\304\013\000"
  7331              		.text
@@ -10652,170 +10658,170 @@ ARM GAS  /tmp/cczIC8Cx.s 			page 1
  7357              		.file 28 "/usr/include/newlib/string.h"
  7358              		.file 29 "/usr/include/newlib/stdio.h"
  7359              		.file 30 "<built-in>"
-ARM GAS  /tmp/cczIC8Cx.s 			page 179
+ARM GAS  /tmp/ccxXvVvI.s 			page 179
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 console.c
-     /tmp/cczIC8Cx.s:18     .rodata.menu_line_str.str1.4:0000000000000000 $d
-     /tmp/cczIC8Cx.s:22     .text.menu_line_str:0000000000000000 $t
-     /tmp/cczIC8Cx.s:31     .text.menu_line_str:0000000000000000 menu_line_str
-     /tmp/cczIC8Cx.s:56     .text.menu_line_str:000000000000000c $d
-     /tmp/cczIC8Cx.s:61     .text.set_menu_label.constprop.0:0000000000000000 $t
-     /tmp/cczIC8Cx.s:68     .text.set_menu_label.constprop.0:0000000000000000 set_menu_label.constprop.0
-     /tmp/cczIC8Cx.s:433    .text.set_menu_label.constprop.0:0000000000000138 $d
-     /tmp/cczIC8Cx.s:441    .rodata.disp_about.str1.4:0000000000000000 $d
-     /tmp/cczIC8Cx.s:460    .text.disp_about:0000000000000000 $t
-     /tmp/cczIC8Cx.s:468    .text.disp_about:0000000000000000 disp_about
-     /tmp/cczIC8Cx.s:621    .text.disp_about:0000000000000080 $d
-     /tmp/cczIC8Cx.s:639    .text.run_menu_item:0000000000000000 $t
-     /tmp/cczIC8Cx.s:647    .text.run_menu_item:0000000000000000 run_menu_item
-     /tmp/cczIC8Cx.s:687    .text.set_menu:0000000000000000 $t
-     /tmp/cczIC8Cx.s:695    .text.set_menu:0000000000000000 set_menu
-     /tmp/cczIC8Cx.s:750    .text.set_menu:000000000000002c $d
-     /tmp/cczIC8Cx.s:757    .text.set_default_menu:0000000000000000 $t
-     /tmp/cczIC8Cx.s:765    .text.set_default_menu:0000000000000000 set_default_menu
-     /tmp/cczIC8Cx.s:839    .text.set_default_menu:000000000000002c $d
-     /tmp/cczIC8Cx.s:848    .text.toggle_default_menu:0000000000000000 $t
-     /tmp/cczIC8Cx.s:856    .text.toggle_default_menu:0000000000000000 toggle_default_menu
-     /tmp/cczIC8Cx.s:958    .text.toggle_default_menu:0000000000000044 $d
-     /tmp/cczIC8Cx.s:969    .text.get_menu:0000000000000000 $t
-     /tmp/cczIC8Cx.s:977    .text.get_menu:0000000000000000 get_menu
-     /tmp/cczIC8Cx.s:993    .text.get_menu:0000000000000008 $d
-     /tmp/cczIC8Cx.s:998    .text.get_last_menu:0000000000000000 $t
-     /tmp/cczIC8Cx.s:1006   .text.get_last_menu:0000000000000000 get_last_menu
-     /tmp/cczIC8Cx.s:1022   .text.get_last_menu:0000000000000008 $d
-     /tmp/cczIC8Cx.s:1027   .text.set_last_menu:0000000000000000 $t
-     /tmp/cczIC8Cx.s:1035   .text.set_last_menu:0000000000000000 set_last_menu
-     /tmp/cczIC8Cx.s:1110   .text.set_last_menu:000000000000002c $d
-     /tmp/cczIC8Cx.s:1119   .text.mdot:0000000000000000 $t
-     /tmp/cczIC8Cx.s:1127   .text.mdot:0000000000000000 mdot
-     /tmp/cczIC8Cx.s:1218   .text.mdot:000000000000003c $d
-     /tmp/cczIC8Cx.s:1223   .text.get_current_menu_ref:0000000000000000 $t
-     /tmp/cczIC8Cx.s:1231   .text.get_current_menu_ref:0000000000000000 get_current_menu_ref
-     /tmp/cczIC8Cx.s:1298   .text.get_current_menu_ref:0000000000000040 $d
-     /tmp/cczIC8Cx.s:1313   .text.get_current_menu_ref:000000000000007c $t
-     /tmp/cczIC8Cx.s:1383   .text.get_current_menu_ref:00000000000000a8 $d
-     /tmp/cczIC8Cx.s:4951   .rodata.Menus:0000000000000000 Menus
-     /tmp/cczIC8Cx.s:1391   .text.display_menu:0000000000000000 $t
-     /tmp/cczIC8Cx.s:1399   .text.display_menu:0000000000000000 display_menu
-     /tmp/cczIC8Cx.s:1647   .text.display_menu:000000000000010c $d
-     /tmp/cczIC8Cx.s:1654   .text.display_current_menu:0000000000000000 $t
-     /tmp/cczIC8Cx.s:1662   .text.display_current_menu:0000000000000000 display_current_menu
-     /tmp/cczIC8Cx.s:1698   .text.all_menu_dots:0000000000000000 $t
-     /tmp/cczIC8Cx.s:1706   .text.all_menu_dots:0000000000000000 all_menu_dots
-     /tmp/cczIC8Cx.s:1790   .text.all_menu_dots:0000000000000038 $d
-     /tmp/cczIC8Cx.s:1795   .text.umen_store:0000000000000000 $t
-     /tmp/cczIC8Cx.s:1803   .text.umen_store:0000000000000000 umen_store
-     /tmp/cczIC8Cx.s:1904   .text.umen_store:0000000000000050 $d
-     /tmp/cczIC8Cx.s:1909   .text.build_user_menu_from_program:0000000000000000 $t
-     /tmp/cczIC8Cx.s:1917   .text.build_user_menu_from_program:0000000000000000 build_user_menu_from_program
-     /tmp/cczIC8Cx.s:2328   .text.build_user_menu_from_program:0000000000000180 $d
-     /tmp/cczIC8Cx.s:2341   .text.build_user_menu:0000000000000000 $t
-ARM GAS  /tmp/cczIC8Cx.s 			page 180
+     /tmp/ccxXvVvI.s:18     .rodata.menu_line_str.str1.4:0000000000000000 $d
+     /tmp/ccxXvVvI.s:22     .text.menu_line_str:0000000000000000 $t
+     /tmp/ccxXvVvI.s:31     .text.menu_line_str:0000000000000000 menu_line_str
+     /tmp/ccxXvVvI.s:56     .text.menu_line_str:000000000000000c $d
+     /tmp/ccxXvVvI.s:61     .text.set_menu_label.constprop.0:0000000000000000 $t
+     /tmp/ccxXvVvI.s:68     .text.set_menu_label.constprop.0:0000000000000000 set_menu_label.constprop.0
+     /tmp/ccxXvVvI.s:433    .text.set_menu_label.constprop.0:0000000000000138 $d
+     /tmp/ccxXvVvI.s:441    .rodata.disp_about.str1.4:0000000000000000 $d
+     /tmp/ccxXvVvI.s:460    .text.disp_about:0000000000000000 $t
+     /tmp/ccxXvVvI.s:468    .text.disp_about:0000000000000000 disp_about
+     /tmp/ccxXvVvI.s:621    .text.disp_about:0000000000000080 $d
+     /tmp/ccxXvVvI.s:639    .text.run_menu_item:0000000000000000 $t
+     /tmp/ccxXvVvI.s:647    .text.run_menu_item:0000000000000000 run_menu_item
+     /tmp/ccxXvVvI.s:687    .text.set_menu:0000000000000000 $t
+     /tmp/ccxXvVvI.s:695    .text.set_menu:0000000000000000 set_menu
+     /tmp/ccxXvVvI.s:750    .text.set_menu:000000000000002c $d
+     /tmp/ccxXvVvI.s:757    .text.set_default_menu:0000000000000000 $t
+     /tmp/ccxXvVvI.s:765    .text.set_default_menu:0000000000000000 set_default_menu
+     /tmp/ccxXvVvI.s:839    .text.set_default_menu:000000000000002c $d
+     /tmp/ccxXvVvI.s:848    .text.toggle_default_menu:0000000000000000 $t
+     /tmp/ccxXvVvI.s:856    .text.toggle_default_menu:0000000000000000 toggle_default_menu
+     /tmp/ccxXvVvI.s:958    .text.toggle_default_menu:0000000000000044 $d
+     /tmp/ccxXvVvI.s:969    .text.get_menu:0000000000000000 $t
+     /tmp/ccxXvVvI.s:977    .text.get_menu:0000000000000000 get_menu
+     /tmp/ccxXvVvI.s:993    .text.get_menu:0000000000000008 $d
+     /tmp/ccxXvVvI.s:998    .text.get_last_menu:0000000000000000 $t
+     /tmp/ccxXvVvI.s:1006   .text.get_last_menu:0000000000000000 get_last_menu
+     /tmp/ccxXvVvI.s:1022   .text.get_last_menu:0000000000000008 $d
+     /tmp/ccxXvVvI.s:1027   .text.set_last_menu:0000000000000000 $t
+     /tmp/ccxXvVvI.s:1035   .text.set_last_menu:0000000000000000 set_last_menu
+     /tmp/ccxXvVvI.s:1110   .text.set_last_menu:000000000000002c $d
+     /tmp/ccxXvVvI.s:1119   .text.mdot:0000000000000000 $t
+     /tmp/ccxXvVvI.s:1127   .text.mdot:0000000000000000 mdot
+     /tmp/ccxXvVvI.s:1218   .text.mdot:000000000000003c $d
+     /tmp/ccxXvVvI.s:1223   .text.get_current_menu_ref:0000000000000000 $t
+     /tmp/ccxXvVvI.s:1231   .text.get_current_menu_ref:0000000000000000 get_current_menu_ref
+     /tmp/ccxXvVvI.s:1298   .text.get_current_menu_ref:0000000000000040 $d
+     /tmp/ccxXvVvI.s:1313   .text.get_current_menu_ref:000000000000007c $t
+     /tmp/ccxXvVvI.s:1383   .text.get_current_menu_ref:00000000000000a8 $d
+     /tmp/ccxXvVvI.s:4951   .rodata.Menus:0000000000000000 Menus
+     /tmp/ccxXvVvI.s:1391   .text.display_menu:0000000000000000 $t
+     /tmp/ccxXvVvI.s:1399   .text.display_menu:0000000000000000 display_menu
+     /tmp/ccxXvVvI.s:1647   .text.display_menu:000000000000010c $d
+     /tmp/ccxXvVvI.s:1654   .text.display_current_menu:0000000000000000 $t
+     /tmp/ccxXvVvI.s:1662   .text.display_current_menu:0000000000000000 display_current_menu
+     /tmp/ccxXvVvI.s:1698   .text.all_menu_dots:0000000000000000 $t
+     /tmp/ccxXvVvI.s:1706   .text.all_menu_dots:0000000000000000 all_menu_dots
+     /tmp/ccxXvVvI.s:1790   .text.all_menu_dots:0000000000000038 $d
+     /tmp/ccxXvVvI.s:1795   .text.umen_store:0000000000000000 $t
+     /tmp/ccxXvVvI.s:1803   .text.umen_store:0000000000000000 umen_store
+     /tmp/ccxXvVvI.s:1904   .text.umen_store:0000000000000050 $d
+     /tmp/ccxXvVvI.s:1909   .text.build_user_menu_from_program:0000000000000000 $t
+     /tmp/ccxXvVvI.s:1917   .text.build_user_menu_from_program:0000000000000000 build_user_menu_from_program
+     /tmp/ccxXvVvI.s:2328   .text.build_user_menu_from_program:0000000000000180 $d
+     /tmp/ccxXvVvI.s:2341   .text.build_user_menu:0000000000000000 $t
+ARM GAS  /tmp/ccxXvVvI.s 			page 180
 
 
-     /tmp/cczIC8Cx.s:2349   .text.build_user_menu:0000000000000000 build_user_menu
-     /tmp/cczIC8Cx.s:2365   .text.build_user_menu:0000000000000008 $d
-     /tmp/cczIC8Cx.s:2370   .text.shutdown:0000000000000000 $t
-     /tmp/cczIC8Cx.s:2378   .text.shutdown:0000000000000000 shutdown
-     /tmp/cczIC8Cx.s:2396   .text.shutdown:000000000000000c $d
-     /tmp/cczIC8Cx.s:2401   .text.is_key_pressed:0000000000000000 $t
-     /tmp/cczIC8Cx.s:2409   .text.is_key_pressed:0000000000000000 is_key_pressed
-     /tmp/cczIC8Cx.s:2432   .text.is_key_pressed:0000000000000010 $d
-     /tmp/cczIC8Cx.s:2437   .text.get_key:0000000000000000 $t
-     /tmp/cczIC8Cx.s:2445   .text.get_key:0000000000000000 get_key
-     /tmp/cczIC8Cx.s:2460   .text.get_key:0000000000000004 $d
-     /tmp/cczIC8Cx.s:2465   .text.put_key:0000000000000000 $t
-     /tmp/cczIC8Cx.s:2473   .text.put_key:0000000000000000 put_key
-     /tmp/cczIC8Cx.s:2552   .text.put_key:000000000000003c $d
-     /tmp/cczIC8Cx.s:2558   .text.shift_down:0000000000000000 $t
-     /tmp/cczIC8Cx.s:2566   .text.shift_down:0000000000000000 shift_down
-     /tmp/cczIC8Cx.s:2581   .text.start_key_timer:0000000000000000 $t
-     /tmp/cczIC8Cx.s:2589   .text.start_key_timer:0000000000000000 start_key_timer
-     /tmp/cczIC8Cx.s:2613   .text.start_key_timer:000000000000000c $d
-     /tmp/cczIC8Cx.s:2619   .text.keyticks:0000000000000000 $t
-     /tmp/cczIC8Cx.s:2627   .text.keyticks:0000000000000000 keyticks
-     /tmp/cczIC8Cx.s:2658   .text.keyticks:0000000000000018 $d
-     /tmp/cczIC8Cx.s:2664   .text.moveto:0000000000000000 $t
-     /tmp/cczIC8Cx.s:2672   .text.moveto:0000000000000000 moveto
-     /tmp/cczIC8Cx.s:2732   .text.moveto:000000000000002c $d
-     /tmp/cczIC8Cx.s:2739   .rodata.print_debug.str1.4:0000000000000000 $d
-     /tmp/cczIC8Cx.s:2743   .text.print_debug:0000000000000000 $t
-     /tmp/cczIC8Cx.s:2751   .text.print_debug:0000000000000000 print_debug
-     /tmp/cczIC8Cx.s:2853   .text.print_debug:0000000000000064 $d
+     /tmp/ccxXvVvI.s:2349   .text.build_user_menu:0000000000000000 build_user_menu
+     /tmp/ccxXvVvI.s:2365   .text.build_user_menu:0000000000000008 $d
+     /tmp/ccxXvVvI.s:2370   .text.shutdown:0000000000000000 $t
+     /tmp/ccxXvVvI.s:2378   .text.shutdown:0000000000000000 shutdown
+     /tmp/ccxXvVvI.s:2396   .text.shutdown:000000000000000c $d
+     /tmp/ccxXvVvI.s:2401   .text.is_key_pressed:0000000000000000 $t
+     /tmp/ccxXvVvI.s:2409   .text.is_key_pressed:0000000000000000 is_key_pressed
+     /tmp/ccxXvVvI.s:2432   .text.is_key_pressed:0000000000000010 $d
+     /tmp/ccxXvVvI.s:2437   .text.get_key:0000000000000000 $t
+     /tmp/ccxXvVvI.s:2445   .text.get_key:0000000000000000 get_key
+     /tmp/ccxXvVvI.s:2460   .text.get_key:0000000000000004 $d
+     /tmp/ccxXvVvI.s:2465   .text.put_key:0000000000000000 $t
+     /tmp/ccxXvVvI.s:2473   .text.put_key:0000000000000000 put_key
+     /tmp/ccxXvVvI.s:2552   .text.put_key:000000000000003c $d
+     /tmp/ccxXvVvI.s:2558   .text.shift_down:0000000000000000 $t
+     /tmp/ccxXvVvI.s:2566   .text.shift_down:0000000000000000 shift_down
+     /tmp/ccxXvVvI.s:2581   .text.start_key_timer:0000000000000000 $t
+     /tmp/ccxXvVvI.s:2589   .text.start_key_timer:0000000000000000 start_key_timer
+     /tmp/ccxXvVvI.s:2613   .text.start_key_timer:000000000000000c $d
+     /tmp/ccxXvVvI.s:2619   .text.keyticks:0000000000000000 $t
+     /tmp/ccxXvVvI.s:2627   .text.keyticks:0000000000000000 keyticks
+     /tmp/ccxXvVvI.s:2658   .text.keyticks:0000000000000018 $d
+     /tmp/ccxXvVvI.s:2664   .text.moveto:0000000000000000 $t
+     /tmp/ccxXvVvI.s:2672   .text.moveto:0000000000000000 moveto
+     /tmp/ccxXvVvI.s:2732   .text.moveto:000000000000002c $d
+     /tmp/ccxXvVvI.s:2739   .rodata.print_debug.str1.4:0000000000000000 $d
+     /tmp/ccxXvVvI.s:2743   .text.print_debug:0000000000000000 $t
+     /tmp/ccxXvVvI.s:2751   .text.print_debug:0000000000000000 print_debug
+     /tmp/ccxXvVvI.s:2853   .text.print_debug:0000000000000064 $d
                             *COM*:0000000000000016 print_string
-     /tmp/cczIC8Cx.s:2864   .rodata.print_debug2.str1.4:0000000000000000 $d
-     /tmp/cczIC8Cx.s:2868   .text.print_debug2:0000000000000000 $t
-     /tmp/cczIC8Cx.s:2876   .text.print_debug2:0000000000000000 print_debug2
-     /tmp/cczIC8Cx.s:2978   .text.print_debug2:0000000000000064 $d
-     /tmp/cczIC8Cx.s:2989   .text.do_now:0000000000000000 $t
-     /tmp/cczIC8Cx.s:2997   .text.do_now:0000000000000000 do_now
-     /tmp/cczIC8Cx.s:3032   .rodata.do_multi.str1.4:0000000000000000 $d
-     /tmp/cczIC8Cx.s:3036   .text.do_multi:0000000000000000 $t
-     /tmp/cczIC8Cx.s:3044   .text.do_multi:0000000000000000 do_multi
-     /tmp/cczIC8Cx.s:3074   .text.do_multi:0000000000000016 $d
-     /tmp/cczIC8Cx.s:3088   .text.do_multi:0000000000000024 $t
-     /tmp/cczIC8Cx.s:3503   .text.do_multi:00000000000001b8 $d
-     /tmp/cczIC8Cx.s:3517   .text.program_main:0000000000000000 $t
-     /tmp/cczIC8Cx.s:3525   .text.program_main:0000000000000000 program_main
-     /tmp/cczIC8Cx.s:3790   .text.program_main:000000000000011c $d
-     /tmp/cczIC8Cx.s:3796   .text.program_main:0000000000000128 $t
-     /tmp/cczIC8Cx.s:4189   .text.program_main:00000000000002dc $d
-     /tmp/cczIC8Cx.s:4230   .text.program_main:0000000000000364 $t
-     /tmp/cczIC8Cx.s:4698   .text.program_main:000000000000059c $d
-     /tmp/cczIC8Cx.s:4786   .bss.n_p:0000000000000000 n_p
-     /tmp/cczIC8Cx.s:4935   .data.spaces:0000000000000000 spaces
-     /tmp/cczIC8Cx.s:4926   .data.release:0000000000000000 release
-     /tmp/cczIC8Cx.s:4899   .data.h_shift:0000000000000000 h_shift
-     /tmp/cczIC8Cx.s:4890   .data.g_shift:0000000000000000 g_shift
-     /tmp/cczIC8Cx.s:4882   .data.f_shift:0000000000000000 f_shift
-     /tmp/cczIC8Cx.s:4908   .data.heartbeat:0000000000000000 heartbeat
-     /tmp/cczIC8Cx.s:4917   .data.no_key:0000000000000000 no_key
-ARM GAS  /tmp/cczIC8Cx.s 			page 181
+     /tmp/ccxXvVvI.s:2864   .rodata.print_debug2.str1.4:0000000000000000 $d
+     /tmp/ccxXvVvI.s:2868   .text.print_debug2:0000000000000000 $t
+     /tmp/ccxXvVvI.s:2876   .text.print_debug2:0000000000000000 print_debug2
+     /tmp/ccxXvVvI.s:2978   .text.print_debug2:0000000000000064 $d
+     /tmp/ccxXvVvI.s:2989   .text.do_now:0000000000000000 $t
+     /tmp/ccxXvVvI.s:2997   .text.do_now:0000000000000000 do_now
+     /tmp/ccxXvVvI.s:3032   .rodata.do_multi.str1.4:0000000000000000 $d
+     /tmp/ccxXvVvI.s:3036   .text.do_multi:0000000000000000 $t
+     /tmp/ccxXvVvI.s:3044   .text.do_multi:0000000000000000 do_multi
+     /tmp/ccxXvVvI.s:3074   .text.do_multi:0000000000000016 $d
+     /tmp/ccxXvVvI.s:3088   .text.do_multi:0000000000000024 $t
+     /tmp/ccxXvVvI.s:3503   .text.do_multi:00000000000001b8 $d
+     /tmp/ccxXvVvI.s:3517   .text.program_main:0000000000000000 $t
+     /tmp/ccxXvVvI.s:3525   .text.program_main:0000000000000000 program_main
+     /tmp/ccxXvVvI.s:3790   .text.program_main:000000000000011c $d
+     /tmp/ccxXvVvI.s:3796   .text.program_main:0000000000000128 $t
+     /tmp/ccxXvVvI.s:4189   .text.program_main:00000000000002dc $d
+     /tmp/ccxXvVvI.s:4230   .text.program_main:0000000000000364 $t
+     /tmp/ccxXvVvI.s:4698   .text.program_main:000000000000059c $d
+     /tmp/ccxXvVvI.s:4786   .bss.n_p:0000000000000000 n_p
+     /tmp/ccxXvVvI.s:4935   .data.spaces:0000000000000000 spaces
+     /tmp/ccxXvVvI.s:4926   .data.release:0000000000000000 release
+     /tmp/ccxXvVvI.s:4899   .data.h_shift:0000000000000000 h_shift
+     /tmp/ccxXvVvI.s:4890   .data.g_shift:0000000000000000 g_shift
+     /tmp/ccxXvVvI.s:4882   .data.f_shift:0000000000000000 f_shift
+     /tmp/ccxXvVvI.s:4908   .data.heartbeat:0000000000000000 heartbeat
+     /tmp/ccxXvVvI.s:4917   .data.no_key:0000000000000000 no_key
+ARM GAS  /tmp/ccxXvVvI.s 			page 181
 
 
-     /tmp/cczIC8Cx.s:4942   .rodata.MID_MENU:0000000000000000 MID_MENU
-     /tmp/cczIC8Cx.s:4726   .rodata.str1.4:0000000000000000 $d
-     /tmp/cczIC8Cx.s:7329   .rodata.mid_menu:0000000000000000 mid_menu
-     /tmp/cczIC8Cx.s:4767   .bss.default_menu:0000000000000000 default_menu
-     /tmp/cczIC8Cx.s:4773   .bss.last_menu:0000000000000000 last_menu
-     /tmp/cczIC8Cx.s:4761   .bss.current_menu:0000000000000000 current_menu
-     /tmp/cczIC8Cx.s:4876   .data.cmplx_key_string:0000000000000000 cmplx_key_string
-     /tmp/cczIC8Cx.s:4869   .data.arrow_key_string:0000000000000000 arrow_key_string
-     /tmp/cczIC8Cx.s:4800   .data.UserMenu:0000000000000000 UserMenu
-     /tmp/cczIC8Cx.s:4743   .rodata:0000000000000000 $d
-     /tmp/cczIC8Cx.s:4762   .bss.current_menu:0000000000000000 $d
-     /tmp/cczIC8Cx.s:4768   .bss.default_menu:0000000000000000 $d
-     /tmp/cczIC8Cx.s:4774   .bss.last_menu:0000000000000000 $d
-     /tmp/cczIC8Cx.s:4776   .bss.mdots:0000000000000000 $d
-     /tmp/cczIC8Cx.s:4780   .bss.mdots:0000000000000000 mdots
-     /tmp/cczIC8Cx.s:4783   .bss.n_p:0000000000000000 $d
-     /tmp/cczIC8Cx.s:4789   .bss.start_ticks:0000000000000000 $d
-     /tmp/cczIC8Cx.s:4793   .bss.start_ticks:0000000000000000 start_ticks
-     /tmp/cczIC8Cx.s:4796   .data.UserMenu:0000000000000000 $d
-     /tmp/cczIC8Cx.s:4865   .data.arrow_key_string:0000000000000000 $d
-     /tmp/cczIC8Cx.s:4872   .data.cmplx_key_string:0000000000000000 $d
-     /tmp/cczIC8Cx.s:4879   .data.f_shift:0000000000000000 $d
-     /tmp/cczIC8Cx.s:4887   .data.g_shift:0000000000000000 $d
-     /tmp/cczIC8Cx.s:4895   .data.h_shift:0000000000000000 $d
-     /tmp/cczIC8Cx.s:4904   .data.heartbeat:0000000000000000 $d
-     /tmp/cczIC8Cx.s:4913   .data.no_key:0000000000000000 $d
-     /tmp/cczIC8Cx.s:4922   .data.release:0000000000000000 $d
-     /tmp/cczIC8Cx.s:4931   .data.spaces:0000000000000000 $d
-     /tmp/cczIC8Cx.s:4938   .rodata.MID_MENU:0000000000000000 $d
-     /tmp/cczIC8Cx.s:4948   .rodata.Menus:0000000000000000 $d
-     /tmp/cczIC8Cx.s:6591   .rodata.mapping_alpha.11151:0000000000000000 $d
-     /tmp/cczIC8Cx.s:6595   .rodata.mapping_alpha.11151:0000000000000000 mapping_alpha.11151
-     /tmp/cczIC8Cx.s:6738   .rodata.mapping_fshift.11149:0000000000000000 $d
-     /tmp/cczIC8Cx.s:6742   .rodata.mapping_fshift.11149:0000000000000000 mapping_fshift.11149
-     /tmp/cczIC8Cx.s:6885   .rodata.mapping_gshift.11150:0000000000000000 $d
-     /tmp/cczIC8Cx.s:6889   .rodata.mapping_gshift.11150:0000000000000000 mapping_gshift.11150
-     /tmp/cczIC8Cx.s:7032   .rodata.mapping_none.11148:0000000000000000 $d
-     /tmp/cczIC8Cx.s:7036   .rodata.mapping_none.11148:0000000000000000 mapping_none.11148
-     /tmp/cczIC8Cx.s:7179   .rodata.mapping_running.11152:0000000000000000 $d
-     /tmp/cczIC8Cx.s:7183   .rodata.mapping_running.11152:0000000000000000 mapping_running.11152
-     /tmp/cczIC8Cx.s:7326   .rodata.mid_menu:0000000000000000 $d
+     /tmp/ccxXvVvI.s:4942   .rodata.MID_MENU:0000000000000000 MID_MENU
+     /tmp/ccxXvVvI.s:4726   .rodata.str1.4:0000000000000000 $d
+     /tmp/ccxXvVvI.s:7329   .rodata.mid_menu:0000000000000000 mid_menu
+     /tmp/ccxXvVvI.s:4767   .bss.default_menu:0000000000000000 default_menu
+     /tmp/ccxXvVvI.s:4773   .bss.last_menu:0000000000000000 last_menu
+     /tmp/ccxXvVvI.s:4761   .bss.current_menu:0000000000000000 current_menu
+     /tmp/ccxXvVvI.s:4876   .data.cmplx_key_string:0000000000000000 cmplx_key_string
+     /tmp/ccxXvVvI.s:4869   .data.arrow_key_string:0000000000000000 arrow_key_string
+     /tmp/ccxXvVvI.s:4800   .data.UserMenu:0000000000000000 UserMenu
+     /tmp/ccxXvVvI.s:4743   .rodata:0000000000000000 $d
+     /tmp/ccxXvVvI.s:4762   .bss.current_menu:0000000000000000 $d
+     /tmp/ccxXvVvI.s:4768   .bss.default_menu:0000000000000000 $d
+     /tmp/ccxXvVvI.s:4774   .bss.last_menu:0000000000000000 $d
+     /tmp/ccxXvVvI.s:4776   .bss.mdots:0000000000000000 $d
+     /tmp/ccxXvVvI.s:4780   .bss.mdots:0000000000000000 mdots
+     /tmp/ccxXvVvI.s:4783   .bss.n_p:0000000000000000 $d
+     /tmp/ccxXvVvI.s:4789   .bss.start_ticks:0000000000000000 $d
+     /tmp/ccxXvVvI.s:4793   .bss.start_ticks:0000000000000000 start_ticks
+     /tmp/ccxXvVvI.s:4796   .data.UserMenu:0000000000000000 $d
+     /tmp/ccxXvVvI.s:4865   .data.arrow_key_string:0000000000000000 $d
+     /tmp/ccxXvVvI.s:4872   .data.cmplx_key_string:0000000000000000 $d
+     /tmp/ccxXvVvI.s:4879   .data.f_shift:0000000000000000 $d
+     /tmp/ccxXvVvI.s:4887   .data.g_shift:0000000000000000 $d
+     /tmp/ccxXvVvI.s:4895   .data.h_shift:0000000000000000 $d
+     /tmp/ccxXvVvI.s:4904   .data.heartbeat:0000000000000000 $d
+     /tmp/ccxXvVvI.s:4913   .data.no_key:0000000000000000 $d
+     /tmp/ccxXvVvI.s:4922   .data.release:0000000000000000 $d
+     /tmp/ccxXvVvI.s:4931   .data.spaces:0000000000000000 $d
+     /tmp/ccxXvVvI.s:4938   .rodata.MID_MENU:0000000000000000 $d
+     /tmp/ccxXvVvI.s:4948   .rodata.Menus:0000000000000000 $d
+     /tmp/ccxXvVvI.s:6591   .rodata.mapping_alpha.11151:0000000000000000 $d
+     /tmp/ccxXvVvI.s:6595   .rodata.mapping_alpha.11151:0000000000000000 mapping_alpha.11151
+     /tmp/ccxXvVvI.s:6738   .rodata.mapping_fshift.11149:0000000000000000 $d
+     /tmp/ccxXvVvI.s:6742   .rodata.mapping_fshift.11149:0000000000000000 mapping_fshift.11149
+     /tmp/ccxXvVvI.s:6885   .rodata.mapping_gshift.11150:0000000000000000 $d
+     /tmp/ccxXvVvI.s:6889   .rodata.mapping_gshift.11150:0000000000000000 mapping_gshift.11150
+     /tmp/ccxXvVvI.s:7032   .rodata.mapping_none.11148:0000000000000000 $d
+     /tmp/ccxXvVvI.s:7036   .rodata.mapping_none.11148:0000000000000000 mapping_none.11148
+     /tmp/ccxXvVvI.s:7179   .rodata.mapping_running.11152:0000000000000000 $d
+     /tmp/ccxXvVvI.s:7183   .rodata.mapping_running.11152:0000000000000000 mapping_running.11152
+     /tmp/ccxXvVvI.s:7326   .rodata.mid_menu:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 charlengths
@@ -10832,7 +10838,7 @@ do_inc
 getprog
 prt_umen
 catcmd
-ARM GAS  /tmp/cczIC8Cx.s 			page 182
+ARM GAS  /tmp/ccxXvVvI.s 			page 182
 
 
 strcpy

@@ -259,10 +259,10 @@ static const struct _menu Menus[] = {
   {
     "M_Arrow", // 9
     { 
-      { { K22, 1 }, { K10, 2 }, "Bin", "DEG" },
-      { { K22, 2 }, { K11, 2 }, "Oct", "RAD" },
-      { { K23, 1 }, { K12, 2 }, "Dec", "Grad" },
-      { { K23, 2 }, { K10, 1 }, "Hex", "\015HMS" },
+      { { K22, 1 }, { K10, 2 }, "\015Bin", "\015DEG" },
+      { { K22, 2 }, { K11, 2 }, "\015Oct", "\015RAD" },
+      { { K23, 1 }, { K12, 2 }, "\015Dec", "\015Grad" },
+      { { K23, 2 }, { K10, 1 }, "\015Hex", "\015HMS" },
       { ARROW_KEY, { K11, 1 }, "--\015", "HMS\015" },
       { CMPLX_KEY, NO_KEY, "CPX", "" },
     }
@@ -314,8 +314,8 @@ static const struct _menu Menus[] = {
     { 
       { { K_MULTI, WRLIB}, NO_KEY, "SvLIB", "" },
       { { K_MULTI, LLIB }, NO_KEY, "LdLIB", "" },
-      { { K_MULTI, SVPRG }, NO_KEY, "SvCPRG", "" },
-      { { K_MULTI, LDPRG }, NO_KEY, "LdPRG", "" },
+      { { K_MULTI, SVPRG }, { K_OP, OP_NIL | OP_PSTO }, "SvCPRG", "PSTO" },
+      { { K_MULTI, LDPRG }, { K_OP, OP_NIL | OP_PRCL }, "LdPRG", "PRCL" },
       { ARROW_KEY, NO_KEY, "--\015", "" },
       { CMPLX_KEY, NO_KEY, "CPX", "" },
     }
@@ -447,7 +447,7 @@ static const struct _menu Menus[] = {
       { { K_OP, OP_NIL | OP_PRINT_ON  }, { K_OP, OP_NIL | OP_PRINT_OFF }, "\222\006On", "\222\006Off" },
       { { K_OP, RARG_BASEOP(RARG_PMODE) }, { K_OP, RARG_BASEOP(RARG_DBLSP) }, "\222\006Mode", "\222\006DbSp" },
       { { K_OP, OP_NIL | OP_PRINT_PGM }, { K_OP, OP_NIL | OP_PRINT_REGS }, "\222\006Prog", "\222\006Regs" },
-      { { K_OP, OP_NIL | OP_PRINT_STACK }, { K_OP, OP_NIL | OP_PRINT_SIGMA }, "\222\006Stck", "\222\006\221" },
+      { { K_OP, OP_NIL | OP_PRINT_STACK }, { K_OP, OP_NIL | OP_PRINT_SIGMA }, "\222\006Stk", "\222\006\221" },
       { ARROW_KEY, { K_OP, OP_NIL | OP_PRINT_ALPHA }, "--\015", "\222\006\240" },
       { CMPLX_KEY, { K_OP, OP_NIL | OP_PRINT_ADV }, "CPX", "\222\006ADV" },
     }
