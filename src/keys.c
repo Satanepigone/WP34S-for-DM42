@@ -1334,13 +1334,12 @@ void stack_begin ( int zero_y ) {
        reset_shift();
        if (shift == SHIFT_H) return (OP_NIL | OP_OFF);
      case (K21): // x<->y key
-       if (shift == SHIFT_F || shift == SHIFT_G) { // exchanges real and imag parts with either shift
-	 reset_shift();
-	 CLEAR_POLAR_READY;
-	 return RARG(RARG_SWAPX, regY_idx);
+       if (shift == SHIFT_F) { // changed this for DM42
+	 return process_fg_shifted(c); // SHOW
        }
-       else if (shift == SHIFT_H) {
-	 return process_cmplx(c); // complex exchange of (x,y) with register
+       if (shift == SHIFT_G) {
+	 reset_shift();
+	 return process_normal(K21); // x<>y
        }
        break;
      case (K40): // up-arrow key
@@ -3422,69 +3421,69 @@ void process_keycode(int c)
     }
   else if (c == K_HEARTBEAT)
     {
-    /*
-     *  Heartbeat processing goes here.
-     *  This is totally thread safe!
-     */
-    if (Keyticks >= 2) {
       /*
-       *  Some time has passed after last key press
+       *  Heartbeat processing goes here.
+       *  This is totally thread safe!
        */
-      if (OpCode != 0) {
+      if (Keyticks >= 2) {
 	/*
-	 *  Handle command display and NULL here
+	 *  Some time has passed after last key press
 	 */
-	if (OpCodeDisplayPending) {
+	if (OpCode != 0) {
 	  /*
-	   *  Show command to the user
+	   *  Handle command display and NULL here
 	   */
-	  OpCodeDisplayPending = 0;
-	  if (OpCode == (OP_NIL | OP_RS)) {
-	    DispMsg = "RUN";
+	  if (OpCodeDisplayPending) {
+	    /*
+	     *  Show command to the user
+	     */
+	    OpCodeDisplayPending = 0;
+	    if (OpCode == (OP_NIL | OP_RS)) {
+	      DispMsg = "RUN";
+	    }
+	    else {
+	      scopy_char(TraceBuffer, prt(OpCode, TraceBuffer), '\0');
+	      DispMsg = TraceBuffer;
+	    }
+	    display();
+	    ShowRPN = 1;	// Off because of DispMsg setting
 	  }
-	  else {
-	    scopy_char(TraceBuffer, prt(OpCode, TraceBuffer), '\0');
-	    DispMsg = TraceBuffer;
+	  else if (Keyticks > 12) {
+	    /*
+	     *  Key is too long held down
+	     */
+	    OpCode = 0;
+	    message("NULL", CNULL);
+	    // Force display update on key-up
+	    State2.disp_temp = 0;
 	  }
-	  display();
-	  ShowRPN = 1;	// Off because of DispMsg setting
 	}
-    else if (Keyticks > 12) {
-	  /*
-	   *  Key is too long held down
-	   */
-	  OpCode = 0;
-	  message("NULL", CNULL);
-	  // Force display update on key-up
-	  State2.disp_temp = 0;
+	if (Keyticks > 12 && shift_down() != SHIFT_N) {
+	  // Rely on the held shift key instead of the toggle
+	  State2.shifts = SHIFT_N;
 	}
       }
-      if (Keyticks > 12 && shift_down() != SHIFT_N) {
-	// Rely on the held shift key instead of the toggle
-	State2.shifts = SHIFT_N;
-      }
-    }
 
-    /*
-     *  Serve the watchdog
-     */
-    watchdog();
+      /*
+       *  Serve the watchdog
+       */
+      watchdog();
 
 #ifndef CONSOLE
-    /*
-     *  If buffer is empty re-allow R/S to start a program
-     */
-    if (JustStopped && !is_key_pressed()) {
-      JustStopped = 0;
-    }
+      /*
+       *  If buffer is empty re-allow R/S to start a program
+       */
+      if (JustStopped && !is_key_pressed()) {
+	JustStopped = 0;
+      }
 #endif
 
-    /*
-     *  Do nothing if not running a program
-     */
-    if (!Running && ! Pause)
-      return;
-  }
+      /*
+       *  Do nothing if not running a program
+       */
+      if (!Running && ! Pause)
+	return;
+    }
   else {
     /*
      *  Not the heartbeat - prepare for execution of any commands

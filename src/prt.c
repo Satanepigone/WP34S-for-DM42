@@ -316,6 +316,7 @@ const char *prt(opcode op, char *instr) {
 }
 const char *prt_umen(opcode op, char *instr) {
 	unsigned int arg;
+	const char* name;
 	xset(instr, '\0', 16);
 	if (isDBL(op))
 	  return prt_multi_umen(op, instr);
@@ -323,7 +324,9 @@ const char *prt_umen(opcode op, char *instr) {
 		return prt_rargs(op, instr);
 	arg = argKIND(op);
 	switch (opKIND(op)) {
-	case KIND_SPEC:	return prt_specials(arg, instr);
+	case KIND_SPEC:
+	  name = prt_specials(arg, instr);
+	  return sncopy(instr, name, NAME_LEN);
 	case KIND_NIL:	return prt_niladic(arg, instr);
 	case KIND_MON:	return prt_monadic(arg, instr);
 	case KIND_DYA:	return prt_dyadic(arg, instr);

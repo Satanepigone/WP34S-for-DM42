@@ -512,9 +512,9 @@ void program_main(){
       finish_LEQ();
     }
 #endif
-    if ( (c != K_HEARTBEAT) && (c > 0) ) {
+    if ( (c != K_HEARTBEAT) && (c >= 0) ) {
       reset_auto_off();
-      start_key_timer();
+      //      start_key_timer();
     }
     if (c >= 0) {
       remapped = remap(c);
@@ -538,6 +538,7 @@ void program_main(){
       }
       if (remapped.key_34s == K_EXIT) break;
       process_keycode_with_shift(remapped);
+      if (remapped.key_34s != K_HEARTBEAT || JustStopped) start_key_timer(); 
     }
   }
   save_ram_file(0);

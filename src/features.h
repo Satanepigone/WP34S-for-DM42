@@ -53,6 +53,7 @@
 // of ticks (100 ms) specified below. Zero disables this feature. Without it
 // the device needs to be reset if XROM code gets stuck in an infinite loop.
 //#define INTERRUPT_XROM_TICKS 10
+// Note: the function OnKeyticks isn't implemented in the DM42 code as I didn't notice it.
 
 // Include the pixel plotting commands
 // #define INCLUDE_PLOTTING
