@@ -753,7 +753,7 @@ void finish_PRT (void) {
   lcd_refresh();
 }
 
-void finish_LEQ(void) { // refreshes the RPN and RUN flags only
+void finish_LEQ(void) { // refreshes the LEQ flag only
   draw_LEQ();  
   lcd_refresh();
 }

@@ -4524,6 +4524,7 @@ static int dispatch_xrom(void *fp)
 	XromRunning = 1;
 	gsbgto(addrXROM((xp - xrom) + 1), 1, state_pc());
 	xeq_xrom();
+	//	print_debug(999,0);
 	return 1;
 }
 
@@ -5543,8 +5544,11 @@ void xeq_xrom(void) {
    if (! Running && ! Pause) {	  
      // Program has terminated
      clr_dot(RCL_annun);
-     ShowRPN = 1;	// display() may turn it off again
-     display();
+     ShowRPN = 1; // display() may turn it off again
+     finish_RPN(); // put here to turn off the RCL annunciator
+     //     print_debug(100, State2.disp_freeze);
+     display(); // turns off RPN if it was freeeeze and returns doing little
+     //     print_debug(101, ShowRPN*100+State2.disp_freeze);
      if (ShowRPN) {
        set_dot(RPN);
        finish_RPN(); // RPN
