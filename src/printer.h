@@ -54,6 +54,8 @@ extern void cmdplotprint( unsigned int arg, enum rarg op );
 extern void prepare_new_line( void );
 extern void goto_new_line( void );
 extern void print_on_off( enum nilop op );
+extern void print_registers_cmplx( enum nilop op );
+extern void print_reg_cmplx( int reg, const char *label, int eq);
 
 // Implemented by the hardware layer
 extern void put_ir( int byte );

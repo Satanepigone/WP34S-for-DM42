@@ -1044,9 +1044,15 @@ static decNumber *decNumberDRG_internal(decNumber *res, const decNumber *x, s_op
 #undef DRG
 }
 
+#ifdef DM42
+void cvt_rad2(decNumber *res, const decNumber *x) {
+	decNumberDRG_internal(res, x, OP_RAD2);	
+}
+#else
 static void cvt_rad2(decNumber *res, const decNumber *x) {
 	decNumberDRG_internal(res, x, OP_RAD2);	
 }
+#endif
 
 /* Calculate sin and cos of the given number in radians.
  * We need to do some range reduction to guarantee that our Taylor series

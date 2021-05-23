@@ -119,7 +119,7 @@ struct _ustate {
 #define UState_mode_double    46 // 1   // Double precision mode
 #define UState_t12            47 // 1	// 12 hour time mode
 #ifdef INFRARED
-#define UState_print_mode     48 // 2	// free
+#define UState_print_mode     48 // 2	// Print mode
 #else
 #define UState_unused_3       48 // 1	// free
 #define UState_unused_2       49 // 1	// free

@@ -733,12 +733,16 @@ void draw_RPN_RCL(void) {
 void draw_LEQ(void) { // little equals
   t20->inv = !dots[LIT_EQ];
   lcd_setXY (t20, 360, Y_ANNUNC-70);
+#ifdef INCLUDE_C_LOCK
   if (C_LOCKED) {
     lcd_writeText(t20, "C_LK");
   }
   else {
     lcd_writeText(t20, "=");
   }
+#else
+  lcd_writeText(t20, "=");
+#endif
   t20->inv = 0;
 }
 

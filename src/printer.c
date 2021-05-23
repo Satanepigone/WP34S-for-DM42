@@ -27,6 +27,7 @@
 #include "complex.h"
 #include "storage.h"
 #include "lcd.h"
+
 #undef DM42SAFE
 
 #ifdef INFRARED
@@ -239,7 +240,11 @@ void print_line( const char *buff, int with_lf )
       i = c < ' ' ? printer_chars[ c - 1 ]
 	: c > 126 ? printer_chars[ c - 127 + 31 ]
 	: c;
-
+#ifdef INCLUDE_C_LOCK
+      if (C_LOCKED && POLAR_DISPLAY && c == 160) { // pass angle char through untranslated
+	i = c;
+      }
+#endif
       if ( i != 0 ) {
 	// Use printer character set
 	w = PrinterColumn == 0 || PrinterColumn == 160 ? 6 : 7;
@@ -265,11 +270,26 @@ void print_line( const char *buff, int with_lf )
 
     case PMODE_SMALLGRAPHICS:		// Small font
       c += 256;
-
+      
     case PMODE_GRAPHICS:			// Standard font
     graphic_print:
       // Spit out the character as a graphic
+#ifdef INCLUDE_C_LOCK
+      if ( ((C_LOCKED) && (POLAR_DISPLAY)) && c == (256+'<') ) {
+	w = 4;
+	pattern[0] = 8;
+	pattern[1] = 4;
+	pattern[2] = 2;
+	pattern[3] = 15;
+	pattern[4] = 0;
+	pattern[5] = 0;
+      }
+      else {
+	unpackchar( c, pattern, mode == PMODE_SMALLGRAPHICS, posns );
+      }
+#else
       unpackchar( c, pattern, mode == PMODE_SMALLGRAPHICS, posns );
+#endif
       if ( w == 0 ) {
 	w = charlengths( c );
 	if ( PrinterColumn + w == 167 ) {
@@ -349,6 +369,20 @@ void print_registers( enum nilop op )
   RETURN_IF_PRINT_OFF;
   advance_if_trace();
 
+#ifdef INCLUDE_C_LOCK  
+  if (State2.cmplx || C_LOCKED) {
+    print_registers_cmplx (op);
+    State2.cmplx = 0;
+    return;
+  }
+#else
+  if (State2.cmplx) {
+    print_registers_cmplx (op);
+    State2.cmplx = 0;
+    return;
+  }
+#endif
+  
   if ( op == OP_PRINT_STACK ) {
     s = regX_idx;
     n = stack_size();
@@ -380,6 +414,7 @@ void print_registers( enum nilop op )
     }
     *p = '\0';
     print_reg( s++, name, 1 );
+    BREAK_IF_EXIT;
   }
   if ( op == OP_PRINT_STACK ) {
     print_reg( regL_idx, "l", 1 );
@@ -486,22 +521,42 @@ void cmdprint( unsigned int arg, enum rarg op )
 void cmdprintreg( unsigned int arg, enum rarg op )
 {
   RETURN_IF_PRINT_OFF;
-  print_reg( arg, CNULL, 0 );
+#ifdef INCLUDE_C_LOCK
+  if (State2.cmplx || C_LOCKED) {
+    print_reg_cmplx( arg, CNULL, 0);
+    State2.cmplx = 0;
+  }
+#else
+  if (State2.cmplx) {
+    print_reg_cmplx( arg, CNULL, 0);
+    State2.cmplx = 0;
+  }
+#endif
+  else {
+    print_reg( arg, CNULL, 0 );
+  }
 }
 
 /*
  *  Print a pair of registers as a complex number.
  */
-void cmdprintcmplxreg( unsigned int reg, enum rarg op)
-{
+void cmdprintcmplxreg( unsigned int reg, enum rarg op){
+  RETURN_IF_PRINT_OFF;
+  print_reg_cmplx (reg, CNULL, 0);
+}
+
+void print_reg_cmplx (int reg, const char *label, int eq) {
   decNumber x, y;
-  int lenx, leny, maxlen;
+#ifdef INCLUDE_C_LOCK
+  decNumber rx, ry;
+  char *q;
+#endif
+  int lenx, leny, lenlab = 0, maxlen;
   char bufx[ 50 ];
   char bufy[ 54 ];
   char buffer[104];
-  char *p;
+  char *p, *r;
 
-  RETURN_IF_PRINT_OFF;
   advance_if_trace();
 
   if (is_intmode()) {
@@ -509,32 +564,141 @@ void cmdprintcmplxreg( unsigned int reg, enum rarg op)
     return;
   }
 
+  xset( bufx, '\0', sizeof( bufx ) );
+  p = bufx;
+
+  if ( label != NULL ) {
+    p = scopy(p, label);
+    if ( eq ) p = scopy(p, " ="); // put label and = at left of line
+    lenlab = buffer_width(bufx);
+    print_line (bufx, 0);
+  }
+  // So far as I can see this doesn't work for double precision
+  // Calling set_x instead of set_x_dn would be a start (both in display.c)
+  
   getRegister(&x, reg);
   getRegister(&y, reg+1);
 
+#ifdef INCLUDE_C_LOCK
+  if (C_LOCKED && POLAR_DISPLAY) {
+    cmplxToPolar (&rx, &ry, &x, &y);
+    cvt_rad2 (&y, &ry);
+    decNumberCopy(&x, &rx); // x, y now contain r, theta
+  }
+#endif
+  // x, y now contain the numbers to print
+  
   xset( bufx, '\0', sizeof( bufx ) );
+  p = bufx;
   lenx = DISPLAY_DIGITS;
-  set_x_dn( &x, bufx, &lenx);
+  set_x_dn( &x, p, &lenx);
   p = find_char(bufx, '\0');
-  scopy(p, " ; ");
+  scopy(p, "  ");
   lenx = buffer_width(bufx);
-
+  
   xset( bufy, '\0', sizeof( bufy ) );
   leny = DISPLAY_DIGITS;
-  set_x_dn( &y, bufy, &leny);
-  leny = buffer_width(bufy);
 
-  if (lenx + leny > PAPER_WIDTH) {
-    p[2] = '\0';
-    lenx = buffer_width(bufx);
-    maxlen = PAPER_WIDTH - (lenx > leny ? lenx : leny);
-    print_string_from_tab(bufx, maxlen);
-    print_string_from_tab(bufy, maxlen);
-  } else {
+#ifdef INCLUDE_C_LOCK
+  if (C_LOCKED && POLAR_DISPLAY) {
+    if (UState.print_mode == PMODE_DEFAULT) {
+      r = scopy (bufy, "\xA0 "); // assumes ROMAN8 character set; angle symbol
+    }
+    else if (UState.print_mode == PMODE_GRAPHICS) { // graphics modes
+      r = scopy(bufy, "< "); // < is angle symbol in MODE 1; 
+    }
+    else {
+      r = scopy(bufy, "<\006 "); // '<' one px smaller than what will be printed; 
+    }
+  }
+  else {
+    q = CPX_J ? "j " : "i ";
+    r = scopy (bufy, q);
+  }
+#else
+  r = bufy;
+#endif
+  set_x_dn( &y, r, &leny); // copy y after complex prefix
+  leny = buffer_width(bufy); // bufy is still the start of the buffer
+
+  if (lenx + leny + lenlab > PAPER_WIDTH) {
+    if (lenx + leny > PAPER_WIDTH) {
+      p[2] = '\0'; // end bufx after " " - p still points near end of bufx
+      lenx = buffer_width(bufx);
+      maxlen = PAPER_WIDTH - (lenx > leny ? lenx : leny);
+      print_string_from_tab(bufx, maxlen);
+      print_string_from_tab(bufy, maxlen);
+    }
+    else {
+      print_advance(1); // print label by itself, followed by ...
+      scopy(scopy(buffer, bufx), bufy);
+      print_justified(buffer); // the two numbers
+    }
+  }
+  else {
     scopy(scopy(buffer, bufx), bufy);
     print_justified(buffer);
   }
 }
+
+/*
+ *  Print a block of registers with labels
+ */
+void print_registers_cmplx( enum nilop op )
+{
+  int s, n;
+
+  RETURN_IF_PRINT_OFF;
+  advance_if_trace();
+
+  if ( op == OP_PRINT_STACK ) {
+    s = regX_idx;
+    n = stack_size();
+  }
+  else {
+    if ( reg_decode( &s, &n, (int *) NULL, 0 ) ) {
+      return;
+    }
+  }
+  
+#ifdef INCLUDE_C_LOCK
+  if ( (C_LOCKED) && (s & 1) ) {
+    error_message(ERR_ODD_REG);
+    return;
+  }
+#endif  
+
+  while ( n>0 ) { // changed from while(n) in case an odd n is entered in non-c_lock mode
+    int r = s;
+    char name[ 6 ], *p = name;
+
+    n -= 2;
+    
+    if ( r >= regX_idx && r <= regK_idx ) {
+      *p++ = "Z?U?V?W?L?J?"[ r - regX_idx ]; // no space as = used
+    }
+    else {
+      *p++ = 'r';
+      if ( r > LOCAL_REG_BASE ) {
+	*p++ = '.';
+	r -= LOCAL_REG_BASE;
+	if ( r >= 100 ) {
+	  *p++ = '1';
+	  r -= 100;
+	}
+      }
+      p = num_arg_0( p, r, 2 );
+    }
+    *p = '\0';
+    print_reg_cmplx( s, name, 1);
+    s +=2;
+    BREAK_IF_EXIT;
+  }
+  if ( op == OP_PRINT_STACK ) {
+    print_reg_cmplx( regL_idx, "L", 1);
+  }
+}
+
 
 /*
  *  Return the width of alpha to x

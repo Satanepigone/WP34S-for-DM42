@@ -200,7 +200,10 @@ extern decNumber *decFactor(decNumber *r, const decNumber *x);
 
 extern decNumber *dn_ln(decNumber *r, const decNumber *x);
 
-
 extern decNumber *decRecv(decNumber *r, const decNumber *x);
+
+#ifdef DM42
+void cvt_rad2(decNumber *res, const decNumber *x);
+#endif
 
 #endif

@@ -4,10 +4,16 @@
 
 ###**Note:** all of the new features below are available in the `build/` folder of this branch of the project. You want either `wp34c.pgm`, `wp34c_long.pgm`, or `wp34c_top.pgm`. These differ only in their displays: the first is most like the wp34c, while `wp34c_top.pgm` adds an extra top row for annunciators. Most people seem to prefer `wp34c_top.pgm`.
 
-####**New!** 
+####**New!**
+No major changes.
+The EXITing from printing now works more reliably. 
+Printing the stack or a block of registers in complex lock mode now prints in complex form by default, respecting RECT or POLAR display setting.
+Update of calculator help file - still a work in progress.
+
+####*Older* 
 Printing can now be interrupted by pressing the EXIT key. It's checked for once per line; you don't need to press it repeatedly or to hold it down. The PRT annunciator now flashes once per line as well.
 
-####**New!** 
+####*Older* 
 IR printing is now supported (first version). I have tested this on an HP 82240B printer and all commands seem to be working. I don't see how sending the wrong control codes could damage your printer, but be aware that it's **not** my responsibility if they do!
 
 There are a few differences from the printing commands of the WP34s (of which I have no direct experience.)
