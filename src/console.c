@@ -35,6 +35,9 @@
 #include "consts.h"
 #include "storage.h"
 #include "catalogues.h"
+#ifdef INCLUDE_STOPWATCH
+#include "stopwatch.h"
+#endif
 #undef DM42SAFE
 
 
@@ -68,28 +71,30 @@ static struct _ndmap remap (const int c) {
   if (Running | Pause) {
     return mapping_running[c];
   }
+
+  struct _menu Ref = get_current_menu_ref();
   
   switch (c) {
   case KEY_F1:
-    if (cur_shift() == SHIFT_N) return Menus[current_menu].keys[0].unshifted;
-    if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[0].shifted;
+    if (cur_shift() == SHIFT_N) return Ref.keys[0].unshifted;
+    if (cur_shift() == SHIFT_F) return Ref.keys[0].shifted;
   case KEY_F2:
-    if (cur_shift() == SHIFT_N) return Menus[current_menu].keys[1].unshifted;
-    if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[1].shifted;
+    if (cur_shift() == SHIFT_N) return Ref.keys[1].unshifted;
+    if (cur_shift() == SHIFT_F) return Ref.keys[1].shifted;
   case KEY_F3:
-    if (cur_shift() == SHIFT_N) return Menus[current_menu].keys[2].unshifted;
-    if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[2].shifted;
+    if (cur_shift() == SHIFT_N) return Ref.keys[2].unshifted;
+    if (cur_shift() == SHIFT_F) return Ref.keys[2].shifted;
   case KEY_F4:
-    if (cur_shift() == SHIFT_N) return Menus[current_menu].keys[3].unshifted;
-    if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[3].shifted;
+    if (cur_shift() == SHIFT_N) return Ref.keys[3].unshifted;
+    if (cur_shift() == SHIFT_F) return Ref.keys[3].shifted;
   case KEY_F5:
-    if (cur_shift() == SHIFT_N) return Menus[current_menu].keys[4].unshifted;
-    if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[4].shifted;
+    if (cur_shift() == SHIFT_N) return Ref.keys[4].unshifted;
+    if (cur_shift() == SHIFT_F) return Ref.keys[4].shifted;
   case KEY_F6:
-    if (cur_shift() == SHIFT_N) return Menus[current_menu].keys[5].unshifted;
-    if (cur_shift() == SHIFT_F) return Menus[current_menu].keys[5].shifted;
+    if (cur_shift() == SHIFT_N) return Ref.keys[5].unshifted;
+    if (cur_shift() == SHIFT_F) return Ref.keys[5].shifted;
   }
-  
+
   if ( get_alpha_state() ) {
     if (c == KEY_SHIFT) { //deal with shift keys
       switch (cur_shift()) { 
@@ -270,7 +275,7 @@ void print_debug (int i, int j) {
   moveto (3, 1);
   lcd_print (fReg , (const char*) print_string );
   lcd_refresh();
-  sys_delay (100);
+  sys_delay (1000);
   /* wait_for_key_press(); */
   //  key_pop_all();
   // while ((key_pop()<=0) || (key_pop()==K_HEARTBEAT));;
@@ -302,7 +307,7 @@ void print_debug2 (int i, char* j) {
   // key_pop_all();
 }
 
-void do_now (int key, int shift) {
+void do_now (int key, int shift) { // key and shift are like the output of remapped
   struct _ndmap temp;
   temp.key_34s = key;
   temp.shift = shift;
@@ -311,51 +316,61 @@ void do_now (int key, int shift) {
 
 struct _ndmap do_multi (struct _ndmap r) {
   switch(r.shift) {
-  case LASTX: // Last x via RCL L
-    do_now (K11, 0); // RCL
-    do_now (K_RELEASE,0); // release
-    do_now (K15,0); // TAN key
-    r.key_34s = K_RELEASE;
-    r.shift = 0; // set up for release;
-    break;
+  /* case LASTX: // Last x via RCL L */
+  /*   do_now (K11, 0); // RCL */
+  /*   do_now (K_RELEASE,0); // release */
+  /*   do_now (K15,0); // TAN key */
+  /*   r.key_34s = K_RELEASE; */
+  /*   r.shift = 0; // set up for release; */
+  /*   break; */
   case ONSTO: // flash_backup()
     flash_backup(OP_SAVE);
+    reset_shift();
     r = no_key;
     break;
   case ONRCL: // flash_restore()
     flash_restore(OP_LOAD);
+    reset_shift();
     r = no_key;
     break;
   case WRLIB: // save library file
     save_lib_file(1);
+    reset_shift();
     r = no_key;
     break;
   case LLIB: // load library file
     load_lib_file(1);
+    reset_shift();
     r = no_key;
     break;
   case WRTST: // save state file
     save_ram_file(1);
+    reset_shift();
     r = no_key;
     break;
   case LDST:
     load_ram_file(1);
+    reset_shift();
     r = no_key;
     break;
   case LDPRG:
     load_prog_file();
+    reset_shift();
     r = no_key;
     break;
   case SVPRG:
     save_prog_file();
+    reset_shift();
     r = no_key;
     break;
   case HELP:
     run_help_file("/HELP/wp34s_help.html");
+    reset_shift();
     r = no_key;
     break;
   case DOTS:
     do_all_dots();
+    reset_shift();
     r = no_key;
     break;
   case SSHOT: // comes after f-key already pressed, but not released
@@ -365,8 +380,24 @@ struct _ndmap do_multi (struct _ndmap r) {
     break;
   case DEFMEN:
     toggle_default_menu();
-    r = f_shift; // clears f-shift that called this function
+    reset_shift();
+    r = no_key;
     break;
+  case SETUMEN:
+    build_user_menu();
+    reset_shift();
+    r = no_key;;
+    break;
+  case KCPX:
+    if (C_LOCKED) {
+      set_menu(M_C_Lock);
+      reset_shift();
+    }
+    else {
+      do_now (K_CMPLX, 0);
+      do_now (K_RELEASE, 0);
+      r = no_key;
+    }
   default:
     r = no_key;
   }
@@ -472,32 +503,32 @@ void program_main(){
     //  > 0 -> Key pressed
     // == 0 -> Key released
     c = key_pop();
-    if ( (c != K_HEARTBEAT) && (c > 0) ) {
+#ifdef INCLUDE_STOPWATCH
+    if ( KeyCallback != NULL ) {
+      c = (*KeyCallback)( c );
+    }
+    else if ( StopWatchRunning && ( Ticker % STOPWATCH_BLINK ) == 0 ) {
+      dot( LIT_EQ, !is_dot( LIT_EQ ) );
+      finish_LEQ();
+    }
+#endif
+    if ( (c != K_HEARTBEAT) && (c >= 0) ) {
       reset_auto_off();
-      start_key_timer();
+      //      start_key_timer();
     }
     if (c >= 0) {
       remapped = remap(c);
       if (remapped.key_34s == K_SETMENU) {
 	set_menu ( remapped.shift );
 	display_current_menu ();
-	switch (cur_shift()) { // gets rid of the shift state from the menu-selecting key
-	case SHIFT_F:
-	  remapped = f_shift; // F -> N
-	  break;
-	case SHIFT_G:
-	  remapped = g_shift; // G -> N
-	  break;
-	case SHIFT_H:
-	  remapped = h_shift; // H -> N
-	default:
-	  remapped = f_shift; // shouldn't happen
-	}
+	reset_shift();
+	remapped = no_key;
       }
       if (remapped.key_34s == K_SYS) {
 	SET_ST(STAT_MENU);
 	handle_menu(&MID_MENU, MENU_RESET, 0); // App menu
 	CLR_ST(STAT_MENU);
+	reset_shift();
 	remapped =  no_key;
 	display_current_menu();
       }
@@ -507,6 +538,7 @@ void program_main(){
       }
       if (remapped.key_34s == K_EXIT) break;
       process_keycode_with_shift(remapped);
+      if (remapped.key_34s != K_HEARTBEAT || JustStopped) start_key_timer(); 
     }
   }
   save_ram_file(0);

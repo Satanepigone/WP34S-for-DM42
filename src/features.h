@@ -16,6 +16,8 @@
 #ifndef FEATURES_H__
 #define FEATURES_H__
 
+#define INFRARED
+
 //#define DM42 // for DM42! //no - define DM42 in the makefile
 
 #if !defined(REALBUILD) && !defined(WINGUI) && !defined(QTGUI) && !defined(IOS) && !defined(DM42)
@@ -45,10 +47,13 @@
 //#define INCLUDE_STOPWATCH
 #endif
 
+#define INCLUDE_STOPWATCH
+
 // Interrupt XROM code if the EXIT key is held down for at least the number
 // of ticks (100 ms) specified below. Zero disables this feature. Without it
 // the device needs to be reset if XROM code gets stuck in an infinite loop.
 //#define INTERRUPT_XROM_TICKS 10
+// Note: the function OnKeyticks isn't implemented in the DM42 code as I didn't notice it.
 
 // Include the pixel plotting commands
 // #define INCLUDE_PLOTTING
@@ -72,7 +77,7 @@
 // functions and their complex variants with one universal dispatch function.
 // It saves approximately 280 bytes in the firmware.
 // This is an EXPERIMENTAL FEATURE that hasn't yet received adequate testing.
-//#define UNIVERSAL_DISPATCH
+// #define UNIVERSAL_DISPATCH
 
 // Code to allow access to caller's local data from xIN-code
 // #define ENABLE_COPYLOCALS
@@ -106,8 +111,8 @@
 // implemented in XROM.  The first setting is sufficient for accuracy for
 // single precision, the second needs to be enabled as well to get good
 // results for double precision..
-// #define INCLUDE_XROM_DIGAMMA
-// #define XROM_DIGAMMA_DOUBLE_PRECISION
+#define INCLUDE_XROM_DIGAMMA
+#define XROM_DIGAMMA_DOUBLE_PRECISION
 
 // Include a fused multiply add instruction
 // This isn't vital since this can be done using a complex addition.
@@ -115,7 +120,7 @@
 // #define INCLUDE_MULADD
 
 // Include a date function to determine the date of Easter in a given year
-//#define INCLUDE_EASTER
+#define INCLUDE_EASTER
 
 // Include code to use a Ridder's method step after a bisection in the solver.
 // For some functions this seems to help a lot, for others there is limited
@@ -124,7 +129,7 @@
 
 // Include code to find integer factors
 // Space cost 480 bytes.
-// #define INCLUDE_FACTOR
+#define INCLUDE_FACTOR
 
 // Include matrix functions better implemented in user code
 // #define SILLY_MATRIX_SUPPORT
@@ -190,17 +195,17 @@
 //        The following only applies if INCLUDE_DOUBLEDOT_FRACTIONS is enabled:
 //          4:        mixed/proper fractions (a.b.c) enable proper fractions
 //          5:        simple/improper fractions (a..b) enable improper fractions
-#define FRACTION_MODE_INPUT 0
+#define FRACTION_MODE_INPUT (1+2+4+0+16+32)
 
 // Make two successive decimals a..b enter an improper fraction a/b, not a 0/b (also enables PRETTY_FRACTION_ENTRY)
-//#define INCLUDE_DOUBLEDOT_FRACTIONS
+#define INCLUDE_DOUBLEDOT_FRACTIONS
 
 // Ignore invalid fraction entry instead of treating it as an error.
 // If the denominator is missing or is zero, only the integer part will
 // be parsed. If a.b.0 is entered, it's interpreted as the integer a, and
 // with INCLUDE_DOUBLEDOT_FRACTIONS enabled, a..0 is interpreted as zero.
 // This saves approximately 252 bytes in the firmware.
-//#define IGNORE_INVALID_FRACTIONS
+#define IGNORE_INVALID_FRACTIONS
 
 // Show four-digit exponents instead of the HIG symbol in double precision mode
 // and display only 10 digits of the mantissa if necessary.
@@ -208,10 +213,10 @@
 //          1:               large exponents always displayed
 //          2:               large exponents displayed if flag L is set
 //          3:               large exponents displayed if flag L is cleared
-//#define SHOW_LARGE_EXPONENT 1
+#define SHOW_LARGE_EXPONENT 1
 
 // Allow entering four-digit exponents in double precision mode
-//#define LARGE_EXPONENT_ENTRY
+#define LARGE_EXPONENT_ENTRY
 
 // Rules about negative exponents in single precision mode with flag D cleared
 // Values: -1: Use value from register 0 (for debugging only!)
@@ -317,10 +322,24 @@
 //#define WARNINGS_IN_UPPER_LINE_ONLY
 
 // Chamge ALL display mode to limited significant figures mode
-//#define INCLUDE_SIGFIG_MODE
+#define INCLUDE_SIGFIG_MODE
 
 // Enable Y-register display (not just for complex results)
 #define INCLUDE_YREG_CODE
+
+// Enable complex lock mode. Requires RP_PREFIX, INCLUDE_YREG_CODE, INCLUDE_YREG_HMS, and EXTRA_FLAGS
+#define INCLUDE_C_LOCK
+
+//Various complex lock mode defaults
+
+//#define DEFAULT_TO_SSIZE8 //Fix default to 8 deep stack, to allow seamless back and forth to Complex mode without losing stack content. Also see keys.c //JM3
+//#define DEFAULT_TO_J // Still possible to change between I and J if this is selected
+//#define DEFAULT_TO_C_LOCK // Complex Lock mode on by default
+//#define DEFAULT_TO_CPX_YES // No need to XEQ CPXYES to turn on complex lock 
+
+// Enable Entry RPN (pressing Enter doesn't duplicate the x-register)
+#define ENTRY_RPN
+//#define DEFAULT_TO_ENTRY_RPN
 
 // Y register is always displayed (cannot be turned off)
 //#define YREG_ALWAYS_ON
@@ -349,6 +368,10 @@
 // Rectangular - Polar y-reg prefix change:
 #define RP_PREFIX
 
+// Reduces RAM program steps by 2 and provides 4 bytes of extra flags
+// in persistent RAM. About 10 of these are used by C_LOCK_MODE but there are others!
+// #define EXTRA_FLAGS
+
 // h ./, in DECM mode switches E3 separator on/off (instead of chnaging radix symbol)
 //#define MODIFY_K62_E3_SWITCH
 
@@ -356,7 +379,7 @@
 //#define SHOW_STACK_SIZE
 
 // BEG annunciators indicates BIG stack size rather than beginning of program
-//#define MODIFY_BEG_SSIZE8
+#define MODIFY_BEG_SSIZE8
 
 /*
  * This setting allows to change default mode to one of the other 2
@@ -366,7 +389,7 @@
  * See enum date_modes for values of
  *	DATE_DMY=0,	DATE_YMD=1,	DATE_MDY=2
 */
-//#define DEFAULT_DATEMODE 0
+#define DEFAULT_DATEMODE 0
 
 /* This setting supresses the date mode display entirely if enabled.
  */
@@ -376,6 +399,13 @@
 /*******************************************************************/
 /* Below here are the automatic defines depending on other defines */
 /*******************************************************************/
+
+#if defined(INCLUDE_C_LOCK)
+#define RP_PREFIX
+#define INCLUDE_YREG_CODE
+#define INCLUDE_YREG_HMS
+// #define EXTRA_FLAGS
+#endif
 
 #if defined(INCLUDE_DOUBLEDOT_FRACTIONS)
 #define PRETTY_FRACTION_ENTRY

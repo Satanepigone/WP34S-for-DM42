@@ -1,58 +1,61 @@
-# WP34S calculator for DM42 hardware
+# WP34c calculator for DM42 hardware
 
-## A project to bring the WP34s calculator firmware to the DM42 hardware. 
+## A project to bring the WP34c calculator firmware to the DM42 hardware. 
 
-This project now provides three versions of the WP34s calculator for the DM42 which differ only in their displays.
+###**Note:** all of the new features below are available in the `build/` folder of this branch of the project. You want either `wp34c.pgm`, `wp34c_long.pgm`, or `wp34c_top.pgm`. These differ only in their displays: the first is most like the wp34c, while `wp34c_top.pgm` adds an extra top row for annunciators. Most people seem to prefer `wp34c_top.pgm`.
 
-  * **The "normal" version.** This reproduces the WP34s screen as closely as possible.
+####**New!**
+No major changes.
+The EXITing from printing now works more reliably. 
+Printing the stack or a block of registers in complex lock mode now prints in complex form by default, respecting RECT or POLAR display setting.
+Update of calculator help file - still a work in progress.
 
-<img src="help/screens/normal01.png" width="400">  <img src="help/screens/normal02.png" width="400">
-<img src="help/screens/normal03.png" width="400">
+####*Older* 
+Printing can now be interrupted by pressing the EXIT key. It's checked for once per line; you don't need to press it repeatedly or to hold it down. The PRT annunciator now flashes once per line as well.
 
-* **The "long" version.** This extends the alpha display region to the width of the DM42 display and moves the annunciators upwards.
+####*Older* 
+IR printing is now supported (first version). I have tested this on an HP 82240B printer and all commands seem to be working. I don't see how sending the wrong control codes could damage your printer, but be aware that it's **not** my responsibility if they do!
 
-<img src="help/screens/long01.png" width="400">  <img src="help/screens/long02.png" width="400">
-<img src="help/screens/long03.png" width="400">
+There are a few differences from the printing commands of the WP34s (of which I have no direct experience.)
 
-* **The "top" version.** As well as the longer alpha display this version includes a "top row", which is used to display the annunciators that appear on the alpha display in the other two versions.
+  * Print mode 3 (Serial) is not supported, as that would be silly.
+  * Printing can be turned on and off, using the [P].ON and [P].OFF commands ('P' is the printer icon) in the MODE catalogue (also available from the PRINT menu - see below). When on, a new annunciator (PRT) appears on the screen. When off, no print commands print anything, although print mode, delay time, etc., can still be changed.
+  * Pressing SHIFT 3 (PRINT) brings up a menu with lots of nice printing commands in it. These and the other printing commands are also available from the usual catalogues (see the WP34s manual for details).
+  * Due to a bug, the first version of the code printed a blank line every other line. I liked this so much that I added it as an option - [P]DBSP with an argument of 1 turns this on, while an argument of 0 turns it off.
+  * The default print delay of 1.8s seems fine on my battery-powered printer.
 
-<img src="help/screens/top01.png" width="400">  <img src="help/screens/top02.png" width="400">
-<img src="help/screens/top03.png" width="400">  <img src="help/screens/top04.png" width="400">
+####**New!** 
+The WP34S stopwatch feature is now included. To use it, use the STOPW command in the X.FCN menu (shift shift 3). So far as I can see, all of the stopwatch features described in the manual work on the DM42. 
 
-In all three versions some of the annunciators have been renamed - INPUT to ALPHA, STO to PGM, RCL to RUN, and 360 to DEG.
+Note that the stopwatch continues to "run" even if the DM42 is turned off. This isn't a problem: the stopwatch works by recording the ticks from the real-time clock when it is started, and then subtracting this from the current ticks whenever a time has to be displayed. When a time isn't displayed, nothing special is happening, apart from the blinking "=" sign.
 
-There is no difference in the speed at which programs run in the three versions. In principle the bigger the display, the slower the keyboard response, but to me at least this is not noticeable.
+####**New!** 
+There is now an "Entry RPN" (eRPon and eRPoff in the MODES menu). There is a document describing this in the help/ folder.
 
-## To install the WP34s on your DM42 calculator:
+####**New!**
+The user-defined menu feature has been developed further. There is a document describing its operation in the help/ folder. (Early adopters who called their user menu program MNU will have to rename it, or type the name in by hand. Sorry.)
 
-  * Make sure that you have the DM42 firmware (e.g., DM42-3.17.pgm) on your flash drive, so that you can reload it when (if?) you exit the WP34s firmware.
-  * Choose which of the three versions you want to use. 
-  * Copy either `build/wp34s.pgm` (normal), `build/wp34s_long` (long), or `build/wp34s_top` (top) into the root folder of your DM42's flash drive. All of these files are found in the `master` branch of the gitlab repository.
-  * Copy the file `help/wp34s_help.html` to the HELP folder on your DM42's flash drive.
-  * From the DMCP menu on your DM42, select option **3 - Load Program**, select the .pgm file you wish to run, and follow the prompts.
-  * **To leave the calculator**, for example to return to the DM42, press shift-0 (SETUP) and press the leftmost menu key (EXIT). This brings you to the DMCP menu; from here you can load a different .pgm file if you wish.
+###**The WP34c calculator...**
+...is almost the same as the WP34s, but with some interface changes to make working with complex numbers more straightforward.
 
-Once the .pgm file is running you have all of the basic features of the WP34s calculator, with some additional file-handing functions. Printing and stopwatch-mode are currently **not** supported. (Of the various compile-time options in features.h, nothing more exotic than INCLUDE_YREG_CODE is turned on.)
+<img src="help/screens/wp34c_02.png" width="400">
 
-The help file `wp34s_help.html` can be accessed from the calculator: press shift-0 (SETUP) and then the HELP key.
+When complex-lock mode is activated, entering a number displays "Real:" on the status line. Pressing "CPX" then terminates the entry of the real part and displays "Imag:", allowing the entry of the imaginary part. Entry in polar form, with "Length:" and "Angle:" displayed, is also supported.
 
-The program has been adapted to fit the keyboard layout of the DM42, so most keys do what they say. In particular, shift-EXIT turns the calculator off and EXIT turns it on again. To accomodate the huge number of functions available on the real WP34s keyboard there are several menus, which use the top row of function keys. See the help file for more information.
+<img src="help/screens/wp34c_03.png" width="400">
 
-## Building the project
+Once entered, (almost) every keyboard operation operates in complex mode, without the need to press "CPX" first. Even STO and RCL store and recall a pair of registers at a time. The aim is to make working with complex numbers as simple as working with real numbers.
 
-If you wish to build the project yourself, note that the makefiles have been written for use under Linux only. I was unable to get things to work on Windows, whereas the experience on Linux (a VirtualBox virtual machine running Ubuntu) was relatively painless. 
+<img src="help/screens/wp34c_04.png" width="400">
 
-  * In the top-level directory, type `make source`. This builds autogenerated files (constants, catalogues, etc.) that are compiled and/or run on the host computer; the makefile at the top level uses these and the rest of the source code to build libraries and code for the DM42 hardware.
+One disadvantage is that in complex-lock mode there are no programming features. However, by turning complex-lock mode off all of the features of the WP34s become available. On the real calculator the WP34c lacked some of the WP34s features due to limited space for code; this isn't the case on the DM42.
 
-  * Then, type either `make normal`, `make long`, or `make top` to build the version of your choice. If you want all three you still have to run `make` three times; typing just `make` is the same as `make top`.
+As with the WP34s there are three versions of the WP34c with differing displays - normal, long, and top. The program files are, respectively, build/wp34c.pgm, build/wp34c_long.pgm, and build/wp34c_top.pgm. The installation procedure is the same as for the WP34s .pgm files.
 
-## Licencing and thanks
-Nearly all of the source code comes directly from the WP34s project; a vital contribution has come from the SDKdemo calculator source code and header files provided by SwissMicros. The SwissMicros code is covered by the BSD 3-clause licence, found in the file LICENSE; the WP34s code and my additions to it are covered by the GNU GPL3 licence, found in the file src/licence.h. The DMCP documentation [here](https://technical.swissmicros.com/dmcp/doc/DMCP-ifc-html/index.html) has been incredibly helpful and is much appreciated.
+Just as with the WP34s, SwissMicros neither provide nor support this code. All of the code is covered either by the GPL3 licence or by the BSD 3-clause licence, both available in this repository.
 
-This software is not provided by SwissMicros, and they will not provide any support.
+You can find documentation for the original WP34c calculator in the help/ folder. There is now also updated documentation that describes how the DM42 version works.
 
-You will find the documentation for the original WP34s project, including the assembler suite, [here at Sourceforge.](https://sourceforge.net/projects/wp34s/files/doc/). You can also access the original source code.
+As yet, there is *still* no WP34c-specific help file for the calculator.
 
-Thanks once again to Walter, Paul, and Marcus, and to everyone else who contributed to the initial project. Thanks also to Jaco Mostert for keeping me interested in the WP34s and for showing, with his [WP43C project](https://forum.swissmicros.com/viewtopic.php?f=2&t=2216&sid=f05399d1ce12fdfff3090358078837d4), how a calculator can be adapted to the DM42 keyboard.
-
-Many thanks also to dlachieze on the DM42 developers' forum for their suggestions and help finding bugs.
+Nigel (UK)

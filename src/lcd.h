@@ -31,7 +31,12 @@ extern void show_disp(void);
 extern void wait_for_display(void);
 extern void finish_display(void);
 #ifdef DM42
+extern void draw_RPN_RCL(void);
 extern void finish_RPN(void);
+extern void draw_LEQ(void);
+extern void finish_LEQ(void);
+extern void draw_PRT(void);
+extern void finish_PRT(void);
 extern void do_all_dots(void);
 #endif
 extern void show_flags(void);
@@ -65,9 +70,11 @@ extern void show_stack(void);
 #ifdef BIGGER_DISPLAY
 #define BITMAP_WIDTH		74
 #define ALPHA_SWITCH		20
+#define Y_ANNUNC                75
 #else
 #define BITMAP_WIDTH		43
 #define ALPHA_SWITCH		12
+#define Y_ANNUNC               130
 #endif
 
 #ifdef TOP_ROW

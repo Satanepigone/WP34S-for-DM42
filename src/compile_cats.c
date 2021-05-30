@@ -198,6 +198,9 @@ static s_opcode program_xfcn[] = {
 	TRI(OP_MULMOD,		"mulmod")
 	TRI(OP_EXPMOD,		"powmod")
 #endif
+#ifdef INCLUDE_STOPWATCH
+	NILIC(OP_STOPWATCH,	"STOPW")
+#endif
 };
 
 
@@ -753,7 +756,7 @@ static s_opcode prog_catalogue[] = {
 
 	RARGCMD(RARG_LOCR,	"LocR")
 	NILIC(OP_POPLR,		"PopLR")
-#ifndef DM42
+#ifdef INFRARED
 	/* INFRARED commands */
 	RARGCMD(RARG_PRINT_REG,	    "\222r")
 	RARGCMD(RARG_PRINT_CMPLX,   "\222\024r[sub-x][sub-y]")
@@ -893,10 +896,13 @@ static s_opcode mode_catalogue[] = {
 	RARGCMD(RARG_RCLM,	"RCLM")
 	NILIC(OP_SETDATE,	"SETDAT")
 	NILIC(OP_SETTIME,	"SETTIM")
-#ifndef DM42
+#ifdef INFRARED
 	/* INFRARED commands */
 	RARGCMD(RARG_PMODE,	"PMODE")
 	RARGCMD(RARG_PDELAY,	"PDLAY")
+	RARGCMD(RARG_DBLSP,	"PDBLS")
+	NILIC(OP_PRINT_ON,	"PRTON")
+	NILIC(OP_PRINT_OFF,	"PRTOFF")
 	/* end of INFRARED commands */
 #endif
 #ifndef INCLUDE_INTERNAL_CATALOGUE
@@ -906,6 +912,16 @@ static s_opcode mode_catalogue[] = {
 #if defined(INCLUDE_YREG_CODE) && !defined(YREG_ALWAYS_ON)
 	NILIC(OP_SHOWY, 	"YDON")
 	NILIC(OP_HIDEY,		"YDOFF")
+#endif
+#ifdef INCLUDE_C_LOCK
+	NILIC(OP_CPXI, "CPXI")
+	NILIC(OP_CPXJ, "CPXJ")
+	NILIC(OP_CYES, "CPXYES")
+	NILIC(OP_CNO, "CPXNO")
+#endif
+#ifdef ENTRY_RPN
+	NILIC(OP_ENTRY_ON, "eRPon")
+	NILIC(OP_ENTRY_OFF, "eRPoff")
 #endif
 };
 

@@ -1044,9 +1044,15 @@ static decNumber *decNumberDRG_internal(decNumber *res, const decNumber *x, s_op
 #undef DRG
 }
 
+#ifdef DM42
+void cvt_rad2(decNumber *res, const decNumber *x) {
+	decNumberDRG_internal(res, x, OP_RAD2);	
+}
+#else
 static void cvt_rad2(decNumber *res, const decNumber *x) {
 	decNumberDRG_internal(res, x, OP_RAD2);	
 }
+#endif
 
 /* Calculate sin and cos of the given number in radians.
  * We need to do some range reduction to guarantee that our Taylor series
@@ -1454,8 +1460,19 @@ void op_r2p(enum nilop op) {
 	getXY(&x, &y);
 	cmplxToPolar(&rx, &ry, &x, &y);
 	cvt_rad2(&y, &ry);
+#ifdef INCLUDE_C_LOCK
+	if (op == OP_R2P) { // direct call from keyboard
+		setlastX();
+		setXY(&rx, &y);
+	}
+	else { // called by polar display code from display.c
+		setRegister(regJ_idx, &rx);
+		setRegister(regK_idx, &y);
+	}
+#else
 	setlastX();
 	setXY(&rx, &y);
+#endif
 #ifdef RP_PREFIX
 	RectPolConv = 1;
 #endif
@@ -1474,7 +1491,7 @@ void op_p2r(enum nilop op) {
 #ifdef RP_PREFIX
 	RectPolConv = 2;
 #endif
-}	
+}
 
 
 /* Hyperbolic functions.

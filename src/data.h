@@ -34,7 +34,19 @@
  *  User visible state
  */
 struct _ustate {
+#ifdef DM42
+#ifdef INFRARED
+        unsigned int print_on :      1;	// Printing on/off
+  	unsigned int print_blank_line :      1;	// Print space between lines
+#else
+        unsigned int unused_c1 :      1;	// free
+  	unsigned int unused_c2 :      1;	// free
+#endif
+        unsigned int c_lock_1 :      1;	// free
+  	unsigned int c_lock_2 :      1;	// free
+#else
 	unsigned int contrast :      4;	// Display contrast
+#endif
 	unsigned int denom_mode :    2;	// Fractions denominator mode
 	unsigned int denom_max :    14;	// Maximum denominator
 	unsigned int improperfrac :  1;	// proper or improper fraction display
@@ -70,7 +82,11 @@ struct _ustate {
 	unsigned int trigmode :      2;	// Trig mode (DEG, RAD, GRAD)
 // 24 bits
 	unsigned int sigma_mode :    3;	// Which sigma regression mode we're using
-	unsigned int slow_speed :    1;	// Speed setting, 1 = slow, 0 = fast
+#ifdef DM42
+        unsigned int c_lock_3 :    1;	// Speed setting, 1 = slow, 0 = fast
+#else
+        unsigned int slow_speed :    1;	// Speed setting, 1 = slow, 0 = fast
+#endif
 	unsigned int rounding_mode : 3;	// Which rounding mode we're using
 	unsigned int jg1582 :        1;	// Julian/Gregorian change over in 1582 instead of 1752
 };
@@ -79,7 +95,14 @@ struct _ustate {
 /*
  *  Bit offsets for XROM use
  */
+#ifdef DM42
+#ifdef INFRARED
+#define UState_print_on 00 // 1 // printing on/off
+#define UState_print_blank_line 01 // 1 // print blank line between lines
+#endif
+#else
 #define UState_contrast       00 // 4	// Display contrast
+#endif
 #define UState_denom_mode1    04 // 1	// Fractions denominator mode
 #define UState_denom_mode2    05 // 1	// Fractions denominator mode
 #define UState_denom_max      06 // 14	// Maximum denominator
@@ -100,7 +123,7 @@ struct _ustate {
 #define UState_mode_double    46 // 1   // Double precision mode
 #define UState_t12            47 // 1	// 12 hour time mode
 #ifdef INFRARED
-#define UState_print_mode     48 // 2	// free
+#define UState_print_mode     48 // 2	// Print mode
 #else
 #define UState_unused_3       48 // 1	// free
 #define UState_unused_2       49 // 1	// free
@@ -125,10 +148,23 @@ struct _state {
 	unsigned int catpos :      7;	// Position in said catalogue
 	unsigned int entryp :      1;	// Has the user entered something since the last program stop
 	unsigned int have_stats :  1;	// Statistics registers are allocated
+#ifdef DM42
+        unsigned int c_lock_4 :      1;	// free
+	unsigned int c_lock_10 :  1;   // Used to wake up correctly
+#else
 	unsigned int deep_sleep :  1;   // Used to wake up correctly
-	unsigned int unused :      1;	// free
+        unsigned int unused :      1;	// free
+#endif
 #ifdef INFRARED
-	unsigned int print_delay : 5;   // LF delay for printer
+#ifdef DM42
+  unsigned int c_lock_5 : 1;
+  unsigned int c_lock_6 : 1;
+  unsigned int c_lock_7 : 1;
+  unsigned int c_lock_8 : 1;
+  unsigned int c_lock_9 : 1;
+#else
+  	unsigned int print_delay : 5;   // LF delay for printer
+#endif
 	signed   int local_regs : 11;   // Position on return stack where current local variables start
 #else
 	signed   int local_regs : 16;   // Position on return stack where current local variables start
@@ -140,6 +176,29 @@ struct _state {
 	unsigned short pc;		// XEQ internal - don't use
 	signed short retstk_ptr;	// XEQ internal - don't use
 };
+
+//#ifdef EXTRA_FLAGS
+#if 0
+
+typedef struct extra_flags { // total 32 bits - either use the "unused" or delete the c_lock stuff if you don't want it
+  unsigned int c_lock_on :	1;
+  unsigned int real_entry :	1;
+  unsigned int imag_entry :	1;
+  unsigned int init_stack_size :	1;
+  unsigned int init_lift :	1;
+  unsigned int cpx_ij :	1;
+  unsigned int cpx_enabled :	1;
+  unsigned int polar_display :	1;
+  unsigned int polar_form :	1;
+#ifdef ENTRY_RPN
+  unsigned int entry_on : 1;
+  unsigned int unused : 22;
+#else
+  unsigned int unused : 23;
+#endif
+} extra_flag_structure;
+	
+#endif
 
 /*
  *  This data is stored in battery backed up SRAM.
@@ -163,6 +222,11 @@ typedef struct _ram {
 	 *  Define storage for the machine's registers.
 	 */
 	decimal64 _regs[NUMREG];
+
+  //#ifdef EXTRA_FLAGS
+#if 0
+	extra_flag_structure _extra_flags; // 32 bits - 2 words
+#endif
 
 	/*
 	 *  Alpha register gets its own space
@@ -345,6 +409,7 @@ extern TStateWhileOn StateWhileOn;
 
 #define Ticker DM42_Ticker()
 #define Keyticks keyticks()
+extern long int DM42_Ticker(void);
 
 #endif
 
@@ -511,6 +576,77 @@ extern SMALL_INT RectPolConv; // 1 - R->P just done; 2 - P->R just done
 extern volatile unsigned int OnKeyTicks; // ON (EXIT) key has been held down for this many ticks
 #endif
 
+#ifndef ENTRY_RPN // needed as in xeq.c entry_rpn_enabled is used as a variable
+#define ENTRY_RPN_ENABLED 0
+#endif
+
+#ifdef INCLUDE_C_LOCK
+
+//#define CLflags PersistentRam._extra_flags
+
+//#define C_LOCK_ON CLflags.c_lock_on
+#define C_LOCK_ON UState.c_lock_1 
+#define C_LOCKED (C_LOCK_ON && CPX_ENABLED)
+#define LOCK_C C_LOCK_ON = 1
+#define UNLOCK_C C_LOCK_ON = 0
+
+//#define REAL_FLAG CLflags.real_entry
+#define REAL_FLAG UState.c_lock_2
+#define SET_REAL REAL_FLAG = 1
+#define CLEAR_REAL REAL_FLAG = 0
+
+//#define IMAG_FLAG CLflags.imag_entry
+#define IMAG_FLAG UState.c_lock_3
+#define SET_IMAG IMAG_FLAG = 1
+#define CLEAR_IMAG IMAG_FLAG = 0
+
+//#define INIT_STACK_SIZE CLflags.init_stack_size
+#define INIT_STACK_SIZE State.c_lock_4
+#define INIT_4 INIT_STACK_SIZE = 0
+#define INIT_8 INIT_STACK_SIZE = 1
+#define TRUE_8 INIT_STACK_SIZE
+
+//#define INIT_LIFT CLflags.init_lift
+#define INIT_LIFT State.c_lock_5
+#define SET_INIT_LIFT INIT_LIFT = 1
+#define CLEAR_INIT_LIFT INIT_LIFT = 0
+
+//#define CPX_J CLflags.cpx_ij
+#define CPX_J State.c_lock_6
+#define SET_CPX_I CPX_J = 0
+#define SET_CPX_J CPX_J = 1
+
+//#define CPX_ENABLED CLflags.cpx_enabled
+#define CPX_ENABLED State.c_lock_7
+#define SET_CPX_YES CPX_ENABLED = 1
+#define SET_CPX_NO CPX_ENABLED = 0
+
+//#define POLAR_DISPLAY CLflags.polar_display
+#define POLAR_DISPLAY State.c_lock_8
+#define SET_POLAR_DISPLAY POLAR_DISPLAY = 1
+#define SET_RECTANGULAR_DISPLAY POLAR_DISPLAY = 0
+
+#ifdef ENTRY_RPN
+//#define ENTRY_RPN_ENABLED CLflags.entry_on
+#define ENTRY_RPN_ENABLED State.c_lock_10
+#define ENTRY_RPN_ON ENTRY_RPN_ENABLED = 1
+#define ENTRY_RPN_OFF ENTRY_RPN_ENABLED = 0
+#endif
+
+/*
+Polar form flag: stack always contains rectangular form of complex numbers.
+When this flag is clear the polar form is available in J and K;
+when set, it isn't and polar form needs to be worked out.
+The flag should be set by any routine that changes what's in x and y.
+It is tested (when POLAR_DISPLAY is true) in display() in display.c
+*/
+//#define POLAR_FORM CLflags.polar_form
+#define POLAR_FORM State.c_lock_9
+#define POLAR_FORM_NOT_READY POLAR_FORM
+#define CLEAR_POLAR_READY POLAR_FORM = 1
+#define SET_POLAR_READY POLAR_FORM = 0
+
+#endif
 
 #endif /* COMPILE_XROM */
 #endif /* DATA_H_ */

@@ -1,0 +1,3458 @@
+ARM GAS  /tmp/ccISWZDO.s 			page 1
+
+
+   1              		.arch armv7e-m
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stopwatch.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.recall_memory,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	recall_memory:
+  27              	.LVL0:
+  28              	.LFB8:
+  29              		.file 1 "src/stopwatch.c"
+   1:src/stopwatch.c **** /* This file is part of 34S.
+   2:src/stopwatch.c ****  * 
+   3:src/stopwatch.c ****  * 34S is free software: you can redistribute it and/or modify
+   4:src/stopwatch.c ****  * it under the terms of the GNU General Public License as published by
+   5:src/stopwatch.c ****  * the Free Software Foundation, either version 3 of the License, or
+   6:src/stopwatch.c ****  * (at your option) any later version.
+   7:src/stopwatch.c ****  * 
+   8:src/stopwatch.c ****  * 34S is distributed in the hope that it will be useful,
+   9:src/stopwatch.c ****  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  10:src/stopwatch.c ****  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  11:src/stopwatch.c ****  * GNU General Public License for more details.
+  12:src/stopwatch.c ****  * 
+  13:src/stopwatch.c ****  * You should have received a copy of the GNU General Public License
+  14:src/stopwatch.c ****  * along with 34S.  If not, see <http://www.gnu.org/licenses/>.
+  15:src/stopwatch.c ****  */
+  16:src/stopwatch.c **** 
+  17:src/stopwatch.c **** #include "features.h"
+  18:src/stopwatch.c **** #ifdef INCLUDE_STOPWATCH
+  19:src/stopwatch.c **** 
+  20:src/stopwatch.c **** #ifdef DM42
+  21:src/stopwatch.c **** #include "dmcp.h"
+  22:src/stopwatch.c **** #endif
+  23:src/stopwatch.c **** 
+  24:src/stopwatch.c **** #define DM42SAFE
+  25:src/stopwatch.c **** #include "decn.h"
+  26:src/stopwatch.c **** #include "xeq.h"
+  27:src/stopwatch.c **** #include "consts.h"
+  28:src/stopwatch.c **** #include "alpha.h"
+  29:src/stopwatch.c **** #include "lcd.h"
+ARM GAS  /tmp/ccISWZDO.s 			page 2
+
+
+  30:src/stopwatch.c **** #include "keys.h"
+  31:src/stopwatch.c **** #include "stats.h"
+  32:src/stopwatch.c **** #include "stopwatch.h"
+  33:src/stopwatch.c **** #include "display.h"
+  34:src/stopwatch.c **** #undef DM42SAFE
+  35:src/stopwatch.c **** 
+  36:src/stopwatch.c **** #define STOPWATCH_MESSAGE "STOPWATCH"
+  37:src/stopwatch.c **** #define StopWatchKeyticks         (StateWhileOn._keyticks)
+  38:src/stopwatch.c **** #define STOPWATCH_APD_TICKS 65535 // Largest unsigned short possible in 32 bits. 1 hour 49 min
+  39:src/stopwatch.c **** 
+  40:src/stopwatch.c **** TStopWatchStatus StopWatchStatus; // ={ 0, 1, 0, 0, };
+  41:src/stopwatch.c **** 
+  42:src/stopwatch.c **** /*
+  43:src/stopwatch.c ****  *  KeyCallback is used to call the StopWatch from the main loop
+  44:src/stopwatch.c ****  * And set to NULL when the StopWatch is not running
+  45:src/stopwatch.c ****  */
+  46:src/stopwatch.c **** int (*KeyCallback)(int)=(int (*)(int)) NULL;
+  47:src/stopwatch.c **** 
+  48:src/stopwatch.c **** /*
+  49:src/stopwatch.c ****  *  Stopwatch uses the ticker count. This is the starting point
+  50:src/stopwatch.c ****  */
+  51:src/stopwatch.c **** unsigned long FirstTicker;
+  52:src/stopwatch.c **** 
+  53:src/stopwatch.c **** /*
+  54:src/stopwatch.c ****  * When resetting after a Sigma+ or a RoundTime storage, we original FirstTicker
+  55:src/stopwatch.c ****  * here so we can compute TotalStopWatch the exact same way as StopWatch
+  56:src/stopwatch.c ****  */
+  57:src/stopwatch.c **** unsigned long TotalFirstTicker;
+  58:src/stopwatch.c **** 
+  59:src/stopwatch.c **** /*
+  60:src/stopwatch.c ****  * Current total stopwatch value, in ticker count. Usually set to getTicker() - TotalFirstTicker
+  61:src/stopwatch.c ****  */
+  62:src/stopwatch.c **** unsigned long TotalStopWatch;
+  63:src/stopwatch.c **** 
+  64:src/stopwatch.c **** /*
+  65:src/stopwatch.c ****  * Current stopwatch value, in ticker count. Usually set to getTicker() - FirstTicker
+  66:src/stopwatch.c ****  */
+  67:src/stopwatch.c **** unsigned long StopWatch;
+  68:src/stopwatch.c **** 
+  69:src/stopwatch.c **** /*
+  70:src/stopwatch.c ****  * Index on memory to store split time
+  71:src/stopwatch.c ****  */
+  72:src/stopwatch.c **** unsigned char StopWatchMemory;
+  73:src/stopwatch.c **** 
+  74:src/stopwatch.c **** /*
+  75:src/stopwatch.c ****  * Used to choose a memory index to store split time in
+  76:src/stopwatch.c ****  */
+  77:src/stopwatch.c **** signed char StopWatchMemoryFirstDigit;
+  78:src/stopwatch.c **** signed char RclMemory;
+  79:src/stopwatch.c **** 
+  80:src/stopwatch.c **** /*
+  81:src/stopwatch.c ****  * Use to display the chosen memory for a while
+  82:src/stopwatch.c ****  */
+  83:src/stopwatch.c **** unsigned char RclMemoryRemanentDisplay;
+  84:src/stopwatch.c **** 
+  85:src/stopwatch.c **** #ifdef DM42
+  86:src/stopwatch.c **** #define STOPWATCH_RS KEY_RUN
+ARM GAS  /tmp/ccISWZDO.s 			page 3
+
+
+  87:src/stopwatch.c **** #define STOPWATCH_EXIT KEY_EXIT
+  88:src/stopwatch.c **** #define STOPWATCH_CLEAR KEY_BSP
+  89:src/stopwatch.c **** #define STOPWATCH_EEX KEY_E
+  90:src/stopwatch.c **** #define STOPWATCH_STORE KEY_ENTER
+  91:src/stopwatch.c **** #define STOPWATCH_STORE_ROUND KEY_DOT
+  92:src/stopwatch.c **** #define STOPWATCH_UP KEY_UP
+  93:src/stopwatch.c **** #define STOPWATCH_DOWN KEY_DOWN
+  94:src/stopwatch.c **** #define STOPWATCH_SHOW_MEMORY KEY_F5
+  95:src/stopwatch.c **** #define STOPWATCH_RCL KEY_RCL
+  96:src/stopwatch.c **** #define STOPWATCH_SIGMA_PLUS KEY_SIGMA
+  97:src/stopwatch.c **** #define STOPWATCH_SIGMA_PLUS_STORE_ROUND KEY_ADD
+  98:src/stopwatch.c **** #else
+  99:src/stopwatch.c **** #define STOPWATCH_RS K63
+ 100:src/stopwatch.c **** #define STOPWATCH_EXIT K60
+ 101:src/stopwatch.c **** #define STOPWATCH_CLEAR K24
+ 102:src/stopwatch.c **** #define STOPWATCH_EEX K23
+ 103:src/stopwatch.c **** #define STOPWATCH_STORE K20
+ 104:src/stopwatch.c **** #define STOPWATCH_STORE_ROUND K62
+ 105:src/stopwatch.c **** #define STOPWATCH_UP K40
+ 106:src/stopwatch.c **** #define STOPWATCH_DOWN K50
+ 107:src/stopwatch.c **** #define STOPWATCH_SHOW_MEMORY K04
+ 108:src/stopwatch.c **** #define STOPWATCH_RCL K11
+ 109:src/stopwatch.c **** #define STOPWATCH_SIGMA_PLUS K00
+ 110:src/stopwatch.c **** #define STOPWATCH_SIGMA_PLUS_STORE_ROUND K64
+ 111:src/stopwatch.c **** #endif
+ 112:src/stopwatch.c **** 
+ 113:src/stopwatch.c **** #define RCL_MEMORY_REMANENCE 3
+ 114:src/stopwatch.c **** 
+ 115:src/stopwatch.c **** /*
+ 116:src/stopwatch.c ****  * Current ticker count. Or its emulation when not running on WP34s hardware
+ 117:src/stopwatch.c **** This is DM42 only.
+ 118:src/stopwatch.c ****  */
+ 119:src/stopwatch.c **** unsigned long getTicker() {
+ 120:src/stopwatch.c ****   long int f, t; // 24.8 is ffffff.ff
+ 121:src/stopwatch.c ****   t = get_rtc_ticks();
+ 122:src/stopwatch.c ****   f = ((t & 0xfffffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
+ 123:src/stopwatch.c ****   return f;
+ 124:src/stopwatch.c **** }
+ 125:src/stopwatch.c **** 
+ 126:src/stopwatch.c **** /*
+ 127:src/stopwatch.c ****  * Displays the memory index, even if partially entered
+ 128:src/stopwatch.c ****  */
+ 129:src/stopwatch.c **** static void fill_exponent(char* exponent) {
+ 130:src/stopwatch.c **** 	if(StopWatchStatus.select_memory_mode) {
+ 131:src/stopwatch.c **** 		if(StopWatchMemoryFirstDigit>=0) {
+ 132:src/stopwatch.c **** 			exponent[0]='0'+StopWatchMemoryFirstDigit;
+ 133:src/stopwatch.c **** 		} else {
+ 134:src/stopwatch.c **** 			exponent[0]='_';
+ 135:src/stopwatch.c **** 		}
+ 136:src/stopwatch.c **** 		exponent[1]='_';
+ 137:src/stopwatch.c **** 	} else {
+ 138:src/stopwatch.c **** 		num_arg_0(exponent, StopWatchMemory, 2);
+ 139:src/stopwatch.c **** 	}
+ 140:src/stopwatch.c **** 	exponent[2]=0;
+ 141:src/stopwatch.c **** }
+ 142:src/stopwatch.c **** 
+ 143:src/stopwatch.c **** /*
+ARM GAS  /tmp/ccISWZDO.s 			page 4
+
+
+ 144:src/stopwatch.c ****  * Converts a ticker count to a String
+ 145:src/stopwatch.c ****  */
+ 146:src/stopwatch.c **** static void stopwatch_to_string(unsigned long stopwatch, char* p) {
+ 147:src/stopwatch.c **** 	int tenths, secs, mins, hours;
+ 148:src/stopwatch.c **** 
+ 149:src/stopwatch.c **** 	tenths=stopwatch%10;
+ 150:src/stopwatch.c **** 	secs=(stopwatch/10)%60;
+ 151:src/stopwatch.c **** 	mins=(stopwatch/600)%60;
+ 152:src/stopwatch.c **** 	hours=(stopwatch/36000)%100;
+ 153:src/stopwatch.c **** 	p=num_arg_0(p, hours, 2);
+ 154:src/stopwatch.c **** 	*p++='h';
+ 155:src/stopwatch.c **** 	p=num_arg_0(p, mins, 2);
+ 156:src/stopwatch.c **** 	*p++='\'';
+ 157:src/stopwatch.c **** 	p=num_arg_0(p, secs, 2);
+ 158:src/stopwatch.c **** 	*p++='"';
+ 159:src/stopwatch.c **** 	if(StopWatchStatus.display_tenths) {
+ 160:src/stopwatch.c **** 		*p++=' ';
+ 161:src/stopwatch.c **** 		p=num_arg_0(p, tenths, 1);
+ 162:src/stopwatch.c **** 	}
+ 163:src/stopwatch.c **** 	*p=0;
+ 164:src/stopwatch.c **** }
+ 165:src/stopwatch.c **** 
+ 166:src/stopwatch.c **** /*
+ 167:src/stopwatch.c ****  * Displaying the stopwatch value in HHhMM'SS"t format
+ 168:src/stopwatch.c ****  */
+ 169:src/stopwatch.c **** static void display_stopwatch() {
+ 170:src/stopwatch.c **** 	char buf[13];
+ 171:src/stopwatch.c **** 	char exponent[3];
+ 172:src/stopwatch.c **** 	char message[13];
+ 173:src/stopwatch.c **** 	char display_rcl_message;
+ 174:src/stopwatch.c **** 	
+ 175:src/stopwatch.c **** 	fill_exponent(exponent);
+ 176:src/stopwatch.c **** 	stopwatch_to_string(StopWatch, buf);
+ 177:src/stopwatch.c **** 	display_rcl_message=StopWatchStatus.rcl_mode || StopWatchStatus.sigma_display_mode || RclMemory>=0
+ 178:src/stopwatch.c **** 	if(display_rcl_message) {
+ 179:src/stopwatch.c **** 		char* rp=scopy(message, StopWatchStatus.sigma_display_mode?"\221+\006":"RCL\006\006");
+ 180:src/stopwatch.c **** 		if(StopWatchStatus.sigma_display_mode) {
+ 181:src/stopwatch.c **** 			rp=num_arg(rp, RclMemory);
+ 182:src/stopwatch.c **** 		}
+ 183:src/stopwatch.c **** 		else {
+ 184:src/stopwatch.c **** 			if(RclMemory>=0) {
+ 185:src/stopwatch.c **** 				rp=num_arg_0(rp, RclMemory, 2);
+ 186:src/stopwatch.c **** 			}
+ 187:src/stopwatch.c **** 			else {
+ 188:src/stopwatch.c **** 				if(StopWatchMemoryFirstDigit>=0) {
+ 189:src/stopwatch.c **** 					*rp++='0'+StopWatchMemoryFirstDigit;
+ 190:src/stopwatch.c **** 				}
+ 191:src/stopwatch.c **** 				*rp++='_';
+ 192:src/stopwatch.c **** 			}
+ 193:src/stopwatch.c **** 		}
+ 194:src/stopwatch.c **** 		*rp=0;
+ 195:src/stopwatch.c **** 	}
+ 196:src/stopwatch.c **** 	else if(TotalFirstTicker>0) {
+ 197:src/stopwatch.c **** 		stopwatch_to_string(TotalStopWatch, message);
+ 198:src/stopwatch.c **** 		display_rcl_message=1;
+ 199:src/stopwatch.c **** 	}
+ 200:src/stopwatch.c **** 	stopwatch_message(display_rcl_message?message:STOPWATCH_MESSAGE, buf, StopWatchStatus.sigma_displa
+ARM GAS  /tmp/ccISWZDO.s 			page 5
+
+
+ 201:src/stopwatch.c **** }
+ 202:src/stopwatch.c **** 
+ 203:src/stopwatch.c **** /*
+ 204:src/stopwatch.c ****  * Convert StopWatch current value to a decNumber
+ 205:src/stopwatch.c ****  */
+ 206:src/stopwatch.c **** static void stopwatch_to_decNumber(decNumber* number) {
+ 207:src/stopwatch.c **** 	ullint_to_dn(number, StopWatch);
+ 208:src/stopwatch.c **** 	dn_divide(number, number, &const_36000);
+ 209:src/stopwatch.c **** }
+ 210:src/stopwatch.c **** 
+ 211:src/stopwatch.c **** /*
+ 212:src/stopwatch.c ****  * Storing a split time in memory
+ 213:src/stopwatch.c ****  */
+ 214:src/stopwatch.c **** static void store_stopwatch_in_memory() {
+ 215:src/stopwatch.c **** 	int max_registers=global_regs();
+ 216:src/stopwatch.c **** 	if(max_registers>0) {
+ 217:src/stopwatch.c **** 		decNumber s, hms;
+ 218:src/stopwatch.c **** 		StopWatchStatus.show_memory=1;
+ 219:src/stopwatch.c **** 		// Converting tick count to HMS format
+ 220:src/stopwatch.c **** 		stopwatch_to_decNumber(&s);
+ 221:src/stopwatch.c **** 		decNumberHR2HMS(&hms, &s);
+ 222:src/stopwatch.c **** 		setRegister(StopWatchMemory, &hms);
+ 223:src/stopwatch.c **** 		StopWatchMemory=(StopWatchMemory+1)%max_registers;
+ 224:src/stopwatch.c **** 	}
+ 225:src/stopwatch.c **** }
+ 226:src/stopwatch.c **** 
+ 227:src/stopwatch.c **** /*
+ 228:src/stopwatch.c ****  * What is the digit for this key?
+ 229:src/stopwatch.c ****  */
+ 230:src/stopwatch.c **** #ifdef DM42
+ 231:src/stopwatch.c **** static int get_digit(int key) {
+ 232:src/stopwatch.c ****   int digit = -1;
+ 233:src/stopwatch.c ****   switch (key) {
+ 234:src/stopwatch.c ****   case KEY_0: digit = 0;
+ 235:src/stopwatch.c ****     break;
+ 236:src/stopwatch.c ****   case KEY_1: digit = 1;
+ 237:src/stopwatch.c ****     break;
+ 238:src/stopwatch.c ****   case KEY_2: digit = 2;
+ 239:src/stopwatch.c ****     break;
+ 240:src/stopwatch.c ****   case KEY_3: digit = 3;
+ 241:src/stopwatch.c ****     break;
+ 242:src/stopwatch.c ****   case KEY_4: digit = 4;
+ 243:src/stopwatch.c ****     break;
+ 244:src/stopwatch.c ****   case KEY_5: digit = 5;
+ 245:src/stopwatch.c ****     break;
+ 246:src/stopwatch.c ****   case KEY_6: digit = 6;
+ 247:src/stopwatch.c ****     break;
+ 248:src/stopwatch.c ****   case KEY_7: digit = 7;
+ 249:src/stopwatch.c ****     break;
+ 250:src/stopwatch.c ****   case KEY_8: digit = 8;
+ 251:src/stopwatch.c ****     break;
+ 252:src/stopwatch.c ****   case KEY_9: digit = 9;
+ 253:src/stopwatch.c ****     break;
+ 254:src/stopwatch.c ****   default:;
+ 255:src/stopwatch.c ****   }
+ 256:src/stopwatch.c ****   return digit>=0 && digit<=9 && global_regs() > 0 ? digit : -1;
+ 257:src/stopwatch.c **** }
+ARM GAS  /tmp/ccISWZDO.s 			page 6
+
+
+ 258:src/stopwatch.c **** #else
+ 259:src/stopwatch.c **** static int get_digit(int key) {
+ 260:src/stopwatch.c **** 	int digit=keycode_to_digit_or_register(key);
+ 261:src/stopwatch.c **** 	return digit>=0 && digit<=9 && global_regs() > 0 ? digit : -1;
+ 262:src/stopwatch.c **** }
+ 263:src/stopwatch.c **** #endif
+ 264:src/stopwatch.c **** /*
+ 265:src/stopwatch.c ****  * R/S has been pressed
+ 266:src/stopwatch.c ****  */
+ 267:src/stopwatch.c **** static void toggle_running() {
+ 268:src/stopwatch.c **** 	StopWatchStatus.running=!StopWatchStatus.running;
+ 269:src/stopwatch.c **** 	if(StopWatchStatus.running) {
+ 270:src/stopwatch.c **** 		if(FirstTicker==0) {
+ 271:src/stopwatch.c **** 			FirstTicker=getTicker();
+ 272:src/stopwatch.c **** 		}
+ 273:src/stopwatch.c **** 		else {
+ 274:src/stopwatch.c **** 			FirstTicker=getTicker()-StopWatch;
+ 275:src/stopwatch.c **** 		}
+ 276:src/stopwatch.c **** 	}
+ 277:src/stopwatch.c **** }
+ 278:src/stopwatch.c **** 
+ 279:src/stopwatch.c **** /*
+ 280:src/stopwatch.c ****  * Recalling a stored split time and converting it for display
+ 281:src/stopwatch.c ****  */
+ 282:src/stopwatch.c **** static void recall_memory(int index) {
+  30              		.loc 1 282 38 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 112
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+ 283:src/stopwatch.c **** 	decNumber memory, s, hms;
+  34              		.loc 1 283 2 view .LVU1
+ 284:src/stopwatch.c **** 	unsigned long previous;
+  35              		.loc 1 284 2 view .LVU2
+ 285:src/stopwatch.c **** 	int sign;
+  36              		.loc 1 285 2 view .LVU3
+ 286:src/stopwatch.c **** 
+ 287:src/stopwatch.c **** 	StopWatchMemoryFirstDigit=-1;
+  37              		.loc 1 287 2 view .LVU4
+ 282:src/stopwatch.c **** 	decNumber memory, s, hms;
+  38              		.loc 1 282 38 is_stmt 0 view .LVU5
+  39 0000 30B5     		push	{r4, r5, lr}
+  40              		.cfi_def_cfa_offset 12
+  41              		.cfi_offset 4, -12
+  42              		.cfi_offset 5, -8
+  43              		.cfi_offset 14, -4
+ 288:src/stopwatch.c **** 	RclMemory=index;
+ 289:src/stopwatch.c **** 	StopWatchStatus.rcl_mode=0;
+  44              		.loc 1 289 26 view .LVU6
+  45 0002 174A     		ldr	r2, .L4
+ 288:src/stopwatch.c **** 	RclMemory=index;
+  46              		.loc 1 288 11 view .LVU7
+  47 0004 1749     		ldr	r1, .L4+4
+  48              		.loc 1 289 26 view .LVU8
+  49 0006 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 287:src/stopwatch.c **** 	RclMemory=index;
+  50              		.loc 1 287 27 view .LVU9
+  51 0008 174D     		ldr	r5, .L4+8
+ARM GAS  /tmp/ccISWZDO.s 			page 7
+
+
+ 290:src/stopwatch.c **** 	StopWatchStatus.sigma_display_mode=0;
+ 291:src/stopwatch.c **** 	RclMemoryRemanentDisplay=0;
+  52              		.loc 1 291 26 view .LVU10
+  53 000a 184C     		ldr	r4, .L4+12
+ 288:src/stopwatch.c **** 	StopWatchStatus.rcl_mode=0;
+  54              		.loc 1 288 11 view .LVU11
+  55 000c 0870     		strb	r0, [r1]
+ 282:src/stopwatch.c **** 	decNumber memory, s, hms;
+  56              		.loc 1 282 38 view .LVU12
+  57 000e 9DB0     		sub	sp, sp, #116
+  58              		.cfi_def_cfa_offset 128
+ 289:src/stopwatch.c **** 	StopWatchStatus.sigma_display_mode=0;
+  59              		.loc 1 289 26 view .LVU13
+  60 0010 23F03003 		bic	r3, r3, #48
+ 292:src/stopwatch.c **** 	getRegister(&memory, index);
+  61              		.loc 1 292 2 view .LVU14
+  62 0014 0146     		mov	r1, r0
+ 289:src/stopwatch.c **** 	StopWatchStatus.sigma_display_mode=0;
+  63              		.loc 1 289 26 view .LVU15
+  64 0016 1370     		strb	r3, [r2]
+  65              		.loc 1 292 2 view .LVU16
+  66 0018 01A8     		add	r0, sp, #4
+  67              	.LVL1:
+ 291:src/stopwatch.c **** 	getRegister(&memory, index);
+  68              		.loc 1 291 26 view .LVU17
+  69 001a 0023     		movs	r3, #0
+ 287:src/stopwatch.c **** 	RclMemory=index;
+  70              		.loc 1 287 27 view .LVU18
+  71 001c FF22     		movs	r2, #255
+ 291:src/stopwatch.c **** 	getRegister(&memory, index);
+  72              		.loc 1 291 26 view .LVU19
+  73 001e 2370     		strb	r3, [r4]
+ 287:src/stopwatch.c **** 	RclMemory=index;
+  74              		.loc 1 287 27 view .LVU20
+  75 0020 2A70     		strb	r2, [r5]
+ 288:src/stopwatch.c **** 	StopWatchStatus.rcl_mode=0;
+  76              		.loc 1 288 2 is_stmt 1 view .LVU21
+ 289:src/stopwatch.c **** 	StopWatchStatus.sigma_display_mode=0;
+  77              		.loc 1 289 2 view .LVU22
+ 290:src/stopwatch.c **** 	RclMemoryRemanentDisplay=0;
+  78              		.loc 1 290 2 view .LVU23
+ 291:src/stopwatch.c **** 	getRegister(&memory, index);
+  79              		.loc 1 291 2 view .LVU24
+  80              		.loc 1 292 2 view .LVU25
+  81 0022 FFF7FEFF 		bl	getRegister
+  82              	.LVL2:
+ 293:src/stopwatch.c **** 	// Converting HMS format to tick count
+ 294:src/stopwatch.c **** 	decNumberHMS2HR(&hms, &memory);
+  83              		.loc 1 294 2 view .LVU26
+  84 0026 01A9     		add	r1, sp, #4
+  85 0028 13A8     		add	r0, sp, #76
+  86 002a FFF7FEFF 		bl	decNumberHMS2HR
+  87              	.LVL3:
+ 295:src/stopwatch.c **** 	dn_multiply(&s, &hms, &const_36000);
+  88              		.loc 1 295 2 view .LVU27
+  89 002e 104A     		ldr	r2, .L4+16
+  90 0030 13A9     		add	r1, sp, #76
+ARM GAS  /tmp/ccISWZDO.s 			page 8
+
+
+  91 0032 0AA8     		add	r0, sp, #40
+  92 0034 FFF7FEFF 		bl	dn_multiply
+  93              	.LVL4:
+ 296:src/stopwatch.c **** 	previous=(unsigned long) dn_to_ull(&s, &sign);
+  94              		.loc 1 296 2 view .LVU28
+  95              		.loc 1 296 27 is_stmt 0 view .LVU29
+  96 0038 0AA8     		add	r0, sp, #40
+  97 003a 6946     		mov	r1, sp
+  98 003c FFF7FEFF 		bl	dn_to_ull
+  99              	.LVL5:
+ 100              	.LBB34:
+ 101              	.LBB35:
+ 121:src/stopwatch.c ****   f = ((t & 0xfffffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
+ 102              		.loc 1 121 7 view .LVU30
+ 103 0040 0C4B     		ldr	r3, .L4+20
+ 104              	.LBE35:
+ 105              	.LBE34:
+ 106              		.loc 1 296 27 view .LVU31
+ 107 0042 0446     		mov	r4, r0
+ 108              	.LVL6:
+ 297:src/stopwatch.c **** 
+ 298:src/stopwatch.c **** 	FirstTicker=getTicker()-previous;
+ 109              		.loc 1 298 2 is_stmt 1 view .LVU32
+ 110              	.LBB38:
+ 111              	.LBI34:
+ 119:src/stopwatch.c ****   long int f, t; // 24.8 is ffffff.ff
+ 112              		.loc 1 119 15 view .LVU33
+ 113              	.LBB36:
+ 120:src/stopwatch.c ****   t = get_rtc_ticks();
+ 114              		.loc 1 120 3 view .LVU34
+ 121:src/stopwatch.c ****   f = ((t & 0xfffffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
+ 115              		.loc 1 121 3 view .LVU35
+ 121:src/stopwatch.c ****   f = ((t & 0xfffffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
+ 116              		.loc 1 121 7 is_stmt 0 view .LVU36
+ 117 0044 9847     		blx	r3
+ 118              	.LVL7:
+ 122:src/stopwatch.c ****   return f;
+ 119              		.loc 1 122 3 is_stmt 1 view .LVU37
+ 123:src/stopwatch.c **** }
+ 120              		.loc 1 123 3 view .LVU38
+ 122:src/stopwatch.c ****   return f;
+ 121              		.loc 1 122 11 is_stmt 0 view .LVU39
+ 122 0046 20F07043 		bic	r3, r0, #-268435456
+ 122:src/stopwatch.c ****   return f;
+ 123              		.loc 1 122 23 view .LVU40
+ 124 004a 03EB8303 		add	r3, r3, r3, lsl #2
+ 125              	.LBE36:
+ 126              	.LBE38:
+ 299:src/stopwatch.c **** 	StopWatch=previous;
+ 127              		.loc 1 299 11 view .LVU41
+ 128 004e 0A49     		ldr	r1, .L4+24
+ 298:src/stopwatch.c **** 	StopWatch=previous;
+ 129              		.loc 1 298 13 view .LVU42
+ 130 0050 0A4A     		ldr	r2, .L4+28
+ 131              		.loc 1 299 11 view .LVU43
+ 132 0052 0C60     		str	r4, [r1]
+ 133              	.LBB39:
+ARM GAS  /tmp/ccISWZDO.s 			page 9
+
+
+ 134              	.LBB37:
+ 122:src/stopwatch.c ****   return f;
+ 135              		.loc 1 122 5 view .LVU44
+ 136 0054 43F3D713 		sbfx	r3, r3, #7, #24
+ 137              	.LBE37:
+ 138              	.LBE39:
+ 298:src/stopwatch.c **** 	StopWatch=previous;
+ 139              		.loc 1 298 25 view .LVU45
+ 140 0058 1B1B     		subs	r3, r3, r4
+ 298:src/stopwatch.c **** 	StopWatch=previous;
+ 141              		.loc 1 298 13 view .LVU46
+ 142 005a 1360     		str	r3, [r2]
+ 143              		.loc 1 299 2 is_stmt 1 view .LVU47
+ 300:src/stopwatch.c **** }
+ 144              		.loc 1 300 1 is_stmt 0 view .LVU48
+ 145 005c 1DB0     		add	sp, sp, #116
+ 146              		.cfi_def_cfa_offset 12
+ 147              		@ sp needed
+ 148 005e 30BD     		pop	{r4, r5, pc}
+ 149              	.LVL8:
+ 150              	.L5:
+ 151              		.loc 1 300 1 view .LVU49
+ 152              		.align	2
+ 153              	.L4:
+ 154 0060 00000000 		.word	StopWatchStatus
+ 155 0064 00000000 		.word	RclMemory
+ 156 0068 00000000 		.word	StopWatchMemoryFirstDigit
+ 157 006c 00000000 		.word	RclMemoryRemanentDisplay
+ 158 0070 00000000 		.word	const_36000
+ 159 0074 B9040008 		.word	134218937
+ 160 0078 00000000 		.word	StopWatch
+ 161 007c 00000000 		.word	FirstTicker
+ 162              		.cfi_endproc
+ 163              	.LFE8:
+ 165              		.section	.text.stopwatch_to_decNumber,"ax",%progbits
+ 166              		.align	1
+ 167              		.p2align 2,,3
+ 168              		.syntax unified
+ 169              		.thumb
+ 170              		.thumb_func
+ 171              		.fpu fpv4-sp-d16
+ 173              	stopwatch_to_decNumber:
+ 174              	.LVL9:
+ 175              	.LFB4:
+ 206:src/stopwatch.c **** 	ullint_to_dn(number, StopWatch);
+ 176              		.loc 1 206 55 is_stmt 1 view -0
+ 177              		.cfi_startproc
+ 178              		@ args = 0, pretend = 0, frame = 8
+ 179              		@ frame_needed = 0, uses_anonymous_args = 0
+ 207:src/stopwatch.c **** 	dn_divide(number, number, &const_36000);
+ 180              		.loc 1 207 2 view .LVU51
+ 206:src/stopwatch.c **** 	ullint_to_dn(number, StopWatch);
+ 181              		.loc 1 206 55 is_stmt 0 view .LVU52
+ 182 0000 00B5     		push	{lr}
+ 183              		.cfi_def_cfa_offset 4
+ 184              		.cfi_offset 14, -4
+ 207:src/stopwatch.c **** 	dn_divide(number, number, &const_36000);
+ARM GAS  /tmp/ccISWZDO.s 			page 10
+
+
+ 185              		.loc 1 207 2 view .LVU53
+ 186 0002 074B     		ldr	r3, .L8
+ 206:src/stopwatch.c **** 	ullint_to_dn(number, StopWatch);
+ 187              		.loc 1 206 55 view .LVU54
+ 188 0004 83B0     		sub	sp, sp, #12
+ 189              		.cfi_def_cfa_offset 16
+ 207:src/stopwatch.c **** 	dn_divide(number, number, &const_36000);
+ 190              		.loc 1 207 2 view .LVU55
+ 191 0006 1A68     		ldr	r2, [r3]
+ 206:src/stopwatch.c **** 	ullint_to_dn(number, StopWatch);
+ 192              		.loc 1 206 55 view .LVU56
+ 193 0008 0190     		str	r0, [sp, #4]
+ 207:src/stopwatch.c **** 	dn_divide(number, number, &const_36000);
+ 194              		.loc 1 207 2 view .LVU57
+ 195 000a 0023     		movs	r3, #0
+ 196 000c FFF7FEFF 		bl	ullint_to_dn
+ 197              	.LVL10:
+ 208:src/stopwatch.c **** }
+ 198              		.loc 1 208 2 is_stmt 1 view .LVU58
+ 199 0010 0199     		ldr	r1, [sp, #4]
+ 200 0012 044A     		ldr	r2, .L8+4
+ 201 0014 0846     		mov	r0, r1
+ 209:src/stopwatch.c **** 
+ 202              		.loc 1 209 1 is_stmt 0 view .LVU59
+ 203 0016 03B0     		add	sp, sp, #12
+ 204              		.cfi_def_cfa_offset 4
+ 205              		@ sp needed
+ 206 0018 5DF804EB 		ldr	lr, [sp], #4
+ 207              		.cfi_restore 14
+ 208              		.cfi_def_cfa_offset 0
+ 209              	.LVL11:
+ 208:src/stopwatch.c **** }
+ 210              		.loc 1 208 2 view .LVU60
+ 211 001c FFF7FEBF 		b	dn_divide
+ 212              	.LVL12:
+ 213              	.L9:
+ 214              		.align	2
+ 215              	.L8:
+ 216 0020 00000000 		.word	StopWatch
+ 217 0024 00000000 		.word	const_36000
+ 218              		.cfi_endproc
+ 219              	.LFE4:
+ 221              		.section	.text.store_stopwatch_in_memory,"ax",%progbits
+ 222              		.align	1
+ 223              		.p2align 2,,3
+ 224              		.syntax unified
+ 225              		.thumb
+ 226              		.thumb_func
+ 227              		.fpu fpv4-sp-d16
+ 229              	store_stopwatch_in_memory:
+ 230              	.LFB5:
+ 214:src/stopwatch.c **** 	int max_registers=global_regs();
+ 231              		.loc 1 214 41 is_stmt 1 view -0
+ 232              		.cfi_startproc
+ 233              		@ args = 0, pretend = 0, frame = 72
+ 234              		@ frame_needed = 0, uses_anonymous_args = 0
+ 215:src/stopwatch.c **** 	if(max_registers>0) {
+ARM GAS  /tmp/ccISWZDO.s 			page 11
+
+
+ 235              		.loc 1 215 2 view .LVU62
+ 214:src/stopwatch.c **** 	int max_registers=global_regs();
+ 236              		.loc 1 214 41 is_stmt 0 view .LVU63
+ 237 0000 30B5     		push	{r4, r5, lr}
+ 238              		.cfi_def_cfa_offset 12
+ 239              		.cfi_offset 4, -12
+ 240              		.cfi_offset 5, -8
+ 241              		.cfi_offset 14, -4
+ 242 0002 93B0     		sub	sp, sp, #76
+ 243              		.cfi_def_cfa_offset 88
+ 215:src/stopwatch.c **** 	if(max_registers>0) {
+ 244              		.loc 1 215 20 view .LVU64
+ 245 0004 FFF7FEFF 		bl	global_regs
+ 246              	.LVL13:
+ 216:src/stopwatch.c **** 		decNumber s, hms;
+ 247              		.loc 1 216 2 is_stmt 1 view .LVU65
+ 216:src/stopwatch.c **** 		decNumber s, hms;
+ 248              		.loc 1 216 4 is_stmt 0 view .LVU66
+ 249 0008 041E     		subs	r4, r0, #0
+ 250 000a 17DD     		ble	.L10
+ 251              	.LBB40:
+ 217:src/stopwatch.c **** 		StopWatchStatus.show_memory=1;
+ 252              		.loc 1 217 3 is_stmt 1 view .LVU67
+ 218:src/stopwatch.c **** 		// Converting tick count to HMS format
+ 253              		.loc 1 218 3 view .LVU68
+ 218:src/stopwatch.c **** 		// Converting tick count to HMS format
+ 254              		.loc 1 218 30 is_stmt 0 view .LVU69
+ 255 000c 0C4A     		ldr	r2, .L13
+ 222:src/stopwatch.c **** 		StopWatchMemory=(StopWatchMemory+1)%max_registers;
+ 256              		.loc 1 222 3 view .LVU70
+ 257 000e 0D4D     		ldr	r5, .L13+4
+ 218:src/stopwatch.c **** 		// Converting tick count to HMS format
+ 258              		.loc 1 218 30 view .LVU71
+ 259 0010 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 220:src/stopwatch.c **** 		decNumberHR2HMS(&hms, &s);
+ 260              		.loc 1 220 3 view .LVU72
+ 261 0012 6846     		mov	r0, sp
+ 262              	.LVL14:
+ 218:src/stopwatch.c **** 		// Converting tick count to HMS format
+ 263              		.loc 1 218 30 view .LVU73
+ 264 0014 43F00403 		orr	r3, r3, #4
+ 265 0018 1370     		strb	r3, [r2]
+ 220:src/stopwatch.c **** 		decNumberHR2HMS(&hms, &s);
+ 266              		.loc 1 220 3 is_stmt 1 view .LVU74
+ 267 001a FFF7FEFF 		bl	stopwatch_to_decNumber
+ 268              	.LVL15:
+ 221:src/stopwatch.c **** 		setRegister(StopWatchMemory, &hms);
+ 269              		.loc 1 221 3 view .LVU75
+ 270 001e 6946     		mov	r1, sp
+ 271 0020 09A8     		add	r0, sp, #36
+ 272 0022 FFF7FEFF 		bl	decNumberHR2HMS
+ 273              	.LVL16:
+ 222:src/stopwatch.c **** 		StopWatchMemory=(StopWatchMemory+1)%max_registers;
+ 274              		.loc 1 222 3 view .LVU76
+ 275 0026 2878     		ldrb	r0, [r5]	@ zero_extendqisi2
+ 276 0028 09A9     		add	r1, sp, #36
+ 277 002a FFF7FEFF 		bl	setRegister
+ARM GAS  /tmp/ccISWZDO.s 			page 12
+
+
+ 278              	.LVL17:
+ 223:src/stopwatch.c **** 	}
+ 279              		.loc 1 223 3 view .LVU77
+ 223:src/stopwatch.c **** 	}
+ 280              		.loc 1 223 35 is_stmt 0 view .LVU78
+ 281 002e 2878     		ldrb	r0, [r5]	@ zero_extendqisi2
+ 282 0030 0130     		adds	r0, r0, #1
+ 223:src/stopwatch.c **** 	}
+ 283              		.loc 1 223 38 view .LVU79
+ 284 0032 90FBF4F3 		sdiv	r3, r0, r4
+ 285 0036 04FB1300 		mls	r0, r4, r3, r0
+ 223:src/stopwatch.c **** 	}
+ 286              		.loc 1 223 18 view .LVU80
+ 287 003a 2870     		strb	r0, [r5]
+ 288              	.L10:
+ 289              	.LBE40:
+ 225:src/stopwatch.c **** 
+ 290              		.loc 1 225 1 view .LVU81
+ 291 003c 13B0     		add	sp, sp, #76
+ 292              		.cfi_def_cfa_offset 12
+ 293              		@ sp needed
+ 294 003e 30BD     		pop	{r4, r5, pc}
+ 295              	.LVL18:
+ 296              	.L14:
+ 225:src/stopwatch.c **** 
+ 297              		.loc 1 225 1 view .LVU82
+ 298              		.align	2
+ 299              	.L13:
+ 300 0040 00000000 		.word	StopWatchStatus
+ 301 0044 00000000 		.word	StopWatchMemory
+ 302              		.cfi_endproc
+ 303              	.LFE5:
+ 305              		.section	.text.stopwatch_to_string,"ax",%progbits
+ 306              		.align	1
+ 307              		.p2align 2,,3
+ 308              		.syntax unified
+ 309              		.thumb
+ 310              		.thumb_func
+ 311              		.fpu fpv4-sp-d16
+ 313              	stopwatch_to_string:
+ 314              	.LVL19:
+ 315              	.LFB2:
+ 146:src/stopwatch.c **** 	int tenths, secs, mins, hours;
+ 316              		.loc 1 146 67 is_stmt 1 view -0
+ 317              		.cfi_startproc
+ 318              		@ args = 0, pretend = 0, frame = 0
+ 319              		@ frame_needed = 0, uses_anonymous_args = 0
+ 147:src/stopwatch.c **** 
+ 320              		.loc 1 147 2 view .LVU84
+ 149:src/stopwatch.c **** 	secs=(stopwatch/10)%60;
+ 321              		.loc 1 149 2 view .LVU85
+ 152:src/stopwatch.c **** 	p=num_arg_0(p, hours, 2);
+ 322              		.loc 1 152 18 is_stmt 0 view .LVU86
+ 323 0000 254B     		ldr	r3, .L19
+ 152:src/stopwatch.c **** 	p=num_arg_0(p, hours, 2);
+ 324              		.loc 1 152 25 view .LVU87
+ 325 0002 264A     		ldr	r2, .L19+4
+ARM GAS  /tmp/ccISWZDO.s 			page 13
+
+
+ 146:src/stopwatch.c **** 	int tenths, secs, mins, hours;
+ 326              		.loc 1 146 67 view .LVU88
+ 327 0004 70B5     		push	{r4, r5, r6, lr}
+ 328              		.cfi_def_cfa_offset 16
+ 329              		.cfi_offset 4, -16
+ 330              		.cfi_offset 5, -12
+ 331              		.cfi_offset 6, -8
+ 332              		.cfi_offset 14, -4
+ 146:src/stopwatch.c **** 	int tenths, secs, mins, hours;
+ 333              		.loc 1 146 67 view .LVU89
+ 334 0006 0646     		mov	r6, r0
+ 335              	.LVL20:
+ 150:src/stopwatch.c **** 	mins=(stopwatch/600)%60;
+ 336              		.loc 1 150 2 is_stmt 1 view .LVU90
+ 151:src/stopwatch.c **** 	hours=(stopwatch/36000)%100;
+ 337              		.loc 1 151 2 view .LVU91
+ 152:src/stopwatch.c **** 	p=num_arg_0(p, hours, 2);
+ 338              		.loc 1 152 2 view .LVU92
+ 153:src/stopwatch.c **** 	*p++='h';
+ 339              		.loc 1 153 2 view .LVU93
+ 152:src/stopwatch.c **** 	p=num_arg_0(p, hours, 2);
+ 340              		.loc 1 152 18 is_stmt 0 view .LVU94
+ 341 0008 A3FB0603 		umull	r0, r3, r3, r6
+ 342              	.LVL21:
+ 152:src/stopwatch.c **** 	p=num_arg_0(p, hours, 2);
+ 343              		.loc 1 152 18 view .LVU95
+ 344 000c DB0B     		lsrs	r3, r3, #15
+ 152:src/stopwatch.c **** 	p=num_arg_0(p, hours, 2);
+ 345              		.loc 1 152 25 view .LVU96
+ 346 000e A2FB0302 		umull	r0, r2, r2, r3
+ 347 0012 6425     		movs	r5, #100
+ 348 0014 5209     		lsrs	r2, r2, #5
+ 153:src/stopwatch.c **** 	*p++='h';
+ 349              		.loc 1 153 4 view .LVU97
+ 350 0016 0846     		mov	r0, r1
+ 351 0018 05FB1231 		mls	r1, r5, r2, r3
+ 352              	.LVL22:
+ 153:src/stopwatch.c **** 	*p++='h';
+ 353              		.loc 1 153 4 view .LVU98
+ 354 001c 0222     		movs	r2, #2
+ 355 001e FFF7FEFF 		bl	num_arg_0
+ 356              	.LVL23:
+ 154:src/stopwatch.c **** 	p=num_arg_0(p, mins, 2);
+ 357              		.loc 1 154 2 is_stmt 1 view .LVU99
+ 151:src/stopwatch.c **** 	hours=(stopwatch/36000)%100;
+ 358              		.loc 1 151 17 is_stmt 0 view .LVU100
+ 359 0022 1F49     		ldr	r1, .L19+8
+ 151:src/stopwatch.c **** 	hours=(stopwatch/36000)%100;
+ 360              		.loc 1 151 22 view .LVU101
+ 361 0024 1F4C     		ldr	r4, .L19+12
+ 151:src/stopwatch.c **** 	hours=(stopwatch/36000)%100;
+ 362              		.loc 1 151 17 view .LVU102
+ 363 0026 A1FB0631 		umull	r3, r1, r1, r6
+ 364              	.LVL24:
+ 151:src/stopwatch.c **** 	hours=(stopwatch/36000)%100;
+ 365              		.loc 1 151 17 view .LVU103
+ 366 002a 8909     		lsrs	r1, r1, #6
+ARM GAS  /tmp/ccISWZDO.s 			page 14
+
+
+ 151:src/stopwatch.c **** 	hours=(stopwatch/36000)%100;
+ 367              		.loc 1 151 22 view .LVU104
+ 368 002c A4FB0153 		umull	r5, r3, r4, r1
+ 369 0030 5B09     		lsrs	r3, r3, #5
+ 150:src/stopwatch.c **** 	mins=(stopwatch/600)%60;
+ 370              		.loc 1 150 17 view .LVU105
+ 371 0032 1D4D     		ldr	r5, .L19+16
+ 151:src/stopwatch.c **** 	hours=(stopwatch/36000)%100;
+ 372              		.loc 1 151 22 view .LVU106
+ 373 0034 C3EB0313 		rsb	r3, r3, r3, lsl #4
+ 155:src/stopwatch.c **** 	*p++='\'';
+ 374              		.loc 1 155 4 view .LVU107
+ 375 0038 A1EB8301 		sub	r1, r1, r3, lsl #2
+ 154:src/stopwatch.c **** 	p=num_arg_0(p, mins, 2);
+ 376              		.loc 1 154 6 view .LVU108
+ 377 003c 6822     		movs	r2, #104
+ 150:src/stopwatch.c **** 	mins=(stopwatch/600)%60;
+ 378              		.loc 1 150 17 view .LVU109
+ 379 003e A5FB0635 		umull	r3, r5, r5, r6
+ 154:src/stopwatch.c **** 	p=num_arg_0(p, mins, 2);
+ 380              		.loc 1 154 6 view .LVU110
+ 381 0042 00F8012B 		strb	r2, [r0], #1
+ 382              	.LVL25:
+ 155:src/stopwatch.c **** 	*p++='\'';
+ 383              		.loc 1 155 2 is_stmt 1 view .LVU111
+ 150:src/stopwatch.c **** 	mins=(stopwatch/600)%60;
+ 384              		.loc 1 150 17 is_stmt 0 view .LVU112
+ 385 0046 ED08     		lsrs	r5, r5, #3
+ 155:src/stopwatch.c **** 	*p++='\'';
+ 386              		.loc 1 155 4 view .LVU113
+ 387 0048 0222     		movs	r2, #2
+ 388 004a FFF7FEFF 		bl	num_arg_0
+ 389              	.LVL26:
+ 156:src/stopwatch.c **** 	p=num_arg_0(p, secs, 2);
+ 390              		.loc 1 156 2 is_stmt 1 view .LVU114
+ 150:src/stopwatch.c **** 	mins=(stopwatch/600)%60;
+ 391              		.loc 1 150 21 is_stmt 0 view .LVU115
+ 392 004e A4FB0521 		umull	r2, r1, r4, r5
+ 393 0052 4909     		lsrs	r1, r1, #5
+ 156:src/stopwatch.c **** 	p=num_arg_0(p, secs, 2);
+ 394              		.loc 1 156 6 view .LVU116
+ 395 0054 2723     		movs	r3, #39
+ 150:src/stopwatch.c **** 	mins=(stopwatch/600)%60;
+ 396              		.loc 1 150 21 view .LVU117
+ 397 0056 C1EB0111 		rsb	r1, r1, r1, lsl #4
+ 156:src/stopwatch.c **** 	p=num_arg_0(p, secs, 2);
+ 398              		.loc 1 156 6 view .LVU118
+ 399 005a 00F8013B 		strb	r3, [r0], #1
+ 400              	.LVL27:
+ 157:src/stopwatch.c **** 	*p++='"';
+ 401              		.loc 1 157 2 is_stmt 1 view .LVU119
+ 157:src/stopwatch.c **** 	*p++='"';
+ 402              		.loc 1 157 4 is_stmt 0 view .LVU120
+ 403 005e 0222     		movs	r2, #2
+ 404 0060 A5EB8101 		sub	r1, r5, r1, lsl #2
+ 405 0064 FFF7FEFF 		bl	num_arg_0
+ 406              	.LVL28:
+ARM GAS  /tmp/ccISWZDO.s 			page 15
+
+
+ 158:src/stopwatch.c **** 	if(StopWatchStatus.display_tenths) {
+ 407              		.loc 1 158 2 is_stmt 1 view .LVU121
+ 159:src/stopwatch.c **** 		*p++=' ';
+ 408              		.loc 1 159 5 is_stmt 0 view .LVU122
+ 409 0068 104B     		ldr	r3, .L19+20
+ 158:src/stopwatch.c **** 	if(StopWatchStatus.display_tenths) {
+ 410              		.loc 1 158 6 view .LVU123
+ 411 006a 2222     		movs	r2, #34
+ 412 006c 0270     		strb	r2, [r0]
+ 159:src/stopwatch.c **** 		*p++=' ';
+ 413              		.loc 1 159 2 is_stmt 1 view .LVU124
+ 159:src/stopwatch.c **** 		*p++=' ';
+ 414              		.loc 1 159 5 is_stmt 0 view .LVU125
+ 415 006e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 159:src/stopwatch.c **** 		*p++=' ';
+ 416              		.loc 1 159 4 view .LVU126
+ 417 0070 9B07     		lsls	r3, r3, #30
+ 418 0072 03D4     		bmi	.L16
+ 158:src/stopwatch.c **** 	if(StopWatchStatus.display_tenths) {
+ 419              		.loc 1 158 4 view .LVU127
+ 420 0074 0130     		adds	r0, r0, #1
+ 421              	.LVL29:
+ 163:src/stopwatch.c **** }
+ 422              		.loc 1 163 2 is_stmt 1 view .LVU128
+ 163:src/stopwatch.c **** }
+ 423              		.loc 1 163 4 is_stmt 0 view .LVU129
+ 424 0076 0023     		movs	r3, #0
+ 425 0078 0370     		strb	r3, [r0]
+ 164:src/stopwatch.c **** 
+ 426              		.loc 1 164 1 view .LVU130
+ 427 007a 70BD     		pop	{r4, r5, r6, pc}
+ 428              	.LVL30:
+ 429              	.L16:
+ 160:src/stopwatch.c **** 		p=num_arg_0(p, tenths, 1);
+ 430              		.loc 1 160 3 is_stmt 1 view .LVU131
+ 160:src/stopwatch.c **** 		p=num_arg_0(p, tenths, 1);
+ 431              		.loc 1 160 7 is_stmt 0 view .LVU132
+ 432 007c 2023     		movs	r3, #32
+ 149:src/stopwatch.c **** 	secs=(stopwatch/10)%60;
+ 433              		.loc 1 149 18 view .LVU133
+ 434 007e 05EB8505 		add	r5, r5, r5, lsl #2
+ 160:src/stopwatch.c **** 		p=num_arg_0(p, tenths, 1);
+ 435              		.loc 1 160 7 view .LVU134
+ 436 0082 4370     		strb	r3, [r0, #1]
+ 161:src/stopwatch.c **** 	}
+ 437              		.loc 1 161 3 is_stmt 1 view .LVU135
+ 161:src/stopwatch.c **** 	}
+ 438              		.loc 1 161 5 is_stmt 0 view .LVU136
+ 439 0084 A6EB4501 		sub	r1, r6, r5, lsl #1
+ 440 0088 0230     		adds	r0, r0, #2
+ 441              	.LVL31:
+ 161:src/stopwatch.c **** 	}
+ 442              		.loc 1 161 5 view .LVU137
+ 443 008a 0122     		movs	r2, #1
+ 444 008c FFF7FEFF 		bl	num_arg_0
+ 445              	.LVL32:
+ 163:src/stopwatch.c **** }
+ARM GAS  /tmp/ccISWZDO.s 			page 16
+
+
+ 446              		.loc 1 163 2 is_stmt 1 view .LVU138
+ 163:src/stopwatch.c **** }
+ 447              		.loc 1 163 4 is_stmt 0 view .LVU139
+ 448 0090 0023     		movs	r3, #0
+ 449 0092 0370     		strb	r3, [r0]
+ 164:src/stopwatch.c **** 
+ 450              		.loc 1 164 1 view .LVU140
+ 451 0094 70BD     		pop	{r4, r5, r6, pc}
+ 452              	.LVL33:
+ 453              	.L20:
+ 164:src/stopwatch.c **** 
+ 454              		.loc 1 164 1 view .LVU141
+ 455 0096 00BF     		.align	2
+ 456              	.L19:
+ 457 0098 D55204E9 		.word	-385592619
+ 458 009c 1F85EB51 		.word	1374389535
+ 459 00a0 B5814E1B 		.word	458129845
+ 460 00a4 89888888 		.word	-2004318071
+ 461 00a8 CDCCCCCC 		.word	-858993459
+ 462 00ac 00000000 		.word	StopWatchStatus
+ 463              		.cfi_endproc
+ 464              	.LFE2:
+ 466              		.section	.text.toggle_running,"ax",%progbits
+ 467              		.align	1
+ 468              		.p2align 2,,3
+ 469              		.syntax unified
+ 470              		.thumb
+ 471              		.thumb_func
+ 472              		.fpu fpv4-sp-d16
+ 474              	toggle_running:
+ 475              	.LFB7:
+ 267:src/stopwatch.c **** 	StopWatchStatus.running=!StopWatchStatus.running;
+ 476              		.loc 1 267 30 is_stmt 1 view -0
+ 477              		.cfi_startproc
+ 478              		@ args = 0, pretend = 0, frame = 0
+ 479              		@ frame_needed = 0, uses_anonymous_args = 0
+ 268:src/stopwatch.c **** 	if(StopWatchStatus.running) {
+ 480              		.loc 1 268 2 view .LVU143
+ 268:src/stopwatch.c **** 	if(StopWatchStatus.running) {
+ 481              		.loc 1 268 25 is_stmt 0 view .LVU144
+ 482 0000 114A     		ldr	r2, .L31
+ 483 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 484 0004 D943     		mvns	r1, r3
+ 485 0006 61F30003 		bfi	r3, r1, #0, #1
+ 486 000a 1370     		strb	r3, [r2]
+ 269:src/stopwatch.c **** 		if(FirstTicker==0) {
+ 487              		.loc 1 269 2 is_stmt 1 view .LVU145
+ 269:src/stopwatch.c **** 		if(FirstTicker==0) {
+ 488              		.loc 1 269 4 is_stmt 0 view .LVU146
+ 489 000c DB07     		lsls	r3, r3, #31
+ 490 000e 0DD5     		bpl	.L28
+ 270:src/stopwatch.c **** 			FirstTicker=getTicker();
+ 491              		.loc 1 270 3 is_stmt 1 view .LVU147
+ 267:src/stopwatch.c **** 	StopWatchStatus.running=!StopWatchStatus.running;
+ 492              		.loc 1 267 30 is_stmt 0 view .LVU148
+ 493 0010 10B5     		push	{r4, lr}
+ 494              		.cfi_def_cfa_offset 8
+ARM GAS  /tmp/ccISWZDO.s 			page 17
+
+
+ 495              		.cfi_offset 4, -8
+ 496              		.cfi_offset 14, -4
+ 270:src/stopwatch.c **** 			FirstTicker=getTicker();
+ 497              		.loc 1 270 17 view .LVU149
+ 498 0012 0E4C     		ldr	r4, .L31+4
+ 270:src/stopwatch.c **** 			FirstTicker=getTicker();
+ 499              		.loc 1 270 5 view .LVU150
+ 500 0014 2368     		ldr	r3, [r4]
+ 501 0016 53B9     		cbnz	r3, .L23
+ 271:src/stopwatch.c **** 		}
+ 502              		.loc 1 271 4 is_stmt 1 view .LVU151
+ 503              	.LBB49:
+ 504              	.LBI49:
+ 119:src/stopwatch.c ****   long int f, t; // 24.8 is ffffff.ff
+ 505              		.loc 1 119 15 view .LVU152
+ 506              	.LBB50:
+ 120:src/stopwatch.c ****   t = get_rtc_ticks();
+ 507              		.loc 1 120 3 view .LVU153
+ 121:src/stopwatch.c ****   f = ((t & 0xfffffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
+ 508              		.loc 1 121 3 view .LVU154
+ 121:src/stopwatch.c ****   f = ((t & 0xfffffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
+ 509              		.loc 1 121 7 is_stmt 0 view .LVU155
+ 510 0018 0D4B     		ldr	r3, .L31+8
+ 511 001a 9847     		blx	r3
+ 512              	.LVL34:
+ 122:src/stopwatch.c ****   return f;
+ 513              		.loc 1 122 3 is_stmt 1 view .LVU156
+ 123:src/stopwatch.c **** }
+ 514              		.loc 1 123 3 view .LVU157
+ 122:src/stopwatch.c ****   return f;
+ 515              		.loc 1 122 11 is_stmt 0 view .LVU158
+ 516 001c 20F07040 		bic	r0, r0, #-268435456
+ 122:src/stopwatch.c ****   return f;
+ 517              		.loc 1 122 23 view .LVU159
+ 518 0020 00EB8000 		add	r0, r0, r0, lsl #2
+ 122:src/stopwatch.c ****   return f;
+ 519              		.loc 1 122 5 view .LVU160
+ 520 0024 40F3D710 		sbfx	r0, r0, #7, #24
+ 521              	.LBE50:
+ 522              	.LBE49:
+ 271:src/stopwatch.c **** 		}
+ 523              		.loc 1 271 15 view .LVU161
+ 524 0028 2060     		str	r0, [r4]
+ 277:src/stopwatch.c **** 
+ 525              		.loc 1 277 1 view .LVU162
+ 526 002a 10BD     		pop	{r4, pc}
+ 527              	.L28:
+ 528              		.cfi_def_cfa_offset 0
+ 529              		.cfi_restore 4
+ 530              		.cfi_restore 14
+ 531 002c 7047     		bx	lr
+ 532              	.L23:
+ 533              		.cfi_def_cfa_offset 8
+ 534              		.cfi_offset 4, -8
+ 535              		.cfi_offset 14, -4
+ 536              	.LBB51:
+ 537              	.LBI51:
+ARM GAS  /tmp/ccISWZDO.s 			page 18
+
+
+ 267:src/stopwatch.c **** 	StopWatchStatus.running=!StopWatchStatus.running;
+ 538              		.loc 1 267 13 is_stmt 1 view .LVU163
+ 539              	.LBB52:
+ 274:src/stopwatch.c **** 		}
+ 540              		.loc 1 274 4 view .LVU164
+ 541              	.LBB53:
+ 542              	.LBI53:
+ 119:src/stopwatch.c ****   long int f, t; // 24.8 is ffffff.ff
+ 543              		.loc 1 119 15 view .LVU165
+ 544              	.LBB54:
+ 120:src/stopwatch.c ****   t = get_rtc_ticks();
+ 545              		.loc 1 120 3 view .LVU166
+ 121:src/stopwatch.c ****   f = ((t & 0xfffffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
+ 546              		.loc 1 121 3 view .LVU167
+ 121:src/stopwatch.c ****   f = ((t & 0xfffffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
+ 547              		.loc 1 121 7 is_stmt 0 view .LVU168
+ 548 002e 084B     		ldr	r3, .L31+8
+ 549 0030 9847     		blx	r3
+ 550              	.LVL35:
+ 122:src/stopwatch.c ****   return f;
+ 551              		.loc 1 122 3 is_stmt 1 view .LVU169
+ 123:src/stopwatch.c **** }
+ 552              		.loc 1 123 3 view .LVU170
+ 123:src/stopwatch.c **** }
+ 553              		.loc 1 123 3 is_stmt 0 view .LVU171
+ 554              	.LBE54:
+ 555              	.LBE53:
+ 274:src/stopwatch.c **** 		}
+ 556              		.loc 1 274 27 view .LVU172
+ 557 0032 084B     		ldr	r3, .L31+12
+ 558              	.LBB57:
+ 559              	.LBB55:
+ 122:src/stopwatch.c ****   return f;
+ 560              		.loc 1 122 11 view .LVU173
+ 561 0034 20F07040 		bic	r0, r0, #-268435456
+ 562              	.LBE55:
+ 563              	.LBE57:
+ 274:src/stopwatch.c **** 		}
+ 564              		.loc 1 274 27 view .LVU174
+ 565 0038 1B68     		ldr	r3, [r3]
+ 566              	.LBB58:
+ 567              	.LBB56:
+ 122:src/stopwatch.c ****   return f;
+ 568              		.loc 1 122 23 view .LVU175
+ 569 003a 00EB8000 		add	r0, r0, r0, lsl #2
+ 122:src/stopwatch.c ****   return f;
+ 570              		.loc 1 122 5 view .LVU176
+ 571 003e 40F3D710 		sbfx	r0, r0, #7, #24
+ 572              	.LBE56:
+ 573              	.LBE58:
+ 274:src/stopwatch.c **** 		}
+ 574              		.loc 1 274 27 view .LVU177
+ 575 0042 C01A     		subs	r0, r0, r3
+ 274:src/stopwatch.c **** 		}
+ 576              		.loc 1 274 15 view .LVU178
+ 577 0044 2060     		str	r0, [r4]
+ 578              	.LBE52:
+ARM GAS  /tmp/ccISWZDO.s 			page 19
+
+
+ 579              	.LBE51:
+ 277:src/stopwatch.c **** 
+ 580              		.loc 1 277 1 view .LVU179
+ 581 0046 10BD     		pop	{r4, pc}
+ 582              	.L32:
+ 583              		.align	2
+ 584              	.L31:
+ 585 0048 00000000 		.word	StopWatchStatus
+ 586 004c 00000000 		.word	FirstTicker
+ 587 0050 B9040008 		.word	134218937
+ 588 0054 00000000 		.word	StopWatch
+ 589              		.cfi_endproc
+ 590              	.LFE7:
+ 592              		.section	.text.process_select_memory_key,"ax",%progbits
+ 593              		.align	1
+ 594              		.p2align 2,,3
+ 595              		.syntax unified
+ 596              		.thumb
+ 597              		.thumb_func
+ 598              		.fpu fpv4-sp-d16
+ 600              	process_select_memory_key:
+ 601              	.LVL36:
+ 602              	.LFB10:
+ 301:src/stopwatch.c **** 
+ 302:src/stopwatch.c **** /*
+ 303:src/stopwatch.c ****  * Once a memory has been chosen, we either store in it or recall it
+ 304:src/stopwatch.c ****  */
+ 305:src/stopwatch.c **** static void end_memory_selection(int index) {
+ 306:src/stopwatch.c **** 	if(StopWatchStatus.rcl_mode){
+ 307:src/stopwatch.c **** 		recall_memory(index);
+ 308:src/stopwatch.c **** 	}
+ 309:src/stopwatch.c **** 	else {
+ 310:src/stopwatch.c **** 		StopWatchMemory=index;
+ 311:src/stopwatch.c **** 		StopWatchMemoryFirstDigit=-1;
+ 312:src/stopwatch.c **** 		StopWatchStatus.select_memory_mode=0;
+ 313:src/stopwatch.c **** 	}
+ 314:src/stopwatch.c **** }
+ 315:src/stopwatch.c **** 
+ 316:src/stopwatch.c **** /*
+ 317:src/stopwatch.c ****  * Handling the selection of a memory index
+ 318:src/stopwatch.c ****  */
+ 319:src/stopwatch.c **** static void process_select_memory_key(int key) {
+ 603              		.loc 1 319 48 is_stmt 1 view -0
+ 604              		.cfi_startproc
+ 605              		@ args = 0, pretend = 0, frame = 0
+ 606              		@ frame_needed = 0, uses_anonymous_args = 0
+ 320:src/stopwatch.c **** 	int digit = get_digit(key);
+ 607              		.loc 1 320 2 view .LVU181
+ 319:src/stopwatch.c **** 	int digit = get_digit(key);
+ 608              		.loc 1 319 48 is_stmt 0 view .LVU182
+ 609 0000 38B5     		push	{r3, r4, r5, lr}
+ 610              		.cfi_def_cfa_offset 16
+ 611              		.cfi_offset 3, -16
+ 612              		.cfi_offset 4, -12
+ 613              		.cfi_offset 5, -8
+ 614              		.cfi_offset 14, -4
+ 615 0002 A0F11303 		sub	r3, r0, #19
+ARM GAS  /tmp/ccISWZDO.s 			page 20
+
+
+ 616 0006 0F2B     		cmp	r3, #15
+ 319:src/stopwatch.c **** 	int digit = get_digit(key);
+ 617              		.loc 1 319 48 view .LVU183
+ 618 0008 0446     		mov	r4, r0
+ 619              	.LVL37:
+ 620              	.LBB59:
+ 621              	.LBI59:
+ 231:src/stopwatch.c ****   int digit = -1;
+ 622              		.loc 1 231 12 is_stmt 1 view .LVU184
+ 623              	.LBB60:
+ 232:src/stopwatch.c ****   switch (key) {
+ 624              		.loc 1 232 3 view .LVU185
+ 233:src/stopwatch.c ****   case KEY_0: digit = 0;
+ 625              		.loc 1 233 3 view .LVU186
+ 626 000a 10D9     		bls	.L66
+ 627              	.LVL38:
+ 628              	.L34:
+ 233:src/stopwatch.c ****   case KEY_0: digit = 0;
+ 629              		.loc 1 233 3 is_stmt 0 view .LVU187
+ 630              	.LBE60:
+ 631              	.LBE59:
+ 321:src/stopwatch.c **** 	switch(key)	{
+ 632              		.loc 1 321 2 is_stmt 1 view .LVU188
+ 633 000c 0D3C     		subs	r4, r4, #13
+ 634              	.LVL39:
+ 635              		.loc 1 321 2 is_stmt 0 view .LVU189
+ 636 000e 172C     		cmp	r4, #23
+ 637 0010 30D8     		bhi	.L33
+ 638 0012 DFE804F0 		tbb	[pc, r4]
+ 639              	.L49:
+ 640 0016 43       		.byte	(.L41-.L49)/2
+ 641 0017 2F       		.byte	(.L33-.L49)/2
+ 642 0018 2F       		.byte	(.L33-.L49)/2
+ 643 0019 2F       		.byte	(.L33-.L49)/2
+ 644 001a 30       		.byte	(.L39-.L49)/2
+ 645 001b 2F       		.byte	(.L33-.L49)/2
+ 646 001c 2F       		.byte	(.L33-.L49)/2
+ 647 001d 2F       		.byte	(.L33-.L49)/2
+ 648 001e 2F       		.byte	(.L33-.L49)/2
+ 649 001f 2F       		.byte	(.L33-.L49)/2
+ 650 0020 2F       		.byte	(.L33-.L49)/2
+ 651 0021 2F       		.byte	(.L33-.L49)/2
+ 652 0022 2F       		.byte	(.L33-.L49)/2
+ 653 0023 2F       		.byte	(.L33-.L49)/2
+ 654 0024 2F       		.byte	(.L33-.L49)/2
+ 655 0025 2F       		.byte	(.L33-.L49)/2
+ 656 0026 2F       		.byte	(.L33-.L49)/2
+ 657 0027 2F       		.byte	(.L33-.L49)/2
+ 658 0028 2F       		.byte	(.L33-.L49)/2
+ 659 0029 2F       		.byte	(.L33-.L49)/2
+ 660 002a 35       		.byte	(.L58-.L49)/2
+ 661 002b 2F       		.byte	(.L33-.L49)/2
+ 662 002c 2F       		.byte	(.L33-.L49)/2
+ 663 002d 3B       		.byte	(.L37-.L49)/2
+ 664              	.LVL40:
+ 665              		.p2align 1
+ 666              	.L66:
+ARM GAS  /tmp/ccISWZDO.s 			page 21
+
+
+ 667              		.loc 1 321 2 view .LVU190
+ 668 002e 2F4A     		ldr	r2, .L69
+ 669 0030 52F82350 		ldr	r5, [r2, r3, lsl #2]
+ 670              	.LVL41:
+ 671              	.LBB62:
+ 672              	.LBB61:
+ 254:src/stopwatch.c ****   }
+ 673              		.loc 1 254 11 is_stmt 1 view .LVU191
+ 256:src/stopwatch.c **** }
+ 674              		.loc 1 256 3 view .LVU192
+ 256:src/stopwatch.c **** }
+ 675              		.loc 1 256 60 is_stmt 0 view .LVU193
+ 676 0034 092D     		cmp	r5, #9
+ 677 0036 E9D8     		bhi	.L34
+ 256:src/stopwatch.c **** }
+ 678              		.loc 1 256 34 view .LVU194
+ 679 0038 FFF7FEFF 		bl	global_regs
+ 680              	.LVL42:
+ 256:src/stopwatch.c **** }
+ 681              		.loc 1 256 31 view .LVU195
+ 682 003c 0028     		cmp	r0, #0
+ 683 003e E5D0     		beq	.L34
+ 684              	.LVL43:
+ 256:src/stopwatch.c **** }
+ 685              		.loc 1 256 31 view .LVU196
+ 686              	.LBE61:
+ 687              	.LBE62:
+ 688              		.loc 1 321 2 is_stmt 1 view .LVU197
+ 689 0040 212C     		cmp	r4, #33
+ 690 0042 1DD0     		beq	.L58
+ 322:src/stopwatch.c **** 			case STOPWATCH_RS: {
+ 323:src/stopwatch.c **** 				toggle_running();
+ 324:src/stopwatch.c **** 				StopWatchStatus.select_memory_mode=0;
+ 325:src/stopwatch.c **** 				StopWatchStatus.rcl_mode=0;
+ 326:src/stopwatch.c **** 				StopWatchStatus.sigma_display_mode=0;
+ 327:src/stopwatch.c **** 				break;
+ 328:src/stopwatch.c **** 			}
+ 329:src/stopwatch.c **** 			case STOPWATCH_EXIT: {
+ 330:src/stopwatch.c **** 				StopWatchStatus.select_memory_mode=0;
+ 331:src/stopwatch.c **** 				StopWatchStatus.rcl_mode=0;
+ 332:src/stopwatch.c **** 				StopWatchStatus.sigma_display_mode=0;
+ 333:src/stopwatch.c **** 				break;
+ 334:src/stopwatch.c **** 			}
+ 335:src/stopwatch.c **** 			case STOPWATCH_CLEAR: {
+ 336:src/stopwatch.c **** 				if(StopWatchMemoryFirstDigit<0) {
+ 337:src/stopwatch.c **** 					StopWatchStatus.select_memory_mode=0;
+ 338:src/stopwatch.c **** 					StopWatchStatus.rcl_mode=0;
+ 339:src/stopwatch.c **** 					StopWatchStatus.sigma_display_mode=0;
+ 340:src/stopwatch.c **** 				} else {
+ 341:src/stopwatch.c **** 					StopWatchMemoryFirstDigit=-1;
+ 342:src/stopwatch.c **** 				}
+ 343:src/stopwatch.c **** 				break;
+ 344:src/stopwatch.c **** 			   }
+ 345:src/stopwatch.c **** 			case STOPWATCH_STORE: {
+ 346:src/stopwatch.c **** 				if(StopWatchMemoryFirstDigit>=0) {
+ 347:src/stopwatch.c **** 					end_memory_selection(StopWatchMemoryFirstDigit);
+ 348:src/stopwatch.c **** 				}
+ARM GAS  /tmp/ccISWZDO.s 			page 22
+
+
+ 349:src/stopwatch.c **** 				break;
+ 350:src/stopwatch.c **** 			}
+ 351:src/stopwatch.c **** 			default: {
+ 352:src/stopwatch.c **** 				if (digit >= 0) {
+ 691              		.loc 1 352 5 view .LVU198
+ 692              	.LBB63:
+ 353:src/stopwatch.c **** 					int max_registers=global_regs();
+ 693              		.loc 1 353 6 view .LVU199
+ 694              		.loc 1 353 24 is_stmt 0 view .LVU200
+ 695 0044 FFF7FEFF 		bl	global_regs
+ 696              	.LVL44:
+ 354:src/stopwatch.c **** 					// Digits
+ 355:src/stopwatch.c **** 					if(StopWatchMemoryFirstDigit<0) {
+ 697              		.loc 1 355 34 view .LVU201
+ 698 0048 2949     		ldr	r1, .L69+4
+ 699 004a 91F90020 		ldrsb	r2, [r1]
+ 700              	.LVL45:
+ 701              		.loc 1 355 6 is_stmt 1 view .LVU202
+ 702              		.loc 1 355 8 is_stmt 0 view .LVU203
+ 703 004e 002A     		cmp	r2, #0
+ 704 0050 3EDB     		blt	.L67
+ 705              	.LBB64:
+ 356:src/stopwatch.c **** 						if(digit<=max_registers/10) {
+ 357:src/stopwatch.c **** 							StopWatchMemoryFirstDigit=digit;
+ 358:src/stopwatch.c **** 						} else if(max_registers<=10 && digit<max_registers) {
+ 359:src/stopwatch.c **** 							end_memory_selection(digit);
+ 360:src/stopwatch.c **** 						}
+ 361:src/stopwatch.c **** 					} else {
+ 362:src/stopwatch.c **** 					int index=StopWatchMemoryFirstDigit*10+digit;
+ 706              		.loc 1 362 6 is_stmt 1 view .LVU204
+ 707              		.loc 1 362 10 is_stmt 0 view .LVU205
+ 708 0052 0A23     		movs	r3, #10
+ 709 0054 13FB0255 		smlabb	r5, r3, r2, r5
+ 710              	.LVL46:
+ 711              	.L64:
+ 363:src/stopwatch.c **** 					if(index<max_registers) {
+ 712              		.loc 1 363 6 is_stmt 1 view .LVU206
+ 713              		.loc 1 363 8 is_stmt 0 view .LVU207
+ 714 0058 A842     		cmp	r0, r5
+ 715 005a 0BDD     		ble	.L33
+ 364:src/stopwatch.c **** 						end_memory_selection(index);
+ 716              		.loc 1 364 7 is_stmt 1 view .LVU208
+ 717              	.LVL47:
+ 718              	.LBB65:
+ 719              	.LBI65:
+ 305:src/stopwatch.c **** 	if(StopWatchStatus.rcl_mode){
+ 720              		.loc 1 305 13 view .LVU209
+ 721              	.LBB66:
+ 306:src/stopwatch.c **** 		recall_memory(index);
+ 722              		.loc 1 306 2 view .LVU210
+ 306:src/stopwatch.c **** 		recall_memory(index);
+ 723              		.loc 1 306 5 is_stmt 0 view .LVU211
+ 724 005c 254A     		ldr	r2, .L69+8
+ 725 005e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 306:src/stopwatch.c **** 		recall_memory(index);
+ 726              		.loc 1 306 4 view .LVU212
+ 727 0060 13F01000 		ands	r0, r3, #16
+ARM GAS  /tmp/ccISWZDO.s 			page 23
+
+
+ 728              	.LVL48:
+ 306:src/stopwatch.c **** 		recall_memory(index);
+ 729              		.loc 1 306 4 view .LVU213
+ 730 0064 2FD1     		bne	.L68
+ 310:src/stopwatch.c **** 		StopWatchMemoryFirstDigit=-1;
+ 731              		.loc 1 310 3 is_stmt 1 view .LVU214
+ 310:src/stopwatch.c **** 		StopWatchMemoryFirstDigit=-1;
+ 732              		.loc 1 310 18 is_stmt 0 view .LVU215
+ 733 0066 244C     		ldr	r4, .L69+12
+ 312:src/stopwatch.c **** 	}
+ 734              		.loc 1 312 37 view .LVU216
+ 735 0068 60F3C303 		bfi	r3, r0, #3, #1
+ 311:src/stopwatch.c **** 		StopWatchStatus.select_memory_mode=0;
+ 736              		.loc 1 311 28 view .LVU217
+ 737 006c FF20     		movs	r0, #255
+ 312:src/stopwatch.c **** 	}
+ 738              		.loc 1 312 37 view .LVU218
+ 739 006e 1370     		strb	r3, [r2]
+ 310:src/stopwatch.c **** 		StopWatchMemoryFirstDigit=-1;
+ 740              		.loc 1 310 18 view .LVU219
+ 741 0070 2570     		strb	r5, [r4]
+ 311:src/stopwatch.c **** 		StopWatchStatus.select_memory_mode=0;
+ 742              		.loc 1 311 3 is_stmt 1 view .LVU220
+ 311:src/stopwatch.c **** 		StopWatchStatus.select_memory_mode=0;
+ 743              		.loc 1 311 28 is_stmt 0 view .LVU221
+ 744 0072 0870     		strb	r0, [r1]
+ 312:src/stopwatch.c **** 	}
+ 745              		.loc 1 312 3 is_stmt 1 view .LVU222
+ 746              	.LVL49:
+ 747              	.L33:
+ 312:src/stopwatch.c **** 	}
+ 748              		.loc 1 312 3 is_stmt 0 view .LVU223
+ 749              	.LBE66:
+ 750              	.LBE65:
+ 751              	.LBE64:
+ 752              	.LBE63:
+ 365:src/stopwatch.c **** 					}
+ 366:src/stopwatch.c **** 					}
+ 367:src/stopwatch.c **** 				}
+ 368:src/stopwatch.c **** 				break;
+ 369:src/stopwatch.c **** 			  }
+ 370:src/stopwatch.c **** 	}
+ 371:src/stopwatch.c **** }
+ 753              		.loc 1 371 1 view .LVU224
+ 754 0074 38BD     		pop	{r3, r4, r5, pc}
+ 755              	.LVL50:
+ 756              	.L39:
+ 336:src/stopwatch.c **** 					StopWatchStatus.select_memory_mode=0;
+ 757              		.loc 1 336 5 is_stmt 1 view .LVU225
+ 336:src/stopwatch.c **** 					StopWatchStatus.select_memory_mode=0;
+ 758              		.loc 1 336 33 is_stmt 0 view .LVU226
+ 759 0076 1E4B     		ldr	r3, .L69+4
+ 336:src/stopwatch.c **** 					StopWatchStatus.select_memory_mode=0;
+ 760              		.loc 1 336 7 view .LVU227
+ 761 0078 93F90020 		ldrsb	r2, [r3]
+ 762 007c 002A     		cmp	r2, #0
+ 763 007e 1FDA     		bge	.L40
+ARM GAS  /tmp/ccISWZDO.s 			page 24
+
+
+ 764              	.LVL51:
+ 765              	.L58:
+ 337:src/stopwatch.c **** 					StopWatchStatus.rcl_mode=0;
+ 766              		.loc 1 337 6 is_stmt 1 view .LVU228
+ 338:src/stopwatch.c **** 					StopWatchStatus.sigma_display_mode=0;
+ 767              		.loc 1 338 6 view .LVU229
+ 339:src/stopwatch.c **** 				} else {
+ 768              		.loc 1 339 6 view .LVU230
+ 337:src/stopwatch.c **** 					StopWatchStatus.rcl_mode=0;
+ 769              		.loc 1 337 40 is_stmt 0 view .LVU231
+ 770 0080 1C4A     		ldr	r2, .L69+8
+ 771 0082 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 772 0084 23F03803 		bic	r3, r3, #56
+ 773 0088 1370     		strb	r3, [r2]
+ 774              		.loc 1 371 1 view .LVU232
+ 775 008a 38BD     		pop	{r3, r4, r5, pc}
+ 776              	.LVL52:
+ 777              	.L37:
+ 323:src/stopwatch.c **** 				StopWatchStatus.select_memory_mode=0;
+ 778              		.loc 1 323 5 is_stmt 1 view .LVU233
+ 779 008c FFF7FEFF 		bl	toggle_running
+ 780              	.LVL53:
+ 324:src/stopwatch.c **** 				StopWatchStatus.rcl_mode=0;
+ 781              		.loc 1 324 5 view .LVU234
+ 325:src/stopwatch.c **** 				StopWatchStatus.sigma_display_mode=0;
+ 782              		.loc 1 325 5 view .LVU235
+ 326:src/stopwatch.c **** 				break;
+ 783              		.loc 1 326 5 view .LVU236
+ 324:src/stopwatch.c **** 				StopWatchStatus.rcl_mode=0;
+ 784              		.loc 1 324 39 is_stmt 0 view .LVU237
+ 785 0090 184A     		ldr	r2, .L69+8
+ 786 0092 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 787 0094 23F03803 		bic	r3, r3, #56
+ 788 0098 1370     		strb	r3, [r2]
+ 327:src/stopwatch.c **** 			}
+ 789              		.loc 1 327 5 is_stmt 1 view .LVU238
+ 790              		.loc 1 371 1 is_stmt 0 view .LVU239
+ 791 009a 38BD     		pop	{r3, r4, r5, pc}
+ 792              	.LVL54:
+ 793              	.L41:
+ 346:src/stopwatch.c **** 					end_memory_selection(StopWatchMemoryFirstDigit);
+ 794              		.loc 1 346 5 is_stmt 1 view .LVU240
+ 346:src/stopwatch.c **** 					end_memory_selection(StopWatchMemoryFirstDigit);
+ 795              		.loc 1 346 33 is_stmt 0 view .LVU241
+ 796 009c 144A     		ldr	r2, .L69+4
+ 797 009e 92F90000 		ldrsb	r0, [r2]
+ 346:src/stopwatch.c **** 					end_memory_selection(StopWatchMemoryFirstDigit);
+ 798              		.loc 1 346 7 view .LVU242
+ 799 00a2 0028     		cmp	r0, #0
+ 800 00a4 E6DB     		blt	.L33
+ 347:src/stopwatch.c **** 				}
+ 801              		.loc 1 347 6 is_stmt 1 view .LVU243
+ 802              	.LVL55:
+ 803              	.LBB73:
+ 804              	.LBI73:
+ 305:src/stopwatch.c **** 	if(StopWatchStatus.rcl_mode){
+ 805              		.loc 1 305 13 view .LVU244
+ARM GAS  /tmp/ccISWZDO.s 			page 25
+
+
+ 806              	.LBB74:
+ 306:src/stopwatch.c **** 		recall_memory(index);
+ 807              		.loc 1 306 2 view .LVU245
+ 306:src/stopwatch.c **** 		recall_memory(index);
+ 808              		.loc 1 306 5 is_stmt 0 view .LVU246
+ 809 00a6 1349     		ldr	r1, .L69+8
+ 810 00a8 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 306:src/stopwatch.c **** 		recall_memory(index);
+ 811              		.loc 1 306 4 view .LVU247
+ 812 00aa 13F01004 		ands	r4, r3, #16
+ 813 00ae 0BD1     		bne	.L59
+ 310:src/stopwatch.c **** 		StopWatchMemoryFirstDigit=-1;
+ 814              		.loc 1 310 3 is_stmt 1 view .LVU248
+ 310:src/stopwatch.c **** 		StopWatchMemoryFirstDigit=-1;
+ 815              		.loc 1 310 18 is_stmt 0 view .LVU249
+ 816 00b0 114D     		ldr	r5, .L69+12
+ 312:src/stopwatch.c **** 	}
+ 817              		.loc 1 312 37 view .LVU250
+ 818 00b2 64F3C303 		bfi	r3, r4, #3, #1
+ 311:src/stopwatch.c **** 		StopWatchStatus.select_memory_mode=0;
+ 819              		.loc 1 311 28 view .LVU251
+ 820 00b6 FF24     		movs	r4, #255
+ 310:src/stopwatch.c **** 		StopWatchMemoryFirstDigit=-1;
+ 821              		.loc 1 310 18 view .LVU252
+ 822 00b8 2870     		strb	r0, [r5]
+ 311:src/stopwatch.c **** 		StopWatchStatus.select_memory_mode=0;
+ 823              		.loc 1 311 3 is_stmt 1 view .LVU253
+ 311:src/stopwatch.c **** 		StopWatchStatus.select_memory_mode=0;
+ 824              		.loc 1 311 28 is_stmt 0 view .LVU254
+ 825 00ba 1470     		strb	r4, [r2]
+ 312:src/stopwatch.c **** 	}
+ 826              		.loc 1 312 3 is_stmt 1 view .LVU255
+ 312:src/stopwatch.c **** 	}
+ 827              		.loc 1 312 37 is_stmt 0 view .LVU256
+ 828 00bc 0B70     		strb	r3, [r1]
+ 829              	.LBE74:
+ 830              	.LBE73:
+ 831              		.loc 1 371 1 view .LVU257
+ 832 00be 38BD     		pop	{r3, r4, r5, pc}
+ 833              	.LVL56:
+ 834              	.L40:
+ 341:src/stopwatch.c **** 				}
+ 835              		.loc 1 341 6 is_stmt 1 view .LVU258
+ 341:src/stopwatch.c **** 				}
+ 836              		.loc 1 341 31 is_stmt 0 view .LVU259
+ 837 00c0 FF22     		movs	r2, #255
+ 838 00c2 1A70     		strb	r2, [r3]
+ 839              		.loc 1 371 1 view .LVU260
+ 840 00c4 38BD     		pop	{r3, r4, r5, pc}
+ 841              	.LVL57:
+ 842              	.L68:
+ 843              	.LBB75:
+ 844              	.LBB71:
+ 845              	.LBB69:
+ 846              	.LBB67:
+ 307:src/stopwatch.c **** 	}
+ 847              		.loc 1 307 3 is_stmt 1 view .LVU261
+ARM GAS  /tmp/ccISWZDO.s 			page 26
+
+
+ 848 00c6 2846     		mov	r0, r5
+ 849              	.LVL58:
+ 850              	.L59:
+ 307:src/stopwatch.c **** 	}
+ 851              		.loc 1 307 3 is_stmt 0 view .LVU262
+ 852              	.LBE67:
+ 853              	.LBE69:
+ 854              	.LBE71:
+ 855              	.LBE75:
+ 856              		.loc 1 371 1 view .LVU263
+ 857 00c8 BDE83840 		pop	{r3, r4, r5, lr}
+ 858              		.cfi_remember_state
+ 859              		.cfi_restore 14
+ 860              		.cfi_restore 5
+ 861              		.cfi_restore 4
+ 862              		.cfi_restore 3
+ 863              		.cfi_def_cfa_offset 0
+ 864              	.LBB76:
+ 865              	.LBB72:
+ 866              	.LBB70:
+ 867              	.LBB68:
+ 307:src/stopwatch.c **** 	}
+ 868              		.loc 1 307 3 view .LVU264
+ 869 00cc FFF7FEBF 		b	recall_memory
+ 870              	.LVL59:
+ 871              	.L67:
+ 872              		.cfi_restore_state
+ 307:src/stopwatch.c **** 	}
+ 873              		.loc 1 307 3 view .LVU265
+ 874              	.LBE68:
+ 875              	.LBE70:
+ 876              	.LBE72:
+ 356:src/stopwatch.c **** 							StopWatchMemoryFirstDigit=digit;
+ 877              		.loc 1 356 7 is_stmt 1 view .LVU266
+ 356:src/stopwatch.c **** 							StopWatchMemoryFirstDigit=digit;
+ 878              		.loc 1 356 30 is_stmt 0 view .LVU267
+ 879 00d0 0A4A     		ldr	r2, .L69+16
+ 880 00d2 C317     		asrs	r3, r0, #31
+ 881 00d4 82FB0042 		smull	r4, r2, r2, r0
+ 882              	.LVL60:
+ 356:src/stopwatch.c **** 							StopWatchMemoryFirstDigit=digit;
+ 883              		.loc 1 356 30 view .LVU268
+ 884 00d8 C3EBA203 		rsb	r3, r3, r2, asr #2
+ 356:src/stopwatch.c **** 							StopWatchMemoryFirstDigit=digit;
+ 885              		.loc 1 356 9 view .LVU269
+ 886 00dc AB42     		cmp	r3, r5
+ 887 00de 01DB     		blt	.L45
+ 357:src/stopwatch.c **** 						} else if(max_registers<=10 && digit<max_registers) {
+ 888              		.loc 1 357 8 is_stmt 1 view .LVU270
+ 357:src/stopwatch.c **** 						} else if(max_registers<=10 && digit<max_registers) {
+ 889              		.loc 1 357 33 is_stmt 0 view .LVU271
+ 890 00e0 0D70     		strb	r5, [r1]
+ 891              	.LBE76:
+ 892              		.loc 1 371 1 view .LVU272
+ 893 00e2 38BD     		pop	{r3, r4, r5, pc}
+ 894              	.LVL61:
+ 895              	.L45:
+ARM GAS  /tmp/ccISWZDO.s 			page 27
+
+
+ 896              	.LBB77:
+ 358:src/stopwatch.c **** 							end_memory_selection(digit);
+ 897              		.loc 1 358 14 is_stmt 1 view .LVU273
+ 358:src/stopwatch.c **** 							end_memory_selection(digit);
+ 898              		.loc 1 358 16 is_stmt 0 view .LVU274
+ 899 00e4 0A28     		cmp	r0, #10
+ 900 00e6 B7DD     		ble	.L64
+ 901              	.LBE77:
+ 902              		.loc 1 371 1 view .LVU275
+ 903 00e8 38BD     		pop	{r3, r4, r5, pc}
+ 904              	.LVL62:
+ 905              	.L70:
+ 906              		.loc 1 371 1 view .LVU276
+ 907 00ea 00BF     		.align	2
+ 908              	.L69:
+ 909 00ec 00000000 		.word	.LANCHOR0
+ 910 00f0 00000000 		.word	StopWatchMemoryFirstDigit
+ 911 00f4 00000000 		.word	StopWatchStatus
+ 912 00f8 00000000 		.word	StopWatchMemory
+ 913 00fc 67666666 		.word	1717986919
+ 914              		.cfi_endproc
+ 915              	.LFE10:
+ 917              		.section	.text.stopwatch_sigma_plus,"ax",%progbits
+ 918              		.align	1
+ 919              		.p2align 2,,3
+ 920              		.syntax unified
+ 921              		.thumb
+ 922              		.thumb_func
+ 923              		.fpu fpv4-sp-d16
+ 925              	stopwatch_sigma_plus:
+ 926              	.LFB11:
+ 372:src/stopwatch.c **** 
+ 373:src/stopwatch.c **** static void stopwatch_sigma_plus() {
+ 927              		.loc 1 373 36 is_stmt 1 view -0
+ 928              		.cfi_startproc
+ 929              		@ args = 0, pretend = 0, frame = 40
+ 930              		@ frame_needed = 0, uses_anonymous_args = 0
+ 374:src/stopwatch.c **** 	decNumber s;
+ 931              		.loc 1 374 2 view .LVU278
+ 375:src/stopwatch.c **** #ifdef REALBUILD
+ 376:src/stopwatch.c **** 	SMALL_INT oldSpeed=SpeedSetting;
+ 377:src/stopwatch.c **** 	set_speed(SPEED_HIGH);
+ 378:src/stopwatch.c **** #endif
+ 379:src/stopwatch.c **** 	stopwatch_to_decNumber(&s);
+ 932              		.loc 1 379 2 view .LVU279
+ 373:src/stopwatch.c **** 	decNumber s;
+ 933              		.loc 1 373 36 is_stmt 0 view .LVU280
+ 934 0000 30B5     		push	{r4, r5, lr}
+ 935              		.cfi_def_cfa_offset 12
+ 936              		.cfi_offset 4, -12
+ 937              		.cfi_offset 5, -8
+ 938              		.cfi_offset 14, -4
+ 939 0002 8BB0     		sub	sp, sp, #44
+ 940              		.cfi_def_cfa_offset 56
+ 941              		.loc 1 379 2 view .LVU281
+ 942 0004 01A8     		add	r0, sp, #4
+ 943 0006 FFF7FEFF 		bl	stopwatch_to_decNumber
+ARM GAS  /tmp/ccISWZDO.s 			page 28
+
+
+ 944              	.LVL63:
+ 380:src/stopwatch.c **** 	RclMemory=sigma_plus_x(&s);
+ 945              		.loc 1 380 2 is_stmt 1 view .LVU282
+ 946              		.loc 1 380 12 is_stmt 0 view .LVU283
+ 947 000a 01A8     		add	r0, sp, #4
+ 948 000c FFF7FEFF 		bl	sigma_plus_x
+ 949              	.LVL64:
+ 950              		.loc 1 380 11 view .LVU284
+ 951 0010 114B     		ldr	r3, .L77
+ 952 0012 40B2     		sxtb	r0, r0
+ 381:src/stopwatch.c **** 	if(RclMemory>=0) {
+ 953              		.loc 1 381 4 view .LVU285
+ 954 0014 0028     		cmp	r0, #0
+ 380:src/stopwatch.c **** 	RclMemory=sigma_plus_x(&s);
+ 955              		.loc 1 380 11 view .LVU286
+ 956 0016 1870     		strb	r0, [r3]
+ 957              		.loc 1 381 2 is_stmt 1 view .LVU287
+ 958              		.loc 1 381 4 is_stmt 0 view .LVU288
+ 959 0018 19DB     		blt	.L71
+ 382:src/stopwatch.c **** 		StopWatchStatus.rcl_mode=0;
+ 960              		.loc 1 382 3 is_stmt 1 view .LVU289
+ 383:src/stopwatch.c **** 		StopWatchStatus.sigma_display_mode=1;
+ 961              		.loc 1 383 3 view .LVU290
+ 382:src/stopwatch.c **** 		StopWatchStatus.rcl_mode=0;
+ 962              		.loc 1 382 27 is_stmt 0 view .LVU291
+ 963 001a 104A     		ldr	r2, .L77+4
+ 384:src/stopwatch.c **** 		RclMemoryRemanentDisplay=0;
+ 385:src/stopwatch.c **** 		if(TotalFirstTicker==0) {
+ 964              		.loc 1 385 22 view .LVU292
+ 965 001c 1049     		ldr	r1, .L77+8
+ 382:src/stopwatch.c **** 		StopWatchStatus.sigma_display_mode=1;
+ 966              		.loc 1 382 27 view .LVU293
+ 967 001e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 384:src/stopwatch.c **** 		RclMemoryRemanentDisplay=0;
+ 968              		.loc 1 384 27 view .LVU294
+ 969 0020 104C     		ldr	r4, .L77+12
+ 970              		.loc 1 385 5 view .LVU295
+ 971 0022 0868     		ldr	r0, [r1]
+ 382:src/stopwatch.c **** 		StopWatchStatus.sigma_display_mode=1;
+ 972              		.loc 1 382 27 view .LVU296
+ 973 0024 23F03003 		bic	r3, r3, #48
+ 974 0028 43F02003 		orr	r3, r3, #32
+ 384:src/stopwatch.c **** 		RclMemoryRemanentDisplay=0;
+ 975              		.loc 1 384 27 view .LVU297
+ 976 002c 0025     		movs	r5, #0
+ 977 002e 2570     		strb	r5, [r4]
+ 382:src/stopwatch.c **** 		StopWatchStatus.sigma_display_mode=1;
+ 978              		.loc 1 382 27 view .LVU298
+ 979 0030 1370     		strb	r3, [r2]
+ 384:src/stopwatch.c **** 		RclMemoryRemanentDisplay=0;
+ 980              		.loc 1 384 3 is_stmt 1 view .LVU299
+ 981              		.loc 1 385 3 view .LVU300
+ 386:src/stopwatch.c **** 			TotalFirstTicker=FirstTicker;
+ 982              		.loc 1 386 20 is_stmt 0 view .LVU301
+ 983 0032 0D4C     		ldr	r4, .L77+16
+ 385:src/stopwatch.c **** 			TotalFirstTicker=FirstTicker;
+ 984              		.loc 1 385 5 view .LVU302
+ARM GAS  /tmp/ccISWZDO.s 			page 29
+
+
+ 985 0034 68B1     		cbz	r0, .L75
+ 986              	.L73:
+ 987              	.LBB82:
+ 988              	.LBI82:
+ 373:src/stopwatch.c **** 	decNumber s;
+ 989              		.loc 1 373 13 is_stmt 1 view .LVU303
+ 990              	.LBB83:
+ 387:src/stopwatch.c **** 		}
+ 388:src/stopwatch.c **** 		FirstTicker=getTicker();
+ 991              		.loc 1 388 3 view .LVU304
+ 992              	.LBB84:
+ 993              	.LBI84:
+ 119:src/stopwatch.c ****   long int f, t; // 24.8 is ffffff.ff
+ 994              		.loc 1 119 15 view .LVU305
+ 995              	.LBB85:
+ 120:src/stopwatch.c ****   t = get_rtc_ticks();
+ 996              		.loc 1 120 3 view .LVU306
+ 121:src/stopwatch.c ****   f = ((t & 0xfffffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
+ 997              		.loc 1 121 3 view .LVU307
+ 121:src/stopwatch.c ****   f = ((t & 0xfffffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
+ 998              		.loc 1 121 7 is_stmt 0 view .LVU308
+ 999 0036 0D4B     		ldr	r3, .L77+20
+ 1000 0038 9847     		blx	r3
+ 1001              	.LVL65:
+ 122:src/stopwatch.c ****   return f;
+ 1002              		.loc 1 122 3 is_stmt 1 view .LVU309
+ 123:src/stopwatch.c **** }
+ 1003              		.loc 1 123 3 view .LVU310
+ 122:src/stopwatch.c ****   return f;
+ 1004              		.loc 1 122 11 is_stmt 0 view .LVU311
+ 1005 003a 20F07040 		bic	r0, r0, #-268435456
+ 1006              	.LBE85:
+ 1007              	.LBE84:
+ 389:src/stopwatch.c **** 		// StopWatch=0 is need to avoid a small display glitch
+ 390:src/stopwatch.c **** 		// in full time
+ 391:src/stopwatch.c **** 		StopWatch=0;
+ 1008              		.loc 1 391 12 view .LVU312
+ 1009 003e 0C4B     		ldr	r3, .L77+24
+ 1010              	.LBB87:
+ 1011              	.LBB86:
+ 122:src/stopwatch.c ****   return f;
+ 1012              		.loc 1 122 23 view .LVU313
+ 1013 0040 00EB8000 		add	r0, r0, r0, lsl #2
+ 122:src/stopwatch.c ****   return f;
+ 1014              		.loc 1 122 5 view .LVU314
+ 1015 0044 40F3D710 		sbfx	r0, r0, #7, #24
+ 1016              	.LBE86:
+ 1017              	.LBE87:
+ 1018              		.loc 1 391 12 view .LVU315
+ 1019 0048 0022     		movs	r2, #0
+ 388:src/stopwatch.c **** 		// StopWatch=0 is need to avoid a small display glitch
+ 1020              		.loc 1 388 14 view .LVU316
+ 1021 004a 2060     		str	r0, [r4]
+ 1022              		.loc 1 391 3 is_stmt 1 view .LVU317
+ 1023              		.loc 1 391 12 is_stmt 0 view .LVU318
+ 1024 004c 1A60     		str	r2, [r3]
+ 1025              	.L71:
+ARM GAS  /tmp/ccISWZDO.s 			page 30
+
+
+ 1026              	.LBE83:
+ 1027              	.LBE82:
+ 392:src/stopwatch.c **** 	}
+ 393:src/stopwatch.c **** #ifdef REALBUILD
+ 394:src/stopwatch.c **** 	set_speed(oldSpeed);
+ 395:src/stopwatch.c **** #endif
+ 396:src/stopwatch.c **** }
+ 1028              		.loc 1 396 1 view .LVU319
+ 1029 004e 0BB0     		add	sp, sp, #44
+ 1030              		.cfi_remember_state
+ 1031              		.cfi_def_cfa_offset 12
+ 1032              		@ sp needed
+ 1033 0050 30BD     		pop	{r4, r5, pc}
+ 1034              	.L75:
+ 1035              		.cfi_restore_state
+ 386:src/stopwatch.c **** 		}
+ 1036              		.loc 1 386 4 is_stmt 1 view .LVU320
+ 386:src/stopwatch.c **** 		}
+ 1037              		.loc 1 386 20 is_stmt 0 view .LVU321
+ 1038 0052 2368     		ldr	r3, [r4]
+ 1039 0054 0B60     		str	r3, [r1]
+ 1040 0056 EEE7     		b	.L73
+ 1041              	.L78:
+ 1042              		.align	2
+ 1043              	.L77:
+ 1044 0058 00000000 		.word	RclMemory
+ 1045 005c 00000000 		.word	StopWatchStatus
+ 1046 0060 00000000 		.word	TotalFirstTicker
+ 1047 0064 00000000 		.word	RclMemoryRemanentDisplay
+ 1048 0068 00000000 		.word	FirstTicker
+ 1049 006c B9040008 		.word	134218937
+ 1050 0070 00000000 		.word	StopWatch
+ 1051              		.cfi_endproc
+ 1052              	.LFE11:
+ 1054              		.section	.rodata.stopwatch_callback.str1.4,"aMS",%progbits,1
+ 1055              		.align	2
+ 1056              	.LC0:
+ 1057 0000 52434C06 		.ascii	"RCL\006\006\000"
+ 1057      0600
+ 1058 0006 0000     		.align	2
+ 1059              	.LC1:
+ 1060 0008 912B0600 		.ascii	"\221+\006\000"
+ 1061              		.align	2
+ 1062              	.LC2:
+ 1063 000c 53544F50 		.ascii	"STOPWATCH\000"
+ 1063      57415443 
+ 1063      4800
+ 1064              		.section	.text.stopwatch_callback,"ax",%progbits
+ 1065              		.align	1
+ 1066              		.p2align 2,,3
+ 1067              		.global	stopwatch_callback
+ 1068              		.syntax unified
+ 1069              		.thumb
+ 1070              		.thumb_func
+ 1071              		.fpu fpv4-sp-d16
+ 1073              	stopwatch_callback:
+ 1074              	.LVL66:
+ARM GAS  /tmp/ccISWZDO.s 			page 31
+
+
+ 1075              	.LFB13:
+ 397:src/stopwatch.c **** 
+ 398:src/stopwatch.c **** /*
+ 399:src/stopwatch.c ****  * Handling keys.As we need to be a 'special mode', we have to do it ourselves
+ 400:src/stopwatch.c ****  * We cannot reuse the normal main loop code
+ 401:src/stopwatch.c ****  */
+ 402:src/stopwatch.c **** static void process_stopwatch_key(int key) {
+ 403:src/stopwatch.c **** 	int max_registers=global_regs();
+ 404:src/stopwatch.c **** 	switch(key)	{
+ 405:src/stopwatch.c **** 			case STOPWATCH_RS: {
+ 406:src/stopwatch.c **** 				toggle_running();
+ 407:src/stopwatch.c **** 				break;
+ 408:src/stopwatch.c **** 			}
+ 409:src/stopwatch.c **** 			case STOPWATCH_EXIT: {
+ 410:src/stopwatch.c **** 				KeyCallback=(int(*)(int))NULL;
+ 411:src/stopwatch.c **** 				break;
+ 412:src/stopwatch.c **** 			}
+ 413:src/stopwatch.c **** 			case STOPWATCH_CLEAR: {
+ 414:src/stopwatch.c **** 				if(StopWatchStatus.running)	{
+ 415:src/stopwatch.c **** 					if(TotalFirstTicker==0) {
+ 416:src/stopwatch.c **** 						TotalFirstTicker=FirstTicker;
+ 417:src/stopwatch.c **** 					}
+ 418:src/stopwatch.c **** 					FirstTicker=getTicker();
+ 419:src/stopwatch.c **** 				} else {
+ 420:src/stopwatch.c **** 					TotalFirstTicker=0;
+ 421:src/stopwatch.c **** 					FirstTicker=0;
+ 422:src/stopwatch.c **** 				}
+ 423:src/stopwatch.c **** 				StopWatch=0;
+ 424:src/stopwatch.c **** 				break;
+ 425:src/stopwatch.c **** 			   }
+ 426:src/stopwatch.c **** 			case STOPWATCH_EEX: {
+ 427:src/stopwatch.c **** 				StopWatchStatus.display_tenths=!StopWatchStatus.display_tenths;
+ 428:src/stopwatch.c **** 				break;
+ 429:src/stopwatch.c **** 				}
+ 430:src/stopwatch.c **** 			case STOPWATCH_STORE: {
+ 431:src/stopwatch.c **** 				store_stopwatch_in_memory();
+ 432:src/stopwatch.c **** 				break;
+ 433:src/stopwatch.c **** 				}
+ 434:src/stopwatch.c **** 			case STOPWATCH_STORE_ROUND: {
+ 435:src/stopwatch.c **** 				store_stopwatch_in_memory();
+ 436:src/stopwatch.c **** 				if(TotalFirstTicker==0) {
+ 437:src/stopwatch.c **** 					TotalFirstTicker=FirstTicker;
+ 438:src/stopwatch.c **** 				}
+ 439:src/stopwatch.c **** 				FirstTicker=getTicker();
+ 440:src/stopwatch.c **** 				break;
+ 441:src/stopwatch.c **** 				}
+ 442:src/stopwatch.c **** 			case STOPWATCH_SIGMA_PLUS_STORE_ROUND: {
+ 443:src/stopwatch.c **** 				store_stopwatch_in_memory();
+ 444:src/stopwatch.c **** 				stopwatch_sigma_plus();
+ 445:src/stopwatch.c **** 				break;
+ 446:src/stopwatch.c **** 			}
+ 447:src/stopwatch.c **** 			case STOPWATCH_SIGMA_PLUS: {
+ 448:src/stopwatch.c **** 				stopwatch_sigma_plus();
+ 449:src/stopwatch.c **** 				break;
+ 450:src/stopwatch.c **** 			}
+ 451:src/stopwatch.c **** 			case STOPWATCH_UP: {
+ 452:src/stopwatch.c **** 				if(StopWatchMemory<max_registers-1) {
+ARM GAS  /tmp/ccISWZDO.s 			page 32
+
+
+ 453:src/stopwatch.c **** 					StopWatchMemory++;
+ 454:src/stopwatch.c **** 				}
+ 455:src/stopwatch.c **** 				break;
+ 456:src/stopwatch.c **** 				}
+ 457:src/stopwatch.c **** 			case STOPWATCH_DOWN: {
+ 458:src/stopwatch.c **** 				if(StopWatchMemory>0) {
+ 459:src/stopwatch.c **** 					StopWatchMemory--;
+ 460:src/stopwatch.c **** 				}
+ 461:src/stopwatch.c **** 				break;
+ 462:src/stopwatch.c **** 				}
+ 463:src/stopwatch.c **** 			case STOPWATCH_SHOW_MEMORY: {
+ 464:src/stopwatch.c **** 				StopWatchStatus.show_memory=!StopWatchStatus.show_memory;
+ 465:src/stopwatch.c **** 				break;
+ 466:src/stopwatch.c **** 				}
+ 467:src/stopwatch.c **** 			case STOPWATCH_RCL: {
+ 468:src/stopwatch.c **** 				StopWatchStatus.rcl_mode=max_registers>0;
+ 469:src/stopwatch.c **** 				StopWatchStatus.sigma_display_mode=0;
+ 470:src/stopwatch.c **** 				StopWatchMemoryFirstDigit=-1;
+ 471:src/stopwatch.c **** 				break;
+ 472:src/stopwatch.c **** 				}
+ 473:src/stopwatch.c **** 			default: {
+ 474:src/stopwatch.c **** 				if (get_digit(key) >= 0) {
+ 475:src/stopwatch.c **** 					//Digits
+ 476:src/stopwatch.c **** 					StopWatchStatus.select_memory_mode=1;
+ 477:src/stopwatch.c **** 					StopWatchMemoryFirstDigit=-1;
+ 478:src/stopwatch.c **** 					StopWatchStatus.show_memory=1;
+ 479:src/stopwatch.c **** 					process_select_memory_key(key);
+ 480:src/stopwatch.c **** 				}
+ 481:src/stopwatch.c **** 				break;
+ 482:src/stopwatch.c **** 			  }
+ 483:src/stopwatch.c **** 			}
+ 484:src/stopwatch.c **** }
+ 485:src/stopwatch.c **** 
+ 486:src/stopwatch.c **** /*
+ 487:src/stopwatch.c ****  * Called by the main loop to increment stopwatch or process a pressed key
+ 488:src/stopwatch.c ****  */
+ 489:src/stopwatch.c **** int stopwatch_callback(int key) {
+ 1076              		.loc 1 489 33 is_stmt 1 view -0
+ 1077              		.cfi_startproc
+ 1078              		@ args = 0, pretend = 0, frame = 40
+ 1079              		@ frame_needed = 0, uses_anonymous_args = 0
+ 490:src/stopwatch.c **** 	unsigned long currentTicker;
+ 1080              		.loc 1 490 2 view .LVU323
+ 491:src/stopwatch.c **** 	if(StopWatchStatus.running)	{
+ 1081              		.loc 1 491 2 view .LVU324
+ 489:src/stopwatch.c **** 	unsigned long currentTicker;
+ 1082              		.loc 1 489 33 is_stmt 0 view .LVU325
+ 1083 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1084              		.cfi_def_cfa_offset 20
+ 1085              		.cfi_offset 4, -20
+ 1086              		.cfi_offset 5, -16
+ 1087              		.cfi_offset 6, -12
+ 1088              		.cfi_offset 7, -8
+ 1089              		.cfi_offset 14, -4
+ 1090              		.loc 1 491 5 view .LVU326
+ 1091 0002 A84C     		ldr	r4, .L149
+ 1092 0004 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ARM GAS  /tmp/ccISWZDO.s 			page 33
+
+
+ 489:src/stopwatch.c **** 	unsigned long currentTicker;
+ 1093              		.loc 1 489 33 view .LVU327
+ 1094 0006 0646     		mov	r6, r0
+ 1095              		.loc 1 491 4 view .LVU328
+ 1096 0008 13F00100 		ands	r0, r3, #1
+ 1097              	.LVL67:
+ 489:src/stopwatch.c **** 	unsigned long currentTicker;
+ 1098              		.loc 1 489 33 view .LVU329
+ 1099 000c 8BB0     		sub	sp, sp, #44
+ 1100              		.cfi_def_cfa_offset 64
+ 1101              		.loc 1 491 4 view .LVU330
+ 1102 000e 68D0     		beq	.L80
+ 492:src/stopwatch.c **** 		currentTicker=getTicker();
+ 1103              		.loc 1 492 3 is_stmt 1 view .LVU331
+ 1104              	.LBB103:
+ 1105              	.LBI103:
+ 119:src/stopwatch.c ****   long int f, t; // 24.8 is ffffff.ff
+ 1106              		.loc 1 119 15 view .LVU332
+ 1107              	.LBB104:
+ 120:src/stopwatch.c ****   t = get_rtc_ticks();
+ 1108              		.loc 1 120 3 view .LVU333
+ 121:src/stopwatch.c ****   f = ((t & 0xfffffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
+ 1109              		.loc 1 121 3 view .LVU334
+ 121:src/stopwatch.c ****   f = ((t & 0xfffffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
+ 1110              		.loc 1 121 7 is_stmt 0 view .LVU335
+ 1111 0010 A54B     		ldr	r3, .L149+4
+ 1112              	.LBE104:
+ 1113              	.LBE103:
+ 493:src/stopwatch.c **** 		StopWatch=currentTicker-FirstTicker;
+ 1114              		.loc 1 493 26 view .LVU336
+ 1115 0012 A64F     		ldr	r7, .L149+8
+ 1116              		.loc 1 493 12 view .LVU337
+ 1117 0014 A64D     		ldr	r5, .L149+12
+ 1118              	.LBB107:
+ 1119              	.LBB105:
+ 121:src/stopwatch.c ****   f = ((t & 0xfffffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
+ 1120              		.loc 1 121 7 view .LVU338
+ 1121 0016 9847     		blx	r3
+ 1122              	.LVL68:
+ 122:src/stopwatch.c ****   return f;
+ 1123              		.loc 1 122 3 is_stmt 1 view .LVU339
+ 123:src/stopwatch.c **** }
+ 1124              		.loc 1 123 3 view .LVU340
+ 1125              	.LBE105:
+ 1126              	.LBE107:
+ 494:src/stopwatch.c **** 		TotalStopWatch=currentTicker-TotalFirstTicker;
+ 1127              		.loc 1 494 31 is_stmt 0 view .LVU341
+ 1128 0018 A64B     		ldr	r3, .L149+16
+ 493:src/stopwatch.c **** 		TotalStopWatch=currentTicker-TotalFirstTicker;
+ 1129              		.loc 1 493 26 view .LVU342
+ 1130 001a 3A68     		ldr	r2, [r7]
+ 1131              		.loc 1 494 31 view .LVU343
+ 1132 001c 1968     		ldr	r1, [r3]
+ 1133              	.LBB108:
+ 1134              	.LBB106:
+ 122:src/stopwatch.c ****   return f;
+ 1135              		.loc 1 122 11 view .LVU344
+ARM GAS  /tmp/ccISWZDO.s 			page 34
+
+
+ 1136 001e 20F07043 		bic	r3, r0, #-268435456
+ 122:src/stopwatch.c ****   return f;
+ 1137              		.loc 1 122 23 view .LVU345
+ 1138 0022 03EB8303 		add	r3, r3, r3, lsl #2
+ 122:src/stopwatch.c ****   return f;
+ 1139              		.loc 1 122 5 view .LVU346
+ 1140 0026 43F3D713 		sbfx	r3, r3, #7, #24
+ 1141              	.LVL69:
+ 122:src/stopwatch.c ****   return f;
+ 1142              		.loc 1 122 5 view .LVU347
+ 1143              	.LBE106:
+ 1144              	.LBE108:
+ 493:src/stopwatch.c **** 		TotalStopWatch=currentTicker-TotalFirstTicker;
+ 1145              		.loc 1 493 3 is_stmt 1 view .LVU348
+ 493:src/stopwatch.c **** 		TotalStopWatch=currentTicker-TotalFirstTicker;
+ 1146              		.loc 1 493 26 is_stmt 0 view .LVU349
+ 1147 002a 9A1A     		subs	r2, r3, r2
+ 1148              		.loc 1 494 31 view .LVU350
+ 1149 002c 5B1A     		subs	r3, r3, r1
+ 1150              	.LVL70:
+ 1151              		.loc 1 494 17 view .LVU351
+ 1152 002e A249     		ldr	r1, .L149+20
+ 493:src/stopwatch.c **** 		TotalStopWatch=currentTicker-TotalFirstTicker;
+ 1153              		.loc 1 493 12 view .LVU352
+ 1154 0030 2A60     		str	r2, [r5]
+ 1155              		.loc 1 494 3 is_stmt 1 view .LVU353
+ 495:src/stopwatch.c **** 		StopWatchKeyticks=0;
+ 1156              		.loc 1 495 20 is_stmt 0 view .LVU354
+ 1157 0032 A24A     		ldr	r2, .L149+24
+ 494:src/stopwatch.c **** 		StopWatchKeyticks=0;
+ 1158              		.loc 1 494 17 view .LVU355
+ 1159 0034 0B60     		str	r3, [r1]
+ 1160              		.loc 1 495 3 is_stmt 1 view .LVU356
+ 1161              		.loc 1 495 20 is_stmt 0 view .LVU357
+ 1162 0036 0023     		movs	r3, #0
+ 1163 0038 9380     		strh	r3, [r2, #4]	@ movhi
+ 1164 003a 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 1165              	.LVL71:
+ 1166              	.L81:
+ 496:src/stopwatch.c **** 	} else if(StopWatchKeyticks >= STOPWATCH_APD_TICKS) {
+ 497:src/stopwatch.c **** 		KeyCallback=(int(*)(int)) NULL;
+ 498:src/stopwatch.c **** 		return K_HEARTBEAT;
+ 499:src/stopwatch.c **** 	}
+ 500:src/stopwatch.c **** 
+ 501:src/stopwatch.c **** 	if(key!=K_HEARTBEAT && key!=K_RELEASE) {
+ 1167              		.loc 1 501 2 is_stmt 1 view .LVU358
+ 1168              		.loc 1 501 22 is_stmt 0 view .LVU359
+ 1169 003c A6F16201 		sub	r1, r6, #98
+ 1170              		.loc 1 501 4 view .LVU360
+ 1171 0040 0129     		cmp	r1, #1
+ 1172 0042 08D9     		bls	.L83
+ 502:src/stopwatch.c **** 		StopWatchKeyticks=0;
+ 1173              		.loc 1 502 3 is_stmt 1 view .LVU361
+ 1174              		.loc 1 502 20 is_stmt 0 view .LVU362
+ 1175 0044 0021     		movs	r1, #0
+ 503:src/stopwatch.c **** 		if(StopWatchStatus.select_memory_mode || StopWatchStatus.rcl_mode) {
+ 1176              		.loc 1 503 5 view .LVU363
+ARM GAS  /tmp/ccISWZDO.s 			page 35
+
+
+ 1177 0046 13F0180F 		tst	r3, #24
+ 502:src/stopwatch.c **** 		StopWatchKeyticks=0;
+ 1178              		.loc 1 502 20 view .LVU364
+ 1179 004a 9180     		strh	r1, [r2, #4]	@ movhi
+ 1180              		.loc 1 503 3 is_stmt 1 view .LVU365
+ 1181              		.loc 1 503 5 is_stmt 0 view .LVU366
+ 1182 004c 52D0     		beq	.L84
+ 504:src/stopwatch.c **** 			process_select_memory_key(key);
+ 1183              		.loc 1 504 4 is_stmt 1 view .LVU367
+ 1184 004e 3046     		mov	r0, r6
+ 1185 0050 FFF7FEFF 		bl	process_select_memory_key
+ 1186              	.LVL72:
+ 1187 0054 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 1188              	.L83:
+ 505:src/stopwatch.c **** 		} else {
+ 506:src/stopwatch.c **** 			process_stopwatch_key(key);
+ 507:src/stopwatch.c **** 		}
+ 508:src/stopwatch.c **** 	}
+ 509:src/stopwatch.c **** 	display_stopwatch();
+ 1189              		.loc 1 509 2 view .LVU368
+ 1190              	.LBB109:
+ 1191              	.LBI109:
+ 169:src/stopwatch.c **** 	char buf[13];
+ 1192              		.loc 1 169 13 view .LVU369
+ 1193              	.LBB110:
+ 170:src/stopwatch.c **** 	char exponent[3];
+ 1194              		.loc 1 170 2 view .LVU370
+ 171:src/stopwatch.c **** 	char message[13];
+ 1195              		.loc 1 171 2 view .LVU371
+ 172:src/stopwatch.c **** 	char display_rcl_message;
+ 1196              		.loc 1 172 2 view .LVU372
+ 173:src/stopwatch.c **** 	
+ 1197              		.loc 1 173 2 view .LVU373
+ 175:src/stopwatch.c **** 	stopwatch_to_string(StopWatch, buf);
+ 1198              		.loc 1 175 2 view .LVU374
+ 1199              	.LVL73:
+ 1200              	.LBB111:
+ 1201              	.LBI111:
+ 129:src/stopwatch.c **** 	if(StopWatchStatus.select_memory_mode) {
+ 1202              		.loc 1 129 13 view .LVU375
+ 1203              	.LBB112:
+ 130:src/stopwatch.c **** 		if(StopWatchMemoryFirstDigit>=0) {
+ 1204              		.loc 1 130 2 view .LVU376
+ 130:src/stopwatch.c **** 		if(StopWatchMemoryFirstDigit>=0) {
+ 1205              		.loc 1 130 4 is_stmt 0 view .LVU377
+ 1206 0056 1907     		lsls	r1, r3, #28
+ 1207 0058 40F1B180 		bpl	.L105
+ 131:src/stopwatch.c **** 			exponent[0]='0'+StopWatchMemoryFirstDigit;
+ 1208              		.loc 1 131 3 is_stmt 1 view .LVU378
+ 131:src/stopwatch.c **** 			exponent[0]='0'+StopWatchMemoryFirstDigit;
+ 1209              		.loc 1 131 31 is_stmt 0 view .LVU379
+ 1210 005c 984B     		ldr	r3, .L149+28
+ 1211 005e 93F90030 		ldrsb	r3, [r3]
+ 131:src/stopwatch.c **** 			exponent[0]='0'+StopWatchMemoryFirstDigit;
+ 1212              		.loc 1 131 5 view .LVU380
+ 1213 0062 002B     		cmp	r3, #0
+ 1214 0064 C0F28680 		blt	.L108
+ARM GAS  /tmp/ccISWZDO.s 			page 36
+
+
+ 132:src/stopwatch.c **** 		} else {
+ 1215              		.loc 1 132 4 is_stmt 1 view .LVU381
+ 132:src/stopwatch.c **** 		} else {
+ 1216              		.loc 1 132 19 is_stmt 0 view .LVU382
+ 1217 0068 3033     		adds	r3, r3, #48
+ 1218 006a DBB2     		uxtb	r3, r3
+ 1219              	.L106:
+ 136:src/stopwatch.c **** 	} else {
+ 1220              		.loc 1 136 14 view .LVU383
+ 1221 006c 5F22     		movs	r2, #95
+ 1222 006e 8DF80430 		strb	r3, [sp, #4]
+ 136:src/stopwatch.c **** 	} else {
+ 1223              		.loc 1 136 3 is_stmt 1 view .LVU384
+ 136:src/stopwatch.c **** 	} else {
+ 1224              		.loc 1 136 14 is_stmt 0 view .LVU385
+ 1225 0072 8DF80520 		strb	r2, [sp, #5]
+ 1226              	.L109:
+ 140:src/stopwatch.c **** }
+ 1227              		.loc 1 140 2 is_stmt 1 view .LVU386
+ 140:src/stopwatch.c **** }
+ 1228              		.loc 1 140 13 is_stmt 0 view .LVU387
+ 1229 0076 0023     		movs	r3, #0
+ 1230              	.LBE112:
+ 1231              	.LBE111:
+ 176:src/stopwatch.c **** 	display_rcl_message=StopWatchStatus.rcl_mode || StopWatchStatus.sigma_display_mode || RclMemory>=0
+ 1232              		.loc 1 176 2 view .LVU388
+ 1233 0078 2868     		ldr	r0, [r5]
+ 1234              	.LBB117:
+ 1235              	.LBB113:
+ 140:src/stopwatch.c **** }
+ 1236              		.loc 1 140 13 view .LVU389
+ 1237 007a 8DF80630 		strb	r3, [sp, #6]
+ 1238              	.LVL74:
+ 140:src/stopwatch.c **** }
+ 1239              		.loc 1 140 13 view .LVU390
+ 1240              	.LBE113:
+ 1241              	.LBE117:
+ 176:src/stopwatch.c **** 	display_rcl_message=StopWatchStatus.rcl_mode || StopWatchStatus.sigma_display_mode || RclMemory>=0
+ 1242              		.loc 1 176 2 is_stmt 1 view .LVU391
+ 1243 007e 02A9     		add	r1, sp, #8
+ 1244 0080 FFF7FEFF 		bl	stopwatch_to_string
+ 1245              	.LVL75:
+ 177:src/stopwatch.c **** 	if(display_rcl_message) {
+ 1246              		.loc 1 177 2 view .LVU392
+ 177:src/stopwatch.c **** 	if(display_rcl_message) {
+ 1247              		.loc 1 177 47 is_stmt 0 view .LVU393
+ 1248 0084 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 1249 0086 8F4D     		ldr	r5, .L149+32
+ 177:src/stopwatch.c **** 	if(display_rcl_message) {
+ 1250              		.loc 1 177 85 view .LVU394
+ 1251 0088 13F0300F 		tst	r3, #48
+ 1252 008c 03D1     		bne	.L110
+ 1253 008e 95F90020 		ldrsb	r2, [r5]
+ 1254 0092 002A     		cmp	r2, #0
+ 1255 0094 70DB     		blt	.L146
+ 1256              	.L110:
+ 1257              	.LVL76:
+ARM GAS  /tmp/ccISWZDO.s 			page 37
+
+
+ 178:src/stopwatch.c **** 		char* rp=scopy(message, StopWatchStatus.sigma_display_mode?"\221+\006":"RCL\006\006");
+ 1258              		.loc 1 178 2 is_stmt 1 view .LVU395
+ 1259              	.LBB118:
+ 179:src/stopwatch.c **** 		if(StopWatchStatus.sigma_display_mode) {
+ 1260              		.loc 1 179 3 view .LVU396
+ 179:src/stopwatch.c **** 		if(StopWatchStatus.sigma_display_mode) {
+ 1261              		.loc 1 179 12 is_stmt 0 view .LVU397
+ 1262 0096 8C4A     		ldr	r2, .L149+36
+ 1263 0098 8C49     		ldr	r1, .L149+40
+ 1264 009a 13F0200F 		tst	r3, #32
+ 1265 009e 18BF     		it	ne
+ 1266 00a0 1146     		movne	r1, r2
+ 1267 00a2 06A8     		add	r0, sp, #24
+ 1268 00a4 FFF7FEFF 		bl	scopy
+ 1269              	.LVL77:
+ 180:src/stopwatch.c **** 			rp=num_arg(rp, RclMemory);
+ 1270              		.loc 1 180 6 view .LVU398
+ 1271 00a8 2278     		ldrb	r2, [r4]	@ zero_extendqisi2
+ 180:src/stopwatch.c **** 			rp=num_arg(rp, RclMemory);
+ 1272              		.loc 1 180 5 view .LVU399
+ 1273 00aa 9206     		lsls	r2, r2, #26
+ 179:src/stopwatch.c **** 		if(StopWatchStatus.sigma_display_mode) {
+ 1274              		.loc 1 179 12 view .LVU400
+ 1275 00ac 0346     		mov	r3, r0
+ 1276              	.LVL78:
+ 180:src/stopwatch.c **** 			rp=num_arg(rp, RclMemory);
+ 1277              		.loc 1 180 3 is_stmt 1 view .LVU401
+ 180:src/stopwatch.c **** 			rp=num_arg(rp, RclMemory);
+ 1278              		.loc 1 180 5 is_stmt 0 view .LVU402
+ 1279 00ae 00F19680 		bmi	.L147
+ 184:src/stopwatch.c **** 				rp=num_arg_0(rp, RclMemory, 2);
+ 1280              		.loc 1 184 4 is_stmt 1 view .LVU403
+ 184:src/stopwatch.c **** 				rp=num_arg_0(rp, RclMemory, 2);
+ 1281              		.loc 1 184 16 is_stmt 0 view .LVU404
+ 1282 00b2 95F90010 		ldrsb	r1, [r5]
+ 184:src/stopwatch.c **** 				rp=num_arg_0(rp, RclMemory, 2);
+ 1283              		.loc 1 184 6 view .LVU405
+ 1284 00b6 0029     		cmp	r1, #0
+ 1285 00b8 80F28880 		bge	.L148
+ 188:src/stopwatch.c **** 					*rp++='0'+StopWatchMemoryFirstDigit;
+ 1286              		.loc 1 188 5 is_stmt 1 view .LVU406
+ 188:src/stopwatch.c **** 					*rp++='0'+StopWatchMemoryFirstDigit;
+ 1287              		.loc 1 188 33 is_stmt 0 view .LVU407
+ 1288 00bc 804A     		ldr	r2, .L149+28
+ 1289 00be 92F90020 		ldrsb	r2, [r2]
+ 188:src/stopwatch.c **** 					*rp++='0'+StopWatchMemoryFirstDigit;
+ 1290              		.loc 1 188 7 view .LVU408
+ 1291 00c2 002A     		cmp	r2, #0
+ 1292 00c4 04DB     		blt	.L115
+ 189:src/stopwatch.c **** 				}
+ 1293              		.loc 1 189 6 is_stmt 1 view .LVU409
+ 189:src/stopwatch.c **** 				}
+ 1294              		.loc 1 189 9 is_stmt 0 view .LVU410
+ 1295 00c6 1846     		mov	r0, r3
+ 1296              	.LVL79:
+ 189:src/stopwatch.c **** 				}
+ 1297              		.loc 1 189 15 view .LVU411
+ARM GAS  /tmp/ccISWZDO.s 			page 38
+
+
+ 1298 00c8 3032     		adds	r2, r2, #48
+ 189:src/stopwatch.c **** 				}
+ 1299              		.loc 1 189 11 view .LVU412
+ 1300 00ca 00F8012B 		strb	r2, [r0], #1
+ 1301              	.LVL80:
+ 189:src/stopwatch.c **** 				}
+ 1302              		.loc 1 189 9 view .LVU413
+ 1303 00ce 0346     		mov	r3, r0
+ 1304              	.L115:
+ 191:src/stopwatch.c **** 			}
+ 1305              		.loc 1 191 5 is_stmt 1 view .LVU414
+ 191:src/stopwatch.c **** 			}
+ 1306              		.loc 1 191 8 is_stmt 0 view .LVU415
+ 1307 00d0 1846     		mov	r0, r3
+ 1308              	.LVL81:
+ 191:src/stopwatch.c **** 			}
+ 1309              		.loc 1 191 10 view .LVU416
+ 1310 00d2 5F23     		movs	r3, #95
+ 1311 00d4 00F8013B 		strb	r3, [r0], #1
+ 1312              	.LVL82:
+ 1313              	.L113:
+ 194:src/stopwatch.c **** 	}
+ 1314              		.loc 1 194 3 is_stmt 1 view .LVU417
+ 194:src/stopwatch.c **** 	}
+ 1315              		.loc 1 194 6 is_stmt 0 view .LVU418
+ 1316 00d8 0023     		movs	r3, #0
+ 1317 00da 0370     		strb	r3, [r0]
+ 194:src/stopwatch.c **** 	}
+ 1318              		.loc 1 194 6 view .LVU419
+ 1319              	.LBE118:
+ 200:src/stopwatch.c **** }
+ 1320              		.loc 1 200 2 is_stmt 1 view .LVU420
+ 1321 00dc 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 1322 00de 06A8     		add	r0, sp, #24
+ 1323              	.LVL83:
+ 200:src/stopwatch.c **** }
+ 1324              		.loc 1 200 2 is_stmt 0 view .LVU421
+ 1325 00e0 4FE0     		b	.L116
+ 1326              	.LVL84:
+ 1327              	.L80:
+ 200:src/stopwatch.c **** }
+ 1328              		.loc 1 200 2 view .LVU422
+ 1329              	.LBE110:
+ 1330              	.LBE109:
+ 496:src/stopwatch.c **** 		KeyCallback=(int(*)(int)) NULL;
+ 1331              		.loc 1 496 9 is_stmt 1 view .LVU423
+ 496:src/stopwatch.c **** 		KeyCallback=(int(*)(int)) NULL;
+ 1332              		.loc 1 496 12 is_stmt 0 view .LVU424
+ 1333 00e2 764A     		ldr	r2, .L149+24
+ 1334 00e4 9188     		ldrh	r1, [r2, #4]
+ 496:src/stopwatch.c **** 		KeyCallback=(int(*)(int)) NULL;
+ 1335              		.loc 1 496 11 view .LVU425
+ 1336 00e6 4FF6FF75 		movw	r5, #65535
+ 496:src/stopwatch.c **** 		KeyCallback=(int(*)(int)) NULL;
+ 1337              		.loc 1 496 12 view .LVU426
+ 1338 00ea 89B2     		uxth	r1, r1
+ 496:src/stopwatch.c **** 		KeyCallback=(int(*)(int)) NULL;
+ARM GAS  /tmp/ccISWZDO.s 			page 39
+
+
+ 1339              		.loc 1 496 11 view .LVU427
+ 1340 00ec A942     		cmp	r1, r5
+ 1341 00ee 71D0     		beq	.L138
+ 1342 00f0 6F4D     		ldr	r5, .L149+12
+ 1343 00f2 A3E7     		b	.L81
+ 1344              	.L84:
+ 506:src/stopwatch.c **** 		}
+ 1345              		.loc 1 506 4 is_stmt 1 view .LVU428
+ 1346              	.LVL85:
+ 1347              	.LBB128:
+ 1348              	.LBI128:
+ 402:src/stopwatch.c **** 	int max_registers=global_regs();
+ 1349              		.loc 1 402 13 view .LVU429
+ 1350              	.LBB129:
+ 403:src/stopwatch.c **** 	switch(key)	{
+ 1351              		.loc 1 403 2 view .LVU430
+ 403:src/stopwatch.c **** 	switch(key)	{
+ 1352              		.loc 1 403 20 is_stmt 0 view .LVU431
+ 1353 00f4 FFF7FEFF 		bl	global_regs
+ 1354              	.LVL86:
+ 1355 00f8 731E     		subs	r3, r6, #1
+ 1356              	.LVL87:
+ 404:src/stopwatch.c **** 			case STOPWATCH_RS: {
+ 1357              		.loc 1 404 2 is_stmt 1 view .LVU432
+ 1358 00fa 292B     		cmp	r3, #41
+ 1359 00fc 7CD8     		bhi	.L85
+ 1360 00fe DFE813F0 		tbh	[pc, r3, lsl #1]
+ 1361              	.L87:
+ 1362 0102 C300     		.2byte	(.L98-.L87)/2
+ 1363 0104 7B00     		.2byte	(.L85-.L87)/2
+ 1364 0106 7B00     		.2byte	(.L85-.L87)/2
+ 1365 0108 7B00     		.2byte	(.L85-.L87)/2
+ 1366 010a 7B00     		.2byte	(.L85-.L87)/2
+ 1367 010c 7B00     		.2byte	(.L85-.L87)/2
+ 1368 010e 7B00     		.2byte	(.L85-.L87)/2
+ 1369 0110 2A00     		.2byte	(.L97-.L87)/2
+ 1370 0112 7B00     		.2byte	(.L85-.L87)/2
+ 1371 0114 7B00     		.2byte	(.L85-.L87)/2
+ 1372 0116 7B00     		.2byte	(.L85-.L87)/2
+ 1373 0118 7B00     		.2byte	(.L85-.L87)/2
+ 1374 011a 1A01     		.2byte	(.L96-.L87)/2
+ 1375 011c 7B00     		.2byte	(.L85-.L87)/2
+ 1376 011e 7B00     		.2byte	(.L85-.L87)/2
+ 1377 0120 C700     		.2byte	(.L95-.L87)/2
+ 1378 0122 F100     		.2byte	(.L94-.L87)/2
+ 1379 0124 0801     		.2byte	(.L93-.L87)/2
+ 1380 0126 7B00     		.2byte	(.L85-.L87)/2
+ 1381 0128 7B00     		.2byte	(.L85-.L87)/2
+ 1382 012a 7B00     		.2byte	(.L85-.L87)/2
+ 1383 012c 7B00     		.2byte	(.L85-.L87)/2
+ 1384 012e 1101     		.2byte	(.L92-.L87)/2
+ 1385 0130 7B00     		.2byte	(.L85-.L87)/2
+ 1386 0132 7B00     		.2byte	(.L85-.L87)/2
+ 1387 0134 7B00     		.2byte	(.L85-.L87)/2
+ 1388 0136 7B00     		.2byte	(.L85-.L87)/2
+ 1389 0138 7B00     		.2byte	(.L85-.L87)/2
+ 1390 013a 7B00     		.2byte	(.L85-.L87)/2
+ARM GAS  /tmp/ccISWZDO.s 			page 40
+
+
+ 1391 013c 7B00     		.2byte	(.L85-.L87)/2
+ 1392 013e 7B00     		.2byte	(.L85-.L87)/2
+ 1393 0140 7B00     		.2byte	(.L85-.L87)/2
+ 1394 0142 9700     		.2byte	(.L91-.L87)/2
+ 1395 0144 7B00     		.2byte	(.L85-.L87)/2
+ 1396 0146 9C00     		.2byte	(.L90-.L87)/2
+ 1397 0148 AF00     		.2byte	(.L89-.L87)/2
+ 1398 014a B300     		.2byte	(.L88-.L87)/2
+ 1399 014c 7B00     		.2byte	(.L85-.L87)/2
+ 1400 014e 7B00     		.2byte	(.L85-.L87)/2
+ 1401 0150 7B00     		.2byte	(.L85-.L87)/2
+ 1402 0152 7B00     		.2byte	(.L85-.L87)/2
+ 1403 0154 B900     		.2byte	(.L86-.L87)/2
+ 1404              		.p2align 1
+ 1405              	.L97:
+ 468:src/stopwatch.c **** 				StopWatchStatus.sigma_display_mode=0;
+ 1406              		.loc 1 468 5 view .LVU433
+ 469:src/stopwatch.c **** 				StopWatchMemoryFirstDigit=-1;
+ 1407              		.loc 1 469 5 view .LVU434
+ 468:src/stopwatch.c **** 				StopWatchStatus.sigma_display_mode=0;
+ 1408              		.loc 1 468 29 is_stmt 0 view .LVU435
+ 1409 0156 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 470:src/stopwatch.c **** 				break;
+ 1410              		.loc 1 470 30 view .LVU436
+ 1411 0158 594A     		ldr	r2, .L149+28
+ 468:src/stopwatch.c **** 				StopWatchStatus.sigma_display_mode=0;
+ 1412              		.loc 1 468 43 view .LVU437
+ 1413 015a 0028     		cmp	r0, #0
+ 1414 015c D4BF     		ite	le
+ 1415 015e 0020     		movle	r0, #0
+ 1416              	.LVL88:
+ 468:src/stopwatch.c **** 				StopWatchStatus.sigma_display_mode=0;
+ 1417              		.loc 1 468 43 view .LVU438
+ 1418 0160 0120     		movgt	r0, #1
+ 468:src/stopwatch.c **** 				StopWatchStatus.sigma_display_mode=0;
+ 1419              		.loc 1 468 29 view .LVU439
+ 1420 0162 23F03003 		bic	r3, r3, #48
+ 1421 0166 43EA0010 		orr	r0, r3, r0, lsl #4
+ 1422 016a 2070     		strb	r0, [r4]
+ 470:src/stopwatch.c **** 				break;
+ 1423              		.loc 1 470 5 is_stmt 1 view .LVU440
+ 470:src/stopwatch.c **** 				break;
+ 1424              		.loc 1 470 30 is_stmt 0 view .LVU441
+ 1425 016c FF23     		movs	r3, #255
+ 1426              	.LBE129:
+ 1427              	.LBE128:
+ 1428              	.LBB140:
+ 1429              	.LBB124:
+ 1430              	.LBB119:
+ 1431              	.LBB114:
+ 130:src/stopwatch.c **** 		if(StopWatchMemoryFirstDigit>=0) {
+ 1432              		.loc 1 130 4 view .LVU442
+ 1433 016e 0007     		lsls	r0, r0, #28
+ 1434              	.LBE114:
+ 1435              	.LBE119:
+ 1436              	.LBE124:
+ 1437              	.LBE140:
+ARM GAS  /tmp/ccISWZDO.s 			page 41
+
+
+ 1438              	.LBB141:
+ 1439              	.LBB138:
+ 470:src/stopwatch.c **** 				break;
+ 1440              		.loc 1 470 30 view .LVU443
+ 1441 0170 1370     		strb	r3, [r2]
+ 471:src/stopwatch.c **** 				}
+ 1442              		.loc 1 471 5 is_stmt 1 view .LVU444
+ 1443              	.LVL89:
+ 471:src/stopwatch.c **** 				}
+ 1444              		.loc 1 471 5 is_stmt 0 view .LVU445
+ 1445              	.LBE138:
+ 1446              	.LBE141:
+ 1447              		.loc 1 509 2 is_stmt 1 view .LVU446
+ 1448              	.LBB142:
+ 169:src/stopwatch.c **** 	char buf[13];
+ 1449              		.loc 1 169 13 view .LVU447
+ 1450              	.LBB125:
+ 170:src/stopwatch.c **** 	char exponent[3];
+ 1451              		.loc 1 170 2 view .LVU448
+ 171:src/stopwatch.c **** 	char message[13];
+ 1452              		.loc 1 171 2 view .LVU449
+ 172:src/stopwatch.c **** 	char display_rcl_message;
+ 1453              		.loc 1 172 2 view .LVU450
+ 173:src/stopwatch.c **** 	
+ 1454              		.loc 1 173 2 view .LVU451
+ 175:src/stopwatch.c **** 	stopwatch_to_string(StopWatch, buf);
+ 1455              		.loc 1 175 2 view .LVU452
+ 1456              	.LBB120:
+ 129:src/stopwatch.c **** 	if(StopWatchStatus.select_memory_mode) {
+ 1457              		.loc 1 129 13 view .LVU453
+ 1458              	.LBB115:
+ 130:src/stopwatch.c **** 		if(StopWatchMemoryFirstDigit>=0) {
+ 1459              		.loc 1 130 2 view .LVU454
+ 130:src/stopwatch.c **** 		if(StopWatchMemoryFirstDigit>=0) {
+ 1460              		.loc 1 130 4 is_stmt 0 view .LVU455
+ 1461 0172 24D5     		bpl	.L105
+ 1462              	.L108:
+ 134:src/stopwatch.c **** 		}
+ 1463              		.loc 1 134 15 view .LVU456
+ 1464 0174 5F23     		movs	r3, #95
+ 1465 0176 79E7     		b	.L106
+ 1466              	.LVL90:
+ 1467              	.L146:
+ 134:src/stopwatch.c **** 		}
+ 1468              		.loc 1 134 15 view .LVU457
+ 1469              	.LBE115:
+ 1470              	.LBE120:
+ 178:src/stopwatch.c **** 		char* rp=scopy(message, StopWatchStatus.sigma_display_mode?"\221+\006":"RCL\006\006");
+ 1471              		.loc 1 178 2 is_stmt 1 view .LVU458
+ 196:src/stopwatch.c **** 		stopwatch_to_string(TotalStopWatch, message);
+ 1472              		.loc 1 196 7 view .LVU459
+ 196:src/stopwatch.c **** 		stopwatch_to_string(TotalStopWatch, message);
+ 1473              		.loc 1 196 26 is_stmt 0 view .LVU460
+ 1474 0178 4E4A     		ldr	r2, .L149+16
+ 196:src/stopwatch.c **** 		stopwatch_to_string(TotalStopWatch, message);
+ 1475              		.loc 1 196 9 view .LVU461
+ 1476 017a 1268     		ldr	r2, [r2]
+ARM GAS  /tmp/ccISWZDO.s 			page 42
+
+
+ 1477 017c 002A     		cmp	r2, #0
+ 1478 017e 33D1     		bne	.L120
+ 200:src/stopwatch.c **** }
+ 1479              		.loc 1 200 2 view .LVU462
+ 1480 0180 5348     		ldr	r0, .L149+44
+ 1481              	.LVL91:
+ 1482              	.L116:
+ 200:src/stopwatch.c **** }
+ 1483              		.loc 1 200 87 view .LVU463
+ 1484 0182 2278     		ldrb	r2, [r4]	@ zero_extendqisi2
+ 200:src/stopwatch.c **** }
+ 1485              		.loc 1 200 2 view .LVU464
+ 1486 0184 13F00403 		ands	r3, r3, #4
+ 200:src/stopwatch.c **** }
+ 1487              		.loc 1 200 87 view .LVU465
+ 1488 0188 42F34012 		sbfx	r2, r2, #5, #1
+ 200:src/stopwatch.c **** }
+ 1489              		.loc 1 200 2 view .LVU466
+ 1490 018c 18BF     		it	ne
+ 1491 018e 01AB     		addne	r3, sp, #4
+ 1492 0190 52B2     		sxtb	r2, r2
+ 1493 0192 02A9     		add	r1, sp, #8
+ 1494 0194 FFF7FEFF 		bl	stopwatch_message
+ 1495              	.LVL92:
+ 1496              	.LBE125:
+ 1497              	.LBE142:
+ 510:src/stopwatch.c **** 	if(RclMemory>=0 && RclMemoryRemanentDisplay++ > RCL_MEMORY_REMANENCE) {
+ 1498              		.loc 1 510 2 is_stmt 1 view .LVU467
+ 1499              		.loc 1 510 4 is_stmt 0 view .LVU468
+ 1500 0198 95F90030 		ldrsb	r3, [r5]
+ 1501 019c 002B     		cmp	r3, #0
+ 1502 019e 0BDB     		blt	.L134
+ 1503              		.loc 1 510 45 discriminator 1 view .LVU469
+ 1504 01a0 4C4A     		ldr	r2, .L149+48
+ 1505 01a2 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1506 01a4 591C     		adds	r1, r3, #1
+ 1507              		.loc 1 510 18 discriminator 1 view .LVU470
+ 1508 01a6 032B     		cmp	r3, #3
+ 1509              		.loc 1 510 45 discriminator 1 view .LVU471
+ 1510 01a8 1170     		strb	r1, [r2]
+ 1511              		.loc 1 510 18 discriminator 1 view .LVU472
+ 1512 01aa 05D9     		bls	.L134
+ 511:src/stopwatch.c **** 		StopWatchStatus.sigma_display_mode=0;
+ 1513              		.loc 1 511 3 is_stmt 1 view .LVU473
+ 1514              		.loc 1 511 37 is_stmt 0 view .LVU474
+ 1515 01ac 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 512:src/stopwatch.c **** 		RclMemory=-1;
+ 1516              		.loc 1 512 12 view .LVU475
+ 1517 01ae FF22     		movs	r2, #255
+ 511:src/stopwatch.c **** 		StopWatchStatus.sigma_display_mode=0;
+ 1518              		.loc 1 511 37 view .LVU476
+ 1519 01b0 6FF34513 		bfc	r3, #5, #1
+ 1520 01b4 2370     		strb	r3, [r4]
+ 1521              		.loc 1 512 3 is_stmt 1 view .LVU477
+ 1522              		.loc 1 512 12 is_stmt 0 view .LVU478
+ 1523 01b6 2A70     		strb	r2, [r5]
+ 1524              	.L134:
+ARM GAS  /tmp/ccISWZDO.s 			page 43
+
+
+ 513:src/stopwatch.c **** 	}
+ 514:src/stopwatch.c **** 
+ 515:src/stopwatch.c **** 	return K_HEARTBEAT;
+ 516:src/stopwatch.c **** }
+ 1525              		.loc 1 516 1 view .LVU479
+ 1526 01b8 6220     		movs	r0, #98
+ 1527 01ba 0BB0     		add	sp, sp, #44
+ 1528              		.cfi_remember_state
+ 1529              		.cfi_def_cfa_offset 20
+ 1530              		@ sp needed
+ 1531 01bc F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1532              	.LVL93:
+ 1533              	.L105:
+ 1534              		.cfi_restore_state
+ 1535              	.LBB143:
+ 1536              	.LBB126:
+ 1537              	.LBB121:
+ 1538              	.LBB116:
+ 138:src/stopwatch.c **** 	}
+ 1539              		.loc 1 138 3 is_stmt 1 view .LVU480
+ 1540 01be 464B     		ldr	r3, .L149+52
+ 1541 01c0 0222     		movs	r2, #2
+ 1542 01c2 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 1543 01c4 01A8     		add	r0, sp, #4
+ 1544              	.LVL94:
+ 138:src/stopwatch.c **** 	}
+ 1545              		.loc 1 138 3 is_stmt 0 view .LVU481
+ 1546 01c6 FFF7FEFF 		bl	num_arg_0
+ 1547              	.LVL95:
+ 138:src/stopwatch.c **** 	}
+ 1548              		.loc 1 138 3 view .LVU482
+ 1549 01ca 54E7     		b	.L109
+ 1550              	.LVL96:
+ 1551              	.L148:
+ 138:src/stopwatch.c **** 	}
+ 1552              		.loc 1 138 3 view .LVU483
+ 1553              	.LBE116:
+ 1554              	.LBE121:
+ 1555              	.LBB122:
+ 185:src/stopwatch.c **** 			}
+ 1556              		.loc 1 185 5 is_stmt 1 view .LVU484
+ 185:src/stopwatch.c **** 			}
+ 1557              		.loc 1 185 8 is_stmt 0 view .LVU485
+ 1558 01cc 0222     		movs	r2, #2
+ 1559 01ce FFF7FEFF 		bl	num_arg_0
+ 1560              	.LVL97:
+ 185:src/stopwatch.c **** 			}
+ 1561              		.loc 1 185 8 view .LVU486
+ 1562 01d2 81E7     		b	.L113
+ 1563              	.LVL98:
+ 1564              	.L138:
+ 185:src/stopwatch.c **** 			}
+ 1565              		.loc 1 185 8 view .LVU487
+ 1566              	.LBE122:
+ 1567              	.LBE126:
+ 1568              	.LBE143:
+ 497:src/stopwatch.c **** 		return K_HEARTBEAT;
+ARM GAS  /tmp/ccISWZDO.s 			page 44
+
+
+ 1569              		.loc 1 497 3 is_stmt 1 view .LVU488
+ 497:src/stopwatch.c **** 		return K_HEARTBEAT;
+ 1570              		.loc 1 497 14 is_stmt 0 view .LVU489
+ 1571 01d4 414B     		ldr	r3, .L149+56
+ 1572 01d6 1860     		str	r0, [r3]
+ 498:src/stopwatch.c **** 	}
+ 1573              		.loc 1 498 3 is_stmt 1 view .LVU490
+ 1574              		.loc 1 516 1 is_stmt 0 view .LVU491
+ 1575 01d8 6220     		movs	r0, #98
+ 1576 01da 0BB0     		add	sp, sp, #44
+ 1577              		.cfi_remember_state
+ 1578              		.cfi_def_cfa_offset 20
+ 1579              		@ sp needed
+ 1580 01dc F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1581              	.LVL99:
+ 1582              	.L147:
+ 1583              		.cfi_restore_state
+ 1584              	.LBB144:
+ 1585              	.LBB127:
+ 1586              	.LBB123:
+ 181:src/stopwatch.c **** 		}
+ 1587              		.loc 1 181 4 is_stmt 1 view .LVU492
+ 181:src/stopwatch.c **** 		}
+ 1588              		.loc 1 181 7 is_stmt 0 view .LVU493
+ 1589 01de 95F90010 		ldrsb	r1, [r5]
+ 1590 01e2 FFF7FEFF 		bl	num_arg
+ 1591              	.LVL100:
+ 181:src/stopwatch.c **** 		}
+ 1592              		.loc 1 181 7 view .LVU494
+ 1593 01e6 77E7     		b	.L113
+ 1594              	.LVL101:
+ 1595              	.L120:
+ 181:src/stopwatch.c **** 		}
+ 1596              		.loc 1 181 7 view .LVU495
+ 1597              	.LBE123:
+ 197:src/stopwatch.c **** 		display_rcl_message=1;
+ 1598              		.loc 1 197 3 is_stmt 1 view .LVU496
+ 1599 01e8 334B     		ldr	r3, .L149+20
+ 1600 01ea 06A9     		add	r1, sp, #24
+ 1601 01ec 1868     		ldr	r0, [r3]
+ 1602 01ee FFF7FEFF 		bl	stopwatch_to_string
+ 1603              	.LVL102:
+ 198:src/stopwatch.c **** 	}
+ 1604              		.loc 1 198 3 view .LVU497
+ 200:src/stopwatch.c **** }
+ 1605              		.loc 1 200 2 view .LVU498
+ 1606 01f2 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 1607 01f4 06A8     		add	r0, sp, #24
+ 1608 01f6 C4E7     		b	.L116
+ 1609              	.LVL103:
+ 1610              	.L85:
+ 200:src/stopwatch.c **** }
+ 1611              		.loc 1 200 2 is_stmt 0 view .LVU499
+ 1612              	.LBE127:
+ 1613              	.LBE144:
+ 1614              	.LBB145:
+ 1615              	.LBB139:
+ARM GAS  /tmp/ccISWZDO.s 			page 45
+
+
+ 474:src/stopwatch.c **** 					//Digits
+ 1616              		.loc 1 474 5 is_stmt 1 view .LVU500
+ 1617              	.LBB130:
+ 1618              	.LBI130:
+ 231:src/stopwatch.c ****   int digit = -1;
+ 1619              		.loc 1 231 12 view .LVU501
+ 1620              	.LBB131:
+ 232:src/stopwatch.c ****   switch (key) {
+ 1621              		.loc 1 232 3 view .LVU502
+ 233:src/stopwatch.c ****   case KEY_0: digit = 0;
+ 1622              		.loc 1 233 3 view .LVU503
+ 1623 01f8 A6F11303 		sub	r3, r6, #19
+ 1624 01fc 0F2B     		cmp	r3, #15
+ 1625 01fe 15D8     		bhi	.L145
+ 1626              	.LVL104:
+ 254:src/stopwatch.c ****   }
+ 1627              		.loc 1 254 11 view .LVU504
+ 256:src/stopwatch.c **** }
+ 1628              		.loc 1 256 3 view .LVU505
+ 256:src/stopwatch.c **** }
+ 1629              		.loc 1 256 19 is_stmt 0 view .LVU506
+ 1630 0200 374A     		ldr	r2, .L149+60
+ 256:src/stopwatch.c **** }
+ 1631              		.loc 1 256 60 view .LVU507
+ 1632 0202 52F82330 		ldr	r3, [r2, r3, lsl #2]
+ 1633              	.LVL105:
+ 256:src/stopwatch.c **** }
+ 1634              		.loc 1 256 60 view .LVU508
+ 1635 0206 092B     		cmp	r3, #9
+ 1636 0208 10D8     		bhi	.L145
+ 256:src/stopwatch.c **** }
+ 1637              		.loc 1 256 34 view .LVU509
+ 1638 020a FFF7FEFF 		bl	global_regs
+ 1639              	.LVL106:
+ 256:src/stopwatch.c **** }
+ 1640              		.loc 1 256 34 view .LVU510
+ 1641              	.LBE131:
+ 1642              	.LBE130:
+ 478:src/stopwatch.c **** 					process_select_memory_key(key);
+ 1643              		.loc 1 478 33 view .LVU511
+ 1644 020e 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 1645              	.LBB133:
+ 1646              	.LBB132:
+ 256:src/stopwatch.c **** }
+ 1647              		.loc 1 256 31 view .LVU512
+ 1648 0210 0028     		cmp	r0, #0
+ 1649 0212 3FF420AF 		beq	.L83
+ 1650              	.LVL107:
+ 256:src/stopwatch.c **** }
+ 1651              		.loc 1 256 31 view .LVU513
+ 1652              	.LBE132:
+ 1653              	.LBE133:
+ 476:src/stopwatch.c **** 					StopWatchMemoryFirstDigit=-1;
+ 1654              		.loc 1 476 6 is_stmt 1 view .LVU514
+ 477:src/stopwatch.c **** 					StopWatchStatus.show_memory=1;
+ 1655              		.loc 1 477 6 view .LVU515
+ 477:src/stopwatch.c **** 					StopWatchStatus.show_memory=1;
+ARM GAS  /tmp/ccISWZDO.s 			page 46
+
+
+ 1656              		.loc 1 477 31 is_stmt 0 view .LVU516
+ 1657 0216 2A4A     		ldr	r2, .L149+28
+ 478:src/stopwatch.c **** 					process_select_memory_key(key);
+ 1658              		.loc 1 478 33 view .LVU517
+ 1659 0218 23F00C03 		bic	r3, r3, #12
+ 1660 021c 43F00C03 		orr	r3, r3, #12
+ 477:src/stopwatch.c **** 					StopWatchStatus.show_memory=1;
+ 1661              		.loc 1 477 31 view .LVU518
+ 1662 0220 FF21     		movs	r1, #255
+ 479:src/stopwatch.c **** 				}
+ 1663              		.loc 1 479 6 view .LVU519
+ 1664 0222 3046     		mov	r0, r6
+ 478:src/stopwatch.c **** 					process_select_memory_key(key);
+ 1665              		.loc 1 478 33 view .LVU520
+ 1666 0224 2370     		strb	r3, [r4]
+ 477:src/stopwatch.c **** 					StopWatchStatus.show_memory=1;
+ 1667              		.loc 1 477 31 view .LVU521
+ 1668 0226 1170     		strb	r1, [r2]
+ 478:src/stopwatch.c **** 					process_select_memory_key(key);
+ 1669              		.loc 1 478 6 is_stmt 1 view .LVU522
+ 479:src/stopwatch.c **** 				}
+ 1670              		.loc 1 479 6 view .LVU523
+ 1671 0228 FFF7FEFF 		bl	process_select_memory_key
+ 1672              	.LVL108:
+ 1673              	.L145:
+ 479:src/stopwatch.c **** 				}
+ 1674              		.loc 1 479 6 is_stmt 0 view .LVU524
+ 1675 022c 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 1676 022e 12E7     		b	.L83
+ 1677              	.LVL109:
+ 1678              	.L91:
+ 410:src/stopwatch.c **** 				break;
+ 1679              		.loc 1 410 5 is_stmt 1 view .LVU525
+ 410:src/stopwatch.c **** 				break;
+ 1680              		.loc 1 410 16 is_stmt 0 view .LVU526
+ 1681 0230 2A4A     		ldr	r2, .L149+56
+ 1682 0232 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 1683 0234 0021     		movs	r1, #0
+ 1684 0236 1160     		str	r1, [r2]
+ 411:src/stopwatch.c **** 			}
+ 1685              		.loc 1 411 5 is_stmt 1 view .LVU527
+ 1686 0238 0DE7     		b	.L83
+ 1687              	.L90:
+ 435:src/stopwatch.c **** 				if(TotalFirstTicker==0) {
+ 1688              		.loc 1 435 5 view .LVU528
+ 1689 023a FFF7FEFF 		bl	store_stopwatch_in_memory
+ 1690              	.LVL110:
+ 436:src/stopwatch.c **** 					TotalFirstTicker=FirstTicker;
+ 1691              		.loc 1 436 5 view .LVU529
+ 436:src/stopwatch.c **** 					TotalFirstTicker=FirstTicker;
+ 1692              		.loc 1 436 24 is_stmt 0 view .LVU530
+ 1693 023e 1D4B     		ldr	r3, .L149+16
+ 437:src/stopwatch.c **** 				}
+ 1694              		.loc 1 437 22 view .LVU531
+ 1695 0240 1A4F     		ldr	r7, .L149+8
+ 436:src/stopwatch.c **** 					TotalFirstTicker=FirstTicker;
+ 1696              		.loc 1 436 7 view .LVU532
+ARM GAS  /tmp/ccISWZDO.s 			page 47
+
+
+ 1697 0242 1A68     		ldr	r2, [r3]
+ 1698 0244 0AB9     		cbnz	r2, .L102
+ 437:src/stopwatch.c **** 				}
+ 1699              		.loc 1 437 6 is_stmt 1 view .LVU533
+ 437:src/stopwatch.c **** 				}
+ 1700              		.loc 1 437 22 is_stmt 0 view .LVU534
+ 1701 0246 3A68     		ldr	r2, [r7]
+ 1702 0248 1A60     		str	r2, [r3]
+ 1703              	.L102:
+ 439:src/stopwatch.c **** 				break;
+ 1704              		.loc 1 439 5 is_stmt 1 view .LVU535
+ 1705              	.LBB134:
+ 1706              	.LBI134:
+ 119:src/stopwatch.c ****   long int f, t; // 24.8 is ffffff.ff
+ 1707              		.loc 1 119 15 view .LVU536
+ 1708              	.LBB135:
+ 120:src/stopwatch.c ****   t = get_rtc_ticks();
+ 1709              		.loc 1 120 3 view .LVU537
+ 121:src/stopwatch.c ****   f = ((t & 0xfffffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
+ 1710              		.loc 1 121 3 view .LVU538
+ 121:src/stopwatch.c ****   f = ((t & 0xfffffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
+ 1711              		.loc 1 121 7 is_stmt 0 view .LVU539
+ 1712 024a 174B     		ldr	r3, .L149+4
+ 1713 024c 9847     		blx	r3
+ 1714              	.LVL111:
+ 122:src/stopwatch.c ****   return f;
+ 1715              		.loc 1 122 3 is_stmt 1 view .LVU540
+ 123:src/stopwatch.c **** }
+ 1716              		.loc 1 123 3 view .LVU541
+ 122:src/stopwatch.c ****   return f;
+ 1717              		.loc 1 122 11 is_stmt 0 view .LVU542
+ 1718 024e 20F07040 		bic	r0, r0, #-268435456
+ 122:src/stopwatch.c ****   return f;
+ 1719              		.loc 1 122 23 view .LVU543
+ 1720 0252 00EB8000 		add	r0, r0, r0, lsl #2
+ 122:src/stopwatch.c ****   return f;
+ 1721              		.loc 1 122 5 view .LVU544
+ 1722 0256 40F3D710 		sbfx	r0, r0, #7, #24
+ 1723 025a 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 1724              	.LBE135:
+ 1725              	.LBE134:
+ 439:src/stopwatch.c **** 				break;
+ 1726              		.loc 1 439 16 view .LVU545
+ 1727 025c 3860     		str	r0, [r7]
+ 440:src/stopwatch.c **** 				}
+ 1728              		.loc 1 440 5 is_stmt 1 view .LVU546
+ 1729 025e FAE6     		b	.L83
+ 1730              	.LVL112:
+ 1731              	.L89:
+ 406:src/stopwatch.c **** 				break;
+ 1732              		.loc 1 406 5 view .LVU547
+ 1733 0260 FFF7FEFF 		bl	toggle_running
+ 1734              	.LVL113:
+ 407:src/stopwatch.c **** 			}
+ 1735              		.loc 1 407 5 view .LVU548
+ 1736 0264 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 1737 0266 F6E6     		b	.L83
+ARM GAS  /tmp/ccISWZDO.s 			page 48
+
+
+ 1738              	.LVL114:
+ 1739              	.L88:
+ 443:src/stopwatch.c **** 				stopwatch_sigma_plus();
+ 1740              		.loc 1 443 5 view .LVU549
+ 1741 0268 FFF7FEFF 		bl	store_stopwatch_in_memory
+ 1742              	.LVL115:
+ 444:src/stopwatch.c **** 				break;
+ 1743              		.loc 1 444 5 view .LVU550
+ 1744 026c FFF7FEFF 		bl	stopwatch_sigma_plus
+ 1745              	.LVL116:
+ 445:src/stopwatch.c **** 			}
+ 1746              		.loc 1 445 5 view .LVU551
+ 1747 0270 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 1748 0272 F0E6     		b	.L83
+ 1749              	.LVL117:
+ 1750              	.L86:
+ 464:src/stopwatch.c **** 				break;
+ 1751              		.loc 1 464 5 view .LVU552
+ 464:src/stopwatch.c **** 				break;
+ 1752              		.loc 1 464 33 is_stmt 0 view .LVU553
+ 1753 0274 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 1754 0276 83F00402 		eor	r2, r3, #4
+ 1755 027a C2F38002 		ubfx	r2, r2, #2, #1
+ 464:src/stopwatch.c **** 				break;
+ 1756              		.loc 1 464 32 view .LVU554
+ 1757 027e 62F38203 		bfi	r3, r2, #2, #1
+ 1758 0282 2370     		strb	r3, [r4]
+ 465:src/stopwatch.c **** 				}
+ 1759              		.loc 1 465 5 is_stmt 1 view .LVU555
+ 1760 0284 DBB2     		uxtb	r3, r3
+ 1761 0286 E6E6     		b	.L83
+ 1762              	.L98:
+ 448:src/stopwatch.c **** 				break;
+ 1763              		.loc 1 448 5 view .LVU556
+ 1764 0288 FFF7FEFF 		bl	stopwatch_sigma_plus
+ 1765              	.LVL118:
+ 449:src/stopwatch.c **** 			}
+ 1766              		.loc 1 449 5 view .LVU557
+ 1767 028c 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 1768 028e E2E6     		b	.L83
+ 1769              	.LVL119:
+ 1770              	.L95:
+ 427:src/stopwatch.c **** 				break;
+ 1771              		.loc 1 427 5 view .LVU558
+ 427:src/stopwatch.c **** 				break;
+ 1772              		.loc 1 427 36 is_stmt 0 view .LVU559
+ 1773 0290 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 1774 0292 83F00202 		eor	r2, r3, #2
+ 1775 0296 C2F34002 		ubfx	r2, r2, #1, #1
+ 427:src/stopwatch.c **** 				break;
+ 1776              		.loc 1 427 35 view .LVU560
+ 1777 029a 62F34103 		bfi	r3, r2, #1, #1
+ 1778 029e 2370     		strb	r3, [r4]
+ 428:src/stopwatch.c **** 				}
+ 1779              		.loc 1 428 5 is_stmt 1 view .LVU561
+ 1780 02a0 DBB2     		uxtb	r3, r3
+ 1781 02a2 D8E6     		b	.L83
+ARM GAS  /tmp/ccISWZDO.s 			page 49
+
+
+ 1782              	.L150:
+ 1783              		.align	2
+ 1784              	.L149:
+ 1785 02a4 00000000 		.word	StopWatchStatus
+ 1786 02a8 B9040008 		.word	134218937
+ 1787 02ac 00000000 		.word	FirstTicker
+ 1788 02b0 00000000 		.word	StopWatch
+ 1789 02b4 00000000 		.word	TotalFirstTicker
+ 1790 02b8 00000000 		.word	TotalStopWatch
+ 1791 02bc 00000000 		.word	StateWhileOn
+ 1792 02c0 00000000 		.word	StopWatchMemoryFirstDigit
+ 1793 02c4 00000000 		.word	RclMemory
+ 1794 02c8 08000000 		.word	.LC1
+ 1795 02cc 00000000 		.word	.LC0
+ 1796 02d0 0C000000 		.word	.LC2
+ 1797 02d4 00000000 		.word	RclMemoryRemanentDisplay
+ 1798 02d8 00000000 		.word	StopWatchMemory
+ 1799 02dc 00000000 		.word	.LANCHOR1
+ 1800 02e0 00000000 		.word	.LANCHOR0
+ 1801              	.L94:
+ 414:src/stopwatch.c **** 					if(TotalFirstTicker==0) {
+ 1802              		.loc 1 414 5 view .LVU562
+ 414:src/stopwatch.c **** 					if(TotalFirstTicker==0) {
+ 1803              		.loc 1 414 8 is_stmt 0 view .LVU563
+ 1804 02e4 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 414:src/stopwatch.c **** 					if(TotalFirstTicker==0) {
+ 1805              		.loc 1 414 7 view .LVU564
+ 1806 02e6 13F00102 		ands	r2, r3, #1
+ 1807 02ea 28D0     		beq	.L99
+ 415:src/stopwatch.c **** 						TotalFirstTicker=FirstTicker;
+ 1808              		.loc 1 415 6 is_stmt 1 view .LVU565
+ 415:src/stopwatch.c **** 						TotalFirstTicker=FirstTicker;
+ 1809              		.loc 1 415 25 is_stmt 0 view .LVU566
+ 1810 02ec 164B     		ldr	r3, .L151
+ 416:src/stopwatch.c **** 					}
+ 1811              		.loc 1 416 23 view .LVU567
+ 1812 02ee 174F     		ldr	r7, .L151+4
+ 415:src/stopwatch.c **** 						TotalFirstTicker=FirstTicker;
+ 1813              		.loc 1 415 8 view .LVU568
+ 1814 02f0 1A68     		ldr	r2, [r3]
+ 1815 02f2 0AB9     		cbnz	r2, .L100
+ 416:src/stopwatch.c **** 					}
+ 1816              		.loc 1 416 7 is_stmt 1 view .LVU569
+ 416:src/stopwatch.c **** 					}
+ 1817              		.loc 1 416 23 is_stmt 0 view .LVU570
+ 1818 02f4 3A68     		ldr	r2, [r7]
+ 1819 02f6 1A60     		str	r2, [r3]
+ 1820              	.L100:
+ 418:src/stopwatch.c **** 				} else {
+ 1821              		.loc 1 418 6 is_stmt 1 view .LVU571
+ 1822              	.LBB136:
+ 1823              	.LBI136:
+ 119:src/stopwatch.c ****   long int f, t; // 24.8 is ffffff.ff
+ 1824              		.loc 1 119 15 view .LVU572
+ 1825              	.LBB137:
+ 120:src/stopwatch.c ****   t = get_rtc_ticks();
+ 1826              		.loc 1 120 3 view .LVU573
+ARM GAS  /tmp/ccISWZDO.s 			page 50
+
+
+ 121:src/stopwatch.c ****   f = ((t & 0xfffffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
+ 1827              		.loc 1 121 3 view .LVU574
+ 121:src/stopwatch.c ****   f = ((t & 0xfffffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
+ 1828              		.loc 1 121 7 is_stmt 0 view .LVU575
+ 1829 02f8 154B     		ldr	r3, .L151+8
+ 1830 02fa 9847     		blx	r3
+ 1831              	.LVL120:
+ 122:src/stopwatch.c ****   return f;
+ 1832              		.loc 1 122 3 is_stmt 1 view .LVU576
+ 123:src/stopwatch.c **** }
+ 1833              		.loc 1 123 3 view .LVU577
+ 122:src/stopwatch.c ****   return f;
+ 1834              		.loc 1 122 11 is_stmt 0 view .LVU578
+ 1835 02fc 20F07040 		bic	r0, r0, #-268435456
+ 122:src/stopwatch.c ****   return f;
+ 1836              		.loc 1 122 23 view .LVU579
+ 1837 0300 00EB8000 		add	r0, r0, r0, lsl #2
+ 122:src/stopwatch.c ****   return f;
+ 1838              		.loc 1 122 5 view .LVU580
+ 1839 0304 40F3D710 		sbfx	r0, r0, #7, #24
+ 1840 0308 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 1841              	.LBE137:
+ 1842              	.LBE136:
+ 418:src/stopwatch.c **** 				} else {
+ 1843              		.loc 1 418 17 view .LVU581
+ 1844 030a 3860     		str	r0, [r7]
+ 1845              	.L101:
+ 423:src/stopwatch.c **** 				break;
+ 1846              		.loc 1 423 5 is_stmt 1 view .LVU582
+ 423:src/stopwatch.c **** 				break;
+ 1847              		.loc 1 423 14 is_stmt 0 view .LVU583
+ 1848 030c 0022     		movs	r2, #0
+ 1849 030e 2A60     		str	r2, [r5]
+ 424:src/stopwatch.c **** 			   }
+ 1850              		.loc 1 424 5 is_stmt 1 view .LVU584
+ 1851 0310 A1E6     		b	.L83
+ 1852              	.LVL121:
+ 1853              	.L93:
+ 452:src/stopwatch.c **** 					StopWatchMemory++;
+ 1854              		.loc 1 452 5 view .LVU585
+ 452:src/stopwatch.c **** 					StopWatchMemory++;
+ 1855              		.loc 1 452 23 is_stmt 0 view .LVU586
+ 1856 0312 104A     		ldr	r2, .L151+12
+ 1857 0314 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 452:src/stopwatch.c **** 					StopWatchMemory++;
+ 1858              		.loc 1 452 37 view .LVU587
+ 1859 0316 0138     		subs	r0, r0, #1
+ 1860              	.LVL122:
+ 452:src/stopwatch.c **** 					StopWatchMemory++;
+ 1861              		.loc 1 452 7 view .LVU588
+ 1862 0318 8342     		cmp	r3, r0
+ 1863 031a 87DA     		bge	.L145
+ 453:src/stopwatch.c **** 				}
+ 1864              		.loc 1 453 6 is_stmt 1 view .LVU589
+ 453:src/stopwatch.c **** 				}
+ 1865              		.loc 1 453 21 is_stmt 0 view .LVU590
+ 1866 031c 0133     		adds	r3, r3, #1
+ARM GAS  /tmp/ccISWZDO.s 			page 51
+
+
+ 1867 031e 1370     		strb	r3, [r2]
+ 1868 0320 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 1869 0322 98E6     		b	.L83
+ 1870              	.LVL123:
+ 1871              	.L92:
+ 458:src/stopwatch.c **** 					StopWatchMemory--;
+ 1872              		.loc 1 458 5 is_stmt 1 view .LVU591
+ 458:src/stopwatch.c **** 					StopWatchMemory--;
+ 1873              		.loc 1 458 23 is_stmt 0 view .LVU592
+ 1874 0324 0B4A     		ldr	r2, .L151+12
+ 1875 0326 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 458:src/stopwatch.c **** 					StopWatchMemory--;
+ 1876              		.loc 1 458 7 view .LVU593
+ 1877 0328 002B     		cmp	r3, #0
+ 1878 032a 3FF47FAF 		beq	.L145
+ 459:src/stopwatch.c **** 				}
+ 1879              		.loc 1 459 6 is_stmt 1 view .LVU594
+ 459:src/stopwatch.c **** 				}
+ 1880              		.loc 1 459 21 is_stmt 0 view .LVU595
+ 1881 032e 013B     		subs	r3, r3, #1
+ 1882 0330 1370     		strb	r3, [r2]
+ 1883 0332 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 1884 0334 8FE6     		b	.L83
+ 1885              	.L96:
+ 431:src/stopwatch.c **** 				break;
+ 1886              		.loc 1 431 5 is_stmt 1 view .LVU596
+ 1887 0336 FFF7FEFF 		bl	store_stopwatch_in_memory
+ 1888              	.LVL124:
+ 432:src/stopwatch.c **** 				}
+ 1889              		.loc 1 432 5 view .LVU597
+ 1890 033a 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 1891 033c 8BE6     		b	.L83
+ 1892              	.LVL125:
+ 1893              	.L99:
+ 420:src/stopwatch.c **** 					FirstTicker=0;
+ 1894              		.loc 1 420 6 view .LVU598
+ 420:src/stopwatch.c **** 					FirstTicker=0;
+ 1895              		.loc 1 420 22 is_stmt 0 view .LVU599
+ 1896 033e 0248     		ldr	r0, .L151
+ 1897              	.LVL126:
+ 421:src/stopwatch.c **** 				}
+ 1898              		.loc 1 421 17 view .LVU600
+ 1899 0340 0249     		ldr	r1, .L151+4
+ 420:src/stopwatch.c **** 					FirstTicker=0;
+ 1900              		.loc 1 420 22 view .LVU601
+ 1901 0342 0260     		str	r2, [r0]
+ 421:src/stopwatch.c **** 				}
+ 1902              		.loc 1 421 6 is_stmt 1 view .LVU602
+ 421:src/stopwatch.c **** 				}
+ 1903              		.loc 1 421 17 is_stmt 0 view .LVU603
+ 1904 0344 0A60     		str	r2, [r1]
+ 1905 0346 E1E7     		b	.L101
+ 1906              	.L152:
+ 1907              		.align	2
+ 1908              	.L151:
+ 1909 0348 00000000 		.word	TotalFirstTicker
+ 1910 034c 00000000 		.word	FirstTicker
+ARM GAS  /tmp/ccISWZDO.s 			page 52
+
+
+ 1911 0350 B9040008 		.word	134218937
+ 1912 0354 00000000 		.word	StopWatchMemory
+ 1913              	.LBE139:
+ 1914              	.LBE145:
+ 1915              		.cfi_endproc
+ 1916              	.LFE13:
+ 1918              		.section	.text.getTicker,"ax",%progbits
+ 1919              		.align	1
+ 1920              		.p2align 2,,3
+ 1921              		.global	getTicker
+ 1922              		.syntax unified
+ 1923              		.thumb
+ 1924              		.thumb_func
+ 1925              		.fpu fpv4-sp-d16
+ 1927              	getTicker:
+ 1928              	.LFB0:
+ 119:src/stopwatch.c ****   long int f, t; // 24.8 is ffffff.ff
+ 1929              		.loc 1 119 27 is_stmt 1 view -0
+ 1930              		.cfi_startproc
+ 1931              		@ args = 0, pretend = 0, frame = 0
+ 1932              		@ frame_needed = 0, uses_anonymous_args = 0
+ 120:src/stopwatch.c ****   t = get_rtc_ticks();
+ 1933              		.loc 1 120 3 view .LVU605
+ 121:src/stopwatch.c ****   f = ((t & 0xfffffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
+ 1934              		.loc 1 121 3 view .LVU606
+ 119:src/stopwatch.c ****   long int f, t; // 24.8 is ffffff.ff
+ 1935              		.loc 1 119 27 is_stmt 0 view .LVU607
+ 1936 0000 08B5     		push	{r3, lr}
+ 1937              		.cfi_def_cfa_offset 8
+ 1938              		.cfi_offset 3, -8
+ 1939              		.cfi_offset 14, -4
+ 121:src/stopwatch.c ****   f = ((t & 0xfffffff)*10)>>8; // tenths of a second, with lots of whole seconds before it;
+ 1940              		.loc 1 121 7 view .LVU608
+ 1941 0002 044B     		ldr	r3, .L155
+ 1942 0004 9847     		blx	r3
+ 1943              	.LVL127:
+ 122:src/stopwatch.c ****   return f;
+ 1944              		.loc 1 122 3 is_stmt 1 view .LVU609
+ 123:src/stopwatch.c **** }
+ 1945              		.loc 1 123 3 view .LVU610
+ 122:src/stopwatch.c ****   return f;
+ 1946              		.loc 1 122 11 is_stmt 0 view .LVU611
+ 1947 0006 20F07040 		bic	r0, r0, #-268435456
+ 1948              	.LVL128:
+ 122:src/stopwatch.c ****   return f;
+ 1949              		.loc 1 122 23 view .LVU612
+ 1950 000a 00EB8000 		add	r0, r0, r0, lsl #2
+ 124:src/stopwatch.c **** 
+ 1951              		.loc 1 124 1 view .LVU613
+ 1952 000e 40F3D710 		sbfx	r0, r0, #7, #24
+ 1953 0012 08BD     		pop	{r3, pc}
+ 1954              	.L156:
+ 1955              		.align	2
+ 1956              	.L155:
+ 1957 0014 B9040008 		.word	134218937
+ 1958              		.cfi_endproc
+ 1959              	.LFE0:
+ARM GAS  /tmp/ccISWZDO.s 			page 53
+
+
+ 1961              		.section	.text.stopwatch,"ax",%progbits
+ 1962              		.align	1
+ 1963              		.p2align 2,,3
+ 1964              		.global	stopwatch
+ 1965              		.syntax unified
+ 1966              		.thumb
+ 1967              		.thumb_func
+ 1968              		.fpu fpv4-sp-d16
+ 1970              	stopwatch:
+ 1971              	.LVL129:
+ 1972              	.LFB14:
+ 517:src/stopwatch.c **** 
+ 518:src/stopwatch.c **** /*
+ 519:src/stopwatch.c ****  * Entering stopwach mode. If we were already running, we continue
+ 520:src/stopwatch.c ****  * If not, we set variables to their initial values
+ 521:src/stopwatch.c ****  */
+ 522:src/stopwatch.c **** void stopwatch(enum nilop op) {
+ 1973              		.loc 1 522 31 is_stmt 1 view -0
+ 1974              		.cfi_startproc
+ 1975              		@ args = 0, pretend = 0, frame = 0
+ 1976              		@ frame_needed = 0, uses_anonymous_args = 0
+ 523:src/stopwatch.c **** #ifndef REALBUILD
+ 524:src/stopwatch.c **** 	// Should never happen
+ 525:src/stopwatch.c **** 	if (Running) {
+ 1977              		.loc 1 525 2 view .LVU615
+ 522:src/stopwatch.c **** #ifndef REALBUILD
+ 1978              		.loc 1 522 31 is_stmt 0 view .LVU616
+ 1979 0000 38B5     		push	{r3, r4, r5, lr}
+ 1980              		.cfi_def_cfa_offset 16
+ 1981              		.cfi_offset 3, -16
+ 1982              		.cfi_offset 4, -12
+ 1983              		.cfi_offset 5, -8
+ 1984              		.cfi_offset 14, -4
+ 1985              		.loc 1 525 6 view .LVU617
+ 1986 0002 164B     		ldr	r3, .L162
+ 1987              		.loc 1 525 5 view .LVU618
+ 1988 0004 1B68     		ldr	r3, [r3]
+ 1989 0006 23BB     		cbnz	r3, .L161
+ 526:src/stopwatch.c **** 		report_err(ERR_ILLEGAL);
+ 527:src/stopwatch.c **** 		return;
+ 528:src/stopwatch.c **** 	}
+ 529:src/stopwatch.c **** #endif
+ 530:src/stopwatch.c **** 	if(!StopWatchRunning) {
+ 1990              		.loc 1 530 2 is_stmt 1 view .LVU619
+ 1991              		.loc 1 530 5 is_stmt 0 view .LVU620
+ 1992 0008 154C     		ldr	r4, .L162+4
+ 1993 000a 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 1994              		.loc 1 530 4 view .LVU621
+ 1995 000c 13F00102 		ands	r2, r3, #1
+ 1996 0010 11D1     		bne	.L159
+ 531:src/stopwatch.c **** 		StopWatchStatus.show_memory=0;
+ 1997              		.loc 1 531 3 is_stmt 1 view .LVU622
+ 532:src/stopwatch.c **** 		StopWatchStatus.display_tenths=1;
+ 1998              		.loc 1 532 3 view .LVU623
+ 533:src/stopwatch.c **** 		StopWatchMemory=0;
+ 1999              		.loc 1 533 18 is_stmt 0 view .LVU624
+ 2000 0012 1449     		ldr	r1, .L162+8
+ARM GAS  /tmp/ccISWZDO.s 			page 54
+
+
+ 534:src/stopwatch.c **** 		RclMemory=-1;
+ 535:src/stopwatch.c **** 		StopWatch=0;
+ 2001              		.loc 1 535 12 view .LVU625
+ 2002 0014 144D     		ldr	r5, .L162+12
+ 533:src/stopwatch.c **** 		StopWatchMemory=0;
+ 2003              		.loc 1 533 18 view .LVU626
+ 2004 0016 0A70     		strb	r2, [r1]
+ 536:src/stopwatch.c **** 		FirstTicker=0;
+ 2005              		.loc 1 536 14 view .LVU627
+ 2006 0018 1449     		ldr	r1, .L162+16
+ 535:src/stopwatch.c **** 		FirstTicker=0;
+ 2007              		.loc 1 535 12 view .LVU628
+ 2008 001a 2A60     		str	r2, [r5]
+ 537:src/stopwatch.c **** 		TotalStopWatch=0;
+ 2009              		.loc 1 537 17 view .LVU629
+ 2010 001c 144D     		ldr	r5, .L162+20
+ 536:src/stopwatch.c **** 		FirstTicker=0;
+ 2011              		.loc 1 536 14 view .LVU630
+ 2012 001e 0A60     		str	r2, [r1]
+ 534:src/stopwatch.c **** 		StopWatch=0;
+ 2013              		.loc 1 534 12 view .LVU631
+ 2014 0020 1448     		ldr	r0, .L162+24
+ 2015              	.LVL130:
+ 538:src/stopwatch.c **** 		TotalFirstTicker=0;
+ 2016              		.loc 1 538 19 view .LVU632
+ 2017 0022 1549     		ldr	r1, .L162+28
+ 537:src/stopwatch.c **** 		TotalStopWatch=0;
+ 2018              		.loc 1 537 17 view .LVU633
+ 2019 0024 2A60     		str	r2, [r5]
+ 532:src/stopwatch.c **** 		StopWatchMemory=0;
+ 2020              		.loc 1 532 33 view .LVU634
+ 2021 0026 23F00603 		bic	r3, r3, #6
+ 2022 002a 43F00203 		orr	r3, r3, #2
+ 534:src/stopwatch.c **** 		StopWatch=0;
+ 2023              		.loc 1 534 12 view .LVU635
+ 2024 002e FF25     		movs	r5, #255
+ 532:src/stopwatch.c **** 		StopWatchMemory=0;
+ 2025              		.loc 1 532 33 view .LVU636
+ 2026 0030 2370     		strb	r3, [r4]
+ 533:src/stopwatch.c **** 		RclMemory=-1;
+ 2027              		.loc 1 533 3 is_stmt 1 view .LVU637
+ 534:src/stopwatch.c **** 		StopWatch=0;
+ 2028              		.loc 1 534 3 view .LVU638
+ 534:src/stopwatch.c **** 		StopWatch=0;
+ 2029              		.loc 1 534 12 is_stmt 0 view .LVU639
+ 2030 0032 0570     		strb	r5, [r0]
+ 535:src/stopwatch.c **** 		FirstTicker=0;
+ 2031              		.loc 1 535 3 is_stmt 1 view .LVU640
+ 536:src/stopwatch.c **** 		TotalStopWatch=0;
+ 2032              		.loc 1 536 3 view .LVU641
+ 537:src/stopwatch.c **** 		TotalFirstTicker=0;
+ 2033              		.loc 1 537 3 view .LVU642
+ 2034              		.loc 1 538 3 view .LVU643
+ 2035              		.loc 1 538 19 is_stmt 0 view .LVU644
+ 2036 0034 0A60     		str	r2, [r1]
+ 2037              	.L159:
+ 539:src/stopwatch.c **** 	}
+ARM GAS  /tmp/ccISWZDO.s 			page 55
+
+
+ 540:src/stopwatch.c **** 	clr_dot(LIT_EQ);
+ 2038              		.loc 1 540 2 is_stmt 1 view .LVU645
+ 2039 0036 8420     		movs	r0, #132
+ 2040 0038 FFF7FEFF 		bl	clr_dot
+ 2041              	.LVL131:
+ 541:src/stopwatch.c **** 	StopWatchStatus.select_memory_mode=0;
+ 2042              		.loc 1 541 2 view .LVU646
+ 542:src/stopwatch.c **** 	StopWatchStatus.rcl_mode=0;
+ 2043              		.loc 1 542 2 view .LVU647
+ 543:src/stopwatch.c **** 	StopWatchStatus.sigma_display_mode=0;
+ 2044              		.loc 1 543 2 view .LVU648
+ 544:src/stopwatch.c **** 	StopWatchMemoryFirstDigit=-1;
+ 545:src/stopwatch.c **** 	KeyCallback=&stopwatch_callback;
+ 2045              		.loc 1 545 13 is_stmt 0 view .LVU649
+ 2046 003c 0F49     		ldr	r1, .L162+32
+ 541:src/stopwatch.c **** 	StopWatchStatus.rcl_mode=0;
+ 2047              		.loc 1 541 36 view .LVU650
+ 2048 003e 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 544:src/stopwatch.c **** 	StopWatchMemoryFirstDigit=-1;
+ 2049              		.loc 1 544 27 view .LVU651
+ 2050 0040 0F4A     		ldr	r2, .L162+36
+ 2051              		.loc 1 545 13 view .LVU652
+ 2052 0042 1048     		ldr	r0, .L162+40
+ 2053 0044 0860     		str	r0, [r1]
+ 544:src/stopwatch.c **** 	StopWatchMemoryFirstDigit=-1;
+ 2054              		.loc 1 544 27 view .LVU653
+ 2055 0046 FF21     		movs	r1, #255
+ 541:src/stopwatch.c **** 	StopWatchStatus.rcl_mode=0;
+ 2056              		.loc 1 541 36 view .LVU654
+ 2057 0048 23F03803 		bic	r3, r3, #56
+ 544:src/stopwatch.c **** 	StopWatchMemoryFirstDigit=-1;
+ 2058              		.loc 1 544 27 view .LVU655
+ 2059 004c 1170     		strb	r1, [r2]
+ 541:src/stopwatch.c **** 	StopWatchStatus.rcl_mode=0;
+ 2060              		.loc 1 541 36 view .LVU656
+ 2061 004e 2370     		strb	r3, [r4]
+ 544:src/stopwatch.c **** 	StopWatchMemoryFirstDigit=-1;
+ 2062              		.loc 1 544 2 is_stmt 1 view .LVU657
+ 2063              		.loc 1 545 2 view .LVU658
+ 546:src/stopwatch.c **** }
+ 2064              		.loc 1 546 1 is_stmt 0 view .LVU659
+ 2065 0050 38BD     		pop	{r3, r4, r5, pc}
+ 2066              	.LVL132:
+ 2067              	.L161:
+ 526:src/stopwatch.c **** 		return;
+ 2068              		.loc 1 526 3 is_stmt 1 view .LVU660
+ 2069              		.loc 1 546 1 is_stmt 0 view .LVU661
+ 2070 0052 BDE83840 		pop	{r3, r4, r5, lr}
+ 2071              		.cfi_restore 14
+ 2072              		.cfi_restore 5
+ 2073              		.cfi_restore 4
+ 2074              		.cfi_restore 3
+ 2075              		.cfi_def_cfa_offset 0
+ 526:src/stopwatch.c **** 		return;
+ 2076              		.loc 1 526 3 view .LVU662
+ 2077 0056 0720     		movs	r0, #7
+ 2078              	.LVL133:
+ARM GAS  /tmp/ccISWZDO.s 			page 56
+
+
+ 526:src/stopwatch.c **** 		return;
+ 2079              		.loc 1 526 3 view .LVU663
+ 2080 0058 FFF7FEBF 		b	report_err
+ 2081              	.LVL134:
+ 2082              	.L163:
+ 2083              		.align	2
+ 2084              	.L162:
+ 2085 005c 00000000 		.word	Running
+ 2086 0060 00000000 		.word	StopWatchStatus
+ 2087 0064 00000000 		.word	StopWatchMemory
+ 2088 0068 00000000 		.word	StopWatch
+ 2089 006c 00000000 		.word	FirstTicker
+ 2090 0070 00000000 		.word	TotalStopWatch
+ 2091 0074 00000000 		.word	RclMemory
+ 2092 0078 00000000 		.word	TotalFirstTicker
+ 2093 007c 00000000 		.word	.LANCHOR1
+ 2094 0080 00000000 		.word	StopWatchMemoryFirstDigit
+ 2095 0084 00000000 		.word	stopwatch_callback
+ 2096              		.cfi_endproc
+ 2097              	.LFE14:
+ 2099              		.comm	RclMemoryRemanentDisplay,1,1
+ 2100              		.comm	RclMemory,1,1
+ 2101              		.comm	StopWatchMemoryFirstDigit,1,1
+ 2102              		.comm	StopWatchMemory,1,1
+ 2103              		.comm	StopWatch,4,4
+ 2104              		.comm	TotalStopWatch,4,4
+ 2105              		.comm	TotalFirstTicker,4,4
+ 2106              		.comm	FirstTicker,4,4
+ 2107              		.global	KeyCallback
+ 2108              		.comm	StopWatchStatus,4,4
+ 2109              		.section	.bss.KeyCallback,"aw",%nobits
+ 2110              		.align	2
+ 2111              		.set	.LANCHOR1,. + 0
+ 2114              	KeyCallback:
+ 2115 0000 00000000 		.space	4
+ 2116              		.section	.rodata.CSWTCH.61,"a"
+ 2117              		.align	2
+ 2118              		.set	.LANCHOR0,. + 0
+ 2121              	CSWTCH.61:
+ 2122 0000 07000000 		.word	7
+ 2123 0004 08000000 		.word	8
+ 2124 0008 09000000 		.word	9
+ 2125 000c FFFFFFFF 		.word	-1
+ 2126 0010 FFFFFFFF 		.word	-1
+ 2127 0014 04000000 		.word	4
+ 2128 0018 05000000 		.word	5
+ 2129 001c 06000000 		.word	6
+ 2130 0020 FFFFFFFF 		.word	-1
+ 2131 0024 FFFFFFFF 		.word	-1
+ 2132 0028 01000000 		.word	1
+ 2133 002c 02000000 		.word	2
+ 2134 0030 03000000 		.word	3
+ 2135 0034 FFFFFFFF 		.word	-1
+ 2136 0038 FFFFFFFF 		.word	-1
+ 2137 003c 00000000 		.word	0
+ 2138              		.text
+ 2139              	.Letext0:
+ARM GAS  /tmp/ccISWZDO.s 			page 57
+
+
+ 2140              		.file 2 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h"
+ 2141              		.file 3 "dmcp/dmcp.h"
+ 2142              		.file 4 "src/decNumber/decContext.h"
+ 2143              		.file 5 "src/decNumber/decNumber.h"
+ 2144              		.file 6 "src/decNumber/decimal64.h"
+ 2145              		.file 7 "src/decNumber/decimal128.h"
+ 2146              		.file 8 "src/xeq.h"
+ 2147              		.file 9 "src/data.h"
+ 2148              		.file 10 "src/consts.h"
+ 2149              		.file 11 "src/keys.h"
+ 2150              		.file 12 "src/menu.h"
+ 2151              		.file 13 "src/stats.h"
+ 2152              		.file 14 "src/stopwatch.h"
+ 2153              		.file 15 "src/display.h"
+ 2154              		.file 16 "src/lcd.h"
+ 2155              		.file 17 "src/decn.h"
+ARM GAS  /tmp/ccISWZDO.s 			page 58
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stopwatch.c
+     /tmp/ccISWZDO.s:18     .text.recall_memory:0000000000000000 $t
+     /tmp/ccISWZDO.s:26     .text.recall_memory:0000000000000000 recall_memory
+     /tmp/ccISWZDO.s:154    .text.recall_memory:0000000000000060 $d
+                            *COM*:0000000000000004 StopWatchStatus
+                            *COM*:0000000000000001 RclMemory
+                            *COM*:0000000000000001 StopWatchMemoryFirstDigit
+                            *COM*:0000000000000001 RclMemoryRemanentDisplay
+                            *COM*:0000000000000004 StopWatch
+                            *COM*:0000000000000004 FirstTicker
+     /tmp/ccISWZDO.s:166    .text.stopwatch_to_decNumber:0000000000000000 $t
+     /tmp/ccISWZDO.s:173    .text.stopwatch_to_decNumber:0000000000000000 stopwatch_to_decNumber
+     /tmp/ccISWZDO.s:216    .text.stopwatch_to_decNumber:0000000000000020 $d
+     /tmp/ccISWZDO.s:222    .text.store_stopwatch_in_memory:0000000000000000 $t
+     /tmp/ccISWZDO.s:229    .text.store_stopwatch_in_memory:0000000000000000 store_stopwatch_in_memory
+     /tmp/ccISWZDO.s:300    .text.store_stopwatch_in_memory:0000000000000040 $d
+                            *COM*:0000000000000001 StopWatchMemory
+     /tmp/ccISWZDO.s:306    .text.stopwatch_to_string:0000000000000000 $t
+     /tmp/ccISWZDO.s:313    .text.stopwatch_to_string:0000000000000000 stopwatch_to_string
+     /tmp/ccISWZDO.s:457    .text.stopwatch_to_string:0000000000000098 $d
+     /tmp/ccISWZDO.s:467    .text.toggle_running:0000000000000000 $t
+     /tmp/ccISWZDO.s:474    .text.toggle_running:0000000000000000 toggle_running
+     /tmp/ccISWZDO.s:585    .text.toggle_running:0000000000000048 $d
+     /tmp/ccISWZDO.s:593    .text.process_select_memory_key:0000000000000000 $t
+     /tmp/ccISWZDO.s:600    .text.process_select_memory_key:0000000000000000 process_select_memory_key
+     /tmp/ccISWZDO.s:640    .text.process_select_memory_key:0000000000000016 $d
+     /tmp/ccISWZDO.s:665    .text.process_select_memory_key:000000000000002e $t
+     /tmp/ccISWZDO.s:909    .text.process_select_memory_key:00000000000000ec $d
+     /tmp/ccISWZDO.s:918    .text.stopwatch_sigma_plus:0000000000000000 $t
+     /tmp/ccISWZDO.s:925    .text.stopwatch_sigma_plus:0000000000000000 stopwatch_sigma_plus
+     /tmp/ccISWZDO.s:1044   .text.stopwatch_sigma_plus:0000000000000058 $d
+                            *COM*:0000000000000004 TotalFirstTicker
+     /tmp/ccISWZDO.s:1055   .rodata.stopwatch_callback.str1.4:0000000000000000 $d
+     /tmp/ccISWZDO.s:1065   .text.stopwatch_callback:0000000000000000 $t
+     /tmp/ccISWZDO.s:1073   .text.stopwatch_callback:0000000000000000 stopwatch_callback
+     /tmp/ccISWZDO.s:1362   .text.stopwatch_callback:0000000000000102 $d
+     /tmp/ccISWZDO.s:1404   .text.stopwatch_callback:0000000000000156 $t
+     /tmp/ccISWZDO.s:1785   .text.stopwatch_callback:00000000000002a4 $d
+                            *COM*:0000000000000004 TotalStopWatch
+     /tmp/ccISWZDO.s:1804   .text.stopwatch_callback:00000000000002e4 $t
+     /tmp/ccISWZDO.s:1909   .text.stopwatch_callback:0000000000000348 $d
+     /tmp/ccISWZDO.s:1919   .text.getTicker:0000000000000000 $t
+     /tmp/ccISWZDO.s:1927   .text.getTicker:0000000000000000 getTicker
+     /tmp/ccISWZDO.s:1957   .text.getTicker:0000000000000014 $d
+     /tmp/ccISWZDO.s:1962   .text.stopwatch:0000000000000000 $t
+     /tmp/ccISWZDO.s:1970   .text.stopwatch:0000000000000000 stopwatch
+     /tmp/ccISWZDO.s:2085   .text.stopwatch:000000000000005c $d
+     /tmp/ccISWZDO.s:2114   .bss.KeyCallback:0000000000000000 KeyCallback
+     /tmp/ccISWZDO.s:2110   .bss.KeyCallback:0000000000000000 $d
+     /tmp/ccISWZDO.s:2117   .rodata.CSWTCH.61:0000000000000000 $d
+     /tmp/ccISWZDO.s:2121   .rodata.CSWTCH.61:0000000000000000 CSWTCH.61
+
+UNDEFINED SYMBOLS
+getRegister
+decNumberHMS2HR
+dn_multiply
+ARM GAS  /tmp/ccISWZDO.s 			page 59
+
+
+dn_to_ull
+const_36000
+ullint_to_dn
+dn_divide
+global_regs
+decNumberHR2HMS
+setRegister
+num_arg_0
+sigma_plus_x
+scopy
+stopwatch_message
+num_arg
+StateWhileOn
+clr_dot
+report_err
+Running

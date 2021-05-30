@@ -1,0 +1,2615 @@
+ARM GAS  /tmp/ccoISTXj.s 			page 1
+
+
+   1              		.arch armv7e-m
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"alpha.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.add_char,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	add_char:
+  27              	.LVL0:
+  28              	.LFB1:
+  29              		.file 1 "src/alpha.c"
+   1:src/alpha.c   **** /* This file is part of 34S.
+   2:src/alpha.c   ****  * 
+   3:src/alpha.c   ****  * 34S is free software: you can redistribute it and/or modify
+   4:src/alpha.c   ****  * it under the terms of the GNU General Public License as published by
+   5:src/alpha.c   ****  * the Free Software Foundation, either version 3 of the License, or
+   6:src/alpha.c   ****  * (at your option) any later version.
+   7:src/alpha.c   ****  * 
+   8:src/alpha.c   ****  * 34S is distributed in the hope that it will be useful,
+   9:src/alpha.c   ****  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  10:src/alpha.c   ****  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  11:src/alpha.c   ****  * GNU General Public License for more details.
+  12:src/alpha.c   ****  * 
+  13:src/alpha.c   ****  * You should have received a copy of the GNU General Public License
+  14:src/alpha.c   ****  * along with 34S.  If not, see <http://www.gnu.org/licenses/>.
+  15:src/alpha.c   ****  */
+  16:src/alpha.c   **** 
+  17:src/alpha.c   **** #include "alpha.h"
+  18:src/alpha.c   **** #include "xeq.h"
+  19:src/alpha.c   **** #include "storage.h"
+  20:src/alpha.c   **** #include "decn.h"
+  21:src/alpha.c   **** #include "display.h"
+  22:src/alpha.c   **** #include "int.h"
+  23:src/alpha.c   **** #include "consts.h"
+  24:src/alpha.c   **** 
+  25:src/alpha.c   **** 
+  26:src/alpha.c   **** /* Append a single character to the alpha register
+  27:src/alpha.c   ****  */
+  28:src/alpha.c   **** static char *internal_add_char(char *a, char c) {
+  29:src/alpha.c   **** 	if (a == Alpha+NUMALPHA)
+ARM GAS  /tmp/ccoISTXj.s 			page 2
+
+
+  30:src/alpha.c   **** 		*scopy(Alpha, Alpha+1) = c;
+  31:src/alpha.c   **** 	else {
+  32:src/alpha.c   **** 		*a++ = c;
+  33:src/alpha.c   **** 		*a = '\0';
+  34:src/alpha.c   **** 	}
+  35:src/alpha.c   **** 	return a;
+  36:src/alpha.c   **** }
+  37:src/alpha.c   **** 
+  38:src/alpha.c   **** static void add_char(char c) {
+  30              		.loc 1 38 30 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  39:src/alpha.c   **** 	internal_add_char(find_char(Alpha, '\0'), c);
+  34              		.loc 1 39 2 view .LVU1
+  38:src/alpha.c   **** 	internal_add_char(find_char(Alpha, '\0'), c);
+  35              		.loc 1 38 30 is_stmt 0 view .LVU2
+  36 0000 38B5     		push	{r3, r4, r5, lr}
+  37              		.cfi_def_cfa_offset 16
+  38              		.cfi_offset 3, -16
+  39              		.cfi_offset 4, -12
+  40              		.cfi_offset 5, -8
+  41              		.cfi_offset 14, -4
+  42              		.loc 1 39 30 view .LVU3
+  43 0002 0C4D     		ldr	r5, .L7
+  44 0004 2A68     		ldr	r2, [r5]
+  38:src/alpha.c   **** 	internal_add_char(find_char(Alpha, '\0'), c);
+  45              		.loc 1 38 30 view .LVU4
+  46 0006 0446     		mov	r4, r0
+  47              		.loc 1 39 2 view .LVU5
+  48 0008 0021     		movs	r1, #0
+  49 000a 02F5F660 		add	r0, r2, #1968
+  50              	.LVL1:
+  51              		.loc 1 39 2 view .LVU6
+  52 000e FFF7FEFF 		bl	find_char
+  53              	.LVL2:
+  54              	.LBB22:
+  55              	.LBB23:
+  29:src/alpha.c   **** 		*scopy(Alpha, Alpha+1) = c;
+  56              		.loc 1 29 11 view .LVU7
+  57 0012 2B68     		ldr	r3, [r5]
+  58              	.LVL3:
+  29:src/alpha.c   **** 		*scopy(Alpha, Alpha+1) = c;
+  59              		.loc 1 29 11 view .LVU8
+  60              	.LBE23:
+  61              	.LBI22:
+  28:src/alpha.c   **** 	if (a == Alpha+NUMALPHA)
+  62              		.loc 1 28 14 is_stmt 1 view .LVU9
+  63              	.LBB24:
+  29:src/alpha.c   **** 		*scopy(Alpha, Alpha+1) = c;
+  64              		.loc 1 29 2 view .LVU10
+  29:src/alpha.c   **** 		*scopy(Alpha, Alpha+1) = c;
+  65              		.loc 1 29 16 is_stmt 0 view .LVU11
+  66 0014 03F2CE72 		addw	r2, r3, #1998
+  29:src/alpha.c   **** 		*scopy(Alpha, Alpha+1) = c;
+  67              		.loc 1 29 5 view .LVU12
+  68 0018 9042     		cmp	r0, r2
+ARM GAS  /tmp/ccoISTXj.s 			page 3
+
+
+  69 001a 03D0     		beq	.L6
+  32:src/alpha.c   **** 		*a = '\0';
+  70              		.loc 1 32 3 is_stmt 1 view .LVU13
+  71              	.LVL4:
+  33:src/alpha.c   **** 	}
+  72              		.loc 1 33 6 is_stmt 0 view .LVU14
+  73 001c 0023     		movs	r3, #0
+  32:src/alpha.c   **** 		*a = '\0';
+  74              		.loc 1 32 8 view .LVU15
+  75 001e 0470     		strb	r4, [r0]
+  33:src/alpha.c   **** 	}
+  76              		.loc 1 33 3 is_stmt 1 view .LVU16
+  33:src/alpha.c   **** 	}
+  77              		.loc 1 33 6 is_stmt 0 view .LVU17
+  78 0020 4370     		strb	r3, [r0, #1]
+  79              	.LVL5:
+  35:src/alpha.c   **** }
+  80              		.loc 1 35 2 is_stmt 1 view .LVU18
+  35:src/alpha.c   **** }
+  81              		.loc 1 35 2 is_stmt 0 view .LVU19
+  82              	.LBE24:
+  83              	.LBE22:
+  40:src/alpha.c   **** }
+  84              		.loc 1 40 1 view .LVU20
+  85 0022 38BD     		pop	{r3, r4, r5, pc}
+  86              	.LVL6:
+  87              	.L6:
+  88              	.LBB26:
+  89              	.LBB25:
+  30:src/alpha.c   **** 	else {
+  90              		.loc 1 30 3 is_stmt 1 view .LVU21
+  30:src/alpha.c   **** 	else {
+  91              		.loc 1 30 4 is_stmt 0 view .LVU22
+  92 0024 03F2B171 		addw	r1, r3, #1969
+  93 0028 03F5F660 		add	r0, r3, #1968
+  94              	.LVL7:
+  30:src/alpha.c   **** 	else {
+  95              		.loc 1 30 4 view .LVU23
+  96 002c FFF7FEFF 		bl	scopy
+  97              	.LVL8:
+  30:src/alpha.c   **** 	else {
+  98              		.loc 1 30 26 view .LVU24
+  99 0030 0470     		strb	r4, [r0]
+ 100              	.LBE25:
+ 101              	.LBE26:
+ 102              		.loc 1 40 1 view .LVU25
+ 103 0032 38BD     		pop	{r3, r4, r5, pc}
+ 104              	.LVL9:
+ 105              	.L8:
+ 106              		.loc 1 40 1 view .LVU26
+ 107              		.align	2
+ 108              	.L7:
+ 109 0034 00000000 		.word	main_ram
+ 110              		.cfi_endproc
+ 111              	.LFE1:
+ 113              		.section	.text.add_string,"ax",%progbits
+ 114              		.align	1
+ARM GAS  /tmp/ccoISTXj.s 			page 4
+
+
+ 115              		.p2align 2,,3
+ 116              		.global	add_string
+ 117              		.syntax unified
+ 118              		.thumb
+ 119              		.thumb_func
+ 120              		.fpu fpv4-sp-d16
+ 122              	add_string:
+ 123              	.LVL10:
+ 124              	.LFB2:
+  41:src/alpha.c   **** 
+  42:src/alpha.c   **** 
+  43:src/alpha.c   **** /* Append a string to the Alpha register.
+  44:src/alpha.c   ****  */
+  45:src/alpha.c   **** void add_string(const char *s) {
+ 125              		.loc 1 45 32 is_stmt 1 view -0
+ 126              		.cfi_startproc
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+  46:src/alpha.c   **** 	char *a = find_char(Alpha, '\0');
+ 129              		.loc 1 46 2 view .LVU28
+  45:src/alpha.c   **** 	char *a = find_char(Alpha, '\0');
+ 130              		.loc 1 45 32 is_stmt 0 view .LVU29
+ 131 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 132              		.cfi_def_cfa_offset 24
+ 133              		.cfi_offset 4, -24
+ 134              		.cfi_offset 5, -20
+ 135              		.cfi_offset 6, -16
+ 136              		.cfi_offset 7, -12
+ 137              		.cfi_offset 8, -8
+ 138              		.cfi_offset 14, -4
+ 139              		.loc 1 46 22 view .LVU30
+ 140 0004 144F     		ldr	r7, .L19
+ 141 0006 3B68     		ldr	r3, [r7]
+  45:src/alpha.c   **** 	char *a = find_char(Alpha, '\0');
+ 142              		.loc 1 45 32 view .LVU31
+ 143 0008 0646     		mov	r6, r0
+ 144              		.loc 1 46 12 view .LVU32
+ 145 000a 0021     		movs	r1, #0
+ 146 000c 03F5F660 		add	r0, r3, #1968
+ 147              	.LVL11:
+ 148              		.loc 1 46 12 view .LVU33
+ 149 0010 FFF7FEFF 		bl	find_char
+ 150              	.LVL12:
+  47:src/alpha.c   **** 
+  48:src/alpha.c   **** 	while (*s != '\0')
+ 151              		.loc 1 48 9 view .LVU34
+ 152 0014 3578     		ldrb	r5, [r6]	@ zero_extendqisi2
+ 153              	.LVL13:
+ 154              		.loc 1 48 2 is_stmt 1 view .LVU35
+ 155              		.loc 1 48 8 view .LVU36
+ 156 0016 E5B1     		cbz	r5, .L9
+ 157 0018 0446     		mov	r4, r0
+ 158              	.LBB27:
+ 159              	.LBB28:
+  33:src/alpha.c   **** 	}
+ 160              		.loc 1 33 6 is_stmt 0 view .LVU37
+ 161 001a 4FF00008 		mov	r8, #0
+ARM GAS  /tmp/ccoISTXj.s 			page 5
+
+
+ 162 001e 07E0     		b	.L13
+ 163              	.LVL14:
+ 164              	.L11:
+  32:src/alpha.c   **** 		*a = '\0';
+ 165              		.loc 1 32 8 view .LVU38
+ 166 0020 03F8015B 		strb	r5, [r3], #1
+ 167              	.LVL15:
+  33:src/alpha.c   **** 	}
+ 168              		.loc 1 33 3 is_stmt 1 view .LVU39
+  33:src/alpha.c   **** 	}
+ 169              		.loc 1 33 6 is_stmt 0 view .LVU40
+ 170 0024 84F80180 		strb	r8, [r4, #1]
+ 171              	.LBE28:
+ 172              	.LBE27:
+ 173              		.loc 1 48 9 view .LVU41
+ 174 0028 16F8015F 		ldrb	r5, [r6, #1]!	@ zero_extendqisi2
+ 175              	.LVL16:
+ 176              	.LBB31:
+ 177              	.LBB29:
+  32:src/alpha.c   **** 		*a = '\0';
+ 178              		.loc 1 32 5 view .LVU42
+ 179 002c 1C46     		mov	r4, r3
+ 180              	.LVL17:
+  32:src/alpha.c   **** 		*a = '\0';
+ 181              		.loc 1 32 5 view .LVU43
+ 182              	.LBE29:
+ 183              	.LBE31:
+ 184              		.loc 1 48 8 is_stmt 1 view .LVU44
+ 185 002e 85B1     		cbz	r5, .L9
+ 186              	.LVL18:
+ 187              	.L13:
+  49:src/alpha.c   **** 		a = internal_add_char(a, *s++);
+ 188              		.loc 1 49 3 view .LVU45
+ 189              	.LBB32:
+ 190              	.LBI27:
+  28:src/alpha.c   **** 	if (a == Alpha+NUMALPHA)
+ 191              		.loc 1 28 14 view .LVU46
+ 192              	.LBB30:
+  29:src/alpha.c   **** 		*scopy(Alpha, Alpha+1) = c;
+ 193              		.loc 1 29 2 view .LVU47
+  32:src/alpha.c   **** 		*a = '\0';
+ 194              		.loc 1 32 3 view .LVU48
+  29:src/alpha.c   **** 		*scopy(Alpha, Alpha+1) = c;
+ 195              		.loc 1 29 11 is_stmt 0 view .LVU49
+ 196 0030 3868     		ldr	r0, [r7]
+  29:src/alpha.c   **** 		*scopy(Alpha, Alpha+1) = c;
+ 197              		.loc 1 29 16 view .LVU50
+ 198 0032 00F2CE72 		addw	r2, r0, #1998
+  29:src/alpha.c   **** 		*scopy(Alpha, Alpha+1) = c;
+ 199              		.loc 1 29 5 view .LVU51
+ 200 0036 9442     		cmp	r4, r2
+  32:src/alpha.c   **** 		*a = '\0';
+ 201              		.loc 1 32 5 view .LVU52
+ 202 0038 2346     		mov	r3, r4
+ 203              	.LVL19:
+  29:src/alpha.c   **** 		*scopy(Alpha, Alpha+1) = c;
+ 204              		.loc 1 29 5 view .LVU53
+ARM GAS  /tmp/ccoISTXj.s 			page 6
+
+
+ 205 003a F1D1     		bne	.L11
+  30:src/alpha.c   **** 	else {
+ 206              		.loc 1 30 3 is_stmt 1 view .LVU54
+  30:src/alpha.c   **** 	else {
+ 207              		.loc 1 30 4 is_stmt 0 view .LVU55
+ 208 003c 00F2B171 		addw	r1, r0, #1969
+ 209 0040 00F5F660 		add	r0, r0, #1968
+ 210 0044 FFF7FEFF 		bl	scopy
+ 211              	.LVL20:
+  30:src/alpha.c   **** 	else {
+ 212              		.loc 1 30 26 view .LVU56
+ 213 0048 0570     		strb	r5, [r0]
+ 214              	.LVL21:
+  30:src/alpha.c   **** 	else {
+ 215              		.loc 1 30 26 view .LVU57
+ 216              	.LBE30:
+ 217              	.LBE32:
+  48:src/alpha.c   **** 		a = internal_add_char(a, *s++);
+ 218              		.loc 1 48 8 is_stmt 1 view .LVU58
+  48:src/alpha.c   **** 		a = internal_add_char(a, *s++);
+ 219              		.loc 1 48 9 is_stmt 0 view .LVU59
+ 220 004a 16F8015F 		ldrb	r5, [r6, #1]!	@ zero_extendqisi2
+ 221              	.LVL22:
+  48:src/alpha.c   **** 		a = internal_add_char(a, *s++);
+ 222              		.loc 1 48 8 view .LVU60
+ 223 004e 002D     		cmp	r5, #0
+ 224 0050 EED1     		bne	.L13
+ 225              	.LVL23:
+ 226              	.L9:
+  50:src/alpha.c   **** }
+ 227              		.loc 1 50 1 view .LVU61
+ 228 0052 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 229              	.L20:
+ 230 0056 00BF     		.align	2
+ 231              	.L19:
+ 232 0058 00000000 		.word	main_ram
+ 233              		.cfi_endproc
+ 234              	.LFE2:
+ 236              		.section	.text.clralpha,"ax",%progbits
+ 237              		.align	1
+ 238              		.p2align 2,,3
+ 239              		.global	clralpha
+ 240              		.syntax unified
+ 241              		.thumb
+ 242              		.thumb_func
+ 243              		.fpu fpv4-sp-d16
+ 245              	clralpha:
+ 246              	.LVL24:
+ 247              	.LFB3:
+  51:src/alpha.c   **** 
+  52:src/alpha.c   **** 
+  53:src/alpha.c   **** /* Clear the Alpha register
+  54:src/alpha.c   ****  */
+  55:src/alpha.c   **** void clralpha(enum nilop op) {
+ 248              		.loc 1 55 30 is_stmt 1 view -0
+ 249              		.cfi_startproc
+ 250              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/ccoISTXj.s 			page 7
+
+
+ 251              		@ frame_needed = 0, uses_anonymous_args = 0
+ 252              		@ link register save eliminated.
+  56:src/alpha.c   **** 	DispMsg = NULL;
+ 253              		.loc 1 56 2 view .LVU63
+  57:src/alpha.c   **** 	xset(Alpha, '\0', NUMALPHA);
+ 254              		.loc 1 57 7 is_stmt 0 view .LVU64
+ 255 0000 044A     		ldr	r2, .L22
+  56:src/alpha.c   **** 	DispMsg = NULL;
+ 256              		.loc 1 56 10 view .LVU65
+ 257 0002 054B     		ldr	r3, .L22+4
+ 258              		.loc 1 57 7 view .LVU66
+ 259 0004 1068     		ldr	r0, [r2]
+ 260              	.LVL25:
+  56:src/alpha.c   **** 	DispMsg = NULL;
+ 261              		.loc 1 56 10 view .LVU67
+ 262 0006 0021     		movs	r1, #0
+ 263              		.loc 1 57 2 view .LVU68
+ 264 0008 00F5F660 		add	r0, r0, #1968
+ 265 000c 1E22     		movs	r2, #30
+  56:src/alpha.c   **** 	DispMsg = NULL;
+ 266              		.loc 1 56 10 view .LVU69
+ 267 000e 1960     		str	r1, [r3]
+ 268              		.loc 1 57 2 is_stmt 1 view .LVU70
+ 269 0010 FFF7FEBF 		b	xset
+ 270              	.LVL26:
+ 271              	.L23:
+ 272              		.align	2
+ 273              	.L22:
+ 274 0014 00000000 		.word	main_ram
+ 275 0018 00000000 		.word	DispMsg
+ 276              		.cfi_endproc
+ 277              	.LFE3:
+ 279              		.section	.text.alpha_view_common,"ax",%progbits
+ 280              		.align	1
+ 281              		.p2align 2,,3
+ 282              		.global	alpha_view_common
+ 283              		.syntax unified
+ 284              		.thumb
+ 285              		.thumb_func
+ 286              		.fpu fpv4-sp-d16
+ 288              	alpha_view_common:
+ 289              	.LVL27:
+ 290              	.LFB4:
+  58:src/alpha.c   **** }
+  59:src/alpha.c   **** 
+  60:src/alpha.c   **** 
+  61:src/alpha.c   **** /* Display the Alpha register
+  62:src/alpha.c   ****  */
+  63:src/alpha.c   **** void alpha_view_common(int reg) {
+ 291              		.loc 1 63 33 view -0
+ 292              		.cfi_startproc
+ 293              		@ args = 0, pretend = 0, frame = 0
+ 294              		@ frame_needed = 0, uses_anonymous_args = 0
+ 295              		@ link register save eliminated.
+  64:src/alpha.c   **** 	DispMsg = Alpha;
+ 296              		.loc 1 64 2 view .LVU72
+  63:src/alpha.c   **** 	DispMsg = Alpha;
+ARM GAS  /tmp/ccoISTXj.s 			page 8
+
+
+ 297              		.loc 1 63 33 is_stmt 0 view .LVU73
+ 298 0000 30B4     		push	{r4, r5}
+ 299              		.cfi_def_cfa_offset 8
+ 300              		.cfi_offset 4, -8
+ 301              		.cfi_offset 5, -4
+  65:src/alpha.c   **** 	ShowRegister = reg;
+  66:src/alpha.c   **** 	State2.disp_small = 0;
+ 302              		.loc 1 66 20 view .LVU74
+ 303 0002 084A     		ldr	r2, .L26
+  64:src/alpha.c   **** 	ShowRegister = reg;
+ 304              		.loc 1 64 12 view .LVU75
+ 305 0004 084B     		ldr	r3, .L26+4
+ 306              		.loc 1 66 20 view .LVU76
+ 307 0006 917D     		ldrb	r1, [r2, #22]	@ zero_extendqisi2
+  64:src/alpha.c   **** 	ShowRegister = reg;
+ 308              		.loc 1 64 12 view .LVU77
+ 309 0008 1B68     		ldr	r3, [r3]
+  65:src/alpha.c   **** 	ShowRegister = reg;
+ 310              		.loc 1 65 15 view .LVU78
+ 311 000a 084D     		ldr	r5, .L26+8
+  64:src/alpha.c   **** 	ShowRegister = reg;
+ 312              		.loc 1 64 10 view .LVU79
+ 313 000c 084C     		ldr	r4, .L26+12
+  65:src/alpha.c   **** 	ShowRegister = reg;
+ 314              		.loc 1 65 15 view .LVU80
+ 315 000e 2860     		str	r0, [r5]
+  64:src/alpha.c   **** 	ShowRegister = reg;
+ 316              		.loc 1 64 12 view .LVU81
+ 317 0010 03F5F663 		add	r3, r3, #1968
+ 318              		.loc 1 66 20 view .LVU82
+ 319 0014 6FF3C711 		bfc	r1, #7, #1
+  64:src/alpha.c   **** 	ShowRegister = reg;
+ 320              		.loc 1 64 10 view .LVU83
+ 321 0018 2360     		str	r3, [r4]
+  65:src/alpha.c   **** 	ShowRegister = reg;
+ 322              		.loc 1 65 2 is_stmt 1 view .LVU84
+ 323              		.loc 1 66 2 view .LVU85
+ 324              		.loc 1 66 20 is_stmt 0 view .LVU86
+ 325 001a 9175     		strb	r1, [r2, #22]
+  67:src/alpha.c   **** 	frozen_display();
+ 326              		.loc 1 67 2 is_stmt 1 view .LVU87
+  68:src/alpha.c   **** }
+ 327              		.loc 1 68 1 is_stmt 0 view .LVU88
+ 328 001c 30BC     		pop	{r4, r5}
+ 329              		.cfi_restore 5
+ 330              		.cfi_restore 4
+ 331              		.cfi_def_cfa_offset 0
+  67:src/alpha.c   **** 	frozen_display();
+ 332              		.loc 1 67 2 view .LVU89
+ 333 001e FFF7FEBF 		b	frozen_display
+ 334              	.LVL28:
+ 335              	.L27:
+  67:src/alpha.c   **** 	frozen_display();
+ 336              		.loc 1 67 2 view .LVU90
+ 337 0022 00BF     		.align	2
+ 338              	.L26:
+ 339 0024 00000000 		.word	StateWhileOn
+ARM GAS  /tmp/ccoISTXj.s 			page 9
+
+
+ 340 0028 00000000 		.word	main_ram
+ 341 002c 00000000 		.word	ShowRegister
+ 342 0030 00000000 		.word	DispMsg
+ 343              		.cfi_endproc
+ 344              	.LFE4:
+ 346              		.section	.text.alpha_view,"ax",%progbits
+ 347              		.align	1
+ 348              		.p2align 2,,3
+ 349              		.global	alpha_view
+ 350              		.syntax unified
+ 351              		.thumb
+ 352              		.thumb_func
+ 353              		.fpu fpv4-sp-d16
+ 355              	alpha_view:
+ 356              	.LVL29:
+ 357              	.LFB5:
+  69:src/alpha.c   **** 
+  70:src/alpha.c   **** void alpha_view(enum nilop op) {
+ 358              		.loc 1 70 32 is_stmt 1 view -0
+ 359              		.cfi_startproc
+ 360              		@ args = 0, pretend = 0, frame = 0
+ 361              		@ frame_needed = 0, uses_anonymous_args = 0
+ 362              		@ link register save eliminated.
+  71:src/alpha.c   **** 	alpha_view_common((unsigned int)-1);
+ 363              		.loc 1 71 2 view .LVU92
+ 364              	.LBB33:
+ 365              	.LBI33:
+  63:src/alpha.c   **** 	DispMsg = Alpha;
+ 366              		.loc 1 63 6 view .LVU93
+ 367              	.LBB34:
+  64:src/alpha.c   **** 	ShowRegister = reg;
+ 368              		.loc 1 64 2 view .LVU94
+ 369              	.LBE34:
+ 370              	.LBE33:
+  70:src/alpha.c   **** 	alpha_view_common((unsigned int)-1);
+ 371              		.loc 1 70 32 is_stmt 0 view .LVU95
+ 372 0000 30B4     		push	{r4, r5}
+ 373              		.cfi_def_cfa_offset 8
+ 374              		.cfi_offset 4, -8
+ 375              		.cfi_offset 5, -4
+ 376              	.LBB37:
+ 377              	.LBB35:
+  66:src/alpha.c   **** 	frozen_display();
+ 378              		.loc 1 66 20 view .LVU96
+ 379 0002 094A     		ldr	r2, .L30
+  64:src/alpha.c   **** 	ShowRegister = reg;
+ 380              		.loc 1 64 12 view .LVU97
+ 381 0004 094B     		ldr	r3, .L30+4
+  66:src/alpha.c   **** 	frozen_display();
+ 382              		.loc 1 66 20 view .LVU98
+ 383 0006 917D     		ldrb	r1, [r2, #22]	@ zero_extendqisi2
+  64:src/alpha.c   **** 	ShowRegister = reg;
+ 384              		.loc 1 64 12 view .LVU99
+ 385 0008 1B68     		ldr	r3, [r3]
+  64:src/alpha.c   **** 	ShowRegister = reg;
+ 386              		.loc 1 64 10 view .LVU100
+ 387 000a 094D     		ldr	r5, .L30+8
+ARM GAS  /tmp/ccoISTXj.s 			page 10
+
+
+  65:src/alpha.c   **** 	State2.disp_small = 0;
+ 388              		.loc 1 65 15 view .LVU101
+ 389 000c 0948     		ldr	r0, .L30+12
+ 390              	.LVL30:
+  64:src/alpha.c   **** 	ShowRegister = reg;
+ 391              		.loc 1 64 12 view .LVU102
+ 392 000e 03F5F663 		add	r3, r3, #1968
+  66:src/alpha.c   **** 	frozen_display();
+ 393              		.loc 1 66 20 view .LVU103
+ 394 0012 6FF3C711 		bfc	r1, #7, #1
+  65:src/alpha.c   **** 	State2.disp_small = 0;
+ 395              		.loc 1 65 15 view .LVU104
+ 396 0016 4FF0FF34 		mov	r4, #-1
+  64:src/alpha.c   **** 	ShowRegister = reg;
+ 397              		.loc 1 64 10 view .LVU105
+ 398 001a 2B60     		str	r3, [r5]
+  65:src/alpha.c   **** 	State2.disp_small = 0;
+ 399              		.loc 1 65 2 is_stmt 1 view .LVU106
+  66:src/alpha.c   **** 	frozen_display();
+ 400              		.loc 1 66 20 is_stmt 0 view .LVU107
+ 401 001c 9175     		strb	r1, [r2, #22]
+  65:src/alpha.c   **** 	State2.disp_small = 0;
+ 402              		.loc 1 65 15 view .LVU108
+ 403 001e 0460     		str	r4, [r0]
+  66:src/alpha.c   **** 	frozen_display();
+ 404              		.loc 1 66 2 is_stmt 1 view .LVU109
+  67:src/alpha.c   **** }
+ 405              		.loc 1 67 2 view .LVU110
+ 406              	.LBE35:
+ 407              	.LBE37:
+  72:src/alpha.c   **** }
+ 408              		.loc 1 72 1 is_stmt 0 view .LVU111
+ 409 0020 30BC     		pop	{r4, r5}
+ 410              		.cfi_restore 5
+ 411              		.cfi_restore 4
+ 412              		.cfi_def_cfa_offset 0
+ 413              	.LBB38:
+ 414              	.LBB36:
+  67:src/alpha.c   **** }
+ 415              		.loc 1 67 2 view .LVU112
+ 416 0022 FFF7FEBF 		b	frozen_display
+ 417              	.LVL31:
+ 418              	.L31:
+ 419 0026 00BF     		.align	2
+ 420              	.L30:
+ 421 0028 00000000 		.word	StateWhileOn
+ 422 002c 00000000 		.word	main_ram
+ 423 0030 00000000 		.word	DispMsg
+ 424 0034 00000000 		.word	ShowRegister
+ 425              	.LBE36:
+ 426              	.LBE38:
+ 427              		.cfi_endproc
+ 428              	.LFE5:
+ 430              		.section	.text.alpha_view_reg,"ax",%progbits
+ 431              		.align	1
+ 432              		.p2align 2,,3
+ 433              		.global	alpha_view_reg
+ARM GAS  /tmp/ccoISTXj.s 			page 11
+
+
+ 434              		.syntax unified
+ 435              		.thumb
+ 436              		.thumb_func
+ 437              		.fpu fpv4-sp-d16
+ 439              	alpha_view_reg:
+ 440              	.LVL32:
+ 441              	.LFB6:
+  73:src/alpha.c   **** 
+  74:src/alpha.c   **** /* View a specified register
+  75:src/alpha.c   ****  */
+  76:src/alpha.c   **** void alpha_view_reg(unsigned int arg, enum rarg op) {
+ 442              		.loc 1 76 53 is_stmt 1 view -0
+ 443              		.cfi_startproc
+ 444              		@ args = 0, pretend = 0, frame = 0
+ 445              		@ frame_needed = 0, uses_anonymous_args = 0
+ 446              		@ link register save eliminated.
+  77:src/alpha.c   **** 	alpha_view_common(arg);
+ 447              		.loc 1 77 2 view .LVU114
+  76:src/alpha.c   **** 	alpha_view_common(arg);
+ 448              		.loc 1 76 53 is_stmt 0 view .LVU115
+ 449 0000 30B4     		push	{r4, r5}
+ 450              		.cfi_def_cfa_offset 8
+ 451              		.cfi_offset 4, -8
+ 452              		.cfi_offset 5, -4
+ 453              	.LBB39:
+ 454              	.LBB40:
+  66:src/alpha.c   **** 	frozen_display();
+ 455              		.loc 1 66 20 view .LVU116
+ 456 0002 084A     		ldr	r2, .L34
+  64:src/alpha.c   **** 	ShowRegister = reg;
+ 457              		.loc 1 64 12 view .LVU117
+ 458 0004 084B     		ldr	r3, .L34+4
+  66:src/alpha.c   **** 	frozen_display();
+ 459              		.loc 1 66 20 view .LVU118
+ 460 0006 917D     		ldrb	r1, [r2, #22]	@ zero_extendqisi2
+ 461              	.LVL33:
+  64:src/alpha.c   **** 	ShowRegister = reg;
+ 462              		.loc 1 64 12 view .LVU119
+ 463 0008 1B68     		ldr	r3, [r3]
+  65:src/alpha.c   **** 	State2.disp_small = 0;
+ 464              		.loc 1 65 15 view .LVU120
+ 465 000a 084D     		ldr	r5, .L34+8
+  64:src/alpha.c   **** 	ShowRegister = reg;
+ 466              		.loc 1 64 10 view .LVU121
+ 467 000c 084C     		ldr	r4, .L34+12
+ 468              	.LVL34:
+  64:src/alpha.c   **** 	ShowRegister = reg;
+ 469              		.loc 1 64 10 view .LVU122
+ 470              	.LBE40:
+ 471              	.LBI39:
+  63:src/alpha.c   **** 	DispMsg = Alpha;
+ 472              		.loc 1 63 6 is_stmt 1 view .LVU123
+ 473              	.LBB41:
+  64:src/alpha.c   **** 	ShowRegister = reg;
+ 474              		.loc 1 64 2 view .LVU124
+  65:src/alpha.c   **** 	State2.disp_small = 0;
+ 475              		.loc 1 65 15 is_stmt 0 view .LVU125
+ARM GAS  /tmp/ccoISTXj.s 			page 12
+
+
+ 476 000e 2860     		str	r0, [r5]
+  64:src/alpha.c   **** 	ShowRegister = reg;
+ 477              		.loc 1 64 12 view .LVU126
+ 478 0010 03F5F663 		add	r3, r3, #1968
+  66:src/alpha.c   **** 	frozen_display();
+ 479              		.loc 1 66 20 view .LVU127
+ 480 0014 6FF3C711 		bfc	r1, #7, #1
+  64:src/alpha.c   **** 	ShowRegister = reg;
+ 481              		.loc 1 64 10 view .LVU128
+ 482 0018 2360     		str	r3, [r4]
+  65:src/alpha.c   **** 	State2.disp_small = 0;
+ 483              		.loc 1 65 2 is_stmt 1 view .LVU129
+  66:src/alpha.c   **** 	frozen_display();
+ 484              		.loc 1 66 2 view .LVU130
+  66:src/alpha.c   **** 	frozen_display();
+ 485              		.loc 1 66 20 is_stmt 0 view .LVU131
+ 486 001a 9175     		strb	r1, [r2, #22]
+  67:src/alpha.c   **** }
+ 487              		.loc 1 67 2 is_stmt 1 view .LVU132
+ 488              	.LBE41:
+ 489              	.LBE39:
+  78:src/alpha.c   **** }
+ 490              		.loc 1 78 1 is_stmt 0 view .LVU133
+ 491 001c 30BC     		pop	{r4, r5}
+ 492              		.cfi_restore 5
+ 493              		.cfi_restore 4
+ 494              		.cfi_def_cfa_offset 0
+ 495              	.LBB43:
+ 496              	.LBB42:
+  67:src/alpha.c   **** }
+ 497              		.loc 1 67 2 view .LVU134
+ 498 001e FFF7FEBF 		b	frozen_display
+ 499              	.LVL35:
+ 500              	.L35:
+  67:src/alpha.c   **** }
+ 501              		.loc 1 67 2 view .LVU135
+ 502 0022 00BF     		.align	2
+ 503              	.L34:
+ 504 0024 00000000 		.word	StateWhileOn
+ 505 0028 00000000 		.word	main_ram
+ 506 002c 00000000 		.word	ShowRegister
+ 507 0030 00000000 		.word	DispMsg
+ 508              	.LBE42:
+ 509              	.LBE43:
+ 510              		.cfi_endproc
+ 511              	.LFE6:
+ 513              		.section	.text.cmdalpha,"ax",%progbits
+ 514              		.align	1
+ 515              		.p2align 2,,3
+ 516              		.global	cmdalpha
+ 517              		.syntax unified
+ 518              		.thumb
+ 519              		.thumb_func
+ 520              		.fpu fpv4-sp-d16
+ 522              	cmdalpha:
+ 523              	.LVL36:
+ 524              	.LFB7:
+ARM GAS  /tmp/ccoISTXj.s 			page 13
+
+
+  79:src/alpha.c   **** 
+  80:src/alpha.c   **** 
+  81:src/alpha.c   **** /* Append the character from the given register or passed arg to Alpha
+  82:src/alpha.c   ****  */
+  83:src/alpha.c   **** void cmdalpha(unsigned int arg, enum rarg op) {
+ 525              		.loc 1 83 47 is_stmt 1 view -0
+ 526              		.cfi_startproc
+ 527              		@ args = 0, pretend = 0, frame = 0
+ 528              		@ frame_needed = 0, uses_anonymous_args = 0
+  84:src/alpha.c   **** 	add_char(arg & 0xff);
+ 529              		.loc 1 84 2 view .LVU137
+  83:src/alpha.c   **** 	add_char(arg & 0xff);
+ 530              		.loc 1 83 47 is_stmt 0 view .LVU138
+ 531 0000 08B5     		push	{r3, lr}
+ 532              		.cfi_def_cfa_offset 8
+ 533              		.cfi_offset 3, -8
+ 534              		.cfi_offset 14, -4
+ 535              		.loc 1 84 2 view .LVU139
+ 536 0002 C0B2     		uxtb	r0, r0
+ 537              	.LVL37:
+ 538              		.loc 1 84 2 view .LVU140
+ 539 0004 FFF7FEFF 		bl	add_char
+ 540              	.LVL38:
+  85:src/alpha.c   **** 	set_entry();
+ 541              		.loc 1 85 2 is_stmt 1 view .LVU141
+  86:src/alpha.c   **** }
+ 542              		.loc 1 86 1 is_stmt 0 view .LVU142
+ 543 0008 BDE80840 		pop	{r3, lr}
+ 544              		.cfi_restore 14
+ 545              		.cfi_restore 3
+ 546              		.cfi_def_cfa_offset 0
+  85:src/alpha.c   **** 	set_entry();
+ 547              		.loc 1 85 2 view .LVU143
+ 548 000c FFF7FEBF 		b	set_entry
+ 549              	.LVL39:
+ 550              		.cfi_endproc
+ 551              	.LFE7:
+ 553              		.section	.text.multialpha,"ax",%progbits
+ 554              		.align	1
+ 555              		.p2align 2,,3
+ 556              		.global	multialpha
+ 557              		.syntax unified
+ 558              		.thumb
+ 559              		.thumb_func
+ 560              		.fpu fpv4-sp-d16
+ 562              	multialpha:
+ 563              	.LVL40:
+ 564              	.LFB8:
+  87:src/alpha.c   **** 
+  88:src/alpha.c   **** 
+  89:src/alpha.c   **** /* Multiple append to Alpha */
+  90:src/alpha.c   **** void multialpha(opcode op, enum multiops mopr) {
+ 565              		.loc 1 90 48 is_stmt 1 view -0
+ 566              		.cfi_startproc
+ 567              		@ args = 0, pretend = 0, frame = 8
+ 568              		@ frame_needed = 0, uses_anonymous_args = 0
+  91:src/alpha.c   **** 	char buf[4];
+ARM GAS  /tmp/ccoISTXj.s 			page 14
+
+
+ 569              		.loc 1 91 2 view .LVU145
+  92:src/alpha.c   **** 
+  93:src/alpha.c   **** 	buf[0] = op & 0xff;
+ 570              		.loc 1 93 2 view .LVU146
+  90:src/alpha.c   **** 	char buf[4];
+ 571              		.loc 1 90 48 is_stmt 0 view .LVU147
+ 572 0000 10B5     		push	{r4, lr}
+ 573              		.cfi_def_cfa_offset 8
+ 574              		.cfi_offset 4, -8
+ 575              		.cfi_offset 14, -4
+ 576 0002 82B0     		sub	sp, sp, #8
+ 577              		.cfi_def_cfa_offset 16
+  90:src/alpha.c   **** 	char buf[4];
+ 578              		.loc 1 90 48 view .LVU148
+ 579 0004 0346     		mov	r3, r0
+  94:src/alpha.c   **** 	buf[1] = (op >> 16) & 0xff;
+  95:src/alpha.c   **** 	buf[2] = (op >> 24) & 0xff;
+ 580              		.loc 1 95 22 view .LVU149
+ 581 0006 010E     		lsrs	r1, r0, #24
+ 582              	.LVL41:
+  94:src/alpha.c   **** 	buf[1] = (op >> 16) & 0xff;
+ 583              		.loc 1 94 15 view .LVU150
+ 584 0008 040C     		lsrs	r4, r0, #16
+  96:src/alpha.c   **** 	buf[3] = '\0';
+ 585              		.loc 1 96 9 view .LVU151
+ 586 000a 0022     		movs	r2, #0
+  97:src/alpha.c   **** 	add_string(buf);
+ 587              		.loc 1 97 2 view .LVU152
+ 588 000c 01A8     		add	r0, sp, #4
+ 589              	.LVL42:
+  93:src/alpha.c   **** 	buf[1] = (op >> 16) & 0xff;
+ 590              		.loc 1 93 9 view .LVU153
+ 591 000e 8DF80430 		strb	r3, [sp, #4]
+  94:src/alpha.c   **** 	buf[2] = (op >> 24) & 0xff;
+ 592              		.loc 1 94 2 is_stmt 1 view .LVU154
+  94:src/alpha.c   **** 	buf[2] = (op >> 24) & 0xff;
+ 593              		.loc 1 94 9 is_stmt 0 view .LVU155
+ 594 0012 8DF80540 		strb	r4, [sp, #5]
+  95:src/alpha.c   **** 	buf[3] = '\0';
+ 595              		.loc 1 95 2 is_stmt 1 view .LVU156
+  95:src/alpha.c   **** 	buf[3] = '\0';
+ 596              		.loc 1 95 9 is_stmt 0 view .LVU157
+ 597 0016 8DF80610 		strb	r1, [sp, #6]
+  96:src/alpha.c   **** 	add_string(buf);
+ 598              		.loc 1 96 2 is_stmt 1 view .LVU158
+  96:src/alpha.c   **** 	add_string(buf);
+ 599              		.loc 1 96 9 is_stmt 0 view .LVU159
+ 600 001a 8DF80720 		strb	r2, [sp, #7]
+ 601              		.loc 1 97 2 is_stmt 1 view .LVU160
+ 602 001e FFF7FEFF 		bl	add_string
+ 603              	.LVL43:
+  98:src/alpha.c   **** }
+ 604              		.loc 1 98 1 is_stmt 0 view .LVU161
+ 605 0022 02B0     		add	sp, sp, #8
+ 606              		.cfi_def_cfa_offset 8
+ 607              		@ sp needed
+ 608 0024 10BD     		pop	{r4, pc}
+ARM GAS  /tmp/ccoISTXj.s 			page 15
+
+
+ 609              		.cfi_endproc
+ 610              	.LFE8:
+ 612              		.global	__aeabi_uldivmod
+ 613 0026 00BF     		.section	.text.alpha_ip,"ax",%progbits
+ 614              		.align	1
+ 615              		.p2align 2,,3
+ 616              		.global	alpha_ip
+ 617              		.syntax unified
+ 618              		.thumb
+ 619              		.thumb_func
+ 620              		.fpu fpv4-sp-d16
+ 622              	alpha_ip:
+ 623              	.LVL44:
+ 624              	.LFB9:
+  99:src/alpha.c   **** 
+ 100:src/alpha.c   **** 
+ 101:src/alpha.c   **** /* Append integer value to Alpha
+ 102:src/alpha.c   ****  */
+ 103:src/alpha.c   **** void alpha_ip(unsigned int arg, enum rarg op) {
+ 625              		.loc 1 103 47 is_stmt 1 view -0
+ 626              		.cfi_startproc
+ 627              		@ args = 0, pretend = 0, frame = 112
+ 628              		@ frame_needed = 0, uses_anonymous_args = 0
+ 104:src/alpha.c   **** 	char tbuf[NUMALPHA + 4], *p;
+ 629              		.loc 1 104 2 view .LVU163
+ 105:src/alpha.c   **** 	int i, sgn;
+ 630              		.loc 1 105 2 view .LVU164
+ 106:src/alpha.c   **** 
+ 107:src/alpha.c   **** 	p = tbuf + sizeof(tbuf) - 1;
+ 631              		.loc 1 107 2 view .LVU165
+ 103:src/alpha.c   **** 	char tbuf[NUMALPHA + 4], *p;
+ 632              		.loc 1 103 47 is_stmt 0 view .LVU166
+ 633 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 634              		.cfi_def_cfa_offset 36
+ 635              		.cfi_offset 4, -36
+ 636              		.cfi_offset 5, -32
+ 637              		.cfi_offset 6, -28
+ 638              		.cfi_offset 7, -24
+ 639              		.cfi_offset 8, -20
+ 640              		.cfi_offset 9, -16
+ 641              		.cfi_offset 10, -12
+ 642              		.cfi_offset 11, -8
+ 643              		.cfi_offset 14, -4
+ 108:src/alpha.c   **** 	*p = '\0';
+ 109:src/alpha.c   **** 
+ 110:src/alpha.c   **** 	if (is_intmode()) {
+ 644              		.loc 1 110 6 view .LVU167
+ 645 0004 384B     		ldr	r3, .L57
+ 646 0006 1B68     		ldr	r3, [r3]
+ 647 0008 93F8E837 		ldrb	r3, [r3, #2024]	@ zero_extendqisi2
+ 103:src/alpha.c   **** 	char tbuf[NUMALPHA + 4], *p;
+ 648              		.loc 1 103 47 view .LVU168
+ 649 000c 9DB0     		sub	sp, sp, #116
+ 650              		.cfi_def_cfa_offset 152
+ 651              	.LVL45:
+ 108:src/alpha.c   **** 	*p = '\0';
+ 652              		.loc 1 108 2 is_stmt 1 view .LVU169
+ARM GAS  /tmp/ccoISTXj.s 			page 16
+
+
+ 108:src/alpha.c   **** 	*p = '\0';
+ 653              		.loc 1 108 5 is_stmt 0 view .LVU170
+ 654 000e 0022     		movs	r2, #0
+ 655              		.loc 1 110 5 view .LVU171
+ 656 0010 DB07     		lsls	r3, r3, #31
+ 108:src/alpha.c   **** 	*p = '\0';
+ 657              		.loc 1 108 5 view .LVU172
+ 658 0012 8DF82520 		strb	r2, [sp, #37]
+ 659              		.loc 1 110 2 is_stmt 1 view .LVU173
+ 660              		.loc 1 110 5 is_stmt 0 view .LVU174
+ 661 0016 30D5     		bpl	.L41
+ 662              	.LBB44:
+ 111:src/alpha.c   **** 		// should convert this using the current display mode...
+ 112:src/alpha.c   **** 		unsigned long long int n = extract_value(get_reg_n_int(arg), &sgn);
+ 663              		.loc 1 112 3 is_stmt 1 view .LVU175
+ 664              		.loc 1 112 30 is_stmt 0 view .LVU176
+ 665 0018 FFF7FEFF 		bl	get_reg_n_int
+ 666              	.LVL46:
+ 667              		.loc 1 112 30 view .LVU177
+ 668 001c 6A46     		mov	r2, sp
+ 669 001e FFF7FEFF 		bl	extract_value
+ 670              	.LVL47:
+ 671 0022 0646     		mov	r6, r0
+ 672 0024 0D46     		mov	r5, r1
+ 673              	.LVL48:
+ 113:src/alpha.c   **** 		unsigned int base = int_base();
+ 674              		.loc 1 113 3 is_stmt 1 view .LVU178
+ 675              		.loc 1 113 23 is_stmt 0 view .LVU179
+ 676 0026 FFF7FEFF 		bl	int_base
+ 677              	.LVL49:
+ 114:src/alpha.c   **** 		for (i=0; i<NUMALPHA; i++) {
+ 678              		.loc 1 114 3 is_stmt 1 view .LVU180
+ 679              		.loc 1 114 13 view .LVU181
+ 680 002a 304F     		ldr	r7, .L57+4
+ 681 002c 8046     		mov	r8, r0
+ 682 002e 4FF00009 		mov	r9, #0
+ 683              	.LBE44:
+ 107:src/alpha.c   **** 	*p = '\0';
+ 684              		.loc 1 107 4 is_stmt 0 view .LVU182
+ 685 0032 0DF12504 		add	r4, sp, #37
+ 686              	.LVL50:
+ 687              	.LBB48:
+ 688              		.loc 1 114 3 view .LVU183
+ 689 0036 0DF1070A 		add	r10, sp, #7
+ 690 003a 01E0     		b	.L43
+ 691              	.LVL51:
+ 692              	.L54:
+ 693              		.loc 1 114 3 discriminator 2 view .LVU184
+ 694 003c 5445     		cmp	r4, r10
+ 695 003e 10D0     		beq	.L42
+ 696              	.LVL52:
+ 697              	.L43:
+ 698              	.LBB45:
+ 115:src/alpha.c   **** 			unsigned int r = n % base;
+ 699              		.loc 1 115 4 is_stmt 1 view .LVU185
+ 700 0040 3046     		mov	r0, r6
+ 701 0042 2946     		mov	r1, r5
+ARM GAS  /tmp/ccoISTXj.s 			page 17
+
+
+ 702 0044 4246     		mov	r2, r8
+ 703 0046 4B46     		mov	r3, r9
+ 704 0048 FFF7FEFF 		bl	__aeabi_uldivmod
+ 705              	.LVL53:
+ 706              	.LBE45:
+ 114:src/alpha.c   **** 		for (i=0; i<NUMALPHA; i++) {
+ 707              		.loc 1 114 25 view .LVU186
+ 708              	.LBB46:
+ 116:src/alpha.c   **** 			n /= base;
+ 709              		.loc 1 116 4 view .LVU187
+ 710 004c AC46     		mov	ip, r5
+ 711 004e B346     		mov	fp, r6
+ 117:src/alpha.c   **** 			*--p = DIGITS[r];
+ 118:src/alpha.c   **** 			if (n == 0)
+ 712              		.loc 1 118 7 is_stmt 0 view .LVU188
+ 713 0050 CC45     		cmp	ip, r9
+ 117:src/alpha.c   **** 			*--p = DIGITS[r];
+ 714              		.loc 1 117 9 view .LVU189
+ 715 0052 BB5C     		ldrb	r3, [r7, r2]	@ zero_extendqisi2
+ 716 0054 04F8013D 		strb	r3, [r4, #-1]!
+ 717              	.LVL54:
+ 117:src/alpha.c   **** 			*--p = DIGITS[r];
+ 718              		.loc 1 117 9 view .LVU190
+ 719              	.LBE46:
+ 114:src/alpha.c   **** 			unsigned int r = n % base;
+ 720              		.loc 1 114 13 is_stmt 1 view .LVU191
+ 721              	.LBB47:
+ 722              		.loc 1 118 7 is_stmt 0 view .LVU192
+ 723 0058 08BF     		it	eq
+ 724 005a C345     		cmpeq	fp, r8
+ 116:src/alpha.c   **** 			n /= base;
+ 725              		.loc 1 116 6 view .LVU193
+ 726 005c 0646     		mov	r6, r0
+ 727 005e 0D46     		mov	r5, r1
+ 117:src/alpha.c   **** 			*--p = DIGITS[r];
+ 728              		.loc 1 117 4 is_stmt 1 view .LVU194
+ 729              	.LVL55:
+ 730              		.loc 1 118 4 view .LVU195
+ 731              		.loc 1 118 7 is_stmt 0 view .LVU196
+ 732 0060 ECD2     		bcs	.L54
+ 733              	.LVL56:
+ 734              	.L42:
+ 735              		.loc 1 118 7 view .LVU197
+ 736              	.LBE47:
+ 737              	.LBE48:
+ 119:src/alpha.c   **** 				break;
+ 120:src/alpha.c   **** 		}
+ 121:src/alpha.c   **** 	} else {
+ 122:src/alpha.c   **** 		decNumber x, y;
+ 123:src/alpha.c   **** 		sgn = decNumberIsNegative(getRegister(&y, arg));
+ 124:src/alpha.c   **** 		if (sgn)
+ 125:src/alpha.c   **** 			dn_minus(&y, &y);
+ 126:src/alpha.c   **** 		decNumberFloor(&x, &y);
+ 127:src/alpha.c   **** 		for (i=0; i<NUMALPHA; i++) {
+ 128:src/alpha.c   **** 			decNumberMod(&y, &x, &const_10);
+ 129:src/alpha.c   **** 			*--p = '0' + dn_to_int(&y);
+ 130:src/alpha.c   **** 			decNumberFloor(&x, dn_divide(&y, &x, &const_10));
+ARM GAS  /tmp/ccoISTXj.s 			page 18
+
+
+ 131:src/alpha.c   **** 			if (dn_eq0(&x))
+ 132:src/alpha.c   **** 				break;
+ 133:src/alpha.c   **** 		}
+ 134:src/alpha.c   **** 	}
+ 135:src/alpha.c   **** 
+ 136:src/alpha.c   **** 	if (sgn)
+ 738              		.loc 1 136 2 is_stmt 1 view .LVU198
+ 739              		.loc 1 136 5 is_stmt 0 view .LVU199
+ 740 0062 009B     		ldr	r3, [sp]
+ 741 0064 1BB1     		cbz	r3, .L47
+ 137:src/alpha.c   **** 		*--p = '-';
+ 742              		.loc 1 137 3 is_stmt 1 view .LVU200
+ 743              	.LVL57:
+ 744              		.loc 1 137 8 is_stmt 0 view .LVU201
+ 745 0066 2D23     		movs	r3, #45
+ 746 0068 04F8013C 		strb	r3, [r4, #-1]
+ 747 006c 013C     		subs	r4, r4, #1
+ 748              	.LVL58:
+ 749              	.L47:
+ 138:src/alpha.c   **** 	add_string(p);
+ 750              		.loc 1 138 2 is_stmt 1 view .LVU202
+ 751 006e 2046     		mov	r0, r4
+ 752 0070 FFF7FEFF 		bl	add_string
+ 753              	.LVL59:
+ 139:src/alpha.c   **** }
+ 754              		.loc 1 139 1 is_stmt 0 view .LVU203
+ 755 0074 1DB0     		add	sp, sp, #116
+ 756              		.cfi_remember_state
+ 757              		.cfi_def_cfa_offset 36
+ 758              		@ sp needed
+ 759 0076 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 760              	.LVL60:
+ 761              	.L41:
+ 762              		.cfi_restore_state
+ 763              	.LBB49:
+ 122:src/alpha.c   **** 		sgn = decNumberIsNegative(getRegister(&y, arg));
+ 764              		.loc 1 122 3 is_stmt 1 view .LVU204
+ 123:src/alpha.c   **** 		if (sgn)
+ 765              		.loc 1 123 3 view .LVU205
+ 766 007a 0146     		mov	r1, r0
+ 767              	.LVL61:
+ 123:src/alpha.c   **** 		if (sgn)
+ 768              		.loc 1 123 9 is_stmt 0 view .LVU206
+ 769 007c 13A8     		add	r0, sp, #76
+ 770              	.LVL62:
+ 123:src/alpha.c   **** 		if (sgn)
+ 771              		.loc 1 123 9 view .LVU207
+ 772 007e FFF7FEFF 		bl	getRegister
+ 773              	.LVL63:
+ 123:src/alpha.c   **** 		if (sgn)
+ 774              		.loc 1 123 9 view .LVU208
+ 775 0082 90F90830 		ldrsb	r3, [r0, #8]
+ 776 0086 DA0F     		lsrs	r2, r3, #31
+ 124:src/alpha.c   **** 			dn_minus(&y, &y);
+ 777              		.loc 1 124 6 view .LVU209
+ 778 0088 002B     		cmp	r3, #0
+ 123:src/alpha.c   **** 		if (sgn)
+ARM GAS  /tmp/ccoISTXj.s 			page 19
+
+
+ 779              		.loc 1 123 7 view .LVU210
+ 780 008a 0092     		str	r2, [sp]
+ 124:src/alpha.c   **** 			dn_minus(&y, &y);
+ 781              		.loc 1 124 3 is_stmt 1 view .LVU211
+ 124:src/alpha.c   **** 			dn_minus(&y, &y);
+ 782              		.loc 1 124 6 is_stmt 0 view .LVU212
+ 783 008c 26DB     		blt	.L55
+ 784              	.L44:
+ 126:src/alpha.c   **** 		for (i=0; i<NUMALPHA; i++) {
+ 785              		.loc 1 126 3 is_stmt 1 view .LVU213
+ 786 008e 0AA8     		add	r0, sp, #40
+ 787 0090 13A9     		add	r1, sp, #76
+ 788 0092 FFF7FEFF 		bl	decNumberFloor
+ 789              	.LVL64:
+ 127:src/alpha.c   **** 			decNumberMod(&y, &x, &const_10);
+ 790              		.loc 1 127 3 view .LVU214
+ 127:src/alpha.c   **** 			decNumberMod(&y, &x, &const_10);
+ 791              		.loc 1 127 13 view .LVU215
+ 128:src/alpha.c   **** 			*--p = '0' + dn_to_int(&y);
+ 792              		.loc 1 128 4 is_stmt 0 view .LVU216
+ 793 0096 164D     		ldr	r5, .L57+8
+ 794              	.LBE49:
+ 107:src/alpha.c   **** 	*p = '\0';
+ 795              		.loc 1 107 4 view .LVU217
+ 796 0098 0DF12504 		add	r4, sp, #37
+ 797              	.LVL65:
+ 798              	.LBB50:
+ 127:src/alpha.c   **** 			decNumberMod(&y, &x, &const_10);
+ 799              		.loc 1 127 3 view .LVU218
+ 800 009c 0DF10706 		add	r6, sp, #7
+ 801 00a0 01E0     		b	.L46
+ 802              	.LVL66:
+ 803              	.L56:
+ 127:src/alpha.c   **** 			decNumberMod(&y, &x, &const_10);
+ 804              		.loc 1 127 3 discriminator 2 view .LVU219
+ 805 00a2 B442     		cmp	r4, r6
+ 806 00a4 DDD0     		beq	.L42
+ 807              	.LVL67:
+ 808              	.L46:
+ 128:src/alpha.c   **** 			*--p = '0' + dn_to_int(&y);
+ 809              		.loc 1 128 4 is_stmt 1 view .LVU220
+ 810 00a6 2A46     		mov	r2, r5
+ 811 00a8 0AA9     		add	r1, sp, #40
+ 812 00aa 13A8     		add	r0, sp, #76
+ 813 00ac FFF7FEFF 		bl	decNumberMod
+ 814              	.LVL68:
+ 129:src/alpha.c   **** 			decNumberFloor(&x, dn_divide(&y, &x, &const_10));
+ 815              		.loc 1 129 4 view .LVU221
+ 129:src/alpha.c   **** 			decNumberFloor(&x, dn_divide(&y, &x, &const_10));
+ 816              		.loc 1 129 17 is_stmt 0 view .LVU222
+ 817 00b0 13A8     		add	r0, sp, #76
+ 818 00b2 FFF7FEFF 		bl	dn_to_int
+ 819              	.LVL69:
+ 130:src/alpha.c   **** 			if (dn_eq0(&x))
+ 820              		.loc 1 130 23 view .LVU223
+ 821 00b6 2A46     		mov	r2, r5
+ 129:src/alpha.c   **** 			decNumberFloor(&x, dn_divide(&y, &x, &const_10));
+ARM GAS  /tmp/ccoISTXj.s 			page 20
+
+
+ 822              		.loc 1 129 15 view .LVU224
+ 823 00b8 00F13003 		add	r3, r0, #48
+ 130:src/alpha.c   **** 			if (dn_eq0(&x))
+ 824              		.loc 1 130 23 view .LVU225
+ 825 00bc 0AA9     		add	r1, sp, #40
+ 826 00be 13A8     		add	r0, sp, #76
+ 129:src/alpha.c   **** 			decNumberFloor(&x, dn_divide(&y, &x, &const_10));
+ 827              		.loc 1 129 9 view .LVU226
+ 828 00c0 04F8013D 		strb	r3, [r4, #-1]!
+ 829              	.LVL70:
+ 130:src/alpha.c   **** 			if (dn_eq0(&x))
+ 830              		.loc 1 130 4 is_stmt 1 view .LVU227
+ 130:src/alpha.c   **** 			if (dn_eq0(&x))
+ 831              		.loc 1 130 23 is_stmt 0 view .LVU228
+ 832 00c4 FFF7FEFF 		bl	dn_divide
+ 833              	.LVL71:
+ 834 00c8 0146     		mov	r1, r0
+ 130:src/alpha.c   **** 			if (dn_eq0(&x))
+ 835              		.loc 1 130 4 view .LVU229
+ 836 00ca 0AA8     		add	r0, sp, #40
+ 837 00cc FFF7FEFF 		bl	decNumberFloor
+ 838              	.LVL72:
+ 131:src/alpha.c   **** 				break;
+ 839              		.loc 1 131 4 is_stmt 1 view .LVU230
+ 131:src/alpha.c   **** 				break;
+ 840              		.loc 1 131 8 is_stmt 0 view .LVU231
+ 841 00d0 0AA8     		add	r0, sp, #40
+ 842 00d2 FFF7FEFF 		bl	dn_eq0
+ 843              	.LVL73:
+ 127:src/alpha.c   **** 			decNumberMod(&y, &x, &const_10);
+ 844              		.loc 1 127 25 is_stmt 1 view .LVU232
+ 127:src/alpha.c   **** 			decNumberMod(&y, &x, &const_10);
+ 845              		.loc 1 127 13 view .LVU233
+ 131:src/alpha.c   **** 				break;
+ 846              		.loc 1 131 7 is_stmt 0 view .LVU234
+ 847 00d6 0028     		cmp	r0, #0
+ 848 00d8 E3D0     		beq	.L56
+ 849 00da C2E7     		b	.L42
+ 850              	.LVL74:
+ 851              	.L55:
+ 125:src/alpha.c   **** 		decNumberFloor(&x, &y);
+ 852              		.loc 1 125 4 is_stmt 1 view .LVU235
+ 853 00dc 13A9     		add	r1, sp, #76
+ 854 00de 0846     		mov	r0, r1
+ 855 00e0 FFF7FEFF 		bl	dn_minus
+ 856              	.LVL75:
+ 857 00e4 D3E7     		b	.L44
+ 858              	.L58:
+ 859 00e6 00BF     		.align	2
+ 860              	.L57:
+ 861 00e8 00000000 		.word	main_ram
+ 862 00ec 00000000 		.word	DIGITS
+ 863 00f0 00000000 		.word	const_10
+ 864              	.LBE50:
+ 865              		.cfi_endproc
+ 866              	.LFE9:
+ 868              		.section	.text.alen,"ax",%progbits
+ARM GAS  /tmp/ccoISTXj.s 			page 21
+
+
+ 869              		.align	1
+ 870              		.p2align 2,,3
+ 871              		.global	alen
+ 872              		.syntax unified
+ 873              		.thumb
+ 874              		.thumb_func
+ 875              		.fpu fpv4-sp-d16
+ 877              	alen:
+ 878              	.LFB10:
+ 140:src/alpha.c   **** 
+ 141:src/alpha.c   **** 
+ 142:src/alpha.c   **** /* Return length of Alpha register
+ 143:src/alpha.c   ****  */
+ 144:src/alpha.c   **** unsigned int alen(void) {
+ 879              		.loc 1 144 25 view -0
+ 880              		.cfi_startproc
+ 881              		@ args = 0, pretend = 0, frame = 0
+ 882              		@ frame_needed = 0, uses_anonymous_args = 0
+ 145:src/alpha.c   **** 	return find_char(Alpha, '\0') - Alpha;
+ 883              		.loc 1 145 2 view .LVU237
+ 144:src/alpha.c   **** 	return find_char(Alpha, '\0') - Alpha;
+ 884              		.loc 1 144 25 is_stmt 0 view .LVU238
+ 885 0000 10B5     		push	{r4, lr}
+ 886              		.cfi_def_cfa_offset 8
+ 887              		.cfi_offset 4, -8
+ 888              		.cfi_offset 14, -4
+ 889              		.loc 1 145 19 view .LVU239
+ 890 0002 064C     		ldr	r4, .L61
+ 891 0004 2068     		ldr	r0, [r4]
+ 892              		.loc 1 145 9 view .LVU240
+ 893 0006 0021     		movs	r1, #0
+ 894 0008 00F5F660 		add	r0, r0, #1968
+ 895 000c FFF7FEFF 		bl	find_char
+ 896              	.LVL76:
+ 897              		.loc 1 145 32 view .LVU241
+ 898 0010 2368     		ldr	r3, [r4]
+ 899 0012 03F5F663 		add	r3, r3, #1968
+ 146:src/alpha.c   **** }
+ 900              		.loc 1 146 1 view .LVU242
+ 901 0016 C01A     		subs	r0, r0, r3
+ 902 0018 10BD     		pop	{r4, pc}
+ 903              	.L62:
+ 904 001a 00BF     		.align	2
+ 905              	.L61:
+ 906 001c 00000000 		.word	main_ram
+ 907              		.cfi_endproc
+ 908              	.LFE10:
+ 910              		.section	.text.alpha_length,"ax",%progbits
+ 911              		.align	1
+ 912              		.p2align 2,,3
+ 913              		.global	alpha_length
+ 914              		.syntax unified
+ 915              		.thumb
+ 916              		.thumb_func
+ 917              		.fpu fpv4-sp-d16
+ 919              	alpha_length:
+ 920              	.LVL77:
+ARM GAS  /tmp/ccoISTXj.s 			page 22
+
+
+ 921              	.LFB11:
+ 147:src/alpha.c   **** 
+ 148:src/alpha.c   **** void alpha_length(enum nilop op) {
+ 922              		.loc 1 148 34 is_stmt 1 view -0
+ 923              		.cfi_startproc
+ 924              		@ args = 0, pretend = 0, frame = 0
+ 925              		@ frame_needed = 0, uses_anonymous_args = 0
+ 149:src/alpha.c   **** 	setX_int_sgn(alen(), 0);
+ 926              		.loc 1 149 2 view .LVU244
+ 927              	.LBB51:
+ 928              	.LBI51:
+ 144:src/alpha.c   **** 	return find_char(Alpha, '\0') - Alpha;
+ 929              		.loc 1 144 14 view .LVU245
+ 930              	.LBB52:
+ 145:src/alpha.c   **** }
+ 931              		.loc 1 145 2 view .LVU246
+ 932              	.LBE52:
+ 933              	.LBE51:
+ 148:src/alpha.c   **** 	setX_int_sgn(alen(), 0);
+ 934              		.loc 1 148 34 is_stmt 0 view .LVU247
+ 935 0000 10B5     		push	{r4, lr}
+ 936              		.cfi_def_cfa_offset 8
+ 937              		.cfi_offset 4, -8
+ 938              		.cfi_offset 14, -4
+ 939              	.LBB55:
+ 940              	.LBB53:
+ 145:src/alpha.c   **** }
+ 941              		.loc 1 145 19 view .LVU248
+ 942 0002 084C     		ldr	r4, .L65
+ 943 0004 2068     		ldr	r0, [r4]
+ 944              	.LVL78:
+ 145:src/alpha.c   **** }
+ 945              		.loc 1 145 9 view .LVU249
+ 946 0006 0021     		movs	r1, #0
+ 947 0008 00F5F660 		add	r0, r0, #1968
+ 948 000c FFF7FEFF 		bl	find_char
+ 949              	.LVL79:
+ 145:src/alpha.c   **** }
+ 950              		.loc 1 145 32 view .LVU250
+ 951 0010 2368     		ldr	r3, [r4]
+ 952              	.LBE53:
+ 953              	.LBE55:
+ 954              		.loc 1 149 2 view .LVU251
+ 955 0012 0022     		movs	r2, #0
+ 956              	.LBB56:
+ 957              	.LBB54:
+ 145:src/alpha.c   **** }
+ 958              		.loc 1 145 32 view .LVU252
+ 959 0014 03F5F663 		add	r3, r3, #1968
+ 960              	.LBE54:
+ 961              	.LBE56:
+ 150:src/alpha.c   **** }
+ 962              		.loc 1 150 1 view .LVU253
+ 963 0018 BDE81040 		pop	{r4, lr}
+ 964              		.cfi_restore 14
+ 965              		.cfi_restore 4
+ 966              		.cfi_def_cfa_offset 0
+ARM GAS  /tmp/ccoISTXj.s 			page 23
+
+
+ 149:src/alpha.c   **** }
+ 967              		.loc 1 149 2 view .LVU254
+ 968 001c C01A     		subs	r0, r0, r3
+ 969 001e 1146     		mov	r1, r2
+ 970 0020 FFF7FEBF 		b	setX_int_sgn
+ 971              	.LVL80:
+ 972              	.L66:
+ 973              		.align	2
+ 974              	.L65:
+ 975 0024 00000000 		.word	main_ram
+ 976              		.cfi_endproc
+ 977              	.LFE11:
+ 979              		.section	.text.alpha_shift_l,"ax",%progbits
+ 980              		.align	1
+ 981              		.p2align 2,,3
+ 982              		.global	alpha_shift_l
+ 983              		.syntax unified
+ 984              		.thumb
+ 985              		.thumb_func
+ 986              		.fpu fpv4-sp-d16
+ 988              	alpha_shift_l:
+ 989              	.LVL81:
+ 990              	.LFB12:
+ 151:src/alpha.c   **** 
+ 152:src/alpha.c   **** /* Shift or rotate Alpha register arg positions
+ 153:src/alpha.c   ****  */
+ 154:src/alpha.c   **** void alpha_shift_l(unsigned int arg, enum rarg op) {
+ 991              		.loc 1 154 52 is_stmt 1 view -0
+ 992              		.cfi_startproc
+ 993              		@ args = 0, pretend = 0, frame = 0
+ 994              		@ frame_needed = 0, uses_anonymous_args = 0
+ 155:src/alpha.c   **** 	unsigned int i;
+ 995              		.loc 1 155 2 view .LVU256
+ 156:src/alpha.c   **** 	const int rot = (op == RARG_ALRL);
+ 996              		.loc 1 156 2 view .LVU257
+ 157:src/alpha.c   **** 
+ 158:src/alpha.c   **** 	for (i=0; i<arg; i++) {
+ 997              		.loc 1 158 2 view .LVU258
+ 998              		.loc 1 158 12 view .LVU259
+ 999              		.loc 1 158 2 is_stmt 0 view .LVU260
+ 1000 0000 D0B1     		cbz	r0, .L75
+ 154:src/alpha.c   **** 	unsigned int i;
+ 1001              		.loc 1 154 52 view .LVU261
+ 1002 0002 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 1003              		.cfi_def_cfa_offset 24
+ 1004              		.cfi_offset 4, -24
+ 1005              		.cfi_offset 5, -20
+ 1006              		.cfi_offset 6, -16
+ 1007              		.cfi_offset 7, -12
+ 1008              		.cfi_offset 8, -8
+ 1009              		.cfi_offset 14, -4
+ 1010 0006 DFF83480 		ldr	r8, .L78
+ 1011 000a 0F46     		mov	r7, r1
+ 1012 000c 0646     		mov	r6, r0
+ 1013              		.loc 1 158 8 view .LVU262
+ 1014 000e 0024     		movs	r4, #0
+ 1015              	.LVL82:
+ARM GAS  /tmp/ccoISTXj.s 			page 24
+
+
+ 1016              	.L68:
+ 1017              	.LBB57:
+ 159:src/alpha.c   **** 		const char c = rot?Alpha[0]:'\0';
+ 1018              		.loc 1 159 3 is_stmt 1 view .LVU263
+ 1019              		.loc 1 159 22 is_stmt 0 view .LVU264
+ 1020 0010 D8F80000 		ldr	r0, [r8]
+ 1021              		.loc 1 159 14 view .LVU265
+ 1022 0014 292F     		cmp	r7, #41
+ 1023 0016 08BF     		it	eq
+ 1024 0018 90F8B057 		ldrbeq	r5, [r0, #1968]	@ zero_extendqisi2
+ 160:src/alpha.c   **** 
+ 161:src/alpha.c   **** 		*scopy(Alpha, Alpha+1) = c;
+ 1025              		.loc 1 161 4 view .LVU266
+ 1026 001c 00F2B171 		addw	r1, r0, #1969
+ 1027 0020 00F5F660 		add	r0, r0, #1968
+ 159:src/alpha.c   **** 		const char c = rot?Alpha[0]:'\0';
+ 1028              		.loc 1 159 14 view .LVU267
+ 1029 0024 18BF     		it	ne
+ 1030 0026 0025     		movne	r5, #0
+ 1031              	.LVL83:
+ 1032              		.loc 1 161 3 is_stmt 1 view .LVU268
+ 1033              		.loc 1 161 4 is_stmt 0 view .LVU269
+ 1034 0028 FFF7FEFF 		bl	scopy
+ 1035              	.LVL84:
+ 1036              	.LBE57:
+ 158:src/alpha.c   **** 		const char c = rot?Alpha[0]:'\0';
+ 1037              		.loc 1 158 20 view .LVU270
+ 1038 002c 0134     		adds	r4, r4, #1
+ 1039              	.LVL85:
+ 158:src/alpha.c   **** 		const char c = rot?Alpha[0]:'\0';
+ 1040              		.loc 1 158 2 view .LVU271
+ 1041 002e A642     		cmp	r6, r4
+ 1042              	.LBB58:
+ 1043              		.loc 1 161 26 view .LVU272
+ 1044 0030 0570     		strb	r5, [r0]
+ 1045              	.LBE58:
+ 158:src/alpha.c   **** 		const char c = rot?Alpha[0]:'\0';
+ 1046              		.loc 1 158 19 is_stmt 1 view .LVU273
+ 1047              	.LVL86:
+ 158:src/alpha.c   **** 		const char c = rot?Alpha[0]:'\0';
+ 1048              		.loc 1 158 12 view .LVU274
+ 158:src/alpha.c   **** 		const char c = rot?Alpha[0]:'\0';
+ 1049              		.loc 1 158 2 is_stmt 0 view .LVU275
+ 1050 0032 EDD1     		bne	.L68
+ 162:src/alpha.c   **** 	}
+ 163:src/alpha.c   **** }
+ 1051              		.loc 1 163 1 view .LVU276
+ 1052 0034 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 1053              	.LVL87:
+ 1054              	.L75:
+ 1055              		.cfi_def_cfa_offset 0
+ 1056              		.cfi_restore 4
+ 1057              		.cfi_restore 5
+ 1058              		.cfi_restore 6
+ 1059              		.cfi_restore 7
+ 1060              		.cfi_restore 8
+ 1061              		.cfi_restore 14
+ARM GAS  /tmp/ccoISTXj.s 			page 25
+
+
+ 1062              		.loc 1 163 1 view .LVU277
+ 1063 0038 7047     		bx	lr
+ 1064              	.L79:
+ 1065 003a 00BF     		.align	2
+ 1066              	.L78:
+ 1067 003c 00000000 		.word	main_ram
+ 1068              		.cfi_endproc
+ 1069              	.LFE12:
+ 1071              		.section	.text.alpha_shift_r,"ax",%progbits
+ 1072              		.align	1
+ 1073              		.p2align 2,,3
+ 1074              		.global	alpha_shift_r
+ 1075              		.syntax unified
+ 1076              		.thumb
+ 1077              		.thumb_func
+ 1078              		.fpu fpv4-sp-d16
+ 1080              	alpha_shift_r:
+ 1081              	.LVL88:
+ 1082              	.LFB13:
+ 164:src/alpha.c   **** 
+ 165:src/alpha.c   **** void alpha_shift_r(unsigned int arg, enum rarg op) {
+ 1083              		.loc 1 165 52 is_stmt 1 view -0
+ 1084              		.cfi_startproc
+ 1085              		@ args = 0, pretend = 0, frame = 0
+ 1086              		@ frame_needed = 0, uses_anonymous_args = 0
+ 166:src/alpha.c   **** 	unsigned int i;
+ 1087              		.loc 1 166 2 view .LVU279
+ 167:src/alpha.c   **** 
+ 168:src/alpha.c   **** 	for (i=0; i<arg; i++) {
+ 1088              		.loc 1 168 2 view .LVU280
+ 1089              		.loc 1 168 12 view .LVU281
+ 1090              		.loc 1 168 2 is_stmt 0 view .LVU282
+ 1091 0000 98B1     		cbz	r0, .L86
+ 165:src/alpha.c   **** 	unsigned int i;
+ 1092              		.loc 1 165 52 view .LVU283
+ 1093 0002 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 1094              		.cfi_def_cfa_offset 24
+ 1095              		.cfi_offset 3, -24
+ 1096              		.cfi_offset 4, -20
+ 1097              		.cfi_offset 5, -16
+ 1098              		.cfi_offset 6, -12
+ 1099              		.cfi_offset 7, -8
+ 1100              		.cfi_offset 14, -4
+ 1101 0004 094E     		ldr	r6, .L89
+ 1102 0006 0546     		mov	r5, r0
+ 1103 0008 3068     		ldr	r0, [r6]
+ 1104              	.LVL89:
+ 1105              		.loc 1 168 8 view .LVU284
+ 1106 000a 0024     		movs	r4, #0
+ 169:src/alpha.c   **** 		xcopy(Alpha+1, Alpha, NUMALPHA-1);
+ 170:src/alpha.c   **** 		Alpha[0] = ' ';
+ 1107              		.loc 1 170 12 view .LVU285
+ 1108 000c 2027     		movs	r7, #32
+ 1109              	.LVL90:
+ 1110              	.L82:
+ 169:src/alpha.c   **** 		xcopy(Alpha+1, Alpha, NUMALPHA-1);
+ 1111              		.loc 1 169 3 is_stmt 1 discriminator 3 view .LVU286
+ARM GAS  /tmp/ccoISTXj.s 			page 26
+
+
+ 1112 000e 00F5F661 		add	r1, r0, #1968
+ 1113 0012 1D22     		movs	r2, #29
+ 1114 0014 00F2B170 		addw	r0, r0, #1969
+ 1115 0018 FFF7FEFF 		bl	xcopy
+ 1116              	.LVL91:
+ 1117              		.loc 1 170 3 discriminator 3 view .LVU287
+ 168:src/alpha.c   **** 		xcopy(Alpha+1, Alpha, NUMALPHA-1);
+ 1118              		.loc 1 168 20 is_stmt 0 discriminator 3 view .LVU288
+ 1119 001c 0134     		adds	r4, r4, #1
+ 1120              	.LVL92:
+ 1121              		.loc 1 170 3 discriminator 3 view .LVU289
+ 1122 001e 3068     		ldr	r0, [r6]
+ 168:src/alpha.c   **** 		xcopy(Alpha+1, Alpha, NUMALPHA-1);
+ 1123              		.loc 1 168 2 discriminator 3 view .LVU290
+ 1124 0020 A542     		cmp	r5, r4
+ 1125              		.loc 1 170 12 discriminator 3 view .LVU291
+ 1126 0022 80F8B077 		strb	r7, [r0, #1968]
+ 168:src/alpha.c   **** 		xcopy(Alpha+1, Alpha, NUMALPHA-1);
+ 1127              		.loc 1 168 19 is_stmt 1 discriminator 3 view .LVU292
+ 1128              	.LVL93:
+ 168:src/alpha.c   **** 		xcopy(Alpha+1, Alpha, NUMALPHA-1);
+ 1129              		.loc 1 168 12 discriminator 3 view .LVU293
+ 168:src/alpha.c   **** 		xcopy(Alpha+1, Alpha, NUMALPHA-1);
+ 1130              		.loc 1 168 2 is_stmt 0 discriminator 3 view .LVU294
+ 1131 0026 F2D1     		bne	.L82
+ 171:src/alpha.c   **** 	}
+ 172:src/alpha.c   **** }
+ 1132              		.loc 1 172 1 view .LVU295
+ 1133 0028 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1134              	.LVL94:
+ 1135              	.L86:
+ 1136              		.cfi_def_cfa_offset 0
+ 1137              		.cfi_restore 3
+ 1138              		.cfi_restore 4
+ 1139              		.cfi_restore 5
+ 1140              		.cfi_restore 6
+ 1141              		.cfi_restore 7
+ 1142              		.cfi_restore 14
+ 1143              		.loc 1 172 1 view .LVU296
+ 1144 002a 7047     		bx	lr
+ 1145              	.L90:
+ 1146              		.align	2
+ 1147              	.L89:
+ 1148 002c 00000000 		.word	main_ram
+ 1149              		.cfi_endproc
+ 1150              	.LFE13:
+ 1152              		.section	.text.alpha_rot_r,"ax",%progbits
+ 1153              		.align	1
+ 1154              		.p2align 2,,3
+ 1155              		.global	alpha_rot_r
+ 1156              		.syntax unified
+ 1157              		.thumb
+ 1158              		.thumb_func
+ 1159              		.fpu fpv4-sp-d16
+ 1161              	alpha_rot_r:
+ 1162              	.LVL95:
+ 1163              	.LFB14:
+ARM GAS  /tmp/ccoISTXj.s 			page 27
+
+
+ 173:src/alpha.c   **** 
+ 174:src/alpha.c   **** void alpha_rot_r(unsigned int arg, enum rarg op) {
+ 1164              		.loc 1 174 50 is_stmt 1 view -0
+ 1165              		.cfi_startproc
+ 1166              		@ args = 0, pretend = 0, frame = 0
+ 1167              		@ frame_needed = 0, uses_anonymous_args = 0
+ 175:src/alpha.c   **** 	unsigned int i;
+ 1168              		.loc 1 175 2 view .LVU298
+ 176:src/alpha.c   **** 	const unsigned int al = alen();
+ 1169              		.loc 1 176 2 view .LVU299
+ 1170              	.LBB59:
+ 1171              	.LBI59:
+ 144:src/alpha.c   **** 	return find_char(Alpha, '\0') - Alpha;
+ 1172              		.loc 1 144 14 view .LVU300
+ 1173              	.LBB60:
+ 145:src/alpha.c   **** }
+ 1174              		.loc 1 145 2 view .LVU301
+ 1175              	.LBE60:
+ 1176              	.LBE59:
+ 174:src/alpha.c   **** 	unsigned int i;
+ 1177              		.loc 1 174 50 is_stmt 0 view .LVU302
+ 1178 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 1179              		.cfi_def_cfa_offset 24
+ 1180              		.cfi_offset 4, -24
+ 1181              		.cfi_offset 5, -20
+ 1182              		.cfi_offset 6, -16
+ 1183              		.cfi_offset 7, -12
+ 1184              		.cfi_offset 8, -8
+ 1185              		.cfi_offset 14, -4
+ 1186              	.LBB63:
+ 1187              	.LBB61:
+ 145:src/alpha.c   **** }
+ 1188              		.loc 1 145 19 view .LVU303
+ 1189 0004 114F     		ldr	r7, .L102
+ 1190 0006 3B68     		ldr	r3, [r7]
+ 145:src/alpha.c   **** }
+ 1191              		.loc 1 145 9 view .LVU304
+ 1192 0008 0021     		movs	r1, #0
+ 1193              	.LVL96:
+ 145:src/alpha.c   **** }
+ 1194              		.loc 1 145 9 view .LVU305
+ 1195              	.LBE61:
+ 1196              	.LBE63:
+ 174:src/alpha.c   **** 	unsigned int i;
+ 1197              		.loc 1 174 50 view .LVU306
+ 1198 000a 0646     		mov	r6, r0
+ 1199              	.LBB64:
+ 1200              	.LBB62:
+ 145:src/alpha.c   **** }
+ 1201              		.loc 1 145 9 view .LVU307
+ 1202 000c 03F5F660 		add	r0, r3, #1968
+ 1203              	.LVL97:
+ 145:src/alpha.c   **** }
+ 1204              		.loc 1 145 9 view .LVU308
+ 1205 0010 FFF7FEFF 		bl	find_char
+ 1206              	.LVL98:
+ 145:src/alpha.c   **** }
+ARM GAS  /tmp/ccoISTXj.s 			page 28
+
+
+ 1207              		.loc 1 145 34 view .LVU309
+ 1208 0014 3B68     		ldr	r3, [r7]
+ 145:src/alpha.c   **** }
+ 1209              		.loc 1 145 32 view .LVU310
+ 1210 0016 03F5F661 		add	r1, r3, #1968
+ 1211              	.LVL99:
+ 145:src/alpha.c   **** }
+ 1212              		.loc 1 145 32 view .LVU311
+ 1213              	.LBE62:
+ 1214              	.LBE64:
+ 177:src/alpha.c   **** 
+ 178:src/alpha.c   **** 	if (al)
+ 1215              		.loc 1 178 2 is_stmt 1 view .LVU312
+ 1216              		.loc 1 178 5 is_stmt 0 view .LVU313
+ 1217 001a 441A     		subs	r4, r0, r1
+ 1218              	.LVL100:
+ 1219              		.loc 1 178 5 view .LVU314
+ 1220 001c 14D0     		beq	.L91
+ 1221              	.LVL101:
+ 179:src/alpha.c   **** 		for (i=0; i<arg; i++) {
+ 1222              		.loc 1 179 13 is_stmt 1 view .LVU315
+ 1223              		.loc 1 179 3 is_stmt 0 view .LVU316
+ 1224 001e 9EB1     		cbz	r6, .L91
+ 1225 0020 013C     		subs	r4, r4, #1
+ 1226              	.LVL102:
+ 1227              		.loc 1 179 9 view .LVU317
+ 1228 0022 0025     		movs	r5, #0
+ 1229 0024 01E0     		b	.L93
+ 1230              	.LVL103:
+ 1231              	.L101:
+ 1232              		.loc 1 179 9 view .LVU318
+ 1233 0026 03F5F661 		add	r1, r3, #1968
+ 1234              	.LVL104:
+ 1235              	.L93:
+ 1236              	.LBB65:
+ 180:src/alpha.c   **** 			const char c = Alpha[al-1];
+ 1237              		.loc 1 180 4 is_stmt 1 discriminator 3 view .LVU319
+ 1238              		.loc 1 180 15 is_stmt 0 discriminator 3 view .LVU320
+ 1239 002a 03EB040C 		add	ip, r3, r4
+ 181:src/alpha.c   **** 			xcopy(Alpha+1, Alpha, al-1);
+ 1240              		.loc 1 181 4 discriminator 3 view .LVU321
+ 1241 002e 03F2B170 		addw	r0, r3, #1969
+ 1242 0032 2246     		mov	r2, r4
+ 180:src/alpha.c   **** 			const char c = Alpha[al-1];
+ 1243              		.loc 1 180 15 discriminator 3 view .LVU322
+ 1244 0034 9CF8B087 		ldrb	r8, [ip, #1968]	@ zero_extendqisi2
+ 1245              	.LVL105:
+ 1246              		.loc 1 181 4 is_stmt 1 discriminator 3 view .LVU323
+ 1247              	.LBE65:
+ 179:src/alpha.c   **** 		for (i=0; i<arg; i++) {
+ 1248              		.loc 1 179 21 is_stmt 0 discriminator 3 view .LVU324
+ 1249 0038 0135     		adds	r5, r5, #1
+ 1250              	.LVL106:
+ 1251              	.LBB66:
+ 1252              		.loc 1 181 4 discriminator 3 view .LVU325
+ 1253 003a FFF7FEFF 		bl	xcopy
+ 1254              	.LVL107:
+ARM GAS  /tmp/ccoISTXj.s 			page 29
+
+
+ 182:src/alpha.c   **** 			Alpha[0] = c;
+ 1255              		.loc 1 182 4 is_stmt 1 discriminator 3 view .LVU326
+ 1256 003e 3B68     		ldr	r3, [r7]
+ 1257              	.LBE66:
+ 179:src/alpha.c   **** 			const char c = Alpha[al-1];
+ 1258              		.loc 1 179 3 is_stmt 0 discriminator 3 view .LVU327
+ 1259 0040 AE42     		cmp	r6, r5
+ 1260              	.LBB67:
+ 1261              		.loc 1 182 13 discriminator 3 view .LVU328
+ 1262 0042 83F8B087 		strb	r8, [r3, #1968]
+ 1263              	.LBE67:
+ 179:src/alpha.c   **** 			const char c = Alpha[al-1];
+ 1264              		.loc 1 179 20 is_stmt 1 discriminator 3 view .LVU329
+ 1265              	.LVL108:
+ 179:src/alpha.c   **** 			const char c = Alpha[al-1];
+ 1266              		.loc 1 179 13 discriminator 3 view .LVU330
+ 179:src/alpha.c   **** 			const char c = Alpha[al-1];
+ 1267              		.loc 1 179 3 is_stmt 0 discriminator 3 view .LVU331
+ 1268 0046 EED1     		bne	.L101
+ 1269              	.LVL109:
+ 1270              	.L91:
+ 183:src/alpha.c   **** 		}
+ 184:src/alpha.c   **** }
+ 1271              		.loc 1 184 1 view .LVU332
+ 1272 0048 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 1273              	.LVL110:
+ 1274              	.L103:
+ 1275              		.loc 1 184 1 view .LVU333
+ 1276              		.align	2
+ 1277              	.L102:
+ 1278 004c 00000000 		.word	main_ram
+ 1279              		.cfi_endproc
+ 1280              	.LFE14:
+ 1282              		.section	.text.alpha_tox,"ax",%progbits
+ 1283              		.align	1
+ 1284              		.p2align 2,,3
+ 1285              		.global	alpha_tox
+ 1286              		.syntax unified
+ 1287              		.thumb
+ 1288              		.thumb_func
+ 1289              		.fpu fpv4-sp-d16
+ 1291              	alpha_tox:
+ 1292              	.LVL111:
+ 1293              	.LFB15:
+ 185:src/alpha.c   **** 
+ 186:src/alpha.c   **** /* Take first character from Alpha and return its code in X.
+ 187:src/alpha.c   ****  * remove the character from Alpha
+ 188:src/alpha.c   ****  */
+ 189:src/alpha.c   **** void alpha_tox(enum nilop op) {
+ 1294              		.loc 1 189 31 is_stmt 1 view -0
+ 1295              		.cfi_startproc
+ 1296              		@ args = 0, pretend = 0, frame = 0
+ 1297              		@ frame_needed = 0, uses_anonymous_args = 0
+ 190:src/alpha.c   **** 	setX_int_sgn(Alpha[0] & 0xff, 0);
+ 1298              		.loc 1 190 2 view .LVU335
+ 189:src/alpha.c   **** 	setX_int_sgn(Alpha[0] & 0xff, 0);
+ 1299              		.loc 1 189 31 is_stmt 0 view .LVU336
+ARM GAS  /tmp/ccoISTXj.s 			page 30
+
+
+ 1300 0000 10B5     		push	{r4, lr}
+ 1301              		.cfi_def_cfa_offset 8
+ 1302              		.cfi_offset 4, -8
+ 1303              		.cfi_offset 14, -4
+ 1304              		.loc 1 190 20 view .LVU337
+ 1305 0002 094C     		ldr	r4, .L106
+ 1306 0004 2368     		ldr	r3, [r4]
+ 1307              		.loc 1 190 2 view .LVU338
+ 1308 0006 0022     		movs	r2, #0
+ 1309 0008 93F8B007 		ldrb	r0, [r3, #1968]	@ zero_extendqisi2
+ 1310              	.LVL112:
+ 1311              		.loc 1 190 2 view .LVU339
+ 1312 000c 0021     		movs	r1, #0
+ 1313 000e FFF7FEFF 		bl	setX_int_sgn
+ 1314              	.LVL113:
+ 191:src/alpha.c   **** 	alpha_shift_l(1, RARG_ALSL);
+ 1315              		.loc 1 191 2 is_stmt 1 view .LVU340
+ 1316              	.LBB68:
+ 1317              	.LBI68:
+ 154:src/alpha.c   **** 	unsigned int i;
+ 1318              		.loc 1 154 6 view .LVU341
+ 1319              	.LBB69:
+ 155:src/alpha.c   **** 	const int rot = (op == RARG_ALRL);
+ 1320              		.loc 1 155 2 view .LVU342
+ 156:src/alpha.c   **** 
+ 1321              		.loc 1 156 2 view .LVU343
+ 158:src/alpha.c   **** 		const char c = rot?Alpha[0]:'\0';
+ 1322              		.loc 1 158 2 view .LVU344
+ 158:src/alpha.c   **** 		const char c = rot?Alpha[0]:'\0';
+ 1323              		.loc 1 158 12 view .LVU345
+ 1324              	.LBB70:
+ 159:src/alpha.c   **** 
+ 1325              		.loc 1 159 3 view .LVU346
+ 161:src/alpha.c   **** 	}
+ 1326              		.loc 1 161 3 view .LVU347
+ 161:src/alpha.c   **** 	}
+ 1327              		.loc 1 161 10 is_stmt 0 view .LVU348
+ 1328 0012 2068     		ldr	r0, [r4]
+ 161:src/alpha.c   **** 	}
+ 1329              		.loc 1 161 4 view .LVU349
+ 1330 0014 00F2B171 		addw	r1, r0, #1969
+ 1331 0018 00F5F660 		add	r0, r0, #1968
+ 1332 001c FFF7FEFF 		bl	scopy
+ 1333              	.LVL114:
+ 161:src/alpha.c   **** 	}
+ 1334              		.loc 1 161 26 view .LVU350
+ 1335 0020 0023     		movs	r3, #0
+ 1336 0022 0370     		strb	r3, [r0]
+ 1337              	.LBE70:
+ 158:src/alpha.c   **** 		const char c = rot?Alpha[0]:'\0';
+ 1338              		.loc 1 158 19 is_stmt 1 view .LVU351
+ 1339              	.LVL115:
+ 158:src/alpha.c   **** 		const char c = rot?Alpha[0]:'\0';
+ 1340              		.loc 1 158 12 view .LVU352
+ 158:src/alpha.c   **** 		const char c = rot?Alpha[0]:'\0';
+ 1341              		.loc 1 158 12 is_stmt 0 view .LVU353
+ 1342              	.LBE69:
+ARM GAS  /tmp/ccoISTXj.s 			page 31
+
+
+ 1343              	.LBE68:
+ 192:src/alpha.c   **** }
+ 1344              		.loc 1 192 1 view .LVU354
+ 1345 0024 10BD     		pop	{r4, pc}
+ 1346              	.L107:
+ 1347 0026 00BF     		.align	2
+ 1348              	.L106:
+ 1349 0028 00000000 		.word	main_ram
+ 1350              		.cfi_endproc
+ 1351              	.LFE15:
+ 1353              		.section	.text.alpha_fromx,"ax",%progbits
+ 1354              		.align	1
+ 1355              		.p2align 2,,3
+ 1356              		.global	alpha_fromx
+ 1357              		.syntax unified
+ 1358              		.thumb
+ 1359              		.thumb_func
+ 1360              		.fpu fpv4-sp-d16
+ 1362              	alpha_fromx:
+ 1363              	.LVL116:
+ 1364              	.LFB16:
+ 193:src/alpha.c   **** 
+ 194:src/alpha.c   **** void alpha_fromx(enum nilop op) {
+ 1365              		.loc 1 194 33 is_stmt 1 view -0
+ 1366              		.cfi_startproc
+ 1367              		@ args = 0, pretend = 0, frame = 8
+ 1368              		@ frame_needed = 0, uses_anonymous_args = 0
+ 195:src/alpha.c   **** 	int s;
+ 1369              		.loc 1 195 2 view .LVU356
+ 196:src/alpha.c   **** 	add_char(0xff & getX_int_sgn(&s));
+ 1370              		.loc 1 196 2 view .LVU357
+ 194:src/alpha.c   **** 	int s;
+ 1371              		.loc 1 194 33 is_stmt 0 view .LVU358
+ 1372 0000 00B5     		push	{lr}
+ 1373              		.cfi_def_cfa_offset 4
+ 1374              		.cfi_offset 14, -4
+ 1375 0002 83B0     		sub	sp, sp, #12
+ 1376              		.cfi_def_cfa_offset 16
+ 1377              		.loc 1 196 18 view .LVU359
+ 1378 0004 01A8     		add	r0, sp, #4
+ 1379              	.LVL117:
+ 1380              		.loc 1 196 18 view .LVU360
+ 1381 0006 FFF7FEFF 		bl	getX_int_sgn
+ 1382              	.LVL118:
+ 1383              		.loc 1 196 2 view .LVU361
+ 1384 000a C0B2     		uxtb	r0, r0
+ 1385 000c FFF7FEFF 		bl	add_char
+ 1386              	.LVL119:
+ 197:src/alpha.c   **** }
+ 1387              		.loc 1 197 1 view .LVU362
+ 1388 0010 03B0     		add	sp, sp, #12
+ 1389              		.cfi_def_cfa_offset 4
+ 1390              		@ sp needed
+ 1391 0012 5DF804FB 		ldr	pc, [sp], #4
+ 1392              		.cfi_endproc
+ 1393              	.LFE16:
+ 1395 0016 00BF     		.section	.text.alpha_reg,"ax",%progbits
+ARM GAS  /tmp/ccoISTXj.s 			page 32
+
+
+ 1396              		.align	1
+ 1397              		.p2align 2,,3
+ 1398              		.global	alpha_reg
+ 1399              		.syntax unified
+ 1400              		.thumb
+ 1401              		.thumb_func
+ 1402              		.fpu fpv4-sp-d16
+ 1404              	alpha_reg:
+ 1405              	.LVL120:
+ 1406              	.LFB17:
+ 198:src/alpha.c   **** 
+ 199:src/alpha.c   **** /* Recall a register and append to Alpha.
+ 200:src/alpha.c   ****  * This honours the current display mode.
+ 201:src/alpha.c   ****  */
+ 202:src/alpha.c   **** void alpha_reg(unsigned int arg, enum rarg op) {
+ 1407              		.loc 1 202 48 is_stmt 1 view -0
+ 1408              		.cfi_startproc
+ 1409              		@ args = 0, pretend = 0, frame = 72
+ 1410              		@ frame_needed = 0, uses_anonymous_args = 0
+ 203:src/alpha.c   **** 	char buf[65];
+ 1411              		.loc 1 203 2 view .LVU364
+ 204:src/alpha.c   **** 
+ 205:src/alpha.c   **** 	xset(buf, '\0', sizeof(buf));
+ 1412              		.loc 1 205 2 view .LVU365
+ 202:src/alpha.c   **** 	char buf[65];
+ 1413              		.loc 1 202 48 is_stmt 0 view .LVU366
+ 1414 0000 10B5     		push	{r4, lr}
+ 1415              		.cfi_def_cfa_offset 8
+ 1416              		.cfi_offset 4, -8
+ 1417              		.cfi_offset 14, -4
+ 1418 0002 92B0     		sub	sp, sp, #72
+ 1419              		.cfi_def_cfa_offset 80
+ 1420              		.loc 1 205 2 view .LVU367
+ 1421 0004 4122     		movs	r2, #65
+ 202:src/alpha.c   **** 	char buf[65];
+ 1422              		.loc 1 202 48 view .LVU368
+ 1423 0006 0446     		mov	r4, r0
+ 1424              		.loc 1 205 2 view .LVU369
+ 1425 0008 0021     		movs	r1, #0
+ 1426              	.LVL121:
+ 1427              		.loc 1 205 2 view .LVU370
+ 1428 000a 01A8     		add	r0, sp, #4
+ 1429              	.LVL122:
+ 1430              		.loc 1 205 2 view .LVU371
+ 1431 000c FFF7FEFF 		bl	xset
+ 1432              	.LVL123:
+ 206:src/alpha.c   **** 	format_reg(arg, buf);
+ 1433              		.loc 1 206 2 is_stmt 1 view .LVU372
+ 1434 0010 01A9     		add	r1, sp, #4
+ 1435 0012 2046     		mov	r0, r4
+ 1436 0014 FFF7FEFF 		bl	format_reg
+ 1437              	.LVL124:
+ 207:src/alpha.c   **** 	add_string(buf);
+ 1438              		.loc 1 207 2 view .LVU373
+ 1439 0018 01A8     		add	r0, sp, #4
+ 1440 001a FFF7FEFF 		bl	add_string
+ 1441              	.LVL125:
+ARM GAS  /tmp/ccoISTXj.s 			page 33
+
+
+ 208:src/alpha.c   **** }
+ 1442              		.loc 1 208 1 is_stmt 0 view .LVU374
+ 1443 001e 12B0     		add	sp, sp, #72
+ 1444              		.cfi_def_cfa_offset 8
+ 1445              		@ sp needed
+ 1446 0020 10BD     		pop	{r4, pc}
+ 1447              		.loc 1 208 1 view .LVU375
+ 1448              		.cfi_endproc
+ 1449              	.LFE17:
+ 1451 0022 00BF     		.section	.text.alpha_sto,"ax",%progbits
+ 1452              		.align	1
+ 1453              		.p2align 2,,3
+ 1454              		.global	alpha_sto
+ 1455              		.syntax unified
+ 1456              		.thumb
+ 1457              		.thumb_func
+ 1458              		.fpu fpv4-sp-d16
+ 1460              	alpha_sto:
+ 1461              	.LVL126:
+ 1462              	.LFB19:
+ 209:src/alpha.c   **** 
+ 210:src/alpha.c   **** 
+ 211:src/alpha.c   **** /* Return the number of characters being stored in a register.
+ 212:src/alpha.c   ****  * For reals this is 6 to match the 41 series.  For integers, it is as
+ 213:src/alpha.c   ****  * many as will fit into the current sord size.
+ 214:src/alpha.c   ****  */
+ 215:src/alpha.c   **** static int char_per_reg(void) {
+ 216:src/alpha.c   **** 	return is_intmode()?(word_size() / 8):CHARS_IN_REG;
+ 217:src/alpha.c   **** }
+ 218:src/alpha.c   **** 
+ 219:src/alpha.c   **** 
+ 220:src/alpha.c   **** /* Sto start of Alpha register into arg
+ 221:src/alpha.c   ****  */
+ 222:src/alpha.c   **** void alpha_sto(unsigned int arg, enum rarg op) {
+ 1463              		.loc 1 222 48 is_stmt 1 view -0
+ 1464              		.cfi_startproc
+ 1465              		@ args = 0, pretend = 0, frame = 0
+ 1466              		@ frame_needed = 0, uses_anonymous_args = 0
+ 223:src/alpha.c   **** 	unsigned long long int z = 0;
+ 1467              		.loc 1 223 2 view .LVU377
+ 224:src/alpha.c   **** 	int i;
+ 1468              		.loc 1 224 2 view .LVU378
+ 225:src/alpha.c   **** 	const int n = char_per_reg();
+ 1469              		.loc 1 225 2 view .LVU379
+ 1470              	.LBB75:
+ 1471              	.LBI75:
+ 215:src/alpha.c   **** 	return is_intmode()?(word_size() / 8):CHARS_IN_REG;
+ 1472              		.loc 1 215 12 view .LVU380
+ 1473              	.LBB76:
+ 216:src/alpha.c   **** }
+ 1474              		.loc 1 216 2 view .LVU381
+ 1475              	.LBE76:
+ 1476              	.LBE75:
+ 222:src/alpha.c   **** 	unsigned long long int z = 0;
+ 1477              		.loc 1 222 48 is_stmt 0 view .LVU382
+ 1478 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1479              		.cfi_def_cfa_offset 20
+ARM GAS  /tmp/ccoISTXj.s 			page 34
+
+
+ 1480              		.cfi_offset 4, -20
+ 1481              		.cfi_offset 5, -16
+ 1482              		.cfi_offset 6, -12
+ 1483              		.cfi_offset 7, -8
+ 1484              		.cfi_offset 14, -4
+ 1485              	.LBB86:
+ 1486              	.LBB81:
+ 216:src/alpha.c   **** }
+ 1487              		.loc 1 216 9 view .LVU383
+ 1488 0002 194C     		ldr	r4, .L131
+ 1489 0004 2768     		ldr	r7, [r4]
+ 216:src/alpha.c   **** }
+ 1490              		.loc 1 216 21 view .LVU384
+ 1491 0006 97F8E837 		ldrb	r3, [r7, #2024]	@ zero_extendqisi2
+ 216:src/alpha.c   **** }
+ 1492              		.loc 1 216 39 view .LVU385
+ 1493 000a DB07     		lsls	r3, r3, #31
+ 1494              	.LBE81:
+ 1495              	.LBE86:
+ 222:src/alpha.c   **** 	unsigned long long int z = 0;
+ 1496              		.loc 1 222 48 view .LVU386
+ 1497 000c 83B0     		sub	sp, sp, #12
+ 1498              		.cfi_def_cfa_offset 32
+ 222:src/alpha.c   **** 	unsigned long long int z = 0;
+ 1499              		.loc 1 222 48 view .LVU387
+ 1500 000e 0646     		mov	r6, r0
+ 1501              	.LBB87:
+ 1502              	.LBB82:
+ 216:src/alpha.c   **** }
+ 1503              		.loc 1 216 39 view .LVU388
+ 1504 0010 1DD4     		bmi	.L113
+ 1505              	.LVL127:
+ 216:src/alpha.c   **** }
+ 1506              		.loc 1 216 39 view .LVU389
+ 1507              	.LBE82:
+ 1508              	.LBE87:
+ 226:src/alpha.c   **** 
+ 227:src/alpha.c   **** 	for (i=0; Alpha[i] != '\0' && i<n; i++)
+ 1509              		.loc 1 227 2 is_stmt 1 view .LVU390
+ 1510              		.loc 1 227 12 view .LVU391
+ 1511              		.loc 1 227 17 is_stmt 0 view .LVU392
+ 1512 0012 97F8B047 		ldrb	r4, [r7, #1968]	@ zero_extendqisi2
+ 1513              	.LBB88:
+ 1514              	.LBB83:
+ 216:src/alpha.c   **** }
+ 1515              		.loc 1 216 39 view .LVU393
+ 1516 0016 0620     		movs	r0, #6
+ 1517              	.LVL128:
+ 216:src/alpha.c   **** }
+ 1518              		.loc 1 216 39 view .LVU394
+ 1519              	.LBE83:
+ 1520              	.LBE88:
+ 1521              		.loc 1 227 2 view .LVU395
+ 1522 0018 14B3     		cbz	r4, .L116
+ 1523              	.LVL129:
+ 1524              	.L114:
+ 223:src/alpha.c   **** 	int i;
+ARM GAS  /tmp/ccoISTXj.s 			page 35
+
+
+ 1525              		.loc 1 223 25 view .LVU396
+ 1526 001a 0022     		movs	r2, #0
+ 1527 001c 1346     		mov	r3, r2
+ 1528 001e 07F5F665 		add	r5, r7, #1968
+ 1529 0022 01E0     		b	.L117
+ 1530              	.LVL130:
+ 1531              	.L130:
+ 1532              		.loc 1 227 29 discriminator 3 view .LVU397
+ 1533 0024 8842     		cmp	r0, r1
+ 1534 0026 0BDD     		ble	.L115
+ 1535              	.LVL131:
+ 1536              	.L117:
+ 228:src/alpha.c   **** 		z = (z << 8) | (0xff & Alpha[i]);
+ 1537              		.loc 1 228 3 is_stmt 1 discriminator 4 view .LVU398
+ 1538              		.loc 1 228 10 is_stmt 0 discriminator 4 view .LVU399
+ 1539 0028 1B02     		lsls	r3, r3, #8
+ 1540              	.LVL132:
+ 227:src/alpha.c   **** 		z = (z << 8) | (0xff & Alpha[i]);
+ 1541              		.loc 1 227 29 discriminator 4 view .LVU400
+ 1542 002a A5F2AF71 		subw	r1, r5, #1967
+ 1543              		.loc 1 228 10 discriminator 4 view .LVU401
+ 1544 002e 43EA1263 		orr	r3, r3, r2, lsr #24
+ 1545              		.loc 1 228 5 discriminator 4 view .LVU402
+ 1546 0032 44EA0222 		orr	r2, r4, r2, lsl #8
+ 227:src/alpha.c   **** 		z = (z << 8) | (0xff & Alpha[i]);
+ 1547              		.loc 1 227 17 discriminator 4 view .LVU403
+ 1548 0036 15F8014F 		ldrb	r4, [r5, #1]!	@ zero_extendqisi2
+ 227:src/alpha.c   **** 		z = (z << 8) | (0xff & Alpha[i]);
+ 1549              		.loc 1 227 29 discriminator 4 view .LVU404
+ 1550 003a C91B     		subs	r1, r1, r7
+ 1551              	.LVL133:
+ 227:src/alpha.c   **** 		z = (z << 8) | (0xff & Alpha[i]);
+ 1552              		.loc 1 227 37 is_stmt 1 discriminator 4 view .LVU405
+ 227:src/alpha.c   **** 		z = (z << 8) | (0xff & Alpha[i]);
+ 1553              		.loc 1 227 12 discriminator 4 view .LVU406
+ 227:src/alpha.c   **** 		z = (z << 8) | (0xff & Alpha[i]);
+ 1554              		.loc 1 227 2 is_stmt 0 discriminator 4 view .LVU407
+ 1555 003c 002C     		cmp	r4, #0
+ 1556 003e F1D1     		bne	.L130
+ 1557              	.LVL134:
+ 1558              	.L115:
+ 229:src/alpha.c   **** 	set_reg_n_int_sgn(arg, z, 0);
+ 1559              		.loc 1 229 2 is_stmt 1 view .LVU408
+ 1560 0040 0021     		movs	r1, #0
+ 1561 0042 3046     		mov	r0, r6
+ 1562 0044 0091     		str	r1, [sp]
+ 1563 0046 FFF7FEFF 		bl	set_reg_n_int_sgn
+ 1564              	.LVL135:
+ 230:src/alpha.c   **** }
+ 1565              		.loc 1 230 1 is_stmt 0 view .LVU409
+ 1566 004a 03B0     		add	sp, sp, #12
+ 1567              		.cfi_remember_state
+ 1568              		.cfi_def_cfa_offset 20
+ 1569              		@ sp needed
+ 1570 004c F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1571              	.LVL136:
+ 1572              	.L113:
+ARM GAS  /tmp/ccoISTXj.s 			page 36
+
+
+ 1573              		.cfi_restore_state
+ 1574              	.LBB89:
+ 1575              	.LBB84:
+ 1576              	.LBB77:
+ 1577              	.LBI77:
+ 215:src/alpha.c   **** 	return is_intmode()?(word_size() / 8):CHARS_IN_REG;
+ 1578              		.loc 1 215 12 is_stmt 1 view .LVU410
+ 1579              	.LBB78:
+ 216:src/alpha.c   **** }
+ 1580              		.loc 1 216 23 is_stmt 0 view .LVU411
+ 1581 004e FFF7FEFF 		bl	word_size
+ 1582              	.LVL137:
+ 216:src/alpha.c   **** }
+ 1583              		.loc 1 216 23 view .LVU412
+ 1584              	.LBE78:
+ 1585              	.LBE77:
+ 1586              	.LBE84:
+ 1587              	.LBE89:
+ 227:src/alpha.c   **** 		z = (z << 8) | (0xff & Alpha[i]);
+ 1588              		.loc 1 227 12 view .LVU413
+ 1589 0052 2768     		ldr	r7, [r4]
+ 227:src/alpha.c   **** 		z = (z << 8) | (0xff & Alpha[i]);
+ 1590              		.loc 1 227 17 view .LVU414
+ 1591 0054 97F8B047 		ldrb	r4, [r7, #1968]	@ zero_extendqisi2
+ 1592              	.LBB90:
+ 1593              	.LBB85:
+ 1594              	.LBB80:
+ 1595              	.LBB79:
+ 216:src/alpha.c   **** }
+ 1596              		.loc 1 216 35 view .LVU415
+ 1597 0058 C008     		lsrs	r0, r0, #3
+ 1598              	.LVL138:
+ 216:src/alpha.c   **** }
+ 1599              		.loc 1 216 35 view .LVU416
+ 1600              	.LBE79:
+ 1601              	.LBE80:
+ 1602              	.LBE85:
+ 1603              	.LBE90:
+ 227:src/alpha.c   **** 		z = (z << 8) | (0xff & Alpha[i]);
+ 1604              		.loc 1 227 2 is_stmt 1 view .LVU417
+ 227:src/alpha.c   **** 		z = (z << 8) | (0xff & Alpha[i]);
+ 1605              		.loc 1 227 12 view .LVU418
+ 227:src/alpha.c   **** 		z = (z << 8) | (0xff & Alpha[i]);
+ 1606              		.loc 1 227 2 is_stmt 0 view .LVU419
+ 1607 005a 0CB1     		cbz	r4, .L116
+ 227:src/alpha.c   **** 		z = (z << 8) | (0xff & Alpha[i]);
+ 1608              		.loc 1 227 29 view .LVU420
+ 1609 005c 0028     		cmp	r0, #0
+ 1610 005e DCD1     		bne	.L114
+ 1611              	.LVL139:
+ 1612              	.L116:
+ 223:src/alpha.c   **** 	int i;
+ 1613              		.loc 1 223 25 view .LVU421
+ 1614 0060 0022     		movs	r2, #0
+ 1615 0062 1346     		mov	r3, r2
+ 1616 0064 ECE7     		b	.L115
+ 1617              	.L132:
+ARM GAS  /tmp/ccoISTXj.s 			page 37
+
+
+ 1618 0066 00BF     		.align	2
+ 1619              	.L131:
+ 1620 0068 00000000 		.word	main_ram
+ 1621              		.cfi_endproc
+ 1622              	.LFE19:
+ 1624              		.section	.text.alpha_rcl_s,"ax",%progbits
+ 1625              		.align	1
+ 1626              		.p2align 2,,3
+ 1627              		.global	alpha_rcl_s
+ 1628              		.syntax unified
+ 1629              		.thumb
+ 1630              		.thumb_func
+ 1631              		.fpu fpv4-sp-d16
+ 1633              	alpha_rcl_s:
+ 1634              	.LVL140:
+ 1635              	.LFB20:
+ 231:src/alpha.c   **** 
+ 232:src/alpha.c   **** 
+ 233:src/alpha.c   **** /* Alpha recall a register and convert it into the supplied
+ 234:src/alpha.c   ****  * buffer and return a pointer to the first character (which won't
+ 235:src/alpha.c   ****  * always be the start of the buffer.
+ 236:src/alpha.c   ****  */
+ 237:src/alpha.c   **** char *alpha_rcl_s(int index, char buf[12]) {
+ 1636              		.loc 1 237 44 is_stmt 1 view -0
+ 1637              		.cfi_startproc
+ 1638              		@ args = 0, pretend = 0, frame = 8
+ 1639              		@ frame_needed = 0, uses_anonymous_args = 0
+ 238:src/alpha.c   **** 	int i;
+ 1640              		.loc 1 238 2 view .LVU423
+ 239:src/alpha.c   **** 	unsigned long long int z = get_reg_n_int_sgn(index, &i);
+ 1641              		.loc 1 239 2 view .LVU424
+ 237:src/alpha.c   **** 	int i;
+ 1642              		.loc 1 237 44 is_stmt 0 view .LVU425
+ 1643 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1644              		.cfi_def_cfa_offset 20
+ 1645              		.cfi_offset 4, -20
+ 1646              		.cfi_offset 5, -16
+ 1647              		.cfi_offset 6, -12
+ 1648              		.cfi_offset 7, -8
+ 1649              		.cfi_offset 14, -4
+ 1650 0002 83B0     		sub	sp, sp, #12
+ 1651              		.cfi_def_cfa_offset 32
+ 237:src/alpha.c   **** 	int i;
+ 1652              		.loc 1 237 44 view .LVU426
+ 1653 0004 0F46     		mov	r7, r1
+ 1654              		.loc 1 239 29 view .LVU427
+ 1655 0006 01A9     		add	r1, sp, #4
+ 1656              	.LVL141:
+ 1657              		.loc 1 239 29 view .LVU428
+ 1658 0008 FFF7FEFF 		bl	get_reg_n_int_sgn
+ 1659              	.LVL142:
+ 1660              	.LBB95:
+ 1661              	.LBB96:
+ 216:src/alpha.c   **** }
+ 1662              		.loc 1 216 21 view .LVU429
+ 1663 000c 194B     		ldr	r3, .L152
+ 1664 000e 1B68     		ldr	r3, [r3]
+ARM GAS  /tmp/ccoISTXj.s 			page 38
+
+
+ 1665 0010 93F8E837 		ldrb	r3, [r3, #2024]	@ zero_extendqisi2
+ 216:src/alpha.c   **** }
+ 1666              		.loc 1 216 39 view .LVU430
+ 1667 0014 13F00103 		ands	r3, r3, #1
+ 1668              	.LBE96:
+ 1669              	.LBE95:
+ 1670              		.loc 1 239 29 view .LVU431
+ 1671 0018 0446     		mov	r4, r0
+ 1672 001a 0D46     		mov	r5, r1
+ 1673              	.LVL143:
+ 240:src/alpha.c   **** 	char *p = buf + 11;
+ 1674              		.loc 1 240 2 is_stmt 1 view .LVU432
+ 1675              		.loc 1 240 8 is_stmt 0 view .LVU433
+ 1676 001c 07F10B06 		add	r6, r7, #11
+ 1677              	.LVL144:
+ 241:src/alpha.c   **** 	int n = char_per_reg();
+ 1678              		.loc 1 241 2 is_stmt 1 view .LVU434
+ 1679              	.LBB105:
+ 1680              	.LBI95:
+ 215:src/alpha.c   **** 	return is_intmode()?(word_size() / 8):CHARS_IN_REG;
+ 1681              		.loc 1 215 12 view .LVU435
+ 1682              	.LBB101:
+ 216:src/alpha.c   **** }
+ 1683              		.loc 1 216 2 view .LVU436
+ 216:src/alpha.c   **** }
+ 1684              		.loc 1 216 39 is_stmt 0 view .LVU437
+ 1685 0020 1CD1     		bne	.L134
+ 1686              	.LVL145:
+ 216:src/alpha.c   **** }
+ 1687              		.loc 1 216 39 view .LVU438
+ 1688              	.LBE101:
+ 1689              	.LBE105:
+ 242:src/alpha.c   **** 
+ 243:src/alpha.c   **** 	*p = '\0';
+ 1690              		.loc 1 243 2 is_stmt 1 view .LVU439
+ 1691              		.loc 1 243 5 is_stmt 0 view .LVU440
+ 1692 0022 FB72     		strb	r3, [r7, #11]
+ 244:src/alpha.c   **** 	for (; z != 0 && n>0; n--) {
+ 1693              		.loc 1 244 2 is_stmt 1 view .LVU441
+ 1694              		.loc 1 244 9 view .LVU442
+ 1695              		.loc 1 244 2 is_stmt 0 view .LVU443
+ 1696 0024 54EA0503 		orrs	r3, r4, r5
+ 1697              	.LBB106:
+ 1698              	.LBB102:
+ 216:src/alpha.c   **** }
+ 1699              		.loc 1 216 39 view .LVU444
+ 1700 0028 18BF     		it	ne
+ 1701 002a 0620     		movne	r0, #6
+ 1702              	.LBE102:
+ 1703              	.LBE106:
+ 1704              		.loc 1 244 2 view .LVU445
+ 1705 002c 04D1     		bne	.L137
+ 1706              	.LVL146:
+ 1707              	.L133:
+ 245:src/alpha.c   **** 		*--p = z & 0xff;
+ 246:src/alpha.c   **** 		z >>= 8;
+ 247:src/alpha.c   **** 	}
+ARM GAS  /tmp/ccoISTXj.s 			page 39
+
+
+ 248:src/alpha.c   **** 	return p;
+ 249:src/alpha.c   **** }
+ 1708              		.loc 1 249 1 view .LVU446
+ 1709 002e 3046     		mov	r0, r6
+ 1710 0030 03B0     		add	sp, sp, #12
+ 1711              		.cfi_remember_state
+ 1712              		.cfi_def_cfa_offset 20
+ 1713              		@ sp needed
+ 1714 0032 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1715              	.LVL147:
+ 1716              	.L151:
+ 1717              		.cfi_restore_state
+ 244:src/alpha.c   **** 	for (; z != 0 && n>0; n--) {
+ 1718              		.loc 1 244 16 discriminator 2 view .LVU447
+ 1719 0034 C342     		cmn	r3, r0
+ 1720 0036 FAD0     		beq	.L133
+ 1721              	.L137:
+ 245:src/alpha.c   **** 		*--p = z & 0xff;
+ 1722              		.loc 1 245 3 is_stmt 1 discriminator 3 view .LVU448
+ 1723              	.LVL148:
+ 246:src/alpha.c   **** 	}
+ 1724              		.loc 1 246 5 is_stmt 0 discriminator 3 view .LVU449
+ 1725 0038 230A     		lsrs	r3, r4, #8
+ 1726 003a 43EA0563 		orr	r3, r3, r5, lsl #24
+ 245:src/alpha.c   **** 		*--p = z & 0xff;
+ 1727              		.loc 1 245 8 discriminator 3 view .LVU450
+ 1728 003e 06F8014D 		strb	r4, [r6, #-1]!
+ 1729              	.LVL149:
+ 246:src/alpha.c   **** 	}
+ 1730              		.loc 1 246 3 is_stmt 1 discriminator 3 view .LVU451
+ 246:src/alpha.c   **** 	}
+ 1731              		.loc 1 246 5 is_stmt 0 discriminator 3 view .LVU452
+ 1732 0042 2A0A     		lsrs	r2, r5, #8
+ 1733 0044 1C46     		mov	r4, r3
+ 1734              	.LVL150:
+ 246:src/alpha.c   **** 	}
+ 1735              		.loc 1 246 5 discriminator 3 view .LVU453
+ 1736 0046 1546     		mov	r5, r2
+ 1737              	.LVL151:
+ 244:src/alpha.c   **** 	for (; z != 0 && n>0; n--) {
+ 1738              		.loc 1 244 24 is_stmt 1 discriminator 3 view .LVU454
+ 244:src/alpha.c   **** 	for (; z != 0 && n>0; n--) {
+ 1739              		.loc 1 244 9 discriminator 3 view .LVU455
+ 244:src/alpha.c   **** 	for (; z != 0 && n>0; n--) {
+ 1740              		.loc 1 244 16 is_stmt 0 discriminator 3 view .LVU456
+ 1741 0048 A6F10B03 		sub	r3, r6, #11
+ 244:src/alpha.c   **** 	for (; z != 0 && n>0; n--) {
+ 1742              		.loc 1 244 2 discriminator 3 view .LVU457
+ 1743 004c 54EA0502 		orrs	r2, r4, r5
+ 244:src/alpha.c   **** 	for (; z != 0 && n>0; n--) {
+ 1744              		.loc 1 244 16 discriminator 3 view .LVU458
+ 1745 0050 A3EB0703 		sub	r3, r3, r7
+ 244:src/alpha.c   **** 	for (; z != 0 && n>0; n--) {
+ 1746              		.loc 1 244 2 discriminator 3 view .LVU459
+ 1747 0054 EED1     		bne	.L151
+ 1748              		.loc 1 249 1 view .LVU460
+ 1749 0056 3046     		mov	r0, r6
+ARM GAS  /tmp/ccoISTXj.s 			page 40
+
+
+ 1750 0058 03B0     		add	sp, sp, #12
+ 1751              		.cfi_remember_state
+ 1752              		.cfi_def_cfa_offset 20
+ 1753              		@ sp needed
+ 1754 005a F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1755              	.LVL152:
+ 1756              	.L134:
+ 1757              		.cfi_restore_state
+ 1758              	.LBB107:
+ 1759              	.LBB103:
+ 1760              	.LBB97:
+ 1761              	.LBI97:
+ 215:src/alpha.c   **** 	return is_intmode()?(word_size() / 8):CHARS_IN_REG;
+ 1762              		.loc 1 215 12 is_stmt 1 view .LVU461
+ 1763              	.LBB98:
+ 216:src/alpha.c   **** }
+ 1764              		.loc 1 216 23 is_stmt 0 view .LVU462
+ 1765 005c FFF7FEFF 		bl	word_size
+ 1766              	.LVL153:
+ 1767              	.LBE98:
+ 1768              	.LBE97:
+ 1769              	.LBE103:
+ 1770              	.LBE107:
+ 243:src/alpha.c   **** 	for (; z != 0 && n>0; n--) {
+ 1771              		.loc 1 243 5 view .LVU463
+ 1772 0060 0023     		movs	r3, #0
+ 1773 0062 FB72     		strb	r3, [r7, #11]
+ 244:src/alpha.c   **** 		*--p = z & 0xff;
+ 1774              		.loc 1 244 2 view .LVU464
+ 1775 0064 54EA0503 		orrs	r3, r4, r5
+ 1776              	.LBB108:
+ 1777              	.LBB104:
+ 1778              	.LBB100:
+ 1779              	.LBB99:
+ 216:src/alpha.c   **** }
+ 1780              		.loc 1 216 35 view .LVU465
+ 1781 0068 4FEAD000 		lsr	r0, r0, #3
+ 1782              	.LVL154:
+ 216:src/alpha.c   **** }
+ 1783              		.loc 1 216 35 view .LVU466
+ 1784              	.LBE99:
+ 1785              	.LBE100:
+ 1786              	.LBE104:
+ 1787              	.LBE108:
+ 243:src/alpha.c   **** 	for (; z != 0 && n>0; n--) {
+ 1788              		.loc 1 243 2 is_stmt 1 view .LVU467
+ 244:src/alpha.c   **** 		*--p = z & 0xff;
+ 1789              		.loc 1 244 2 view .LVU468
+ 244:src/alpha.c   **** 		*--p = z & 0xff;
+ 1790              		.loc 1 244 9 view .LVU469
+ 244:src/alpha.c   **** 		*--p = z & 0xff;
+ 1791              		.loc 1 244 2 is_stmt 0 view .LVU470
+ 1792 006c DFD0     		beq	.L133
+ 244:src/alpha.c   **** 		*--p = z & 0xff;
+ 1793              		.loc 1 244 16 view .LVU471
+ 1794 006e 0028     		cmp	r0, #0
+ 1795 0070 E2D1     		bne	.L137
+ARM GAS  /tmp/ccoISTXj.s 			page 41
+
+
+ 1796 0072 DCE7     		b	.L133
+ 1797              	.L153:
+ 1798              		.align	2
+ 1799              	.L152:
+ 1800 0074 00000000 		.word	main_ram
+ 1801              		.cfi_endproc
+ 1802              	.LFE20:
+ 1804              		.section	.text.alpha_rcl,"ax",%progbits
+ 1805              		.align	1
+ 1806              		.p2align 2,,3
+ 1807              		.global	alpha_rcl
+ 1808              		.syntax unified
+ 1809              		.thumb
+ 1810              		.thumb_func
+ 1811              		.fpu fpv4-sp-d16
+ 1813              	alpha_rcl:
+ 1814              	.LVL155:
+ 1815              	.LFB21:
+ 250:src/alpha.c   **** 
+ 251:src/alpha.c   **** /* RCL register containing alpha characters into Alpha
+ 252:src/alpha.c   ****  */
+ 253:src/alpha.c   **** void alpha_rcl(unsigned int arg, enum rarg op) {
+ 1816              		.loc 1 253 48 is_stmt 1 view -0
+ 1817              		.cfi_startproc
+ 1818              		@ args = 0, pretend = 0, frame = 16
+ 1819              		@ frame_needed = 0, uses_anonymous_args = 0
+ 254:src/alpha.c   **** 	char buf[12];
+ 1820              		.loc 1 254 2 view .LVU473
+ 255:src/alpha.c   **** 
+ 256:src/alpha.c   **** 	add_string(alpha_rcl_s(arg, buf));
+ 1821              		.loc 1 256 2 view .LVU474
+ 253:src/alpha.c   **** 	char buf[12];
+ 1822              		.loc 1 253 48 is_stmt 0 view .LVU475
+ 1823 0000 00B5     		push	{lr}
+ 1824              		.cfi_def_cfa_offset 4
+ 1825              		.cfi_offset 14, -4
+ 1826 0002 85B0     		sub	sp, sp, #20
+ 1827              		.cfi_def_cfa_offset 24
+ 1828              		.loc 1 256 13 view .LVU476
+ 1829 0004 01A9     		add	r1, sp, #4
+ 1830              	.LVL156:
+ 1831              		.loc 1 256 13 view .LVU477
+ 1832 0006 FFF7FEFF 		bl	alpha_rcl_s
+ 1833              	.LVL157:
+ 1834              		.loc 1 256 2 view .LVU478
+ 1835 000a FFF7FEFF 		bl	add_string
+ 1836              	.LVL158:
+ 257:src/alpha.c   **** }
+ 1837              		.loc 1 257 1 view .LVU479
+ 1838 000e 05B0     		add	sp, sp, #20
+ 1839              		.cfi_def_cfa_offset 4
+ 1840              		@ sp needed
+ 1841 0010 5DF804FB 		ldr	pc, [sp], #4
+ 1842              		.cfi_endproc
+ 1843              	.LFE21:
+ 1845              		.section	.text.alpha_onoff,"ax",%progbits
+ 1846              		.align	1
+ARM GAS  /tmp/ccoISTXj.s 			page 42
+
+
+ 1847              		.p2align 2,,3
+ 1848              		.global	alpha_onoff
+ 1849              		.syntax unified
+ 1850              		.thumb
+ 1851              		.thumb_func
+ 1852              		.fpu fpv4-sp-d16
+ 1854              	alpha_onoff:
+ 1855              	.LVL159:
+ 1856              	.LFB22:
+ 258:src/alpha.c   **** 
+ 259:src/alpha.c   **** /* Turn alpha mode on and off
+ 260:src/alpha.c   ****  */
+ 261:src/alpha.c   **** void alpha_onoff(enum nilop op) {
+ 1857              		.loc 1 261 33 is_stmt 1 view -0
+ 1858              		.cfi_startproc
+ 1859              		@ args = 0, pretend = 0, frame = 0
+ 1860              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1861              		@ link register save eliminated.
+ 262:src/alpha.c   **** 	State2.alphas = (op == OP_ALPHAON) ? 1 : 0;
+ 1862              		.loc 1 262 2 view .LVU481
+ 1863              		.loc 1 262 16 is_stmt 0 view .LVU482
+ 1864 0000 054B     		ldr	r3, .L157
+ 1865              		.loc 1 262 41 view .LVU483
+ 1866 0002 A0F17900 		sub	r0, #121
+ 1867              	.LVL160:
+ 1868              		.loc 1 262 16 view .LVU484
+ 1869 0006 9A7D     		ldrb	r2, [r3, #22]	@ zero_extendqisi2
+ 1870              		.loc 1 262 41 view .LVU485
+ 1871 0008 B0FA80F0 		clz	r0, r0
+ 1872 000c 4009     		lsrs	r0, r0, #5
+ 1873              		.loc 1 262 16 view .LVU486
+ 1874 000e 60F3C302 		bfi	r2, r0, #3, #1
+ 1875 0012 9A75     		strb	r2, [r3, #22]
+ 263:src/alpha.c   **** }
+ 1876              		.loc 1 263 1 view .LVU487
+ 1877 0014 7047     		bx	lr
+ 1878              	.L158:
+ 1879 0016 00BF     		.align	2
+ 1880              	.L157:
+ 1881 0018 00000000 		.word	StateWhileOn
+ 1882              		.cfi_endproc
+ 1883              	.LFE22:
+ 1885              		.text
+ 1886              	.Letext0:
+ 1887              		.file 2 "src/decNumber/decContext.h"
+ 1888              		.file 3 "src/decNumber/decNumber.h"
+ 1889              		.file 4 "src/decNumber/decimal64.h"
+ 1890              		.file 5 "src/decNumber/decimal128.h"
+ 1891              		.file 6 "src/xeq.h"
+ 1892              		.file 7 "src/data.h"
+ 1893              		.file 8 "src/storage.h"
+ 1894              		.file 9 "src/display.h"
+ 1895              		.file 10 "src/consts.h"
+ 1896              		.file 11 "src/int.h"
+ 1897              		.file 12 "src/decn.h"
+ARM GAS  /tmp/ccoISTXj.s 			page 43
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 alpha.c
+     /tmp/ccoISTXj.s:18     .text.add_char:0000000000000000 $t
+     /tmp/ccoISTXj.s:26     .text.add_char:0000000000000000 add_char
+     /tmp/ccoISTXj.s:109    .text.add_char:0000000000000034 $d
+     /tmp/ccoISTXj.s:114    .text.add_string:0000000000000000 $t
+     /tmp/ccoISTXj.s:122    .text.add_string:0000000000000000 add_string
+     /tmp/ccoISTXj.s:232    .text.add_string:0000000000000058 $d
+     /tmp/ccoISTXj.s:237    .text.clralpha:0000000000000000 $t
+     /tmp/ccoISTXj.s:245    .text.clralpha:0000000000000000 clralpha
+     /tmp/ccoISTXj.s:274    .text.clralpha:0000000000000014 $d
+     /tmp/ccoISTXj.s:280    .text.alpha_view_common:0000000000000000 $t
+     /tmp/ccoISTXj.s:288    .text.alpha_view_common:0000000000000000 alpha_view_common
+     /tmp/ccoISTXj.s:339    .text.alpha_view_common:0000000000000024 $d
+     /tmp/ccoISTXj.s:347    .text.alpha_view:0000000000000000 $t
+     /tmp/ccoISTXj.s:355    .text.alpha_view:0000000000000000 alpha_view
+     /tmp/ccoISTXj.s:421    .text.alpha_view:0000000000000028 $d
+     /tmp/ccoISTXj.s:431    .text.alpha_view_reg:0000000000000000 $t
+     /tmp/ccoISTXj.s:439    .text.alpha_view_reg:0000000000000000 alpha_view_reg
+     /tmp/ccoISTXj.s:504    .text.alpha_view_reg:0000000000000024 $d
+     /tmp/ccoISTXj.s:514    .text.cmdalpha:0000000000000000 $t
+     /tmp/ccoISTXj.s:522    .text.cmdalpha:0000000000000000 cmdalpha
+     /tmp/ccoISTXj.s:554    .text.multialpha:0000000000000000 $t
+     /tmp/ccoISTXj.s:562    .text.multialpha:0000000000000000 multialpha
+     /tmp/ccoISTXj.s:614    .text.alpha_ip:0000000000000000 $t
+     /tmp/ccoISTXj.s:622    .text.alpha_ip:0000000000000000 alpha_ip
+     /tmp/ccoISTXj.s:861    .text.alpha_ip:00000000000000e8 $d
+     /tmp/ccoISTXj.s:869    .text.alen:0000000000000000 $t
+     /tmp/ccoISTXj.s:877    .text.alen:0000000000000000 alen
+     /tmp/ccoISTXj.s:906    .text.alen:000000000000001c $d
+     /tmp/ccoISTXj.s:911    .text.alpha_length:0000000000000000 $t
+     /tmp/ccoISTXj.s:919    .text.alpha_length:0000000000000000 alpha_length
+     /tmp/ccoISTXj.s:975    .text.alpha_length:0000000000000024 $d
+     /tmp/ccoISTXj.s:980    .text.alpha_shift_l:0000000000000000 $t
+     /tmp/ccoISTXj.s:988    .text.alpha_shift_l:0000000000000000 alpha_shift_l
+     /tmp/ccoISTXj.s:1067   .text.alpha_shift_l:000000000000003c $d
+     /tmp/ccoISTXj.s:1072   .text.alpha_shift_r:0000000000000000 $t
+     /tmp/ccoISTXj.s:1080   .text.alpha_shift_r:0000000000000000 alpha_shift_r
+     /tmp/ccoISTXj.s:1148   .text.alpha_shift_r:000000000000002c $d
+     /tmp/ccoISTXj.s:1153   .text.alpha_rot_r:0000000000000000 $t
+     /tmp/ccoISTXj.s:1161   .text.alpha_rot_r:0000000000000000 alpha_rot_r
+     /tmp/ccoISTXj.s:1278   .text.alpha_rot_r:000000000000004c $d
+     /tmp/ccoISTXj.s:1283   .text.alpha_tox:0000000000000000 $t
+     /tmp/ccoISTXj.s:1291   .text.alpha_tox:0000000000000000 alpha_tox
+     /tmp/ccoISTXj.s:1349   .text.alpha_tox:0000000000000028 $d
+     /tmp/ccoISTXj.s:1354   .text.alpha_fromx:0000000000000000 $t
+     /tmp/ccoISTXj.s:1362   .text.alpha_fromx:0000000000000000 alpha_fromx
+     /tmp/ccoISTXj.s:1396   .text.alpha_reg:0000000000000000 $t
+     /tmp/ccoISTXj.s:1404   .text.alpha_reg:0000000000000000 alpha_reg
+     /tmp/ccoISTXj.s:1452   .text.alpha_sto:0000000000000000 $t
+     /tmp/ccoISTXj.s:1460   .text.alpha_sto:0000000000000000 alpha_sto
+     /tmp/ccoISTXj.s:1620   .text.alpha_sto:0000000000000068 $d
+     /tmp/ccoISTXj.s:1625   .text.alpha_rcl_s:0000000000000000 $t
+     /tmp/ccoISTXj.s:1633   .text.alpha_rcl_s:0000000000000000 alpha_rcl_s
+     /tmp/ccoISTXj.s:1800   .text.alpha_rcl_s:0000000000000074 $d
+     /tmp/ccoISTXj.s:1805   .text.alpha_rcl:0000000000000000 $t
+     /tmp/ccoISTXj.s:1813   .text.alpha_rcl:0000000000000000 alpha_rcl
+ARM GAS  /tmp/ccoISTXj.s 			page 44
+
+
+     /tmp/ccoISTXj.s:1846   .text.alpha_onoff:0000000000000000 $t
+     /tmp/ccoISTXj.s:1854   .text.alpha_onoff:0000000000000000 alpha_onoff
+     /tmp/ccoISTXj.s:1881   .text.alpha_onoff:0000000000000018 $d
+
+UNDEFINED SYMBOLS
+find_char
+scopy
+main_ram
+xset
+DispMsg
+frozen_display
+StateWhileOn
+ShowRegister
+set_entry
+__aeabi_uldivmod
+get_reg_n_int
+extract_value
+int_base
+getRegister
+decNumberFloor
+decNumberMod
+dn_to_int
+dn_divide
+dn_eq0
+dn_minus
+DIGITS
+const_10
+setX_int_sgn
+xcopy
+getX_int_sgn
+format_reg
+set_reg_n_int_sgn
+word_size
+get_reg_n_int_sgn

@@ -40,7 +40,7 @@ struct cnsts {
 /* Table of user visible constants */
 extern const struct cnsts cnsts[];
 #define NUM_CONSTS_CAT  76
-#define NUM_CONSTS      89
+#define NUM_CONSTS      106
 #define CONSTANT(n)     ((decimal64 *)  get_const(n, 0))
 #define CONSTANT_DBL(n) ((decimal128 *) get_const(n, 1))
 
@@ -130,6 +130,23 @@ enum {
 	OP_RECIP_SQRT5,
 	OP_RECIP_SQRTPI,
 	OP_POINT_2214,
+	OP_DG02,
+	OP_DG04,
+	OP_DG06,
+	OP_DG08,
+	OP_DG10,
+	OP_DG12,
+	OP_DG14,
+	OP_DG16,
+	OP_DG18,
+	OP_DG20,
+	OP_DG22,
+	OP_DG24,
+	OP_DG26,
+	OP_DG28,
+	OP_DG30,
+	OP_DG32,
+	OP_DG34,
 	OP_RECIPLN10,
 	OP_LN2,
 	OP_RECIPLN2,

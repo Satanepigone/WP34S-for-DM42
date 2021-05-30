@@ -23,9 +23,10 @@ build/xeq.o: src/xeq.c dmcp/dmcp.h \
  src/decNumber/decNumber.h src/decNumber/../features.h \
  src/decNumber/decContext.h src/decNumber/decContext.h \
  src/decNumber/decimal64.h src/decNumber/decimal128.h src/data.h \
- src/storage.h src/decn.h src/complex.h src/stats.h src/display.h \
- src/consts.h src/int.h src/date.h src/lcd.h src/xrom.h src/xrom_labels.h \
- src/alpha.h src/pretty.h src/xrom_targets.c
+ src/keys.h src/menu.h src/storage.h src/decn.h src/complex.h src/stats.h \
+ src/display.h src/consts.h src/int.h src/date.h src/lcd.h src/xrom.h \
+ src/xrom_labels.h src/alpha.h src/stopwatch.h src/printer.h src/pretty.h \
+ src/xrom_targets.c
 
 dmcp/dmcp.h:
 
@@ -127,6 +128,10 @@ src/decNumber/decimal128.h:
 
 src/data.h:
 
+src/keys.h:
+
+src/menu.h:
+
 src/storage.h:
 
 src/decn.h:
@@ -150,6 +155,10 @@ src/xrom.h:
 src/xrom_labels.h:
 
 src/alpha.h:
+
+src/stopwatch.h:
+
+src/printer.h:
 
 src/pretty.h:
 

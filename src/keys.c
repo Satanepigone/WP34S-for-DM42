@@ -31,13 +31,23 @@
 #include "storage.h"
 #include "stats.h"
 #include "catalogues.h"
-#ifndef DM42
+#ifdef INFRARED
 #include "printer.h"
+#endif
+#ifdef INCLUDE_C_LOCK
+#include "decn.h"
 #endif
 #undef DM42SAFE
 
 #if defined(QTGUI) || defined(IOS)
 extern void changed_catalog_state();
+#endif
+
+#ifdef INCLUDE_C_LOCK
+void finish_cpx_entry ( int );
+void stack_begin ( int ); 
+static int process_cmplx ( const keycode );
+static void stack_restore ( void );
 #endif
 
 #define STATE_UNFINISHED	(OP_SPEC | OP_UNFINISHED)
@@ -262,6 +272,42 @@ static enum catalogues keycode_to_cat(const keycode c, enum shifts shift)
     unsigned char key, cat[3];
   } *cp;
 
+#ifdef INCLUDE_C_LOCK
+	if (C_LOCKED) { // Limited set of catalogues available in complex lock mode - all listed here
+		if (shift == SHIFT_H) {
+			switch (c) {
+				case K53:
+					return CATALOGUE_COMPLEX;
+				case K04:
+					return CATALOGUE_CONV;
+				case K05:
+					return CATALOGUE_MODE;
+				case K20:
+					if ( (REAL_FLAG || IMAG_FLAG) ) { // number being entered
+						finish_cpx_entry(1);
+					}
+					return CATALOGUE_COMPLEX_CONST;
+				default:
+					return CATALOGUE_NONE;
+			}
+		}
+		if ( (shift == SHIFT_G) && (c == K60) )
+			return CATALOGUE_REGISTERS;
+		if ( (shift == SHIFT_F) && (c == K20) ) {
+			if ( !(REAL_FLAG || IMAG_FLAG) ) {
+				SET_REAL;
+				stack_begin (1);
+			}
+			else if (CmdLineLength) {
+				CmdLineLength = 0;
+				CmdLineEex = 0;
+				CmdLineDot = 0;
+			}
+			return CATALOGUE_CONST;
+		}
+		return CATALOGUE_NONE;
+	}
+#endif
   // Common to both alpha mode and normal mode is the programming X.FCN catalogue
   if (c == K53 && shift == SHIFT_H && ! State2.runmode && ! State2.cmplx && ! State2.multi)
     return CATALOGUE_PROGXFCN;
@@ -431,8 +477,8 @@ static int keycode_to_alpha(const keycode c, unsigned int shift)
 		{ 0000, 0000, 0000, 0000, 0000, 0000,  },  // K60
 		{ ':',  '0',  0207, ' ',  ';',  0247,  },  // K61
 		{ '.',  '.',  0226, 0000, '.',  0266,  },  // K62
-		{ '?',  0000, 0041, 0000, '?',  0000,  },  // K63
-		{ ' ',  '+',  '=',  0000, ' ',  ' ',   },  // K64
+		{ '?',  '!',  0041, 0000, '?',  '!',  },  // K63
+		{ ' ',  '+',  '=',  0006, ' ',  ' ',   },  // K64
 
 		{ 0000, 0000, 0000, 0000, 0000, 0000   },  // shifts etc.
 	};
@@ -581,6 +627,50 @@ void init_state(void) {
 	// clrretstk(0);
 
 	xset(&State2, 0, sizeof(State2));
+#ifdef INCLUDE_C_LOCK
+
+#ifdef DEFAULT_TO_SSIZE8 							//JM3
+	INIT_8; 								//JM3
+	UState.stack_depth = 1; // set stack size to 8 	//JM3
+#endif  									//JM3
+
+#ifdef DEFAULT_DATE_YMD			//JM5
+	UState.date_mode = 1;		//JM5
+#endif							//JM5
+
+#ifdef DEFAULT_DATE_MDY			//JM5
+	UState.date_mode = 2;		//JM5
+#endif							//JM5
+
+#ifdef YREG_ON_BY_DEFAULT
+	UState.show_y = 1;
+#endif
+
+#ifdef DEFAULT_TO_J
+	SET_CPX_J;
+#endif
+
+#ifdef DEFAULT_TO_CPX_YES
+	cpx_nop(OP_CYES);
+#endif
+
+#ifdef DEFAULT_TO_C_LOCK
+	cpx_nop(OP_CYES);
+	cpx_nop(OP_C_ON);
+#endif
+
+#ifdef ENTRY_RPN
+
+#ifdef DEFAULT_TO_ENTRY_RPN
+	ENTRY_RPN_ON;
+#else
+	ENTRY_RPN_OFF;
+#endif
+
+#endif
+	
+#endif
+
 	State2.test = TST_NONE;
 	State2.runmode = 1;
 	update_program_bounds(1);
@@ -638,7 +728,7 @@ static int check_confirm(int op) {
 			|| nilop == OP_PRINT_PGM
 #endif
 #ifdef INCLUDE_STOPWATCH
-			|| nilop == OP_STOPWATCH
+//			|| nilop == OP_STOPWATCH // so it can go in a user menu
 #endif
 		) {
 			// These commands are not programmable
@@ -802,7 +892,7 @@ static int process_normal(const keycode c)
 		process_cmdline_set_lift();
 		State2.arrow = 1;
 #ifdef DM42
-		set_menu (9); // arrow menu
+		set_menu (M_Arrow); // arrow menu
 		display_current_menu ();
 		lcd_refresh ();
 #else
@@ -916,6 +1006,7 @@ static int process_fg_shifted(const keycode c) {
 	switch (c) {
 	case K00:
 	  if (! UState.intm) {
+	    //	    print_debug(100,0);
 	    State2.hyp = 1;
 	    State2.dot = op;
 	    // State2.cmplx = 0;
@@ -951,7 +1042,7 @@ static int process_fg_shifted(const keycode c) {
 			process_cmdline_set_lift();
 			State2.alphas = 1;
 #ifdef DM42
-			set_menu(16);
+			set_menu(M_Alpha);
 			display_current_menu();
 #endif
 		}
@@ -1102,6 +1193,274 @@ static int process_h_shifted(const keycode c) {
 #undef _RARG
 #undef NO_INT
 }
+#ifdef INCLUDE_C_LOCK
+
+// Big section here - lots of functions that help with processing keys in complex lock mode
+
+static void do_command_line ( void ) {
+	if (CmdLineLength) {
+		State2.state_lift = 0;
+		process_cmdline();
+	}
+}
+
+void finish_cpx_entry ( int lift ) {
+// called to terminate digit entry before calling a function; an extended version of process_cmdline
+// The argument sets the lift state after entry is finished.
+// It also converts entered polar form into rectangular coordinates, if needed.
+// Note: does nothing to stack or lift state if number not being entered.
+	if ( !( REAL_FLAG || IMAG_FLAG ) ) return;
+
+/*	if (REAL_FLAG) { // real part being entered
+		CLEAR_REAL;
+		do_command_line();
+	}
+	else if (IMAG_FLAG) {
+		CLEAR_IMAG;
+		do_command_line();
+		swap_reg(get_reg_n(regX_idx), get_reg_n(regY_idx));
+	}
+*/
+	do_command_line();
+	if (IMAG_FLAG) swap_reg(get_reg_n(regX_idx), get_reg_n(regY_idx));
+	CLEAR_REAL;
+	CLEAR_IMAG;
+
+	State2.state_lift = lift;
+
+	if ( POLAR_DISPLAY && POLAR_FORM_NOT_READY ) {
+		//copy x, y into j, k - now contain polar form
+		copyreg (get_reg_n(regJ_idx), get_reg_n(regX_idx));
+		copyreg (get_reg_n(regK_idx), get_reg_n(regY_idx));
+		//call p2r
+		update_speed(0);
+		op_p2r(OP_NOP); // x, y now contain rectangular form
+#ifdef RP_PREFIX
+		RectPolConv = 1; // stop "y" display
+#endif
+		SET_POLAR_READY;
+	}
+}
+
+static void stack_restore ( void ) { 
+	// called if number entry terminated by EXIT key
+	// uses J and K registers to store the two stack registers displaced by the new entry
+	// tried declaring some static variables to hold the numbers but didn't work on real calculator
+	if ( !REAL_FLAG && !IMAG_FLAG  ) return; // number entry already over; no restore
+	if ( INIT_LIFT ) { // C, D gone off the top
+		drop ( OP_DROPXY );
+		copyreg (get_reg_n(regC_idx), get_reg_n(regJ_idx));
+		copyreg (get_reg_n(regD_idx), get_reg_n(regK_idx));
+	}
+	else { // X, Y have been overwritten
+		copyreg (get_reg_n(regX_idx), get_reg_n(regJ_idx));
+		copyreg (get_reg_n(regY_idx), get_reg_n(regK_idx));
+	}
+	State2.state_lift = INIT_LIFT; // restore lift status too
+	CLEAR_INIT_LIFT;
+	CLEAR_POLAR_READY;
+}
+
+void stack_begin ( int zero_y ) { 
+	// Lifts stack if required and stores displaced registers; 
+	// zeros y if requested. 
+	CLEAR_POLAR_READY;
+	if ( State2.state_lift ){
+		SET_INIT_LIFT;
+		copyreg (get_reg_n(regJ_idx), get_reg_n(regC_idx));
+		copyreg (get_reg_n(regK_idx), get_reg_n(regD_idx));
+		lift();
+		zero_X();
+		lift();
+		State2.state_lift = 0;
+	}
+	else {
+		CLEAR_INIT_LIFT;
+		copyreg (get_reg_n(regJ_idx), get_reg_n(regX_idx));
+		copyreg (get_reg_n(regK_idx), get_reg_n(regY_idx));
+		zero_X();
+		if ( zero_y ) zero_Y();
+	}
+}
+
+ static int process_c_lock ( const keycode c ) { // main function - called from process (c) function in complex lock mode
+
+   enum shifts shift = cur_shift();
+
+   // Individual keys needing special treatment
+
+   if ( (c < K05) && shift == SHIFT_H ){ // display modes
+     return process_h_shifted (c);
+   }
+
+
+   if ( (shift == SHIFT_G) && (c >= K10) && (c <= K12) ) { // angle mode change; needed because otherwise the new display does not appear in time
+     convert_regK ((enum trig_modes) (c-K10));
+   }
+   if ( (c >= K05) && (c <= K12) && (shift == SHIFT_F || shift == SHIFT_G) ) { // Deg, rad, grad, HMS, H.d; complex RAN# has now been removed; RAN# just puts a random number in X.
+     return process_fg_shifted (c);
+   }
+
+   if (c==K23) { // pi key - needs to be separate from what follows as it doesn't want entry completed before its action
+     if (shift == SHIFT_F) { // special pi processing
+       reset_shift();
+       if ( CmdLineLength ) {
+	 State2.state_lift = 0;
+	 return OP_NIL | OP_PIB;
+       }
+       else {
+	 return OP_NIL | OP_PIA;
+       }
+     }
+     else {
+#if INCLUDE_EEX_PI == 2
+       const int eex_pi = 1;
+#elif INCLUDE_EEX_PI == 1
+       const int eex_pi = get_user_flag(regL_idx);
+#else
+       const int eex_pi = 0;
+#endif
+       if ( (shift == SHIFT_H) || (eex_pi && (shift == SHIFT_N) && CmdLineLength == 0) ) { // normal pi key - enables stack lift; now works with INCLUDE_EEX_PI too
+	 finish_cpx_entry(1);
+	 return process_cmplx(c);
+       }
+     }
+   }
+
+   if (shift != SHIFT_N) { // other shifted keys - special cases first.
+     finish_cpx_entry(0); // finish entry for all of them - no lift
+     switch (c) {
+     case (K60):
+       reset_shift();
+       if (shift == SHIFT_H) return (OP_NIL | OP_OFF);
+     case (K21): // x<->y key
+       if (shift == SHIFT_F) { // changed this for DM42
+	 return process_fg_shifted(c); // SHOW
+       }
+       if (shift == SHIFT_G) {
+	 reset_shift();
+	 return process_normal(K21); // x<>y
+       }
+       break;
+     case (K40): // up-arrow key
+       if (shift == SHIFT_F) {
+	 SET_RECTANGULAR_DISPLAY;
+       }
+       else if (shift == SHIFT_G) {
+	 SET_POLAR_DISPLAY;
+	 CLEAR_POLAR_READY;
+	 update_speed(0); // new polar display calculated from keyboard needs a speed boost
+       }
+       else if (shift == SHIFT_H) { // ND addition on DM42 - should work on ordinary calculator too
+	 return process_cmplx (c);
+       }
+       break;
+     case (K22): // +/- key
+       reset_shift();
+       if (shift == SHIFT_F ) {
+	 return OP_NIL | OP_C_MIM;
+       }
+       else if (shift == SHIFT_H) {
+	 return OP_NIL | OP_C_MRE;
+       }
+       break;
+     case (K62): // IP/FP key
+       reset_shift();
+       if (shift == SHIFT_F) {
+	 return OP_NIL | OP_C_IM;
+       }
+       else if (shift == SHIFT_G) {
+	 return OP_NIL | OP_C_RE;
+       }
+       break;
+     case (K44): // x (times) key
+       if (shift == SHIFT_H) { // real*real + i imag*imag
+	 reset_shift();
+	 return OP_CDYA | OP_CDOT;
+       }
+       else {
+	 return process_cmplx(c);
+       }
+       break;
+     case (K34): // divide key
+       if (shift == SHIFT_H) { // real/real + i imag/imag
+	 reset_shift();
+	 return OP_CDYA | OP_CDOTDIV;
+       }
+       else {
+	 return process_cmplx(c);
+       }
+       break;
+     case (K24): // <- key
+       if (POLAR_DISPLAY) break;
+       if (shift == SHIFT_H) { // adds the rather strange ability to delete and replace the real part of a complex number
+	 zero_X ();
+	 State2.state_lift = 0;
+	 SET_REAL;
+	 stack_begin (0);
+       }
+       break;
+     default:
+       return process_cmplx(c); // for shifted keys not listed above
+     }
+     reset_shift(); // for the keys listed above; functions complete
+     return STATE_UNFINISHED;
+   }
+
+   switch (c) { // non-shifted keys including numbers - in general, keys to be processed normally not complexly
+   case (K61):
+   case (K62):
+   case (K51):
+   case (K52):
+   case (K53):
+   case (K41):
+   case (K42):
+   case (K43):
+   case (K31):
+   case (K32):
+   case (K33):
+   case (K23): // 0.123456789EEX
+     if (!REAL_FLAG && !IMAG_FLAG) {
+       SET_REAL; // start and continuation of real entry
+       stack_begin (1);
+     }
+     return process_normal(c);
+   case (K22): // CHS
+     //	case (K23): // EEX
+     if (!REAL_FLAG && !IMAG_FLAG) {
+       return process_cmplx(c);
+     }
+     else {
+       return process_normal(c);
+     }
+   case (K24): // backspace
+   case (K04): // arrow
+   case (K_ARROW):
+     return process_normal(c);
+   case (K_CMPLX):
+     if (REAL_FLAG) { // Something - at least one digit - has been entered; real part now complete
+       CLEAR_REAL;
+       SET_IMAG;
+       do_command_line();
+       State2.state_lift = 0;
+       swap_reg(get_reg_n(regX_idx), get_reg_n(regY_idx));
+     }
+     else if (IMAG_FLAG) { // finishing off imag part; nothing has necessarily been entered
+       finish_cpx_entry (1);
+     }
+     else { // down here we need a part that deals with CPX being pressed without a real part being entered
+       SET_IMAG;
+       stack_begin (1);
+     }
+     return STATE_UNFINISHED;
+   default:;
+   }
+   finish_cpx_entry(0);
+   return process_cmplx(c);
+
+ }
+
+#endif
 
 /*
  *  Process a key code after CPX
@@ -1174,6 +1533,7 @@ static int process_cmplx(const keycode c) {
 	if (c == K00) {
 		// HYP
 		process_cmdline_set_lift();
+		//		print_debug(100,1);
 		State2.hyp = 1;
 		State2.dot = op;
 		State2.cmplx = 1;
@@ -1262,7 +1622,9 @@ static int process_hyp(const keycode c) {
 #endif
 	stay:
 		// process_cmdline_set_lift();
-		State2.hyp = 1;
+	  //	  print_debug(100,2);
+	  
+	  State2.hyp = 1;
 		State2.cmplx = cmplx;
 		State2.dot = f;
 		break;
@@ -1294,6 +1656,16 @@ static int process_arrow(const keycode c) {
 #ifdef DM42
 	set_last_menu ();
 	display_current_menu ();
+#endif
+#ifdef INCLUDE_C_LOCK
+	if (c == K_CMPLX && CPX_ENABLED) { // need this before the SHIFT_N test
+	  if (!C_LOCK_ON) {
+	    return OP_NIL | OP_C_ON;
+	  }
+	  else {
+	    return OP_NIL | OP_C_OFF;
+	  }
+	}
 #endif
 	if (shift == SHIFT_N) return STATE_UNFINISHED;
 	
@@ -1438,7 +1810,7 @@ static int process_alpha(const keycode c) {
 		State2.alphas = 0;
 		State2.alphashift = 0;
 #ifdef DM42
-		set_menu(-1);
+		set_menu(M_Last);
 		display_current_menu();
 #endif
 		return op;
@@ -1498,7 +1870,7 @@ static int process_alpha(const keycode c) {
 			return OP_NIL | OP_OFF;
 		else if (shift == SHIFT_N) {
 #ifdef DM42
-		  set_menu(-1);
+		  set_menu(M_Last);
 		  display_current_menu();
 #endif
 		  init_state();
@@ -1528,40 +1900,51 @@ static void reset_arg(void) {
 	State2.rarg = 0;
 }
 
-static int arg_eval(unsigned int val) {
-	const unsigned int base = CmdBase;
-	int r = RARG(base, val 
-		 	   + (State2.ind ? RARG_IND : 0) 
-		           + (State2.local ? LOCAL_REG_BASE : 0));
-	const unsigned int ssize = (! UState.stack_depth || ! State2.runmode ) ? 4 : 8;
+ static int arg_eval(unsigned int val) {
+   const unsigned int base = CmdBase;
+   int r = RARG(base, val 
+		+ (State2.ind ? RARG_IND : 0) 
+		+ (State2.local ? LOCAL_REG_BASE : 0));
+   const unsigned int ssize = (! UState.stack_depth || ! State2.runmode ) ? 4 : 8;
 
-	if (! State2.ind) {
-		/*
-		 *  Central argument checking for some commands
-		 */
+   if (! State2.ind) {
+     /*
+      *  Central argument checking for some commands
+      */
 #ifdef SHOW_COMPLEX_REGS
-		if (argcmds[base].cmplx && val > TOPREALREG - 2 ) {
-			// remap complex registers cY->T, cZ->A, cT->C
-			                     // 99,   X,   Y,   Z,   T,   A,   B,   C,   D,   L,   I,   J,   K
-			static char remap[] = {  0, 100, 102, 104, 106,   0,   0,   0,   0, 108,   0, 110,   0 };
-			val = (unsigned int) remap[ val - (TOPREALREG - 1) ];
-			if ( val == 0 )
-				return STATE_UNFINISHED;
-			r = RARG(base, val);
-		}
-#else
-		if (argcmds[base].cmplx && (val > TOPREALREG - 2 && (val & 1)))
-			// Disallow odd complex register > 98
-			return STATE_UNFINISHED;
+     if (argcmds[base].cmplx && val > TOPREALREG - 2 ) {
+       // remap complex registers cY->T, cZ->A, cT->C
+       // 99,   X,   Y,   Z,   T,   A,   B,   C,   D,   L,   I,   J,   K
+       static char remap[] = {  0, 100, 102, 104, 106,   0,   0,   0,   0, 108,   0, 110,   0 };
+       val = (unsigned int) remap[ val - (TOPREALREG - 1) ];
+       if ( val == 0 )
+	 return STATE_UNFINISHED;
+       r = RARG(base, val);
+     }
 #endif
-		if ((base == RARG_STOSTK || base == RARG_RCLSTK) && (val > TOPREALREG - ssize))
-			// Avoid stack clash for STOS/RCLS
-			return STATE_UNFINISHED;
-	}
-	// Build op-code
-	reset_arg();
-	return r;
-}
+#ifdef INCLUDE_C_LOCK
+     if (argcmds[base].cmplx && (val > (unsigned int)(C_LOCKED ? 0 : TOPREALREG - 2) && (val & 1))) {
+       if (C_LOCKED) {
+	 error_message(ERR_ODD_REG); // shows error message
+	 return STATE_UNFINISHED; // either leaves arg blank (if EXIT pressed) or with one digit in (STO)
+       }
+       else {
+	 return STATE_UNFINISHED;
+       }
+     }
+#else
+     if (argcmds[base].cmplx && (val > TOPREALREG - 2 && (val & 1)))
+       // Disallow odd complex register > 98
+       return STATE_UNFINISHED;
+#endif
+     if ((base == RARG_STOSTK || base == RARG_RCLSTK) && (val > TOPREALREG - ssize))
+       // Avoid stack clash for STOS/RCLS
+       return STATE_UNFINISHED;
+   }
+   // Build op-code
+   reset_arg();
+   return r;
+ }
 
 static int arg_digit(int n) {
 	int lim;
@@ -1727,6 +2110,40 @@ static int process_arg(const keycode c) {
 		return arg_eval(keycode_to_row_column(c));
 
 #ifdef INCLUDE_SIGFIG_MODE
+#ifdef DM42
+	if (base == RARG_FIX || base == RARG_SIG || base == RARG_SIG0) {
+		switch ((int)c) {
+		case K_UP:	// up arrow
+		  if (base == RARG_FIX) {
+		    base = RARG_SIG;
+		    break;
+		  }
+		  if (base == RARG_SIG) {
+		    base = RARG_SIG0;
+		    break;
+		  }
+		  if (base == RARG_SIG0) {
+		    base = RARG_FIX;
+		    break;
+		  }
+		case K_DOWN:	// down arrow
+		case K01:	// B
+		  if (base == RARG_FIX) {
+		    base = RARG_SIG0;
+		    break;
+		  }
+		  if (base == RARG_SIG) {
+		    base = RARG_FIX;
+		    break;
+		  }
+		  if (base == RARG_SIG0) {
+		    base = RARG_SIG;
+		    break;
+		  }
+		}
+	}
+		CmdBase = base;
+#else
 	if (base >= RARG_FIX && base <= RARG_SIG0) {
 		switch ((int)c) {
 		case K_UP:	// up arrow
@@ -1742,6 +2159,7 @@ static int process_arg(const keycode c) {
 		}
 		CmdBase = base;
 	}
+#endif
 #endif
 	/*
 	 *  So far, we've got the digits and some special label addressing keys
@@ -2829,6 +3247,13 @@ static int process(const int c) {
   if (c == K60 && shift == SHIFT_N && ! State2.catalogue)
 #endif
     {
+#ifdef INCLUDE_C_LOCK
+      if (C_LOCKED) {
+	stack_restore();
+	CLEAR_REAL;
+	CLEAR_IMAG;
+      }
+#endif
       soft_init_state();
       return STATE_UNFINISHED;
     }
@@ -2931,7 +3356,11 @@ static int process(const int c) {
 		return i;
 #endif
 	}
-
+#ifdef INCLUDE_C_LOCK
+	if (C_LOCKED) {
+		return process_c_lock ((const keycode)c);
+	}
+#endif
 	if (State2.cmplx) {
 		return process_cmplx((const keycode)c);
 	} else {
@@ -2977,6 +3406,7 @@ void process_keycode(int c)
   static int was_paused;
   //volatile int cmdline_empty; // volatile because it's uninitialized in some cases
   int cmdline_empty = 0;        // Visual studio chokes in debug mode over the above
+  //print_debug(60,c);
   if (was_paused && Pause == 0)
     {
     /*
@@ -2991,69 +3421,69 @@ void process_keycode(int c)
     }
   else if (c == K_HEARTBEAT)
     {
-    /*
-     *  Heartbeat processing goes here.
-     *  This is totally thread safe!
-     */
-    if (Keyticks >= 2) {
       /*
-       *  Some time has passed after last key press
+       *  Heartbeat processing goes here.
+       *  This is totally thread safe!
        */
-      if (OpCode != 0) {
+      if (Keyticks >= 2) {
 	/*
-	 *  Handle command display and NULL here
+	 *  Some time has passed after last key press
 	 */
-	if (OpCodeDisplayPending) {
+	if (OpCode != 0) {
 	  /*
-	   *  Show command to the user
+	   *  Handle command display and NULL here
 	   */
-	  OpCodeDisplayPending = 0;
-	  if (OpCode == (OP_NIL | OP_RS)) {
-	    DispMsg = "RUN";
+	  if (OpCodeDisplayPending) {
+	    /*
+	     *  Show command to the user
+	     */
+	    OpCodeDisplayPending = 0;
+	    if (OpCode == (OP_NIL | OP_RS)) {
+	      DispMsg = "RUN";
+	    }
+	    else {
+	      scopy_char(TraceBuffer, prt(OpCode, TraceBuffer), '\0');
+	      DispMsg = TraceBuffer;
+	    }
+	    display();
+	    ShowRPN = 1;	// Off because of DispMsg setting
 	  }
-	  else {
-	    scopy_char(TraceBuffer, prt(OpCode, TraceBuffer), '\0');
-	    DispMsg = TraceBuffer;
+	  else if (Keyticks > 12) {
+	    /*
+	     *  Key is too long held down
+	     */
+	    OpCode = 0;
+	    message("NULL", CNULL);
+	    // Force display update on key-up
+	    State2.disp_temp = 0;
 	  }
-	  display();
-	  ShowRPN = 1;	// Off because of DispMsg setting
 	}
-    else if (Keyticks > 12) {
-	  /*
-	   *  Key is too long held down
-	   */
-	  OpCode = 0;
-	  message("NULL", CNULL);
-	  // Force display update on key-up
-	  State2.disp_temp = 0;
+	if (Keyticks > 12 && shift_down() != SHIFT_N) {
+	  // Rely on the held shift key instead of the toggle
+	  State2.shifts = SHIFT_N;
 	}
       }
-      if (Keyticks > 12 && shift_down() != SHIFT_N) {
-	// Rely on the held shift key instead of the toggle
-	State2.shifts = SHIFT_N;
-      }
-    }
 
-    /*
-     *  Serve the watchdog
-     */
-    watchdog();
+      /*
+       *  Serve the watchdog
+       */
+      watchdog();
 
 #ifndef CONSOLE
-    /*
-     *  If buffer is empty re-allow R/S to start a program
-     */
-    if (JustStopped && !is_key_pressed()) {
-      JustStopped = 0;
-    }
+      /*
+       *  If buffer is empty re-allow R/S to start a program
+       */
+      if (JustStopped && !is_key_pressed()) {
+	JustStopped = 0;
+      }
 #endif
 
-    /*
-     *  Do nothing if not running a program
-     */
-    if (!Running && ! Pause)
-      return;
-  }
+      /*
+       *  Do nothing if not running a program
+       */
+      if (!Running && ! Pause)
+	return;
+    }
   else {
     /*
      *  Not the heartbeat - prepare for execution of any commands
@@ -3086,12 +3516,14 @@ void process_keycode(int c)
    */
   if (c == K_RELEASE)
     {
+      //      print_debug (80,c);
     if (OpCode != 0) {
       /*
        * Execute the key on release
        */
       GoFast = 1;
       c = OpCode;
+      //      print_debug(81,c);
       OpCode = 0;
 
       if (c == STATE_SST)
@@ -3133,12 +3565,14 @@ void process_keycode(int c)
     /*
      *  Decode the key 
      */
-    // print_debug (100, c);
+    //    print_debug (90, cur_shift());
     WasDataEntry = 0;
     ShowRPN = ! Running;	// Default behaviour, may be turned off later
 #ifdef DM42
     if (c != K_OP) {
-      c = process(c);		// returns an op-code or state
+      c = process(c);
+      //print_debug (91,cur_shift());
+      // returns an op-code or state
     }
     else {
       if (isRARG(nd_opcode)) {
@@ -3149,9 +3583,24 @@ void process_keycode(int c)
 	  State2.test = TST_EQ + (RARG_CMD(nd_opcode) - RARG_TEST_EQ);
 	  c = STATE_UNFINISHED;
 	}
+	else if ( (nd_opcode & 0x00ff) != 0 ) { // has argument
+	  c = nd_opcode;
+	}
 	else {
 	  init_arg(RARG_CMD(nd_opcode));
 	  c = STATE_UNFINISHED;
+	}
+      }
+      else if (isDBL(nd_opcode)) {
+	if ( (nd_opcode & 0xffff00ff) == 0 ) { // no argument
+	  init_arg(opDBL(nd_opcode));
+	  State2.multi = 1;
+	  State2.alphashift = 0;
+	  State2.rarg = 0;
+	  c = STATE_UNFINISHED;
+	}
+	else { // let argument through
+	  c = nd_opcode;
 	}
       }
       else {
@@ -3212,6 +3661,7 @@ void process_keycode(int c)
 	}
 	else {
 	  // Save the op-code for execution on key-up
+	  //print_debug(70,c);
 	  OpCode = c;
 	  OpCodeDisplayPending = 1;
 	  finish_RPN(); // Update the RPN annunciator

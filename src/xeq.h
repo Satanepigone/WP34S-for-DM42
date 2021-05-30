@@ -27,11 +27,11 @@
 #define VERSION_STRING  "3.3"
 
 #if defined(INFRARED)
-#define VERS_DISPLAY "34S\006" VERSION_STRING "\222"
+#define VERS_DISPLAY "34C\006" VERSION_STRING "\222"
 #elif defined(INCLUDE_STOPWATCH)
-#define VERS_DISPLAY "34S\006" VERSION_STRING "T\006"
+#define VERS_DISPLAY "34C\006" VERSION_STRING "T\006"
 #else
-#define VERS_DISPLAY "34S\006" VERSION_STRING "\006\006"
+#define VERS_DISPLAY "34C\006" VERSION_STRING "\006\006"
 #endif
 #define VERS_SVN_OFFSET (sizeof(VERS_DISPLAY) - 1)
 
@@ -447,7 +447,11 @@ long int keyticks (void);
 /* Allow the number of registers and the size of the stack to be changed
  * relatively easily.
  */
+#ifdef EXTRA_FLAGS
+#define RET_STACK_SIZE  532      /* Combined return stack and program space reduced by two words for flag space (reducing by odd no.of words ruins alignment) */
+#else
 #define RET_STACK_SIZE  534      /* Combined return stack and program space */
+#endif
 #define MINIMUM_RET_STACK_SIZE 6 /* Minimum headroom for program execution */
 #define NUMPROG_LIMIT   (RET_STACK_SIZE - MINIMUM_RET_STACK_SIZE + TOPREALREG * 4) /* Absolute maximum for sanity checks */
 
@@ -607,7 +611,7 @@ enum {
 
         OP_SINH, OP_COSH, OP_TANH,
         OP_ASINH, OP_ACOSH, OP_ATANH,
-#ifdef INCLUDE_GUDERMANNIAN
+#ifdef INCLUDE_GUDERMANNIAN //ok
         OP_GUDER, OP_INVGUD,
 #endif
         OP_FACT, OP_GAMMA, OP_LNGAMMA,
@@ -646,28 +650,28 @@ enum {
         OP_DEGC_F, OP_DEGF_C,
         OP_DB_AR, OP_AR_DB, OP_DB_PR, OP_PR_DB,
         OP_ZETA, OP_Bn, OP_BnS,
-#ifdef INCLUDE_EASTER
-        OP_EASTER,
-#endif
-#ifdef INCLUDE_FACTOR
-        OP_FACTOR,
-#endif
         OP_DATE_YEAR, OP_DATE_MONTH, OP_DATE_DAY,
-#ifdef INCLUDE_USER_IO
+#ifdef INCLUDE_USER_IO // no
         OP_RECV1,
 #endif
-#ifdef INCLUDE_MANTISSA
+#ifdef INCLUDE_MANTISSA // ok
         OP_MANTISSA, OP_EXPONENT, OP_ULP,
 #endif
         OP_MAT_ALL, OP_MAT_DIAG,
         OP_MAT_TRN,
         OP_MAT_RQ, OP_MAT_CQ, OP_MAT_IJ,
         OP_MAT_DET,
-#ifdef MATRIX_LU_DECOMP
+#ifdef MATRIX_LU_DECOMP // ok
         OP_MAT_LU,
 #endif
-#ifdef INCLUDE_XROM_DIGAMMA
+#ifdef INCLUDE_XROM_DIGAMMA // ok
         OP_DIGAMMA,
+#endif
+#ifdef INCLUDE_EASTER // ok
+        OP_EASTER,
+#endif
+#ifdef INCLUDE_FACTOR // ok
+        OP_FACTOR,
 #endif
         NUM_MONADIC     // Last entry defines number of operations
 };
@@ -676,11 +680,11 @@ enum {
 enum {
         OP_POW = 0,
         OP_ADD, OP_SUB, OP_MUL, OP_DIV,
-#ifdef INCLUDE_INTEGER_DIVIDE
+#ifdef INCLUDE_INTEGER_DIVIDE // ok
         OP_IDIV,
 #endif
         OP_MOD,
-#ifdef INCLUDE_MOD41
+#ifdef INCLUDE_MOD41 // ok
         OP_MOD41,
 #endif
         OP_LOGXY,
@@ -705,20 +709,22 @@ enum {
         OP_HERMITE_HE,
         OP_HERMITE_H,
 
-#ifdef INCLUDE_XROOT
+#ifdef INCLUDE_XROOT // ok
         OP_XROOT,
 #endif
         OP_MAT_ROW, OP_MAT_COL,
         OP_MAT_COPY,
 
-#ifdef INCLUDE_MANTISSA
+#ifdef INCLUDE_MANTISSA // ok
         OP_NEIGHBOUR,
 #endif
 
-#ifdef INCLUDE_XROM_BESSEL
+#ifdef INCLUDE_XROM_BESSEL // ok
         OP_BESJN, OP_BESIN, OP_BESYN, OP_BESKN,
 #endif
-
+#ifdef INCLUDE_C_LOCK
+		OP_CDOT, OP_CDOTDIV,
+#endif
         NUM_DYADIC      // Last entry defines number of operations
 };
 
@@ -727,7 +733,7 @@ enum {
         OP_BETAI=0,
         OP_DBL_DIV, OP_DBL_MOD,
 #ifdef INCLUDE_MULADD
-        OP_MULADD,
+        OP_MULADD, // no
 #endif
         OP_PERMRR,
         OP_GEN_LAGUERRE,
@@ -737,7 +743,7 @@ enum {
         OP_MAT_LIN_EQN,
         OP_TO_DATE,
 
-#ifdef INCLUDE_INT_MODULO_OPS
+#ifdef INCLUDE_INT_MODULO_OPS // ok
         OP_MULMOD, OP_EXPMOD,
 #endif
         NUM_TRIADIC     // Last entry defines number of operations
@@ -800,22 +806,22 @@ enum nilop {
         OP_ISINT, OP_ISFLOAT,
         OP_Xeq_pos0, OP_Xeq_neg0,
 
-#ifdef MATRIX_ROWOPS
+#ifdef MATRIX_ROWOPS // ok
         OP_MAT_ROW_SWAP, OP_MAT_ROW_MUL, OP_MAT_ROW_GADD,
 #endif
         OP_MAT_CHECK_SQUARE,
         OP_MAT_INVERSE,
-#ifdef SILLY_MATRIX_SUPPORT
+#ifdef SILLY_MATRIX_SUPPORT // no
         OP_MAT_ZERO, OP_MAT_IDENT,
 #endif
         OP_POPLR,
         OP_MEMQ, OP_LOCRQ, OP_REGSQ, OP_FLASHQ,
 
-#ifdef INCLUDE_USER_IO
+#ifdef INCLUDE_USER_IO // no
         OP_SEND1, OP_SERIAL_OPEN, OP_SERIAL_CLOSE,
         OP_ALPHASEND, OP_ALPHARECV,
 #endif
-#ifndef DM42 //hide serial commands from DM42
+#ifndef DM42 //hide serial commands from DM42 // no
         OP_SENDP, OP_SENDR, OP_SENDsigma, OP_SENDA,
 
         // Not programmable     
@@ -831,7 +837,7 @@ enum nilop {
         OP_DATE_TO,
 
         OP_DOTPROD, OP_CROSSPROD,
-#ifndef DM42
+#ifdef INFRARED // ny?
         /* INFRARED commands */
         OP_PRINT_PGM, OP_PRINT_REGS, OP_PRINT_STACK, OP_PRINT_SIGMA,
         OP_PRINT_ALPHA, OP_PRINT_ALPHA_NOADV, OP_PRINT_ALPHA_JUST, OP_PRINT_ADV,
@@ -839,14 +845,25 @@ enum nilop {
         /* end of INFRARED commands */
 #endif
         OP_QUERY_XTAL, OP_QUERY_PRINT,
-#if defined(INCLUDE_YREG_CODE) && !defined(YREG_ALWAYS_ON)
+#if defined(INCLUDE_YREG_CODE) && !defined(YREG_ALWAYS_ON) // ok
 	OP_SHOWY, OP_HIDEY,
 #endif
 
-#ifdef INCLUDE_STOPWATCH
+#ifdef INCLUDE_C_LOCK
+		OP_CNOP, OP_C_ON, OP_C_OFF, OP_C_MIM, OP_C_MRE, OP_C_RE, OP_C_IM, OP_PIA, OP_PIB, 
+		OP_CPXI, OP_CPXJ,
+		OP_CYES, OP_CNO,
+#endif
+#ifdef ENTRY_RPN
+		OP_ENTRY_ON, OP_ENTRY_OFF,
+#endif
+#ifdef INCLUDE_STOPWATCH // ny?
         OP_STOPWATCH,
 #endif // INCLUDE_STOPWATCH
-#ifdef _DEBUG
+#ifdef INFRARED
+	OP_PRINT_ON, OP_PRINT_OFF,
+#endif
+#ifdef _DEBUG // no
         OP_DEBUG,
 #endif
         NUM_NILADIC,    // Last entry defines number of operations
@@ -894,12 +911,13 @@ enum rarg {
         RARG_SUM, RARG_PROD, RARG_SOLVE, RARG_DERIV, RARG_2DERIV,
         RARG_INTG,
 
-#ifdef INCLUDE_SIGFIG_MODE
-        RARG_STD, RARG_SCI, RARG_ENG, RARG_FIX, RARG_SIG, RARG_SIG0, RARG_DISP,
-#else
-        RARG_STD, RARG_FIX, RARG_SCI, RARG_ENG, RARG_DISP,
-#endif
+/* #ifdef INCLUDE_SIGFIG_MODE */
+/*         RARG_STD, RARG_SCI, RARG_ENG, RARG_FIX, RARG_SIG, RARG_SIG0, RARG_DISP, */
+/* #else */
+/*         RARG_STD, RARG_FIX, RARG_SCI, RARG_ENG, RARG_DISP, */
+/* #endif */
 
+        RARG_STD, RARG_FIX, RARG_SCI, RARG_ENG, RARG_DISP,
         RARG_SF, RARG_CF, RARG_FF, RARG_FS, RARG_FC,
         RARG_FSC, RARG_FSS, RARG_FSF, RARG_FCC, RARG_FCS, RARG_FCF,
 
@@ -916,7 +934,7 @@ enum rarg {
 
         RARG_PAUSE, RARG_KEY,
         RARG_ALPHAXEQ, RARG_ALPHAGTO,
-#ifdef INCLUDE_FLASH_RECALL
+#ifdef INCLUDE_FLASH_RECALL // ny?
         RARG_FLRCL, RARG_FLRCL_PL, RARG_FLRCL_MI, RARG_FLRCL_MU, RARG_FLRCL_DV,
                         RARG_FLRCL_MIN, RARG_FLRCL_MAX,
         RARG_FLCRCL, RARG_FLCRCL_PL, RARG_FLCRCL_MI, RARG_FLCRCL_MU, RARG_FLCRCL_DV,
@@ -927,7 +945,7 @@ enum rarg {
         RARG_ROUNDING,
         RARG_ROUND, RARG_ROUND_DEC,
 
-#ifdef INCLUDE_USER_MODE
+#ifdef INCLUDE_USER_MODE // ok
         RARG_STOM, RARG_RCLM,
 #endif
         RARG_PUTKEY,
@@ -941,24 +959,24 @@ enum rarg {
 
         RARG_MODE_SET, RARG_MODE_CLEAR,
         RARG_XROM_IN, RARG_XROM_OUT,
-#ifdef XROM_RARG_COMMANDS
+#ifdef XROM_RARG_COMMANDS // no
         RARG_XROM_ARG,
 #endif
         RARG_CONVERGED,
         RARG_SHUFFLE,
         RARG_INTNUM,
         RARG_INTNUM_CMPLX,
-#ifdef INCLUDE_INDIRECT_CONSTS
+#ifdef INCLUDE_INDIRECT_CONSTS // ok
         RARG_IND_CONST,
         RARG_IND_CONST_CMPLX,
 #endif
-#ifndef DM42
+#ifdef INFRARED
         /* INFRARED commands */
         RARG_PRINT_REG, RARG_PRINT_BYTE, RARG_PRINT_CHAR, RARG_PRINT_TAB, 
         RARG_PMODE, RARG_PDELAY,
         RARG_PRINT_CMPLX,
 #endif
-#ifdef INCLUDE_PLOTTING
+#ifdef INCLUDE_PLOTTING // no? Might be fun on display!
         RARG_PLOT_INIT, RARG_PLOT_DIM, 
         RARG_PLOT_SETPIX, RARG_PLOT_CLRPIX, RARG_PLOT_FLIPPIX, RARG_PLOT_ISSET,
         RARG_PLOT_DISPLAY, RARG_PLOT_PRINT,
@@ -968,12 +986,16 @@ enum rarg {
         // Indirect SKIP/BACK 
         // Only the first of this group is used in XROM
         RARG_CASE, 
-#ifdef INCLUDE_INDIRECT_BRANCHES
+#ifdef INCLUDE_INDIRECT_BRANCHES // no
         RARG_iBACK, RARG_iBSF, RARG_iBSB,
 #endif
-
         RARG_CVIEW,
-
+#ifdef INCLUDE_SIGFIG_MODE // ok
+	RARG_SIG, RARG_SIG0,
+#endif
+#ifdef INFRARED
+	RARG_DBLSP,
+#endif
         NUM_RARG        // Last entry defines number of operations
 };
 
@@ -1002,7 +1024,10 @@ enum multiops {
         DBL_LBL=0, DBL_LBLP, DBL_XEQ, DBL_GTO,
         DBL_SUM, DBL_PROD, DBL_SOLVE, DBL_DERIV, DBL_2DERIV, DBL_INTG,
         DBL_ALPHA,
-#ifdef XROM_LONG_BRANCH
+#ifdef DM42
+	DBL_UMENU,
+#endif
+#ifdef XROM_LONG_BRANCH // no
         DBL_XBR,
 #endif
         //DBL_NUMBER,
@@ -1021,10 +1046,17 @@ enum integer_bases {
 
 // Display modes
 enum display_modes {
+/* #ifdef INCLUDE_SIGFIG_MODE */
+/*         MODE_STD=0,     MODE_SCI,       MODE_ENG, */
+/*         // Code in display.c and keys.c depends on this order of the modes */
+/*         MODE_FIX,       MODE_SIG,       MODE_SIG0 */
+/* #else */
+/*         MODE_STD=0,     MODE_FIX,       MODE_SCI,       MODE_ENG */
+/* #endif */
+/* }; */
 #ifdef INCLUDE_SIGFIG_MODE
-        MODE_STD=0,     MODE_SCI,       MODE_ENG,
-        // Code in display.c and keys.c depends on this order of the modes
-        MODE_FIX,       MODE_SIG,       MODE_SIG0
+        MODE_STD=0,     MODE_FIX,       MODE_SCI,
+        MODE_ENG,       MODE_SIG,       MODE_SIG0
 #else
         MODE_STD=0,     MODE_FIX,       MODE_SCI,       MODE_ENG
 #endif
@@ -1083,10 +1115,10 @@ enum catalogues
         CATALOGUE_CONV,
         CATALOGUE_SUMS,
         CATALOGUE_MATRIX,
-#ifdef INCLUDE_INTERNAL_CATALOGUE
+#ifdef INCLUDE_INTERNAL_CATALOGUE // no
         CATALOGUE_INTERNAL,
 #endif
-#ifdef INCLUDE_USER_CATALOGUE
+#ifdef INCLUDE_USER_CATALOGUE // ny - can be used for user-defined menu?
         CATALOGUE_USER,
 #endif
         CATALOGUE_LABELS,
@@ -1194,6 +1226,9 @@ extern unsigned int findmultilbl(const opcode, int);
 extern void fin_tst(const int);
 
 extern const char *prt(opcode, char *);
+#ifdef DM42
+extern const char *prt_umen(opcode, char *);
+#endif
 extern const char *catcmd(opcode, char *);
 
 extern int stack_size(void);
@@ -1262,7 +1297,7 @@ extern void clr_user_flag(int);
 #define set_user_flag(n) cmdflag(n, RARG_SF)
 #define clr_user_flag(n) cmdflag(n, RARG_CF)
 #endif
-        
+
 extern void *xcopy(void *, const void *, int);
 extern void *xset(void *, const char, int);
 extern char *find_char(const char *, const char);
@@ -1312,6 +1347,14 @@ extern void cmdmsg(unsigned int arg, enum rarg op);
 extern void cpx_roll_down(enum nilop op);
 extern void cpx_roll_up(enum nilop op);
 extern void cpx_enter(enum nilop op);
+#ifdef INCLUDE_C_LOCK
+#ifdef ENTRY_RPN
+extern void entry_rpn_on_off(enum nilop op);
+#endif
+extern void cpx_nop(enum nilop op);
+extern void cpx_pi(enum nilop op);
+extern void convert_regK ( enum trig_modes i );
+#endif
 extern void cpx_fill(enum nilop op);
 extern void fill(enum nilop op);
 extern void drop(enum nilop op);
@@ -1343,6 +1386,9 @@ extern void cmdgto(unsigned int arg, enum rarg op);
 extern void cmdalphagto(unsigned int arg, enum rarg op);
 extern void op_gtoalpha(enum nilop op);
 extern void op_xeqalpha(enum nilop op);
+#ifdef DM42
+extern void multiumenu(const opcode o, enum multiops mopr);
+#endif
 extern void cmdmultigto(const opcode o, enum multiops mopr);
 extern void cmdlblp(unsigned int arg, enum rarg op);
 extern void cmdmultilblp(const opcode o, enum multiops mopr);

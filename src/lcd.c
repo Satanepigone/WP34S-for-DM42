@@ -22,6 +22,12 @@
 #include "lcd.h"
 #include "display.h"
 #include "xeq.h"
+
+#if defined(INCLUDE_C_LOCK) || defined(INFRARED)
+#include "data.h"
+#include "storage.h"
+#endif
+
 #undef DM42SAFE
 
 #include "pretty.h"
@@ -252,11 +258,7 @@ void show_disp(void) { // This function re-draws everything.
 	const uint32_t xleft_exp = 344;
 	const uint32_t ytop_exp = 130; // was 170
 	const uint32_t dwidth_exp = 18;
-#ifdef BIGGER_DISPLAY
-	const uint32_t y_ann = 75;
-#else
-	const uint32_t y_ann = 130;
-#endif
+	const uint32_t y_ann = Y_ANNUNC;
         /* Segments 0 - 107 are the main digits */
         for (i=0; i<DISPLAY_DIGITS; i++) { // 0 -> 11 inclusive
                 p = i*SEGS_PER_DIGIT;
@@ -329,6 +331,13 @@ void show_disp(void) { // This function re-draws everything.
         }
 	t20->inv = 0;
 	
+	draw_PRT();
+	
+	/* if (UState.print_on) { */
+	/*   lcd_setXY(t20, 250, y_ann-70); */
+	/*   lcd_writeText(t20,"PRT"); */
+        /* } */
+
         if (dots[DOWN_ARR]) {
 	  lcd_fill_rect(287,y_ann-67,5,12,0xff);
 	  lcd_fill_rect(285,y_ann-55,9,1,0xff);
@@ -343,29 +352,45 @@ void show_disp(void) { // This function re-draws everything.
 	  lcd_writeText(t20,"ALPHA");
         }
 
-	if (dots[LIT_EQ]) {
-	  lcd_setXY (t20, 360, y_ann-70);
-	  lcd_writeText(t20, "=");
-        }
+	/* if (dots[LIT_EQ]) { */
+	/*   lcd_setXY (t20, 360, y_ann-70); */
+	/*   if (C_LOCKED) { */
+	/*     lcd_writeText(t20, "C_LK"); */
+	/*   } */
+	/*   else { */
+	/*     lcd_writeText(t20, "="); */
+	/*   } */
+        /* } */
 
+	draw_LEQ();
+	
 	if (dots[BATTERY]) {
 	  //    MOVE(70, 10);   PRINTF("####-");
         }
-
+#ifdef MODIFY_BEG_SSIZE8
+	if (dots[BEG]) {
+	  lcd_setXY (t20, 285, y_ann-50);
+	  lcd_writeText(t20, "S:8");
+        }
+	else {
+	  lcd_setXY (t20, 285, y_ann-50);
+	  lcd_writeText(t20, "S:4");
+	}	  
+#else
 	if (dots[BEG]) {
 	  lcd_setXY (t20, 285, y_ann-50);
 	  lcd_writeText(t20, "BEG");
         }
-
+#endif
 	if (dots[STO_annun]) {
 	  lcd_setXY (t20, 325, y_ann-50);
 	  lcd_writeText(t20, "PGM");
         }
 
-	if (dots[RCL_annun]) {
-	  lcd_setXY (t20, 365, y_ann-50);
-	  lcd_writeText(t20, "RUN");
-        }
+	/* if (dots[RCL_annun]) { */
+	/*   lcd_setXY (t20, 365, y_ann-50); */
+	/*   lcd_writeText(t20, "RUN"); */
+        /* } */
 
 	if (dots[RAD]) {
 	  lcd_setXY (t20, 285, y_ann-30);
@@ -376,11 +401,17 @@ void show_disp(void) { // This function re-draws everything.
 	  lcd_setXY (t20, 325, y_ann-30);
 	  lcd_writeText(t20, "DEG");
         }
-        if (dots[RPN]) {
-	  lcd_setXY (t20, 365, y_ann-30);
-	  lcd_writeText(t20, "RPN");
-        }
-
+        /* if (dots[RPN]) { */
+	/*   lcd_setXY (t20, 365, y_ann-30); */
+	/*   if (ENTRY_RPN_ENABLED) { */
+	/*     lcd_writeText(t20, "eRPN"); */
+	/*   } */
+	/*   else { */
+	/*     lcd_writeText(t20, "RPN"); */
+	/*   } */
+        /* } */
+	draw_RPN_RCL();
+	
 	/* The graphical bit last */
         for (i=0; i<BITMAP_WIDTH; i++) {
 	  for (j=0; j<6; j++) {
@@ -682,21 +713,57 @@ void finish_display(void) {
   show_disp();
   lcd_refresh();
 }
-void finish_RPN(void) {//only refreshes the RPN flag
+
+void draw_RPN_RCL(void) {
   t20->inv = !dots[RPN];
-#ifdef BIGGER_DISPLAY
-  lcd_setXY (t20, 365, 75-30); // 70 is y_ann
-#else
-  lcd_setXY (t20, 365, 130-30); // 130 is y_ann
-#endif
-  lcd_writeText(t20, "RPN");
+  if (ENTRY_RPN_ENABLED) {
+    lcd_setXY (t20, 355, Y_ANNUNC-30); // 70 is y_ann
+    lcd_writeText(t20, "eRPN");
+  }
+  else {
+    lcd_setXY (t20, 365, Y_ANNUNC-30); // 70 is y_ann
+    lcd_writeText(t20, "RPN");
+  }
   t20->inv = !dots[RCL_annun];
-#ifdef BIGGER_DISPLAY
-  lcd_setXY (t20, 365, 75-50); // 70 is y_ann
-#else
-  lcd_setXY (t20, 365, 130-50); // 130 is y_ann
-#endif
+  lcd_setXY (t20, 365, Y_ANNUNC-50); // 70 is y_ann
   lcd_writeText(t20, "RUN");
+  t20->inv = 0;
+}
+
+void draw_LEQ(void) { // little equals
+  t20->inv = !dots[LIT_EQ];
+  lcd_setXY (t20, 360, Y_ANNUNC-70);
+#ifdef INCLUDE_C_LOCK
+  if (C_LOCKED) {
+    lcd_writeText(t20, "C_LK");
+  }
+  else {
+    lcd_writeText(t20, "=");
+  }
+#else
+  lcd_writeText(t20, "=");
+#endif
+  t20->inv = 0;
+}
+
+void draw_PRT (void) {
+  t20->inv = !UState.print_on;
+  lcd_setXY(t20, 250, Y_ANNUNC-70);
+  lcd_writeText(t20,"PRT");
+}
+
+void finish_PRT (void) {
+  draw_PRT();
+  lcd_refresh();
+}
+
+void finish_LEQ(void) { // refreshes the LEQ flag only
+  draw_LEQ();  
+  lcd_refresh();
+}
+  
+void finish_RPN(void) { // refreshes the RPN and RUN flags only
+  draw_RPN_RCL();  
   lcd_refresh();
 }
 

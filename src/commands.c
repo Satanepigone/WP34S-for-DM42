@@ -280,12 +280,6 @@ const struct monfunc monfuncs[ NUM_MONADIC ] = {
 	FUNC(OP_Bn,	XMR(Bn),		NOFN,		NOFN,		"B\275",	"Bn")
 	FUNC(OP_BnS,	XMR(Bn_star),		NOFN,		NOFN,		"B\275\220",	"Bn*")
 
-#ifdef INCLUDE_EASTER
-	FUNC(OP_EASTER,	&dateEaster,		NOFN,		NOFN,		"EASTER",	CNULL)
-#endif
-#ifdef INCLUDE_FACTOR
-	FUNC(OP_FACTOR,	&decFactor,		NOFN,		&intFactor,	"FACTOR",	CNULL)
-#endif
 	FUNC(OP_DATE_YEAR, &dateExtraction,	NOFN,		NOFN,		"YEAR",		CNULL)
 	FUNC(OP_DATE_MONTH, &dateExtraction,	NOFN,		NOFN,		"MONTH",	CNULL)
 	FUNC(OP_DATE_DAY, &dateExtraction,	NOFN,		NOFN,		"DAY",		CNULL)
@@ -309,6 +303,12 @@ const struct monfunc monfuncs[ NUM_MONADIC ] = {
 #endif
 #ifdef INCLUDE_XROM_DIGAMMA
 	FUNC(OP_DIGAMMA,XMR(DIGAMMA),		XMC(CPX_DIGAMMA),	NOFN,	"\226",		"DIGAMMA")
+#endif
+#ifdef INCLUDE_EASTER
+	FUNC(OP_EASTER,	&dateEaster,		NOFN,		NOFN,		"EASTER",	CNULL)
+#endif
+#ifdef INCLUDE_FACTOR
+	FUNC(OP_FACTOR,	&decFactor,		NOFN,		&intFactor,	"FACTOR",	CNULL)
 #endif
 #undef FUNC
 };
@@ -403,6 +403,10 @@ const struct dyfunc dyfuncs[ NUM_DYADIC ] = {
 	FUNC(OP_BESIN,	XDR(BES_IN),		XDC(CPX_IN),	NOFN,		"In",		CNULL)
 	FUNC(OP_BESYN,	XDR(BES_YN),		XDC(CPX_YN),	NOFN,		"Yn",		CNULL)
 	FUNC(OP_BESKN,	XDR(BES_KN),		XDC(CPX_KN),	NOFN,		"Kn",		CNULL)
+#endif
+#ifdef INCLUDE_C_LOCK
+	FUNC(OP_CDOT,	NOFN,		&cpx_dot,	NOFN,	"c.",		CNULL)
+	FUNC(OP_CDOTDIV,	NOFN,		&cpx_dotdiv,	NOFN,	"c/",		CNULL)
 #endif
 #undef FUNC
 };
@@ -700,7 +704,7 @@ const struct niladic niladics[ NUM_NILADIC ] = {
 
 	FUNC0(OP_DOTPROD,	XNIL(cpx_DOT),		"\024DOT",	"cDOT")
 	FUNC0(OP_CROSSPROD,	XNIL(cpx_CROSS),	"\024CROSS",	"cCROSS")
-#ifndef DM42
+#ifdef INFRARED
 	/* INFRARED commands */
 	FUNC0(OP_PRINT_PGM,	IRN(print_program),	"\222PROG",	"P.PROG")
 	FUNC0(OP_PRINT_REGS,	IRN(print_registers),	"\222REGS",	"P.REGS")
@@ -720,9 +724,31 @@ const struct niladic niladics[ NUM_NILADIC ] = {
 	FUNC0(OP_SHOWY,		XNIL(SHOW_Y_REG),	"YDON",		CNULL)
 	FUNC0(OP_HIDEY,		XNIL(HIDE_Y_REG),	"YDOFF",	CNULL)
 #endif
-
+#ifdef INCLUDE_C_LOCK
+	FUNC0(OP_CNOP,		&cpx_nop,	"CPX",		CNULL)
+	FUNC0(OP_C_ON,		&cpx_nop,	"C_LK",		CNULL)
+	FUNC0(OP_C_OFF,		&cpx_nop,	"UNLK",		CNULL)
+	FUNC0(OP_C_MIM,		&cpx_nop,	"-IM",		CNULL)
+	FUNC0(OP_C_MRE,		&cpx_nop,	"-RE",		CNULL)
+	FUNC0(OP_C_RE,		&cpx_nop,	"REAL",		CNULL)
+	FUNC0(OP_C_IM,		&cpx_nop,	"IMAG",		CNULL)
+	FUNC0(OP_PIA,		&cpx_pi,	"->PI",		CNULL)
+	FUNC0(OP_PIB,		&cpx_pi,	"*PI",		CNULL)
+	FUNC0(OP_CPXI,		&cpx_nop,	"CPXI",		CNULL)
+	FUNC0(OP_CPXJ,		&cpx_nop,	"CPXJ",		CNULL)
+	FUNC0(OP_CYES,		&cpx_nop,	"CPXYES",		CNULL)
+	FUNC0(OP_CNO,		&cpx_nop,	"CPXNO",		CNULL)
+#endif
+#ifdef ENTRY_RPN
+	FUNC0(OP_ENTRY_ON,		&entry_rpn_on_off,	"eRPon",		CNULL)
+	FUNC0(OP_ENTRY_OFF,		&entry_rpn_on_off,	"eRPoff",		CNULL)
+#endif
 #ifdef INCLUDE_STOPWATCH
 	FUNC0(OP_STOPWATCH,	&stopwatch,		"STOPW",	CNULL)
+#endif
+#ifdef INFRARED
+	FUNC0(OP_PRINT_ON,	IRN(print_on_off),	"\222.ON",	"P.ON")
+	FUNC0(OP_PRINT_OFF,	IRN(print_on_off),	"\222.OFF",	"P.OFF")
 #endif
 #ifdef _DEBUG
 	FUNC0(OP_DEBUG,		XNIL(DBG),		"DBG",		CNULL)
@@ -854,17 +880,20 @@ const struct argcmd argcmds[ NUM_RARG ] = {
 	CMDlbl(RARG_INTG,	XARG(INTEGRATE),			"\004",		"INTG")
 
 	CMD(RARG_STD,		&cmddisp,	DISPLAY_DIGITS,		"ALL",		CNULL)
-#ifdef INCLUDE_SIGFIG_MODE
+/* #ifdef INCLUDE_SIGFIG_MODE */
+/* 	CMD(RARG_SCI,		&cmddisp,	DISPLAY_DIGITS,		"SCI",		CNULL) */
+/* 	CMD(RARG_ENG,		&cmddisp,	DISPLAY_DIGITS,		"ENG",		CNULL) */
+/* 	CMD(RARG_FIX,		&cmddisp,	DISPLAY_DIGITS,		"FIX",		CNULL) */
+/* 	CMD(RARG_SIG,		&cmddisp,	8,			"SIG",		CNULL) */
+/* 	CMD(RARG_SIG0,		&cmddisp,	8,			"SIG0",		CNULL) */
+/* #else */
+/* 	CMD(RARG_FIX,		&cmddisp,	DISPLAY_DIGITS,		"FIX",		CNULL) */
+/* 	CMD(RARG_SCI,		&cmddisp,	DISPLAY_DIGITS,		"SCI",		CNULL) */
+/* 	CMD(RARG_ENG,		&cmddisp,	DISPLAY_DIGITS,		"ENG",		CNULL) */
+/* #endif */
+	CMD(RARG_FIX,		&cmddisp,	DISPLAY_DIGITS,		"FIX",		CNULL)
 	CMD(RARG_SCI,		&cmddisp,	DISPLAY_DIGITS,		"SCI",		CNULL)
 	CMD(RARG_ENG,		&cmddisp,	DISPLAY_DIGITS,		"ENG",		CNULL)
-	CMD(RARG_FIX,		&cmddisp,	DISPLAY_DIGITS,		"FIX",		CNULL)
-	CMD(RARG_SIG,		&cmddisp,	8,			"SIG",		CNULL)
-	CMD(RARG_SIG0,		&cmddisp,	8,			"SIG0",		CNULL)
-#else
-	CMD(RARG_FIX,		&cmddisp,	DISPLAY_DIGITS,		"FIX",		CNULL)
-	CMD(RARG_SCI,		&cmddisp,	DISPLAY_DIGITS,		"SCI",		CNULL)
-	CMD(RARG_ENG,		&cmddisp,	DISPLAY_DIGITS,		"ENG",		CNULL)
-#endif
 	CMD(RARG_DISP,		&cmddisp,	DISPLAY_DIGITS,		"DISP",		CNULL)
 
 	CMDflg(RARG_SF,		&cmdflag,				"SF",		CNULL)
@@ -956,7 +985,7 @@ const struct argcmd argcmds[ NUM_RARG ] = {
 	CMD(RARG_IND_CONST,	  &cmdconst,	NUM_CONSTS,		"CNST",		CNULL)
 	CMD(RARG_IND_CONST_CMPLX, &cmdconst,	NUM_CONSTS,		"\024CNST",	"cCNST")
 #endif
-#ifndef DM42
+#ifdef INFRARED
 	/* INFRARED commands */
 	CMDstk(RARG_PRINT_REG,	IRA(cmdprintreg),			"\222r",	"P.r")
 	CMD(RARG_PRINT_BYTE,	IRA(cmdprint),	256,			"\222#",	"P.#")
@@ -986,7 +1015,13 @@ const struct argcmd argcmds[ NUM_RARG ] = {
 	CMD(RARG_iBSB,		&cmdback,				"iBSRB",	CNULL)
 #endif
 	CMDcstk(RARG_CVIEW,	&cmdview,				"\024VIEW",	"cVIEW")
-
+#ifdef INCLUDE_SIGFIG_MODE
+	CMD(RARG_SIG,		&cmddisp,	8,			"SIG",		CNULL)
+	CMD(RARG_SIG0,		&cmddisp,	8,			"SIG0",		CNULL)
+#endif
+#ifdef INFRARED
+	CMD(RARG_DBLSP,	        IRA(cmdprintmode),  2,			"\222DBSP",	"P.DBSP")
+#endif
 #undef CMDlbl
 #undef CMDlblnI
 #undef CMDnoI
@@ -1029,6 +1064,7 @@ const struct multicmd multicmds[ NUM_MULTI ] = {
 	CMD(DBL_2DERIV,	XMULTI(2DERIV),			"f\"(x)",	CNULL)
 	CMD(DBL_INTG,	XMULTI(INTEGRATE),		"\004",		"INTG")
 	CMD(DBL_ALPHA,	&multialpha,			"\240",		"a")
+	CMD(DBL_UMENU,	&multiumenu,			"UMEN",		"MNU")
 #undef CMD
 };
 

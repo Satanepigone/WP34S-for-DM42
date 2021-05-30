@@ -38,6 +38,7 @@
 #define XROM_CDF_WEIB         1595
 #define XROM_CPX_AGM          891
 #define XROM_CPX_COMB         905
+#define XROM_CPX_DIGAMMA      3282
 #define XROM_CPX_FIB          2834
 #define XROM_CPX_I            2635
 #define XROM_CPX_PARL         839
@@ -51,6 +52,7 @@
 #define XROM_DATE_TO          2668
 #define XROM_DEGREES          2715
 #define XROM_DERIV            655
+#define XROM_DIGAMMA          3233
 #define XROM_D_DMY            2731
 #define XROM_D_MDY            2736
 #define XROM_D_YMD            2733

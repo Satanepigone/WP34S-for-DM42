@@ -62,6 +62,38 @@ typedef enum {
 	K_OP = 52, // means that shift is an opcode
 } keycode;
 
+//MENU names
+typedef enum {
+  M_Last = -1,
+  M_Blank = 0,
+  M_Clear,
+  M_Disp,
+  M_Base,
+  M_Angles,
+  M_Misc,
+  M_Swap,
+  M_Program, // 7
+  M_Setup1,
+  M_Arrow, // 9
+  M_Flags,
+  M_Prob, // 11
+  M_Stats,
+  M_Setup2,
+  M_Solve,
+  M_Blank2,
+  M_Alpha, // 16
+  M_C_Lock,
+  M_Clear_C,
+  M_Swap_C,
+  M_Arrow_C,
+  M_Prob_C,
+  M_Blank2_C,
+  M_Misc_C, // 23
+  M_Usermenu,
+  M_Print,
+  M_User = 99,
+} menu_name;
+
 #else
 
 typedef enum {
@@ -107,14 +139,10 @@ struct _ndmap {
   int shift;
 };
 
+#include "menu.h"
 
 extern void process_keycode_with_shift ( struct _ndmap remapped );
 extern unsigned int get_alpha_state ( void );
-extern void set_menu (int new_menu);
-extern int get_menu ();
-extern void display_menu (int current_menu);
-extern void set_last_menu ( void );
-extern void display_current_menu ( void );
 
 #endif
 #endif

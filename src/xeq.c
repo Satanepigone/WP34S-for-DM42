@@ -54,6 +54,9 @@ extern unsigned long long strtoull(const char *, char **, int);
 #define XEQ_INTERNAL 1
 #define DM42SAFE
 #include "xeq.h"
+#ifdef DM42
+#include "keys.h"
+#endif
 #include "storage.h"
 #include "decn.h"
 #include "complex.h"
@@ -68,7 +71,7 @@ extern unsigned long long strtoull(const char *, char **, int);
 #ifdef INCLUDE_STOPWATCH
 #include "stopwatch.h"
 #endif
-#ifndef DM42
+#ifdef INFRARED
 #include "printer.h"
 #endif
 #undef DM42SAFE
@@ -285,17 +288,23 @@ static void raw_set_pc(unsigned int pc) {
  *  Where do the program regions start?
  */
 #ifdef DM42
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdiscarded-qualifiers"
 static s_opcode * RegionTab[] = {
 	NULL,
 	NULL,
 	NULL,
 	xrom
 };
+#pragma GCC diagnostic pop
+
 void init_RegionTab (void) {
   RegionTab[0] = (s_opcode*) Prog;
   RegionTab[1] = (s_opcode*) UserFlash.prog;
   RegionTab[2] = (s_opcode*) BackupFlash._prog;
 }
+
 #else
 static const s_opcode *const RegionTab[] = {
 	Prog,
@@ -741,8 +750,18 @@ void lift_if_enabled(void) {
 }
 
 static void lift2_if_enabled(void) {
+#ifdef INCLUDE_C_LOCK
+	lift_if_enabled();
+	if (C_LOCKED) {
+		lift_if_enabled();
+	}
+	else {
+		lift();
+	}
+#else
 	lift_if_enabled();
 	lift();
+#endif
 }
 
 void set_lift(void) {
@@ -840,6 +859,9 @@ void getXY(decNumber *x, decNumber *y) {
 void setXY(const decNumber *x, const decNumber *y) {
 	setX(x);
 	setY(y);
+#ifdef INCLUDE_C_LOCK
+	CLEAR_POLAR_READY;
+#endif
 }
 
 void getXYZ(decNumber *x, decNumber *y, decNumber *z) {
@@ -882,20 +904,184 @@ void cpx_roll_down(enum nilop op) {
 	roll_down(OP_RDOWN);
 	roll_down(OP_RDOWN);
 	set_was_complex();
+#ifdef INCLUDE_C_LOCK
+	CLEAR_POLAR_READY;
+#endif
 }
 
 void cpx_roll_up(enum nilop op) {
 	roll_up(OP_RUP);
 	roll_up(OP_RUP);
 	set_was_complex();
+#ifdef INCLUDE_C_LOCK
+	CLEAR_POLAR_READY;
+#endif
 }
 
 void cpx_enter(enum nilop op) {
-	lift();
-	lift();
-	copyreg(get_reg_n(regY_idx), get_reg_n(regT_idx));
-	set_was_complex();
+  if( (State2.state_lift || (XromRunning || Running)) && ENTRY_RPN_ENABLED ) { // flag is zero if entry_rpn not defined, so long as c_lock is defined ...
+    //Only duplicate if needed, otherwise ignore. CPX LOCK mode cannot run code, but the same exception as with non-cpx lock enter is added to make sure Xrom code does not break.
+    lift();
+    lift();
+    copyreg(get_reg_n(regY_idx), get_reg_n(regT_idx));
+    set_was_complex();
+  }
+  else {
+    lift();
+    lift();
+    copyreg(get_reg_n(regY_idx), get_reg_n(regT_idx));
+    set_was_complex();
+  }
 }
+
+#ifdef INCLUDE_C_LOCK
+
+void convert_regK ( enum trig_modes i ) { // needed to change the displayed angular part in polar mode after a mode change to i from j
+	decNumber k;
+
+	enum trig_modes j = get_trig_mode();
+	if (i==j) return; // no mode change
+	getRegister(&k, regK_idx);
+	switch (j) { // convert angle to fraction of one complete turn
+		case TRIG_DEG:
+			dn_divide(&k, &k, &const_360);
+			break;
+		case TRIG_RAD:
+			dn_divide(&k, &k, &const_2PI);
+			break;
+		case TRIG_GRAD:
+			dn_divide(&k, &k, &const_400);
+		default:;
+	}
+	switch (i) { // convert to new angular units
+		case TRIG_DEG:
+			dn_multiply(&k, &k, &const_360);
+			break;
+		case TRIG_RAD:
+			dn_multiply(&k, &k, &const_2PI);
+			break;
+		case TRIG_GRAD:
+			dn_multiply(&k, &k, &const_400);
+		default:;
+	}
+	setRegister(regK_idx, &k);
+}
+
+void finish_cpx_entry ( int lift );
+void stack_begin ( int zero_y ); // defined in keys.c - needed so it can be called here
+
+void cpx_pi (enum nilop op) {
+	switch (op) {
+	case OP_PIA: // no command line present - puts pi into x-register
+		if (!REAL_FLAG && !IMAG_FLAG) {
+			stack_begin( 1 );
+			SET_REAL;
+		}
+		copyreg(StackBase, get_const(OP_PI, is_dblmode()));
+		break;
+	case OP_PIB: // command line present - multiplies contents by pi
+		State2.state_lift = 0;
+		process_cmdline();
+		State2.state_lift = 0;
+		{
+			decNumber r;
+			getX(&r);
+			dn_multiply (&r, &const_PI, &r);
+			setX(&r);
+		}
+	default:;
+	}
+	CLEAR_POLAR_READY;
+}
+
+#ifdef ENTRY_RPN
+void entry_rpn_on_off(enum nilop op) { // turn entry_rpn on/off
+  switch (op) {
+  case OP_ENTRY_ON:
+    ENTRY_RPN_ON;
+    return;
+  case OP_ENTRY_OFF:
+    ENTRY_RPN_OFF;
+    return;
+  default:;
+  }
+}
+#endif
+
+void cpx_nop(enum nilop op) { // miscellaneous complex operations
+  reset_shift();
+	switch (op) {
+	case OP_CYES: // set flag to allow complex mode to be entered - can be called at any time
+	        SET_CPX_YES;
+		CLEAR_REAL; // tidy a few flags when mode enabled
+		CLEAR_IMAG;
+		SET_RECTANGULAR_DISPLAY; 
+		return;
+	case OP_C_ON: // start complex mode - only called if CPX_ENABLED and C_LOCK_OFF
+		if (UState.stack_depth) { // save prior stack size 
+			INIT_8;
+		}
+		else {
+			INIT_4;
+		}
+		LOCK_C;
+		UState.stack_depth = 1; // set stack size to 8
+#ifdef DM42
+		set_menu(M_C_Lock);
+		display_current_menu();
+#endif
+		break;
+	case OP_CNO: // reset flag so that complex mode cannot be entered
+		if (!C_LOCKED) { 
+			SET_CPX_NO;
+			UNLOCK_C; //just in case
+			return;
+		}
+		SET_CPX_NO;
+	case OP_C_OFF: // exit complex mode - only called if CPX_ENABLED and C_LOCK_ON
+		finish_cpx_entry(1);
+		UNLOCK_C;
+		UState.stack_depth = TRUE_8; // restore prior stack size
+		State2.wascomplex = 0;
+#ifdef DM42
+		set_default_menu();
+		display_current_menu();
+#endif
+		return;
+	case OP_C_MIM: // change sign of imaginary part
+		{
+		decNumber y;
+		getY(&y);
+		dn_minus(&y, &y);
+		setY(&y);
+		}
+		break;
+	case OP_C_MRE: // change sign of real part
+		{
+		decNumber x;
+		getX(&x);
+		dn_minus(&x, &x);
+		setX(&x);
+		}
+		break;
+	case OP_C_IM: // zero real part
+		zero_X();
+		break;
+	case OP_C_RE: // zero imag part
+		zero_Y();
+		break;
+	case OP_CPXI: // use i to display complex numbers
+		SET_CPX_I;
+		break;
+	case OP_CPXJ: // use j to display complex numbers
+		SET_CPX_J;
+		break;
+	default:;
+	}
+	set_was_complex();
+	CLEAR_POLAR_READY;
+}
+#endif
 
 void cpx_fill(enum nilop op) {
 	const int n = stack_size();
@@ -1371,6 +1557,17 @@ void zero_Y(void) {
 
 void clrx(enum nilop op) {
 	zero_X();
+#ifdef INCLUDE_C_LOCK
+	if (C_LOCKED) {
+		zero_Y();
+		if (POLAR_DISPLAY) {
+			set_zero(get_reg_n(regJ_idx));
+			set_zero(get_reg_n(regK_idx));
+		}
+		CLEAR_REAL;
+		CLEAR_IMAG;
+	}
+#endif
 	clr_lift();
 }
 
@@ -1438,6 +1635,9 @@ void cmdconst(unsigned int arg, enum rarg op) {
 		bad_mode_error();
 	else 
 		copyreg(StackBase, get_const(arg, is_dblmode()));
+#ifdef INCLUDE_C_LOCK
+	CLEAR_POLAR_READY;
+#endif
 }
 
 
@@ -1661,6 +1861,9 @@ static void do_crcl(int index, enum rarg op) {
 
 void cmdcrcl(unsigned int arg, enum rarg op) {
 	do_crcl(arg, op);
+#ifdef INCLUDE_C_LOCK
+	CLEAR_POLAR_READY;
+#endif
 }
 
 #ifdef INCLUDE_FLASH_RECALL
@@ -1731,6 +1934,9 @@ void cmdswap(unsigned int arg, enum rarg op) {
 	if (op >= RARG_CSWAPX) {
 		swap_reg(get_reg_n(idx + 1), get_reg_n(arg + 1));
 		set_was_complex();
+#ifdef INCLUDE_C_LOCK
+	CLEAR_POLAR_READY;
+#endif
 	}
 }
 
@@ -2177,6 +2383,13 @@ void cmdmultigto(const opcode o, enum multiops mopr) {
 	}
 }
 
+void multiumenu(const opcode o, enum multiops mopr) {
+  opcode op = (o & 0xFFFFF0FF) + ((DBL_LBL) << DBL_SHIFT); // change opcode to LBL
+  build_user_menu_from_program(op);
+  set_menu (M_User);
+  display_current_menu ();
+}
+
 static void branchtoalpha(int is_gsb, char buf[]) {
 	unsigned int op;
 
@@ -2243,13 +2456,40 @@ void cmddisp(unsigned int arg, enum rarg op) {
 #ifdef INCLUDE_SIGFIG_MODE
 	int dispdigs;
 	int dispmode = get_dispmode_digs(&dispdigs);
-
+#ifdef DM42
+	switch (op) {
+	case RARG_STD:
+	  dispmode = MODE_STD;
+	  break;
+	case RARG_FIX:
+	  dispmode = MODE_FIX;
+	  break;
+	case RARG_SCI:
+	  dispmode = MODE_SCI;
+	  break;
+	case RARG_ENG:
+	  dispmode = MODE_ENG;
+	  break;
+	case RARG_SIG:
+	  dispmode = MODE_SIG;
+	  break;
+	case RARG_SIG0:
+	  dispmode = MODE_SIG0;
+	  break;
+	default:;
+	}
+	if ((dispmode == MODE_SIG || dispmode == MODE_SIG0) && arg >= 8) {
+	  report_err(ERR_RANGE);
+	  return;
+	}
+#else	
 	if (op != RARG_DISP)
 		dispmode = (op - RARG_STD) + MODE_STD;
 	else if ((dispmode == MODE_SIG || dispmode == MODE_SIG0) && arg >= 8) {
 		report_err(ERR_RANGE);
 		return;
 	}
+#endif
 	set_dispmode_digs(dispmode, arg);
 #else
 	UState.dispdigs = arg;
@@ -3551,9 +3791,10 @@ void cmdrestm(unsigned int arg, enum rarg op) {
 	xcopy( &UState, get_reg_n(arg), sizeof(unsigned long long int) );
 
 	// Fix things
+#ifndef DM42
 	if ( UState.contrast == 0 )
 		UState.contrast = 6;
-
+#endif
 	if (intm != is_intmode()) {
 		// Switch back to decimal or integer mode
 		UState.intm = intm;
@@ -3792,12 +4033,26 @@ static void specials(const opcode op) {
 			clrx(OP_rCLX);
 		break;
 
-	case OP_ENTER:
-		process_cmdline();
-		lift();
-		clr_lift();
-		break;
-
+		case OP_ENTER:
+		  if (ENTRY_RPN_ENABLED) {  
+		    if ( CmdLineLength && !(XromRunning || Running) ) { 
+		      //exclude stack lift if there is something in the input line AND if NOT running code i.e. Xrom or program
+		      process_cmdline();     //JM
+		    } else {                       //JM
+		      process_cmdline();
+		      lift();
+		      if ( (XromRunning || Running) ) {//JMTEST Explicitly including standard functionality if code is running
+			clr_lift();
+		      }   
+		    }                              //JM
+		  }
+		  else {
+		    process_cmdline();
+		    lift();
+		    clr_lift();
+		  }
+		  break;
+		  
 	case OP_SIGMAPLUS:
 	case OP_SIGMAMINUS:
 		if (is_intmode()) {
@@ -3912,8 +4167,11 @@ void cmdpause(unsigned int arg, enum rarg op) {
 
 
 void op_setspeed(enum nilop op) {
-	UState.slow_speed = (op == OP_SLOW) ? 1 : 0;
-	update_speed(1);
+#ifdef DM42
+#else
+  UState.slow_speed = (op == OP_SLOW) ? 1 : 0;
+  update_speed(1);
+#endif
 }
 
 
@@ -4269,6 +4527,7 @@ static int dispatch_xrom(void *fp)
 	XromRunning = 1;
 	gsbgto(addrXROM((xp - xrom) + 1), 1, state_pc());
 	xeq_xrom();
+	//	print_debug(999,0);
 	return 1;
 }
 
@@ -4392,8 +4651,16 @@ static void niladic(const opcode op) {
 		}
 	} else
 		illegal(op);
-	if (idx != OP_rCLX)
-		set_lift();
+#ifdef INCLUDE_C_LOCK
+	if (ENTRY_RPN_ENABLED && (idx != OP_rCLX)) {
+	  set_lift(); // in entry_rpn mode, lift must be on after enter so the second part below isn't wanted
+	}
+	else if ( (idx != OP_rCLX) && ( ((idx != OP_CENTER) ) && (C_LOCKED) ) ) {
+	  set_lift(); // don't turn on lift after CENTER (complex enter) in C_LOCK mode
+	}
+#else
+	if (idx != OP_rCLX) set_lift();// normally, just don't turn on lift after CLX
+#endif
 }
 
 
@@ -5280,8 +5547,11 @@ void xeq_xrom(void) {
    if (! Running && ! Pause) {	  
      // Program has terminated
      clr_dot(RCL_annun);
-     ShowRPN = 1;	// display() may turn it off again
-     display();
+     ShowRPN = 1; // display() may turn it off again
+     finish_RPN(); // put here to turn off the RCL annunciator
+     //     print_debug(100, State2.disp_freeze);
+     display(); // turns off RPN if it was freeeeze and returns doing little
+     //     print_debug(101, ShowRPN*100+State2.disp_freeze);
      if (ShowRPN) {
        set_dot(RPN);
        finish_RPN(); // RPN

@@ -1,0 +1,5584 @@
+ARM GAS  /tmp/ccbMYxnF.s 			page 1
+
+
+   1              		.arch armv7e-m
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"commands.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.global	multicmds
+  18              		.section	.rodata.str1.4,"aMS",%progbits,1
+  19              		.align	2
+  20              	.LC0:
+  21 0000 53554D00 		.ascii	"SUM\000"
+  22              		.align	2
+  23              	.LC1:
+  24 0004 50524F44 		.ascii	"PROD\000"
+  24      00
+  25 0009 000000   		.align	2
+  26              	.LC2:
+  27 000c 494E5447 		.ascii	"INTG\000"
+  27      00
+  28 0011 000000   		.align	2
+  29              	.LC3:
+  30 0014 6100     		.ascii	"a\000"
+  31 0016 0000     		.align	2
+  32              	.LC4:
+  33 0018 4D4E5500 		.ascii	"MNU\000"
+  34              		.global	argcmds
+  35              		.align	2
+  36              	.LC5:
+  37 001c 632300   		.ascii	"c#\000"
+  38 001f 00       		.align	2
+  39              	.LC6:
+  40 0020 53544F2A 		.ascii	"STO*\000"
+  40      00
+  41 0025 000000   		.align	2
+  42              	.LC7:
+  43 0028 53544F4D 		.ascii	"STOMIN\000"
+  43      494E00
+  44 002f 00       		.align	2
+  45              	.LC8:
+  46 0030 53544F4D 		.ascii	"STOMAX\000"
+  46      415800
+  47 0037 00       		.align	2
+  48              	.LC9:
+  49 0038 52434C2A 		.ascii	"RCL*\000"
+  49      00
+  50 003d 000000   		.align	2
+  51              	.LC10:
+ARM GAS  /tmp/ccbMYxnF.s 			page 2
+
+
+  52 0040 52434C4D 		.ascii	"RCLMIN\000"
+  52      494E00
+  53 0047 00       		.align	2
+  54              	.LC11:
+  55 0048 52434C4D 		.ascii	"RCLMAX\000"
+  55      415800
+  56 004f 00       		.align	2
+  57              	.LC12:
+  58 0050 783C3E00 		.ascii	"x<>\000"
+  59              		.align	2
+  60              	.LC13:
+  61 0054 793C3E00 		.ascii	"y<>\000"
+  62              		.align	2
+  63              	.LC14:
+  64 0058 7A3C3E00 		.ascii	"z<>\000"
+  65              		.align	2
+  66              	.LC15:
+  67 005c 743C3E00 		.ascii	"t<>\000"
+  68              		.align	2
+  69              	.LC16:
+  70 0060 6353544F 		.ascii	"cSTO\000"
+  70      00
+  71 0065 000000   		.align	2
+  72              	.LC17:
+  73 0068 6353544F 		.ascii	"cSTO+\000"
+  73      2B00
+  74 006e 0000     		.align	2
+  75              	.LC18:
+  76 0070 6353544F 		.ascii	"cSTO-\000"
+  76      2D00
+  77 0076 0000     		.align	2
+  78              	.LC19:
+  79 0078 6353544F 		.ascii	"cSTO*\000"
+  79      2A00
+  80 007e 0000     		.align	2
+  81              	.LC20:
+  82 0080 6353544F 		.ascii	"cSTO/\000"
+  82      2F00
+  83 0086 0000     		.align	2
+  84              	.LC21:
+  85 0088 6352434C 		.ascii	"cRCL\000"
+  85      00
+  86 008d 000000   		.align	2
+  87              	.LC22:
+  88 0090 6352434C 		.ascii	"cRCL+\000"
+  88      2B00
+  89 0096 0000     		.align	2
+  90              	.LC23:
+  91 0098 6352434C 		.ascii	"cRCL-\000"
+  91      2D00
+  92 009e 0000     		.align	2
+  93              	.LC24:
+  94 00a0 6352434C 		.ascii	"cRCL*\000"
+  94      2A00
+  95 00a6 0000     		.align	2
+  96              	.LC25:
+  97 00a8 6352434C 		.ascii	"cRCL/\000"
+ARM GAS  /tmp/ccbMYxnF.s 			page 3
+
+
+  97      2F00
+  98 00ae 0000     		.align	2
+  99              	.LC26:
+ 100 00b0 63783C3E 		.ascii	"cx<>\000"
+ 100      00
+ 101 00b5 000000   		.align	2
+ 102              	.LC27:
+ 103 00b8 637A3C3E 		.ascii	"cz<>\000"
+ 103      00
+ 104 00bd 000000   		.align	2
+ 105              	.LC28:
+ 106 00c0 61524323 		.ascii	"aRC#\000"
+ 106      00
+ 107 00c5 000000   		.align	2
+ 108              	.LC29:
+ 109 00c8 6153544F 		.ascii	"aSTO\000"
+ 109      00
+ 110 00cd 000000   		.align	2
+ 111              	.LC30:
+ 112 00d0 6152434C 		.ascii	"aRCL\000"
+ 112      00
+ 113 00d5 000000   		.align	2
+ 114              	.LC31:
+ 115 00d8 61495000 		.ascii	"aIP\000"
+ 116              		.align	2
+ 117              	.LC32:
+ 118 00dc 61524C00 		.ascii	"aRL\000"
+ 119              		.align	2
+ 120              	.LC33:
+ 121 00e0 61525200 		.ascii	"aRR\000"
+ 122              		.align	2
+ 123              	.LC34:
+ 124 00e4 61534C00 		.ascii	"aSL\000"
+ 125              		.align	2
+ 126              	.LC35:
+ 127 00e8 61535200 		.ascii	"aSR\000"
+ 128              		.align	2
+ 129              	.LC36:
+ 130 00ec 78213D3F 		.ascii	"x!=?\000"
+ 130      00
+ 131 00f1 000000   		.align	2
+ 132              	.LC37:
+ 133 00f4 787E3F00 		.ascii	"x~?\000"
+ 134              		.align	2
+ 135              	.LC38:
+ 136 00f8 783C3D3F 		.ascii	"x<=?\000"
+ 136      00
+ 137 00fd 000000   		.align	2
+ 138              	.LC39:
+ 139 0100 783E3D3F 		.ascii	"x>=?\000"
+ 139      00
+ 140 0105 000000   		.align	2
+ 141              	.LC40:
+ 142 0108 63783D3F 		.ascii	"cx=?\000"
+ 142      00
+ 143 010d 000000   		.align	2
+ 144              	.LC41:
+ARM GAS  /tmp/ccbMYxnF.s 			page 4
+
+
+ 145 0110 6378213D 		.ascii	"cx!=?\000"
+ 145      3F00
+ 146 0116 0000     		.align	2
+ 147              	.LC42:
+ 148 0118 61584551 		.ascii	"aXEQ\000"
+ 148      00
+ 149 011d 000000   		.align	2
+ 150              	.LC43:
+ 151 0120 6147544F 		.ascii	"aGTO\000"
+ 151      00
+ 152 0125 000000   		.align	2
+ 153              	.LC44:
+ 154 0128 5657612B 		.ascii	"VWa+\000"
+ 154      00
+ 155 012d 000000   		.align	2
+ 156              	.LC45:
+ 157 0130 3C3E00   		.ascii	"<>\000"
+ 158 0133 00       		.align	2
+ 159              	.LC46:
+ 160 0134 63434E53 		.ascii	"cCNST\000"
+ 160      5400
+ 161 013a 0000     		.align	2
+ 162              	.LC47:
+ 163 013c 502E7200 		.ascii	"P.r\000"
+ 164              		.align	2
+ 165              	.LC48:
+ 166 0140 502E2300 		.ascii	"P.#\000"
+ 167              		.align	2
+ 168              	.LC49:
+ 169 0144 502E4348 		.ascii	"P.CHR\000"
+ 169      5200
+ 170 014a 0000     		.align	2
+ 171              	.LC50:
+ 172 014c 502E5441 		.ascii	"P.TAB\000"
+ 172      4200
+ 173 0152 0000     		.align	2
+ 174              	.LC51:
+ 175 0154 502E4D4F 		.ascii	"P.MODE\000"
+ 175      444500
+ 176 015b 00       		.align	2
+ 177              	.LC52:
+ 178 015c 502E444C 		.ascii	"P.DLAY\000"
+ 178      415900
+ 179 0163 00       		.align	2
+ 180              	.LC53:
+ 181 0164 502E6372 		.ascii	"P.crect\000"
+ 181      65637400 
+ 182              		.align	2
+ 183              	.LC54:
+ 184 016c 63564945 		.ascii	"cVIEW\000"
+ 184      5700
+ 185 0172 0000     		.align	2
+ 186              	.LC55:
+ 187 0174 502E4442 		.ascii	"P.DBSP\000"
+ 187      535000
+ 188              		.global	niladics
+ 189 017b 00       		.align	2
+ARM GAS  /tmp/ccbMYxnF.s 			page 5
+
+
+ 190              	.LC56:
+ 191 017c 52444E00 		.ascii	"RDN\000"
+ 192              		.align	2
+ 193              	.LC57:
+ 194 0180 52555000 		.ascii	"RUP\000"
+ 195              		.align	2
+ 196              	.LC58:
+ 197 0184 6352444E 		.ascii	"cRDN\000"
+ 197      00
+ 198 0189 000000   		.align	2
+ 199              	.LC59:
+ 200 018c 63525550 		.ascii	"cRUP\000"
+ 200      00
+ 201 0191 000000   		.align	2
+ 202              	.LC60:
+ 203 0194 63454E54 		.ascii	"cENTER\000"
+ 203      455200
+ 204 019b 00       		.align	2
+ 205              	.LC61:
+ 206 019c 6346494C 		.ascii	"cFILL\000"
+ 206      4C00
+ 207 01a2 0000     		.align	2
+ 208              	.LC62:
+ 209 01a4 6344524F 		.ascii	"cDROP\000"
+ 209      5000
+ 210 01aa 0000     		.align	2
+ 211              	.LC63:
+ 212 01ac 53554D78 		.ascii	"SUMx2y\000"
+ 212      327900
+ 213 01b3 00       		.align	2
+ 214              	.LC64:
+ 215 01b4 53554D78 		.ascii	"SUMx2\000"
+ 215      3200
+ 216 01ba 0000     		.align	2
+ 217              	.LC65:
+ 218 01bc 53554D79 		.ascii	"SUMy2\000"
+ 218      3200
+ 219 01c2 0000     		.align	2
+ 220              	.LC66:
+ 221 01c4 53554D78 		.ascii	"SUMxy\000"
+ 221      7900
+ 222 01ca 0000     		.align	2
+ 223              	.LC67:
+ 224 01cc 53554D78 		.ascii	"SUMx\000"
+ 224      00
+ 225 01d1 000000   		.align	2
+ 226              	.LC68:
+ 227 01d4 53554D79 		.ascii	"SUMy\000"
+ 227      00
+ 228 01d9 000000   		.align	2
+ 229              	.LC69:
+ 230 01dc 53554D6C 		.ascii	"SUMlnx\000"
+ 230      6E7800
+ 231 01e3 00       		.align	2
+ 232              	.LC70:
+ 233 01e4 53554D6C 		.ascii	"SUMln2x\000"
+ 233      6E327800 
+ARM GAS  /tmp/ccbMYxnF.s 			page 6
+
+
+ 234              		.align	2
+ 235              	.LC71:
+ 236 01ec 53554D6C 		.ascii	"SUMlny\000"
+ 236      6E7900
+ 237 01f3 00       		.align	2
+ 238              	.LC72:
+ 239 01f4 53554D6C 		.ascii	"SUMln2y\000"
+ 239      6E327900 
+ 240              		.align	2
+ 241              	.LC73:
+ 242 01fc 53554D6C 		.ascii	"SUMlnxy\000"
+ 242      6E787900 
+ 243              		.align	2
+ 244              	.LC74:
+ 245 0204 53554D78 		.ascii	"SUMxlny\000"
+ 245      6C6E7900 
+ 246              		.align	2
+ 247              	.LC75:
+ 248 020c 53554D79 		.ascii	"SUMylnx\000"
+ 248      6C6E7800 
+ 249              		.align	2
+ 250              	.LC76:
+ 251 0214 6E53554D 		.ascii	"nSUM\000"
+ 251      00
+ 252 0219 000000   		.align	2
+ 253              	.LC77:
+ 254 021c 7369676D 		.ascii	"sigma\000"
+ 254      6100
+ 255 0222 0000     		.align	2
+ 256              	.LC78:
+ 257 0224 65707369 		.ascii	"epsilon\000"
+ 257      6C6F6E00 
+ 258              		.align	2
+ 259              	.LC79:
+ 260 022c 65707369 		.ascii	"epsilon-pop\000"
+ 260      6C6F6E2D 
+ 260      706F7000 
+ 261              		.align	2
+ 262              	.LC80:
+ 263 0238 7369676D 		.ascii	"sigma-w\000"
+ 263      612D7700 
+ 264              		.align	2
+ 265              	.LC81:
+ 266 0240 4D45414E 		.ascii	"MEAN\000"
+ 266      00
+ 267 0245 000000   		.align	2
+ 268              	.LC82:
+ 269 0248 4D45414E 		.ascii	"MEAN-w\000"
+ 269      2D7700
+ 270 024f 00       		.align	2
+ 271              	.LC83:
+ 272 0250 47454F4D 		.ascii	"GEOMEAN\000"
+ 272      45414E00 
+ 273              		.align	2
+ 274              	.LC84:
+ 275 0258 65707369 		.ascii	"epsilon-m\000"
+ 275      6C6F6E2D 
+ARM GAS  /tmp/ccbMYxnF.s 			page 7
+
+
+ 275      6D00
+ 276 0262 0000     		.align	2
+ 277              	.LC85:
+ 278 0264 73787900 		.ascii	"sxy\000"
+ 279              		.align	2
+ 280              	.LC86:
+ 281 0268 434C5355 		.ascii	"CLSUMS\000"
+ 281      4D5300
+ 282 026f 00       		.align	2
+ 283              	.LC87:
+ 284 0270 3E504F4C 		.ascii	">POL\000"
+ 284      00
+ 285 0275 000000   		.align	2
+ 286              	.LC88:
+ 287 0278 3E524543 		.ascii	">REC\000"
+ 287      00
+ 288 027d 000000   		.align	2
+ 289              	.LC89:
+ 290 0280 45334F4E 		.ascii	"E3ON\000"
+ 290      00
+ 291 0285 000000   		.align	2
+ 292              	.LC90:
+ 293 0288 45334F46 		.ascii	"E3OFF\000"
+ 293      4600
+ 294 028e 0000     		.align	2
+ 295              	.LC91:
+ 296 0290 44424C2A 		.ascii	"DBL*\000"
+ 296      00
+ 297 0295 000000   		.align	2
+ 298              	.LC92:
+ 299 0298 61444159 		.ascii	"aDAY\000"
+ 299      00
+ 300 029d 000000   		.align	2
+ 301              	.LC93:
+ 302 02a0 614D4F4E 		.ascii	"aMONTH\000"
+ 302      544800
+ 303 02a7 00       		.align	2
+ 304              	.LC94:
+ 305 02a8 61444154 		.ascii	"aDATE\000"
+ 305      4500
+ 306 02ae 0000     		.align	2
+ 307              	.LC95:
+ 308 02b0 6154494D 		.ascii	"aTIME\000"
+ 308      4500
+ 309 02b6 0000     		.align	2
+ 310              	.LC96:
+ 311 02b8 434C6100 		.ascii	"CLa\000"
+ 312              		.align	2
+ 313              	.LC97:
+ 314 02bc 56494557 		.ascii	"VIEWa\000"
+ 314      6100
+ 315 02c2 0000     		.align	2
+ 316              	.LC98:
+ 317 02c4 614C454E 		.ascii	"aLENG\000"
+ 317      4700
+ 318 02ca 0000     		.align	2
+ 319              	.LC99:
+ARM GAS  /tmp/ccbMYxnF.s 			page 8
+
+
+ 320 02cc 613E7800 		.ascii	"a>x\000"
+ 321              		.align	2
+ 322              	.LC100:
+ 323 02d0 783E6100 		.ascii	"x>a\000"
+ 324              		.align	2
+ 325              	.LC101:
+ 326 02d4 614F4E00 		.ascii	"aON\000"
+ 327              		.align	2
+ 328              	.LC102:
+ 329 02d8 614F4646 		.ascii	"aOFF\000"
+ 329      00
+ 330 02dd 000000   		.align	2
+ 331              	.LC103:
+ 332 02e0 494E463F 		.ascii	"INF?\000"
+ 332      00
+ 333 02e5 000000   		.align	2
+ 334              	.LC104:
+ 335 02e8 58455161 		.ascii	"XEQa\000"
+ 335      00
+ 336 02ed 000000   		.align	2
+ 337              	.LC105:
+ 338 02f0 47544F61 		.ascii	"GTOa\000"
+ 338      00
+ 339 02f5 000000   		.align	2
+ 340              	.LC106:
+ 341 02f8 4D524F57 		.ascii	"MROW<>\000"
+ 341      3C3E00
+ 342 02ff 00       		.align	2
+ 343              	.LC107:
+ 344 0300 4D524F57 		.ascii	"MROW*\000"
+ 344      2A00
+ 345 0306 0000     		.align	2
+ 346              	.LC108:
+ 347 0308 4D524F57 		.ascii	"MROW+*\000"
+ 347      2B2A00
+ 348 030f 00       		.align	2
+ 349              	.LC109:
+ 350 0310 4D2E494E 		.ascii	"M.INV\000"
+ 350      5600
+ 351 0316 0000     		.align	2
+ 352              	.LC110:
+ 353 0318 4C4F4144 		.ascii	"LOADSUMS\000"
+ 353      53554D53 
+ 353      00
+ 354 0321 000000   		.align	2
+ 355              	.LC111:
+ 356 0324 636900   		.ascii	"ci\000"
+ 357 0327 00       		.align	2
+ 358              	.LC112:
+ 359 0328 44415445 		.ascii	"DATE>\000"
+ 359      3E00
+ 360 032e 0000     		.align	2
+ 361              	.LC113:
+ 362 0330 63444F54 		.ascii	"cDOT\000"
+ 362      00
+ 363 0335 000000   		.align	2
+ 364              	.LC114:
+ARM GAS  /tmp/ccbMYxnF.s 			page 9
+
+
+ 365 0338 6343524F 		.ascii	"cCROSS\000"
+ 365      535300
+ 366 033f 00       		.align	2
+ 367              	.LC115:
+ 368 0340 502E5052 		.ascii	"P.PROG\000"
+ 368      4F4700
+ 369 0347 00       		.align	2
+ 370              	.LC116:
+ 371 0348 502E5245 		.ascii	"P.REGS\000"
+ 371      475300
+ 372 034f 00       		.align	2
+ 373              	.LC117:
+ 374 0350 502E5354 		.ascii	"P.STK\000"
+ 374      4B00
+ 375 0356 0000     		.align	2
+ 376              	.LC118:
+ 377 0358 502E5355 		.ascii	"P.SUMS\000"
+ 377      4D5300
+ 378 035f 00       		.align	2
+ 379              	.LC119:
+ 380 0360 502E6100 		.ascii	"P.a\000"
+ 381              		.align	2
+ 382              	.LC120:
+ 383 0364 502E612B 		.ascii	"P.a+\000"
+ 383      00
+ 384 0369 000000   		.align	2
+ 385              	.LC121:
+ 386 036c 502E2B61 		.ascii	"P.+a\000"
+ 386      00
+ 387 0371 000000   		.align	2
+ 388              	.LC122:
+ 389 0374 502E4144 		.ascii	"P.ADV\000"
+ 389      5600
+ 390 037a 0000     		.align	2
+ 391              	.LC123:
+ 392 037c 502E5749 		.ascii	"P.WIDTH\000"
+ 392      44544800 
+ 393              		.align	2
+ 394              	.LC124:
+ 395 0384 5052543F 		.ascii	"PRT?\000"
+ 395      00
+ 396 0389 000000   		.align	2
+ 397              	.LC125:
+ 398 038c 502E4F4E 		.ascii	"P.ON\000"
+ 398      00
+ 399 0391 000000   		.align	2
+ 400              	.LC126:
+ 401 0394 502E4F46 		.ascii	"P.OFF\000"
+ 401      4600
+ 402              		.global	trifuncs
+ 403 039a 0000     		.align	2
+ 404              	.LC127:
+ 405 039c 49424554 		.ascii	"IBETA\000"
+ 405      4100
+ 406 03a2 0000     		.align	2
+ 407              	.LC128:
+ 408 03a4 4C6E416C 		.ascii	"LnAlpha\000"
+ARM GAS  /tmp/ccbMYxnF.s 			page 10
+
+
+ 408      70686100 
+ 409              		.align	2
+ 410              	.LC129:
+ 411 03ac 4D2A00   		.ascii	"M*\000"
+ 412 03af 00       		.align	2
+ 413              	.LC130:
+ 414 03b0 4D2B2A00 		.ascii	"M+*\000"
+ 415              		.align	2
+ 416              	.LC131:
+ 417 03b4 3E444154 		.ascii	">DATE\000"
+ 417      4500
+ 418              		.global	dyfuncs
+ 419 03ba 0000     		.align	2
+ 420              	.LC132:
+ 421 03bc 795E7800 		.ascii	"y^x\000"
+ 422              		.align	2
+ 423              	.LC133:
+ 424 03c0 2A00     		.ascii	"*\000"
+ 425 03c2 0000     		.align	2
+ 426              	.LC134:
+ 427 03c4 4C4F4778 		.ascii	"LOGx\000"
+ 427      00
+ 428 03c9 000000   		.align	2
+ 429              	.LC135:
+ 430 03cc 42455441 		.ascii	"BETA\000"
+ 430      00
+ 431 03d1 000000   		.align	2
+ 432              	.LC136:
+ 433 03d4 4C4E4245 		.ascii	"LNBETA\000"
+ 433      544100
+ 434 03db 00       		.align	2
+ 435              	.LC137:
+ 436 03dc 67616D6D 		.ascii	"gammaxy\000"
+ 436      61787900 
+ 437              		.align	2
+ 438              	.LC138:
+ 439 03e4 47414D4D 		.ascii	"GAMMAxy\000"
+ 439      41787900 
+ 440              		.align	2
+ 441              	.LC139:
+ 442 03ec 47414D4D 		.ascii	"GAMMAP\000"
+ 442      415000
+ 443 03f3 00       		.align	2
+ 444              	.LC140:
+ 445 03f4 47414D4D 		.ascii	"GAMMAQ\000"
+ 445      415100
+ 446 03fb 00       		.align	2
+ 447              	.LC141:
+ 448 03fc 44444159 		.ascii	"DDAYS\000"
+ 448      5300
+ 449 0402 0000     		.align	2
+ 450              	.LC142:
+ 451 0404 506E00   		.ascii	"Pn\000"
+ 452 0407 00       		.align	2
+ 453              	.LC143:
+ 454 0408 546E00   		.ascii	"Tn\000"
+ 455 040b 00       		.align	2
+ARM GAS  /tmp/ccbMYxnF.s 			page 11
+
+
+ 456              	.LC144:
+ 457 040c 556E00   		.ascii	"Un\000"
+ 458 040f 00       		.align	2
+ 459              	.LC145:
+ 460 0410 4C6E00   		.ascii	"Ln\000"
+ 461 0413 00       		.align	2
+ 462              	.LC146:
+ 463 0414 486E00   		.ascii	"Hn\000"
+ 464 0417 00       		.align	2
+ 465              	.LC147:
+ 466 0418 486E7000 		.ascii	"Hnp\000"
+ 467              		.align	2
+ 468              	.LC148:
+ 469 041c 58524F4F 		.ascii	"XROOT\000"
+ 469      5400
+ 470              		.global	monfuncs
+ 471 0422 0000     		.align	2
+ 472              	.LC149:
+ 473 0424 45585000 		.ascii	"EXP\000"
+ 474              		.align	2
+ 475              	.LC150:
+ 476 0428 53515254 		.ascii	"SQRT\000"
+ 476      00
+ 477 042d 000000   		.align	2
+ 478              	.LC151:
+ 479 0430 494E5600 		.ascii	"INV\000"
+ 480              		.align	2
+ 481              	.LC152:
+ 482 0434 282D3129 		.ascii	"(-1)^x\000"
+ 482      5E7800
+ 483 043b 00       		.align	2
+ 484              	.LC153:
+ 485 043c 4C4700   		.ascii	"LG\000"
+ 486 043f 00       		.align	2
+ 487              	.LC154:
+ 488 0440 4C4200   		.ascii	"LB\000"
+ 489 0443 00       		.align	2
+ 490              	.LC155:
+ 491 0444 325E7800 		.ascii	"2^x\000"
+ 492              		.align	2
+ 493              	.LC156:
+ 494 0448 31305E78 		.ascii	"10^x\000"
+ 494      00
+ 495 044d 000000   		.align	2
+ 496              	.LC157:
+ 497 0450 4558502D 		.ascii	"EXP-1\000"
+ 497      3100
+ 498 0456 0000     		.align	2
+ 499              	.LC158:
+ 500 0458 573000   		.ascii	"W0\000"
+ 501 045b 00       		.align	2
+ 502              	.LC159:
+ 503 045c 573100   		.ascii	"W1\000"
+ 504 045f 00       		.align	2
+ 505              	.LC160:
+ 506 0460 494E562D 		.ascii	"INV-W\000"
+ 506      5700
+ARM GAS  /tmp/ccbMYxnF.s 			page 12
+
+
+ 507 0466 0000     		.align	2
+ 508              	.LC161:
+ 509 0468 785E3200 		.ascii	"x^2\000"
+ 510              		.align	2
+ 511              	.LC162:
+ 512 046c 785E3300 		.ascii	"x^3\000"
+ 513              		.align	2
+ 514              	.LC163:
+ 515 0470 43524F4F 		.ascii	"CROOT\000"
+ 515      5400
+ 516 0476 0000     		.align	2
+ 517              	.LC164:
+ 518 0478 3E444547 		.ascii	">DEG\000"
+ 518      00
+ 519 047d 000000   		.align	2
+ 520              	.LC165:
+ 521 0480 3E524144 		.ascii	">RAD\000"
+ 521      00
+ 522 0485 000000   		.align	2
+ 523              	.LC166:
+ 524 0488 3E475241 		.ascii	">GRAD\000"
+ 524      4400
+ 525 048e 0000     		.align	2
+ 526              	.LC167:
+ 527 0490 4445473E 		.ascii	"DEG>\000"
+ 527      00
+ 528 0495 000000   		.align	2
+ 529              	.LC168:
+ 530 0498 5241443E 		.ascii	"RAD>\000"
+ 530      00
+ 531 049d 000000   		.align	2
+ 532              	.LC169:
+ 533 04a0 47524144 		.ascii	"GRAD>\000"
+ 533      3E00
+ 534 04a6 0000     		.align	2
+ 535              	.LC170:
+ 536 04a8 47554400 		.ascii	"GUD\000"
+ 537              		.align	2
+ 538              	.LC171:
+ 539 04ac 494E562D 		.ascii	"INV-GUD\000"
+ 539      47554400 
+ 540              		.align	2
+ 541              	.LC172:
+ 542 04b4 47414D4D 		.ascii	"GAMMA\000"
+ 542      4100
+ 543 04ba 0000     		.align	2
+ 544              	.LC173:
+ 545 04bc 4C4E4741 		.ascii	"LNGAMMA\000"
+ 545      4D4D4100 
+ 546              		.align	2
+ 547              	.LC174:
+ 548 04c4 4445473E 		.ascii	"DEG>RAD\000"
+ 548      52414400 
+ 549              		.align	2
+ 550              	.LC175:
+ 551 04cc 5241443E 		.ascii	"RAD>DEG\000"
+ 551      44454700 
+ARM GAS  /tmp/ccbMYxnF.s 			page 13
+
+
+ 552              		.align	2
+ 553              	.LC176:
+ 554 04d4 4445473E 		.ascii	"DEG>GRAD\000"
+ 554      47524144 
+ 554      00
+ 555 04dd 000000   		.align	2
+ 556              	.LC177:
+ 557 04e0 47524144 		.ascii	"GRAD>DEG\000"
+ 557      3E444547 
+ 557      00
+ 558 04e9 000000   		.align	2
+ 559              	.LC178:
+ 560 04ec 5241443E 		.ascii	"RAD>GRAD\000"
+ 560      47524144 
+ 560      00
+ 561 04f5 000000   		.align	2
+ 562              	.LC179:
+ 563 04f8 47524144 		.ascii	"GRAD>RAD\000"
+ 563      3E524144 
+ 563      00
+ 564 0501 000000   		.align	2
+ 565              	.LC180:
+ 566 0504 632B2F2D 		.ascii	"c+/-\000"
+ 566      00
+ 567 0509 000000   		.align	2
+ 568              	.LC181:
+ 569 050c 63434F4E 		.ascii	"cCONJ\000"
+ 569      4A00
+ 570 0512 0000     		.align	2
+ 571              	.LC182:
+ 572 0514 70686928 		.ascii	"phi(x)\000"
+ 572      782900
+ 573 051b 00       		.align	2
+ 574              	.LC183:
+ 575 051c 50484928 		.ascii	"PHI(x)\000"
+ 575      782900
+ 576 0523 00       		.align	2
+ 577              	.LC184:
+ 578 0524 494E562D 		.ascii	"INV-PHI\000"
+ 578      50484900 
+ 579              		.align	2
+ 580              	.LC185:
+ 581 052c 63686932 		.ascii	"chi2-p\000"
+ 581      2D7000
+ 582 0533 00       		.align	2
+ 583              	.LC186:
+ 584 0534 43484932 		.ascii	"CHI2\000"
+ 584      00
+ 585 0539 000000   		.align	2
+ 586              	.LC187:
+ 587 053c 494E562D 		.ascii	"INV-CHI2\000"
+ 587      43484932 
+ 587      00
+ 588 0545 000000   		.align	2
+ 589              	.LC188:
+ 590 0548 742D7028 		.ascii	"t-p(x)\000"
+ 590      782900
+ARM GAS  /tmp/ccbMYxnF.s 			page 14
+
+
+ 591 054f 00       		.align	2
+ 592              	.LC189:
+ 593 0550 494E562D 		.ascii	"INV-t\000"
+ 593      7400
+ 594 0556 0000     		.align	2
+ 595              	.LC190:
+ 596 0558 462D7028 		.ascii	"F-p(x)\000"
+ 596      782900
+ 597 055f 00       		.align	2
+ 598              	.LC191:
+ 599 0560 494E562D 		.ascii	"INV-F\000"
+ 599      4600
+ 600 0566 0000     		.align	2
+ 601              	.LC192:
+ 602 0568 57656962 		.ascii	"Weibl-p\000"
+ 602      6C2D7000 
+ 603              		.align	2
+ 604              	.LC193:
+ 605 0570 494E562D 		.ascii	"INV-Weibl\000"
+ 605      57656962 
+ 605      6C00
+ 606 057a 0000     		.align	2
+ 607              	.LC194:
+ 608 057c 4578706F 		.ascii	"Expon-p\000"
+ 608      6E2D7000 
+ 609              		.align	2
+ 610              	.LC195:
+ 611 0584 494E562D 		.ascii	"INV-Expon\000"
+ 611      4578706F 
+ 611      6E00
+ 612 058e 0000     		.align	2
+ 613              	.LC196:
+ 614 0590 42696E6F 		.ascii	"Binom-p\000"
+ 614      6D2D7000 
+ 615              		.align	2
+ 616              	.LC197:
+ 617 0598 494E562D 		.ascii	"INV-Binom\000"
+ 617      42696E6F 
+ 617      6D00
+ 618 05a2 0000     		.align	2
+ 619              	.LC198:
+ 620 05a4 506F6973 		.ascii	"Pois-p\000"
+ 620      2D7000
+ 621 05ab 00       		.align	2
+ 622              	.LC199:
+ 623 05ac 506F6973 		.ascii	"Pois\000"
+ 623      00
+ 624 05b1 000000   		.align	2
+ 625              	.LC200:
+ 626 05b4 494E562D 		.ascii	"INV-Pois\000"
+ 626      506F6973 
+ 626      00
+ 627 05bd 000000   		.align	2
+ 628              	.LC201:
+ 629 05c0 506F6973 		.ascii	"Pois2-p\000"
+ 629      322D7000 
+ 630              		.align	2
+ARM GAS  /tmp/ccbMYxnF.s 			page 15
+
+
+ 631              	.LC202:
+ 632 05c8 506F6973 		.ascii	"Pois2\000"
+ 632      3200
+ 633 05ce 0000     		.align	2
+ 634              	.LC203:
+ 635 05d0 494E562D 		.ascii	"INV-Pois2\000"
+ 635      506F6973 
+ 635      3200
+ 636 05da 0000     		.align	2
+ 637              	.LC204:
+ 638 05dc 47656F6D 		.ascii	"Geom-p\000"
+ 638      2D7000
+ 639 05e3 00       		.align	2
+ 640              	.LC205:
+ 641 05e4 494E562D 		.ascii	"INV-Geom\000"
+ 641      47656F6D 
+ 641      00
+ 642 05ed 000000   		.align	2
+ 643              	.LC206:
+ 644 05f0 4E6F726D 		.ascii	"Norml-p\000"
+ 644      6C2D7000 
+ 645              		.align	2
+ 646              	.LC207:
+ 647 05f8 494E562D 		.ascii	"INV-Norml\000"
+ 647      4E6F726D 
+ 647      6C00
+ 648 0602 0000     		.align	2
+ 649              	.LC208:
+ 650 0604 4C674E6F 		.ascii	"LgNorm-p\000"
+ 650      726D2D70 
+ 650      00
+ 651 060d 000000   		.align	2
+ 652              	.LC209:
+ 653 0610 494E562D 		.ascii	"INV-LgNorm\000"
+ 653      4C674E6F 
+ 653      726D00
+ 654 061b 00       		.align	2
+ 655              	.LC210:
+ 656 061c 4C6F6769 		.ascii	"Logis-p\000"
+ 656      732D7000 
+ 657              		.align	2
+ 658              	.LC211:
+ 659 0624 494E562D 		.ascii	"INV-Logis\000"
+ 659      4C6F6769 
+ 659      7300
+ 660 062e 0000     		.align	2
+ 661              	.LC212:
+ 662 0630 43617563 		.ascii	"Cauch-p\000"
+ 662      682D7000 
+ 663              		.align	2
+ 664              	.LC213:
+ 665 0638 494E562D 		.ascii	"INV-Cauch\000"
+ 665      43617563 
+ 665      6800
+ 666 0642 0000     		.align	2
+ 667              	.LC214:
+ 668 0644 512D7500 		.ascii	"Q-u\000"
+ARM GAS  /tmp/ccbMYxnF.s 			page 16
+
+
+ 669              		.align	2
+ 670              	.LC215:
+ 671 0648 43484932 		.ascii	"CHI2-u\000"
+ 671      2D7500
+ 672 064f 00       		.align	2
+ 673              	.LC216:
+ 674 0650 742D7500 		.ascii	"t-u\000"
+ 675              		.align	2
+ 676              	.LC217:
+ 677 0654 462D7500 		.ascii	"F-u\000"
+ 678              		.align	2
+ 679              	.LC218:
+ 680 0658 57656962 		.ascii	"Weibl-u\000"
+ 680      6C2D7500 
+ 681              		.align	2
+ 682              	.LC219:
+ 683 0660 4578706F 		.ascii	"Expon-u\000"
+ 683      6E2D7500 
+ 684              		.align	2
+ 685              	.LC220:
+ 686 0668 42696E6F 		.ascii	"Binom-u\000"
+ 686      6D2D7500 
+ 687              		.align	2
+ 688              	.LC221:
+ 689 0670 506F6973 		.ascii	"Pois-u\000"
+ 689      2D7500
+ 690 0677 00       		.align	2
+ 691              	.LC222:
+ 692 0678 506F6973 		.ascii	"Pois2-u\000"
+ 692      322D7500 
+ 693              		.align	2
+ 694              	.LC223:
+ 695 0680 47656F6D 		.ascii	"Geom-u\000"
+ 695      2D7500
+ 696 0687 00       		.align	2
+ 697              	.LC224:
+ 698 0688 4E6F726D 		.ascii	"Norml-u\000"
+ 698      6C2D7500 
+ 699              		.align	2
+ 700              	.LC225:
+ 701 0690 4C674E72 		.ascii	"LgNrm-u\000"
+ 701      6D2D7500 
+ 702              		.align	2
+ 703              	.LC226:
+ 704 0698 4C6F6769 		.ascii	"Logis-u\000"
+ 704      732D7500 
+ 705              		.align	2
+ 706              	.LC227:
+ 707 06a0 43617563 		.ascii	"Cauch-u\000"
+ 707      682D7500 
+ 708              		.align	2
+ 709              	.LC228:
+ 710 06a8 46435354 		.ascii	"FCSTx\000"
+ 710      7800
+ 711 06ae 0000     		.align	2
+ 712              	.LC229:
+ 713 06b0 46435354 		.ascii	"FCSTy\000"
+ARM GAS  /tmp/ccbMYxnF.s 			page 17
+
+
+ 713      7900
+ 714 06b6 0000     		.align	2
+ 715              	.LC230:
+ 716 06b8 2553554D 		.ascii	"%SUM\000"
+ 716      00
+ 717 06bd 000000   		.align	2
+ 718              	.LC231:
+ 719 06c0 25434800 		.ascii	"%CH\000"
+ 720              		.align	2
+ 721              	.LC232:
+ 722 06c4 3E485200 		.ascii	">HR\000"
+ 723              		.align	2
+ 724              	.LC233:
+ 725 06c8 3E482E4D 		.ascii	">H.MS\000"
+ 725      5300
+ 726 06ce 0000     		.align	2
+ 727              	.LC234:
+ 728 06d0 443E4A00 		.ascii	"D>J\000"
+ 729              		.align	2
+ 730              	.LC235:
+ 731 06d4 4A3E4400 		.ascii	"J>D\000"
+ 732              		.align	2
+ 733              	.LC236:
+ 734 06d8 433E4600 		.ascii	"C>F\000"
+ 735              		.align	2
+ 736              	.LC237:
+ 737 06dc 463E4300 		.ascii	"F>C\000"
+ 738              		.align	2
+ 739              	.LC238:
+ 740 06e0 64423E61 		.ascii	"dB>ar.\000"
+ 740      722E00
+ 741 06e7 00       		.align	2
+ 742              	.LC239:
+ 743 06e8 61722E3E 		.ascii	"ar.>dB\000"
+ 743      644200
+ 744 06ef 00       		.align	2
+ 745              	.LC240:
+ 746 06f0 64423E70 		.ascii	"dB>pr.\000"
+ 746      722E00
+ 747 06f7 00       		.align	2
+ 748              	.LC241:
+ 749 06f8 70722E3E 		.ascii	"pr.>dB\000"
+ 749      644200
+ 750 06ff 00       		.align	2
+ 751              	.LC242:
+ 752 0700 5A455441 		.ascii	"ZETA\000"
+ 752      00
+ 753 0705 000000   		.align	2
+ 754              	.LC243:
+ 755 0708 426E00   		.ascii	"Bn\000"
+ 756 070b 00       		.align	2
+ 757              	.LC244:
+ 758 070c 426E2A00 		.ascii	"Bn*\000"
+ 759              		.align	2
+ 760              	.LC245:
+ 761 0710 44494741 		.ascii	"DIGAMMA\000"
+ 761      4D4D4100 
+ARM GAS  /tmp/ccbMYxnF.s 			page 18
+
+
+ 762              		.section	.rodata.argcmds,"a"
+ 763              		.align	2
+ 766              	argcmds:
+ 767 0000 00000000 		.word	cmdconst
+ 768 0004 69       		.byte	105
+ 769 0005 00       		.byte	0
+ 770 0006 2300     		.ascii	"#\000"
+ 771 0008 00000000 		.space	4
+ 772 000c 00000000 		.word	0
+ 773 0010 00000000 		.word	cmdconst
+ 774 0014 69       		.byte	105
+ 775 0015 00       		.byte	0
+ 776 0016 142300   		.ascii	"\024#\000"
+ 777 0019 000000   		.space	3
+ 778 001c 1C000000 		.word	.LC5
+ 779 0020 00000000 		.word	cmderr
+ 780 0024 19       		.byte	25
+ 781 0025 01       		.byte	1
+ 782 0026 45525200 		.ascii	"ERR\000"
+ 783 002a 0000     		.space	2
+ 784 002c 00000000 		.word	0
+ 785 0030 00000000 		.word	cmdsto
+ 786 0034 FF       		.byte	-1
+ 787 0035 0F       		.byte	15
+ 788 0036 53544F00 		.ascii	"STO\000"
+ 789 003a 0000     		.space	2
+ 790 003c 00000000 		.word	0
+ 791 0040 00000000 		.word	cmdsto
+ 792 0044 FF       		.byte	-1
+ 793 0045 0F       		.byte	15
+ 794 0046 53544F2B 		.ascii	"STO+\000"
+ 794      00
+ 795 004b 00       		.space	1
+ 796 004c 00000000 		.word	0
+ 797 0050 00000000 		.word	cmdsto
+ 798 0054 FF       		.byte	-1
+ 799 0055 0F       		.byte	15
+ 800 0056 53544F2D 		.ascii	"STO-\000"
+ 800      00
+ 801 005b 00       		.space	1
+ 802 005c 00000000 		.word	0
+ 803 0060 00000000 		.word	cmdsto
+ 804 0064 FF       		.byte	-1
+ 805 0065 0F       		.byte	15
+ 806 0066 53544F1C 		.ascii	"STO\034\000"
+ 806      00
+ 807 006b 00       		.space	1
+ 808 006c 20000000 		.word	.LC6
+ 809 0070 00000000 		.word	cmdsto
+ 810 0074 FF       		.byte	-1
+ 811 0075 0F       		.byte	15
+ 812 0076 53544F2F 		.ascii	"STO/\000"
+ 812      00
+ 813 007b 00       		.space	1
+ 814 007c 00000000 		.word	0
+ 815 0080 00000000 		.word	cmdsto
+ 816 0084 FF       		.byte	-1
+ARM GAS  /tmp/ccbMYxnF.s 			page 19
+
+
+ 817 0085 0F       		.byte	15
+ 818 0086 53544F0F 		.ascii	"STO\017\000"
+ 818      00
+ 819 008b 00       		.space	1
+ 820 008c 28000000 		.word	.LC7
+ 821 0090 00000000 		.word	cmdsto
+ 822 0094 FF       		.byte	-1
+ 823 0095 0F       		.byte	15
+ 824 0096 53544F10 		.ascii	"STO\020\000"
+ 824      00
+ 825 009b 00       		.space	1
+ 826 009c 30000000 		.word	.LC8
+ 827 00a0 00000000 		.word	cmdrcl
+ 828 00a4 FF       		.byte	-1
+ 829 00a5 0F       		.byte	15
+ 830 00a6 52434C00 		.ascii	"RCL\000"
+ 831 00aa 0000     		.space	2
+ 832 00ac 00000000 		.word	0
+ 833 00b0 00000000 		.word	cmdrcl
+ 834 00b4 FF       		.byte	-1
+ 835 00b5 0F       		.byte	15
+ 836 00b6 52434C2B 		.ascii	"RCL+\000"
+ 836      00
+ 837 00bb 00       		.space	1
+ 838 00bc 00000000 		.word	0
+ 839 00c0 00000000 		.word	cmdrcl
+ 840 00c4 FF       		.byte	-1
+ 841 00c5 0F       		.byte	15
+ 842 00c6 52434C2D 		.ascii	"RCL-\000"
+ 842      00
+ 843 00cb 00       		.space	1
+ 844 00cc 00000000 		.word	0
+ 845 00d0 00000000 		.word	cmdrcl
+ 846 00d4 FF       		.byte	-1
+ 847 00d5 0F       		.byte	15
+ 848 00d6 52434C1C 		.ascii	"RCL\034\000"
+ 848      00
+ 849 00db 00       		.space	1
+ 850 00dc 38000000 		.word	.LC9
+ 851 00e0 00000000 		.word	cmdrcl
+ 852 00e4 FF       		.byte	-1
+ 853 00e5 0F       		.byte	15
+ 854 00e6 52434C2F 		.ascii	"RCL/\000"
+ 854      00
+ 855 00eb 00       		.space	1
+ 856 00ec 00000000 		.word	0
+ 857 00f0 00000000 		.word	cmdrcl
+ 858 00f4 FF       		.byte	-1
+ 859 00f5 0F       		.byte	15
+ 860 00f6 52434C0F 		.ascii	"RCL\017\000"
+ 860      00
+ 861 00fb 00       		.space	1
+ 862 00fc 40000000 		.word	.LC10
+ 863 0100 00000000 		.word	cmdrcl
+ 864 0104 FF       		.byte	-1
+ 865 0105 0F       		.byte	15
+ 866 0106 52434C10 		.ascii	"RCL\020\000"
+ARM GAS  /tmp/ccbMYxnF.s 			page 20
+
+
+ 866      00
+ 867 010b 00       		.space	1
+ 868 010c 48000000 		.word	.LC11
+ 869 0110 00000000 		.word	cmdswap
+ 870 0114 FF       		.byte	-1
+ 871 0115 0F       		.byte	15
+ 872 0116 781700   		.ascii	"x\027\000"
+ 873 0119 000000   		.space	3
+ 874 011c 50000000 		.word	.LC12
+ 875 0120 00000000 		.word	cmdswap
+ 876 0124 FF       		.byte	-1
+ 877 0125 0F       		.byte	15
+ 878 0126 791700   		.ascii	"y\027\000"
+ 879 0129 000000   		.space	3
+ 880 012c 54000000 		.word	.LC13
+ 881 0130 00000000 		.word	cmdswap
+ 882 0134 FF       		.byte	-1
+ 883 0135 0F       		.byte	15
+ 884 0136 7A1700   		.ascii	"z\027\000"
+ 885 0139 000000   		.space	3
+ 886 013c 58000000 		.word	.LC14
+ 887 0140 00000000 		.word	cmdswap
+ 888 0144 FF       		.byte	-1
+ 889 0145 0F       		.byte	15
+ 890 0146 741700   		.ascii	"t\027\000"
+ 891 0149 000000   		.space	3
+ 892 014c 5C000000 		.word	.LC15
+ 893 0150 00000000 		.word	cmdcsto
+ 894 0154 FE       		.byte	-2
+ 895 0155 1F       		.byte	31
+ 896 0156 1453544F 		.ascii	"\024STO\000"
+ 896      00
+ 897 015b 00       		.space	1
+ 898 015c 60000000 		.word	.LC16
+ 899 0160 00000000 		.word	cmdcsto
+ 900 0164 FE       		.byte	-2
+ 901 0165 1F       		.byte	31
+ 902 0166 1453544F 		.ascii	"\024STO+\000"
+ 902      2B00
+ 903 016c 68000000 		.word	.LC17
+ 904 0170 00000000 		.word	cmdcsto
+ 905 0174 FE       		.byte	-2
+ 906 0175 1F       		.byte	31
+ 907 0176 1453544F 		.ascii	"\024STO-\000"
+ 907      2D00
+ 908 017c 70000000 		.word	.LC18
+ 909 0180 00000000 		.word	cmdcsto
+ 910 0184 FE       		.byte	-2
+ 911 0185 1F       		.byte	31
+ 912 0186 1453544F 		.ascii	"\024STO\034\000"
+ 912      1C00
+ 913 018c 78000000 		.word	.LC19
+ 914 0190 00000000 		.word	cmdcsto
+ 915 0194 FE       		.byte	-2
+ 916 0195 1F       		.byte	31
+ 917 0196 1453544F 		.ascii	"\024STO/\000"
+ 917      2F00
+ARM GAS  /tmp/ccbMYxnF.s 			page 21
+
+
+ 918 019c 80000000 		.word	.LC20
+ 919 01a0 00000000 		.word	cmdcrcl
+ 920 01a4 FE       		.byte	-2
+ 921 01a5 1F       		.byte	31
+ 922 01a6 1452434C 		.ascii	"\024RCL\000"
+ 922      00
+ 923 01ab 00       		.space	1
+ 924 01ac 88000000 		.word	.LC21
+ 925 01b0 00000000 		.word	cmdcrcl
+ 926 01b4 FE       		.byte	-2
+ 927 01b5 1F       		.byte	31
+ 928 01b6 1452434C 		.ascii	"\024RCL+\000"
+ 928      2B00
+ 929 01bc 90000000 		.word	.LC22
+ 930 01c0 00000000 		.word	cmdcrcl
+ 931 01c4 FE       		.byte	-2
+ 932 01c5 1F       		.byte	31
+ 933 01c6 1452434C 		.ascii	"\024RCL-\000"
+ 933      2D00
+ 934 01cc 98000000 		.word	.LC23
+ 935 01d0 00000000 		.word	cmdcrcl
+ 936 01d4 FE       		.byte	-2
+ 937 01d5 1F       		.byte	31
+ 938 01d6 1452434C 		.ascii	"\024RCL\034\000"
+ 938      1C00
+ 939 01dc A0000000 		.word	.LC24
+ 940 01e0 00000000 		.word	cmdcrcl
+ 941 01e4 FE       		.byte	-2
+ 942 01e5 1F       		.byte	31
+ 943 01e6 1452434C 		.ascii	"\024RCL/\000"
+ 943      2F00
+ 944 01ec A8000000 		.word	.LC25
+ 945 01f0 00000000 		.word	cmdswap
+ 946 01f4 FE       		.byte	-2
+ 947 01f5 1F       		.byte	31
+ 948 01f6 14781700 		.ascii	"\024x\027\000"
+ 949 01fa 0000     		.space	2
+ 950 01fc B0000000 		.word	.LC26
+ 951 0200 00000000 		.word	cmdswap
+ 952 0204 FE       		.byte	-2
+ 953 0205 1F       		.byte	31
+ 954 0206 147A1700 		.ascii	"\024z\027\000"
+ 955 020a 0000     		.space	2
+ 956 020c B8000000 		.word	.LC27
+ 957 0210 00000000 		.word	cmdview
+ 958 0214 FF       		.byte	-1
+ 959 0215 0F       		.byte	15
+ 960 0216 56494557 		.ascii	"VIEW\000"
+ 960      00
+ 961 021b 00       		.space	1
+ 962 021c 00000000 		.word	0
+ 963 0220 00000000 		.word	cmdstostk
+ 964 0224 FF       		.byte	-1
+ 965 0225 0F       		.byte	15
+ 966 0226 53544F53 		.ascii	"STOS\000"
+ 966      00
+ 967 022b 00       		.space	1
+ARM GAS  /tmp/ccbMYxnF.s 			page 22
+
+
+ 968 022c 00000000 		.word	0
+ 969 0230 00000000 		.word	cmdrclstk
+ 970 0234 FF       		.byte	-1
+ 971 0235 0F       		.byte	15
+ 972 0236 52434C53 		.ascii	"RCLS\000"
+ 972      00
+ 973 023b 00       		.space	1
+ 974 023c 00000000 		.word	0
+ 975 0240 00000000 		.word	cmdalpha
+ 976 0244 FF       		.byte	-1
+ 977 0245 00       		.byte	0
+ 978 0246 00       		.ascii	"\000"
+ 979 0247 00000000 		.space	5
+ 979      00
+ 980 024c 14000000 		.word	.LC3
+ 981 0250 00000000 		.word	alpha_reg
+ 982 0254 FF       		.byte	-1
+ 983 0255 0F       		.byte	15
+ 984 0256 A0524323 		.ascii	"\240RC#\000"
+ 984      00
+ 985 025b 00       		.space	1
+ 986 025c C0000000 		.word	.LC28
+ 987 0260 00000000 		.word	alpha_sto
+ 988 0264 FF       		.byte	-1
+ 989 0265 0F       		.byte	15
+ 990 0266 A053544F 		.ascii	"\240STO\000"
+ 990      00
+ 991 026b 00       		.space	1
+ 992 026c C8000000 		.word	.LC29
+ 993 0270 00000000 		.word	alpha_rcl
+ 994 0274 FF       		.byte	-1
+ 995 0275 0F       		.byte	15
+ 996 0276 A052434C 		.ascii	"\240RCL\000"
+ 996      00
+ 997 027b 00       		.space	1
+ 998 027c D0000000 		.word	.LC30
+ 999 0280 00000000 		.word	alpha_ip
+ 1000 0284 FF       		.byte	-1
+ 1001 0285 0F       		.byte	15
+ 1002 0286 A0495000 		.ascii	"\240IP\000"
+ 1003 028a 0000     		.space	2
+ 1004 028c D8000000 		.word	.LC31
+ 1005 0290 00000000 		.word	alpha_shift_l
+ 1006 0294 1D       		.byte	29
+ 1007 0295 01       		.byte	1
+ 1008 0296 A0524C00 		.ascii	"\240RL\000"
+ 1009 029a 0000     		.space	2
+ 1010 029c DC000000 		.word	.LC32
+ 1011 02a0 00000000 		.word	alpha_rot_r
+ 1012 02a4 1D       		.byte	29
+ 1013 02a5 01       		.byte	1
+ 1014 02a6 A0525200 		.ascii	"\240RR\000"
+ 1015 02aa 0000     		.space	2
+ 1016 02ac E0000000 		.word	.LC33
+ 1017 02b0 00000000 		.word	alpha_shift_l
+ 1018 02b4 1E       		.byte	30
+ 1019 02b5 01       		.byte	1
+ARM GAS  /tmp/ccbMYxnF.s 			page 23
+
+
+ 1020 02b6 A0534C00 		.ascii	"\240SL\000"
+ 1021 02ba 0000     		.space	2
+ 1022 02bc E4000000 		.word	.LC34
+ 1023 02c0 00000000 		.word	alpha_shift_r
+ 1024 02c4 1E       		.byte	30
+ 1025 02c5 01       		.byte	1
+ 1026 02c6 A0535200 		.ascii	"\240SR\000"
+ 1027 02ca 0000     		.space	2
+ 1028 02cc E8000000 		.word	.LC35
+ 1029 02d0 00000000 		.word	cmdtest
+ 1030 02d4 FF       		.byte	-1
+ 1031 02d5 0F       		.byte	15
+ 1032 02d6 783D3F00 		.ascii	"x=?\000"
+ 1033 02da 0000     		.space	2
+ 1034 02dc 00000000 		.word	0
+ 1035 02e0 00000000 		.word	cmdtest
+ 1036 02e4 FF       		.byte	-1
+ 1037 02e5 0F       		.byte	15
+ 1038 02e6 780B3F00 		.ascii	"x\013?\000"
+ 1039 02ea 0000     		.space	2
+ 1040 02ec EC000000 		.word	.LC36
+ 1041 02f0 00000000 		.word	cmdtest
+ 1042 02f4 FF       		.byte	-1
+ 1043 02f5 0F       		.byte	15
+ 1044 02f6 781D3F00 		.ascii	"x\035?\000"
+ 1045 02fa 0000     		.space	2
+ 1046 02fc F4000000 		.word	.LC37
+ 1047 0300 00000000 		.word	cmdtest
+ 1048 0304 FF       		.byte	-1
+ 1049 0305 0F       		.byte	15
+ 1050 0306 783C3F00 		.ascii	"x<?\000"
+ 1051 030a 0000     		.space	2
+ 1052 030c 00000000 		.word	0
+ 1053 0310 00000000 		.word	cmdtest
+ 1054 0314 FF       		.byte	-1
+ 1055 0315 0F       		.byte	15
+ 1056 0316 78093F00 		.ascii	"x\011?\000"
+ 1057 031a 0000     		.space	2
+ 1058 031c F8000000 		.word	.LC38
+ 1059 0320 00000000 		.word	cmdtest
+ 1060 0324 FF       		.byte	-1
+ 1061 0325 0F       		.byte	15
+ 1062 0326 783E3F00 		.ascii	"x>?\000"
+ 1063 032a 0000     		.space	2
+ 1064 032c 00000000 		.word	0
+ 1065 0330 00000000 		.word	cmdtest
+ 1066 0334 FF       		.byte	-1
+ 1067 0335 0F       		.byte	15
+ 1068 0336 780A3F00 		.ascii	"x\012?\000"
+ 1069 033a 0000     		.space	2
+ 1070 033c 00010000 		.word	.LC39
+ 1071 0340 00000000 		.word	cmdztest
+ 1072 0344 FE       		.byte	-2
+ 1073 0345 1F       		.byte	31
+ 1074 0346 14783D3F 		.ascii	"\024x=?\000"
+ 1074      00
+ 1075 034b 00       		.space	1
+ARM GAS  /tmp/ccbMYxnF.s 			page 24
+
+
+ 1076 034c 08010000 		.word	.LC40
+ 1077 0350 00000000 		.word	cmdztest
+ 1078 0354 FE       		.byte	-2
+ 1079 0355 1F       		.byte	31
+ 1080 0356 14780B3F 		.ascii	"\024x\013?\000"
+ 1080      00
+ 1081 035b 00       		.space	1
+ 1082 035c 10010000 		.word	.LC41
+ 1083 0360 00000000 		.word	cmdskip
+ 1084 0364 FF       		.byte	-1
+ 1085 0365 00       		.byte	0
+ 1086 0366 534B4950 		.ascii	"SKIP\000"
+ 1086      00
+ 1087 036b 00       		.space	1
+ 1088 036c 00000000 		.word	0
+ 1089 0370 00000000 		.word	cmdback
+ 1090 0374 FF       		.byte	-1
+ 1091 0375 00       		.byte	0
+ 1092 0376 4241434B 		.ascii	"BACK\000"
+ 1092      00
+ 1093 037b 00       		.space	1
+ 1094 037c 00000000 		.word	0
+ 1095 0380 00000000 		.word	cmdskip
+ 1096 0384 FF       		.byte	-1
+ 1097 0385 00       		.byte	0
+ 1098 0386 42535246 		.ascii	"BSRF\000"
+ 1098      00
+ 1099 038b 00       		.space	1
+ 1100 038c 00000000 		.word	0
+ 1101 0390 00000000 		.word	cmdback
+ 1102 0394 FF       		.byte	-1
+ 1103 0395 00       		.byte	0
+ 1104 0396 42535242 		.ascii	"BSRB\000"
+ 1104      00
+ 1105 039b 00       		.space	1
+ 1106 039c 00000000 		.word	0
+ 1107 03a0 00000000 		.word	cmdloop
+ 1108 03a4 FF       		.byte	-1
+ 1109 03a5 0F       		.byte	15
+ 1110 03a6 44534500 		.ascii	"DSE\000"
+ 1111 03aa 0000     		.space	2
+ 1112 03ac 00000000 		.word	0
+ 1113 03b0 00000000 		.word	cmdloop
+ 1114 03b4 FF       		.byte	-1
+ 1115 03b5 0F       		.byte	15
+ 1116 03b6 49534700 		.ascii	"ISG\000"
+ 1117 03ba 0000     		.space	2
+ 1118 03bc 00000000 		.word	0
+ 1119 03c0 00000000 		.word	cmdloop
+ 1120 03c4 FF       		.byte	-1
+ 1121 03c5 0F       		.byte	15
+ 1122 03c6 44534C00 		.ascii	"DSL\000"
+ 1123 03ca 0000     		.space	2
+ 1124 03cc 00000000 		.word	0
+ 1125 03d0 00000000 		.word	cmdloop
+ 1126 03d4 FF       		.byte	-1
+ 1127 03d5 0F       		.byte	15
+ARM GAS  /tmp/ccbMYxnF.s 			page 25
+
+
+ 1128 03d6 49534500 		.ascii	"ISE\000"
+ 1129 03da 0000     		.space	2
+ 1130 03dc 00000000 		.word	0
+ 1131 03e0 00000000 		.word	cmdloopz
+ 1132 03e4 FF       		.byte	-1
+ 1133 03e5 0F       		.byte	15
+ 1134 03e6 44535A00 		.ascii	"DSZ\000"
+ 1135 03ea 0000     		.space	2
+ 1136 03ec 00000000 		.word	0
+ 1137 03f0 00000000 		.word	cmdloopz
+ 1138 03f4 FF       		.byte	-1
+ 1139 03f5 0F       		.byte	15
+ 1140 03f6 49535A00 		.ascii	"ISZ\000"
+ 1141 03fa 0000     		.space	2
+ 1142 03fc 00000000 		.word	0
+ 1143 0400 00000000 		.word	cmdlincdec
+ 1144 0404 FF       		.byte	-1
+ 1145 0405 0F       		.byte	15
+ 1146 0406 44454300 		.ascii	"DEC\000"
+ 1147 040a 0000     		.space	2
+ 1148 040c 00000000 		.word	0
+ 1149 0410 00000000 		.word	cmdlincdec
+ 1150 0414 FF       		.byte	-1
+ 1151 0415 0F       		.byte	15
+ 1152 0416 494E4300 		.ascii	"INC\000"
+ 1153 041a 0000     		.space	2
+ 1154 041c 00000000 		.word	0
+ 1155 0420 00000000 		.word	0
+ 1156 0424 67       		.byte	103
+ 1157 0425 20       		.byte	32
+ 1158 0426 4C424C00 		.ascii	"LBL\000"
+ 1159 042a 0000     		.space	2
+ 1160 042c 00000000 		.word	0
+ 1161 0430 00000000 		.word	cmdlblp
+ 1162 0434 67       		.byte	103
+ 1163 0435 21       		.byte	33
+ 1164 0436 4C424C3F 		.ascii	"LBL?\000"
+ 1164      00
+ 1165 043b 00       		.space	1
+ 1166 043c 00000000 		.word	0
+ 1167 0440 00000000 		.word	cmdgto
+ 1168 0444 67       		.byte	103
+ 1169 0445 21       		.byte	33
+ 1170 0446 58455100 		.ascii	"XEQ\000"
+ 1171 044a 0000     		.space	2
+ 1172 044c 00000000 		.word	0
+ 1173 0450 00000000 		.word	cmdgto
+ 1174 0454 67       		.byte	103
+ 1175 0455 21       		.byte	33
+ 1176 0456 47544F00 		.ascii	"GTO\000"
+ 1177 045a 0000     		.space	2
+ 1178 045c 00000000 		.word	0
+ 1179 0460 F6050000 		.word	xrom+1526
+ 1180 0464 67       		.byte	103
+ 1181 0465 21       		.byte	33
+ 1182 0466 9100     		.ascii	"\221\000"
+ 1183 0468 00000000 		.space	4
+ARM GAS  /tmp/ccbMYxnF.s 			page 26
+
+
+ 1184 046c 00000000 		.word	.LC0
+ 1185 0470 38060000 		.word	xrom+1592
+ 1186 0474 67       		.byte	103
+ 1187 0475 21       		.byte	33
+ 1188 0476 8F00     		.ascii	"\217\000"
+ 1189 0478 00000000 		.space	4
+ 1190 047c 04000000 		.word	.LC1
+ 1191 0480 24000000 		.word	xrom+36
+ 1192 0484 67       		.byte	103
+ 1193 0485 21       		.byte	33
+ 1194 0486 534C5600 		.ascii	"SLV\000"
+ 1195 048a 0000     		.space	2
+ 1196 048c 00000000 		.word	0
+ 1197 0490 1C050000 		.word	xrom+1308
+ 1198 0494 67       		.byte	103
+ 1199 0495 21       		.byte	33
+ 1200 0496 66272878 		.ascii	"f'(x)\000"
+ 1200      2900
+ 1201 049c 00000000 		.word	0
+ 1202 04a0 90040000 		.word	xrom+1168
+ 1203 04a4 67       		.byte	103
+ 1204 04a5 21       		.byte	33
+ 1205 04a6 66222878 		.ascii	"f\"(x)\000"
+ 1205      2900
+ 1206 04ac 00000000 		.word	0
+ 1207 04b0 82020000 		.word	xrom+642
+ 1208 04b4 67       		.byte	103
+ 1209 04b5 21       		.byte	33
+ 1210 04b6 0400     		.ascii	"\004\000"
+ 1211 04b8 00000000 		.space	4
+ 1212 04bc 0C000000 		.word	.LC2
+ 1213 04c0 00000000 		.word	cmddisp
+ 1214 04c4 0B       		.byte	11
+ 1215 04c5 01       		.byte	1
+ 1216 04c6 414C4C00 		.ascii	"ALL\000"
+ 1217 04ca 0000     		.space	2
+ 1218 04cc 00000000 		.word	0
+ 1219 04d0 00000000 		.word	cmddisp
+ 1220 04d4 0B       		.byte	11
+ 1221 04d5 01       		.byte	1
+ 1222 04d6 46495800 		.ascii	"FIX\000"
+ 1223 04da 0000     		.space	2
+ 1224 04dc 00000000 		.word	0
+ 1225 04e0 00000000 		.word	cmddisp
+ 1226 04e4 0B       		.byte	11
+ 1227 04e5 01       		.byte	1
+ 1228 04e6 53434900 		.ascii	"SCI\000"
+ 1229 04ea 0000     		.space	2
+ 1230 04ec 00000000 		.word	0
+ 1231 04f0 00000000 		.word	cmddisp
+ 1232 04f4 0B       		.byte	11
+ 1233 04f5 01       		.byte	1
+ 1234 04f6 454E4700 		.ascii	"ENG\000"
+ 1235 04fa 0000     		.space	2
+ 1236 04fc 00000000 		.word	0
+ 1237 0500 00000000 		.word	cmddisp
+ 1238 0504 0B       		.byte	11
+ARM GAS  /tmp/ccbMYxnF.s 			page 27
+
+
+ 1239 0505 01       		.byte	1
+ 1240 0506 44495350 		.ascii	"DISP\000"
+ 1240      00
+ 1241 050b 00       		.space	1
+ 1242 050c 00000000 		.word	0
+ 1243 0510 00000000 		.word	cmdflag
+ 1244 0514 7F       		.byte	127
+ 1245 0515 4D       		.byte	77
+ 1246 0516 534600   		.ascii	"SF\000"
+ 1247 0519 000000   		.space	3
+ 1248 051c 00000000 		.word	0
+ 1249 0520 00000000 		.word	cmdflag
+ 1250 0524 7F       		.byte	127
+ 1251 0525 4D       		.byte	77
+ 1252 0526 434600   		.ascii	"CF\000"
+ 1253 0529 000000   		.space	3
+ 1254 052c 00000000 		.word	0
+ 1255 0530 00000000 		.word	cmdflag
+ 1256 0534 7F       		.byte	127
+ 1257 0535 4D       		.byte	77
+ 1258 0536 464600   		.ascii	"FF\000"
+ 1259 0539 000000   		.space	3
+ 1260 053c 00000000 		.word	0
+ 1261 0540 00000000 		.word	cmdflag
+ 1262 0544 7F       		.byte	127
+ 1263 0545 4D       		.byte	77
+ 1264 0546 46533F00 		.ascii	"FS?\000"
+ 1265 054a 0000     		.space	2
+ 1266 054c 00000000 		.word	0
+ 1267 0550 00000000 		.word	cmdflag
+ 1268 0554 7F       		.byte	127
+ 1269 0555 4D       		.byte	77
+ 1270 0556 46433F00 		.ascii	"FC?\000"
+ 1271 055a 0000     		.space	2
+ 1272 055c 00000000 		.word	0
+ 1273 0560 00000000 		.word	cmdflag
+ 1274 0564 7F       		.byte	127
+ 1275 0565 4D       		.byte	77
+ 1276 0566 46533F43 		.ascii	"FS?C\000"
+ 1276      00
+ 1277 056b 00       		.space	1
+ 1278 056c 00000000 		.word	0
+ 1279 0570 00000000 		.word	cmdflag
+ 1280 0574 7F       		.byte	127
+ 1281 0575 4D       		.byte	77
+ 1282 0576 46533F53 		.ascii	"FS?S\000"
+ 1282      00
+ 1283 057b 00       		.space	1
+ 1284 057c 00000000 		.word	0
+ 1285 0580 00000000 		.word	cmdflag
+ 1286 0584 7F       		.byte	127
+ 1287 0585 4D       		.byte	77
+ 1288 0586 46533F46 		.ascii	"FS?F\000"
+ 1288      00
+ 1289 058b 00       		.space	1
+ 1290 058c 00000000 		.word	0
+ 1291 0590 00000000 		.word	cmdflag
+ARM GAS  /tmp/ccbMYxnF.s 			page 28
+
+
+ 1292 0594 7F       		.byte	127
+ 1293 0595 4D       		.byte	77
+ 1294 0596 46433F43 		.ascii	"FC?C\000"
+ 1294      00
+ 1295 059b 00       		.space	1
+ 1296 059c 00000000 		.word	0
+ 1297 05a0 00000000 		.word	cmdflag
+ 1298 05a4 7F       		.byte	127
+ 1299 05a5 4D       		.byte	77
+ 1300 05a6 46433F53 		.ascii	"FC?S\000"
+ 1300      00
+ 1301 05ab 00       		.space	1
+ 1302 05ac 00000000 		.word	0
+ 1303 05b0 00000000 		.word	cmdflag
+ 1304 05b4 7F       		.byte	127
+ 1305 05b5 4D       		.byte	77
+ 1306 05b6 46433F46 		.ascii	"FC?F\000"
+ 1306      00
+ 1307 05bb 00       		.space	1
+ 1308 05bc 00000000 		.word	0
+ 1309 05c0 00000000 		.word	intws
+ 1310 05c4 40       		.byte	64
+ 1311 05c5 01       		.byte	1
+ 1312 05c6 5753495A 		.ascii	"WSIZE\000"
+ 1312      4500
+ 1313 05cc 00000000 		.word	0
+ 1314 05d0 00000000 		.word	introt
+ 1315 05d4 3F       		.byte	63
+ 1316 05d5 01       		.byte	1
+ 1317 05d6 524C00   		.ascii	"RL\000"
+ 1318 05d9 000000   		.space	3
+ 1319 05dc 00000000 		.word	0
+ 1320 05e0 00000000 		.word	introt
+ 1321 05e4 3F       		.byte	63
+ 1322 05e5 01       		.byte	1
+ 1323 05e6 525200   		.ascii	"RR\000"
+ 1324 05e9 000000   		.space	3
+ 1325 05ec 00000000 		.word	0
+ 1326 05f0 00000000 		.word	introt
+ 1327 05f4 40       		.byte	64
+ 1328 05f5 01       		.byte	1
+ 1329 05f6 524C4300 		.ascii	"RLC\000"
+ 1330 05fa 0000     		.space	2
+ 1331 05fc 00000000 		.word	0
+ 1332 0600 00000000 		.word	introt
+ 1333 0604 40       		.byte	64
+ 1334 0605 01       		.byte	1
+ 1335 0606 52524300 		.ascii	"RRC\000"
+ 1336 060a 0000     		.space	2
+ 1337 060c 00000000 		.word	0
+ 1338 0610 00000000 		.word	introt
+ 1339 0614 40       		.byte	64
+ 1340 0615 01       		.byte	1
+ 1341 0616 534C00   		.ascii	"SL\000"
+ 1342 0619 000000   		.space	3
+ 1343 061c 00000000 		.word	0
+ 1344 0620 00000000 		.word	introt
+ARM GAS  /tmp/ccbMYxnF.s 			page 29
+
+
+ 1345 0624 40       		.byte	64
+ 1346 0625 01       		.byte	1
+ 1347 0626 535200   		.ascii	"SR\000"
+ 1348 0629 000000   		.space	3
+ 1349 062c 00000000 		.word	0
+ 1350 0630 00000000 		.word	introt
+ 1351 0634 40       		.byte	64
+ 1352 0635 01       		.byte	1
+ 1353 0636 41535200 		.ascii	"ASR\000"
+ 1354 063a 0000     		.space	2
+ 1355 063c 00000000 		.word	0
+ 1356 0640 00000000 		.word	intbits
+ 1357 0644 3F       		.byte	63
+ 1358 0645 01       		.byte	1
+ 1359 0646 534200   		.ascii	"SB\000"
+ 1360 0649 000000   		.space	3
+ 1361 064c 00000000 		.word	0
+ 1362 0650 00000000 		.word	intbits
+ 1363 0654 3F       		.byte	63
+ 1364 0655 01       		.byte	1
+ 1365 0656 434200   		.ascii	"CB\000"
+ 1366 0659 000000   		.space	3
+ 1367 065c 00000000 		.word	0
+ 1368 0660 00000000 		.word	intbits
+ 1369 0664 3F       		.byte	63
+ 1370 0665 01       		.byte	1
+ 1371 0666 464200   		.ascii	"FB\000"
+ 1372 0669 000000   		.space	3
+ 1373 066c 00000000 		.word	0
+ 1374 0670 00000000 		.word	intbits
+ 1375 0674 3F       		.byte	63
+ 1376 0675 01       		.byte	1
+ 1377 0676 42533F00 		.ascii	"BS?\000"
+ 1378 067a 0000     		.space	2
+ 1379 067c 00000000 		.word	0
+ 1380 0680 00000000 		.word	intbits
+ 1381 0684 3F       		.byte	63
+ 1382 0685 01       		.byte	1
+ 1383 0686 42433F00 		.ascii	"BC?\000"
+ 1384 068a 0000     		.space	2
+ 1385 068c 00000000 		.word	0
+ 1386 0690 00000000 		.word	intmsks
+ 1387 0694 40       		.byte	64
+ 1388 0695 01       		.byte	1
+ 1389 0696 4D41534B 		.ascii	"MASKL\000"
+ 1389      4C00
+ 1390 069c 00000000 		.word	0
+ 1391 06a0 00000000 		.word	intmsks
+ 1392 06a4 40       		.byte	64
+ 1393 06a5 01       		.byte	1
+ 1394 06a6 4D41534B 		.ascii	"MASKR\000"
+ 1394      5200
+ 1395 06ac 00000000 		.word	0
+ 1396 06b0 00000000 		.word	set_int_base
+ 1397 06b4 10       		.byte	16
+ 1398 06b5 01       		.byte	1
+ 1399 06b6 42415345 		.ascii	"BASE\000"
+ARM GAS  /tmp/ccbMYxnF.s 			page 30
+
+
+ 1399      00
+ 1400 06bb 00       		.space	1
+ 1401 06bc 00000000 		.word	0
+ 1402 06c0 00000000 		.word	cmdconv
+ 1403 06c4 4B       		.byte	75
+ 1404 06c5 00       		.byte	0
+ 1405 06c6 636F6E76 		.ascii	"conv\000"
+ 1405      00
+ 1406 06cb 00       		.space	1
+ 1407 06cc 00000000 		.word	0
+ 1408 06d0 00000000 		.word	cmdpause
+ 1409 06d4 63       		.byte	99
+ 1410 06d5 01       		.byte	1
+ 1411 06d6 50534500 		.ascii	"PSE\000"
+ 1412 06da 0000     		.space	2
+ 1413 06dc 00000000 		.word	0
+ 1414 06e0 00000000 		.word	cmdkeyp
+ 1415 06e4 FF       		.byte	-1
+ 1416 06e5 0F       		.byte	15
+ 1417 06e6 4B45593F 		.ascii	"KEY?\000"
+ 1417      00
+ 1418 06eb 00       		.space	1
+ 1419 06ec 00000000 		.word	0
+ 1420 06f0 00000000 		.word	cmdalphagto
+ 1421 06f4 FF       		.byte	-1
+ 1422 06f5 0F       		.byte	15
+ 1423 06f6 A0584551 		.ascii	"\240XEQ\000"
+ 1423      00
+ 1424 06fb 00       		.space	1
+ 1425 06fc 18010000 		.word	.LC42
+ 1426 0700 00000000 		.word	cmdalphagto
+ 1427 0704 FF       		.byte	-1
+ 1428 0705 0F       		.byte	15
+ 1429 0706 A047544F 		.ascii	"\240GTO\000"
+ 1429      00
+ 1430 070b 00       		.space	1
+ 1431 070c 20010000 		.word	.LC43
+ 1432 0710 00000000 		.word	op_shift_digit
+ 1433 0714 FF       		.byte	-1
+ 1434 0715 01       		.byte	1
+ 1435 0716 53444C00 		.ascii	"SDL\000"
+ 1436 071a 0000     		.space	2
+ 1437 071c 00000000 		.word	0
+ 1438 0720 00000000 		.word	op_shift_digit
+ 1439 0724 FF       		.byte	-1
+ 1440 0725 01       		.byte	1
+ 1441 0726 53445200 		.ascii	"SDR\000"
+ 1442 072a 0000     		.space	2
+ 1443 072c 00000000 		.word	0
+ 1444 0730 00000000 		.word	alpha_view_reg
+ 1445 0734 FF       		.byte	-1
+ 1446 0735 0F       		.byte	15
+ 1447 0736 5657A02B 		.ascii	"VW\240+\000"
+ 1447      00
+ 1448 073b 00       		.space	1
+ 1449 073c 28010000 		.word	.LC44
+ 1450 0740 00000000 		.word	rarg_roundingmode
+ARM GAS  /tmp/ccbMYxnF.s 			page 31
+
+
+ 1451 0744 06       		.byte	6
+ 1452 0745 01       		.byte	1
+ 1453 0746 524D00   		.ascii	"RM\000"
+ 1454 0749 000000   		.space	3
+ 1455 074c 00000000 		.word	0
+ 1456 0750 00000000 		.word	rarg_round
+ 1457 0754 22       		.byte	34
+ 1458 0755 01       		.byte	1
+ 1459 0756 52534400 		.ascii	"RSD\000"
+ 1460 075a 0000     		.space	2
+ 1461 075c 00000000 		.word	0
+ 1462 0760 00000000 		.word	rarg_round
+ 1463 0764 63       		.byte	99
+ 1464 0765 01       		.byte	1
+ 1465 0766 52445000 		.ascii	"RDP\000"
+ 1466 076a 0000     		.space	2
+ 1467 076c 00000000 		.word	0
+ 1468 0770 00000000 		.word	cmdsavem
+ 1469 0774 FF       		.byte	-1
+ 1470 0775 0F       		.byte	15
+ 1471 0776 53544F4D 		.ascii	"STOM\000"
+ 1471      00
+ 1472 077b 00       		.space	1
+ 1473 077c 00000000 		.word	0
+ 1474 0780 00000000 		.word	cmdrestm
+ 1475 0784 FF       		.byte	-1
+ 1476 0785 0F       		.byte	15
+ 1477 0786 52434C4D 		.ascii	"RCLM\000"
+ 1477      00
+ 1478 078b 00       		.space	1
+ 1479 078c 00000000 		.word	0
+ 1480 0790 00000000 		.word	cmdputkey
+ 1481 0794 FF       		.byte	-1
+ 1482 0795 0F       		.byte	15
+ 1483 0796 5055544B 		.ascii	"PUTK\000"
+ 1483      00
+ 1484 079b 00       		.space	1
+ 1485 079c 00000000 		.word	0
+ 1486 07a0 00000000 		.word	cmdkeytype
+ 1487 07a4 FF       		.byte	-1
+ 1488 07a5 0F       		.byte	15
+ 1489 07a6 4B54503F 		.ascii	"KTP?\000"
+ 1489      00
+ 1490 07ab 00       		.space	1
+ 1491 07ac 00000000 		.word	0
+ 1492 07b0 00000000 		.word	cmdmsg
+ 1493 07b4 1A       		.byte	26
+ 1494 07b5 01       		.byte	1
+ 1495 07b6 4D534700 		.ascii	"MSG\000"
+ 1496 07ba 0000     		.space	2
+ 1497 07bc 00000000 		.word	0
+ 1498 07c0 00000000 		.word	cmdlocr
+ 1499 07c4 90       		.byte	-112
+ 1500 07c5 01       		.byte	1
+ 1501 07c6 4C6F6352 		.ascii	"LocR\000"
+ 1501      00
+ 1502 07cb 00       		.space	1
+ARM GAS  /tmp/ccbMYxnF.s 			page 32
+
+
+ 1503 07cc 00000000 		.word	0
+ 1504 07d0 00000000 		.word	cmdregs
+ 1505 07d4 64       		.byte	100
+ 1506 07d5 01       		.byte	1
+ 1507 07d6 52454753 		.ascii	"REGS\000"
+ 1507      00
+ 1508 07db 00       		.space	1
+ 1509 07dc 00000000 		.word	0
+ 1510 07e0 00000000 		.word	cmdircl
+ 1511 07e4 FF       		.byte	-1
+ 1512 07e5 0F       		.byte	15
+ 1513 07e6 6952434C 		.ascii	"iRCL\000"
+ 1513      00
+ 1514 07eb 00       		.space	1
+ 1515 07ec 00000000 		.word	0
+ 1516 07f0 00000000 		.word	cmdrrcl
+ 1517 07f4 FF       		.byte	-1
+ 1518 07f5 0F       		.byte	15
+ 1519 07f6 7352434C 		.ascii	"sRCL\000"
+ 1519      00
+ 1520 07fb 00       		.space	1
+ 1521 07fc 00000000 		.word	0
+ 1522 0800 00000000 		.word	cmdrrcl
+ 1523 0804 FF       		.byte	-1
+ 1524 0805 0F       		.byte	15
+ 1525 0806 6452434C 		.ascii	"dRCL\000"
+ 1525      00
+ 1526 080b 00       		.space	1
+ 1527 080c 00000000 		.word	0
+ 1528 0810 00000000 		.word	cmdmode
+ 1529 0814 3F       		.byte	63
+ 1530 0815 01       		.byte	1
+ 1531 0816 784D5345 		.ascii	"xMSET\000"
+ 1531      5400
+ 1532 081c 00000000 		.word	0
+ 1533 0820 00000000 		.word	cmdmode
+ 1534 0824 3F       		.byte	63
+ 1535 0825 01       		.byte	1
+ 1536 0826 784D434C 		.ascii	"xMCLR\000"
+ 1536      5200
+ 1537 082c 00000000 		.word	0
+ 1538 0830 00000000 		.word	cmdxin
+ 1539 0834 FF       		.byte	-1
+ 1540 0835 00       		.byte	0
+ 1541 0836 78494E00 		.ascii	"xIN\000"
+ 1542 083a 0000     		.space	2
+ 1543 083c 00000000 		.word	0
+ 1544 0840 00000000 		.word	cmdxout
+ 1545 0844 FF       		.byte	-1
+ 1546 0845 00       		.byte	0
+ 1547 0846 784F5554 		.ascii	"xOUT\000"
+ 1547      00
+ 1548 084b 00       		.space	1
+ 1549 084c 00000000 		.word	0
+ 1550 0850 00000000 		.word	cmdconverged
+ 1551 0854 1F       		.byte	31
+ 1552 0855 00       		.byte	0
+ARM GAS  /tmp/ccbMYxnF.s 			page 33
+
+
+ 1553 0856 434E5647 		.ascii	"CNVG?\000"
+ 1553      3F00
+ 1554 085c 00000000 		.word	0
+ 1555 0860 00000000 		.word	cmdshuffle
+ 1556 0864 FF       		.byte	-1
+ 1557 0865 00       		.byte	0
+ 1558 0866 1700     		.ascii	"\027\000"
+ 1559 0868 00000000 		.space	4
+ 1560 086c 30010000 		.word	.LC45
+ 1561 0870 00000000 		.word	cmdconst
+ 1562 0874 FF       		.byte	-1
+ 1563 0875 00       		.byte	0
+ 1564 0876 2300     		.ascii	"#\000"
+ 1565 0878 00000000 		.space	4
+ 1566 087c 00000000 		.word	0
+ 1567 0880 00000000 		.word	cmdconst
+ 1568 0884 FF       		.byte	-1
+ 1569 0885 00       		.byte	0
+ 1570 0886 142300   		.ascii	"\024#\000"
+ 1571 0889 000000   		.space	3
+ 1572 088c 1C000000 		.word	.LC5
+ 1573 0890 00000000 		.word	cmdconst
+ 1574 0894 69       		.byte	105
+ 1575 0895 01       		.byte	1
+ 1576 0896 434E5354 		.ascii	"CNST\000"
+ 1576      00
+ 1577 089b 00       		.space	1
+ 1578 089c 00000000 		.word	0
+ 1579 08a0 00000000 		.word	cmdconst
+ 1580 08a4 69       		.byte	105
+ 1581 08a5 01       		.byte	1
+ 1582 08a6 14434E53 		.ascii	"\024CNST\000"
+ 1582      5400
+ 1583 08ac 34010000 		.word	.LC46
+ 1584 08b0 00000000 		.word	cmdprintreg
+ 1585 08b4 FF       		.byte	-1
+ 1586 08b5 0F       		.byte	15
+ 1587 08b6 927200   		.ascii	"\222r\000"
+ 1588 08b9 000000   		.space	3
+ 1589 08bc 3C010000 		.word	.LC47
+ 1590 08c0 00000000 		.word	cmdprint
+ 1591 08c4 FF       		.byte	-1
+ 1592 08c5 01       		.byte	1
+ 1593 08c6 922300   		.ascii	"\222#\000"
+ 1594 08c9 000000   		.space	3
+ 1595 08cc 40010000 		.word	.LC48
+ 1596 08d0 00000000 		.word	cmdprint
+ 1597 08d4 FF       		.byte	-1
+ 1598 08d5 01       		.byte	1
+ 1599 08d6 92434852 		.ascii	"\222CHR\000"
+ 1599      00
+ 1600 08db 00       		.space	1
+ 1601 08dc 44010000 		.word	.LC49
+ 1602 08e0 00000000 		.word	cmdprint
+ 1603 08e4 A5       		.byte	-91
+ 1604 08e5 01       		.byte	1
+ 1605 08e6 92544142 		.ascii	"\222TAB\000"
+ARM GAS  /tmp/ccbMYxnF.s 			page 34
+
+
+ 1605      00
+ 1606 08eb 00       		.space	1
+ 1607 08ec 4C010000 		.word	.LC50
+ 1608 08f0 00000000 		.word	cmdprintmode
+ 1609 08f4 03       		.byte	3
+ 1610 08f5 01       		.byte	1
+ 1611 08f6 924D4F44 		.ascii	"\222MODE\000"
+ 1611      4500
+ 1612 08fc 54010000 		.word	.LC51
+ 1613 0900 00000000 		.word	cmdprintmode
+ 1614 0904 1F       		.byte	31
+ 1615 0905 01       		.byte	1
+ 1616 0906 92444C41 		.ascii	"\222DLAY\000"
+ 1616      5900
+ 1617 090c 5C010000 		.word	.LC52
+ 1618 0910 00000000 		.word	cmdprintcmplxreg
+ 1619 0914 FE       		.byte	-2
+ 1620 0915 1F       		.byte	31
+ 1621 0916 9214728B 		.ascii	"\222\024r\213\214\000"
+ 1621      8C00
+ 1622 091c 64010000 		.word	.LC53
+ 1623 0920 00000000 		.word	cmdskip
+ 1624 0924 FF       		.byte	-1
+ 1625 0925 0F       		.byte	15
+ 1626 0926 43415345 		.ascii	"CASE\000"
+ 1626      00
+ 1627 092b 00       		.space	1
+ 1628 092c 00000000 		.word	0
+ 1629 0930 00000000 		.word	cmdview
+ 1630 0934 FE       		.byte	-2
+ 1631 0935 1F       		.byte	31
+ 1632 0936 14564945 		.ascii	"\024VIEW\000"
+ 1632      5700
+ 1633 093c 6C010000 		.word	.LC54
+ 1634 0940 00000000 		.word	cmddisp
+ 1635 0944 07       		.byte	7
+ 1636 0945 01       		.byte	1
+ 1637 0946 53494700 		.ascii	"SIG\000"
+ 1638 094a 0000     		.space	2
+ 1639 094c 00000000 		.word	0
+ 1640 0950 00000000 		.word	cmddisp
+ 1641 0954 07       		.byte	7
+ 1642 0955 01       		.byte	1
+ 1643 0956 53494730 		.ascii	"SIG0\000"
+ 1643      00
+ 1644 095b 00       		.space	1
+ 1645 095c 00000000 		.word	0
+ 1646 0960 00000000 		.word	cmdprintmode
+ 1647 0964 01       		.byte	1
+ 1648 0965 01       		.byte	1
+ 1649 0966 92444253 		.ascii	"\222DBSP\000"
+ 1649      5000
+ 1650 096c 74010000 		.word	.LC55
+ 1651              		.section	.rodata.dyfuncs,"a"
+ 1652              		.align	2
+ 1655              	dyfuncs:
+ 1656 0000 00000000 		.word	dn_power
+ARM GAS  /tmp/ccbMYxnF.s 			page 35
+
+
+ 1657 0004 00000000 		.word	cmplxPower
+ 1658 0008 00000000 		.word	intPower
+ 1659 000c 799C00   		.ascii	"y\234\000"
+ 1660 000f 000000   		.space	3
+ 1661 0012 0000     		.space	2
+ 1662 0014 BC030000 		.word	.LC132
+ 1663 0018 00000000 		.word	dn_add
+ 1664 001c 00000000 		.word	cmplxAdd
+ 1665 0020 00000000 		.word	intAdd
+ 1666 0024 2B00     		.ascii	"+\000"
+ 1667 0026 00000000 		.space	4
+ 1668 002a 0000     		.space	2
+ 1669 002c 00000000 		.word	0
+ 1670 0030 00000000 		.word	dn_subtract
+ 1671 0034 00000000 		.word	cmplxSubtract
+ 1672 0038 00000000 		.word	intSubtract
+ 1673 003c 2D00     		.ascii	"-\000"
+ 1674 003e 00000000 		.space	4
+ 1675 0042 0000     		.space	2
+ 1676 0044 00000000 		.word	0
+ 1677 0048 00000000 		.word	dn_multiply
+ 1678 004c 00000000 		.word	cmplxMultiply
+ 1679 0050 00000000 		.word	intMultiply
+ 1680 0054 1C00     		.ascii	"\034\000"
+ 1681 0056 00000000 		.space	4
+ 1682 005a 0000     		.space	2
+ 1683 005c C0030000 		.word	.LC133
+ 1684 0060 00000000 		.word	dn_divide
+ 1685 0064 00000000 		.word	cmplxDivide
+ 1686 0068 00000000 		.word	intDivide
+ 1687 006c 2F00     		.ascii	"/\000"
+ 1688 006e 00000000 		.space	4
+ 1689 0072 0000     		.space	2
+ 1690 0074 00000000 		.word	0
+ 1691 0078 38190000 		.word	xrom+6456
+ 1692 007c 82170000 		.word	xrom+6018
+ 1693 0080 00000000 		.word	intDivide
+ 1694 0084 49444956 		.ascii	"IDIV\000"
+ 1694      00
+ 1695 0089 00       		.space	1
+ 1696 008a 0000     		.space	2
+ 1697 008c 00000000 		.word	0
+ 1698 0090 00000000 		.word	decNumberBigMod
+ 1699 0094 00000000 		.word	0
+ 1700 0098 00000000 		.word	intMod
+ 1701 009c 524D4452 		.ascii	"RMDR\000"
+ 1701      00
+ 1702 00a1 00       		.space	1
+ 1703 00a2 0000     		.space	2
+ 1704 00a4 00000000 		.word	0
+ 1705 00a8 00000000 		.word	decNumberBigMod
+ 1706 00ac 00000000 		.word	0
+ 1707 00b0 00000000 		.word	intMod
+ 1708 00b4 4D4F4400 		.ascii	"MOD\000"
+ 1709 00b8 0000     		.space	2
+ 1710 00ba 0000     		.space	2
+ 1711 00bc 00000000 		.word	0
+ARM GAS  /tmp/ccbMYxnF.s 			page 36
+
+
+ 1712 00c0 00000000 		.word	decNumberLogxy
+ 1713 00c4 A2180000 		.word	xrom+6306
+ 1714 00c8 00000000 		.word	intDyadic
+ 1715 00cc 4C4F478B 		.ascii	"LOG\213\000"
+ 1715      00
+ 1716 00d1 00       		.space	1
+ 1717 00d2 0000     		.space	2
+ 1718 00d4 C4030000 		.word	.LC134
+ 1719 00d8 00000000 		.word	dn_min
+ 1720 00dc 00000000 		.word	0
+ 1721 00e0 00000000 		.word	intMin
+ 1722 00e4 4D494E00 		.ascii	"MIN\000"
+ 1723 00e8 0000     		.space	2
+ 1724 00ea 0000     		.space	2
+ 1725 00ec 00000000 		.word	0
+ 1726 00f0 00000000 		.word	dn_max
+ 1727 00f4 00000000 		.word	0
+ 1728 00f8 00000000 		.word	intMax
+ 1729 00fc 4D415800 		.ascii	"MAX\000"
+ 1730 0100 0000     		.space	2
+ 1731 0102 0000     		.space	2
+ 1732 0104 00000000 		.word	0
+ 1733 0108 00000000 		.word	decNumberArcTan2
+ 1734 010c 00000000 		.word	0
+ 1735 0110 00000000 		.word	0
+ 1736 0114 414E474C 		.ascii	"ANGLE\000"
+ 1736      4500
+ 1737 011a 0000     		.space	2
+ 1738 011c 00000000 		.word	0
+ 1739 0120 3C080000 		.word	xrom+2108
+ 1740 0124 50080000 		.word	xrom+2128
+ 1741 0128 00000000 		.word	0
+ 1742 012c A100     		.ascii	"\241\000"
+ 1743 012e 00000000 		.space	4
+ 1744 0132 0000     		.space	2
+ 1745 0134 CC030000 		.word	.LC135
+ 1746 0138 00000000 		.word	decNumberLnBeta
+ 1747 013c 64080000 		.word	xrom+2148
+ 1748 0140 00000000 		.word	0
+ 1749 0144 4C4EA100 		.ascii	"LN\241\000"
+ 1750 0148 0000     		.space	2
+ 1751 014a 0000     		.space	2
+ 1752 014c D4030000 		.word	.LC136
+ 1753 0150 00000000 		.word	decNumberGammap
+ 1754 0154 00000000 		.word	0
+ 1755 0158 00000000 		.word	0
+ 1756 015c A28B8C00 		.ascii	"\242\213\214\000"
+ 1757 0160 0000     		.space	2
+ 1758 0162 0000     		.space	2
+ 1759 0164 DC030000 		.word	.LC137
+ 1760 0168 00000000 		.word	decNumberGammap
+ 1761 016c 00000000 		.word	0
+ 1762 0170 00000000 		.word	0
+ 1763 0174 828B8C00 		.ascii	"\202\213\214\000"
+ 1764 0178 0000     		.space	2
+ 1765 017a 0000     		.space	2
+ 1766 017c E4030000 		.word	.LC138
+ARM GAS  /tmp/ccbMYxnF.s 			page 37
+
+
+ 1767 0180 00000000 		.word	decNumberGammap
+ 1768 0184 00000000 		.word	0
+ 1769 0188 00000000 		.word	0
+ 1770 018c 82BE00   		.ascii	"\202\276\000"
+ 1771 018f 000000   		.space	3
+ 1772 0192 0000     		.space	2
+ 1773 0194 EC030000 		.word	.LC139
+ 1774 0198 00000000 		.word	decNumberGammap
+ 1775 019c 00000000 		.word	0
+ 1776 01a0 00000000 		.word	0
+ 1777 01a4 829300   		.ascii	"\202\223\000"
+ 1778 01a7 000000   		.space	3
+ 1779 01aa 0000     		.space	2
+ 1780 01ac F4030000 		.word	.LC140
+ 1781 01b0 00000000 		.word	decNumberComb
+ 1782 01b4 10070000 		.word	xrom+1808
+ 1783 01b8 00000000 		.word	intDyadic
+ 1784 01bc 434F4D42 		.ascii	"COMB\000"
+ 1784      00
+ 1785 01c1 00       		.space	1
+ 1786 01c2 0000     		.space	2
+ 1787 01c4 00000000 		.word	0
+ 1788 01c8 00000000 		.word	decNumberPerm
+ 1789 01cc 0A070000 		.word	xrom+1802
+ 1790 01d0 00000000 		.word	intDyadic
+ 1791 01d4 5045524D 		.ascii	"PERM\000"
+ 1791      00
+ 1792 01d9 00       		.space	1
+ 1793 01da 0000     		.space	2
+ 1794 01dc 00000000 		.word	0
+ 1795 01e0 C8060000 		.word	xrom+1736
+ 1796 01e4 00000000 		.word	0
+ 1797 01e8 00000000 		.word	0
+ 1798 01ec 252B4D47 		.ascii	"%+MG\000"
+ 1798      00
+ 1799 01f1 00       		.space	1
+ 1800 01f2 0000     		.space	2
+ 1801 01f4 00000000 		.word	0
+ 1802 01f8 B4060000 		.word	xrom+1716
+ 1803 01fc 00000000 		.word	0
+ 1804 0200 00000000 		.word	0
+ 1805 0204 254D4700 		.ascii	"%MG\000"
+ 1806 0208 0000     		.space	2
+ 1807 020a 0000     		.space	2
+ 1808 020c 00000000 		.word	0
+ 1809 0210 78060000 		.word	xrom+1656
+ 1810 0214 8C060000 		.word	xrom+1676
+ 1811 0218 78060000 		.word	xrom+1656
+ 1812 021c 7C7C00   		.ascii	"||\000"
+ 1813 021f 000000   		.space	3
+ 1814 0222 0000     		.space	2
+ 1815 0224 00000000 		.word	0
+ 1816 0228 D4060000 		.word	xrom+1748
+ 1817 022c F4060000 		.word	xrom+1780
+ 1818 0230 00000000 		.word	0
+ 1819 0234 41474D00 		.ascii	"AGM\000"
+ 1820 0238 0000     		.space	2
+ARM GAS  /tmp/ccbMYxnF.s 			page 38
+
+
+ 1821 023a 0000     		.space	2
+ 1822 023c 00000000 		.word	0
+ 1823 0240 00000000 		.word	decNumberHMSAdd
+ 1824 0244 00000000 		.word	0
+ 1825 0248 00000000 		.word	0
+ 1826 024c 482E4D53 		.ascii	"H.MS+\000"
+ 1826      2B00
+ 1827 0252 0000     		.space	2
+ 1828 0254 00000000 		.word	0
+ 1829 0258 00000000 		.word	decNumberHMSSub
+ 1830 025c 00000000 		.word	0
+ 1831 0260 00000000 		.word	0
+ 1832 0264 482E4D53 		.ascii	"H.MS-\000"
+ 1832      2D00
+ 1833 026a 0000     		.space	2
+ 1834 026c 00000000 		.word	0
+ 1835 0270 00000000 		.word	decNumberGCD
+ 1836 0274 00000000 		.word	0
+ 1837 0278 00000000 		.word	intGCD
+ 1838 027c 47434400 		.ascii	"GCD\000"
+ 1839 0280 0000     		.space	2
+ 1840 0282 0000     		.space	2
+ 1841 0284 00000000 		.word	0
+ 1842 0288 00000000 		.word	decNumberLCM
+ 1843 028c 00000000 		.word	0
+ 1844 0290 00000000 		.word	intLCM
+ 1845 0294 4C434D00 		.ascii	"LCM\000"
+ 1846 0298 0000     		.space	2
+ 1847 029a 0000     		.space	2
+ 1848 029c 00000000 		.word	0
+ 1849 02a0 00000000 		.word	decNumberBooleanOp
+ 1850 02a4 00000000 		.word	0
+ 1851 02a8 00000000 		.word	intBooleanOp
+ 1852 02ac 414E4400 		.ascii	"AND\000"
+ 1853 02b0 0000     		.space	2
+ 1854 02b2 0000     		.space	2
+ 1855 02b4 00000000 		.word	0
+ 1856 02b8 00000000 		.word	decNumberBooleanOp
+ 1857 02bc 00000000 		.word	0
+ 1858 02c0 00000000 		.word	intBooleanOp
+ 1859 02c4 4F5200   		.ascii	"OR\000"
+ 1860 02c7 000000   		.space	3
+ 1861 02ca 0000     		.space	2
+ 1862 02cc 00000000 		.word	0
+ 1863 02d0 00000000 		.word	decNumberBooleanOp
+ 1864 02d4 00000000 		.word	0
+ 1865 02d8 00000000 		.word	intBooleanOp
+ 1866 02dc 584F5200 		.ascii	"XOR\000"
+ 1867 02e0 0000     		.space	2
+ 1868 02e2 0000     		.space	2
+ 1869 02e4 00000000 		.word	0
+ 1870 02e8 00000000 		.word	decNumberBooleanOp
+ 1871 02ec 00000000 		.word	0
+ 1872 02f0 00000000 		.word	intBooleanOp
+ 1873 02f4 4E414E44 		.ascii	"NAND\000"
+ 1873      00
+ 1874 02f9 00       		.space	1
+ARM GAS  /tmp/ccbMYxnF.s 			page 39
+
+
+ 1875 02fa 0000     		.space	2
+ 1876 02fc 00000000 		.word	0
+ 1877 0300 00000000 		.word	decNumberBooleanOp
+ 1878 0304 00000000 		.word	0
+ 1879 0308 00000000 		.word	intBooleanOp
+ 1880 030c 4E4F5200 		.ascii	"NOR\000"
+ 1881 0310 0000     		.space	2
+ 1882 0312 0000     		.space	2
+ 1883 0314 00000000 		.word	0
+ 1884 0318 00000000 		.word	decNumberBooleanOp
+ 1885 031c 00000000 		.word	0
+ 1886 0320 00000000 		.word	intBooleanOp
+ 1887 0324 584E4F52 		.ascii	"XNOR\000"
+ 1887      00
+ 1888 0329 00       		.space	1
+ 1889 032a 0000     		.space	2
+ 1890 032c 00000000 		.word	0
+ 1891 0330 F0140000 		.word	xrom+5360
+ 1892 0334 00000000 		.word	0
+ 1893 0338 00000000 		.word	0
+ 1894 033c 44415953 		.ascii	"DAYS+\000"
+ 1894      2B00
+ 1895 0342 0000     		.space	2
+ 1896 0344 00000000 		.word	0
+ 1897 0348 E4140000 		.word	xrom+5348
+ 1898 034c 00000000 		.word	0
+ 1899 0350 00000000 		.word	0
+ 1900 0354 83444159 		.ascii	"\203DAYS\000"
+ 1900      5300
+ 1901 035a 0000     		.space	2
+ 1902 035c FC030000 		.word	.LC141
+ 1903 0360 78130000 		.word	xrom+4984
+ 1904 0364 00000000 		.word	0
+ 1905 0368 00000000 		.word	0
+ 1906 036c 50BD00   		.ascii	"P\275\000"
+ 1907 036f 000000   		.space	3
+ 1908 0372 0000     		.space	2
+ 1909 0374 04040000 		.word	.LC142
+ 1910 0378 88130000 		.word	xrom+5000
+ 1911 037c 00000000 		.word	0
+ 1912 0380 00000000 		.word	0
+ 1913 0384 54BD00   		.ascii	"T\275\000"
+ 1914 0387 000000   		.space	3
+ 1915 038a 0000     		.space	2
+ 1916 038c 08040000 		.word	.LC143
+ 1917 0390 90130000 		.word	xrom+5008
+ 1918 0394 00000000 		.word	0
+ 1919 0398 00000000 		.word	0
+ 1920 039c 55BD00   		.ascii	"U\275\000"
+ 1921 039f 000000   		.space	3
+ 1922 03a2 0000     		.space	2
+ 1923 03a4 0C040000 		.word	.LC144
+ 1924 03a8 9C130000 		.word	xrom+5020
+ 1925 03ac 00000000 		.word	0
+ 1926 03b0 00000000 		.word	0
+ 1927 03b4 4CBD00   		.ascii	"L\275\000"
+ 1928 03b7 000000   		.space	3
+ARM GAS  /tmp/ccbMYxnF.s 			page 40
+
+
+ 1929 03ba 0000     		.space	2
+ 1930 03bc 10040000 		.word	.LC145
+ 1931 03c0 D6130000 		.word	xrom+5078
+ 1932 03c4 00000000 		.word	0
+ 1933 03c8 00000000 		.word	0
+ 1934 03cc 48BD00   		.ascii	"H\275\000"
+ 1935 03cf 000000   		.space	3
+ 1936 03d2 0000     		.space	2
+ 1937 03d4 14040000 		.word	.LC146
+ 1938 03d8 E4130000 		.word	xrom+5092
+ 1939 03dc 00000000 		.word	0
+ 1940 03e0 00000000 		.word	0
+ 1941 03e4 48BDBE00 		.ascii	"H\275\276\000"
+ 1942 03e8 0000     		.space	2
+ 1943 03ea 0000     		.space	2
+ 1944 03ec 18040000 		.word	.LC147
+ 1945 03f0 00000000 		.word	decNumberXRoot
+ 1946 03f4 00000000 		.word	cmplxXRoot
+ 1947 03f8 00000000 		.word	intDyadic
+ 1948 03fc 9C037900 		.ascii	"\234\003y\000"
+ 1949 0400 0000     		.space	2
+ 1950 0402 0000     		.space	2
+ 1951 0404 1C040000 		.word	.LC148
+ 1952 0408 00000000 		.word	matrix_row
+ 1953 040c 00000000 		.word	0
+ 1954 0410 00000000 		.word	0
+ 1955 0414 4D2D524F 		.ascii	"M-ROW\000"
+ 1955      5700
+ 1956 041a 0000     		.space	2
+ 1957 041c 00000000 		.word	0
+ 1958 0420 00000000 		.word	matrix_col
+ 1959 0424 00000000 		.word	0
+ 1960 0428 00000000 		.word	0
+ 1961 042c 4D2D434F 		.ascii	"M-COL\000"
+ 1961      4C00
+ 1962 0432 0000     		.space	2
+ 1963 0434 00000000 		.word	0
+ 1964 0438 00000000 		.word	matrix_copy
+ 1965 043c 00000000 		.word	0
+ 1966 0440 00000000 		.word	0
+ 1967 0444 4D2E434F 		.ascii	"M.COPY"
+ 1967      5059
+ 1968 044a 0000     		.space	2
+ 1969 044c 00000000 		.word	0
+ 1970 0450 00000000 		.word	decNumberNeighbour
+ 1971 0454 00000000 		.word	0
+ 1972 0458 00000000 		.word	0
+ 1973 045c 4E454947 		.ascii	"NEIGHB"
+ 1973      4842
+ 1974 0462 0000     		.space	2
+ 1975 0464 00000000 		.word	0
+ 1976 0468 00000000 		.word	0
+ 1977 046c 00000000 		.word	cpx_dot
+ 1978 0470 00000000 		.word	0
+ 1979 0474 632E00   		.ascii	"c.\000"
+ 1980 0477 000000   		.space	3
+ 1981 047a 0000     		.space	2
+ARM GAS  /tmp/ccbMYxnF.s 			page 41
+
+
+ 1982 047c 00000000 		.word	0
+ 1983 0480 00000000 		.word	0
+ 1984 0484 00000000 		.word	cpx_dotdiv
+ 1985 0488 00000000 		.word	0
+ 1986 048c 632F00   		.ascii	"c/\000"
+ 1987 048f 000000   		.space	3
+ 1988 0492 0000     		.space	2
+ 1989 0494 00000000 		.word	0
+ 1990              		.section	.rodata.monfuncs,"a"
+ 1991              		.align	2
+ 1994              	monfuncs:
+ 1995 0000 00000000 		.word	decNumberFrac
+ 1996 0004 92170000 		.word	xrom+6034
+ 1997 0008 00000000 		.word	intFP
+ 1998 000c 465000   		.ascii	"FP\000"
+ 1999 000f 000000   		.space	3
+ 2000 0012 0000     		.space	2
+ 2001 0014 00000000 		.word	0
+ 2002 0018 00000000 		.word	decNumberFloor
+ 2003 001c 00000000 		.word	0
+ 2004 0020 00000000 		.word	mask_value
+ 2005 0024 464C4F4F 		.ascii	"FLOOR\000"
+ 2005      5200
+ 2006 002a 0000     		.space	2
+ 2007 002c 00000000 		.word	0
+ 2008 0030 00000000 		.word	decNumberCeil
+ 2009 0034 00000000 		.word	0
+ 2010 0038 00000000 		.word	mask_value
+ 2011 003c 4345494C 		.ascii	"CEIL\000"
+ 2011      00
+ 2012 0041 00       		.space	1
+ 2013 0042 0000     		.space	2
+ 2014 0044 00000000 		.word	0
+ 2015 0048 00000000 		.word	decNumberRound
+ 2016 004c 00000000 		.word	0
+ 2017 0050 00000000 		.word	mask_value
+ 2018 0054 524F554E 		.ascii	"ROUNDI"
+ 2018      4449
+ 2019 005a 0000     		.space	2
+ 2020 005c 00000000 		.word	0
+ 2021 0060 00000000 		.word	decNumberTrunc
+ 2022 0064 9C170000 		.word	xrom+6044
+ 2023 0068 00000000 		.word	mask_value
+ 2024 006c 495000   		.ascii	"IP\000"
+ 2025 006f 000000   		.space	3
+ 2026 0072 0000     		.space	2
+ 2027 0074 00000000 		.word	0
+ 2028 0078 00000000 		.word	dn_abs
+ 2029 007c 00000000 		.word	cmplxAbs
+ 2030 0080 00000000 		.word	intAbs
+ 2031 0084 41425300 		.ascii	"ABS\000"
+ 2032 0088 0000     		.space	2
+ 2033 008a 0000     		.space	2
+ 2034 008c 00000000 		.word	0
+ 2035 0090 00000000 		.word	decNumberRnd
+ 2036 0094 88170000 		.word	xrom+6024
+ 2037 0098 00000000 		.word	mask_value
+ARM GAS  /tmp/ccbMYxnF.s 			page 42
+
+
+ 2038 009c 524F554E 		.ascii	"ROUND\000"
+ 2038      4400
+ 2039 00a2 0000     		.space	2
+ 2040 00a4 00000000 		.word	0
+ 2041 00a8 66170000 		.word	xrom+5990
+ 2042 00ac BE170000 		.word	xrom+6078
+ 2043 00b0 00000000 		.word	intSign
+ 2044 00b4 5349474E 		.ascii	"SIGN\000"
+ 2044      00
+ 2045 00b9 00       		.space	1
+ 2046 00ba 0000     		.space	2
+ 2047 00bc 00000000 		.word	0
+ 2048 00c0 00000000 		.word	dn_ln
+ 2049 00c4 00000000 		.word	cmplxLn
+ 2050 00c8 00000000 		.word	intMonadic
+ 2051 00cc 4C4E00   		.ascii	"LN\000"
+ 2052 00cf 000000   		.space	3
+ 2053 00d2 0000     		.space	2
+ 2054 00d4 00000000 		.word	0
+ 2055 00d8 00000000 		.word	dn_exp
+ 2056 00dc 00000000 		.word	cmplxExp
+ 2057 00e0 00000000 		.word	intMonadic
+ 2058 00e4 659C00   		.ascii	"e\234\000"
+ 2059 00e7 000000   		.space	3
+ 2060 00ea 0000     		.space	2
+ 2061 00ec 24040000 		.word	.LC149
+ 2062 00f0 00000000 		.word	dn_sqrt
+ 2063 00f4 00000000 		.word	cmplxSqrt
+ 2064 00f8 00000000 		.word	intSqrt
+ 2065 00fc 0300     		.ascii	"\003\000"
+ 2066 00fe 00000000 		.space	4
+ 2067 0102 0000     		.space	2
+ 2068 0104 28040000 		.word	.LC150
+ 2069 0108 00000000 		.word	decNumberRecip
+ 2070 010c 00000000 		.word	cmplxRecip
+ 2071 0110 00000000 		.word	0
+ 2072 0114 312F7800 		.ascii	"1/x\000"
+ 2073 0118 0000     		.space	2
+ 2074 011a 0000     		.space	2
+ 2075 011c 30040000 		.word	.LC151
+ 2076 0120 00000000 		.word	decNumberPow_1
+ 2077 0124 00000000 		.word	cmplx_1x
+ 2078 0128 00000000 		.word	int_1pow
+ 2079 012c 282D3129 		.ascii	"(-1)\234\000"
+ 2079      9C00
+ 2080 0132 0000     		.space	2
+ 2081 0134 34040000 		.word	.LC152
+ 2082 0138 00000000 		.word	dn_log10
+ 2083 013c B0180000 		.word	xrom+6320
+ 2084 0140 00000000 		.word	intLog10
+ 2085 0144 4C4F47B9 		.ascii	"LOG\271\270\000"
+ 2085      B800
+ 2086 014a 0000     		.space	2
+ 2087 014c 3C040000 		.word	.LC153
+ 2088 0150 00000000 		.word	dn_log2
+ 2089 0154 B8180000 		.word	xrom+6328
+ 2090 0158 00000000 		.word	intLog2
+ARM GAS  /tmp/ccbMYxnF.s 			page 43
+
+
+ 2091 015c 4C4F47BA 		.ascii	"LOG\272\000"
+ 2091      00
+ 2092 0161 00       		.space	1
+ 2093 0162 0000     		.space	2
+ 2094 0164 40040000 		.word	.LC154
+ 2095 0168 00000000 		.word	decNumberPow2
+ 2096 016c C8180000 		.word	xrom+6344
+ 2097 0170 00000000 		.word	int2pow
+ 2098 0174 329C00   		.ascii	"2\234\000"
+ 2099 0177 000000   		.space	3
+ 2100 017a 0000     		.space	2
+ 2101 017c 44040000 		.word	.LC155
+ 2102 0180 00000000 		.word	decNumberPow10
+ 2103 0184 C2180000 		.word	xrom+6338
+ 2104 0188 00000000 		.word	int10pow
+ 2105 018c 31309C00 		.ascii	"10\234\000"
+ 2106 0190 0000     		.space	2
+ 2107 0192 0000     		.space	2
+ 2108 0194 48040000 		.word	.LC156
+ 2109 0198 00000000 		.word	decNumberLn1p
+ 2110 019c EE180000 		.word	xrom+6382
+ 2111 01a0 00000000 		.word	0
+ 2112 01a4 4C4E312B 		.ascii	"LN1+x\000"
+ 2112      7800
+ 2113 01aa 0000     		.space	2
+ 2114 01ac 00000000 		.word	0
+ 2115 01b0 00000000 		.word	decNumberExpm1
+ 2116 01b4 D2180000 		.word	xrom+6354
+ 2117 01b8 00000000 		.word	0
+ 2118 01bc 659C2D31 		.ascii	"e\234-1\000"
+ 2118      00
+ 2119 01c1 00       		.space	1
+ 2120 01c2 0000     		.space	2
+ 2121 01c4 50040000 		.word	.LC157
+ 2122 01c8 34070000 		.word	xrom+1844
+ 2123 01cc FC070000 		.word	xrom+2044
+ 2124 01d0 00000000 		.word	0
+ 2125 01d4 57BE00   		.ascii	"W\276\000"
+ 2126 01d7 000000   		.space	3
+ 2127 01da 0000     		.space	2
+ 2128 01dc 58040000 		.word	.LC158
+ 2129 01e0 40070000 		.word	xrom+1856
+ 2130 01e4 00000000 		.word	0
+ 2131 01e8 00000000 		.word	0
+ 2132 01ec 571B00   		.ascii	"W\033\000"
+ 2133 01ef 000000   		.space	3
+ 2134 01f2 0000     		.space	2
+ 2135 01f4 5C040000 		.word	.LC159
+ 2136 01f8 2C080000 		.word	xrom+2092
+ 2137 01fc 34080000 		.word	xrom+2100
+ 2138 0200 00000000 		.word	0
+ 2139 0204 579D00   		.ascii	"W\235\000"
+ 2140 0207 000000   		.space	3
+ 2141 020a 0000     		.space	2
+ 2142 020c 60040000 		.word	.LC160
+ 2143 0210 00000000 		.word	decNumberSquare
+ 2144 0214 0A180000 		.word	xrom+6154
+ARM GAS  /tmp/ccbMYxnF.s 			page 44
+
+
+ 2145 0218 00000000 		.word	intSqr
+ 2146 021c 789A00   		.ascii	"x\232\000"
+ 2147 021f 000000   		.space	3
+ 2148 0222 0000     		.space	2
+ 2149 0224 68040000 		.word	.LC161
+ 2150 0228 00000000 		.word	decNumberCube
+ 2151 022c 10180000 		.word	xrom+6160
+ 2152 0230 00000000 		.word	intCube
+ 2153 0234 788000   		.ascii	"x\200\000"
+ 2154 0237 000000   		.space	3
+ 2155 023a 0000     		.space	2
+ 2156 023c 6C040000 		.word	.LC162
+ 2157 0240 00000000 		.word	decNumberCubeRoot
+ 2158 0244 00000000 		.word	cmplxCubeRoot
+ 2159 0248 00000000 		.word	intMonadic
+ 2160 024c 800300   		.ascii	"\200\003\000"
+ 2161 024f 000000   		.space	3
+ 2162 0252 0000     		.space	2
+ 2163 0254 70040000 		.word	.LC163
+ 2164 0258 0C160000 		.word	xrom+5644
+ 2165 025c 22160000 		.word	xrom+5666
+ 2166 0260 00000000 		.word	intFib
+ 2167 0264 46494200 		.ascii	"FIB\000"
+ 2168 0268 0000     		.space	2
+ 2169 026a 0000     		.space	2
+ 2170 026c 00000000 		.word	0
+ 2171 0270 00000000 		.word	decNumberDRG
+ 2172 0274 00000000 		.word	0
+ 2173 0278 00000000 		.word	0
+ 2174 027c 0D444547 		.ascii	"\015DEG\000"
+ 2174      00
+ 2175 0281 00       		.space	1
+ 2176 0282 0000     		.space	2
+ 2177 0284 78040000 		.word	.LC164
+ 2178 0288 00000000 		.word	decNumberDRG
+ 2179 028c 00000000 		.word	0
+ 2180 0290 00000000 		.word	0
+ 2181 0294 0D524144 		.ascii	"\015RAD\000"
+ 2181      00
+ 2182 0299 00       		.space	1
+ 2183 029a 0000     		.space	2
+ 2184 029c 80040000 		.word	.LC165
+ 2185 02a0 00000000 		.word	decNumberDRG
+ 2186 02a4 00000000 		.word	0
+ 2187 02a8 00000000 		.word	0
+ 2188 02ac 0D475241 		.ascii	"\015GRAD\000"
+ 2188      4400
+ 2189 02b2 0000     		.space	2
+ 2190 02b4 88040000 		.word	.LC166
+ 2191 02b8 00000000 		.word	decNumberDRG
+ 2192 02bc 00000000 		.word	0
+ 2193 02c0 00000000 		.word	0
+ 2194 02c4 4445470D 		.ascii	"DEG\015\000"
+ 2194      00
+ 2195 02c9 00       		.space	1
+ 2196 02ca 0000     		.space	2
+ 2197 02cc 90040000 		.word	.LC167
+ARM GAS  /tmp/ccbMYxnF.s 			page 45
+
+
+ 2198 02d0 00000000 		.word	decNumberDRG
+ 2199 02d4 00000000 		.word	0
+ 2200 02d8 00000000 		.word	0
+ 2201 02dc 5241440D 		.ascii	"RAD\015\000"
+ 2201      00
+ 2202 02e1 00       		.space	1
+ 2203 02e2 0000     		.space	2
+ 2204 02e4 98040000 		.word	.LC168
+ 2205 02e8 00000000 		.word	decNumberDRG
+ 2206 02ec 00000000 		.word	0
+ 2207 02f0 00000000 		.word	0
+ 2208 02f4 47524144 		.ascii	"GRAD\015\000"
+ 2208      0D00
+ 2209 02fa 0000     		.space	2
+ 2210 02fc A0040000 		.word	.LC169
+ 2211 0300 00000000 		.word	decNumberSin
+ 2212 0304 00000000 		.word	cmplxSin
+ 2213 0308 00000000 		.word	0
+ 2214 030c 53494E00 		.ascii	"SIN\000"
+ 2215 0310 0000     		.space	2
+ 2216 0312 0000     		.space	2
+ 2217 0314 00000000 		.word	0
+ 2218 0318 00000000 		.word	decNumberCos
+ 2219 031c 00000000 		.word	cmplxCos
+ 2220 0320 00000000 		.word	0
+ 2221 0324 434F5300 		.ascii	"COS\000"
+ 2222 0328 0000     		.space	2
+ 2223 032a 0000     		.space	2
+ 2224 032c 00000000 		.word	0
+ 2225 0330 00000000 		.word	decNumberTan
+ 2226 0334 00000000 		.word	cmplxTan
+ 2227 0338 00000000 		.word	0
+ 2228 033c 54414E00 		.ascii	"TAN\000"
+ 2229 0340 0000     		.space	2
+ 2230 0342 0000     		.space	2
+ 2231 0344 00000000 		.word	0
+ 2232 0348 00000000 		.word	decNumberArcSin
+ 2233 034c 18180000 		.word	xrom+6168
+ 2234 0350 00000000 		.word	0
+ 2235 0354 4153494E 		.ascii	"ASIN\000"
+ 2235      00
+ 2236 0359 00       		.space	1
+ 2237 035a 0000     		.space	2
+ 2238 035c 00000000 		.word	0
+ 2239 0360 00000000 		.word	decNumberArcCos
+ 2240 0364 2A180000 		.word	xrom+6186
+ 2241 0368 00000000 		.word	0
+ 2242 036c 41434F53 		.ascii	"ACOS\000"
+ 2242      00
+ 2243 0371 00       		.space	1
+ 2244 0372 0000     		.space	2
+ 2245 0374 00000000 		.word	0
+ 2246 0378 00000000 		.word	decNumberArcTan
+ 2247 037c 36180000 		.word	xrom+6198
+ 2248 0380 00000000 		.word	0
+ 2249 0384 4154414E 		.ascii	"ATAN\000"
+ 2249      00
+ARM GAS  /tmp/ccbMYxnF.s 			page 46
+
+
+ 2250 0389 00       		.space	1
+ 2251 038a 0000     		.space	2
+ 2252 038c 00000000 		.word	0
+ 2253 0390 00000000 		.word	decNumberSinc
+ 2254 0394 00000000 		.word	cmplxSinc
+ 2255 0398 00000000 		.word	0
+ 2256 039c 53494E43 		.ascii	"SINC\000"
+ 2256      00
+ 2257 03a1 00       		.space	1
+ 2258 03a2 0000     		.space	2
+ 2259 03a4 00000000 		.word	0
+ 2260 03a8 00000000 		.word	decNumberSinh
+ 2261 03ac 00000000 		.word	cmplxSinh
+ 2262 03b0 00000000 		.word	0
+ 2263 03b4 53494E48 		.ascii	"SINH\000"
+ 2263      00
+ 2264 03b9 00       		.space	1
+ 2265 03ba 0000     		.space	2
+ 2266 03bc 00000000 		.word	0
+ 2267 03c0 00000000 		.word	decNumberCosh
+ 2268 03c4 00000000 		.word	cmplxCosh
+ 2269 03c8 00000000 		.word	0
+ 2270 03cc 434F5348 		.ascii	"COSH\000"
+ 2270      00
+ 2271 03d1 00       		.space	1
+ 2272 03d2 0000     		.space	2
+ 2273 03d4 00000000 		.word	0
+ 2274 03d8 00000000 		.word	decNumberTanh
+ 2275 03dc 00000000 		.word	cmplxTanh
+ 2276 03e0 00000000 		.word	0
+ 2277 03e4 54414E48 		.ascii	"TANH\000"
+ 2277      00
+ 2278 03e9 00       		.space	1
+ 2279 03ea 0000     		.space	2
+ 2280 03ec 00000000 		.word	0
+ 2281 03f0 00000000 		.word	decNumberArcSinh
+ 2282 03f4 54180000 		.word	xrom+6228
+ 2283 03f8 00000000 		.word	0
+ 2284 03fc 4153494E 		.ascii	"ASINH\000"
+ 2284      4800
+ 2285 0402 0000     		.space	2
+ 2286 0404 00000000 		.word	0
+ 2287 0408 00000000 		.word	decNumberArcCosh
+ 2288 040c 74180000 		.word	xrom+6260
+ 2289 0410 00000000 		.word	0
+ 2290 0414 41434F53 		.ascii	"ACOSH\000"
+ 2290      4800
+ 2291 041a 0000     		.space	2
+ 2292 041c 00000000 		.word	0
+ 2293 0420 00000000 		.word	decNumberArcTanh
+ 2294 0424 8A180000 		.word	xrom+6282
+ 2295 0428 00000000 		.word	0
+ 2296 042c 4154414E 		.ascii	"ATANH\000"
+ 2296      4800
+ 2297 0432 0000     		.space	2
+ 2298 0434 00000000 		.word	0
+ 2299 0438 78080000 		.word	xrom+2168
+ARM GAS  /tmp/ccbMYxnF.s 			page 47
+
+
+ 2300 043c 86080000 		.word	xrom+2182
+ 2301 0440 00000000 		.word	0
+ 2302 0444 678600   		.ascii	"g\206\000"
+ 2303 0447 000000   		.space	3
+ 2304 044a 0000     		.space	2
+ 2305 044c A8040000 		.word	.LC170
+ 2306 0450 8E080000 		.word	xrom+2190
+ 2307 0454 A2080000 		.word	xrom+2210
+ 2308 0458 00000000 		.word	0
+ 2309 045c 67869D00 		.ascii	"g\206\235\000"
+ 2310 0460 0000     		.space	2
+ 2311 0462 0000     		.space	2
+ 2312 0464 AC040000 		.word	.LC171
+ 2313 0468 00000000 		.word	decNumberFactorial
+ 2314 046c B6170000 		.word	xrom+6070
+ 2315 0470 00000000 		.word	intMonadic
+ 2316 0474 782100   		.ascii	"x!\000"
+ 2317 0477 000000   		.space	3
+ 2318 047a 0000     		.space	2
+ 2319 047c 00000000 		.word	0
+ 2320 0480 00000000 		.word	decNumberGamma
+ 2321 0484 00000000 		.word	cmplxGamma
+ 2322 0488 00000000 		.word	intMonadic
+ 2323 048c 8200     		.ascii	"\202\000"
+ 2324 048e 00000000 		.space	4
+ 2325 0492 0000     		.space	2
+ 2326 0494 B4040000 		.word	.LC172
+ 2327 0498 00000000 		.word	decNumberLnGamma
+ 2328 049c 00000000 		.word	cmplxLnGamma
+ 2329 04a0 00000000 		.word	0
+ 2330 04a4 4C4E8200 		.ascii	"LN\202\000"
+ 2331 04a8 0000     		.space	2
+ 2332 04aa 0000     		.space	2
+ 2333 04ac BC040000 		.word	.LC173
+ 2334 04b0 00000000 		.word	decNumberD2R
+ 2335 04b4 00000000 		.word	0
+ 2336 04b8 00000000 		.word	0
+ 2337 04bc 050D7261 		.ascii	"\005\015rad\000"
+ 2337      6400
+ 2338 04c2 0000     		.space	2
+ 2339 04c4 C4040000 		.word	.LC174
+ 2340 04c8 00000000 		.word	decNumberR2D
+ 2341 04cc 00000000 		.word	0
+ 2342 04d0 00000000 		.word	0
+ 2343 04d4 7261640D 		.ascii	"rad\015\005\000"
+ 2343      0500
+ 2344 04da 0000     		.space	2
+ 2345 04dc CC040000 		.word	.LC175
+ 2346 04e0 00000000 		.word	decNumberD2G
+ 2347 04e4 00000000 		.word	0
+ 2348 04e8 00000000 		.word	0
+ 2349 04ec 050D4700 		.ascii	"\005\015G\000"
+ 2350 04f0 0000     		.space	2
+ 2351 04f2 0000     		.space	2
+ 2352 04f4 D4040000 		.word	.LC176
+ 2353 04f8 00000000 		.word	decNumberG2D
+ 2354 04fc 00000000 		.word	0
+ARM GAS  /tmp/ccbMYxnF.s 			page 48
+
+
+ 2355 0500 00000000 		.word	0
+ 2356 0504 470D0500 		.ascii	"G\015\005\000"
+ 2357 0508 0000     		.space	2
+ 2358 050a 0000     		.space	2
+ 2359 050c E0040000 		.word	.LC177
+ 2360 0510 00000000 		.word	decNumberR2G
+ 2361 0514 00000000 		.word	0
+ 2362 0518 00000000 		.word	0
+ 2363 051c 7261640D 		.ascii	"rad\015G\000"
+ 2363      4700
+ 2364 0522 0000     		.space	2
+ 2365 0524 EC040000 		.word	.LC178
+ 2366 0528 00000000 		.word	decNumberG2R
+ 2367 052c 00000000 		.word	0
+ 2368 0530 00000000 		.word	0
+ 2369 0534 470D7261 		.ascii	"G\015rad\000"
+ 2369      6400
+ 2370 053a 0000     		.space	2
+ 2371 053c F8040000 		.word	.LC179
+ 2372 0540 00000000 		.word	0
+ 2373 0544 00000000 		.word	cmplxMinus
+ 2374 0548 00000000 		.word	0
+ 2375 054c 142B2F2D 		.ascii	"\024+/-\000"
+ 2375      00
+ 2376 0551 00       		.space	1
+ 2377 0552 0000     		.space	2
+ 2378 0554 04050000 		.word	.LC180
+ 2379 0558 00000000 		.word	0
+ 2380 055c A8170000 		.word	xrom+6056
+ 2381 0560 00000000 		.word	0
+ 2382 0564 14434F4E 		.ascii	"\024CONJ\000"
+ 2382      4A00
+ 2383 056a 0000     		.space	2
+ 2384 056c 0C050000 		.word	.LC181
+ 2385 0570 C6080000 		.word	xrom+2246
+ 2386 0574 00000000 		.word	0
+ 2387 0578 00000000 		.word	0
+ 2388 057c 65726600 		.ascii	"erf\000"
+ 2389 0580 0000     		.space	2
+ 2390 0582 0000     		.space	2
+ 2391 0584 00000000 		.word	0
+ 2392 0588 B6080000 		.word	xrom+2230
+ 2393 058c 00000000 		.word	0
+ 2394 0590 00000000 		.word	0
+ 2395 0594 65726663 		.ascii	"erfc\000"
+ 2395      00
+ 2396 0599 00       		.space	1
+ 2397 059a 0000     		.space	2
+ 2398 059c 00000000 		.word	0
+ 2399 05a0 000B0000 		.word	xrom+2816
+ 2400 05a4 00000000 		.word	0
+ 2401 05a8 00000000 		.word	0
+ 2402 05ac B4287829 		.ascii	"\264(x)\000"
+ 2402      00
+ 2403 05b1 00       		.space	1
+ 2404 05b2 0000     		.space	2
+ 2405 05b4 14050000 		.word	.LC182
+ARM GAS  /tmp/ccbMYxnF.s 			page 49
+
+
+ 2406 05b8 300B0000 		.word	xrom+2864
+ 2407 05bc 00000000 		.word	0
+ 2408 05c0 00000000 		.word	0
+ 2409 05c4 94287829 		.ascii	"\224(x)\000"
+ 2409      00
+ 2410 05c9 00       		.space	1
+ 2411 05ca 0000     		.space	2
+ 2412 05cc 1C050000 		.word	.LC183
+ 2413 05d0 4E0B0000 		.word	xrom+2894
+ 2414 05d4 00000000 		.word	0
+ 2415 05d8 00000000 		.word	0
+ 2416 05dc 949D2870 		.ascii	"\224\235(p)\000"
+ 2416      2900
+ 2417 05e2 0000     		.space	2
+ 2418 05e4 24050000 		.word	.LC184
+ 2419 05e8 F00C0000 		.word	xrom+3312
+ 2420 05ec 00000000 		.word	0
+ 2421 05f0 00000000 		.word	0
+ 2422 05f4 B59ABE00 		.ascii	"\265\232\276\000"
+ 2423 05f8 0000     		.space	2
+ 2424 05fa 0000     		.space	2
+ 2425 05fc 2C050000 		.word	.LC185
+ 2426 0600 420D0000 		.word	xrom+3394
+ 2427 0604 00000000 		.word	0
+ 2428 0608 00000000 		.word	0
+ 2429 060c B59A00   		.ascii	"\265\232\000"
+ 2430 060f 000000   		.space	3
+ 2431 0612 0000     		.space	2
+ 2432 0614 34050000 		.word	.LC186
+ 2433 0618 6A0D0000 		.word	xrom+3434
+ 2434 061c 00000000 		.word	0
+ 2435 0620 00000000 		.word	0
+ 2436 0624 B59A494E 		.ascii	"\265\232INV\000"
+ 2436      5600
+ 2437 062a 0000     		.space	2
+ 2438 062c 3C050000 		.word	.LC187
+ 2439 0630 F0110000 		.word	xrom+4592
+ 2440 0634 00000000 		.word	0
+ 2441 0638 00000000 		.word	0
+ 2442 063c 74BE2878 		.ascii	"t\276(x)\000"
+ 2442      2900
+ 2443 0642 0000     		.space	2
+ 2444 0644 48050000 		.word	.LC188
+ 2445 0648 2C120000 		.word	xrom+4652
+ 2446 064c 00000000 		.word	0
+ 2447 0650 00000000 		.word	0
+ 2448 0654 74287829 		.ascii	"t(x)\000"
+ 2448      00
+ 2449 0659 00       		.space	1
+ 2450 065a 0000     		.space	2
+ 2451 065c 00000000 		.word	0
+ 2452 0660 90120000 		.word	xrom+4752
+ 2453 0664 00000000 		.word	0
+ 2454 0668 00000000 		.word	0
+ 2455 066c 749D2870 		.ascii	"t\235(p)\000"
+ 2455      2900
+ 2456 0672 0000     		.space	2
+ARM GAS  /tmp/ccbMYxnF.s 			page 50
+
+
+ 2457 0674 50050000 		.word	.LC189
+ 2458 0678 F2100000 		.word	xrom+4338
+ 2459 067c 00000000 		.word	0
+ 2460 0680 00000000 		.word	0
+ 2461 0684 46BE2878 		.ascii	"F\276(x)\000"
+ 2461      2900
+ 2462 068a 0000     		.space	2
+ 2463 068c 58050000 		.word	.LC190
+ 2464 0690 58110000 		.word	xrom+4440
+ 2465 0694 00000000 		.word	0
+ 2466 0698 00000000 		.word	0
+ 2467 069c 46287829 		.ascii	"F(x)\000"
+ 2467      00
+ 2468 06a1 00       		.space	1
+ 2469 06a2 0000     		.space	2
+ 2470 06a4 00000000 		.word	0
+ 2471 06a8 7E110000 		.word	xrom+4478
+ 2472 06ac 00000000 		.word	0
+ 2473 06b0 00000000 		.word	0
+ 2474 06b4 469D2870 		.ascii	"F\235(p)\000"
+ 2474      2900
+ 2475 06ba 0000     		.space	2
+ 2476 06bc 60050000 		.word	.LC191
+ 2477 06c0 3A0C0000 		.word	xrom+3130
+ 2478 06c4 00000000 		.word	0
+ 2479 06c8 00000000 		.word	0
+ 2480 06cc 57656962 		.ascii	"Weibl\276"
+ 2480      6CBE
+ 2481 06d2 0000     		.space	2
+ 2482 06d4 68050000 		.word	.LC192
+ 2483 06d8 740C0000 		.word	xrom+3188
+ 2484 06dc 00000000 		.word	0
+ 2485 06e0 00000000 		.word	0
+ 2486 06e4 57656962 		.ascii	"Weibl\000"
+ 2486      6C00
+ 2487 06ea 0000     		.space	2
+ 2488 06ec 00000000 		.word	0
+ 2489 06f0 9A0C0000 		.word	xrom+3226
+ 2490 06f4 00000000 		.word	0
+ 2491 06f8 00000000 		.word	0
+ 2492 06fc 57656962 		.ascii	"Weibl\235"
+ 2492      6C9D
+ 2493 0702 0000     		.space	2
+ 2494 0704 70050000 		.word	.LC193
+ 2495 0708 42090000 		.word	xrom+2370
+ 2496 070c 00000000 		.word	0
+ 2497 0710 00000000 		.word	0
+ 2498 0714 4578706F 		.ascii	"Expon\276"
+ 2498      6EBE
+ 2499 071a 0000     		.space	2
+ 2500 071c 7C050000 		.word	.LC194
+ 2501 0720 68090000 		.word	xrom+2408
+ 2502 0724 00000000 		.word	0
+ 2503 0728 00000000 		.word	0
+ 2504 072c 4578706F 		.ascii	"Expon\000"
+ 2504      6E00
+ 2505 0732 0000     		.space	2
+ARM GAS  /tmp/ccbMYxnF.s 			page 51
+
+
+ 2506 0734 00000000 		.word	0
+ 2507 0738 7E090000 		.word	xrom+2430
+ 2508 073c 00000000 		.word	0
+ 2509 0740 00000000 		.word	0
+ 2510 0744 4578706F 		.ascii	"Expon\235"
+ 2510      6E9D
+ 2511 074a 0000     		.space	2
+ 2512 074c 84050000 		.word	.LC195
+ 2513 0750 50100000 		.word	xrom+4176
+ 2514 0754 00000000 		.word	0
+ 2515 0758 00000000 		.word	0
+ 2516 075c 42696E6F 		.ascii	"Binom\276"
+ 2516      6DBE
+ 2517 0762 0000     		.space	2
+ 2518 0764 90050000 		.word	.LC196
+ 2519 0768 92100000 		.word	xrom+4242
+ 2520 076c 00000000 		.word	0
+ 2521 0770 00000000 		.word	0
+ 2522 0774 42696E6F 		.ascii	"Binom\000"
+ 2522      6D00
+ 2523 077a 0000     		.space	2
+ 2524 077c 00000000 		.word	0
+ 2525 0780 BA100000 		.word	xrom+4282
+ 2526 0784 00000000 		.word	0
+ 2527 0788 00000000 		.word	0
+ 2528 078c 42696E6F 		.ascii	"Binom\235"
+ 2528      6D9D
+ 2529 0792 0000     		.space	2
+ 2530 0794 98050000 		.word	.LC197
+ 2531 0798 700E0000 		.word	xrom+3696
+ 2532 079c 00000000 		.word	0
+ 2533 07a0 00000000 		.word	0
+ 2534 07a4 506F6973 		.ascii	"Pois\252\276"
+ 2534      AABE
+ 2535 07aa 0000     		.space	2
+ 2536 07ac A4050000 		.word	.LC198
+ 2537 07b0 A20E0000 		.word	xrom+3746
+ 2538 07b4 00000000 		.word	0
+ 2539 07b8 00000000 		.word	0
+ 2540 07bc 506F6973 		.ascii	"Pois\252\000"
+ 2540      AA00
+ 2541 07c2 0000     		.space	2
+ 2542 07c4 AC050000 		.word	.LC199
+ 2543 07c8 BE0E0000 		.word	xrom+3774
+ 2544 07cc 00000000 		.word	0
+ 2545 07d0 00000000 		.word	0
+ 2546 07d4 506F6973 		.ascii	"Pois\252\235"
+ 2546      AA9D
+ 2547 07da 0000     		.space	2
+ 2548 07dc B4050000 		.word	.LC200
+ 2549 07e0 E40E0000 		.word	xrom+3812
+ 2550 07e4 00000000 		.word	0
+ 2551 07e8 00000000 		.word	0
+ 2552 07ec 506F6973 		.ascii	"Poiss\276"
+ 2552      73BE
+ 2553 07f2 0000     		.space	2
+ 2554 07f4 C0050000 		.word	.LC201
+ARM GAS  /tmp/ccbMYxnF.s 			page 52
+
+
+ 2555 07f8 F00E0000 		.word	xrom+3824
+ 2556 07fc 00000000 		.word	0
+ 2557 0800 00000000 		.word	0
+ 2558 0804 506F6973 		.ascii	"Poiss\000"
+ 2558      7300
+ 2559 080a 0000     		.space	2
+ 2560 080c C8050000 		.word	.LC202
+ 2561 0810 F60E0000 		.word	xrom+3830
+ 2562 0814 00000000 		.word	0
+ 2563 0818 00000000 		.word	0
+ 2564 081c 506F6973 		.ascii	"Poiss\235"
+ 2564      739D
+ 2565 0822 0000     		.space	2
+ 2566 0824 D0050000 		.word	.LC203
+ 2567 0828 90090000 		.word	xrom+2448
+ 2568 082c 00000000 		.word	0
+ 2569 0830 00000000 		.word	0
+ 2570 0834 47656F6D 		.ascii	"Geom\276\000"
+ 2570      BE00
+ 2571 083a 0000     		.space	2
+ 2572 083c DC050000 		.word	.LC204
+ 2573 0840 C0090000 		.word	xrom+2496
+ 2574 0844 00000000 		.word	0
+ 2575 0848 00000000 		.word	0
+ 2576 084c 47656F6D 		.ascii	"Geom\000"
+ 2576      00
+ 2577 0851 00       		.space	1
+ 2578 0852 0000     		.space	2
+ 2579 0854 00000000 		.word	0
+ 2580 0858 E8090000 		.word	xrom+2536
+ 2581 085c 00000000 		.word	0
+ 2582 0860 00000000 		.word	0
+ 2583 0864 47656F6D 		.ascii	"Geom\235\000"
+ 2583      9D00
+ 2584 086a 0000     		.space	2
+ 2585 086c E4050000 		.word	.LC205
+ 2586 0870 BA0A0000 		.word	xrom+2746
+ 2587 0874 00000000 		.word	0
+ 2588 0878 00000000 		.word	0
+ 2589 087c 4E6F726D 		.ascii	"Norml\276"
+ 2589      6CBE
+ 2590 0882 0000     		.space	2
+ 2591 0884 F0050000 		.word	.LC206
+ 2592 0888 CE0A0000 		.word	xrom+2766
+ 2593 088c 00000000 		.word	0
+ 2594 0890 00000000 		.word	0
+ 2595 0894 4E6F726D 		.ascii	"Norml\000"
+ 2595      6C00
+ 2596 089a 0000     		.space	2
+ 2597 089c 00000000 		.word	0
+ 2598 08a0 EA0A0000 		.word	xrom+2794
+ 2599 08a4 00000000 		.word	0
+ 2600 08a8 00000000 		.word	0
+ 2601 08ac 4E6F726D 		.ascii	"Norml\235"
+ 2601      6C9D
+ 2602 08b2 0000     		.space	2
+ 2603 08b4 F8050000 		.word	.LC207
+ARM GAS  /tmp/ccbMYxnF.s 			page 53
+
+
+ 2604 08b8 840A0000 		.word	xrom+2692
+ 2605 08bc 00000000 		.word	0
+ 2606 08c0 00000000 		.word	0
+ 2607 08c4 4C674E72 		.ascii	"LgNrm\276"
+ 2607      6DBE
+ 2608 08ca 0000     		.space	2
+ 2609 08cc 04060000 		.word	.LC208
+ 2610 08d0 A00A0000 		.word	xrom+2720
+ 2611 08d4 00000000 		.word	0
+ 2612 08d8 00000000 		.word	0
+ 2613 08dc 4C674E72 		.ascii	"LgNrm\000"
+ 2613      6D00
+ 2614 08e2 0000     		.space	2
+ 2615 08e4 00000000 		.word	0
+ 2616 08e8 AE0A0000 		.word	xrom+2734
+ 2617 08ec 00000000 		.word	0
+ 2618 08f0 00000000 		.word	0
+ 2619 08f4 4C674E72 		.ascii	"LgNrm\235"
+ 2619      6D9D
+ 2620 08fa 0000     		.space	2
+ 2621 08fc 10060000 		.word	.LC209
+ 2622 0900 200A0000 		.word	xrom+2592
+ 2623 0904 00000000 		.word	0
+ 2624 0908 00000000 		.word	0
+ 2625 090c 4C6F6769 		.ascii	"Logis\276"
+ 2625      73BE
+ 2626 0912 0000     		.space	2
+ 2627 0914 1C060000 		.word	.LC210
+ 2628 0918 460A0000 		.word	xrom+2630
+ 2629 091c 00000000 		.word	0
+ 2630 0920 00000000 		.word	0
+ 2631 0924 4C6F6769 		.ascii	"Logis\000"
+ 2631      7300
+ 2632 092a 0000     		.space	2
+ 2633 092c 00000000 		.word	0
+ 2634 0930 6A0A0000 		.word	xrom+2666
+ 2635 0934 00000000 		.word	0
+ 2636 0938 00000000 		.word	0
+ 2637 093c 4C6F6769 		.ascii	"Logis\235"
+ 2637      739D
+ 2638 0942 0000     		.space	2
+ 2639 0944 24060000 		.word	.LC211
+ 2640 0948 E8080000 		.word	xrom+2280
+ 2641 094c 00000000 		.word	0
+ 2642 0950 00000000 		.word	0
+ 2643 0954 43617563 		.ascii	"Cauch\276"
+ 2643      68BE
+ 2644 095a 0000     		.space	2
+ 2645 095c 30060000 		.word	.LC212
+ 2646 0960 04090000 		.word	xrom+2308
+ 2647 0964 00000000 		.word	0
+ 2648 0968 00000000 		.word	0
+ 2649 096c 43617563 		.ascii	"Cauch\000"
+ 2649      6800
+ 2650 0972 0000     		.space	2
+ 2651 0974 00000000 		.word	0
+ 2652 0978 28090000 		.word	xrom+2344
+ARM GAS  /tmp/ccbMYxnF.s 			page 54
+
+
+ 2653 097c 00000000 		.word	0
+ 2654 0980 00000000 		.word	0
+ 2655 0984 43617563 		.ascii	"Cauch\235"
+ 2655      689D
+ 2656 098a 0000     		.space	2
+ 2657 098c 38060000 		.word	.LC213
+ 2658 0990 160B0000 		.word	xrom+2838
+ 2659 0994 00000000 		.word	0
+ 2660 0998 00000000 		.word	0
+ 2661 099c 94BF2878 		.ascii	"\224\277(x)\000"
+ 2661      2900
+ 2662 09a2 0000     		.space	2
+ 2663 09a4 44060000 		.word	.LC214
+ 2664 09a8 260D0000 		.word	xrom+3366
+ 2665 09ac 00000000 		.word	0
+ 2666 09b0 00000000 		.word	0
+ 2667 09b4 B59ABF00 		.ascii	"\265\232\277\000"
+ 2668 09b8 0000     		.space	2
+ 2669 09ba 0000     		.space	2
+ 2670 09bc 48060000 		.word	.LC215
+ 2671 09c0 26120000 		.word	xrom+4646
+ 2672 09c4 00000000 		.word	0
+ 2673 09c8 00000000 		.word	0
+ 2674 09cc 74BF2878 		.ascii	"t\277(x)\000"
+ 2674      2900
+ 2675 09d2 0000     		.space	2
+ 2676 09d4 50060000 		.word	.LC216
+ 2677 09d8 34110000 		.word	xrom+4404
+ 2678 09dc 00000000 		.word	0
+ 2679 09e0 00000000 		.word	0
+ 2680 09e4 46BF2878 		.ascii	"F\277(x)\000"
+ 2680      2900
+ 2681 09ea 0000     		.space	2
+ 2682 09ec 54060000 		.word	.LC217
+ 2683 09f0 5C0C0000 		.word	xrom+3164
+ 2684 09f4 00000000 		.word	0
+ 2685 09f8 00000000 		.word	0
+ 2686 09fc 57656962 		.ascii	"Weibl\277"
+ 2686      6CBF
+ 2687 0a02 0000     		.space	2
+ 2688 0a04 58060000 		.word	.LC218
+ 2689 0a08 54090000 		.word	xrom+2388
+ 2690 0a0c 00000000 		.word	0
+ 2691 0a10 00000000 		.word	0
+ 2692 0a14 4578706F 		.ascii	"Expon\277"
+ 2692      6EBF
+ 2693 0a1a 0000     		.space	2
+ 2694 0a1c 60060000 		.word	.LC219
+ 2695 0a20 7A100000 		.word	xrom+4218
+ 2696 0a24 00000000 		.word	0
+ 2697 0a28 00000000 		.word	0
+ 2698 0a2c 42696E6F 		.ascii	"Binom\277"
+ 2698      6DBF
+ 2699 0a32 0000     		.space	2
+ 2700 0a34 68060000 		.word	.LC220
+ 2701 0a38 8C0E0000 		.word	xrom+3724
+ 2702 0a3c 00000000 		.word	0
+ARM GAS  /tmp/ccbMYxnF.s 			page 55
+
+
+ 2703 0a40 00000000 		.word	0
+ 2704 0a44 506F6973 		.ascii	"Pois\252\277"
+ 2704      AABF
+ 2705 0a4a 0000     		.space	2
+ 2706 0a4c 70060000 		.word	.LC221
+ 2707 0a50 EA0E0000 		.word	xrom+3818
+ 2708 0a54 00000000 		.word	0
+ 2709 0a58 00000000 		.word	0
+ 2710 0a5c 506F6973 		.ascii	"Poiss\277"
+ 2710      73BF
+ 2711 0a62 0000     		.space	2
+ 2712 0a64 78060000 		.word	.LC222
+ 2713 0a68 A8090000 		.word	xrom+2472
+ 2714 0a6c 00000000 		.word	0
+ 2715 0a70 00000000 		.word	0
+ 2716 0a74 47656F6D 		.ascii	"Geom\277\000"
+ 2716      BF00
+ 2717 0a7a 0000     		.space	2
+ 2718 0a7c 80060000 		.word	.LC223
+ 2719 0a80 C80A0000 		.word	xrom+2760
+ 2720 0a84 00000000 		.word	0
+ 2721 0a88 00000000 		.word	0
+ 2722 0a8c 4E6F726D 		.ascii	"Norml\277"
+ 2722      6CBF
+ 2723 0a92 0000     		.space	2
+ 2724 0a94 88060000 		.word	.LC224
+ 2725 0a98 920A0000 		.word	xrom+2706
+ 2726 0a9c 00000000 		.word	0
+ 2727 0aa0 00000000 		.word	0
+ 2728 0aa4 4C674E72 		.ascii	"LgNrm\277"
+ 2728      6DBF
+ 2729 0aaa 0000     		.space	2
+ 2730 0aac 90060000 		.word	.LC225
+ 2731 0ab0 360A0000 		.word	xrom+2614
+ 2732 0ab4 00000000 		.word	0
+ 2733 0ab8 00000000 		.word	0
+ 2734 0abc 4C6F6769 		.ascii	"Logis\277"
+ 2734      73BF
+ 2735 0ac2 0000     		.space	2
+ 2736 0ac4 98060000 		.word	.LC226
+ 2737 0ac8 FE080000 		.word	xrom+2302
+ 2738 0acc 00000000 		.word	0
+ 2739 0ad0 00000000 		.word	0
+ 2740 0ad4 43617563 		.ascii	"Cauch\277"
+ 2740      68BF
+ 2741 0ada 0000     		.space	2
+ 2742 0adc A0060000 		.word	.LC227
+ 2743 0ae0 00000000 		.word	stats_xhat
+ 2744 0ae4 00000000 		.word	0
+ 2745 0ae8 00000000 		.word	0
+ 2746 0aec 1900     		.ascii	"\031\000"
+ 2747 0aee 00000000 		.space	4
+ 2748 0af2 0000     		.space	2
+ 2749 0af4 A8060000 		.word	.LC228
+ 2750 0af8 00000000 		.word	stats_yhat
+ 2751 0afc 00000000 		.word	0
+ 2752 0b00 00000000 		.word	0
+ARM GAS  /tmp/ccbMYxnF.s 			page 56
+
+
+ 2753 0b04 1A00     		.ascii	"\032\000"
+ 2754 0b06 00000000 		.space	4
+ 2755 0b0a 0000     		.space	2
+ 2756 0b0c B0060000 		.word	.LC229
+ 2757 0b10 00000000 		.word	stats_sigper
+ 2758 0b14 00000000 		.word	0
+ 2759 0b18 00000000 		.word	0
+ 2760 0b1c 259100   		.ascii	"%\221\000"
+ 2761 0b1f 000000   		.space	3
+ 2762 0b22 0000     		.space	2
+ 2763 0b24 B8060000 		.word	.LC230
+ 2764 0b28 9C060000 		.word	xrom+1692
+ 2765 0b2c 00000000 		.word	0
+ 2766 0b30 00000000 		.word	0
+ 2767 0b34 2500     		.ascii	"%\000"
+ 2768 0b36 00000000 		.space	4
+ 2769 0b3a 0000     		.space	2
+ 2770 0b3c 00000000 		.word	0
+ 2771 0b40 A4060000 		.word	xrom+1700
+ 2772 0b44 00000000 		.word	0
+ 2773 0b48 00000000 		.word	0
+ 2774 0b4c 832500   		.ascii	"\203%\000"
+ 2775 0b4f 000000   		.space	3
+ 2776 0b52 0000     		.space	2
+ 2777 0b54 C0060000 		.word	.LC231
+ 2778 0b58 AE060000 		.word	xrom+1710
+ 2779 0b5c 00000000 		.word	0
+ 2780 0b60 00000000 		.word	0
+ 2781 0b64 255400   		.ascii	"%T\000"
+ 2782 0b67 000000   		.space	3
+ 2783 0b6a 0000     		.space	2
+ 2784 0b6c 00000000 		.word	0
+ 2785 0b70 00000000 		.word	decNumberHMS2HR
+ 2786 0b74 00000000 		.word	0
+ 2787 0b78 00000000 		.word	0
+ 2788 0b7c 0D485200 		.ascii	"\015HR\000"
+ 2789 0b80 0000     		.space	2
+ 2790 0b82 0000     		.space	2
+ 2791 0b84 C4060000 		.word	.LC232
+ 2792 0b88 00000000 		.word	decNumberHR2HMS
+ 2793 0b8c 00000000 		.word	0
+ 2794 0b90 00000000 		.word	0
+ 2795 0b94 0D482E4D 		.ascii	"\015H.MS\000"
+ 2795      5300
+ 2796 0b9a 0000     		.space	2
+ 2797 0b9c C8060000 		.word	.LC233
+ 2798 0ba0 00000000 		.word	decNumberNot
+ 2799 0ba4 00000000 		.word	0
+ 2800 0ba8 00000000 		.word	intNot
+ 2801 0bac 4E4F5400 		.ascii	"NOT\000"
+ 2802 0bb0 0000     		.space	2
+ 2803 0bb2 0000     		.space	2
+ 2804 0bb4 00000000 		.word	0
+ 2805 0bb8 00000000 		.word	0
+ 2806 0bbc 00000000 		.word	0
+ 2807 0bc0 00000000 		.word	intNumBits
+ 2808 0bc4 6E424954 		.ascii	"nBITS\000"
+ARM GAS  /tmp/ccbMYxnF.s 			page 57
+
+
+ 2808      5300
+ 2809 0bca 0000     		.space	2
+ 2810 0bcc 00000000 		.word	0
+ 2811 0bd0 00000000 		.word	0
+ 2812 0bd4 00000000 		.word	0
+ 2813 0bd8 00000000 		.word	intMirror
+ 2814 0bdc 4D495252 		.ascii	"MIRROR"
+ 2814      4F52
+ 2815 0be2 0000     		.space	2
+ 2816 0be4 00000000 		.word	0
+ 2817 0be8 00000000 		.word	dateDayOfWeek
+ 2818 0bec 00000000 		.word	0
+ 2819 0bf0 00000000 		.word	0
+ 2820 0bf4 57444159 		.ascii	"WDAY\000"
+ 2820      00
+ 2821 0bf9 00       		.space	1
+ 2822 0bfa 0000     		.space	2
+ 2823 0bfc 00000000 		.word	0
+ 2824 0c00 00000000 		.word	dateToJ
+ 2825 0c04 00000000 		.word	0
+ 2826 0c08 00000000 		.word	0
+ 2827 0c0c 440D4A00 		.ascii	"D\015J\000"
+ 2828 0c10 0000     		.space	2
+ 2829 0c12 0000     		.space	2
+ 2830 0c14 D0060000 		.word	.LC234
+ 2831 0c18 00000000 		.word	dateFromJ
+ 2832 0c1c 00000000 		.word	0
+ 2833 0c20 00000000 		.word	0
+ 2834 0c24 4A0D4400 		.ascii	"J\015D\000"
+ 2835 0c28 0000     		.space	2
+ 2836 0c2a 0000     		.space	2
+ 2837 0c2c D4060000 		.word	.LC235
+ 2838 0c30 00000000 		.word	convC2F
+ 2839 0c34 00000000 		.word	0
+ 2840 0c38 00000000 		.word	0
+ 2841 0c3c 05430D05 		.ascii	"\005C\015\005F\000"
+ 2841      4600
+ 2842 0c42 0000     		.space	2
+ 2843 0c44 D8060000 		.word	.LC236
+ 2844 0c48 00000000 		.word	convF2C
+ 2845 0c4c 00000000 		.word	0
+ 2846 0c50 00000000 		.word	0
+ 2847 0c54 05460D05 		.ascii	"\005F\015\005C\000"
+ 2847      4300
+ 2848 0c5a 0000     		.space	2
+ 2849 0c5c DC060000 		.word	.LC237
+ 2850 0c60 00000000 		.word	convDB2AR
+ 2851 0c64 00000000 		.word	0
+ 2852 0c68 00000000 		.word	0
+ 2853 0c6c 64420D61 		.ascii	"dB\015ar."
+ 2853      722E
+ 2854 0c72 0000     		.space	2
+ 2855 0c74 E0060000 		.word	.LC238
+ 2856 0c78 00000000 		.word	convAR2DB
+ 2857 0c7c 00000000 		.word	0
+ 2858 0c80 00000000 		.word	0
+ 2859 0c84 61722E0D 		.ascii	"ar.\015dB"
+ARM GAS  /tmp/ccbMYxnF.s 			page 58
+
+
+ 2859      6442
+ 2860 0c8a 0000     		.space	2
+ 2861 0c8c E8060000 		.word	.LC239
+ 2862 0c90 00000000 		.word	convDB2PR
+ 2863 0c94 00000000 		.word	0
+ 2864 0c98 00000000 		.word	0
+ 2865 0c9c 64420D70 		.ascii	"dB\015pr."
+ 2865      722E
+ 2866 0ca2 0000     		.space	2
+ 2867 0ca4 F0060000 		.word	.LC240
+ 2868 0ca8 00000000 		.word	convPR2DB
+ 2869 0cac 00000000 		.word	0
+ 2870 0cb0 00000000 		.word	0
+ 2871 0cb4 70722E0D 		.ascii	"pr.\015dB"
+ 2871      6442
+ 2872 0cba 0000     		.space	2
+ 2873 0cbc F8060000 		.word	.LC241
+ 2874 0cc0 C4160000 		.word	xrom+5828
+ 2875 0cc4 00000000 		.word	0
+ 2876 0cc8 00000000 		.word	0
+ 2877 0ccc A500     		.ascii	"\245\000"
+ 2878 0cce 00000000 		.space	4
+ 2879 0cd2 0000     		.space	2
+ 2880 0cd4 00070000 		.word	.LC242
+ 2881 0cd8 8E160000 		.word	xrom+5774
+ 2882 0cdc 00000000 		.word	0
+ 2883 0ce0 00000000 		.word	0
+ 2884 0ce4 42BD00   		.ascii	"B\275\000"
+ 2885 0ce7 000000   		.space	3
+ 2886 0cea 0000     		.space	2
+ 2887 0cec 08070000 		.word	.LC243
+ 2888 0cf0 78160000 		.word	xrom+5752
+ 2889 0cf4 00000000 		.word	0
+ 2890 0cf8 00000000 		.word	0
+ 2891 0cfc 42BD9000 		.ascii	"B\275\220\000"
+ 2892 0d00 0000     		.space	2
+ 2893 0d02 0000     		.space	2
+ 2894 0d04 0C070000 		.word	.LC244
+ 2895 0d08 00000000 		.word	dateExtraction
+ 2896 0d0c 00000000 		.word	0
+ 2897 0d10 00000000 		.word	0
+ 2898 0d14 59454152 		.ascii	"YEAR\000"
+ 2898      00
+ 2899 0d19 00       		.space	1
+ 2900 0d1a 0000     		.space	2
+ 2901 0d1c 00000000 		.word	0
+ 2902 0d20 00000000 		.word	dateExtraction
+ 2903 0d24 00000000 		.word	0
+ 2904 0d28 00000000 		.word	0
+ 2905 0d2c 4D4F4E54 		.ascii	"MONTH\000"
+ 2905      4800
+ 2906 0d32 0000     		.space	2
+ 2907 0d34 00000000 		.word	0
+ 2908 0d38 00000000 		.word	dateExtraction
+ 2909 0d3c 00000000 		.word	0
+ 2910 0d40 00000000 		.word	0
+ 2911 0d44 44415900 		.ascii	"DAY\000"
+ARM GAS  /tmp/ccbMYxnF.s 			page 59
+
+
+ 2912 0d48 0000     		.space	2
+ 2913 0d4a 0000     		.space	2
+ 2914 0d4c 00000000 		.word	0
+ 2915 0d50 00000000 		.word	decNumberMantissa
+ 2916 0d54 00000000 		.word	0
+ 2917 0d58 00000000 		.word	0
+ 2918 0d5c 4D414E54 		.ascii	"MANT\000"
+ 2918      00
+ 2919 0d61 00       		.space	1
+ 2920 0d62 0000     		.space	2
+ 2921 0d64 00000000 		.word	0
+ 2922 0d68 00000000 		.word	decNumberExponent
+ 2923 0d6c 00000000 		.word	0
+ 2924 0d70 00000000 		.word	0
+ 2925 0d74 45585054 		.ascii	"EXPT\000"
+ 2925      00
+ 2926 0d79 00       		.space	1
+ 2927 0d7a 0000     		.space	2
+ 2928 0d7c 00000000 		.word	0
+ 2929 0d80 00000000 		.word	decNumberULP
+ 2930 0d84 00000000 		.word	0
+ 2931 0d88 30190000 		.word	xrom+6448
+ 2932 0d8c 554C5000 		.ascii	"ULP\000"
+ 2933 0d90 0000     		.space	2
+ 2934 0d92 0000     		.space	2
+ 2935 0d94 00000000 		.word	0
+ 2936 0d98 00000000 		.word	matrix_all
+ 2937 0d9c 00000000 		.word	0
+ 2938 0da0 00000000 		.word	0
+ 2939 0da4 4D2D414C 		.ascii	"M-ALL\000"
+ 2939      4C00
+ 2940 0daa 0000     		.space	2
+ 2941 0dac 00000000 		.word	0
+ 2942 0db0 00000000 		.word	matrix_diag
+ 2943 0db4 00000000 		.word	0
+ 2944 0db8 00000000 		.word	0
+ 2945 0dbc 4D2D4449 		.ascii	"M-DIAG"
+ 2945      4147
+ 2946 0dc2 0000     		.space	2
+ 2947 0dc4 00000000 		.word	0
+ 2948 0dc8 00000000 		.word	matrix_transpose
+ 2949 0dcc 00000000 		.word	0
+ 2950 0dd0 00000000 		.word	0
+ 2951 0dd4 5452414E 		.ascii	"TRANSP"
+ 2951      5350
+ 2952 0dda 0000     		.space	2
+ 2953 0ddc 00000000 		.word	0
+ 2954 0de0 00000000 		.word	matrix_rowq
+ 2955 0de4 00000000 		.word	0
+ 2956 0de8 00000000 		.word	0
+ 2957 0dec 6E524F57 		.ascii	"nROW\000"
+ 2957      00
+ 2958 0df1 00       		.space	1
+ 2959 0df2 0000     		.space	2
+ 2960 0df4 00000000 		.word	0
+ 2961 0df8 00000000 		.word	matrix_colq
+ 2962 0dfc 00000000 		.word	0
+ARM GAS  /tmp/ccbMYxnF.s 			page 60
+
+
+ 2963 0e00 00000000 		.word	0
+ 2964 0e04 6E434F4C 		.ascii	"nCOL\000"
+ 2964      00
+ 2965 0e09 00       		.space	1
+ 2966 0e0a 0000     		.space	2
+ 2967 0e0c 00000000 		.word	0
+ 2968 0e10 00000000 		.word	matrix_getrc
+ 2969 0e14 00000000 		.word	0
+ 2970 0e18 00000000 		.word	0
+ 2971 0e1c 4D2E494A 		.ascii	"M.IJ\000"
+ 2971      00
+ 2972 0e21 00       		.space	1
+ 2973 0e22 0000     		.space	2
+ 2974 0e24 00000000 		.word	0
+ 2975 0e28 00000000 		.word	matrix_determinant
+ 2976 0e2c 00000000 		.word	0
+ 2977 0e30 00000000 		.word	0
+ 2978 0e34 44455400 		.ascii	"DET\000"
+ 2979 0e38 0000     		.space	2
+ 2980 0e3a 0000     		.space	2
+ 2981 0e3c 00000000 		.word	0
+ 2982 0e40 00000000 		.word	matrix_lu_decomp
+ 2983 0e44 00000000 		.word	0
+ 2984 0e48 00000000 		.word	0
+ 2985 0e4c 4D2E4C55 		.ascii	"M.LU\000"
+ 2985      00
+ 2986 0e51 00       		.space	1
+ 2987 0e52 0000     		.space	2
+ 2988 0e54 00000000 		.word	0
+ 2989 0e58 40190000 		.word	xrom+6464
+ 2990 0e5c A2190000 		.word	xrom+6562
+ 2991 0e60 00000000 		.word	0
+ 2992 0e64 9600     		.ascii	"\226\000"
+ 2993 0e66 00000000 		.space	4
+ 2994 0e6a 0000     		.space	2
+ 2995 0e6c 10070000 		.word	.LC245
+ 2996 0e70 00000000 		.word	dateEaster
+ 2997 0e74 00000000 		.word	0
+ 2998 0e78 00000000 		.word	0
+ 2999 0e7c 45415354 		.ascii	"EASTER"
+ 2999      4552
+ 3000 0e82 0000     		.space	2
+ 3001 0e84 00000000 		.word	0
+ 3002 0e88 00000000 		.word	decFactor
+ 3003 0e8c 00000000 		.word	0
+ 3004 0e90 00000000 		.word	intFactor
+ 3005 0e94 46414354 		.ascii	"FACTOR"
+ 3005      4F52
+ 3006 0e9a 0000     		.space	2
+ 3007 0e9c 00000000 		.word	0
+ 3008              		.section	.rodata.multicmds,"a"
+ 3009              		.align	2
+ 3012              	multicmds:
+ 3013 0000 00000000 		.word	0
+ 3014 0004 4C424C00 		.ascii	"LBL\000"
+ 3015 0008 0000     		.space	2
+ 3016 000a 0000     		.space	2
+ARM GAS  /tmp/ccbMYxnF.s 			page 61
+
+
+ 3017 000c 00000000 		.word	0
+ 3018 0010 00000000 		.word	cmdmultilblp
+ 3019 0014 4C424C3F 		.ascii	"LBL?\000"
+ 3019      00
+ 3020 0019 00       		.space	1
+ 3021 001a 0000     		.space	2
+ 3022 001c 00000000 		.word	0
+ 3023 0020 00000000 		.word	cmdmultigto
+ 3024 0024 58455100 		.ascii	"XEQ\000"
+ 3025 0028 0000     		.space	2
+ 3026 002a 0000     		.space	2
+ 3027 002c 00000000 		.word	0
+ 3028 0030 00000000 		.word	cmdmultigto
+ 3029 0034 47544F00 		.ascii	"GTO\000"
+ 3030 0038 0000     		.space	2
+ 3031 003a 0000     		.space	2
+ 3032 003c 00000000 		.word	0
+ 3033 0040 F6050000 		.word	xrom+1526
+ 3034 0044 9100     		.ascii	"\221\000"
+ 3035 0046 00000000 		.space	4
+ 3036 004a 0000     		.space	2
+ 3037 004c 00000000 		.word	.LC0
+ 3038 0050 38060000 		.word	xrom+1592
+ 3039 0054 8F00     		.ascii	"\217\000"
+ 3040 0056 00000000 		.space	4
+ 3041 005a 0000     		.space	2
+ 3042 005c 04000000 		.word	.LC1
+ 3043 0060 24000000 		.word	xrom+36
+ 3044 0064 534C5600 		.ascii	"SLV\000"
+ 3045 0068 0000     		.space	2
+ 3046 006a 0000     		.space	2
+ 3047 006c 00000000 		.word	0
+ 3048 0070 1C050000 		.word	xrom+1308
+ 3049 0074 66272878 		.ascii	"f'(x)\000"
+ 3049      2900
+ 3050 007a 0000     		.space	2
+ 3051 007c 00000000 		.word	0
+ 3052 0080 90040000 		.word	xrom+1168
+ 3053 0084 66222878 		.ascii	"f\"(x)\000"
+ 3053      2900
+ 3054 008a 0000     		.space	2
+ 3055 008c 00000000 		.word	0
+ 3056 0090 82020000 		.word	xrom+642
+ 3057 0094 0400     		.ascii	"\004\000"
+ 3058 0096 00000000 		.space	4
+ 3059 009a 0000     		.space	2
+ 3060 009c 0C000000 		.word	.LC2
+ 3061 00a0 00000000 		.word	multialpha
+ 3062 00a4 A000     		.ascii	"\240\000"
+ 3063 00a6 00000000 		.space	4
+ 3064 00aa 0000     		.space	2
+ 3065 00ac 14000000 		.word	.LC3
+ 3066 00b0 00000000 		.word	multiumenu
+ 3067 00b4 554D454E 		.ascii	"UMEN\000"
+ 3067      00
+ 3068 00b9 00       		.space	1
+ 3069 00ba 0000     		.space	2
+ARM GAS  /tmp/ccbMYxnF.s 			page 62
+
+
+ 3070 00bc 18000000 		.word	.LC4
+ 3071              		.section	.rodata.niladics,"a"
+ 3072              		.align	2
+ 3075              	niladics:
+ 3076 0000 00000000 		.word	0
+ 3077 0004 00       		.byte	0
+ 3078 0005 4E4F5000 		.ascii	"NOP\000"
+ 3079 0009 0000     		.space	2
+ 3080 000b 00       		.space	1
+ 3081 000c 00000000 		.word	0
+ 3082 0010 00000000 		.word	version
+ 3083 0014 00       		.byte	0
+ 3084 0015 56455253 		.ascii	"VERS\000"
+ 3084      00
+ 3085 001a 00       		.space	1
+ 3086 001b 00       		.space	1
+ 3087 001c 00000000 		.word	0
+ 3088 0020 00000000 		.word	cmd_off
+ 3089 0024 00       		.byte	0
+ 3090 0025 4F464600 		.ascii	"OFF\000"
+ 3091 0029 0000     		.space	2
+ 3092 002b 00       		.space	1
+ 3093 002c 00000000 		.word	0
+ 3094 0030 00000000 		.word	get_stack_size
+ 3095 0034 01       		.byte	1
+ 3096 0035 5353495A 		.ascii	"SSIZE?"
+ 3096      453F
+ 3097 003b 00       		.space	1
+ 3098 003c 00000000 		.word	0
+ 3099 0040 AA150000 		.word	xrom+5546
+ 3100 0044 00       		.byte	0
+ 3101 0045 5353495A 		.ascii	"SSIZE4"
+ 3101      4534
+ 3102 004b 00       		.space	1
+ 3103 004c 00000000 		.word	0
+ 3104 0050 AE150000 		.word	xrom+5550
+ 3105 0054 00       		.byte	0
+ 3106 0055 5353495A 		.ascii	"SSIZE8"
+ 3106      4538
+ 3107 005b 00       		.space	1
+ 3108 005c 00000000 		.word	0
+ 3109 0060 00000000 		.word	get_word_size
+ 3110 0064 01       		.byte	1
+ 3111 0065 5753495A 		.ascii	"WSIZE?"
+ 3111      453F
+ 3112 006b 00       		.space	1
+ 3113 006c 00000000 		.word	0
+ 3114 0070 00000000 		.word	roll_down
+ 3115 0074 00       		.byte	0
+ 3116 0075 520F00   		.ascii	"R\017\000"
+ 3117 0078 000000   		.space	3
+ 3118 007b 00       		.space	1
+ 3119 007c 7C010000 		.word	.LC56
+ 3120 0080 00000000 		.word	roll_up
+ 3121 0084 00       		.byte	0
+ 3122 0085 521000   		.ascii	"R\020\000"
+ 3123 0088 000000   		.space	3
+ARM GAS  /tmp/ccbMYxnF.s 			page 63
+
+
+ 3124 008b 00       		.space	1
+ 3125 008c 80010000 		.word	.LC57
+ 3126 0090 00000000 		.word	cpx_roll_down
+ 3127 0094 00       		.byte	0
+ 3128 0095 14520F00 		.ascii	"\024R\017\000"
+ 3129 0099 0000     		.space	2
+ 3130 009b 00       		.space	1
+ 3131 009c 84010000 		.word	.LC58
+ 3132 00a0 00000000 		.word	cpx_roll_up
+ 3133 00a4 00       		.byte	0
+ 3134 00a5 14521000 		.ascii	"\024R\020\000"
+ 3135 00a9 0000     		.space	2
+ 3136 00ab 00       		.space	1
+ 3137 00ac 8C010000 		.word	.LC59
+ 3138 00b0 00000000 		.word	cpx_enter
+ 3139 00b4 00       		.byte	0
+ 3140 00b5 14454E54 		.ascii	"\024ENTER"
+ 3140      4552
+ 3141 00bb 00       		.space	1
+ 3142 00bc 94010000 		.word	.LC60
+ 3143 00c0 00000000 		.word	fill
+ 3144 00c4 00       		.byte	0
+ 3145 00c5 46494C4C 		.ascii	"FILL\000"
+ 3145      00
+ 3146 00ca 00       		.space	1
+ 3147 00cb 00       		.space	1
+ 3148 00cc 00000000 		.word	0
+ 3149 00d0 00000000 		.word	cpx_fill
+ 3150 00d4 00       		.byte	0
+ 3151 00d5 1446494C 		.ascii	"\024FILL\000"
+ 3151      4C00
+ 3152 00db 00       		.space	1
+ 3153 00dc 9C010000 		.word	.LC61
+ 3154 00e0 00000000 		.word	drop
+ 3155 00e4 00       		.byte	0
+ 3156 00e5 44524F50 		.ascii	"DROP\000"
+ 3156      00
+ 3157 00ea 00       		.space	1
+ 3158 00eb 00       		.space	1
+ 3159 00ec 00000000 		.word	0
+ 3160 00f0 00000000 		.word	drop
+ 3161 00f4 00       		.byte	0
+ 3162 00f5 1444524F 		.ascii	"\024DROP\000"
+ 3162      5000
+ 3163 00fb 00       		.space	1
+ 3164 00fc A4010000 		.word	.LC62
+ 3165 0100 00000000 		.word	sigma_val
+ 3166 0104 81       		.byte	-127
+ 3167 0105 91789A79 		.ascii	"\221x\232y\000"
+ 3167      00
+ 3168 010a 00       		.space	1
+ 3169 010b 00       		.space	1
+ 3170 010c AC010000 		.word	.LC63
+ 3171 0110 00000000 		.word	sigma_val
+ 3172 0114 81       		.byte	-127
+ 3173 0115 91789A00 		.ascii	"\221x\232\000"
+ 3174 0119 0000     		.space	2
+ARM GAS  /tmp/ccbMYxnF.s 			page 64
+
+
+ 3175 011b 00       		.space	1
+ 3176 011c B4010000 		.word	.LC64
+ 3177 0120 00000000 		.word	sigma_val
+ 3178 0124 81       		.byte	-127
+ 3179 0125 91799A00 		.ascii	"\221y\232\000"
+ 3180 0129 0000     		.space	2
+ 3181 012b 00       		.space	1
+ 3182 012c BC010000 		.word	.LC65
+ 3183 0130 00000000 		.word	sigma_val
+ 3184 0134 81       		.byte	-127
+ 3185 0135 91787900 		.ascii	"\221xy\000"
+ 3186 0139 0000     		.space	2
+ 3187 013b 00       		.space	1
+ 3188 013c C4010000 		.word	.LC66
+ 3189 0140 00000000 		.word	sigma_val
+ 3190 0144 81       		.byte	-127
+ 3191 0145 917800   		.ascii	"\221x\000"
+ 3192 0148 000000   		.space	3
+ 3193 014b 00       		.space	1
+ 3194 014c CC010000 		.word	.LC67
+ 3195 0150 00000000 		.word	sigma_val
+ 3196 0154 81       		.byte	-127
+ 3197 0155 917900   		.ascii	"\221y\000"
+ 3198 0158 000000   		.space	3
+ 3199 015b 00       		.space	1
+ 3200 015c D4010000 		.word	.LC68
+ 3201 0160 00000000 		.word	sigma_val
+ 3202 0164 81       		.byte	-127
+ 3203 0165 916C6E78 		.ascii	"\221lnx\000"
+ 3203      00
+ 3204 016a 00       		.space	1
+ 3205 016b 00       		.space	1
+ 3206 016c DC010000 		.word	.LC69
+ 3207 0170 00000000 		.word	sigma_val
+ 3208 0174 81       		.byte	-127
+ 3209 0175 916C6E9A 		.ascii	"\221ln\232x\000"
+ 3209      7800
+ 3210 017b 00       		.space	1
+ 3211 017c E4010000 		.word	.LC70
+ 3212 0180 00000000 		.word	sigma_val
+ 3213 0184 81       		.byte	-127
+ 3214 0185 916C6E79 		.ascii	"\221lny\000"
+ 3214      00
+ 3215 018a 00       		.space	1
+ 3216 018b 00       		.space	1
+ 3217 018c EC010000 		.word	.LC71
+ 3218 0190 00000000 		.word	sigma_val
+ 3219 0194 81       		.byte	-127
+ 3220 0195 916C6E9A 		.ascii	"\221ln\232y\000"
+ 3220      7900
+ 3221 019b 00       		.space	1
+ 3222 019c F4010000 		.word	.LC72
+ 3223 01a0 00000000 		.word	sigma_val
+ 3224 01a4 81       		.byte	-127
+ 3225 01a5 916C6E78 		.ascii	"\221lnxy\000"
+ 3225      7900
+ 3226 01ab 00       		.space	1
+ARM GAS  /tmp/ccbMYxnF.s 			page 65
+
+
+ 3227 01ac FC010000 		.word	.LC73
+ 3228 01b0 00000000 		.word	sigma_val
+ 3229 01b4 81       		.byte	-127
+ 3230 01b5 91786C6E 		.ascii	"\221xlny\000"
+ 3230      7900
+ 3231 01bb 00       		.space	1
+ 3232 01bc 04020000 		.word	.LC74
+ 3233 01c0 00000000 		.word	sigma_val
+ 3234 01c4 81       		.byte	-127
+ 3235 01c5 91796C6E 		.ascii	"\221ylnx\000"
+ 3235      7800
+ 3236 01cb 00       		.space	1
+ 3237 01cc 0C020000 		.word	.LC75
+ 3238 01d0 00000000 		.word	sigma_val
+ 3239 01d4 81       		.byte	-127
+ 3240 01d5 6E9100   		.ascii	"n\221\000"
+ 3241 01d8 000000   		.space	3
+ 3242 01db 00       		.space	1
+ 3243 01dc 14020000 		.word	.LC76
+ 3244 01e0 00000000 		.word	stats_deviations
+ 3245 01e4 82       		.byte	-126
+ 3246 01e5 7300     		.ascii	"s\000"
+ 3247 01e7 00000000 		.space	4
+ 3248 01eb 00       		.space	1
+ 3249 01ec 00000000 		.word	0
+ 3250 01f0 00000000 		.word	stats_deviations
+ 3251 01f4 82       		.byte	-126
+ 3252 01f5 B100     		.ascii	"\261\000"
+ 3253 01f7 00000000 		.space	4
+ 3254 01fb 00       		.space	1
+ 3255 01fc 1C020000 		.word	.LC77
+ 3256 0200 00000000 		.word	stats_deviations
+ 3257 0204 82       		.byte	-126
+ 3258 0205 A400     		.ascii	"\244\000"
+ 3259 0207 00000000 		.space	4
+ 3260 020b 00       		.space	1
+ 3261 020c 24020000 		.word	.LC78
+ 3262 0210 00000000 		.word	stats_deviations
+ 3263 0214 82       		.byte	-126
+ 3264 0215 A4BE00   		.ascii	"\244\276\000"
+ 3265 0218 000000   		.space	3
+ 3266 021b 00       		.space	1
+ 3267 021c 2C020000 		.word	.LC79
+ 3268 0220 00000000 		.word	stats_wdeviations
+ 3269 0224 81       		.byte	-127
+ 3270 0225 737700   		.ascii	"sw\000"
+ 3271 0228 000000   		.space	3
+ 3272 022b 00       		.space	1
+ 3273 022c 00000000 		.word	0
+ 3274 0230 00000000 		.word	stats_wdeviations
+ 3275 0234 81       		.byte	-127
+ 3276 0235 B17700   		.ascii	"\261w\000"
+ 3277 0238 000000   		.space	3
+ 3278 023b 00       		.space	1
+ 3279 023c 38020000 		.word	.LC80
+ 3280 0240 00000000 		.word	stats_mean
+ 3281 0244 82       		.byte	-126
+ARM GAS  /tmp/ccbMYxnF.s 			page 66
+
+
+ 3282 0245 0100     		.ascii	"\001\000"
+ 3283 0247 00000000 		.space	4
+ 3284 024b 00       		.space	1
+ 3285 024c 40020000 		.word	.LC81
+ 3286 0250 00000000 		.word	stats_wmean
+ 3287 0254 81       		.byte	-127
+ 3288 0255 017700   		.ascii	"\001w\000"
+ 3289 0258 000000   		.space	3
+ 3290 025b 00       		.space	1
+ 3291 025c 48020000 		.word	.LC82
+ 3292 0260 00000000 		.word	stats_gmean
+ 3293 0264 82       		.byte	-126
+ 3294 0265 016700   		.ascii	"\001g\000"
+ 3295 0268 000000   		.space	3
+ 3296 026b 00       		.space	1
+ 3297 026c 50020000 		.word	.LC83
+ 3298 0270 00000000 		.word	stats_correlation
+ 3299 0274 81       		.byte	-127
+ 3300 0275 434F5252 		.ascii	"CORR\000"
+ 3300      00
+ 3301 027a 00       		.space	1
+ 3302 027b 00       		.space	1
+ 3303 027c 00000000 		.word	0
+ 3304 0280 00000000 		.word	stats_LR
+ 3305 0284 82       		.byte	-126
+ 3306 0285 4C2E522E 		.ascii	"L.R.\000"
+ 3306      00
+ 3307 028a 00       		.space	1
+ 3308 028b 00       		.space	1
+ 3309 028c 00000000 		.word	0
+ 3310 0290 00000000 		.word	stats_deviations
+ 3311 0294 82       		.byte	-126
+ 3312 0295 53455252 		.ascii	"SERR\000"
+ 3312      00
+ 3313 029a 00       		.space	1
+ 3314 029b 00       		.space	1
+ 3315 029c 00000000 		.word	0
+ 3316 02a0 00000000 		.word	stats_deviations
+ 3317 02a4 82       		.byte	-126
+ 3318 02a5 A46D00   		.ascii	"\244m\000"
+ 3319 02a8 000000   		.space	3
+ 3320 02ab 00       		.space	1
+ 3321 02ac 58020000 		.word	.LC84
+ 3322 02b0 00000000 		.word	stats_wdeviations
+ 3323 02b4 81       		.byte	-127
+ 3324 02b5 53455252 		.ascii	"SERRw\000"
+ 3324      7700
+ 3325 02bb 00       		.space	1
+ 3326 02bc 00000000 		.word	0
+ 3327 02c0 00000000 		.word	stats_COV
+ 3328 02c4 81       		.byte	-127
+ 3329 02c5 434F5600 		.ascii	"COV\000"
+ 3330 02c9 0000     		.space	2
+ 3331 02cb 00       		.space	1
+ 3332 02cc 00000000 		.word	0
+ 3333 02d0 00000000 		.word	stats_COV
+ 3334 02d4 81       		.byte	-127
+ARM GAS  /tmp/ccbMYxnF.s 			page 67
+
+
+ 3335 02d5 738B8C00 		.ascii	"s\213\214\000"
+ 3336 02d9 0000     		.space	2
+ 3337 02db 00       		.space	1
+ 3338 02dc 64020000 		.word	.LC85
+ 3339 02e0 00000000 		.word	stats_mode
+ 3340 02e4 00       		.byte	0
+ 3341 02e5 4C696E46 		.ascii	"LinF\000"
+ 3341      00
+ 3342 02ea 00       		.space	1
+ 3343 02eb 00       		.space	1
+ 3344 02ec 00000000 		.word	0
+ 3345 02f0 00000000 		.word	stats_mode
+ 3346 02f4 00       		.byte	0
+ 3347 02f5 45787046 		.ascii	"ExpF\000"
+ 3347      00
+ 3348 02fa 00       		.space	1
+ 3349 02fb 00       		.space	1
+ 3350 02fc 00000000 		.word	0
+ 3351 0300 00000000 		.word	stats_mode
+ 3352 0304 00       		.byte	0
+ 3353 0305 506F7765 		.ascii	"PowerF"
+ 3353      7246
+ 3354 030b 00       		.space	1
+ 3355 030c 00000000 		.word	0
+ 3356 0310 00000000 		.word	stats_mode
+ 3357 0314 00       		.byte	0
+ 3358 0315 4C6F6746 		.ascii	"LogF\000"
+ 3358      00
+ 3359 031a 00       		.space	1
+ 3360 031b 00       		.space	1
+ 3361 031c 00000000 		.word	0
+ 3362 0320 00000000 		.word	stats_mode
+ 3363 0324 00       		.byte	0
+ 3364 0325 42657374 		.ascii	"BestF\000"
+ 3364      4600
+ 3365 032b 00       		.space	1
+ 3366 032c 00000000 		.word	0
+ 3367 0330 00000000 		.word	stats_random
+ 3368 0334 01       		.byte	1
+ 3369 0335 52414E23 		.ascii	"RAN#\000"
+ 3369      00
+ 3370 033a 00       		.space	1
+ 3371 033b 00       		.space	1
+ 3372 033c 00000000 		.word	0
+ 3373 0340 00000000 		.word	stats_sto_random
+ 3374 0344 00       		.byte	0
+ 3375 0345 53454544 		.ascii	"SEED\000"
+ 3375      00
+ 3376 034a 00       		.space	1
+ 3377 034b 00       		.space	1
+ 3378 034c 00000000 		.word	0
+ 3379 0350 34150000 		.word	xrom+5428
+ 3380 0354 00       		.byte	0
+ 3381 0355 44454700 		.ascii	"DEG\000"
+ 3382 0359 0000     		.space	2
+ 3383 035b 00       		.space	1
+ 3384 035c 00000000 		.word	0
+ARM GAS  /tmp/ccbMYxnF.s 			page 68
+
+
+ 3385 0360 38150000 		.word	xrom+5432
+ 3386 0364 00       		.byte	0
+ 3387 0365 52414400 		.ascii	"RAD\000"
+ 3388 0369 0000     		.space	2
+ 3389 036b 00       		.space	1
+ 3390 036c 00000000 		.word	0
+ 3391 0370 3E150000 		.word	xrom+5438
+ 3392 0374 00       		.byte	0
+ 3393 0375 47524144 		.ascii	"GRAD\000"
+ 3393      00
+ 3394 037a 00       		.space	1
+ 3395 037b 00       		.space	1
+ 3396 037c 00000000 		.word	0
+ 3397 0380 00000000 		.word	op_rtn
+ 3398 0384 00       		.byte	0
+ 3399 0385 52544E00 		.ascii	"RTN\000"
+ 3400 0389 0000     		.space	2
+ 3401 038b 00       		.space	1
+ 3402 038c 00000000 		.word	0
+ 3403 0390 00000000 		.word	op_rtn
+ 3404 0394 00       		.byte	0
+ 3405 0395 52544E2B 		.ascii	"RTN+1\000"
+ 3405      3100
+ 3406 039b 00       		.space	1
+ 3407 039c 00000000 		.word	0
+ 3408 03a0 00000000 		.word	op_rtn
+ 3409 03a4 00       		.byte	0
+ 3410 03a5 454E4400 		.ascii	"END\000"
+ 3411 03a9 0000     		.space	2
+ 3412 03ab 00       		.space	1
+ 3413 03ac 00000000 		.word	0
+ 3414 03b0 00000000 		.word	op_rs
+ 3415 03b4 00       		.byte	0
+ 3416 03b5 53544F50 		.ascii	"STOP\000"
+ 3416      00
+ 3417 03ba 00       		.space	1
+ 3418 03bb 00       		.space	1
+ 3419 03bc 00000000 		.word	0
+ 3420 03c0 00000000 		.word	op_prompt
+ 3421 03c4 00       		.byte	0
+ 3422 03c5 50524F4D 		.ascii	"PROMPT"
+ 3422      5054
+ 3423 03cb 00       		.space	1
+ 3424 03cc 00000000 		.word	0
+ 3425 03d0 00000000 		.word	sigma_clear
+ 3426 03d4 00       		.byte	0
+ 3427 03d5 434C9100 		.ascii	"CL\221\000"
+ 3428 03d9 0000     		.space	2
+ 3429 03db 00       		.space	1
+ 3430 03dc 68020000 		.word	.LC86
+ 3431 03e0 00000000 		.word	clrreg
+ 3432 03e4 00       		.byte	0
+ 3433 03e5 434C5245 		.ascii	"CLREGS"
+ 3433      4753
+ 3434 03eb 00       		.space	1
+ 3435 03ec 00000000 		.word	0
+ 3436 03f0 00000000 		.word	clrx
+ARM GAS  /tmp/ccbMYxnF.s 			page 69
+
+
+ 3437 03f4 00       		.byte	0
+ 3438 03f5 434C7800 		.ascii	"CLx\000"
+ 3439 03f9 0000     		.space	2
+ 3440 03fb 00       		.space	1
+ 3441 03fc 00000000 		.word	0
+ 3442 0400 00000000 		.word	clrstk
+ 3443 0404 00       		.byte	0
+ 3444 0405 434C5354 		.ascii	"CLSTK\000"
+ 3444      4B00
+ 3445 040b 00       		.space	1
+ 3446 040c 00000000 		.word	0
+ 3447 0410 00000000 		.word	0
+ 3448 0414 00       		.byte	0
+ 3449 0415 434C414C 		.ascii	"CLALL\000"
+ 3449      4C00
+ 3450 041b 00       		.space	1
+ 3451 041c 00000000 		.word	0
+ 3452 0420 00000000 		.word	0
+ 3453 0424 00       		.byte	0
+ 3454 0425 52455345 		.ascii	"RESET\000"
+ 3454      5400
+ 3455 042b 00       		.space	1
+ 3456 042c 00000000 		.word	0
+ 3457 0430 00000000 		.word	0
+ 3458 0434 00       		.byte	0
+ 3459 0435 434C5052 		.ascii	"CLPROG"
+ 3459      4F47
+ 3460 043b 00       		.space	1
+ 3461 043c 00000000 		.word	0
+ 3462 0440 00000000 		.word	0
+ 3463 0444 00       		.byte	0
+ 3464 0445 434C5041 		.ascii	"CLPALL"
+ 3464      4C4C
+ 3465 044b 00       		.space	1
+ 3466 044c 00000000 		.word	0
+ 3467 0450 00000000 		.word	clrflags
+ 3468 0454 00       		.byte	0
+ 3469 0455 4346414C 		.ascii	"CFALL\000"
+ 3469      4C00
+ 3470 045b 00       		.space	1
+ 3471 045c 00000000 		.word	0
+ 3472 0460 00000000 		.word	op_r2p
+ 3473 0464 80       		.byte	-128
+ 3474 0465 0D504F4C 		.ascii	"\015POL\000"
+ 3474      00
+ 3475 046a 00       		.space	1
+ 3476 046b 00       		.space	1
+ 3477 046c 70020000 		.word	.LC87
+ 3478 0470 00000000 		.word	op_p2r
+ 3479 0474 80       		.byte	-128
+ 3480 0475 0D524543 		.ascii	"\015REC\000"
+ 3480      00
+ 3481 047a 00       		.space	1
+ 3482 047b 00       		.space	1
+ 3483 047c 78020000 		.word	.LC88
+ 3484 0480 00000000 		.word	op_fracdenom
+ 3485 0484 80       		.byte	-128
+ARM GAS  /tmp/ccbMYxnF.s 			page 70
+
+
+ 3486 0485 44454E4D 		.ascii	"DENMAX"
+ 3486      4158
+ 3487 048b 00       		.space	1
+ 3488 048c 00000000 		.word	0
+ 3489 0490 00000000 		.word	op_2frac
+ 3490 0494 81       		.byte	-127
+ 3491 0495 4445434F 		.ascii	"DECOMP"
+ 3491      4D50
+ 3492 049b 00       		.space	1
+ 3493 049c 00000000 		.word	0
+ 3494 04a0 9A150000 		.word	xrom+5530
+ 3495 04a4 00       		.byte	0
+ 3496 04a5 44454E41 		.ascii	"DENANY"
+ 3496      4E59
+ 3497 04ab 00       		.space	1
+ 3498 04ac 00000000 		.word	0
+ 3499 04b0 9E150000 		.word	xrom+5534
+ 3500 04b4 00       		.byte	0
+ 3501 04b5 44454E46 		.ascii	"DENFIX"
+ 3501      4958
+ 3502 04bb 00       		.space	1
+ 3503 04bc 00000000 		.word	0
+ 3504 04c0 A4150000 		.word	xrom+5540
+ 3505 04c4 00       		.byte	0
+ 3506 04c5 44454E46 		.ascii	"DENFAC"
+ 3506      4143
+ 3507 04cb 00       		.space	1
+ 3508 04cc 00000000 		.word	0
+ 3509 04d0 00000000 		.word	op_fract
+ 3510 04d4 00       		.byte	0
+ 3511 04d5 494D5046 		.ascii	"IMPFRC"
+ 3511      5243
+ 3512 04db 00       		.space	1
+ 3513 04dc 00000000 		.word	0
+ 3514 04e0 00000000 		.word	op_fract
+ 3515 04e4 00       		.byte	0
+ 3516 04e5 50524F46 		.ascii	"PROFRC"
+ 3516      5243
+ 3517 04eb 00       		.space	1
+ 3518 04ec 00000000 		.word	0
+ 3519 04f0 2E150000 		.word	xrom+5422
+ 3520 04f4 00       		.byte	0
+ 3521 04f5 5244582E 		.ascii	"RDX.\000"
+ 3521      00
+ 3522 04fa 00       		.space	1
+ 3523 04fb 00       		.space	1
+ 3524 04fc 00000000 		.word	0
+ 3525 0500 2A150000 		.word	xrom+5418
+ 3526 0504 00       		.byte	0
+ 3527 0505 5244582C 		.ascii	"RDX,\000"
+ 3527      00
+ 3528 050a 00       		.space	1
+ 3529 050b 00       		.space	1
+ 3530 050c 00000000 		.word	0
+ 3531 0510 64150000 		.word	xrom+5476
+ 3532 0514 00       		.byte	0
+ 3533 0515 54534F4E 		.ascii	"TSON\000"
+ARM GAS  /tmp/ccbMYxnF.s 			page 71
+
+
+ 3533      00
+ 3534 051a 00       		.space	1
+ 3535 051b 00       		.space	1
+ 3536 051c 80020000 		.word	.LC89
+ 3537 0520 68150000 		.word	xrom+5480
+ 3538 0524 00       		.byte	0
+ 3539 0525 54534F46 		.ascii	"TSOFF\000"
+ 3539      4600
+ 3540 052b 00       		.space	1
+ 3541 052c 88020000 		.word	.LC90
+ 3542 0530 6C150000 		.word	xrom+5484
+ 3543 0534 00       		.byte	0
+ 3544 0535 5345504F 		.ascii	"SEPON\000"
+ 3544      4E00
+ 3545 053b 00       		.space	1
+ 3546 053c 00000000 		.word	0
+ 3547 0540 70150000 		.word	xrom+5488
+ 3548 0544 00       		.byte	0
+ 3549 0545 5345504F 		.ascii	"SEPOFF"
+ 3549      4646
+ 3550 054b 00       		.space	1
+ 3551 054c 00000000 		.word	0
+ 3552 0550 90150000 		.word	xrom+5520
+ 3553 0554 00       		.byte	0
+ 3554 0555 5343494F 		.ascii	"SCIOVR"
+ 3554      5652
+ 3555 055b 00       		.space	1
+ 3556 055c 00000000 		.word	0
+ 3557 0560 94150000 		.word	xrom+5524
+ 3558 0564 00       		.byte	0
+ 3559 0565 454E474F 		.ascii	"ENGOVR"
+ 3559      5652
+ 3560 056b 00       		.space	1
+ 3561 056c 00000000 		.word	0
+ 3562 0570 74150000 		.word	xrom+5492
+ 3563 0574 00       		.byte	0
+ 3564 0575 32434F4D 		.ascii	"2COMPL"
+ 3564      504C
+ 3565 057b 00       		.space	1
+ 3566 057c 00000000 		.word	0
+ 3567 0580 7A150000 		.word	xrom+5498
+ 3568 0584 00       		.byte	0
+ 3569 0585 31434F4D 		.ascii	"1COMPL"
+ 3569      504C
+ 3570 058b 00       		.space	1
+ 3571 058c 00000000 		.word	0
+ 3572 0590 7E150000 		.word	xrom+5502
+ 3573 0594 00       		.byte	0
+ 3574 0595 554E5349 		.ascii	"UNSIGN"
+ 3574      474E
+ 3575 059b 00       		.space	1
+ 3576 059c 00000000 		.word	0
+ 3577 05a0 82150000 		.word	xrom+5506
+ 3578 05a4 00       		.byte	0
+ 3579 05a5 5349474E 		.ascii	"SIGNMT"
+ 3579      4D54
+ 3580 05ab 00       		.space	1
+ARM GAS  /tmp/ccbMYxnF.s 			page 72
+
+
+ 3581 05ac 00000000 		.word	0
+ 3582 05b0 00000000 		.word	op_float
+ 3583 05b4 00       		.byte	0
+ 3584 05b5 4445434D 		.ascii	"DECM\000"
+ 3584      00
+ 3585 05ba 00       		.space	1
+ 3586 05bb 00       		.space	1
+ 3587 05bc 00000000 		.word	0
+ 3588 05c0 00000000 		.word	op_float
+ 3589 05c4 00       		.byte	0
+ 3590 05c5 482E4D53 		.ascii	"H.MS\000"
+ 3590      00
+ 3591 05ca 00       		.space	1
+ 3592 05cb 00       		.space	1
+ 3593 05cc 00000000 		.word	0
+ 3594 05d0 00000000 		.word	op_fract
+ 3595 05d4 00       		.byte	0
+ 3596 05d5 46524143 		.ascii	"FRACT\000"
+ 3596      5400
+ 3597 05db 00       		.space	1
+ 3598 05dc 00000000 		.word	0
+ 3599 05e0 88150000 		.word	xrom+5512
+ 3600 05e4 00       		.byte	0
+ 3601 05e5 4C5A4F4E 		.ascii	"LZON\000"
+ 3601      00
+ 3602 05ea 00       		.space	1
+ 3603 05eb 00       		.space	1
+ 3604 05ec 00000000 		.word	0
+ 3605 05f0 8C150000 		.word	xrom+5516
+ 3606 05f4 00       		.byte	0
+ 3607 05f5 4C5A4F46 		.ascii	"LZOFF\000"
+ 3607      4600
+ 3608 05fb 00       		.space	1
+ 3609 05fc 00000000 		.word	0
+ 3610 0600 00000000 		.word	int_justify
+ 3611 0604 01       		.byte	1
+ 3612 0605 4C4A00   		.ascii	"LJ\000"
+ 3613 0608 000000   		.space	3
+ 3614 060b 00       		.space	1
+ 3615 060c 00000000 		.word	0
+ 3616 0610 00000000 		.word	int_justify
+ 3617 0614 01       		.byte	1
+ 3618 0615 524A00   		.ascii	"RJ\000"
+ 3619 0618 000000   		.space	3
+ 3620 061b 00       		.space	1
+ 3621 061c 00000000 		.word	0
+ 3622 0620 00000000 		.word	intDblMul
+ 3623 0624 00       		.byte	0
+ 3624 0625 44424C1C 		.ascii	"DBL\034\000"
+ 3624      00
+ 3625 062a 00       		.space	1
+ 3626 062b 00       		.space	1
+ 3627 062c 90020000 		.word	.LC91
+ 3628 0630 00000000 		.word	sigma_sum
+ 3629 0634 82       		.byte	-126
+ 3630 0635 53554D00 		.ascii	"SUM\000"
+ 3631 0639 0000     		.space	2
+ARM GAS  /tmp/ccbMYxnF.s 			page 73
+
+
+ 3632 063b 00       		.space	1
+ 3633 063c 00000000 		.word	0
+ 3634 0640 54150000 		.word	xrom+5460
+ 3635 0644 00       		.byte	0
+ 3636 0645 442E4D59 		.ascii	"D.MY\000"
+ 3636      00
+ 3637 064a 00       		.space	1
+ 3638 064b 00       		.space	1
+ 3639 064c 00000000 		.word	0
+ 3640 0650 58150000 		.word	xrom+5464
+ 3641 0654 00       		.byte	0
+ 3642 0655 592E4D44 		.ascii	"Y.MD\000"
+ 3642      00
+ 3643 065a 00       		.space	1
+ 3644 065b 00       		.space	1
+ 3645 065c 00000000 		.word	0
+ 3646 0660 5E150000 		.word	xrom+5470
+ 3647 0664 00       		.byte	0
+ 3648 0665 4D2E4459 		.ascii	"M.DY\000"
+ 3648      00
+ 3649 066a 00       		.space	1
+ 3650 066b 00       		.space	1
+ 3651 066c 00000000 		.word	0
+ 3652 0670 48150000 		.word	xrom+5448
+ 3653 0674 00       		.byte	0
+ 3654 0675 4A473137 		.ascii	"JG1752"
+ 3654      3532
+ 3655 067b 00       		.space	1
+ 3656 067c 00000000 		.word	0
+ 3657 0680 44150000 		.word	xrom+5444
+ 3658 0684 00       		.byte	0
+ 3659 0685 4A473135 		.ascii	"JG1582"
+ 3659      3832
+ 3660 068b 00       		.space	1
+ 3661 068c 00000000 		.word	0
+ 3662 0690 00000000 		.word	date_isleap
+ 3663 0694 80       		.byte	-128
+ 3664 0695 4C454150 		.ascii	"LEAP?\000"
+ 3664      3F00
+ 3665 069b 00       		.space	1
+ 3666 069c 00000000 		.word	0
+ 3667 06a0 00000000 		.word	date_alphaday
+ 3668 06a4 80       		.byte	-128
+ 3669 06a5 A0444159 		.ascii	"\240DAY\000"
+ 3669      00
+ 3670 06aa 00       		.space	1
+ 3671 06ab 00       		.space	1
+ 3672 06ac 98020000 		.word	.LC92
+ 3673 06b0 00000000 		.word	date_alphamonth
+ 3674 06b4 80       		.byte	-128
+ 3675 06b5 A04D4F4E 		.ascii	"\240MONTH"
+ 3675      5448
+ 3676 06bb 00       		.space	1
+ 3677 06bc A0020000 		.word	.LC93
+ 3678 06c0 00000000 		.word	date_alphadate
+ 3679 06c4 80       		.byte	-128
+ 3680 06c5 A0444154 		.ascii	"\240DATE\000"
+ARM GAS  /tmp/ccbMYxnF.s 			page 74
+
+
+ 3680      4500
+ 3681 06cb 00       		.space	1
+ 3682 06cc A8020000 		.word	.LC94
+ 3683 06d0 00000000 		.word	date_alphatime
+ 3684 06d4 80       		.byte	-128
+ 3685 06d5 A054494D 		.ascii	"\240TIME\000"
+ 3685      4500
+ 3686 06db 00       		.space	1
+ 3687 06dc B0020000 		.word	.LC95
+ 3688 06e0 00000000 		.word	date_date
+ 3689 06e4 81       		.byte	-127
+ 3690 06e5 44415445 		.ascii	"DATE\000"
+ 3690      00
+ 3691 06ea 00       		.space	1
+ 3692 06eb 00       		.space	1
+ 3693 06ec 00000000 		.word	0
+ 3694 06f0 00000000 		.word	date_time
+ 3695 06f4 81       		.byte	-127
+ 3696 06f5 54494D45 		.ascii	"TIME\000"
+ 3696      00
+ 3697 06fa 00       		.space	1
+ 3698 06fb 00       		.space	1
+ 3699 06fc 00000000 		.word	0
+ 3700 0700 50150000 		.word	xrom+5456
+ 3701 0704 00       		.byte	0
+ 3702 0705 32344800 		.ascii	"24H\000"
+ 3703 0709 0000     		.space	2
+ 3704 070b 00       		.space	1
+ 3705 070c 00000000 		.word	0
+ 3706 0710 4C150000 		.word	xrom+5452
+ 3707 0714 00       		.byte	0
+ 3708 0715 31324800 		.ascii	"12H\000"
+ 3709 0719 0000     		.space	2
+ 3710 071b 00       		.space	1
+ 3711 071c 00000000 		.word	0
+ 3712 0720 00000000 		.word	date_setdate
+ 3713 0724 80       		.byte	-128
+ 3714 0725 53455444 		.ascii	"SETDAT"
+ 3714      4154
+ 3715 072b 00       		.space	1
+ 3716 072c 00000000 		.word	0
+ 3717 0730 00000000 		.word	date_settime
+ 3718 0734 80       		.byte	-128
+ 3719 0735 53455454 		.ascii	"SETTIM"
+ 3719      494D
+ 3720 073b 00       		.space	1
+ 3721 073c 00000000 		.word	0
+ 3722 0740 00000000 		.word	clralpha
+ 3723 0744 00       		.byte	0
+ 3724 0745 434CA000 		.ascii	"CL\240\000"
+ 3725 0749 0000     		.space	2
+ 3726 074b 00       		.space	1
+ 3727 074c B8020000 		.word	.LC96
+ 3728 0750 00000000 		.word	alpha_view
+ 3729 0754 00       		.byte	0
+ 3730 0755 56494557 		.ascii	"VIEW\240\000"
+ 3730      A000
+ARM GAS  /tmp/ccbMYxnF.s 			page 75
+
+
+ 3731 075b 00       		.space	1
+ 3732 075c BC020000 		.word	.LC97
+ 3733 0760 00000000 		.word	alpha_length
+ 3734 0764 01       		.byte	1
+ 3735 0765 A04C454E 		.ascii	"\240LENG\000"
+ 3735      4700
+ 3736 076b 00       		.space	1
+ 3737 076c C4020000 		.word	.LC98
+ 3738 0770 00000000 		.word	alpha_tox
+ 3739 0774 01       		.byte	1
+ 3740 0775 A00D7800 		.ascii	"\240\015x\000"
+ 3741 0779 0000     		.space	2
+ 3742 077b 00       		.space	1
+ 3743 077c CC020000 		.word	.LC99
+ 3744 0780 00000000 		.word	alpha_fromx
+ 3745 0784 00       		.byte	0
+ 3746 0785 780DA000 		.ascii	"x\015\240\000"
+ 3747 0789 0000     		.space	2
+ 3748 078b 00       		.space	1
+ 3749 078c D0020000 		.word	.LC100
+ 3750 0790 00000000 		.word	alpha_onoff
+ 3751 0794 00       		.byte	0
+ 3752 0795 A04F4E00 		.ascii	"\240ON\000"
+ 3753 0799 0000     		.space	2
+ 3754 079b 00       		.space	1
+ 3755 079c D4020000 		.word	.LC101
+ 3756 07a0 00000000 		.word	alpha_onoff
+ 3757 07a4 00       		.byte	0
+ 3758 07a5 A04F4646 		.ascii	"\240OFF\000"
+ 3758      00
+ 3759 07aa 00       		.space	1
+ 3760 07ab 00       		.space	1
+ 3761 07ac D8020000 		.word	.LC102
+ 3762 07b0 00000000 		.word	op_regcopy
+ 3763 07b4 80       		.byte	-128
+ 3764 07b5 522D434F 		.ascii	"R-COPY"
+ 3764      5059
+ 3765 07bb 00       		.space	1
+ 3766 07bc 00000000 		.word	0
+ 3767 07c0 00000000 		.word	op_regswap
+ 3768 07c4 80       		.byte	-128
+ 3769 07c5 522D5357 		.ascii	"R-SWAP"
+ 3769      4150
+ 3770 07cb 00       		.space	1
+ 3771 07cc 00000000 		.word	0
+ 3772 07d0 00000000 		.word	op_regclr
+ 3773 07d4 80       		.byte	-128
+ 3774 07d5 522D434C 		.ascii	"R-CLR\000"
+ 3774      5200
+ 3775 07db 00       		.space	1
+ 3776 07dc 00000000 		.word	0
+ 3777 07e0 00000000 		.word	op_regsort
+ 3778 07e4 80       		.byte	-128
+ 3779 07e5 522D534F 		.ascii	"R-SORT"
+ 3779      5254
+ 3780 07eb 00       		.space	1
+ 3781 07ec 00000000 		.word	0
+ARM GAS  /tmp/ccbMYxnF.s 			page 76
+
+
+ 3782 07f0 00000000 		.word	store_a_to_d
+ 3783 07f4 00       		.byte	0
+ 3784 07f5 0D412E2E 		.ascii	"\015A..D\000"
+ 3784      4400
+ 3785 07fb 00       		.space	1
+ 3786 07fc 00000000 		.word	0
+ 3787 0800 00000000 		.word	store_a_to_d
+ 3788 0804 00       		.byte	0
+ 3789 0805 412E2E44 		.ascii	"A..D\015\000"
+ 3789      0D00
+ 3790 080b 00       		.space	1
+ 3791 080c 00000000 		.word	0
+ 3792 0810 00000000 		.word	do_usergsb
+ 3793 0814 00       		.byte	0
+ 3794 0815 58455155 		.ascii	"XEQUSR"
+ 3794      5352
+ 3795 081b 00       		.space	1
+ 3796 081c 00000000 		.word	0
+ 3797 0820 00000000 		.word	op_popusr
+ 3798 0824 00       		.byte	0
+ 3799 0825 504F5055 		.ascii	"POPUSR"
+ 3799      5352
+ 3800 082b 00       		.space	1
+ 3801 082c 00000000 		.word	0
+ 3802 0830 00000000 		.word	isInfinite
+ 3803 0834 80       		.byte	-128
+ 3804 0835 9F3F00   		.ascii	"\237?\000"
+ 3805 0838 000000   		.space	3
+ 3806 083b 00       		.space	1
+ 3807 083c E0020000 		.word	.LC103
+ 3808 0840 00000000 		.word	isNan
+ 3809 0844 80       		.byte	-128
+ 3810 0845 4E614E3F 		.ascii	"NaN?\000"
+ 3810      00
+ 3811 084a 00       		.space	1
+ 3812 084b 00       		.space	1
+ 3813 084c 00000000 		.word	0
+ 3814 0850 00000000 		.word	isSpecial
+ 3815 0854 80       		.byte	-128
+ 3816 0855 53504543 		.ascii	"SPEC?\000"
+ 3816      3F00
+ 3817 085b 00       		.space	1
+ 3818 085c 00000000 		.word	0
+ 3819 0860 00000000 		.word	XisPrime
+ 3820 0864 00       		.byte	0
+ 3821 0865 5052494D 		.ascii	"PRIME?"
+ 3821      453F
+ 3822 086b 00       		.space	1
+ 3823 086c 00000000 		.word	0
+ 3824 0870 00000000 		.word	XisInt
+ 3825 0874 00       		.byte	0
+ 3826 0875 494E543F 		.ascii	"INT?\000"
+ 3826      00
+ 3827 087a 00       		.space	1
+ 3828 087b 00       		.space	1
+ 3829 087c 00000000 		.word	0
+ 3830 0880 00000000 		.word	XisInt
+ARM GAS  /tmp/ccbMYxnF.s 			page 77
+
+
+ 3831 0884 00       		.byte	0
+ 3832 0885 46503F00 		.ascii	"FP?\000"
+ 3833 0889 0000     		.space	2
+ 3834 088b 00       		.space	1
+ 3835 088c 00000000 		.word	0
+ 3836 0890 00000000 		.word	XisEvenOrOdd
+ 3837 0894 00       		.byte	0
+ 3838 0895 4556454E 		.ascii	"EVEN?\000"
+ 3838      3F00
+ 3839 089b 00       		.space	1
+ 3840 089c 00000000 		.word	0
+ 3841 08a0 00000000 		.word	XisEvenOrOdd
+ 3842 08a4 00       		.byte	0
+ 3843 08a5 4F44443F 		.ascii	"ODD?\000"
+ 3843      00
+ 3844 08aa 00       		.space	1
+ 3845 08ab 00       		.space	1
+ 3846 08ac 00000000 		.word	0
+ 3847 08b0 00000000 		.word	op_entryp
+ 3848 08b4 00       		.byte	0
+ 3849 08b5 454E5452 		.ascii	"ENTRY?"
+ 3849      593F
+ 3850 08bb 00       		.space	1
+ 3851 08bc 00000000 		.word	0
+ 3852 08c0 00000000 		.word	op_ticks
+ 3853 08c4 01       		.byte	1
+ 3854 08c5 5449434B 		.ascii	"TICKS\000"
+ 3854      5300
+ 3855 08cb 00       		.space	1
+ 3856 08cc 00000000 		.word	0
+ 3857 08d0 00000000 		.word	op_voltage
+ 3858 08d4 01       		.byte	1
+ 3859 08d5 42415454 		.ascii	"BATT\000"
+ 3859      00
+ 3860 08da 00       		.space	1
+ 3861 08db 00       		.space	1
+ 3862 08dc 00000000 		.word	0
+ 3863 08e0 38160000 		.word	xrom+5688
+ 3864 08e4 00       		.byte	0
+ 3865 08e5 534C5651 		.ascii	"SLVQ\000"
+ 3865      00
+ 3866 08ea 00       		.space	1
+ 3867 08eb 00       		.space	1
+ 3868 08ec 00000000 		.word	0
+ 3869 08f0 9C140000 		.word	xrom+5276
+ 3870 08f4 00       		.byte	0
+ 3871 08f5 4E455854 		.ascii	"NEXTP\000"
+ 3871      5000
+ 3872 08fb 00       		.space	1
+ 3873 08fc 00000000 		.word	0
+ 3874 0900 02150000 		.word	xrom+5378
+ 3875 0904 00       		.byte	0
+ 3876 0905 53455445 		.ascii	"SETEUR"
+ 3876      5552
+ 3877 090b 00       		.space	1
+ 3878 090c 00000000 		.word	0
+ 3879 0910 08150000 		.word	xrom+5384
+ARM GAS  /tmp/ccbMYxnF.s 			page 78
+
+
+ 3880 0914 00       		.byte	0
+ 3881 0915 53455455 		.ascii	"SETUK\000"
+ 3881      4B00
+ 3882 091b 00       		.space	1
+ 3883 091c 00000000 		.word	0
+ 3884 0920 0C150000 		.word	xrom+5388
+ 3885 0924 00       		.byte	0
+ 3886 0925 53455455 		.ascii	"SETUSA"
+ 3886      5341
+ 3887 092b 00       		.space	1
+ 3888 092c 00000000 		.word	0
+ 3889 0930 12150000 		.word	xrom+5394
+ 3890 0934 00       		.byte	0
+ 3891 0935 53455449 		.ascii	"SETIND"
+ 3891      4E44
+ 3892 093b 00       		.space	1
+ 3893 093c 00000000 		.word	0
+ 3894 0940 16150000 		.word	xrom+5398
+ 3895 0944 00       		.byte	0
+ 3896 0945 53455443 		.ascii	"SETCHN"
+ 3896      484E
+ 3897 094b 00       		.space	1
+ 3898 094c 00000000 		.word	0
+ 3899 0950 1C150000 		.word	xrom+5404
+ 3900 0954 00       		.byte	0
+ 3901 0955 5345544A 		.ascii	"SETJPN"
+ 3901      504E
+ 3902 095b 00       		.space	1
+ 3903 095c 00000000 		.word	0
+ 3904 0960 BA150000 		.word	xrom+5562
+ 3905 0964 00       		.byte	0
+ 3906 0965 57484F00 		.ascii	"WHO\000"
+ 3907 0969 0000     		.space	2
+ 3908 096b 00       		.space	1
+ 3909 096c 00000000 		.word	0
+ 3910 0970 00000000 		.word	op_gtoalpha
+ 3911 0974 00       		.byte	0
+ 3912 0975 584551A0 		.ascii	"XEQ\240\000"
+ 3912      00
+ 3913 097a 00       		.space	1
+ 3914 097b 00       		.space	1
+ 3915 097c E8020000 		.word	.LC104
+ 3916 0980 00000000 		.word	op_gtoalpha
+ 3917 0984 00       		.byte	0
+ 3918 0985 47544FA0 		.ascii	"GTO\240\000"
+ 3918      00
+ 3919 098a 00       		.space	1
+ 3920 098b 00       		.space	1
+ 3921 098c F0020000 		.word	.LC105
+ 3922 0990 00000000 		.word	op_roundingmode
+ 3923 0994 01       		.byte	1
+ 3924 0995 524D3F00 		.ascii	"RM?\000"
+ 3925 0999 0000     		.space	2
+ 3926 099b 00       		.space	1
+ 3927 099c 00000000 		.word	0
+ 3928 09a0 00000000 		.word	op_setspeed
+ 3929 09a4 00       		.byte	0
+ARM GAS  /tmp/ccbMYxnF.s 			page 79
+
+
+ 3930 09a5 534C4F57 		.ascii	"SLOW\000"
+ 3930      00
+ 3931 09aa 00       		.space	1
+ 3932 09ab 00       		.space	1
+ 3933 09ac 00000000 		.word	0
+ 3934 09b0 00000000 		.word	op_setspeed
+ 3935 09b4 00       		.byte	0
+ 3936 09b5 46415354 		.ascii	"FAST\000"
+ 3936      00
+ 3937 09ba 00       		.space	1
+ 3938 09bb 00       		.space	1
+ 3939 09bc 00000000 		.word	0
+ 3940 09c0 00000000 		.word	isTop
+ 3941 09c4 00       		.byte	0
+ 3942 09c5 544F503F 		.ascii	"TOP?\000"
+ 3942      00
+ 3943 09ca 00       		.space	1
+ 3944 09cb 00       		.space	1
+ 3945 09cc 00000000 		.word	0
+ 3946 09d0 00000000 		.word	get_base
+ 3947 09d4 01       		.byte	1
+ 3948 09d5 42415345 		.ascii	"BASE?\000"
+ 3948      3F00
+ 3949 09db 00       		.space	1
+ 3950 09dc 00000000 		.word	0
+ 3951 09e0 00000000 		.word	get_sign_mode
+ 3952 09e4 01       		.byte	1
+ 3953 09e5 534D4F44 		.ascii	"SMODE?"
+ 3953      453F
+ 3954 09eb 00       		.space	1
+ 3955 09ec 00000000 		.word	0
+ 3956 09f0 00000000 		.word	check_mode
+ 3957 09f4 00       		.byte	0
+ 3958 09f5 494E544D 		.ascii	"INTM?\000"
+ 3958      3F00
+ 3959 09fb 00       		.space	1
+ 3960 09fc 00000000 		.word	0
+ 3961 0a00 00000000 		.word	check_mode
+ 3962 0a04 00       		.byte	0
+ 3963 0a05 5245414C 		.ascii	"REALM?"
+ 3963      4D3F
+ 3964 0a0b 00       		.space	1
+ 3965 0a0c 00000000 		.word	0
+ 3966 0a10 00000000 		.word	check_zero
+ 3967 0a14 00       		.byte	0
+ 3968 0a15 783D2B30 		.ascii	"x=+0?\000"
+ 3968      3F00
+ 3969 0a1b 00       		.space	1
+ 3970 0a1c 00000000 		.word	0
+ 3971 0a20 00000000 		.word	check_zero
+ 3972 0a24 00       		.byte	0
+ 3973 0a25 783D2D30 		.ascii	"x=-0?\000"
+ 3973      3F00
+ 3974 0a2b 00       		.space	1
+ 3975 0a2c 00000000 		.word	0
+ 3976 0a30 00000000 		.word	matrix_rowops
+ 3977 0a34 80       		.byte	-128
+ARM GAS  /tmp/ccbMYxnF.s 			page 80
+
+
+ 3978 0a35 4D524F57 		.ascii	"MROW\027\000"
+ 3978      1700
+ 3979 0a3b 00       		.space	1
+ 3980 0a3c F8020000 		.word	.LC106
+ 3981 0a40 00000000 		.word	matrix_rowops
+ 3982 0a44 80       		.byte	-128
+ 3983 0a45 4D524F57 		.ascii	"MROW\034\000"
+ 3983      1C00
+ 3984 0a4b 00       		.space	1
+ 3985 0a4c 00030000 		.word	.LC107
+ 3986 0a50 00000000 		.word	matrix_rowops
+ 3987 0a54 80       		.byte	-128
+ 3988 0a55 4D524F57 		.ascii	"MROW+\034"
+ 3988      2B1C
+ 3989 0a5b 00       		.space	1
+ 3990 0a5c 08030000 		.word	.LC108
+ 3991 0a60 00000000 		.word	matrix_is_square
+ 3992 0a64 80       		.byte	-128
+ 3993 0a65 4D2E5351 		.ascii	"M.SQR?"
+ 3993      523F
+ 3994 0a6b 00       		.space	1
+ 3995 0a6c 00000000 		.word	0
+ 3996 0a70 00000000 		.word	matrix_inverse
+ 3997 0a74 80       		.byte	-128
+ 3998 0a75 4D9D00   		.ascii	"M\235\000"
+ 3999 0a78 000000   		.space	3
+ 4000 0a7b 00       		.space	1
+ 4001 0a7c 10030000 		.word	.LC109
+ 4002 0a80 00000000 		.word	cmdlpop
+ 4003 0a84 00       		.byte	0
+ 4004 0a85 506F704C 		.ascii	"PopLR\000"
+ 4004      5200
+ 4005 0a8b 00       		.space	1
+ 4006 0a8c 00000000 		.word	0
+ 4007 0a90 00000000 		.word	get_mem
+ 4008 0a94 01       		.byte	1
+ 4009 0a95 4D454D3F 		.ascii	"MEM?\000"
+ 4009      00
+ 4010 0a9a 00       		.space	1
+ 4011 0a9b 00       		.space	1
+ 4012 0a9c 00000000 		.word	0
+ 4013 0aa0 00000000 		.word	get_mem
+ 4014 0aa4 01       		.byte	1
+ 4015 0aa5 4C6F6352 		.ascii	"LocR?\000"
+ 4015      3F00
+ 4016 0aab 00       		.space	1
+ 4017 0aac 00000000 		.word	0
+ 4018 0ab0 00000000 		.word	get_mem
+ 4019 0ab4 01       		.byte	1
+ 4020 0ab5 52454753 		.ascii	"REGS?\000"
+ 4020      3F00
+ 4021 0abb 00       		.space	1
+ 4022 0abc 00000000 		.word	0
+ 4023 0ac0 00000000 		.word	get_mem
+ 4024 0ac4 01       		.byte	1
+ 4025 0ac5 464C4153 		.ascii	"FLASH?"
+ 4025      483F
+ARM GAS  /tmp/ccbMYxnF.s 			page 81
+
+
+ 4026 0acb 00       		.space	1
+ 4027 0acc 00000000 		.word	0
+ 4028 0ad0 00000000 		.word	flash_backup
+ 4029 0ad4 00       		.byte	0
+ 4030 0ad5 53415645 		.ascii	"SAVE\000"
+ 4030      00
+ 4031 0ada 00       		.space	1
+ 4032 0adb 00       		.space	1
+ 4033 0adc 00000000 		.word	0
+ 4034 0ae0 00000000 		.word	flash_restore
+ 4035 0ae4 00       		.byte	0
+ 4036 0ae5 4C4F4144 		.ascii	"LOAD\000"
+ 4036      00
+ 4037 0aea 00       		.space	1
+ 4038 0aeb 00       		.space	1
+ 4039 0aec 00000000 		.word	0
+ 4040 0af0 00000000 		.word	load_state
+ 4041 0af4 00       		.byte	0
+ 4042 0af5 4C4F4144 		.ascii	"LOADSS"
+ 4042      5353
+ 4043 0afb 00       		.space	1
+ 4044 0afc 00000000 		.word	0
+ 4045 0b00 00000000 		.word	load_program
+ 4046 0b04 00       		.byte	0
+ 4047 0b05 4C4F4144 		.ascii	"LOADP\000"
+ 4047      5000
+ 4048 0b0b 00       		.space	1
+ 4049 0b0c 00000000 		.word	0
+ 4050 0b10 00000000 		.word	recall_program
+ 4051 0b14 00       		.byte	0
+ 4052 0b15 5052434C 		.ascii	"PRCL\000"
+ 4052      00
+ 4053 0b1a 00       		.space	1
+ 4054 0b1b 00       		.space	1
+ 4055 0b1c 00000000 		.word	0
+ 4056 0b20 00000000 		.word	store_program
+ 4057 0b24 00       		.byte	0
+ 4058 0b25 5053544F 		.ascii	"PSTO\000"
+ 4058      00
+ 4059 0b2a 00       		.space	1
+ 4060 0b2b 00       		.space	1
+ 4061 0b2c 00000000 		.word	0
+ 4062 0b30 00000000 		.word	load_registers
+ 4063 0b34 00       		.byte	0
+ 4064 0b35 4C4F4144 		.ascii	"LOADR\000"
+ 4064      5200
+ 4065 0b3b 00       		.space	1
+ 4066 0b3c 00000000 		.word	0
+ 4067 0b40 00000000 		.word	load_sigma
+ 4068 0b44 00       		.byte	0
+ 4069 0b45 4C4F4144 		.ascii	"LOAD\221\000"
+ 4069      9100
+ 4070 0b4b 00       		.space	1
+ 4071 0b4c 18030000 		.word	.LC110
+ 4072 0b50 00000000 		.word	op_double
+ 4073 0b54 00       		.byte	0
+ 4074 0b55 44424C4F 		.ascii	"DBLON\000"
+ARM GAS  /tmp/ccbMYxnF.s 			page 82
+
+
+ 4074      4E00
+ 4075 0b5b 00       		.space	1
+ 4076 0b5c 00000000 		.word	0
+ 4077 0b60 00000000 		.word	op_double
+ 4078 0b64 00       		.byte	0
+ 4079 0b65 44424C4F 		.ascii	"DBLOFF"
+ 4079      4646
+ 4080 0b6b 00       		.space	1
+ 4081 0b6c 00000000 		.word	0
+ 4082 0b70 00000000 		.word	check_dblmode
+ 4083 0b74 00       		.byte	0
+ 4084 0b75 44424C3F 		.ascii	"DBL?\000"
+ 4084      00
+ 4085 0b7a 00       		.space	1
+ 4086 0b7b 00       		.space	1
+ 4087 0b7c 00000000 		.word	0
+ 4088 0b80 94140000 		.word	xrom+5268
+ 4089 0b84 82       		.byte	-126
+ 4090 0b85 146900   		.ascii	"\024i\000"
+ 4091 0b88 000000   		.space	3
+ 4092 0b8b 00       		.space	1
+ 4093 0b8c 24030000 		.word	.LC111
+ 4094 0b90 D6140000 		.word	xrom+5334
+ 4095 0b94 00       		.byte	0
+ 4096 0b95 44415445 		.ascii	"DATE\015\000"
+ 4096      0D00
+ 4097 0b9b 00       		.space	1
+ 4098 0b9c 28030000 		.word	.LC112
+ 4099 0ba0 F8170000 		.word	xrom+6136
+ 4100 0ba4 00       		.byte	0
+ 4101 0ba5 14444F54 		.ascii	"\024DOT\000"
+ 4101      00
+ 4102 0baa 00       		.space	1
+ 4103 0bab 00       		.space	1
+ 4104 0bac 30030000 		.word	.LC113
+ 4105 0bb0 FE170000 		.word	xrom+6142
+ 4106 0bb4 00       		.byte	0
+ 4107 0bb5 1443524F 		.ascii	"\024CROSS"
+ 4107      5353
+ 4108 0bbb 00       		.space	1
+ 4109 0bbc 38030000 		.word	.LC114
+ 4110 0bc0 00000000 		.word	print_program
+ 4111 0bc4 00       		.byte	0
+ 4112 0bc5 9250524F 		.ascii	"\222PROG\000"
+ 4112      4700
+ 4113 0bcb 00       		.space	1
+ 4114 0bcc 40030000 		.word	.LC115
+ 4115 0bd0 00000000 		.word	print_registers
+ 4116 0bd4 00       		.byte	0
+ 4117 0bd5 92524547 		.ascii	"\222REGS\000"
+ 4117      5300
+ 4118 0bdb 00       		.space	1
+ 4119 0bdc 48030000 		.word	.LC116
+ 4120 0be0 00000000 		.word	print_registers
+ 4121 0be4 00       		.byte	0
+ 4122 0be5 9253544B 		.ascii	"\222STK\000"
+ 4122      00
+ARM GAS  /tmp/ccbMYxnF.s 			page 83
+
+
+ 4123 0bea 00       		.space	1
+ 4124 0beb 00       		.space	1
+ 4125 0bec 50030000 		.word	.LC117
+ 4126 0bf0 00000000 		.word	print_sigma
+ 4127 0bf4 00       		.byte	0
+ 4128 0bf5 929100   		.ascii	"\222\221\000"
+ 4129 0bf8 000000   		.space	3
+ 4130 0bfb 00       		.space	1
+ 4131 0bfc 58030000 		.word	.LC118
+ 4132 0c00 00000000 		.word	print_alpha
+ 4133 0c04 00       		.byte	0
+ 4134 0c05 92A000   		.ascii	"\222\240\000"
+ 4135 0c08 000000   		.space	3
+ 4136 0c0b 00       		.space	1
+ 4137 0c0c 60030000 		.word	.LC119
+ 4138 0c10 00000000 		.word	print_alpha
+ 4139 0c14 00       		.byte	0
+ 4140 0c15 92A02B00 		.ascii	"\222\240+\000"
+ 4141 0c19 0000     		.space	2
+ 4142 0c1b 00       		.space	1
+ 4143 0c1c 64030000 		.word	.LC120
+ 4144 0c20 00000000 		.word	print_alpha
+ 4145 0c24 00       		.byte	0
+ 4146 0c25 922BA000 		.ascii	"\222+\240\000"
+ 4147 0c29 0000     		.space	2
+ 4148 0c2b 00       		.space	1
+ 4149 0c2c 6C030000 		.word	.LC121
+ 4150 0c30 00000000 		.word	print_lf
+ 4151 0c34 00       		.byte	0
+ 4152 0c35 92414456 		.ascii	"\222ADV\000"
+ 4152      00
+ 4153 0c3a 00       		.space	1
+ 4154 0c3b 00       		.space	1
+ 4155 0c3c 74030000 		.word	.LC122
+ 4156 0c40 00000000 		.word	cmdprintwidth
+ 4157 0c44 01       		.byte	1
+ 4158 0c45 92574944 		.ascii	"\222WIDTH"
+ 4158      5448
+ 4159 0c4b 00       		.space	1
+ 4160 0c4c 7C030000 		.word	.LC123
+ 4161 0c50 00000000 		.word	op_query_xtal
+ 4162 0c54 00       		.byte	0
+ 4163 0c55 5854414C 		.ascii	"XTAL?\000"
+ 4163      3F00
+ 4164 0c5b 00       		.space	1
+ 4165 0c5c 00000000 		.word	0
+ 4166 0c60 00000000 		.word	op_query_print
+ 4167 0c64 00       		.byte	0
+ 4168 0c65 923F00   		.ascii	"\222?\000"
+ 4169 0c68 000000   		.space	3
+ 4170 0c6b 00       		.space	1
+ 4171 0c6c 84030000 		.word	.LC124
+ 4172 0c70 B2150000 		.word	xrom+5554
+ 4173 0c74 00       		.byte	0
+ 4174 0c75 59444F4E 		.ascii	"YDON\000"
+ 4174      00
+ 4175 0c7a 00       		.space	1
+ARM GAS  /tmp/ccbMYxnF.s 			page 84
+
+
+ 4176 0c7b 00       		.space	1
+ 4177 0c7c 00000000 		.word	0
+ 4178 0c80 B6150000 		.word	xrom+5558
+ 4179 0c84 00       		.byte	0
+ 4180 0c85 59444F46 		.ascii	"YDOFF\000"
+ 4180      4600
+ 4181 0c8b 00       		.space	1
+ 4182 0c8c 00000000 		.word	0
+ 4183 0c90 00000000 		.word	cpx_nop
+ 4184 0c94 00       		.byte	0
+ 4185 0c95 43505800 		.ascii	"CPX\000"
+ 4186 0c99 0000     		.space	2
+ 4187 0c9b 00       		.space	1
+ 4188 0c9c 00000000 		.word	0
+ 4189 0ca0 00000000 		.word	cpx_nop
+ 4190 0ca4 00       		.byte	0
+ 4191 0ca5 435F4C4B 		.ascii	"C_LK\000"
+ 4191      00
+ 4192 0caa 00       		.space	1
+ 4193 0cab 00       		.space	1
+ 4194 0cac 00000000 		.word	0
+ 4195 0cb0 00000000 		.word	cpx_nop
+ 4196 0cb4 00       		.byte	0
+ 4197 0cb5 554E4C4B 		.ascii	"UNLK\000"
+ 4197      00
+ 4198 0cba 00       		.space	1
+ 4199 0cbb 00       		.space	1
+ 4200 0cbc 00000000 		.word	0
+ 4201 0cc0 00000000 		.word	cpx_nop
+ 4202 0cc4 00       		.byte	0
+ 4203 0cc5 2D494D00 		.ascii	"-IM\000"
+ 4204 0cc9 0000     		.space	2
+ 4205 0ccb 00       		.space	1
+ 4206 0ccc 00000000 		.word	0
+ 4207 0cd0 00000000 		.word	cpx_nop
+ 4208 0cd4 00       		.byte	0
+ 4209 0cd5 2D524500 		.ascii	"-RE\000"
+ 4210 0cd9 0000     		.space	2
+ 4211 0cdb 00       		.space	1
+ 4212 0cdc 00000000 		.word	0
+ 4213 0ce0 00000000 		.word	cpx_nop
+ 4214 0ce4 00       		.byte	0
+ 4215 0ce5 5245414C 		.ascii	"REAL\000"
+ 4215      00
+ 4216 0cea 00       		.space	1
+ 4217 0ceb 00       		.space	1
+ 4218 0cec 00000000 		.word	0
+ 4219 0cf0 00000000 		.word	cpx_nop
+ 4220 0cf4 00       		.byte	0
+ 4221 0cf5 494D4147 		.ascii	"IMAG\000"
+ 4221      00
+ 4222 0cfa 00       		.space	1
+ 4223 0cfb 00       		.space	1
+ 4224 0cfc 00000000 		.word	0
+ 4225 0d00 00000000 		.word	cpx_pi
+ 4226 0d04 00       		.byte	0
+ 4227 0d05 2D3E5049 		.ascii	"->PI\000"
+ARM GAS  /tmp/ccbMYxnF.s 			page 85
+
+
+ 4227      00
+ 4228 0d0a 00       		.space	1
+ 4229 0d0b 00       		.space	1
+ 4230 0d0c 00000000 		.word	0
+ 4231 0d10 00000000 		.word	cpx_pi
+ 4232 0d14 00       		.byte	0
+ 4233 0d15 2A504900 		.ascii	"*PI\000"
+ 4234 0d19 0000     		.space	2
+ 4235 0d1b 00       		.space	1
+ 4236 0d1c 00000000 		.word	0
+ 4237 0d20 00000000 		.word	cpx_nop
+ 4238 0d24 00       		.byte	0
+ 4239 0d25 43505849 		.ascii	"CPXI\000"
+ 4239      00
+ 4240 0d2a 00       		.space	1
+ 4241 0d2b 00       		.space	1
+ 4242 0d2c 00000000 		.word	0
+ 4243 0d30 00000000 		.word	cpx_nop
+ 4244 0d34 00       		.byte	0
+ 4245 0d35 4350584A 		.ascii	"CPXJ\000"
+ 4245      00
+ 4246 0d3a 00       		.space	1
+ 4247 0d3b 00       		.space	1
+ 4248 0d3c 00000000 		.word	0
+ 4249 0d40 00000000 		.word	cpx_nop
+ 4250 0d44 00       		.byte	0
+ 4251 0d45 43505859 		.ascii	"CPXYES"
+ 4251      4553
+ 4252 0d4b 00       		.space	1
+ 4253 0d4c 00000000 		.word	0
+ 4254 0d50 00000000 		.word	cpx_nop
+ 4255 0d54 00       		.byte	0
+ 4256 0d55 4350584E 		.ascii	"CPXNO\000"
+ 4256      4F00
+ 4257 0d5b 00       		.space	1
+ 4258 0d5c 00000000 		.word	0
+ 4259 0d60 00000000 		.word	entry_rpn_on_off
+ 4260 0d64 00       		.byte	0
+ 4261 0d65 6552506F 		.ascii	"eRPon\000"
+ 4261      6E00
+ 4262 0d6b 00       		.space	1
+ 4263 0d6c 00000000 		.word	0
+ 4264 0d70 00000000 		.word	entry_rpn_on_off
+ 4265 0d74 00       		.byte	0
+ 4266 0d75 6552506F 		.ascii	"eRPoff"
+ 4266      6666
+ 4267 0d7b 00       		.space	1
+ 4268 0d7c 00000000 		.word	0
+ 4269 0d80 00000000 		.word	stopwatch
+ 4270 0d84 00       		.byte	0
+ 4271 0d85 53544F50 		.ascii	"STOPW\000"
+ 4271      5700
+ 4272 0d8b 00       		.space	1
+ 4273 0d8c 00000000 		.word	0
+ 4274 0d90 00000000 		.word	print_on_off
+ 4275 0d94 00       		.byte	0
+ 4276 0d95 922E4F4E 		.ascii	"\222.ON\000"
+ARM GAS  /tmp/ccbMYxnF.s 			page 86
+
+
+ 4276      00
+ 4277 0d9a 00       		.space	1
+ 4278 0d9b 00       		.space	1
+ 4279 0d9c 8C030000 		.word	.LC125
+ 4280 0da0 00000000 		.word	print_on_off
+ 4281 0da4 00       		.byte	0
+ 4282 0da5 922E4F46 		.ascii	"\222.OFF\000"
+ 4282      4600
+ 4283 0dab 00       		.space	1
+ 4284 0dac 94030000 		.word	.LC126
+ 4285              		.section	.rodata.trifuncs,"a"
+ 4286              		.align	2
+ 4289              	trifuncs:
+ 4290 0000 00000000 		.word	betai
+ 4291 0004 00000000 		.word	0
+ 4292 0008 498B00   		.ascii	"I\213\000"
+ 4293 000b 000000   		.space	3
+ 4294 000e 0000     		.space	2
+ 4295 0010 9C030000 		.word	.LC127
+ 4296 0014 00000000 		.word	0
+ 4297 0018 00000000 		.word	intDblDiv
+ 4298 001c 44424C2F 		.ascii	"DBL/\000"
+ 4298      00
+ 4299 0021 00       		.space	1
+ 4300 0022 0000     		.space	2
+ 4301 0024 00000000 		.word	0
+ 4302 0028 00000000 		.word	0
+ 4303 002c 00000000 		.word	intDblRmdr
+ 4304 0030 44424C52 		.ascii	"DBLR\000"
+ 4304      00
+ 4305 0035 00       		.space	1
+ 4306 0036 0000     		.space	2
+ 4307 0038 00000000 		.word	0
+ 4308 003c BC060000 		.word	xrom+1724
+ 4309 0040 00000000 		.word	0
+ 4310 0044 254D5252 		.ascii	"%MRR\000"
+ 4310      00
+ 4311 0049 00       		.space	1
+ 4312 004a 0000     		.space	2
+ 4313 004c 00000000 		.word	0
+ 4314 0050 A4130000 		.word	xrom+5028
+ 4315 0054 00000000 		.word	0
+ 4316 0058 4CBDA000 		.ascii	"L\275\240\000"
+ 4317 005c 0000     		.space	2
+ 4318 005e 0000     		.space	2
+ 4319 0060 A4030000 		.word	.LC128
+ 4320 0064 00000000 		.word	matrix_multiply
+ 4321 0068 00000000 		.word	0
+ 4322 006c 4D1C00   		.ascii	"M\034\000"
+ 4323 006f 000000   		.space	3
+ 4324 0072 0000     		.space	2
+ 4325 0074 AC030000 		.word	.LC129
+ 4326 0078 00000000 		.word	matrix_genadd
+ 4327 007c 00000000 		.word	0
+ 4328 0080 4D2B1C00 		.ascii	"M+\034\000"
+ 4329 0084 0000     		.space	2
+ 4330 0086 0000     		.space	2
+ARM GAS  /tmp/ccbMYxnF.s 			page 87
+
+
+ 4331 0088 B0030000 		.word	.LC130
+ 4332 008c 00000000 		.word	matrix_getreg
+ 4333 0090 00000000 		.word	0
+ 4334 0094 4D2E5245 		.ascii	"M.REG\000"
+ 4334      4700
+ 4335 009a 0000     		.space	2
+ 4336 009c 00000000 		.word	0
+ 4337 00a0 00000000 		.word	matrix_linear_eqn
+ 4338 00a4 00000000 		.word	0
+ 4339 00a8 4C494E45 		.ascii	"LINEQS"
+ 4339      5153
+ 4340 00ae 0000     		.space	2
+ 4341 00b0 00000000 		.word	0
+ 4342 00b4 00000000 		.word	dateFromYMD
+ 4343 00b8 00000000 		.word	0
+ 4344 00bc 0D444154 		.ascii	"\015DATE\000"
+ 4344      4500
+ 4345 00c2 0000     		.space	2
+ 4346 00c4 B4030000 		.word	.LC131
+ 4347 00c8 00000000 		.word	0
+ 4348 00cc 00000000 		.word	intmodop
+ 4349 00d0 1C4D4F44 		.ascii	"\034MOD\000"
+ 4349      00
+ 4350 00d5 00       		.space	1
+ 4351 00d6 0000     		.space	2
+ 4352 00d8 00000000 		.word	0
+ 4353 00dc 00000000 		.word	0
+ 4354 00e0 00000000 		.word	intmodop
+ 4355 00e4 5E4D4F44 		.ascii	"^MOD\000"
+ 4355      00
+ 4356 00e9 00       		.space	1
+ 4357 00ea 0000     		.space	2
+ 4358 00ec 00000000 		.word	0
+ 4359              		.text
+ 4360              	.Letext0:
+ 4361              		.file 1 "src/decNumber/decContext.h"
+ 4362              		.file 2 "src/decNumber/decNumber.h"
+ 4363              		.file 3 "src/decNumber/decimal64.h"
+ 4364              		.file 4 "src/decNumber/decimal128.h"
+ 4365              		.file 5 "src/xeq.h"
+ 4366              		.file 6 "src/data.h"
+ 4367              		.file 7 "src/xrom.h"
+ 4368              		.file 8 "src/stats.h"
+ 4369              		.file 9 "src/display.h"
+ 4370              		.file 10 "src/consts.h"
+ 4371              		.file 11 "src/storage.h"
+ 4372              		.file 12 "src/printer.h"
+ 4373              		.file 13 "src/stopwatch.h"
+ 4374              		.file 14 "src/commands.c"
+ARM GAS  /tmp/ccbMYxnF.s 			page 88
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 commands.c
+     /tmp/ccbMYxnF.s:3012   .rodata.multicmds:0000000000000000 multicmds
+     /tmp/ccbMYxnF.s:19     .rodata.str1.4:0000000000000000 $d
+     /tmp/ccbMYxnF.s:766    .rodata.argcmds:0000000000000000 argcmds
+     /tmp/ccbMYxnF.s:3075   .rodata.niladics:0000000000000000 niladics
+     /tmp/ccbMYxnF.s:4289   .rodata.trifuncs:0000000000000000 trifuncs
+     /tmp/ccbMYxnF.s:1655   .rodata.dyfuncs:0000000000000000 dyfuncs
+     /tmp/ccbMYxnF.s:1994   .rodata.monfuncs:0000000000000000 monfuncs
+     /tmp/ccbMYxnF.s:763    .rodata.argcmds:0000000000000000 $d
+     /tmp/ccbMYxnF.s:1652   .rodata.dyfuncs:0000000000000000 $d
+     /tmp/ccbMYxnF.s:1991   .rodata.monfuncs:0000000000000000 $d
+     /tmp/ccbMYxnF.s:3009   .rodata.multicmds:0000000000000000 $d
+     /tmp/ccbMYxnF.s:3072   .rodata.niladics:0000000000000000 $d
+     /tmp/ccbMYxnF.s:4286   .rodata.trifuncs:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+cmdconst
+cmderr
+cmdsto
+cmdrcl
+cmdswap
+cmdcsto
+cmdcrcl
+cmdview
+cmdstostk
+cmdrclstk
+cmdalpha
+alpha_reg
+alpha_sto
+alpha_rcl
+alpha_ip
+alpha_shift_l
+alpha_rot_r
+alpha_shift_r
+cmdtest
+cmdztest
+cmdskip
+cmdback
+cmdloop
+cmdloopz
+cmdlincdec
+cmdlblp
+cmdgto
+xrom
+cmddisp
+cmdflag
+intws
+introt
+intbits
+intmsks
+set_int_base
+cmdconv
+cmdpause
+cmdkeyp
+cmdalphagto
+op_shift_digit
+ARM GAS  /tmp/ccbMYxnF.s 			page 89
+
+
+alpha_view_reg
+rarg_roundingmode
+rarg_round
+cmdsavem
+cmdrestm
+cmdputkey
+cmdkeytype
+cmdmsg
+cmdlocr
+cmdregs
+cmdircl
+cmdrrcl
+cmdmode
+cmdxin
+cmdxout
+cmdconverged
+cmdshuffle
+cmdprintreg
+cmdprint
+cmdprintmode
+cmdprintcmplxreg
+dn_power
+cmplxPower
+intPower
+dn_add
+cmplxAdd
+intAdd
+dn_subtract
+cmplxSubtract
+intSubtract
+dn_multiply
+cmplxMultiply
+intMultiply
+dn_divide
+cmplxDivide
+intDivide
+decNumberBigMod
+intMod
+decNumberLogxy
+intDyadic
+dn_min
+intMin
+dn_max
+intMax
+decNumberArcTan2
+decNumberLnBeta
+decNumberGammap
+decNumberComb
+decNumberPerm
+decNumberHMSAdd
+decNumberHMSSub
+decNumberGCD
+intGCD
+decNumberLCM
+intLCM
+decNumberBooleanOp
+intBooleanOp
+ARM GAS  /tmp/ccbMYxnF.s 			page 90
+
+
+decNumberXRoot
+cmplxXRoot
+matrix_row
+matrix_col
+matrix_copy
+decNumberNeighbour
+cpx_dot
+cpx_dotdiv
+decNumberFrac
+intFP
+decNumberFloor
+mask_value
+decNumberCeil
+decNumberRound
+decNumberTrunc
+dn_abs
+cmplxAbs
+intAbs
+decNumberRnd
+intSign
+dn_ln
+cmplxLn
+intMonadic
+dn_exp
+cmplxExp
+dn_sqrt
+cmplxSqrt
+intSqrt
+decNumberRecip
+cmplxRecip
+decNumberPow_1
+cmplx_1x
+int_1pow
+dn_log10
+intLog10
+dn_log2
+intLog2
+decNumberPow2
+int2pow
+decNumberPow10
+int10pow
+decNumberLn1p
+decNumberExpm1
+decNumberSquare
+intSqr
+decNumberCube
+intCube
+decNumberCubeRoot
+cmplxCubeRoot
+intFib
+decNumberDRG
+decNumberSin
+cmplxSin
+decNumberCos
+cmplxCos
+decNumberTan
+cmplxTan
+ARM GAS  /tmp/ccbMYxnF.s 			page 91
+
+
+decNumberArcSin
+decNumberArcCos
+decNumberArcTan
+decNumberSinc
+cmplxSinc
+decNumberSinh
+cmplxSinh
+decNumberCosh
+cmplxCosh
+decNumberTanh
+cmplxTanh
+decNumberArcSinh
+decNumberArcCosh
+decNumberArcTanh
+decNumberFactorial
+decNumberGamma
+cmplxGamma
+decNumberLnGamma
+cmplxLnGamma
+decNumberD2R
+decNumberR2D
+decNumberD2G
+decNumberG2D
+decNumberR2G
+decNumberG2R
+cmplxMinus
+stats_xhat
+stats_yhat
+stats_sigper
+decNumberHMS2HR
+decNumberHR2HMS
+decNumberNot
+intNot
+intNumBits
+intMirror
+dateDayOfWeek
+dateToJ
+dateFromJ
+convC2F
+convF2C
+convDB2AR
+convAR2DB
+convDB2PR
+convPR2DB
+dateExtraction
+decNumberMantissa
+decNumberExponent
+decNumberULP
+matrix_all
+matrix_diag
+matrix_transpose
+matrix_rowq
+matrix_colq
+matrix_getrc
+matrix_determinant
+matrix_lu_decomp
+dateEaster
+ARM GAS  /tmp/ccbMYxnF.s 			page 92
+
+
+decFactor
+intFactor
+cmdmultilblp
+cmdmultigto
+multialpha
+multiumenu
+version
+cmd_off
+get_stack_size
+get_word_size
+roll_down
+roll_up
+cpx_roll_down
+cpx_roll_up
+cpx_enter
+fill
+cpx_fill
+drop
+sigma_val
+stats_deviations
+stats_wdeviations
+stats_mean
+stats_wmean
+stats_gmean
+stats_correlation
+stats_LR
+stats_COV
+stats_mode
+stats_random
+stats_sto_random
+op_rtn
+op_rs
+op_prompt
+sigma_clear
+clrreg
+clrx
+clrstk
+clrflags
+op_r2p
+op_p2r
+op_fracdenom
+op_2frac
+op_fract
+op_float
+int_justify
+intDblMul
+sigma_sum
+date_isleap
+date_alphaday
+date_alphamonth
+date_alphadate
+date_alphatime
+date_date
+date_time
+date_setdate
+date_settime
+clralpha
+ARM GAS  /tmp/ccbMYxnF.s 			page 93
+
+
+alpha_view
+alpha_length
+alpha_tox
+alpha_fromx
+alpha_onoff
+op_regcopy
+op_regswap
+op_regclr
+op_regsort
+store_a_to_d
+do_usergsb
+op_popusr
+isInfinite
+isNan
+isSpecial
+XisPrime
+XisInt
+XisEvenOrOdd
+op_entryp
+op_ticks
+op_voltage
+op_gtoalpha
+op_roundingmode
+op_setspeed
+isTop
+get_base
+get_sign_mode
+check_mode
+check_zero
+matrix_rowops
+matrix_is_square
+matrix_inverse
+cmdlpop
+get_mem
+flash_backup
+flash_restore
+load_state
+load_program
+recall_program
+store_program
+load_registers
+load_sigma
+op_double
+check_dblmode
+print_program
+print_registers
+print_sigma
+print_alpha
+print_lf
+cmdprintwidth
+op_query_xtal
+op_query_print
+cpx_nop
+cpx_pi
+entry_rpn_on_off
+stopwatch
+print_on_off
+ARM GAS  /tmp/ccbMYxnF.s 			page 94
+
+
+betai
+intDblDiv
+intDblRmdr
+matrix_multiply
+matrix_genadd
+matrix_getreg
+matrix_linear_eqn
+dateFromYMD
+intmodop

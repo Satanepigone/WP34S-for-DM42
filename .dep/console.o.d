@@ -21,12 +21,12 @@ build/console.o: src/console.c /usr/include/newlib/stdlib.h \
  /usr/include/newlib/string.h /usr/include/newlib/strings.h \
  /usr/include/newlib/sys/string.h dmcp/dmcp.h \
  /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h dmcp/ff_ifc.h \
- dmcp/lft_ifc.h src/keys.h src/display.h src/decn.h src/xeq.h \
+ dmcp/lft_ifc.h src/keys.h src/menu.h src/display.h src/decn.h src/xeq.h \
  src/features.h src/errors.h src/decNumber/decNumber.h \
  src/decNumber/../features.h src/decNumber/decContext.h \
  src/decNumber/decContext.h src/decNumber/decimal64.h \
  src/decNumber/decimal128.h src/data.h src/lcd.h src/int.h src/consts.h \
- src/storage.h src/catalogues.h src/menu.c src/menu.h src/keytran.c
+ src/storage.h src/catalogues.h src/stopwatch.h src/menu.c src/keytran.c
 
 /usr/include/newlib/stdlib.h:
 
@@ -112,6 +112,8 @@ dmcp/lft_ifc.h:
 
 src/keys.h:
 
+src/menu.h:
+
 src/display.h:
 
 src/decn.h:
@@ -146,8 +148,8 @@ src/storage.h:
 
 src/catalogues.h:
 
-src/menu.c:
+src/stopwatch.h:
 
-src/menu.h:
+src/menu.c:
 
 src/keytran.c:

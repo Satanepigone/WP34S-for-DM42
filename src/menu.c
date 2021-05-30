@@ -1,4 +1,27 @@
-#include <menu.h>
+//#include <menu.h>
+struct _menu UserMenu =
+  {
+    "User Menu", 
+    {
+      { NO_KEY, NO_KEY, "", "" },
+      { NO_KEY, NO_KEY, "", "" },
+      { NO_KEY, NO_KEY, "", "" },
+      { NO_KEY, NO_KEY, "", "" },
+      { ARROW_KEY, NO_KEY, "--\015", "" },
+      { CMPLX_KEY, { K_MULTI, DOTS }, "CPX", "" },
+    }
+  };
+
+const char* arrow_key_string = "--\015";
+const char* cmplx_key_string = "CPX";
+
+menu_name current_menu = 0;
+menu_name last_menu = 0;
+menu_name default_menu = 0;
+
+static void set_menu_label (const char *str, int smallp, int dotcol, int shifted);
+
+
 
 /* 
  * System menu stuff
@@ -52,19 +75,18 @@ void disp_about() {
   lcd_writeClr(t24);
 
   lcd_setXY(t24, 0, 5);
-  lcd_printR(t24, "WP34s calculator for DM42:");
+  lcd_printR(t24, "WP34C calculator for DM42:");
   t24->y += 5;
 #ifdef TOP_ROW
-  lcd_print(t24, "with top row for annunciators,");
-  lcd_print(t24, "a longer alpha display,");
-  lcd_print(t24, "and some annunciators renamed.");
+  lcd_print(t24, "top row version,");
+  lcd_print(t24, "including COMPLEX LOCK mode!");
 #elif defined(BIGGER_DISPLAY)
-  lcd_print(t24, "with a longer alpha display");
-  lcd_print(t24, "than the original calculator,");
-  lcd_print(t24, "and some annunciators renamed.");
+  lcd_print(t24, "with a longer alpha display,");
+  lcd_print(t24, "and COMPLEX LOCK mode!");
   #else
   lcd_print(t24, "Just like the original calculator");
-  lcd_print(t24, "but with some annunciators renamed.");
+  lcd_print(t24, "but with some annunciators renamed,");
+  lcd_print(t24, "and COMPLEX LOCK mode!");
 #endif
   t24->y += 5;
   lcd_printR(t24, "This software is neither provided");
@@ -83,43 +105,59 @@ void disp_about() {
  * WP34s menu code
  */
 
-void set_menu ( int new_menu ) {
-  int m = current_menu;
+void set_menu ( menu_name new_menu ) {
+  menu_name m = current_menu;
   if (new_menu == current_menu) { // return to default
     current_menu = default_menu;
   }
-  else if (new_menu == -1) { // go to last menu
+  else if (new_menu == M_Last) { // go to last menu
     current_menu = last_menu;
   }
   else {
     current_menu = new_menu; // change to new menu
   }
-  if ( (m != 9) && (m != 16) ) last_menu = m; // store menu as last menu unless arrow or alpha
+  if ( (m != M_Arrow) && (m != M_Alpha) ) last_menu = m;
+  // store menu as last menu unless arrow or alpha
+}
+
+void set_default_menu () {
+  set_menu (default_menu);
 }
 
 void toggle_default_menu () {
-  if (current_menu == default_menu) {
-    current_menu = default_menu = 15 - default_menu;
+  if (current_menu == M_Blank) {
+    current_menu = default_menu = M_Blank2;
+    return;
+  }
+  else if (current_menu == M_Blank2) {
+    current_menu = default_menu = M_Blank; 
+  }
+  else {
+    set_default_menu();
   }
 }
 
-int get_menu () {
+menu_name get_menu () {
   return current_menu;
 }
 
+menu_name get_last_menu () {
+  return last_menu;
+}
+
 void display_current_menu () {
-  display_menu (current_menu);
+  display_menu (get_current_menu_ref());
 }
 
 void set_last_menu () {
-  set_menu (last_menu);
+  set_menu (M_Last);
 }
 
 static unsigned char mdots[200][2];
 
 static const struct _menu Menus[] = {
   {
-    "Blank", // 0
+    "M_Blank", // 0
     { 
       { NO_KEY, NO_KEY, "", "" },
       { NO_KEY, NO_KEY, "", "" },
@@ -130,7 +168,7 @@ static const struct _menu Menus[] = {
     }    
   },
   {
-    "Clear", // 1
+    "M_Clear", // 1
     { 
       { { K24, 1 }, { K_OP, OP_NIL | OP_CLPALL }, "CLProg", "CLPAll" },
       { { K24, 2 }, { K_OP, OP_NIL | OP_CLREG }, "CL\221", "CLReg" },
@@ -141,7 +179,7 @@ static const struct _menu Menus[] = {
     }    
   },
   {
-    "DISP", // 2
+    "M_Disp", // 2
     { 
       { { K00, 3 }, { K05, 1 }, "ALL", "a b/c" },
       { { K01, 3 }, { K05, 2 }, "FIX", "d/c" },
@@ -152,7 +190,7 @@ static const struct _menu Menus[] = {
     }
   },
   {
-    "BASE", // 3
+    "M_Base", // 3
     { 
       { { K22, 1 }, { K22, 3 }, "BIN", "not" },
       { { K22, 2 }, { K31, 3 }, "OCT", "and" },
@@ -163,7 +201,7 @@ static const struct _menu Menus[] = {
     }
   },
   {
-    "ANGLES", // 4
+    "M_Angles", // 4
     { 
       { { K10, 2 }, { K04, 1 }, "DEG", "P\015R" },
       { { K11, 2 }, { K04, 2 }, "RAD", "R\015P" },
@@ -175,7 +213,7 @@ static const struct _menu Menus[] = {
       
   },
   {
-    "MISC", // 5
+    "M_Misc", // 5
     { 
       { { K61, 1 }, { K32, 1 }, "|X|", "2\234" },
       { { K61, 2 }, { K32, 2 }, "RND", "Log\272" },
@@ -186,7 +224,7 @@ static const struct _menu Menus[] = {
     }
   },
   {
-    "X<>Y Key", // 6
+    "M_Swap", // 6
     { 
       { { K21, 1 }, { K_OP, RARG_BASEOP(RARG_SHUFFLE) }, "Show\016", "[\027]" },
       { { K21, 2 }, NO_KEY, "Show\015", "" },
@@ -197,7 +235,7 @@ static const struct _menu Menus[] = {
     }    
   },
   {
-    "Program", // 7
+    "M_Program", // 7
     { 
       { { K63, 1 }, { K64, 1 }, "LBL", "DSE" },
       { { K63, 2 }, { K64, 2 }, "RTN", "ISG" },
@@ -208,7 +246,7 @@ static const struct _menu Menus[] = {
     }
   },
   {
-    "Setup 1", // 8
+    "M_Setup1", // 8
     { 
       { { K_EXIT, 0}, { K_SYS, 0 }, "EXIT", "System" },
       { { K_MULTI, HELP }, NO_KEY, "HELP", "" },
@@ -219,18 +257,18 @@ static const struct _menu Menus[] = {
     }
   },
   {
-    "Arrow", // 9
+    "M_Arrow", // 9
     { 
-      { { K22, 1 }, { K10, 2 }, "Bin", "DEG" },
-      { { K22, 2 }, { K11, 2 }, "Oct", "RAD" },
-      { { K23, 1 }, { K12, 2 }, "Dec", "Grad" },
-      { { K23, 2 }, { K10, 1 }, "Hex", "\015HMS" },
+      { { K22, 1 }, { K10, 2 }, "\015Bin", "\015DEG" },
+      { { K22, 2 }, { K11, 2 }, "\015Oct", "\015RAD" },
+      { { K23, 1 }, { K12, 2 }, "\015Dec", "\015Grad" },
+      { { K23, 2 }, { K10, 1 }, "\015Hex", "\015HMS" },
       { ARROW_KEY, { K11, 1 }, "--\015", "HMS\015" },
       { CMPLX_KEY, NO_KEY, "CPX", "" },
     }
   },
   {
-    "Flags", // 10
+    "M_Flags", // 10
     { 
       { { K50, 1 }, { K_OP, RARG_BASEOP(RARG_FS) }, "SF_", "FS?" },
       { { K50, 2 }, { K_OP, RARG_BASEOP(RARG_FC)}, "CF_", "FC?" },
@@ -241,7 +279,7 @@ static const struct _menu Menus[] = {
     }
   },
   {
-    "Probability", // 11
+    "M_Prob", // 11
     { 
       { { K40, 3 }, { K_OP, OP_MON | OP_LNGAMMA }, "Fact!", "Ln\006\202" },
       { { K40, 1 }, { K41, 1 }, "Cy,x", "\224" }, // phi
@@ -252,7 +290,7 @@ static const struct _menu Menus[] = {
     }
   },
   {
-    "Statistics", // 12
+    "M_Stats", // 12
     /*
      *xbar, sd;
      *yhat, xhat;
@@ -272,21 +310,21 @@ static const struct _menu Menus[] = {
     }
   },
   {
-    "Setup 2", // 13
+    "M_Setup2", // 13
     { 
       { { K_MULTI, WRLIB}, NO_KEY, "SvLIB", "" },
       { { K_MULTI, LLIB }, NO_KEY, "LdLIB", "" },
-      { { K_MULTI, SVPRG }, NO_KEY, "SvCPRG", "" },
-      { { K_MULTI, LDPRG }, NO_KEY, "LdPRG", "" },
+      { { K_MULTI, SVPRG }, { K_OP, OP_NIL | OP_PSTO }, "SvCPRG", "PSTO" },
+      { { K_MULTI, LDPRG }, { K_OP, OP_NIL | OP_PRCL }, "LdPRG", "PRCL" },
       { ARROW_KEY, NO_KEY, "--\015", "" },
       { CMPLX_KEY, NO_KEY, "CPX", "" },
     }
   },
   {
-    "Integ/Sum/Prod", // 14
+    "M_Solve", // 14
     { 
-      { { K52, 1 }, NO_KEY, "SLV", "" },
-      { { K52, 2 }, NO_KEY, "\004 dx", "" },
+      { { K52, 1 }, { RARG_BASEOP(RARG_DERIV)}, "SLV", "f'(x)" },
+      { { K52, 2 }, { RARG_BASEOP(RARG_2DERIV)}, "\004 dx", "f''(x)" },
       { { K53, 2 }, NO_KEY, "SUM", "" },
       { { K53, 1 }, NO_KEY, "PROD", "" },
       { ARROW_KEY, NO_KEY, "--\015", "" },
@@ -294,7 +332,7 @@ static const struct _menu Menus[] = {
     }
   },
   {
-    "Blank with A-D", // 15
+    "M_Blank2", // 15
     { 
       { { K64, 3 }, NO_KEY, "\221+", "" },
       { { K34, 1 }, NO_KEY, "1/X", "" },
@@ -305,7 +343,7 @@ static const struct _menu Menus[] = {
     }    
   },
   {
-    "Alpha", // 16
+    "M_Alpha", // 16
     { 
       { { K_OP, OP_NIL | OP_XTOALPHA }, { K_OP, OP_NIL | OP_ALPHATIME }, "X->\240", "\240TIME" },
       { { K_OP, OP_NIL | OP_ALPHATOX }, { K_OP, OP_NIL | OP_ALPHADATE }, "\240->X", "\240DATE" },
@@ -315,6 +353,106 @@ static const struct _menu Menus[] = {
       { CMPLX_KEY, { K_CMPLX, 1 }, "CPX", "" },
     }    
   },
+  {
+    "M_C_Lock", // 17
+    { 
+      { { K40, 2 }, { K04, 2 }, "POLAR", "\015 P" },
+      { { K40, 1 }, { K04, 1 }, "RECT", "\015 R" },
+      { { K22, 1 }, { K22, 3 }, "+/-\006Im", "+/-\006Re" },
+      { { K21, 2 }, { K00, 1 }, "Re\027Im", "HYP" },
+      { ARROW_KEY, { K23, 1 }, "--\015", "\021\006\257" },
+      { CMPLX_KEY, { K20, 1 }, "CPX", "\021\006CNST" },
+    }    
+  },
+  {
+    "M_Clear_C", // 18
+    { 
+      { NO_KEY, NO_KEY, "", "" },
+      { NO_KEY, NO_KEY, "", "" },
+      { { K24, 3 }, { K_OP, OP_NIL | OP_CLRALPHA }, "CLx", "CL\006\240" },
+      { { K_OP, OP_NIL | OP_CLSTK }, NO_KEY, "CLStk", "" },
+      { ARROW_KEY, NO_KEY, "--\015", "" },
+      { CMPLX_KEY, NO_KEY, "CPX", "" },
+    }    
+  },
+  {
+    "M_Swap_C", // 19
+    { 
+      { { K21, 1 }, NO_KEY, "Show\016", "" },
+      { { K21, 2 }, NO_KEY, "Show\015", "" },
+      { { K21, 3 }, NO_KEY, "x\027?", "" },
+      { NO_KEY, NO_KEY, "", "" },
+      { ARROW_KEY, NO_KEY, "--\015", "" },
+      { CMPLX_KEY, NO_KEY, "CPX", "" },
+    }    
+  },
+  {
+    "M_Arrow_C", // 20
+    { 
+      { NO_KEY, { K10, 2 }, "", "DEG" },
+      { NO_KEY, { K11, 2 }, "", "RAD" },
+      { NO_KEY, { K12, 2 }, "", "Grad" },
+      { NO_KEY, { K10, 1 }, "", "\015HMS" },
+      { ARROW_KEY, { K11, 1 }, "--\015", "HMS\015" },
+      { CMPLX_KEY, NO_KEY, "CPX", "" },
+    }
+  },
+  {
+    "M_Prob_C", // 21
+    { 
+      { { K40, 3 }, { K_OP, OP_CMON | OP_LNGAMMA }, "\024\006!", "\024\006Ln\006\202" },
+      { { K_OP, OP_CDYA | OP_COMB }, NO_KEY, "\024\006Cy,x", "" },
+      { { K_OP, OP_CDYA | OP_PERM }, NO_KEY, "\024\006Py,x", "" },
+      { NO_KEY, NO_KEY , "", "" },
+      { ARROW_KEY, NO_KEY, "--\015", "" },
+      { CMPLX_KEY, NO_KEY, "CPX", "" },
+    }
+  },
+  {
+    "M_Blank2_C", // 22
+    { 
+      { { K00, 1 }, NO_KEY, "HYP", "" },
+      { { K34, 1 }, NO_KEY, "1/X", "" },
+      { { K44, 1 }, NO_KEY, "\003X", "" },
+      { { K31, 2 }, NO_KEY, "LOG", "" },
+      { ARROW_KEY, NO_KEY, "--\015", "" },
+      { CMPLX_KEY, NO_KEY, "CPX", "" },
+    }    
+  },
+  {
+    "M_Misc_C", // 23
+    { 
+      { { K61, 1 }, { K32, 1 }, "|z|", "\0242\234" },
+      { { K61, 2 }, { K32, 2 }, "RND", "\024Log\272" },
+      { { K62, 1 }, { K33, 2 }, "0\015Re", "\024Log\213" },
+      { { K62, 2 }, { K34, 2 }, "0\015Im", "\024||el" },
+      { ARROW_KEY, { K44, 3 }, "--\015", "\024.\034" },
+      { CMPLX_KEY, { K34, 3 }, "CPX", "\024./" },
+    }
+  },
+  {
+    "M_Usermenu", // 24
+    { 
+      { { K_OP, 0x0000fb00  }, NO_KEY, "UMEN", "" },
+      { { K_OP, 0x314dfb55 }, { K_OP, 0x344dfb55 }, "UM1", "UM4" },
+      { { K_OP, 0x324dfb55 }, { K_OP, 0x354dfb55 }, "UM2", "UM5" },
+      { { K_OP, 0x334dfb55 }, { K_OP, 0x364dfb55 }, "UM3", "UM6" },
+      { ARROW_KEY, { K44, 3 }, "--\015", "" },
+      { CMPLX_KEY, { K34, 3 }, "CPX", "" },
+    }
+  },
+  {
+    "M_Print", // 25
+    { 
+      { { K_OP, OP_NIL | OP_PRINT_ON  }, { K_OP, OP_NIL | OP_PRINT_OFF }, "\222\006On", "\222\006Off" },
+      { { K_OP, RARG_BASEOP(RARG_PMODE) }, { K_OP, RARG_BASEOP(RARG_DBLSP) }, "\222\006Mode", "\222\006DbSp" },
+      { { K_OP, OP_NIL | OP_PRINT_PGM }, { K_OP, OP_NIL | OP_PRINT_REGS }, "\222\006Prog", "\222\006Regs" },
+      { { K_OP, OP_NIL | OP_PRINT_STACK }, { K_OP, OP_NIL | OP_PRINT_SIGMA }, "\222\006Stk", "\222\006\221" },
+      { ARROW_KEY, { K_OP, OP_NIL | OP_PRINT_ALPHA }, "--\015", "\222\006\240" },
+      { CMPLX_KEY, { K_OP, OP_NIL | OP_PRINT_ADV }, "CPX", "\222\006ADV" },
+    }
+  },
+
 };  
 
 /* This code is the set_status_sized code with small changes
@@ -427,8 +565,46 @@ void mdot(int i, int j, int s, int on) { // Column i, row j, state on
   }
 }
 
+struct _menu get_current_menu_ref() {
+  int i = current_menu;
+  if (C_LOCKED)
+    switch (current_menu) {
+    case (M_Clear):
+      i = M_Clear_C;
+      break;
+    case (M_Swap):
+      i = M_Swap_C;
+      break;
+    case (M_Arrow):
+      i = M_Arrow_C;
+      break;
+    case (M_Prob):
+      i = M_Prob_C;
+      break;
+    case (M_Blank2):
+      i = M_Blank2_C;
+      break;
+    case (M_Misc):
+      i = M_Misc_C;
+      break;
+    case (M_Base): // These menus aren't appropriate in complex mode
+    case (M_Flags):// so don't display them.
+    case (M_Stats):
+    case (M_Setup2):
+    case (M_Solve):
+    case (M_Program):
+      i = M_C_Lock;
+    default:;
+    }
+  if (current_menu == M_User) {
+    return UserMenu;
+  }
+  else {
+    return Menus[i];
+  }
+}
 
-void display_menu (int current_menu) {
+void display_menu (struct _menu Ref) {
   int len = 0;
   lcd_fill_rect (0, 188, 400, 52, 0); // clear bottom 52 rows for menu 
   lcd_fill_rect (0, 188, 400, 1, 0xff); // lines count from line 1? No. 
@@ -444,16 +620,16 @@ void display_menu (int current_menu) {
     /*
       Starting dot in the row of 200 is item*32 - no gaps; gaps will be inserted when drawing
     */
-    // Label is Menus[current.menu].keys[item].unshifted_label
+    // Label is Ref.keys[item].unshifted_label
     // Unshifted first
-    len = pixel_length (Menus[current_menu].keys[item].unshifted_label, 0); // 0 means not small font
-    set_menu_label ( Menus[current_menu].keys[item].unshifted_label, 0, item*32 + (32 - len)/2, 0 );
-    // Now shifted ...	
-    len = pixel_length (Menus[current_menu].keys[item].shifted_label, 0); // 0 means not small font
-    len = item*32 + (32-len)/2;
-    if (len<0) len = 0;
-    if (len>199) len = 199;
-    set_menu_label ( Menus[current_menu].keys[item].shifted_label, 0, len, 1 );
+      len = pixel_length (Ref.keys[item].unshifted_label, 0); // 0 means not small font
+      set_menu_label ( Ref.keys[item].unshifted_label, 0, item*32 + (32 - len)/2, 0 );
+      // Now shifted ...	
+      len = pixel_length (Ref.keys[item].shifted_label, 0); // 0 means not small font
+      len = item*32 + (32-len)/2;
+      if (len<0) len = 0;
+      if (len>199) len = 199;
+      set_menu_label ( Ref.keys[item].shifted_label, 0, len, 1 );
   }
 
   for (int col = 0; col < 196; col++) {
@@ -476,49 +652,115 @@ void all_menu_dots () {
     }
   }
 }  
-/*
-dots is a char array.
+void umen_store (int i, opcode opc, char* buf1);
 
-I'm currently haveing dots 2 pixels wide, with no gaps between dots. 400/6 is 66; allowing for spaces
-I need three pixels between one label and the next, for a line. 5*3=15; (400-15) / 6 = 64 with one over.
-So, 32 dots per label.
+void build_user_menu(void){
+  // find the label 'MNU'
+   const int lbl = OP_DBL + (DBL_LBL << DBL_SHIFT) + 'M' + ('N' << 16) + ('U' << 24);
+   build_user_menu_from_program (lbl);
+}
 
-One long one - one byte per column.
-cmap contains the character dots.
-Each element in mdot
+void build_user_menu_from_program(int lbl)
+{
+  // find the label 'MNU'
+  // const int lbl = OP_DBL + (DBL_LBL << DBL_SHIFT) + 'M' + ('N' << 16) + ('U' << 24);
+  unsigned int pc = findmultilbl(lbl, 0);
+  int i=0;
+  s_opcode op;
+  opcode opc;
+  char buf1[16];
+  char *p = buf1;
+  char c;
+  int finished = 0;
 
-    for (i=0; i<6; i++) // rows of character. cmap[i] contains width bits.
-      for (j=0; j<width; j++) { // ( (cmap[i] & (1 << j)) ? 1:0 ) is the pixel in the ith row of the jth column. If it's 1 we need to set bit j 
-	if (x+j >= MENU_WIDTH)
-	  break;
-//	mdot(x+j) |= (cmap[i] & (1 << j))?1:0);
-	mdot(x+j) |= (cmap[i] & (1 << j))?1:0);
+  for (int j = 0; j<6; j++) { // clear user menu
+      UserMenu.keys[j].unshifted_label[0] = '\0';
+      UserMenu.keys[j].unshifted.shift = 0;
+      UserMenu.keys[j].unshifted.key_34s = K_NOP;
+      UserMenu.keys[j].shifted_label[0] = '\0';
+      UserMenu.keys[j].shifted.shift = 0;
+      UserMenu.keys[j].shifted.key_34s = K_NOP;
+  }
+  while (pc && i < 12) {
+
+    pc = do_inc(pc, 0);
+    opc = getprog(pc);
+    op = (s_opcode) opc;
+
+    if (op == (OP_NIL | OP_END))
+      break;
+    if (op == (OP_NIL | OP_NOP)) {
+      if (i==4) {
+	UserMenu.keys[i].unshifted = (struct _ndmap) {K_ARROW, -1};
+	strncpy(UserMenu.keys[i].unshifted_label, arrow_key_string,5);
       }
-      
-To set dot y in column x, row[x] = row[x] | (1 << y)
-To read dot y in column x, ( row[x] & (1 << y) )
-To test dot y in column x, 
-void m
+      else if (i==5) {
+	UserMenu.keys[i].unshifted = (struct _ndmap) {K_CMPLX, -1};
+	strncpy(UserMenu.keys[i].unshifted_label, cmplx_key_string,5);
+      }
+      i += 1;
+      continue;
+    }
 
-c5 asdfg
-c4 qwert
-c3 ;lkjh
-c2 zxcvb
-c1 poiuy
-c0 12345
-
-dots(0) - aq;zp1
-...
-dots(4) - 5ybhtq
-
-void mdot(int i, int j, int on) { // Column i, row j, state on
-if (on) {
-mdots(i) |= ( 1 << j );
-else {
-mdots(i) |= ~( 1 << j );
+    if (isDBL(opc) && (opDBL(opc) == DBL_ALPHA)) { // is it double alpha?
+      if ( finished==1 || p - buf1 == 6 ) { // if we've already finished an alpha...
+	umen_store (i, OP_NIL | OP_NOP, buf1); // no command, so store a NOP
+	i++;
+    	p = buf1;
+	finished = 0;
+      } // ..and start reading the new alpha
+      *p++ = opc & 0xff; // character 1
+      c = (opc >> 16) & 0xff;
+      if (c != '\0') { // if character 2 isn't null..
+	*p++ = c;
+	c = opc>>24;
+	if (c != '\0') // if character 3 isn't null..
+	  *p++ = c;
+      }
+      *p = '\0'; // no ++: next character can overwrite the 0.
+      if (c == '\0' || p - buf1 == 6) {
+	finished = 1;
+      }
+    }
+    else { // Not a DBL_ALPHA op - the usual case
+      if ( p == buf1 ) { // no alpha label to use
+	if (isRARG(op) && p == buf1) {
+	  const s_opcode rarg = RARG_CMD(op);
+	  if ( rarg != RARG_ALPHA && rarg != RARG_CONV
+	       && rarg != RARG_CONST && rarg != RARG_CONST_CMPLX
+	       && ( (op & 0xff) == 0 ) ) { // argument = 0 
+	    catcmd (op, buf1); // display rarg without argument
+	  }
+	  else {
+	    prt_umen(opc, buf1); // display rarg with argument
+	  }
+	}
+	else {
+	  prt_umen(opc, buf1); // display non-rarg thing
+	}
+      }
+      else { // there is an alpha label to use, so reset
+	p = buf1;
+	finished = 0;
+      }
+      umen_store (i, opc, buf1);
+      i++;
+    }
+  }
 }
-}
-for j = 0 to width-1
-for i = 0 to 5
-dots(j) bit i = c[i] 
-*/
+
+void umen_store (int i, opcode opc, char* buf1) {
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wstringop-truncation"
+    if (i<6) {
+      strncpy(UserMenu.keys[i].unshifted_label, buf1, 7);
+      UserMenu.keys[i].unshifted_label[7]='\0';
+      UserMenu.keys[i].unshifted = (struct _ndmap) {K_OP, opc};
+    }
+    else {
+      strncpy(UserMenu.keys[i-6].shifted_label, buf1, 7);
+      UserMenu.keys[i-6].shifted_label[7]='\0';
+      UserMenu.keys[i-6].shifted = (struct _ndmap) {K_OP, opc};
+    }
+#pragma GCC diagnostic pop
+}  

@@ -64,7 +64,9 @@ C_INCLUDES += -Isrc -Iinc
 SRCS := keys.c display.c xeq.c prt.c decn.c complex.c stats.c \
 		lcd.c int.c date.c consts.c alpha.c charmap.c \
 		commands.c string.c storage.c matrix.c \
-		font.c xrom.c console.c
+		font.c xrom.c console.c \
+		stopwatch.c \
+		printer.c
 C_SRCS := $(addprefix src/,$(SRCS))
 
 C_SOURCES += $(C_SRCS)
@@ -72,8 +74,9 @@ C_SOURCES += $(C_SRCS)
 HEADERS := alpha.h charset7.h complex.h consts.h data.h \
 		date.h decn.h display.h features.h int.h keys.h lcd.h \
 		stats.h xeq.h xrom.h storage.h matrix.h menu.h menu.c keytran.c \
-		main.h
-
+		main.h \
+		stopwatch.h \
+		printer.h
 
 # Libraries
 #ifeq ($(DEBUG), 1)
@@ -165,7 +168,7 @@ all :	top
 top :	top_setup clean_some $(BUILD_DIR)/wp34s_top.elf
 
 top_setup:
-	$(eval TARGET = wp34s_top)
+	$(eval TARGET = wp34c_top)
 	$(eval LDFLAGS = --specs=nosys.specs $(CPUFLAGS) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections -Wl,--wrap=_malloc_r)
 	$(shell cat src/main_0.h | sed -e 's/pversion/$(VERSION_NO)/g' -e 's/pname/$(TARGET)/g' > src/main.h)
 	$(eval CFLAGS += -DBIGGER_DISPLAY -DTOP_ROW)
@@ -173,14 +176,14 @@ top_setup:
 normal: normal_setup clean_some $(BUILD_DIR)/wp34s.elf 
 
 normal_setup:
-	$(eval TARGET = wp34s)
+	$(eval TARGET = wp34c)
 	$(eval LDFLAGS = --specs=nosys.specs $(CPUFLAGS) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections -Wl,--wrap=_malloc_r)
 	$(shell cat src/main_0.h | sed -e 's/pversion/$(VERSION_NO)/g' -e 's/pname/$(TARGET)/g' > src/main.h)
 
 long :	long_setup clean_some $(BUILD_DIR)/wp34s_long.elf
 
 long_setup:
-	$(eval TARGET = wp34s_long)
+	$(eval TARGET = wp34c_long)
 	$(eval LDFLAGS = --specs=nosys.specs $(CPUFLAGS) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections -Wl,--wrap=_malloc_r)
 	$(shell cat src/main_0.h | sed -e 's/pversion/$(VERSION_NO)/g' -e 's/pname/$(TARGET)/g' > src/main.h)
 	$(eval CFLAGS += -DBIGGER_DISPLAY)

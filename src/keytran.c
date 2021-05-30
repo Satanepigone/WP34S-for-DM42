@@ -66,7 +66,7 @@ static const struct _ndmap mapping_none[] = {
     {K30, 1}, // e^x
     {K30, 3}, // GTO
     // Next row of DM42 7--12
-    {K_CMPLX, 0},
+    {K_MULTI, KCPX}, // Complex
     {K54, 1}, // %
     {K23, 3}, // pi
     {K01, 2}, // asin
@@ -74,31 +74,32 @@ static const struct _ndmap mapping_none[] = {
     {K03, 2}, // atan
     // Third row of DM42 13--17
     {K20, 1}, // alpha
-    {K_MULTI, 1}, // lastX not available; it's RCL L; so just RCL for now;
-    {K_SETMENU, 4}, // ANGLES menu
-    {K_SETMENU, 2}, // DISP menu
-    {K_SETMENU, 1}, // CLR menu
+    //    {K_MULTI, 1}, // lastX 
+    {K_OP, RARG( RARG_RCL, regL_idx )}, // lastX 
+    {K_SETMENU,  M_Angles}, // ANGLES menu
+    {K_SETMENU,  M_Disp}, // DISP menu
+    {K_SETMENU,  M_Clear}, // CLR menu
     // Fourth row of DM42 18--22
     {K40, 0}, // up-arrow
     {K52, 1}, // SLV
-    {K_SETMENU, 14}, // Integral/sum/product menu
+    {K_SETMENU,  M_Solve}, // Integral/sum/product menu
     {K44, 3}, // MATRIX cat
-    {K_SETMENU, 12}, // STATS menu
+    {K_SETMENU,  M_Stats}, // STATS menu
     // Fifth row of DM42 23--27
     {K50, 0}, // down-arrow
-    {K_SETMENU, 3}, // BASE menu 
+    {K_SETMENU,  M_Base}, // BASE menu 
     {K04, 3}, // CONV cat
-    {K_SETMENU, 10}, // FLAGS menu
-    {K_SETMENU, 11}, // PROBS menu
+    {K_SETMENU,  M_Flags}, // FLAGS menu
+    {K_SETMENU,  M_Prob}, // PROBS menu
     // Sixth row of DM42 28--32
     {K_G, 0}, // gshift
     {K_MULTI, DEFMEN}, // toggle default menu
-    {K_NOP, 0}, // no function
+    {K_SETMENU,  M_User}, // select user menu
     {K52, 3}, // P.FCN cat
-    {K_NOP, 0}, // no function
+    {K_SETMENU, M_Print}, // Print menu
     // Last row of DM42 33--37
     {K60, 3}, // off
-    {K_SETMENU, 8}, // SETUP menu
+    {K_SETMENU,  M_Setup1}, // SETUP menu
     {K21, 1}, // <(
     {K63, 3}, // P/R
     {K10, 3}, // CAT cat
@@ -110,8 +111,8 @@ static const struct _ndmap mapping_none[] = {
     {K_NOP, 0},
     {K_NOP, 0},
     {K_NOP, 0},
-    {K_SETMENU, -1}, // last menu
-    {K_SETMENU, 5}, // MISC menu!
+    {K_SETMENU,  M_Last}, // last menu
+    {K_SETMENU,  M_Misc}, // MISC menu!
   };
 
   static const struct _ndmap mapping_gshift[] = {
@@ -127,12 +128,12 @@ static const struct _ndmap mapping_none[] = {
     {K_NOP, 0}, // no function
     {K11, 3}, // View
     {K12, 3}, // Rup
-    {K_SETMENU, 4}, // ANGLES menu
-    {K_SETMENU, 4}, // ANGLES menu
-    {K_SETMENU, 4}, // ANGLES menu
+    {K_SETMENU,  M_Angles}, // ANGLES menu
+    {K_SETMENU,  M_Angles}, // ANGLES menu
+    {K_SETMENU,  M_Angles}, // ANGLES menu
     // Third row of DM42 13--17
     {K20, 2}, // fill
-    {K_SETMENU, 6}, // X<>Y menu
+    {K_SETMENU,  M_Swap}, // X<>Y menu
     {K05, 3}, // MODE cat
     {K_NOP, 0}, // no function
     {K_NOP, 0}, // no function
@@ -151,14 +152,15 @@ static const struct _ndmap mapping_none[] = {
     // Sixth row of DM42 28--32
     {K_G, -1}, // gshift (clears shift state)
     {K_NOP, 0}, // no function
-    {K_NOP, 0}, // no function
+    //    {K_MULTI, SETUMEN}, // Set up user menu
+    {K_SETMENU, M_Usermenu}, //User menu create
     {K53, 3}, // X.FCN catalogue.
     {K_NOP, 0}, // no function
     // Last row of DM42 33--37
     {K60, 2}, // SHOW (register browser)
-    {K_SETMENU, 13}, // SETUP2 menu
+    {K_SETMENU,  M_Setup2}, // SETUP2 menu
     {K_NOP, 0}, // no function
-    {K_SETMENU, 7}, // P.FCN menu
+    {K_SETMENU,  M_Program}, // P.FCN menu
     {K50, 3}, // Status
     // Function keys, screenshot, sh_up, sh_down
     {K_NOP, 0},
