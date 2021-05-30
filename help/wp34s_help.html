@@ -192,8 +192,8 @@
       becomes <span class="lcd">eRPN</span> in entry RPN mode.</li> 
       <li>RCL is now <span class="lcd">RUN</span>&nbsp;, to show that a program is running. This
 	annunciator does not flash.</li>
-      <li>There is a new annunciator, <span class="lcd">PRT</span>:
-	when lit, it shows that the
+      <li>There is a new annunciator <span class="lcd">PRT</span>
+	which indicates that the
 	printing commands are enabled.</li>
     </ul>    
 
@@ -251,7 +251,7 @@
       <li><b>Integrate</b> menu
 	<span class="button">f</span>
 	<span class="button">&int;f(x)</span> -
-	SLV, &int;, SUM, and PROD.</li> 
+	SLV, &int;, SUM, PROD, f'(x), f''(x).</li> 
       <li><b>Stats</b> menu
 	<span class="button">f</span> <span class="button">STATS</span> -
 	Xbar, Yhat, s (variance) and r 
@@ -270,7 +270,7 @@
 	Exit to the DMCP menu, System, Help, OnSTO and OnRCL, save
 	state to and load state from named file.</li> 
       <li><b>Misc.</b> menu
-	<span class="button">f</span>-hold-<span class="button">&#9660;</span> -
+	<span class="button">SHIFT</span>-hold-<span class="button">&#9660;</span> -
 	functions that did not fit anywhere else! |x|, RND, IPart,
 	FPart, 2<sup>x</sup>, Log<sub>2</sub> x, llel, delta 
 	percent.</li>
@@ -287,15 +287,15 @@
       <li><b>X&lt;&gt;Y</b> menu
 	<span class="button">g</span> <span class="button">x&lt;&gt;?</span> -
 	Show<-, Show->, and exchange functions.</li>
-      <li><b>Choose user menu</b> menu
+      <li><b>Select user menu</b> menu
 	<span class="button">g</span> <span class="button">2</span> -
 	functions for choosing a <a href="#UDmenus">user-defined menu</a>.</li>
       <li><b>Program</b> function menu <span class="button">g</span>
 	<span class="button">R/S</span> - LBL, RTN, Pause, GTO, DSE, ISG.</li>
       <li><b>Setup 2</b> menu
 	<span class="button">g</span> <span class="button">0</span> -
-	Save library to and 
-	load library from named file; save program to and load program from
+	Save library to /
+	load library from named file; save program to / load program from
 	named file.</li>
     </ul>
 
@@ -579,7 +579,7 @@
     This program allows printing to an HP-82240A or B printer via the
     DM42's IR hardware.
     <br>
-    The commands are documented in the WP-34s manual, except as
+    The commands behave as documented in the WP-34s manual, except as
     mentioned below. Note that <span class="lcd">P.</span> represents
     the printer icon.
     <br>
@@ -628,7 +628,7 @@
     With the running stopwatch displayed, the calculator will not
     switch off automatically.
     <br>
-    With the stopwatch running in the background, the calculator will
+    With the stopwatch "running" in the background, the calculator will
     switch off in the usual way.
 
     <h2 id="UDmenus">User-defined menus</h2>
@@ -650,8 +650,7 @@
     takes the label as an argument and displays the menu.
     <br>
     The functions <span class="lcd">UM1</span>&nbsp;, ...,
-    <span class="lcd">UM6</span> provide quick access to menus labelled UM1,
-    ..., UM6.
+    <span class="lcd">UM6</span> provide quick access to menus labelled UM1, ..., UM6.
     <br>
     <span class="button">f</span> <span class="button">CUSTOM</span>
     returns to the current user menu.
@@ -726,5 +725,9 @@
 	not be returning you can execute <span class="lcd">CPXNO</span>&nbsp;.
       </li>
     </ul>
+    In C_LK mode, some menus are modified or completely absent. There
+    are no programming functions, statistics, matrix, or integer
+    commands. This is a limitation, but it hasn't proved a problem in
+    the past. 
   </body>
 </html>

@@ -323,8 +323,8 @@ static const struct _menu Menus[] = {
   {
     "M_Solve", // 14
     { 
-      { { K52, 1 }, NO_KEY, "SLV", "" },
-      { { K52, 2 }, NO_KEY, "\004 dx", "" },
+      { { K52, 1 }, { RARG_BASEOP(RARG_DERIV)}, "SLV", "f'(x)" },
+      { { K52, 2 }, { RARG_BASEOP(RARG_2DERIV)}, "\004 dx", "f''(x)" },
       { { K53, 2 }, NO_KEY, "SUM", "" },
       { { K53, 1 }, NO_KEY, "PROD", "" },
       { ARROW_KEY, NO_KEY, "--\015", "" },
