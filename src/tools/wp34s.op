@@ -1,6 +1,6 @@
 # $Rev$
 version=33
-maxsteps=926
+maxsteps=928
 maxlibsteps=8190
 0x0000	cmd	ENTER[^]
 0x0000	alias-c	ENTER

@@ -370,7 +370,7 @@
 
 // Reduces RAM program steps by 2 and provides 4 bytes of extra flags
 // in persistent RAM. About 10 of these are used by C_LOCK_MODE but there are others!
-#define EXTRA_FLAGS
+// #define EXTRA_FLAGS
 
 // h ./, in DECM mode switches E3 separator on/off (instead of chnaging radix symbol)
 //#define MODIFY_K62_E3_SWITCH
@@ -404,7 +404,7 @@
 #define RP_PREFIX
 #define INCLUDE_YREG_CODE
 #define INCLUDE_YREG_HMS
-#define EXTRA_FLAGS
+// #define EXTRA_FLAGS
 #endif
 
 #if defined(INCLUDE_DOUBLEDOT_FRACTIONS)

@@ -4167,8 +4167,11 @@ void cmdpause(unsigned int arg, enum rarg op) {
 
 
 void op_setspeed(enum nilop op) {
-	UState.slow_speed = (op == OP_SLOW) ? 1 : 0;
-	update_speed(1);
+#ifdef DM42
+#else
+  UState.slow_speed = (op == OP_SLOW) ? 1 : 0;
+  update_speed(1);
+#endif
 }
 
 
