@@ -3,12 +3,13 @@
 ## A project to bring the WP&nbsp;34S calculator firmware to the DM42 hardware. 
 
 This version of the WP&nbsp;34S calculator now includes:
-    * Infra-red printing;
-    * The stopwatch;
-    * Complex lock mode;
-    * Entry RPN;
-    * User-defined menus;
-    * Enhanced file handling.
+
+  * Infra-red printing;
+  * The stopwatch;
+  * Complex lock mode;
+  * Entry RPN;
+  * User-defined menus;
+  * Enhanced file handling.
 
 There are three versions of the WP&nbsp;34S program which differ in their displays: normal, long, and top. The program files are, respectively, build/wp34s.pgm, build/wp34s_long.pgm, and build/wp34s_top.pgm.
 
