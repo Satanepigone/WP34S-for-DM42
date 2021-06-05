@@ -26,6 +26,10 @@
 /* Version number */
 #define VERSION_STRING  "3.3"
 
+#ifdef DM42
+#define VERS_DISPLAY "34C\006" VERSION_STRING "\222T"
+#else
+
 #if defined(INFRARED)
 #define VERS_DISPLAY "34C\006" VERSION_STRING "\222"
 #elif defined(INCLUDE_STOPWATCH)
@@ -33,6 +37,9 @@
 #else
 #define VERS_DISPLAY "34C\006" VERSION_STRING "\006\006"
 #endif
+
+#endif
+
 #define VERS_SVN_OFFSET (sizeof(VERS_DISPLAY) - 1)
 
 /* Error number definitions */

@@ -40,8 +40,12 @@ int main( int argc, char **argv )
 {
     int rev;
 
+#ifdef DM42
+    rev = get_revision_num("git rev-list HEAD --count >%s", "git");
+#else
     // Get the revision number from subversion
     rev = get_revision_num("svnversion -n >%s", "subversion");
+#endif
     if (rev < 0)
     {
 	rev = get_revision_num("git svn find-rev `git rev-parse master` >%s", "git");
@@ -54,10 +58,12 @@ int main( int argc, char **argv )
     }
 
     // Increment
+#ifndef DM42
     if ( rev != 0 ) {
 	// Assume the next higher revision number on next commit
 	++rev;
 	}
+#endif
     fprintf( stderr, "    Revision number will be %d\n\n", rev );
 
     // Create output

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>WP-34s for DM42</title>
+    <title>WP&nbsp;34C for DM42</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=VT323">
     <style>
       body{font-family: sans-serif;}
@@ -42,7 +42,7 @@
   Complex Lock Mode - CLMode
   -->
   <body>
-    <h1>WP-34s for DM42</h1>
+    <h1>WP&nbsp;34C for DM42</h1>
     <h2 id="Home">Contents</h2>
     <ul>
       <li><a href="#Intro">About this program</a></li>
@@ -73,12 +73,13 @@
     </ul>
 
     <h2 id="Intro">About this program</h2>
-    This program is a port of the WP-34s calculator to the DM42 platform.
+    This program is a port of the WP&nbsp;34C calculator to the DM42 platform.
     <br>
-    It includes much of the original WP-34s code with some changes and extensions.
+    It includes much of the original WP&nbsp;34C code with some changes and extensions.
     <br>
     All of the original calculator's standard features are supported,
-    along with the stopwatch,
+    along with the
+    <a href="#Stopwatch">stopwatch</a>,
     <a href="#Print">IR printing</a>,
     <a href="#CLMode">complex lock mode</a>,
     <a href="#ERPN">entry RPN</a>,
@@ -93,22 +94,24 @@
     (see the file README.md for details). Everything that follows
     applies to all three versions. 
 
-    <h2 id="S_or_C">WP-34s or WP-34c?</h2>
-    On the original calculator, the WP-34c was a version of the WP-34s
-    with added code (called complex lock mode) to make it easier to
+    <h2 id="S_or_C">WP&nbsp;34S or WP&nbsp;34C?</h2>
+    On the original calculator, the WP&nbsp;34C was a version of the WP&nbsp;34S
+    with added code (complex lock mode) to make it easier to
     work with complex numbers.
     <br>
     To make room for this extra code, some of the features of the
-    WP-34s had to be omitted.
+    WP&nbsp;34S had to be omitted.
     <br>
-    On the DM42 there is plenty of memory for everything and so rather
-    than having two separate versions, I have included 
-    <a href="#CLMode">complex lock mode</a>
-    as part of the WP-34s.
+    Two program steps were taken up with flags used by the extra code.
     <br>
-    This will not affect you if you never use it.
-    The only cost is two steps of program memory (used for
-    extra flags).
+    On the DM42 there is plenty of memory for everything. This program
+    contains complex lock mode along with all of the features of the
+    standard WP&nbsp;34S. Two program steps are still used for extra
+    flags.
+    <br>
+    A version of the program that does not use these two steps
+    is available in the "master" branch of the gitlab repository. This
+    is recommended to new users.
     
     <h2 id="Leave"><b>Exiting the program</b></h2>
     If you just want to turn the calculator off, press
@@ -122,7 +125,7 @@
       <li>Press <span class="button">F1</span> (EXIT).</li>
       <li>You can then use <span class="lcd">3: Load Program</span> to choose a
 	different firmware file to load, or <span class="lcd">2: Run Program</span>
-	to return to the already-loaded WP-34s.</li>
+	to return to the already-loaded WP&nbsp;34C.</li>
     </ul>
 
     <h2 id="Notation">Notation</h2>
@@ -155,14 +158,14 @@
     angle; <span class="button">f</span> <span class="button">TAN</span> computes
     the inverse tangent; in alpha mode it enters L, l, lambda, etc.
     <br>
-    The WP-34s <span class="button">&rarr;</span>
+    The WP&nbsp;34S <span class="button">&rarr;</span>
     and <span class="button">CPX</span> keys are provided in this
     program by the keys <span class="button">F5</span>
     and <span class="button">F6</span>&nbsp;.
     <br>
     Outside of alpha mode there are two
     shift states: <span class="button">f</span> (one press of
-    <span class="button">SHIFT</span>)
+    <span class="button">SHIFT</span>&nbsp;)
     and <span class="button">g</span> (two presses). A third
     press cancels the shift. 
     <br>
@@ -176,7 +179,7 @@
     <br>
     <ul>
       <li>INPUT is now <span class="lcd">ALPHA</span>&nbsp;; this shows ALPHA mode.</li>
-      <li>The down arrow <span class="lcd">&darr;</span> still means
+      <li>The down arrow <span class="lcd">↓</span> still means
       lower case in ALPHA mode.</li> 
       <li>BEG is now either <span class="lcd">S:4</span>
 	or <span class="lcd">S:8</span>&nbsp;, depending on the stack 
@@ -199,7 +202,7 @@
 
     <h2 id="Menus">Menus</h2>
     Menus use the top row of function keys, unshifted and f-shifted, to
-    provide the full set of WP-34s keyboard functions along with some
+    provide the full set of WP&nbsp;34S keyboard functions along with some
     extras.
     <br>
     Virtually every menu has the
@@ -300,7 +303,7 @@
     </ul>
 
     <h2 id="Cats">Accessing catalogues</h2>
-    The WP-34s makes most of its functions available via catalogues. This
+    The WP&nbsp;34S makes most of its functions available via catalogues. This
     is where to find them.
     <br>
     <h3 id="CatF">f-shifted catalogues:</h3>
@@ -336,6 +339,8 @@
       <tr><td>TEST. . . . . </td>
 	<td><span class="button">g</span> <span class="button">6</span></td>
       </tr>
+    </table>
+    <table>
       <tr><td>PROB. . . . . </td>
 	<td><span class="button">g</span> <span class="button">&times;</span></td>
       </tr>
@@ -378,7 +383,7 @@
       lock mode, same function as the CPX key.
 	<span class="button">F6</span>&nbsp;.</li>
       <li><span class="button">LASTx</span> - does RCL L, which is how Last
-	X works on the WP-34s.</li> 
+	X works on the WP&nbsp;34S.</li> 
       <li><span class="button">MODES</span> - angles menu (including angle modes).</li>
       <li><span class="button">DISP</span> - display format menu.</li>
       <li><span class="button">CLEAR</span> - menu of clearing operations.</li>
@@ -405,52 +410,71 @@
     As with the unshifted keys, these do what their keylabels say, or
     at least something closely related.
     <ul>
-      <li><span class="button">&Sigma;+</span>&nbsp;, <span class="button">1/x</span>&nbsp;,
+      <li><span class="button">g</span>
+	<span class="button">&Sigma;+</span>&nbsp;, <span class="button">1/x</span>&nbsp;,
 	<span class="button">√</span>&nbsp;,
 	and <span class="button">LOG</span> - unshifted functions of these
 	keys, for use when labels A-D are defined.</li>
-      <li><span class="button">RCL</span> - View.</li>
-      <li><span class="button">SIN</span>&nbsp;, <span class="button">COS</span>&nbsp;,
+      <li><span class="button">g</span>
+	<span class="button">RCL</span> - View.</li>
+      <li><span class="button">g</span>
+	<span class="button">SIN</span>&nbsp;, <span class="button">COS</span>&nbsp;,
 	<span class="button">TAN</span> - Angles menu (also available
 	from <span class="button">f</span> <span class="button">MODES</span>).</li> 
-      <li><span class="button">ENTER</span> - Fill.
-      <li><span class="button">X&lt;&gt;Y</span> - the X&lt;&gt;Y
+      <li><span class="button">g</span>
+	<span class="button">ENTER</span> - Fill.
+      <li><span class="button">g</span>
+	<span class="button">X&lt;&gt;Y</span> - the X&lt;&gt;Y
 	menu. Includes the three functions on this key on the original calculator.</li>
-      <li><span class="button">+/-</span> - MODE catalogue (MODES).</li>
-      <li><span class="button">9</span> - SUMS catalogue (MATRIX).</li>
-      <li><span class="button">&divide;</span> - STAT catalogue (STAT).</li>
-      <li><span class="button">5</span> - CONST catalogue (CONVERT).</li>
-      <li><span class="button">6</span> - TEST catalogue (FLAGS).</li>
-      <li><span class="button">&times;</span> - PROB catalogue (PROB).</li>
-      <li><span class="button">2</span> - menu to choose user menu.</li>
-      <li><span class="button">3</span> - X.FCN catalogue (P.FCN).</li>
-      <li><span class="button">EXIT</span> - SHOW catalogue - same
+      <li><span class="button">g</span>
+	<span class="button">+/-</span> - MODE catalogue (MODES).</li>
+      <li><span class="button">g</span>
+	<span class="button">9</span> - SUMS catalogue (MATRIX).</li>
+      <li><span class="button">g</span>
+	<span class="button">&divide;</span> - STAT catalogue (STAT).</li>
+      <li><span class="button">g</span>
+	<span class="button">5</span> - CONST catalogue (CONVERT).</li>
+      <li><span class="button">g</span>
+	<span class="button">6</span> - TEST catalogue (FLAGS).</li>
+      <li><span class="button">g</span>
+	<span class="button">&times;</span> - PROB catalogue (PROB).</li>
+      <li><span class="button">g</span>
+	<span class="button">2</span> - menu to choose user menu.</li>
+      <li><span class="button">g</span>
+	<span class="button">3</span> - X.FCN catalogue (P.FCN).</li>
+      <li><span class="button">g</span>
+	<span class="button">EXIT</span> - SHOW catalogue - same
       location as on the original calculator.</li>
-      <li><span class="button">0</span> - Setup 2 menu (SETUP).</li>
-      <li><span class="button">R/S</span> - Program function menu (PRGM).</li>
-      <li><span class="button">+</span> - STATUS (CATALOGUE).</li>  
+      <li><span class="button">g</span>
+	<span class="button">0</span> - Setup 2 menu (SETUP).</li>
+      <li><span class="button">g</span>
+	<span class="button">R/S</span> - Program function menu (PRGM).</li>
+      <li><span class="button">g</span>
+	<span class="button">+</span> - STATUS (CATALOGUE).</li>  
     </ul>
 
     <h2 id="Alpha">Alpha mode</h2>
     Alpha mode is entered and exited via <span class="button">f</span>
     <span class="button">ENTER</span> (ALPHA).
     <br>
-    The letters and symbols to the right of the keys on the DM42 keyboard produce the
+    The letters and symbols to the right of the keys on the DM42
+    keyboard produce the 
     corresponding letters in alpha mode. This difference carries over to the
     Greek letters - for example, Greek lambda is accessed from
     the <span class="button">TAN</span> key (L) rather than
-    the <span class="button">E</span> key (exponent) (which is L on the WP-34s).
+    the <span class="button">E</span> key (exponent) (which is L on
+    the WP&nbsp;34S). 
     <br>
     With the exception of the letters and their Greek analogues, I
     believe that alpha mode works in the same way as on the real 
-    WP-34s in the sense that the same <b>key positions</b> give the same
+    WP&nbsp;34S in the sense that the same <b>key positions</b> give the same
     characters.
     <ul>
       <li>h-shift (3 presses of the shift key) is used in alpha
 	mode.</li>
       <li>The alpha catalogues are accessed from the same keyboard
 	positions and shift states as on the real calculator. You are strongly
-	advised to read the WP-34s manual!</li>
+	advised to read the WP&nbsp;34S manual!</li>
       <li>Note that the alpha catalogues found on
 	<span class="button">f</span>
 	<span class="button">&rarr;</span>
@@ -471,7 +495,7 @@
     </ul>
     
     <h2 id="Files">Working with files</h2>
-    The memory of the original WP-34s included 2kB of RAM for the
+    The memory of the original WP&nbsp;34S included 2kB of RAM for the
     calculator state and 128kB of flash memory.
     <br>
     The firmware filled most of the
@@ -485,7 +509,7 @@
     library (16kB) in RAM rather than in flash memory.
     <br>
     The contents of RAM on the DM42 are permanent until
-    the WP-34s program is exited (e.g., to re-load Free42); it even
+    the WP&nbsp;34C program is exited (e.g., to re-load Free42); it even
     survives battery replacement.
     <br>In particular, RAM persists when the calculator is turned off and on.
     <br>
@@ -505,7 +529,7 @@
 	function <span class="lcd">OnSTO</span>
 	writes a copy of the calculator's state to the backup region
 	and also to this file. (On 
-	the original WP-34s pressing "On" and "STO" together had the same
+	the original WP&nbsp;34S pressing "On" and "STO" together had the same
 	function.)
 	<br>
 	The function <span class="lcd">OnRCL</span> from the same
@@ -518,7 +542,7 @@
     When the calculator is switched off and on, no files are written
     or read.
     <br>
-    But when the WP-34s firmware is
+    But when the WP&nbsp;34C firmware is
     loaded or run from the DMCP menu (options 3 and 2) the state,
     backup, and library regions are 
     reloaded from these three files.
@@ -531,12 +555,12 @@
 	activate USB disk, About.</li>
       <li><span class="lcd">HELP</span> - opens this file.</li>
       <li><span class="lcd">SvRAM</span> (Save RAM) - writes a copy of
-	the RAM region
+	the calculator state
 	to a named file (with a .dat 
 	extension).</li>
       <li><span class="lcd">LdRAM</span> (Load RAM) - loads a named file
 	(with a .dat extension) into 
-	the main RAM region.</li>
+	the calculator state.</li>
       <li><span class="lcd">SvLib</span> (Save Library) - writes a copy of
 	the library region to a named file (with a .lib extension).</li> 
       <li><span class="lcd">LdLib</span> (Load Library) - loads a named file
@@ -557,29 +581,29 @@
     with size and checksum information.
     <br>
     To make them human-readable you
-    need to disassemble them with the tremendously versatile WP-34s
+    need to disassemble them with the tremendously versatile WP&nbsp;34S
     assembler suite of tools.
     <br>
     If you want the files to be portable to 
-    other systems, this is vital: the op-codes in the WP-34s can change when
+    other systems, this is vital: the op-codes in the WP&nbsp;34C can change when
     the number of commands alters, making the files partially or
     completely unreadable.
     <br>
     The correct opcodes for this system are found in the file
-    src/tools/wp34c.op, along with the assembler.
+    src/tools/wp34s.op, along with the assembler.
     <br>
     Not only are the disassembled files
     human-readable, they can be re-assembled correctly when the op-codes change.
     <br>
     Transferring files as source listings is the
-    only reliable way to get them from one WP-34s system to another,
+    only reliable way to get them from one WP&nbsp;34C system to another,
     unless both use the same op-codes.
 
     <h2 id="Print">IR Printing</h2>
     This program allows printing to an HP-82240A or B printer via the
-    DM42's IR hardware.
+    DM42's IR hardware. (Print mode 0 may not work on the HP-82240A.)
     <br>
-    The commands behave as documented in the WP-34s manual, except as
+    The commands behave as documented in the WP&nbsp;34S manual, except as
     mentioned below. Note that <span class="lcd">P.</span> represents
     the printer icon.
     <br>
@@ -591,8 +615,8 @@
       <li><span class="lcd">P.DblSp</span> takes an argument: 1 turns on
 	double line spacing, 0 turns it off.</li>
       <li><span class="lcd">P.Mode</span> can be 0 (use printer characters
-	where possible), 1 (WP-34s
-	characters as graphics), or 2 (really small WP-34s
+	where possible), 1 (WP&nbsp;34S
+	characters as graphics), or 2 (really small WP&nbsp;34S
 	graphic characters). Mode 3 (Serial) is not supported.</li>
       <li><span class="lcd">P.Stk</span> and <span class="lcd">P.Regs</span>
 	print the stack and a block of registers. Prefixed by
@@ -616,7 +640,7 @@
     <a href="#UDmenus">user-defined menu</a> might
     be helpful.
     <br>
-    All the stopwatch commands in the WP-34s manual work as described.
+    All the stopwatch commands in the WP&nbsp;34S manual work as described.
     <br>
     When the stopwatch is running, the <span class="lcd">=</span>
     annunciator blinks.
@@ -634,11 +658,11 @@
     <h2 id="UDmenus">User-defined menus</h2>
     The menus in the program are a necessity, but have also proved to
     be a virtue. I find the "program" menu
-    (<span class="button">g</span> <span class="button">PGRM</span>) particularly
+    <span class="button">g</span> <span class="button">PGRM</span> particularly
     convenient, and others agree.
     <br>
     Because of this, the system allows you to define your own
-    user-defined menus. These can contain any WP-34s command that can
+    user-defined menus. These can contain any WP&nbsp;34C command that can
     be entered as a program step.
     <br>
     The idea is to write a program containing the commands you want in
@@ -646,7 +670,7 @@
     <br>
     Then the command <span class="lcd">UMEN</span>
     (found in the menu
-    <span class="button">g</span> <span class="button">CUSTOM</span>)
+    <span class="button">g</span> <span class="button">CUSTOM</span>&nbsp;)
     takes the label as an argument and displays the menu.
     <br>
     The functions <span class="lcd">UM1</span>&nbsp;, ...,
@@ -677,7 +701,7 @@
     More details in the documentation in /help.
 
     <h2 id="CLMode">Complex Lock Mode</h2>
-    The WP-34s offers excellent support for complex numbers. Complex
+    The WP&nbsp;34S offers excellent support for complex numbers. Complex
     Lock mode aims to make the entry, display, and use of such numbers
     more straightforward.
     <br>

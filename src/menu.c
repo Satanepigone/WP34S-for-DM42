@@ -1,4 +1,6 @@
 //#include <menu.h>
+extern const char SvnRevision[4];
+
 struct _menu UserMenu =
   {
     "User Menu", 
@@ -71,27 +73,39 @@ const char * menu_line_str(uint8_t line_id, char * s, const int slen) {
 }
 
 void disp_about() {
+  char title[] = "WP 34C calculator for DM42: v     ";
+
+  xcopy ((title + 29), SvnRevision, 4);
+
   lcd_clear_buf();
   lcd_writeClr(t24);
 
-  lcd_setXY(t24, 0, 5);
-  lcd_printR(t24, "WP34C calculator for DM42:");
-  t24->y += 5;
-#ifdef TOP_ROW
-  lcd_print(t24, "top row version,");
-  lcd_print(t24, "including COMPLEX LOCK mode!");
-#elif defined(BIGGER_DISPLAY)
-  lcd_print(t24, "with a longer alpha display,");
-  lcd_print(t24, "and COMPLEX LOCK mode!");
-  #else
-  lcd_print(t24, "Just like the original calculator");
-  lcd_print(t24, "but with some annunciators renamed,");
-  lcd_print(t24, "and COMPLEX LOCK mode!");
-#endif
-  t24->y += 5;
-  lcd_printR(t24, "This software is neither provided");
-  lcd_printR(t24, "by nor supported by SwissMicros.");
 
+  lcd_setXY(t24, 0, 5);
+  lcd_putsR(t24, title);
+  lcd_setXY(t20, t24->x, t24->y);
+  t20->newln = 1;
+#ifdef TOP_ROW
+  lcd_puts(t20, "With longer alpha display and top row,");
+#elif defined(BIGGER_DISPLAY)
+  lcd_puts(t20, "With a longer alpha display,");
+#else
+  lcd_puts(t20, "Same display layout as the original WP34S,");
+#endif
+  lcd_puts(t20, "and some annunciators renamed.");
+  lcd_puts(t20, "Includes printing, stopwatch,");
+  lcd_puts(t20, "entry RPN, extended file handling,");
+  lcd_puts(t20, "user-defined menus, and");
+  lcd_puts(t20, "complex lock mode.");
+
+  t20->y += 5;
+
+  t20->bgfill = 1;
+  lcd_putsR(t20, "Neither provided by          ");
+  lcd_putsR(t20, "nor supported by SwissMicros.");
+  t20->bgfill = 0;
+  t20->newln = 0;
+  
   t24->y = LCD_Y - lcd_lineHeight(t24)-5;
   t24->x = 20;
   lcd_printR(t24, "    Press EXIT key to continue...");
