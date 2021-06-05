@@ -326,7 +326,11 @@ void reset( void )
 	UState.contrast = 6;
 #endif
 #ifdef INFRARED
-	State.print_delay = 10;
+#ifdef DM42
+	printer_set_delay(1800);
+#else
+        State.print_delay = 10;
+#endif
 #endif
 	DispMsg = "Erased";
 }
