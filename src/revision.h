@@ -24,4 +24,8 @@
 #ifdef REALBUILD
 __attribute__((section(".revision"),externally_visible))
 #endif
+<<<<<<< HEAD
 const char SvnRevision[ 4 ] = "78  ";
+=======
+const char SvnRevision[ 4 ] = "77  ";
+>>>>>>> 398127a21a29cc77b704d6bfd502226541daa154
