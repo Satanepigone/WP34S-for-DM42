@@ -2,7 +2,7 @@
 
 ## A project to bring the WP&nbsp;34C calculator firmware to the DM42 hardware. 
 
-###WP 34C vs WP 34S
+### WP 34C vs WP 34S
 
 New users are advised to use the WP&nbsp;34S calculator program instead of this one, to be found in the [master branch](https://gitlab.com/njdowrick/wp34s-for-dm42/-/tree/master) of the gitlab repository. This includes all of the features of this program, including complex lock mode, but with the **same memory layout** as the standard WP&nbsp;34S calculator.
 
@@ -29,7 +29,7 @@ If you wish to transfer whilst preserving your programs in the main memory area,
 
 Alternatively, save the programs you want to keep to the library region before quitting the WP&nbsp;34C program. They will be immediately available to the WP&nbsp;34S program that you load. The library format is identical.
 
-##Features of the WP 34C / WP 34S calculator
+## Features of the WP 34C / WP 34S calculator
 
 This version of the WP&nbsp;34C calculator includes:
 
@@ -87,7 +87,7 @@ On the original calculator, complex lock mode was designed to make the entry and
 
 Because of this, the complex lock mode firmware was given its own name - the WP 34C.
 
-On the DM42 there is no memory shortage and this version of the WP&nbsp;34C includes all the features of the WP&nbsp;34S with the addition of complex lock mode. The only difference is the memory layout; this issue is addressed in the WP&nbsp;34S programs available in the master branch.) 
+On the DM42 there is no memory shortage and this version of the WP&nbsp;34C includes all the features of the WP&nbsp;34S with the addition of complex lock mode. The only difference is the memory layout; this issue is addressed in the WP&nbsp;34S programs available in the master branch. 
 
 If you never use complex lock mode its presence will not affect you, but it's there is you want it!
 
