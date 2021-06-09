@@ -55,13 +55,6 @@ const char *DispMsg; // What to display in message area
 short int DispPlot;
 short int no_status_top = 0;
 
-#ifndef REALBUILD
-char LastDisplayedText[NUMALPHA + 1];	   // For clipboard export
-char LastDisplayedNumber[NUMBER_LENGTH + 1];
-char LastDisplayedExponent[EXPONENT_LENGTH + 1];
-char forceDispPlot;
-#endif
-
 FLAG ShowRPN;		   // controls visibility of RPN annunciator
 FLAG JustDisplayed;	   // Avoid duplicate calls to display()
 SMALL_INT IntMaxWindow;    // Number of windows for integer display
@@ -75,20 +68,8 @@ static const char S_SURE[] = "Sure?";
 
 static const char S7_ERROR[] = "Error";		/* Default lower line error display */
 static const char S7_NaN[] = "not nuMmEric";	/* Displaying NaN in lower line */
-#ifndef REALBUILD
-static const char S7_NaN_Text[] = " N o t   n u m e r i c ";
-#endif
 static const char S7_INF[] = "Infinity";	/* Displaying infinity in lower line */
-#ifndef REALBUILD
-static const char S7_INF_Text[] = " I n f i n i t y ";
-static const char S7_NEG_INF_Text[] = "-I n f i n i t y ";
-#endif
-
 static const char S7_STEP[] = "StEP ";		/* Step marker in program mode (lower line) */
-#ifndef REALBUILD
-static const char S7_STEP_ShortText[] = "STEP";
-#endif
-
 static const char S7_fract_EQ[] = " = ";	/* Exponent in fraction mode indicates low, equal or high */
 static const char S7_fract_LT[] = " Lt";
 static const char S7_fract_GT[] = " Gt";
@@ -99,15 +80,6 @@ static const char libname[][5] = {
   "roMm"
 #endif
 };
-
-#ifndef REALBUILD
-static const char libname_text[][10] = {
-  " R a m ", " L i b ", " B u p ",	" R o m "
-};
-static const char libname_shorttext[][5] = {
-  "Ram", "Lib", "Bup", "Rom"
-};
-#endif
 
 
 /* Set the separator and decimal mode globals
@@ -198,45 +170,6 @@ void error_message(const unsigned int e)
     };
 #undef MSG1
 #undef MSG2
-#ifndef REALBUILD
-  static const char *const error_table_text[] =
-    {
-      " P r o g r a m ",
-      "",
-      " o r   d a t e ",
-      " O p - c o d e ",
-      "",
-      "",
-      " L a b e l ",
-      " O p e r a t i o n ",
-      "",
-      "",
-      "",
-      " F u l l ",
-      " C l a s h ",
-      "",
-      " T o o   s m a l l ",
-      " D a t a   p o i n t s ",
-      " P a r a m e t e r ",
-      "",
-      " D a t a ",
-      " P r o t e c t e d ",
-      " F o u n d ",
-      " M i s m a t c h ",
-      "",
-      " F u l l ",
-      " I n s t a l l e d ",
-#ifndef SHIFT_EXPONENT
-      "",
-      "",
-#endif
-#ifdef INCLUDE_C_LOCK
-      "",
-#endif
-      "",
-    };
-#endif
-
   if (e != ERR_NONE || Running) {
     const char *p = error_table[e];
     const char *q = find_char(p, '\0') + 1;
@@ -253,9 +186,6 @@ void error_message(const unsigned int e)
 #endif
       message(p, q);
       State2.disp_freeze = (e != ERR_NONE);
-#ifndef REALBUILD
-      scopy(LastDisplayedNumber, error_table_text[e]);
-#endif
     }
 #ifdef INFRARED
     if (Tracing) {
@@ -303,25 +233,21 @@ void error_message(const unsigned int e)
 
 static void set_mant_sign_dot()
 {
-  LastDisplayedNumber[0]='-';
   set_dot(MANT_SIGN);
 }
 
 static void clr_mant_sign_dot()
 {
-  LastDisplayedNumber[0]=' ';
   clr_dot(MANT_SIGN);
 }
 
 static void set_exp_sign_dot()
 {
-  LastDisplayedExponent[0]='-';
   set_dot(EXP_SIGN);
 }
 
 static void clr_exp_sign_dot()
 {
-  LastDisplayedExponent[0]=' ';
   clr_dot(EXP_SIGN);
 }
 
@@ -361,9 +287,6 @@ static char *set_decimal(const int posn, const enum decimal_modes decimal, char 
     set_dot(posn+7);
     if (decimal != DECIMAL_DOT)
       set_dot(posn+8);
-#ifndef REALBUILD
-    LastDisplayedNumber[(posn/9)*2+2]= decimal == DECIMAL_DOT?'.':',';
-#endif
   }
   return res;
 }
@@ -383,9 +306,6 @@ static char *set_separator(int posn, const enum separator_modes sep, char *res) 
     set_dot(posn+7);
     if (sep == SEP_COMMA)
       set_dot(posn+8);
-#ifndef REALBUILD
-    LastDisplayedNumber[(posn/9)*2+2] = sep == SEP_COMMA?',':'.';
-#endif
   }
   return res;
 }
@@ -395,12 +315,6 @@ static void set_dig(int base, int ch)
 {
   int i;
   int c = getdig(ch);
-#ifndef REALBUILD
-  if(base<SEGS_EXP_BASE)
-    LastDisplayedNumber[(base/9)*2+1] = ch==0?' ':ch;
-  else
-    LastDisplayedExponent[(base-SEGS_EXP_BASE)/7+1] = ch;
-#endif
   for (i=6; i>=0; i--)
     {
       //		dot(base, c & (1 << i));
@@ -1631,10 +1545,6 @@ static void set_exp(int exp, int flags, char *res) {
 	      scopy(res, "NaN");
 	    } else {
 	      set_digits_string(S7_NaN, 0);
-#ifndef REALBUILD
-	      scopy(LastDisplayedNumber, S7_NaN_Text);
-	      forceDispPlot=0;
-#endif
 	    }
 	    return 1;
 	  } else {
@@ -1646,15 +1556,6 @@ static void set_exp(int exp, int flags, char *res) {
 	      *res++ = '\237';
 	    else {
 	      set_digits_string(S7_INF, SEGS_PER_DIGIT * 2);
-#ifndef REALBUILD
-	      if (decNumberIsNegative(x)) {
-		scopy(LastDisplayedNumber, S7_NEG_INF_Text);
-	      }
-	      else {
-		scopy(LastDisplayedNumber, S7_INF_Text);
-	      }
-	      forceDispPlot=0;
-#endif
 	    }
 	    return 1;
 	  }
@@ -2556,9 +2457,6 @@ static void set_exp(int exp, int flags, char *res) {
 
 	set_status(prt((opcode)op, buf));
 	set_digits_string(libname[n], 0);
-#ifndef REALBUILD
-	scopy(LastDisplayedNumber, libname_text[n]);
-#endif
 
 	if (op & OP_DBL) {
 	  lblpc = findmultilbl(op, 0);
@@ -2569,9 +2467,6 @@ static void set_exp(int exp, int flags, char *res) {
 	      set_exp(lblpc, 1, CNULL);
 	    else {
 	      set_exp_digits_string(libname[n], CNULL);
-#ifndef REALBUILD
-	      scopy(LastDisplayedNumber, libname_text[n]);
-#endif
 	    }
 	  }
 	}
@@ -2698,12 +2593,6 @@ static void set_exp(int exp, int flags, char *res) {
 	}
 
 	if (WasDataEntry) {
-#if defined(QTGUI) || defined(IOS)
-	  xset(LastDisplayedNumber, ' ', NUMBER_LENGTH);
-	  LastDisplayedNumber[NUMBER_LENGTH]=0;
-	  xset(LastDisplayedExponent, ' ', EXPONENT_LENGTH);
-	  LastDisplayedExponent[EXPONENT_LENGTH]=0;
-#endif
 	  wait_for_display(); // Normally called from reset_disp()
 
 	  // Erase 7-segment display
@@ -2735,10 +2624,6 @@ static void set_exp(int exp, int flags, char *res) {
 	  char vers[VERS_SVN_OFFSET + 5] = VERS_DISPLAY;
 	  set_digits_string("pAULI, WwALtE", 0);
 	  set_dig_s(SEGS_EXP_BASE, 'r', CNULL);
-#ifndef REALBUILD
-	  scopy(LastDisplayedNumber, " P A U L I,  W A L T E R ");
-	  scopy(LastDisplayedExponent, " ");
-#endif
 	  xcopy( vers + VERS_SVN_OFFSET, SvnRevision, 4 );
 	  set_status(vers);
 	  skip = 1;
@@ -3022,6 +2907,7 @@ static void set_exp(int exp, int flags, char *res) {
 	    num_arg_0(scopy_spc(buf, n == 0 ? S7_STEP : libname[n]), 
 		      upc, 3 + (n & 1));  // 4 digits in ROM and Library
 	    set_digits_string(buf, SEGS_PER_DIGIT);
+#if 0
 #ifndef REALBUILD
 	    xset(buf, '\0', sizeof(buf));
 	    set_exp(ProgFree, 1, CNULL);
@@ -3037,6 +2923,7 @@ static void set_exp(int exp, int flags, char *res) {
 	      }
 	      *l=0;
 	    }
+#endif
 #endif
 	  }
 	}
@@ -3100,12 +2987,6 @@ static void set_exp(int exp, int flags, char *res) {
 	}
 
 	if (WasDataEntry) {
-#if defined(QTGUI) || defined(IOS)
-	  xset(LastDisplayedNumber, ' ', NUMBER_LENGTH);
-	  LastDisplayedNumber[NUMBER_LENGTH]=0;
-	  xset(LastDisplayedExponent, ' ', EXPONENT_LENGTH);
-	  LastDisplayedExponent[EXPONENT_LENGTH]=0;
-#endif
 	  wait_for_display(); // Normally called from reset_disp()
 
 	  // Erase 7-segment display
@@ -3127,10 +3008,6 @@ static void set_exp(int exp, int flags, char *res) {
 	  char vers[VERS_SVN_OFFSET + 5] = VERS_DISPLAY;
 	  set_digits_string("pAULI, WwALtE", 0);
 	  set_dig_s(SEGS_EXP_BASE, 'r', CNULL);
-#ifndef REALBUILD
-	  scopy(LastDisplayedNumber, " P A U L I,  W A L T E R ");
-	  scopy(LastDisplayedExponent, " ");
-#endif
 	  xcopy( vers + VERS_SVN_OFFSET, SvnRevision, 4 );
 	  set_status(vers);
 	  skip = 1;
@@ -3376,6 +3253,7 @@ static void set_exp(int exp, int flags, char *res) {
 	    num_arg_0(scopy_spc(buf, n == 0 ? S7_STEP : libname[n]), 
 		      upc, 3 + (n & 1));  // 4 digits in ROM and Library
 	    set_digits_string(buf, SEGS_PER_DIGIT);
+#if 0
 #ifndef REALBUILD
 	    xset(buf, '\0', sizeof(buf));
 	    set_exp(ProgFree, 1, CNULL);
@@ -3391,6 +3269,7 @@ static void set_exp(int exp, int flags, char *res) {
 	      }
 	      *l=0;
 	    }
+#endif
 #endif
 	  }
 	}
@@ -3449,9 +3328,6 @@ static void set_exp(int exp, int flags, char *res) {
 
 	xset(mat, 0, sizeof(mat));
 #endif
-#ifndef REALBUILD
-	forceDispPlot=1;
-#endif
 	if (glen <= 0)			return;
 	if (glen > BITMAP_WIDTH)	glen = BITMAP_WIDTH;
 
@@ -3496,22 +3372,6 @@ static void set_exp(int exp, int flags, char *res) {
 	unsigned long long int mat[6];
 
 	xset(mat, 0, sizeof(mat));
-#endif
-#ifndef REALBUILD
-	scopy(LastDisplayedText, str);
-#ifdef INCLUDE_FONT_ESCAPE
-	for (i = 0; LastDisplayedText[i] != '\0'; ) { // Remove 007 escapes
-	  if (LastDisplayedText[i] == '\007' && LastDisplayedText[i + 1] != '\0') {
-	    scopy(LastDisplayedText + i, LastDisplayedText + i + 2);
-	    if (LastDisplayedText[i] != '\0')
-	      ++i;
-	  }
-	  else {
-	    ++i;
-	  }
-	}
-#endif
-	forceDispPlot=0;
 #endif
 #ifdef RP_PREFIX
 	RectPolConv = 0;
@@ -3689,9 +3549,6 @@ static void set_exp(int exp, int flags, char *res) {
 
       void stopwatch_message(const char *str1, const char *str2, int force_small, char* exponent)
       {
-#ifndef REALBUILD
-	xset(LastDisplayedNumber, ' ', NUMBER_LENGTH);
-#endif
 	reset_disp();
 	set_dot(DEG);
 	set_digits_string( str2, 0 );

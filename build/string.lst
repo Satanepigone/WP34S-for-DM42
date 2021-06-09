@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccfPM9CN.s 			page 1
+ARM GAS  /tmp/ccXTp3wI.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccfPM9CN.s 			page 1
   33              		@ args = 0, pretend = 0, frame = 0
   34              		@ frame_needed = 0, uses_anonymous_args = 0
   35              		@ link register save eliminated.
-ARM GAS  /tmp/ccfPM9CN.s 			page 2
+ARM GAS  /tmp/ccXTp3wI.s 			page 2
 
 
   24:src/string.c  ****         char *dp = d;
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccfPM9CN.s 			page 1
   76              	.LVL6:
   77              	.L2:
   78              		.cfi_restore_state
-ARM GAS  /tmp/ccfPM9CN.s 			page 3
+ARM GAS  /tmp/ccXTp3wI.s 			page 3
 
 
   30:src/string.c  ****         else if (sp < dp)
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccfPM9CN.s 			page 1
   37:src/string.c  ****  */
   38:src/string.c  **** void *xset(void *d, const char c, int n) {
  123              		.loc 1 38 42 is_stmt 1 view -0
-ARM GAS  /tmp/ccfPM9CN.s 			page 4
+ARM GAS  /tmp/ccXTp3wI.s 			page 4
 
 
  124              		.cfi_startproc
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccfPM9CN.s 			page 1
   49:src/string.c  **** #undef memset
   50:src/string.c  **** void *memcpy() __attribute__((alias("xcopy")));
   51:src/string.c  **** void *memset() __attribute__((alias("xset")));
-ARM GAS  /tmp/ccfPM9CN.s 			page 5
+ARM GAS  /tmp/ccXTp3wI.s 			page 5
 
 
   52:src/string.c  **** #endif
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccfPM9CN.s 			page 1
  214              	find_char:
  215              	.LFB3:
   61:src/string.c  **** 
-ARM GAS  /tmp/ccfPM9CN.s 			page 6
+ARM GAS  /tmp/ccXTp3wI.s 			page 6
 
 
   62:src/string.c  **** /* Find a character in a string -- strchr */
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccfPM9CN.s 			page 1
  259              	replace_char:
  260              	.LVL26:
  261              	.LFB4:
-ARM GAS  /tmp/ccfPM9CN.s 			page 7
+ARM GAS  /tmp/ccXTp3wI.s 			page 7
 
 
   70:src/string.c  **** 
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccfPM9CN.s 			page 1
  301              		.thumb
  302              		.thumb_func
  303              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/ccfPM9CN.s 			page 8
+ARM GAS  /tmp/ccXTp3wI.s 			page 8
 
 
  305              	scopy:
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccfPM9CN.s 			page 1
  347              		.thumb
  348              		.thumb_func
  349              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/ccfPM9CN.s 			page 9
+ARM GAS  /tmp/ccXTp3wI.s 			page 9
 
 
  351              	sncopy:
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccfPM9CN.s 			page 1
   99:src/string.c  ****         *d = '\0';
  391              		.loc 1 99 9 is_stmt 1 view .LVU105
  392              		.loc 1 99 12 is_stmt 0 view .LVU106
-ARM GAS  /tmp/ccfPM9CN.s 			page 10
+ARM GAS  /tmp/ccXTp3wI.s 			page 10
 
 
  393 001c 0022     		movs	r2, #0
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccfPM9CN.s 			page 1
  437              	.LBE10:
  107:src/string.c  ****         d = scopy(d, s);
  438              		.loc 1 107 9 is_stmt 1 view .LVU116
-ARM GAS  /tmp/ccfPM9CN.s 			page 11
+ARM GAS  /tmp/ccXTp3wI.s 			page 11
 
 
  439              	.LVL40:
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccfPM9CN.s 			page 1
  480              		.syntax unified
  481              		.thumb
  482              		.thumb_func
-ARM GAS  /tmp/ccfPM9CN.s 			page 12
+ARM GAS  /tmp/ccXTp3wI.s 			page 12
 
 
  483              		.fpu fpv4-sp-d16
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccfPM9CN.s 			page 1
  525 0008 11F8013F 		ldrb	r3, [r1, #1]!	@ zero_extendqisi2
   85:src/string.c  ****                 *d++ = *s++;
  526              		.loc 1 85 15 view .LVU144
-ARM GAS  /tmp/ccfPM9CN.s 			page 13
+ARM GAS  /tmp/ccXTp3wI.s 			page 13
 
 
  527 000c 002B     		cmp	r3, #0
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccfPM9CN.s 			page 1
  571              		.loc 1 116 64 view .LVU157
  572 0002 10B4     		push	{r4}
  573              		.cfi_def_cfa_offset 4
-ARM GAS  /tmp/ccfPM9CN.s 			page 14
+ARM GAS  /tmp/ccXTp3wI.s 			page 14
 
 
  574              		.cfi_offset 4, -4
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccfPM9CN.s 			page 1
  617              		.cfi_endproc
  618              	.LFE9:
  620 002a 00BF     		.section	.text.sncopy_spc,"ax",%progbits
-ARM GAS  /tmp/ccfPM9CN.s 			page 15
+ARM GAS  /tmp/ccXTp3wI.s 			page 15
 
 
  621              		.align	1
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccfPM9CN.s 			page 1
  663              		.loc 1 118 17 is_stmt 1 view .LVU184
  117:src/string.c  ****                 *d++ = *s++;
  664              		.loc 1 117 23 is_stmt 0 view .LVU185
-ARM GAS  /tmp/ccfPM9CN.s 			page 16
+ARM GAS  /tmp/ccXTp3wI.s 			page 16
 
 
  665 0010 11F8013F 		ldrb	r3, [r1, #1]!	@ zero_extendqisi2
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccfPM9CN.s 			page 1
  707              		.loc 1 129 51 view .LVU197
  708 0002 70B4     		push	{r4, r5, r6}
  709              		.cfi_def_cfa_offset 12
-ARM GAS  /tmp/ccfPM9CN.s 			page 17
+ARM GAS  /tmp/ccXTp3wI.s 			page 17
 
 
  710              		.cfi_offset 4, -12
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccfPM9CN.s 			page 1
  755 002c 7047     		bx	lr
  756              	.L93:
  757 002e 00BF     		.align	2
-ARM GAS  /tmp/ccfPM9CN.s 			page 18
+ARM GAS  /tmp/ccXTp3wI.s 			page 18
 
 
  758              	.L92:
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccfPM9CN.s 			page 1
  804 0010 D208     		lsrs	r2, r2, #3
  805 0012 02EB8203 		add	r3, r2, r2, lsl #2
  806 0016 A1EB4303 		sub	r3, r1, r3, lsl #1
-ARM GAS  /tmp/ccfPM9CN.s 			page 19
+ARM GAS  /tmp/ccXTp3wI.s 			page 19
 
 
  807 001a 0E46     		mov	r6, r1
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccfPM9CN.s 			page 1
  847              		.loc 1 150 9 is_stmt 1 view .LVU238
  848              		.loc 1 150 16 is_stmt 0 view .LVU239
  849 003e C2F10102 		rsb	r2, r2, #1
-ARM GAS  /tmp/ccfPM9CN.s 			page 20
+ARM GAS  /tmp/ccXTp3wI.s 			page 20
 
 
  850              	.LVL84:
@@ -1173,38 +1173,38 @@ ARM GAS  /tmp/ccfPM9CN.s 			page 1
  879              		.file 5 "src/decNumber/decimal128.h"
  880              		.file 6 "src/xeq.h"
  881              		.file 7 "src/data.h"
-ARM GAS  /tmp/ccfPM9CN.s 			page 21
+ARM GAS  /tmp/ccXTp3wI.s 			page 21
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 string.c
-     /tmp/ccfPM9CN.s:18     .text.xcopy:0000000000000000 $t
-     /tmp/ccfPM9CN.s:27     .text.xcopy:0000000000000000 xcopy
-     /tmp/ccfPM9CN.s:112    .text.xset:0000000000000000 $t
-     /tmp/ccfPM9CN.s:120    .text.xset:0000000000000000 xset
-     /tmp/ccfPM9CN.s:156    .text.slen:0000000000000000 $t
-     /tmp/ccfPM9CN.s:164    .text.slen:0000000000000000 slen
-     /tmp/ccfPM9CN.s:206    .text.find_char:0000000000000000 $t
-     /tmp/ccfPM9CN.s:214    .text.find_char:0000000000000000 find_char
-     /tmp/ccfPM9CN.s:251    .text.replace_char:0000000000000000 $t
-     /tmp/ccfPM9CN.s:259    .text.replace_char:0000000000000000 replace_char
-     /tmp/ccfPM9CN.s:297    .text.scopy:0000000000000000 $t
-     /tmp/ccfPM9CN.s:305    .text.scopy:0000000000000000 scopy
-     /tmp/ccfPM9CN.s:343    .text.sncopy:0000000000000000 $t
-     /tmp/ccfPM9CN.s:351    .text.sncopy:0000000000000000 sncopy
-     /tmp/ccfPM9CN.s:416    .text.scopy_char:0000000000000000 $t
-     /tmp/ccfPM9CN.s:424    .text.scopy_char:0000000000000000 scopy_char
-     /tmp/ccfPM9CN.s:477    .text.scopy_spc:0000000000000000 $t
-     /tmp/ccfPM9CN.s:485    .text.scopy_spc:0000000000000000 scopy_spc
-     /tmp/ccfPM9CN.s:551    .text.sncopy_char:0000000000000000 $t
-     /tmp/ccfPM9CN.s:559    .text.sncopy_char:0000000000000000 sncopy_char
-     /tmp/ccfPM9CN.s:621    .text.sncopy_spc:0000000000000000 $t
-     /tmp/ccfPM9CN.s:629    .text.sncopy_spc:0000000000000000 sncopy_spc
-     /tmp/ccfPM9CN.s:686    .text.num_arg_0:0000000000000000 $t
-     /tmp/ccfPM9CN.s:694    .text.num_arg_0:0000000000000000 num_arg_0
-     /tmp/ccfPM9CN.s:759    .text.num_arg_0:0000000000000030 $d
-     /tmp/ccfPM9CN.s:764    .text.num_arg:0000000000000000 $t
-     /tmp/ccfPM9CN.s:772    .text.num_arg:0000000000000000 num_arg
-     /tmp/ccfPM9CN.s:870    .text.num_arg:000000000000004c $d
+     /tmp/ccXTp3wI.s:18     .text.xcopy:0000000000000000 $t
+     /tmp/ccXTp3wI.s:27     .text.xcopy:0000000000000000 xcopy
+     /tmp/ccXTp3wI.s:112    .text.xset:0000000000000000 $t
+     /tmp/ccXTp3wI.s:120    .text.xset:0000000000000000 xset
+     /tmp/ccXTp3wI.s:156    .text.slen:0000000000000000 $t
+     /tmp/ccXTp3wI.s:164    .text.slen:0000000000000000 slen
+     /tmp/ccXTp3wI.s:206    .text.find_char:0000000000000000 $t
+     /tmp/ccXTp3wI.s:214    .text.find_char:0000000000000000 find_char
+     /tmp/ccXTp3wI.s:251    .text.replace_char:0000000000000000 $t
+     /tmp/ccXTp3wI.s:259    .text.replace_char:0000000000000000 replace_char
+     /tmp/ccXTp3wI.s:297    .text.scopy:0000000000000000 $t
+     /tmp/ccXTp3wI.s:305    .text.scopy:0000000000000000 scopy
+     /tmp/ccXTp3wI.s:343    .text.sncopy:0000000000000000 $t
+     /tmp/ccXTp3wI.s:351    .text.sncopy:0000000000000000 sncopy
+     /tmp/ccXTp3wI.s:416    .text.scopy_char:0000000000000000 $t
+     /tmp/ccXTp3wI.s:424    .text.scopy_char:0000000000000000 scopy_char
+     /tmp/ccXTp3wI.s:477    .text.scopy_spc:0000000000000000 $t
+     /tmp/ccXTp3wI.s:485    .text.scopy_spc:0000000000000000 scopy_spc
+     /tmp/ccXTp3wI.s:551    .text.sncopy_char:0000000000000000 $t
+     /tmp/ccXTp3wI.s:559    .text.sncopy_char:0000000000000000 sncopy_char
+     /tmp/ccXTp3wI.s:621    .text.sncopy_spc:0000000000000000 $t
+     /tmp/ccXTp3wI.s:629    .text.sncopy_spc:0000000000000000 sncopy_spc
+     /tmp/ccXTp3wI.s:686    .text.num_arg_0:0000000000000000 $t
+     /tmp/ccXTp3wI.s:694    .text.num_arg_0:0000000000000000 num_arg_0
+     /tmp/ccXTp3wI.s:759    .text.num_arg_0:0000000000000030 $d
+     /tmp/ccXTp3wI.s:764    .text.num_arg:0000000000000000 $t
+     /tmp/ccXTp3wI.s:772    .text.num_arg:0000000000000000 num_arg
+     /tmp/ccXTp3wI.s:870    .text.num_arg:000000000000004c $d
 
 NO UNDEFINED SYMBOLS

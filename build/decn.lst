@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccUsuo8D.s 			page 1
+ARM GAS  /tmp/cc5RgpaF.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
   27:src/decn.c    **** #include "lcd.h"
   28:src/decn.c    **** 
   29:src/decn.c    **** // #define DUMP1
-ARM GAS  /tmp/ccUsuo8D.s 			page 2
+ARM GAS  /tmp/cc5RgpaF.s 			page 2
 
 
   30:src/decn.c    **** #ifdef DUMP1
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
   84:src/decn.c    **** }
   85:src/decn.c    **** 
   86:src/decn.c    **** int dn_lt(const decNumber *x, const decNumber *y) {
-ARM GAS  /tmp/ccUsuo8D.s 			page 3
+ARM GAS  /tmp/cc5RgpaF.s 			page 3
 
 
   87:src/decn.c    **** 	sincosNumber a;
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  141:src/decn.c    **** 
  142:src/decn.c    **** decNumber *dn_max(decNumber *r, const decNumber *a, const decNumber *b) {
  143:src/decn.c    **** 	return decNumberMax(r, a, b, &Ctx);
-ARM GAS  /tmp/ccUsuo8D.s 			page 4
+ARM GAS  /tmp/cc5RgpaF.s 			page 4
 
 
  144:src/decn.c    **** }
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  198:src/decn.c    **** 			const int r = n % 10;
  199:src/decn.c    **** 			n /= 10;
  200:src/decn.c    **** 			if (r != 0) {
-ARM GAS  /tmp/ccUsuo8D.s 			page 5
+ARM GAS  /tmp/cc5RgpaF.s 			page 5
 
 
  201:src/decn.c    **** 				dn_mulpow10(&z, small_ints[r], shift);
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  255:src/decn.c    **** decNumber *set_NaN(decNumber *x) {
  256:src/decn.c    **** 	if (x != NULL)
  257:src/decn.c    **** 		decNumberCopy(x, &const_NaN);
-ARM GAS  /tmp/ccUsuo8D.s 			page 6
+ARM GAS  /tmp/cc5RgpaF.s 			page 6
 
 
  258:src/decn.c    **** 	return x;
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  312:src/decn.c    **** 	return -2;
  313:src/decn.c    **** }
  314:src/decn.c    **** 
-ARM GAS  /tmp/ccUsuo8D.s 			page 7
+ARM GAS  /tmp/cc5RgpaF.s 			page 7
 
 
  315:src/decn.c    **** decNumber *dn_inc(decNumber *x) {
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  369:src/decn.c    **** /* Mantissa of a number
  370:src/decn.c    ****  */
  371:src/decn.c    **** #ifdef INCLUDE_MANTISSA
-ARM GAS  /tmp/ccUsuo8D.s 			page 8
+ARM GAS  /tmp/cc5RgpaF.s 			page 8
 
 
  372:src/decn.c    **** decNumber *decNumberMantissa(decNumber *r, const decNumber *x) {
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  426:src/decn.c    **** 	else
  427:src/decn.c    **** 		r->exponent = x->exponent + x->digits - expshift;
  428:src/decn.c    **** 	return subnormal;
-ARM GAS  /tmp/ccUsuo8D.s 			page 9
+ARM GAS  /tmp/cc5RgpaF.s 			page 9
 
 
  429:src/decn.c    **** }
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  483:src/decn.c    ****  * inverts its result.
  484:src/decn.c    ****  */
  485:src/decn.c    **** #if 0
-ARM GAS  /tmp/ccUsuo8D.s 			page 10
+ARM GAS  /tmp/cc5RgpaF.s 			page 10
 
 
  486:src/decn.c    **** static decNumber *dn_recip(decNumber *r, const decNumber *x,
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  540:src/decn.c    ****  */
  541:src/decn.c    **** decNumber *decNumberFrac(decNumber *r, const decNumber *x) {
  542:src/decn.c    **** 	decNumber y;
-ARM GAS  /tmp/ccUsuo8D.s 			page 11
+ARM GAS  /tmp/cc5RgpaF.s 			page 11
 
 
  543:src/decn.c    **** 
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  597:src/decn.c    **** 	decNumber gcd, a, b, t;
  598:src/decn.c    **** 
  599:src/decn.c    **** 	if (dn_check_gcd(r, x, y, &a, &b))
-ARM GAS  /tmp/ccUsuo8D.s 			page 12
+ARM GAS  /tmp/cc5RgpaF.s 			page 12
 
 
  600:src/decn.c    **** 		return r;
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  654:src/decn.c    **** 					return decNumberCopy(r, &const__0);
  655:src/decn.c    **** 				return r;
  656:src/decn.c    **** 			}
-ARM GAS  /tmp/ccUsuo8D.s 			page 13
+ARM GAS  /tmp/cc5RgpaF.s 			page 13
 
 
  657:src/decn.c    **** 			if (xodd)
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  711:src/decn.c    **** 	if (dn_eq0(&v)) {
  712:src/decn.c    **** 		return decNumberCopy(r, x);
  713:src/decn.c    **** 	}
-ARM GAS  /tmp/ccUsuo8D.s 			page 14
+ARM GAS  /tmp/cc5RgpaF.s 			page 14
 
 
  714:src/decn.c    **** 	dn_divide(&w, x, &v);
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  768:src/decn.c    **** 	const decNumber *tol = is_dblmode() ? &const_1e_37 : &const_1e_32;
  769:src/decn.c    **** 	int expon;
  770:src/decn.c    **** 
-ARM GAS  /tmp/ccUsuo8D.s 			page 15
+ARM GAS  /tmp/cc5RgpaF.s 			page 15
 
 
  771:src/decn.c    **** 	if (decNumberIsSpecial(x)) {
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  825:src/decn.c    **** 	return dn_add(r, r, &w);
  826:src/decn.c    **** }
  827:src/decn.c    **** 
-ARM GAS  /tmp/ccUsuo8D.s 			page 16
+ARM GAS  /tmp/cc5RgpaF.s 			page 16
 
 
  828:src/decn.c    **** decNumber *dn_log2(decNumber *r, const decNumber *x) {
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  882:src/decn.c    **** 
  883:src/decn.c    **** 	decNumberRecip(&third, &const_3);
  884:src/decn.c    **** 
-ARM GAS  /tmp/ccUsuo8D.s 			page 17
+ARM GAS  /tmp/cc5RgpaF.s 			page 17
 
 
  885:src/decn.c    **** 	if (decNumberIsNegative(x)) {
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  939:src/decn.c    **** 	} out;
  940:src/decn.c    **** 
  941:src/decn.c    **** 	int digits = Ctx.digits;
-ARM GAS  /tmp/ccUsuo8D.s 			page 18
+ARM GAS  /tmp/cc5RgpaF.s 			page 18
 
 
  942:src/decn.c    **** 
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  996:src/decn.c    **** 			if (dn_eq(&s.n, &z.n))
  997:src/decn.c    **** 				fins = 1;
  998:src/decn.c    **** 		}
-ARM GAS  /tmp/ccUsuo8D.s 			page 19
+ARM GAS  /tmp/cc5RgpaF.s 			page 19
 
 
  999:src/decn.c    **** 	}
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1027:src/decn.c    **** 		return decNumberD2R(res, x);
 1028:src/decn.c    **** 
 1029:src/decn.c    **** 	case DRG(OP_2RAD,  TRIG_GRAD):
-ARM GAS  /tmp/ccUsuo8D.s 			page 20
+ARM GAS  /tmp/cc5RgpaF.s 			page 20
 
 
 1030:src/decn.c    **** 	case DRG(OP_GRAD2, TRIG_RAD):
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
   92              		.cfi_def_cfa_offset 0
   93              	.LVL2:
 1042:src/decn.c    **** 	}
-ARM GAS  /tmp/ccUsuo8D.s 			page 21
+ARM GAS  /tmp/cc5RgpaF.s 			page 21
 
 
   94              		.loc 1 1042 10 view .LVU9
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1091:src/decn.c    **** 		return;
 1092:src/decn.c    **** 
 1093:src/decn.c    **** 	case TRIG_GRAD:
-ARM GAS  /tmp/ccUsuo8D.s 			page 22
+ARM GAS  /tmp/cc5RgpaF.s 			page 22
 
 
 1094:src/decn.c    **** 		thresholds = gradians;
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1148:src/decn.c    **** 	return res;
 1149:src/decn.c    **** }
 1150:src/decn.c    **** 
-ARM GAS  /tmp/ccUsuo8D.s 			page 23
+ARM GAS  /tmp/cc5RgpaF.s 			page 23
 
 
 1151:src/decn.c    **** decNumber *decNumberCos(decNumber *res, const decNumber *x) {
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1205:src/decn.c    **** void do_atan(decNumber *res, const decNumber *x) {
 1206:src/decn.c    **** 	decNumber a, b, a2, t, j, z, last;
 1207:src/decn.c    **** 	int doubles = 0;
-ARM GAS  /tmp/ccUsuo8D.s 			page 24
+ARM GAS  /tmp/cc5RgpaF.s 			page 24
 
 
 1208:src/decn.c    **** 	int invert;
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1262:src/decn.c    **** 	dn_multiply(res, res, &a);
 1263:src/decn.c    **** 
 1264:src/decn.c    **** 	while (doubles) {
-ARM GAS  /tmp/ccUsuo8D.s 			page 25
+ARM GAS  /tmp/cc5RgpaF.s 			page 25
 
 
 1265:src/decn.c    **** 		dn_add(res, res, res);
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1319:src/decn.c    **** 		dn_multiply(&z, x, x);
 1320:src/decn.c    **** 		dn_1m(&z, &z);
 1321:src/decn.c    **** 		dn_sqrt(&z, &z);
-ARM GAS  /tmp/ccUsuo8D.s 			page 26
+ARM GAS  /tmp/cc5RgpaF.s 			page 26
 
 
 1322:src/decn.c    **** 		dn_1m(&abx, x);
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1376:src/decn.c    **** 				} else
 1377:src/decn.c    **** 					decNumberCopy(at, y);
 1378:src/decn.c    **** 			} else if (xneg) {
-ARM GAS  /tmp/ccUsuo8D.s 			page 27
+ARM GAS  /tmp/cc5RgpaF.s 			page 27
 
 
 1379:src/decn.c    **** 				decNumberPI(at);
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1433:src/decn.c    **** 	}
 1434:src/decn.c    **** 
 1435:src/decn.c    **** 	dn_divide(&t, y, x);
-ARM GAS  /tmp/ccUsuo8D.s 			page 28
+ARM GAS  /tmp/cc5RgpaF.s 			page 28
 
 
 1436:src/decn.c    **** 	do_atan(&r, &t);
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1490:src/decn.c    **** 	setXY(&x, &y);
 1491:src/decn.c    **** #ifdef RP_PREFIX
 1492:src/decn.c    **** 	RectPolConv = 2;
-ARM GAS  /tmp/ccUsuo8D.s 			page 29
+ARM GAS  /tmp/cc5RgpaF.s 			page 29
 
 
 1493:src/decn.c    **** #endif
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1547:src/decn.c    **** decNumber *decNumberTanh(decNumber *res, const decNumber *x) {
 1548:src/decn.c    **** 	decNumber a, b;
 1549:src/decn.c    **** 
-ARM GAS  /tmp/ccUsuo8D.s 			page 30
+ARM GAS  /tmp/cc5RgpaF.s 			page 30
 
 
 1550:src/decn.c    **** 	if (decNumberIsNaN(x))
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1604:src/decn.c    **** 
 1605:src/decn.c    **** 	if (decNumberIsNaN(x))
 1606:src/decn.c    **** 		return set_NaN(res);
-ARM GAS  /tmp/ccUsuo8D.s 			page 31
+ARM GAS  /tmp/cc5RgpaF.s 			page 31
 
 
 1607:src/decn.c    **** 	dn_abs(&y, x);
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  131              	.L5:
  132              		.cfi_restore_state
  131:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 32
+ARM GAS  /tmp/cc5RgpaF.s 			page 32
 
 
  133              		.loc 1 131 9 view .LVU17
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  169              	.LVL5:
  170              	.L9:
  171              		.cfi_restore_state
-ARM GAS  /tmp/ccUsuo8D.s 			page 33
+ARM GAS  /tmp/cc5RgpaF.s 			page 33
 
 
  127:src/decn.c    **** }
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  216              		.loc 1 1031 3 is_stmt 1 view .LVU34
  217              	.LBB1284:
  218              	.LBI1284:
-ARM GAS  /tmp/ccUsuo8D.s 			page 34
+ARM GAS  /tmp/cc5RgpaF.s 			page 34
 
 
 1631:src/decn.c    **** 	return dn_multiply(res, x, &const_PIon200);
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  261              	.LBB1294:
  262              	.LBI1294:
  130:src/decn.c    **** 	return decNumberDivide(r, a, b, &Ctx);
-ARM GAS  /tmp/ccUsuo8D.s 			page 35
+ARM GAS  /tmp/cc5RgpaF.s 			page 35
 
 
  263              		.loc 1 130 12 view .LVU45
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  308              	.LBE1300:
 1045:src/decn.c    **** 
  309              		.loc 1 1045 1 is_stmt 0 view .LVU55
-ARM GAS  /tmp/ccUsuo8D.s 			page 36
+ARM GAS  /tmp/cc5RgpaF.s 			page 36
 
 
  310 007e BDE87040 		pop	{r4, r5, r6, lr}
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  362              		.cfi_offset 7, -8
  363              		.cfi_offset 14, -4
  401:src/decn.c    **** 		if (decNumberIsInfinite(x))
-ARM GAS  /tmp/ccUsuo8D.s 			page 37
+ARM GAS  /tmp/cc5RgpaF.s 			page 37
 
 
  364              		.loc 1 401 6 view .LVU60
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  400              		.loc 1 406 10 view .LVU78
  401 001a 2046     		mov	r0, r4
  429:src/decn.c    **** 
-ARM GAS  /tmp/ccUsuo8D.s 			page 38
+ARM GAS  /tmp/cc5RgpaF.s 			page 38
 
 
  402              		.loc 1 429 1 view .LVU79
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  441              	.LBB1330:
   74:src/decn.c    **** }
  442              		.loc 1 74 2 view .LVU95
-ARM GAS  /tmp/ccUsuo8D.s 			page 39
+ARM GAS  /tmp/cc5RgpaF.s 			page 39
 
 
   74:src/decn.c    **** }
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  411:src/decn.c    **** 		expshift = DECIMAL128_Pmax;
  484              		.loc 1 411 5 view .LVU109
  485 004e 0028     		cmp	r0, #0
-ARM GAS  /tmp/ccUsuo8D.s 			page 40
+ARM GAS  /tmp/cc5RgpaF.s 			page 40
 
 
  486 0050 E5D0     		beq	.L18
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  523              		.loc 1 74 9 view .LVU126
  524              	.LBE1331:
  525              	.LBE1334:
-ARM GAS  /tmp/ccUsuo8D.s 			page 41
+ARM GAS  /tmp/cc5RgpaF.s 			page 41
 
 
  425:src/decn.c    **** 	else
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  567 0078 13F07003 		ands	r3, r3, #112
  568 007c DDD1     		bne	.L21
  569 007e 1846     		mov	r0, r3
-ARM GAS  /tmp/ccUsuo8D.s 			page 42
+ARM GAS  /tmp/cc5RgpaF.s 			page 42
 
 
  570 0080 F0E7     		b	.L22
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  619 0010 13B9     		cbnz	r3, .L39
   66:src/decn.c    **** }
  620              		.loc 1 66 37 discriminator 4 view .LVU147
-ARM GAS  /tmp/ccUsuo8D.s 			page 43
+ARM GAS  /tmp/cc5RgpaF.s 			page 43
 
 
  621 0012 0368     		ldr	r3, [r0]
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
   70:src/decn.c    **** }
  668              		.loc 1 70 32 discriminator 2 view .LVU157
  669 000a 4389     		ldrh	r3, [r0, #10]
-ARM GAS  /tmp/ccUsuo8D.s 			page 44
+ARM GAS  /tmp/cc5RgpaF.s 			page 44
 
 
  670 000c 13B9     		cbnz	r3, .L45
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
   74:src/decn.c    **** }
  718              		.loc 1 74 2 view .LVU166
   74:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 45
+ARM GAS  /tmp/cc5RgpaF.s 			page 45
 
 
  719              		.loc 1 74 9 is_stmt 0 view .LVU167
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  766              		.cfi_def_cfa_offset 12
  767              		.cfi_offset 4, -12
  768              		.cfi_offset 5, -8
-ARM GAS  /tmp/ccUsuo8D.s 			page 46
+ARM GAS  /tmp/cc5RgpaF.s 			page 46
 
 
  769              		.cfi_offset 14, -4
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  812              		.cfi_def_cfa_offset 12
  813              		@ sp needed
  814 001c 30BD     		pop	{r4, r5, pc}
-ARM GAS  /tmp/ccUsuo8D.s 			page 47
+ARM GAS  /tmp/cc5RgpaF.s 			page 47
 
 
  815              	.LVL56:
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  857              		.loc 1 79 9 view .LVU199
  858 003c 037A     		ldrb	r3, [r0, #8]	@ zero_extendqisi2
  859 003e 13F0700F 		tst	r3, #112
-ARM GAS  /tmp/ccUsuo8D.s 			page 48
+ARM GAS  /tmp/cc5RgpaF.s 			page 48
 
 
  860 0042 0CBF     		ite	eq
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  913              		.loc 1 86 51 is_stmt 1 view -0
  914              		.cfi_startproc
  915              		@ args = 0, pretend = 0, frame = 48
-ARM GAS  /tmp/ccUsuo8D.s 			page 49
+ARM GAS  /tmp/cc5RgpaF.s 			page 49
 
 
  916              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
   66:src/decn.c    **** }
  956              		.loc 1 66 32 view .LVU219
  957 0016 002B     		cmp	r3, #0
-ARM GAS  /tmp/ccUsuo8D.s 			page 50
+ARM GAS  /tmp/cc5RgpaF.s 			page 50
 
 
  958 0018 03DB     		blt	.L69
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  1004 003a 0120     		movne	r0, #1
  1005              	.LVL74:
   66:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 51
+ARM GAS  /tmp/cc5RgpaF.s 			page 51
 
 
  1006              		.loc 1 66 35 view .LVU228
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  1054 0006 0C46     		mov	r4, r1
  1055              	.LBB1361:
  1056              	.LBB1360:
-ARM GAS  /tmp/ccUsuo8D.s 			page 52
+ARM GAS  /tmp/cc5RgpaF.s 			page 52
 
 
  147:src/decn.c    **** }
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1653:src/decn.c    ****  *
 1654:src/decn.c    ****  * This is the real version.
 1655:src/decn.c    ****  */
-ARM GAS  /tmp/ccUsuo8D.s 			page 53
+ARM GAS  /tmp/cc5RgpaF.s 			page 53
 
 
 1656:src/decn.c    **** enum perm_opts { PERM_INVALID=0, PERM_INTG, PERM_NORMAL };
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1710:src/decn.c    **** 
 1711:src/decn.c    **** 	if (code != PERM_INVALID) {
 1712:src/decn.c    **** 		dn_exp(res, &t);
-ARM GAS  /tmp/ccUsuo8D.s 			page 54
+ARM GAS  /tmp/cc5RgpaF.s 			page 54
 
 
 1713:src/decn.c    **** 		if (code == PERM_INTG)
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1767:src/decn.c    **** #ifdef DUMP
 1768:src/decn.c    **** 	DUMP(&v, "(z+.5)*log(r)");
 1769:src/decn.c    **** #endif
-ARM GAS  /tmp/ccUsuo8D.s 			page 55
+ARM GAS  /tmp/cc5RgpaF.s 			page 55
 
 
 1770:src/decn.c    **** 
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1824:src/decn.c    **** 			return res;
 1825:src/decn.c    **** 		}
 1826:src/decn.c    **** #endif
-ARM GAS  /tmp/ccUsuo8D.s 			page 56
+ARM GAS  /tmp/cc5RgpaF.s 			page 56
 
 
 1827:src/decn.c    **** 	}
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1881:src/decn.c    **** decNumber *decNumberHMS2HR(decNumber *res, const decNumber *xin) {
 1882:src/decn.c    **** 	decNumber m, s, t, x;
 1883:src/decn.c    **** 	const int neg = decNumberIsNegative(xin);
-ARM GAS  /tmp/ccUsuo8D.s 			page 57
+ARM GAS  /tmp/cc5RgpaF.s 			page 57
 
 
 1884:src/decn.c    **** 
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1938:src/decn.c    **** 	decNumberHR2HMS(res, &c);
 1939:src/decn.c    **** 	return res;
 1940:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 58
+ARM GAS  /tmp/cc5RgpaF.s 			page 58
 
 
 1941:src/decn.c    **** 
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1995:src/decn.c    **** }
 1996:src/decn.c    **** 
 1997:src/decn.c    **** 
-ARM GAS  /tmp/ccUsuo8D.s 			page 59
+ARM GAS  /tmp/cc5RgpaF.s 			page 59
 
 
 1998:src/decn.c    **** /*
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 2052:src/decn.c    **** #else
 2053:src/decn.c    **** 	/* The much faster way but relying on base 10 numbers with exponents */
 2054:src/decn.c    **** 	if (decNumberIsSpecial(x))
-ARM GAS  /tmp/ccUsuo8D.s 			page 60
+ARM GAS  /tmp/cc5RgpaF.s 			page 60
 
 
 2055:src/decn.c    **** 		return decNumberCopy(r, x);
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 2109:src/decn.c    **** 		}
 2110:src/decn.c    **** 	} else
 2111:src/decn.c    **** 		decNumberCopy(d, &maxd);
-ARM GAS  /tmp/ccUsuo8D.s 			page 61
+ARM GAS  /tmp/cc5RgpaF.s 			page 61
 
 
 2112:src/decn.c    **** 	dn_multiply(&t, x, d);
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  1107              		.cfi_offset 4, -8
  1108              		.cfi_offset 14, -4
  1109              		.loc 1 2155 6 view .LVU248
-ARM GAS  /tmp/ccUsuo8D.s 			page 62
+ARM GAS  /tmp/cc5RgpaF.s 			page 62
 
 
  1110 0002 0649     		ldr	r1, .L81
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  1158              		.loc 1 97 2 view .LVU258
   99:src/decn.c    **** 		return dn_abs_lt(y, tol);
  1159              		.loc 1 99 2 view .LVU259
-ARM GAS  /tmp/ccUsuo8D.s 			page 63
+ARM GAS  /tmp/cc5RgpaF.s 			page 63
 
 
   96:src/decn.c    **** 	decNumber a, b;
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  122:src/decn.c    **** 	return decNumberSubtract(r, a, b, &Ctx);
  1204              		.loc 1 122 12 view .LVU270
  1205              	.LBB1370:
-ARM GAS  /tmp/ccUsuo8D.s 			page 64
+ARM GAS  /tmp/cc5RgpaF.s 			page 64
 
 
  123:src/decn.c    **** }
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  1246 0032 13B0     		add	sp, sp, #76
  1247              		.cfi_remember_state
  1248              		.cfi_def_cfa_offset 12
-ARM GAS  /tmp/ccUsuo8D.s 			page 65
+ARM GAS  /tmp/cc5RgpaF.s 			page 65
 
 
  1249              		@ sp needed
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  1297              		@ args = 0, pretend = 0, frame = 40
  1298              		@ frame_needed = 0, uses_anonymous_args = 0
  107:src/decn.c    **** 	return dn_abs_lt(dn_subtract(&a, x, y), tol);
-ARM GAS  /tmp/ccUsuo8D.s 			page 66
+ARM GAS  /tmp/cc5RgpaF.s 			page 66
 
 
  1299              		.loc 1 107 2 view .LVU293
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  1340              		.loc 1 108 9 view .LVU306
  1341 0014 2146     		mov	r1, r4
  1342 0016 FFF7FEFF 		bl	dn_abs_lt
-ARM GAS  /tmp/ccUsuo8D.s 			page 67
+ARM GAS  /tmp/cc5RgpaF.s 			page 67
 
 
  1343              	.LVL109:
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  1391              	.L99:
  1392              		.align	2
  1393              	.L98:
-ARM GAS  /tmp/ccUsuo8D.s 			page 68
+ARM GAS  /tmp/cc5RgpaF.s 			page 68
 
 
  1394 0014 00000000 		.word	const_1e_32
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  1446              		.loc 1 123 2 view .LVU320
  123:src/decn.c    **** }
  1447              		.loc 1 123 9 is_stmt 0 view .LVU321
-ARM GAS  /tmp/ccUsuo8D.s 			page 69
+ARM GAS  /tmp/cc5RgpaF.s 			page 69
 
 
  1448 0000 014B     		ldr	r3, .L104
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  130:src/decn.c    **** 	return decNumberDivide(r, a, b, &Ctx);
  1501              		.loc 1 130 76 is_stmt 1 view -0
  1502              		.cfi_startproc
-ARM GAS  /tmp/ccUsuo8D.s 			page 70
+ARM GAS  /tmp/cc5RgpaF.s 			page 70
 
 
  1503              		@ args = 0, pretend = 0, frame = 0
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  1553              		.syntax unified
  1554              		.thumb
  1555              		.thumb_func
-ARM GAS  /tmp/ccUsuo8D.s 			page 71
+ARM GAS  /tmp/cc5RgpaF.s 			page 71
 
 
  1556              		.fpu fpv4-sp-d16
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  1605 0008 00000000 		.word	Ctx
  1606              		.cfi_endproc
  1607              	.LFE16:
-ARM GAS  /tmp/ccUsuo8D.s 			page 72
+ARM GAS  /tmp/cc5RgpaF.s 			page 72
 
 
  1609              		.section	.text.dn_abs,"ax",%progbits
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  1659 0002 FFF7FEBF 		b	decNumberMinus
  1660              	.LVL129:
  1661              	.L126:
-ARM GAS  /tmp/ccUsuo8D.s 			page 73
+ARM GAS  /tmp/cc5RgpaF.s 			page 73
 
 
  151:src/decn.c    **** }
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  1714              		@ frame_needed = 0, uses_anonymous_args = 0
  1715              		@ link register save eliminated.
  159:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 74
+ARM GAS  /tmp/cc5RgpaF.s 			page 74
 
 
  1716              		.loc 1 159 2 view .LVU356
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  1768              	dn_average:
  1769              	.LVL136:
  1770              	.LFB22:
-ARM GAS  /tmp/ccUsuo8D.s 			page 75
+ARM GAS  /tmp/cc5RgpaF.s 			page 75
 
 
  167:src/decn.c    **** 	decNumber z;
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  1811              	.LBB1383:
  127:src/decn.c    **** }
  1812              		.loc 1 127 2 view .LVU377
-ARM GAS  /tmp/ccUsuo8D.s 			page 76
+ARM GAS  /tmp/cc5RgpaF.s 			page 76
 
 
  127:src/decn.c    **** }
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  1860              		.loc 1 214 5 is_stmt 0 view .LVU386
  1861 0000 0029     		cmp	r1, #0
  214:src/decn.c    **** 		sgn = 1;
-ARM GAS  /tmp/ccUsuo8D.s 			page 77
+ARM GAS  /tmp/cc5RgpaF.s 			page 77
 
 
  1862              		.loc 1 214 5 view .LVU387
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  1903              	.LBE1389:
  1904              	.LBE1388:
  224:src/decn.c    **** 
-ARM GAS  /tmp/ccUsuo8D.s 			page 78
+ARM GAS  /tmp/cc5RgpaF.s 			page 78
 
 
  1905              		.loc 1 224 1 view .LVU401
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  1955              	.LBB1397:
  1956              	.LBB1398:
  501:src/decn.c    **** 
-ARM GAS  /tmp/ccUsuo8D.s 			page 79
+ARM GAS  /tmp/cc5RgpaF.s 			page 79
 
 
  1957              		.loc 1 501 16 view .LVU408
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  1998              	.LBE1404:
  235:src/decn.c    **** #endif
  1999              		.loc 1 235 9 is_stmt 0 view .LVU422
-ARM GAS  /tmp/ccUsuo8D.s 			page 80
+ARM GAS  /tmp/cc5RgpaF.s 			page 80
 
 
  2000 0016 01A8     		add	r0, sp, #4
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  239:src/decn.c    **** 	decNumber y, z;
  2047              		.loc 1 239 64 is_stmt 0 view .LVU432
  2048 0000 70B5     		push	{r4, r5, r6, lr}
-ARM GAS  /tmp/ccUsuo8D.s 			page 81
+ARM GAS  /tmp/cc5RgpaF.s 			page 81
 
 
  2049              		.cfi_def_cfa_offset 16
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  2092              		.loc 1 504 2 view .LVU443
  2093 000e 09A8     		add	r0, sp, #36
  2094              	.LVL161:
-ARM GAS  /tmp/ccUsuo8D.s 			page 82
+ARM GAS  /tmp/cc5RgpaF.s 			page 82
 
 
  501:src/decn.c    **** 
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  2135 0030 2B60     		str	r3, [r5]
  2136              	.L154:
  250:src/decn.c    **** 	return s_to_ull(buf, 10);
-ARM GAS  /tmp/ccUsuo8D.s 			page 83
+ARM GAS  /tmp/cc5RgpaF.s 			page 83
 
 
  2137              		.loc 1 250 2 is_stmt 1 view .LVU458
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  2181 005c 00000000 		.word	const_0
  2182              		.cfi_endproc
  2183              	.LFE25:
-ARM GAS  /tmp/ccUsuo8D.s 			page 84
+ARM GAS  /tmp/cc5RgpaF.s 			page 84
 
 
  2185              		.section	.text.set_NaN,"ax",%progbits
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  2233              		.thumb
  2234              		.thumb_func
  2235              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/ccUsuo8D.s 			page 85
+ARM GAS  /tmp/cc5RgpaF.s 			page 85
 
 
  2237              	set_inf:
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  2285              		.cfi_endproc
  2286              	.LFE28:
  2288              		.section	.text.decNumberPI,"ax",%progbits
-ARM GAS  /tmp/ccUsuo8D.s 			page 86
+ARM GAS  /tmp/cc5RgpaF.s 			page 86
 
 
  2289              		.align	1
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  2340 0006 00BF     		.align	2
  2341              	.L177:
  2342 0008 00000000 		.word	const_PIon2
-ARM GAS  /tmp/ccUsuo8D.s 			page 87
+ARM GAS  /tmp/cc5RgpaF.s 			page 87
 
 
  2343              		.cfi_endproc
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  280:src/decn.c    **** 	decNumber r, y;
  2388              		.loc 1 280 16 view .LVU502
  2389 0012 124D     		ldr	r5, .L192
-ARM GAS  /tmp/ccUsuo8D.s 			page 88
+ARM GAS  /tmp/cc5RgpaF.s 			page 88
 
 
  279:src/decn.c    **** 	enum rounding a = Ctx.round;
@@ -5278,7 +5278,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  2430 0032 FFF7FEFF 		bl	decNumberSubtract
  2431              	.LVL188:
  123:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 89
+ARM GAS  /tmp/cc5RgpaF.s 			page 89
 
 
  2432              		.loc 1 123 9 view .LVU517
@@ -5338,7 +5338,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  296:src/decn.c    **** 
  2475              		.loc 1 296 1 view .LVU529
  2476 0054 7047     		bx	lr
-ARM GAS  /tmp/ccUsuo8D.s 			page 90
+ARM GAS  /tmp/cc5RgpaF.s 			page 90
 
 
  2477              	.LVL192:
@@ -5398,7 +5398,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  2526              		.cfi_offset 8, -12
  2527              		.cfi_offset 9, -8
  2528              		.cfi_offset 14, -4
-ARM GAS  /tmp/ccUsuo8D.s 			page 91
+ARM GAS  /tmp/cc5RgpaF.s 			page 91
 
 
  566:src/decn.c    **** 		if (decNumberIsNaN(x) || decNumberIsNaN(y))
@@ -5458,7 +5458,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  2569              	.L194:
  579:src/decn.c    **** 
  2570              		.loc 1 579 1 view .LVU551
-ARM GAS  /tmp/ccUsuo8D.s 			page 92
+ARM GAS  /tmp/cc5RgpaF.s 			page 92
 
 
  2571 002a BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
@@ -5518,7 +5518,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  2612              		.loc 1 571 14 view .LVU564
  2613 004c 0846     		mov	r0, r1
  2614 004e 8946     		mov	r9, r1
-ARM GAS  /tmp/ccUsuo8D.s 			page 93
+ARM GAS  /tmp/cc5RgpaF.s 			page 93
 
 
  2615 0050 1E46     		mov	r6, r3
@@ -5578,7 +5578,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  2655              		.loc 1 146 12 view .LVU578
  2656              	.LBB1452:
  147:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 94
+ARM GAS  /tmp/cc5RgpaF.s 			page 94
 
 
  2657              		.loc 1 147 2 view .LVU579
@@ -5638,7 +5638,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  2706              	.LBE1454:
  315:src/decn.c    **** 	return dn_add(x, x, &const_1);
  2707              		.loc 1 315 33 view .LVU587
-ARM GAS  /tmp/ccUsuo8D.s 			page 95
+ARM GAS  /tmp/cc5RgpaF.s 			page 95
 
 
  2708 0004 0146     		mov	r1, r0
@@ -5698,7 +5698,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  2756              	.LVL218:
  2757              	.LBB1461:
  2758              	.LBI1458:
-ARM GAS  /tmp/ccUsuo8D.s 			page 96
+ARM GAS  /tmp/cc5RgpaF.s 			page 96
 
 
  122:src/decn.c    **** 	return decNumberSubtract(r, a, b, &Ctx);
@@ -5758,7 +5758,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  2805              		.loc 1 119 9 view .LVU605
  2806              		.align	2
  2807              	.L217:
-ARM GAS  /tmp/ccUsuo8D.s 			page 97
+ARM GAS  /tmp/cc5RgpaF.s 			page 97
 
 
  2808 0008 00000000 		.word	Ctx
@@ -5818,7 +5818,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  2859              		.thumb
  2860              		.thumb_func
  2861              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/ccUsuo8D.s 			page 98
+ARM GAS  /tmp/cc5RgpaF.s 			page 98
 
 
  2863              	dn_1m:
@@ -5878,7 +5878,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  2910              		.loc 1 335 31 is_stmt 1 view -0
  2911              		.cfi_startproc
  2912              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccUsuo8D.s 			page 99
+ARM GAS  /tmp/cc5RgpaF.s 			page 99
 
 
  2913              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -5938,7 +5938,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  2963              		.thumb
  2964              		.thumb_func
  2965              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/ccUsuo8D.s 			page 100
+ARM GAS  /tmp/cc5RgpaF.s 			page 100
 
 
  2967              	dn_p2:
@@ -5998,7 +5998,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  3015              	.LBB1470:
  3016              	.LBI1470:
  126:src/decn.c    **** 	return decNumberMultiply(r, a, b, &Ctx);
-ARM GAS  /tmp/ccUsuo8D.s 			page 101
+ARM GAS  /tmp/cc5RgpaF.s 			page 101
 
 
  3017              		.loc 1 126 12 view .LVU636
@@ -6058,7 +6058,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  127:src/decn.c    **** }
  3065              		.loc 1 127 9 view .LVU645
  3066              		.align	2
-ARM GAS  /tmp/ccUsuo8D.s 			page 102
+ARM GAS  /tmp/cc5RgpaF.s 			page 102
 
 
  3067              	.L238:
@@ -6118,7 +6118,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  366:src/decn.c    **** }
  3114              		.loc 1 366 2 is_stmt 0 view .LVU655
  3115              	.LBE1475:
-ARM GAS  /tmp/ccUsuo8D.s 			page 103
+ARM GAS  /tmp/cc5RgpaF.s 			page 103
 
 
  3116              	.LBE1474:
@@ -6178,7 +6178,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  3165              		.p2align 2,,3
  3166              		.global	dn_mulpow10
  3167              		.syntax unified
-ARM GAS  /tmp/ccUsuo8D.s 			page 104
+ARM GAS  /tmp/cc5RgpaF.s 			page 104
 
 
  3168              		.thumb
@@ -6238,7 +6238,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  3215              	decNumberMantissa:
  3216              	.LVL246:
  3217              	.LFB46:
-ARM GAS  /tmp/ccUsuo8D.s 			page 105
+ARM GAS  /tmp/cc5RgpaF.s 			page 105
 
 
  372:src/decn.c    **** 	if (decNumberIsSpecial(x))
@@ -6298,7 +6298,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  3258 0016 FFF7FEFF 		bl	decNumberCopy
  3259              	.LVL251:
  378:src/decn.c    **** 	return r;
-ARM GAS  /tmp/ccUsuo8D.s 			page 106
+ARM GAS  /tmp/cc5RgpaF.s 			page 106
 
 
  3260              		.loc 1 378 2 is_stmt 1 view .LVU688
@@ -6358,7 +6358,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  3301              		.loc 1 256 5 is_stmt 0 view .LVU701
  3302 0034 0028     		cmp	r0, #0
  3303 0036 F4D0     		beq	.L249
-ARM GAS  /tmp/ccUsuo8D.s 			page 107
+ARM GAS  /tmp/cc5RgpaF.s 			page 107
 
 
  257:src/decn.c    **** 	return x;
@@ -6418,7 +6418,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  3350              		.loc 1 384 64 view .LVU711
  3351 0008 0446     		mov	r4, r0
  385:src/decn.c    **** 		return set_NaN(r);
-ARM GAS  /tmp/ccUsuo8D.s 			page 108
+ARM GAS  /tmp/cc5RgpaF.s 			page 108
 
 
  3352              		.loc 1 385 5 view .LVU712
@@ -6478,7 +6478,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  3393 0022 0B68     		ldr	r3, [r1]
  3394 0024 012B     		cmp	r3, #1
  3395 0026 F4D1     		bne	.L263
-ARM GAS  /tmp/ccUsuo8D.s 			page 109
+ARM GAS  /tmp/cc5RgpaF.s 			page 109
 
 
  3396              	.LVL265:
@@ -6538,7 +6538,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  3437              	.L270:
  3438 0040 00000000 		.word	const_NaN
  3439              		.cfi_endproc
-ARM GAS  /tmp/ccUsuo8D.s 			page 110
+ARM GAS  /tmp/cc5RgpaF.s 			page 110
 
 
  3440              	.LFE47:
@@ -6598,7 +6598,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  3489              		.loc 1 436 85 is_stmt 1 view -0
  3490              		.cfi_startproc
  3491              		@ args = 0, pretend = 0, frame = 40
-ARM GAS  /tmp/ccUsuo8D.s 			page 111
+ARM GAS  /tmp/cc5RgpaF.s 			page 111
 
 
  3492              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -6658,7 +6658,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  3532              	.LBI1490:
  134:src/decn.c    **** 	return decNumberCompare(r, a, b, &Ctx);
  3533              		.loc 1 134 12 is_stmt 1 view .LVU762
-ARM GAS  /tmp/ccUsuo8D.s 			page 112
+ARM GAS  /tmp/cc5RgpaF.s 			page 112
 
 
  3534              	.LBB1492:
@@ -6718,7 +6718,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  451:src/decn.c    **** 		ulp.exponent -= (! decNumberIsNegative(x)) == down;
  3574              		.loc 1 451 18 discriminator 1 view .LVU777
  3575 003e 2B68     		ldr	r3, [r5]
-ARM GAS  /tmp/ccUsuo8D.s 			page 113
+ARM GAS  /tmp/cc5RgpaF.s 			page 113
 
 
  3576 0040 012B     		cmp	r3, #1
@@ -6778,7 +6778,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  3619              		.cfi_restore_state
  443:src/decn.c    **** 	dn_compare(&ulp, y, x);
  3620              		.loc 1 443 3 is_stmt 1 view .LVU789
-ARM GAS  /tmp/ccUsuo8D.s 			page 114
+ARM GAS  /tmp/cc5RgpaF.s 			page 114
 
 
  443:src/decn.c    **** 	dn_compare(&ulp, y, x);
@@ -6838,7 +6838,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  3664              		.cfi_restore_state
  456:src/decn.c    **** 	return r;
  3665              		.loc 1 456 3 is_stmt 1 view .LVU801
-ARM GAS  /tmp/ccUsuo8D.s 			page 115
+ARM GAS  /tmp/cc5RgpaF.s 			page 115
 
 
  3666              	.LBB1502:
@@ -6898,7 +6898,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  452:src/decn.c    **** 	if (down)
  3709              		.loc 1 452 16 view .LVU813
  3710 009a 029B     		ldr	r3, [sp, #8]
-ARM GAS  /tmp/ccUsuo8D.s 			page 116
+ARM GAS  /tmp/cc5RgpaF.s 			page 116
 
 
  452:src/decn.c    **** 	if (down)
@@ -6958,7 +6958,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  3758              		.loc 1 131 9 view .LVU822
  3759 0006 FFF7FEBF 		b	decNumberDivide
  3760              	.LVL298:
-ARM GAS  /tmp/ccUsuo8D.s 			page 117
+ARM GAS  /tmp/cc5RgpaF.s 			page 117
 
 
  3761              	.L292:
@@ -7018,7 +7018,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  512:src/decn.c    **** }
  3809              		.loc 1 512 2 is_stmt 1 view .LVU831
  3810              	.LVL300:
-ARM GAS  /tmp/ccUsuo8D.s 			page 118
+ARM GAS  /tmp/cc5RgpaF.s 			page 118
 
 
  3811              	.LBB1510:
@@ -7078,7 +7078,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  3856              		@ frame_needed = 0, uses_anonymous_args = 0
  517:src/decn.c    **** 	return round2int(r, x, DEC_ROUND_CEILING);
  3857              		.loc 1 517 60 is_stmt 0 view .LVU843
-ARM GAS  /tmp/ccUsuo8D.s 			page 119
+ARM GAS  /tmp/cc5RgpaF.s 			page 119
 
 
  3858 0000 70B5     		push	{r4, r5, r6, lr}
@@ -7138,7 +7138,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  519:src/decn.c    **** 
  3898              		.loc 1 519 1 view .LVU858
  3899 0014 2846     		mov	r0, r5
-ARM GAS  /tmp/ccUsuo8D.s 			page 120
+ARM GAS  /tmp/cc5RgpaF.s 			page 120
 
 
  3900 0016 70BD     		pop	{r4, r5, r6, pc}
@@ -7198,7 +7198,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  3947              		.loc 1 524 2 is_stmt 1 view .LVU867
  3948              	.LVL310:
  3949              	.LBB1518:
-ARM GAS  /tmp/ccUsuo8D.s 			page 121
+ARM GAS  /tmp/cc5RgpaF.s 			page 121
 
 
  3950              	.LBI1515:
@@ -7258,7 +7258,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  529:src/decn.c    **** 	return round2int(r, x, DEC_ROUND_HALF_UP);
  3995              		.loc 1 529 61 is_stmt 0 view .LVU879
  3996 0000 70B5     		push	{r4, r5, r6, lr}
-ARM GAS  /tmp/ccUsuo8D.s 			page 122
+ARM GAS  /tmp/cc5RgpaF.s 			page 122
 
 
  3997              		.cfi_def_cfa_offset 16
@@ -7318,7 +7318,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  4036              		.loc 1 531 1 view .LVU894
  4037 0014 2846     		mov	r0, r5
  4038 0016 70BD     		pop	{r4, r5, r6, pc}
-ARM GAS  /tmp/ccUsuo8D.s 			page 123
+ARM GAS  /tmp/cc5RgpaF.s 			page 123
 
 
  4039              	.LVL318:
@@ -7378,7 +7378,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  4087              	.LBB1525:
  503:src/decn.c    **** 	decNumberToIntegralValue(r, x, &Ctx);
  4088              		.loc 1 503 12 view .LVU903
-ARM GAS  /tmp/ccUsuo8D.s 			page 124
+ARM GAS  /tmp/cc5RgpaF.s 			page 124
 
 
  4089 0008 0523     		movs	r3, #5
@@ -7438,7 +7438,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  4130              		.loc 1 505 12 view .LVU916
  4131 0020 2773     		strb	r7, [r4, #12]
  506:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 125
+ARM GAS  /tmp/cc5RgpaF.s 			page 125
 
 
  4132              		.loc 1 506 2 is_stmt 1 view .LVU917
@@ -7498,7 +7498,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  767:src/decn.c    **** 	const decNumber *tol = is_dblmode() ? &const_1e_37 : &const_1e_32;
  4179              		.loc 1 767 2 view .LVU927
  768:src/decn.c    **** 	int expon;
-ARM GAS  /tmp/ccUsuo8D.s 			page 126
+ARM GAS  /tmp/cc5RgpaF.s 			page 126
 
 
  4180              		.loc 1 768 2 view .LVU928
@@ -7558,7 +7558,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  4222              	.L316:
  773:src/decn.c    **** 		return set_inf(r);
  4223              		.loc 1 773 4 is_stmt 1 view .LVU941
-ARM GAS  /tmp/ccUsuo8D.s 			page 127
+ARM GAS  /tmp/cc5RgpaF.s 			page 127
 
 
  4224              	.LVL332:
@@ -7618,7 +7618,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
   70:src/decn.c    **** }
  4267              		.loc 1 70 35 view .LVU953
  4268              	.LBE1538:
-ARM GAS  /tmp/ccUsuo8D.s 			page 128
+ARM GAS  /tmp/cc5RgpaF.s 			page 128
 
 
  4269              	.LBE1537:
@@ -7678,7 +7678,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  4311              	.LBI1543:
  122:src/decn.c    **** 	return decNumberSubtract(r, a, b, &Ctx);
  4312              		.loc 1 122 12 view .LVU966
-ARM GAS  /tmp/ccUsuo8D.s 			page 129
+ARM GAS  /tmp/cc5RgpaF.s 			page 129
 
 
  4313              	.LBB1544:
@@ -7738,7 +7738,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  785:src/decn.c    **** 		expon = z.exponent + z.digits;
  4354              		.loc 1 785 5 view .LVU980
  4355 0088 8146     		mov	r9, r0
-ARM GAS  /tmp/ccUsuo8D.s 			page 130
+ARM GAS  /tmp/cc5RgpaF.s 			page 130
 
 
  4356 008a 0028     		cmp	r0, #0
@@ -7798,7 +7798,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  800:src/decn.c    **** 		dn_mul2(&f, &f);
  4399              		.loc 1 800 8 is_stmt 1 view .LVU992
  800:src/decn.c    **** 		dn_mul2(&f, &f);
-ARM GAS  /tmp/ccUsuo8D.s 			page 131
+ARM GAS  /tmp/cc5RgpaF.s 			page 131
 
 
  4400              		.loc 1 800 9 is_stmt 0 view .LVU993
@@ -7858,7 +7858,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  4443              	.LBB1561:
  4444              	.LBI1561:
  323:src/decn.c    **** 	return dn_add(r, x, &const_1);
-ARM GAS  /tmp/ccUsuo8D.s 			page 132
+ARM GAS  /tmp/cc5RgpaF.s 			page 132
 
 
  4445              		.loc 1 323 12 view .LVU1005
@@ -7918,7 +7918,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  4490              	.LBE1566:
  4491              	.LBE1567:
  4492              	.LBE1578:
-ARM GAS  /tmp/ccUsuo8D.s 			page 133
+ARM GAS  /tmp/cc5RgpaF.s 			page 133
 
 
  805:src/decn.c    **** 	dn_divide(&n, &v, &t);
@@ -7978,7 +7978,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  131:src/decn.c    **** }
  4533              		.loc 1 131 9 view .LVU1029
  4534 00e2 1CA8     		add	r0, sp, #112
-ARM GAS  /tmp/ccUsuo8D.s 			page 134
+ARM GAS  /tmp/cc5RgpaF.s 			page 134
 
 
  4535              	.LVL362:
@@ -8038,7 +8038,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  4576 00fe 2EA8     		add	r0, sp, #184
  4577 0100 FFF7FEFF 		bl	decNumberCopy
  4578              	.LVL368:
-ARM GAS  /tmp/ccUsuo8D.s 			page 135
+ARM GAS  /tmp/cc5RgpaF.s 			page 135
 
 
  4579 0104 07E0     		b	.L327
@@ -8098,7 +8098,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  4619              	.LVL372:
  127:src/decn.c    **** }
  4620              		.loc 1 127 9 view .LVU1057
-ARM GAS  /tmp/ccUsuo8D.s 			page 136
+ARM GAS  /tmp/cc5RgpaF.s 			page 136
 
 
  4621 0118 2346     		mov	r3, r4
@@ -8158,7 +8158,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  4661 0130 49AA     		add	r2, sp, #292
  4662              	.LVL379:
  119:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 137
+ARM GAS  /tmp/cc5RgpaF.s 			page 137
 
 
  4663              		.loc 1 119 9 view .LVU1072
@@ -8218,7 +8218,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  4703 0152 40AA     		add	r2, sp, #256
  4704              	.LVL386:
  127:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 138
+ARM GAS  /tmp/cc5RgpaF.s 			page 138
 
 
  4705              		.loc 1 127 9 view .LVU1087
@@ -8278,7 +8278,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  119:src/decn.c    **** }
  4746              		.loc 1 119 2 view .LVU1101
  119:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 139
+ARM GAS  /tmp/cc5RgpaF.s 			page 139
 
 
  4747              		.loc 1 119 9 is_stmt 0 view .LVU1102
@@ -8338,7 +8338,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  4791              		.loc 1 786 3 is_stmt 1 view .LVU1112
  786:src/decn.c    **** 		z.exponent = -z.digits;
  4792              		.loc 1 786 9 is_stmt 0 view .LVU1113
-ARM GAS  /tmp/ccUsuo8D.s 			page 140
+ARM GAS  /tmp/cc5RgpaF.s 			page 140
 
 
  4793 0196 DDE90103 		ldrd	r0, r3, [sp, #4]
@@ -8398,7 +8398,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  4841              		.cfi_def_cfa_offset 12
  4842              		.cfi_offset 4, -12
  4843              		.cfi_offset 5, -8
-ARM GAS  /tmp/ccUsuo8D.s 			page 141
+ARM GAS  /tmp/cc5RgpaF.s 			page 141
 
 
  4844              		.cfi_offset 14, -4
@@ -8458,7 +8458,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  4885              		.loc 1 118 12 view .LVU1134
  4886              	.LBB1630:
  119:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 142
+ARM GAS  /tmp/cc5RgpaF.s 			page 142
 
 
  4887              		.loc 1 119 2 view .LVU1135
@@ -8518,7 +8518,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  4928              	.LBE1633:
  4929              	.LBE1632:
  4930              	.LBE1631:
-ARM GAS  /tmp/ccUsuo8D.s 			page 143
+ARM GAS  /tmp/cc5RgpaF.s 			page 143
 
 
  711:src/decn.c    **** 		return decNumberCopy(r, x);
@@ -8578,7 +8578,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  4971              	.LBB1640:
  4972              	.LBI1640:
  126:src/decn.c    **** 	return decNumberMultiply(r, a, b, &Ctx);
-ARM GAS  /tmp/ccUsuo8D.s 			page 144
+ARM GAS  /tmp/cc5RgpaF.s 			page 144
 
 
  4973              		.loc 1 126 12 view .LVU1163
@@ -8638,7 +8638,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  707:src/decn.c    **** 	}
  5019              		.loc 1 707 3 is_stmt 1 view .LVU1172
  707:src/decn.c    **** 	}
-ARM GAS  /tmp/ccUsuo8D.s 			page 145
+ARM GAS  /tmp/cc5RgpaF.s 			page 145
 
 
  5020              		.loc 1 707 10 is_stmt 0 view .LVU1173
@@ -8698,7 +8698,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  5068 0008 9DB0     		sub	sp, sp, #116
  5069              		.cfi_def_cfa_offset 128
  723:src/decn.c    **** 		return decNumberCopy(r, x);
-ARM GAS  /tmp/ccUsuo8D.s 			page 146
+ARM GAS  /tmp/cc5RgpaF.s 			page 146
 
 
  5070              		.loc 1 723 5 view .LVU1182
@@ -8758,7 +8758,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  5111              	.LBB1669:
  5112              	.LBI1669:
  122:src/decn.c    **** 	return decNumberSubtract(r, a, b, &Ctx);
-ARM GAS  /tmp/ccUsuo8D.s 			page 147
+ARM GAS  /tmp/cc5RgpaF.s 			page 147
 
 
  5113              		.loc 1 122 12 view .LVU1196
@@ -8818,7 +8818,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  731:src/decn.c    **** 		return dn__1(r);
  5155              		.loc 1 731 5 view .LVU1209
  5156 0038 88B9     		cbnz	r0, .L361
-ARM GAS  /tmp/ccUsuo8D.s 			page 148
+ARM GAS  /tmp/cc5RgpaF.s 			page 148
 
 
  734:src/decn.c    **** 	dn_ln(&v, &u);
@@ -8878,7 +8878,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  5197 0054 2846     		mov	r0, r5
  5198 0056 FFF7FEFF 		bl	decNumberDivide
  5199              	.LVL436:
-ARM GAS  /tmp/ccUsuo8D.s 			page 149
+ARM GAS  /tmp/cc5RgpaF.s 			page 149
 
 
  131:src/decn.c    **** }
@@ -8938,7 +8938,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  5245              		.loc 1 74 9 view .LVU1232
  5246 006a 9DF83030 		ldrb	r3, [sp, #48]	@ zero_extendqisi2
  5247 006e 13F0700F 		tst	r3, #112
-ARM GAS  /tmp/ccUsuo8D.s 			page 150
+ARM GAS  /tmp/cc5RgpaF.s 			page 150
 
 
  5248 0072 DDD1     		bne	.L355
@@ -8998,7 +8998,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  5296 0000 30B5     		push	{r4, r5, lr}
  5297              		.cfi_def_cfa_offset 12
  5298              		.cfi_offset 4, -12
-ARM GAS  /tmp/ccUsuo8D.s 			page 151
+ARM GAS  /tmp/cc5RgpaF.s 			page 151
 
 
  5299              		.cfi_offset 5, -8
@@ -9058,7 +9058,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  257:src/decn.c    **** 	return x;
  5337              		.loc 1 257 3 view .LVU1257
  5338 001e FFF7FEFF 		bl	decNumberCopy
-ARM GAS  /tmp/ccUsuo8D.s 			page 152
+ARM GAS  /tmp/cc5RgpaF.s 			page 152
 
 
  5339              	.LVL447:
@@ -9118,7 +9118,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  5381              		.cfi_remember_state
  5382              		.cfi_def_cfa_offset 12
  5383              		@ sp needed
-ARM GAS  /tmp/ccUsuo8D.s 			page 153
+ARM GAS  /tmp/cc5RgpaF.s 			page 153
 
 
  5384 003e 30BD     		pop	{r4, r5, pc}
@@ -9178,7 +9178,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  5428              		@ sp needed
  5429 004e 30BD     		pop	{r4, r5, pc}
  5430              	.LVL458:
-ARM GAS  /tmp/ccUsuo8D.s 			page 154
+ARM GAS  /tmp/cc5RgpaF.s 			page 154
 
 
  5431              	.L372:
@@ -9238,7 +9238,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  5483              		.loc 1 832 55 is_stmt 1 view -0
  5484              		.cfi_startproc
  5485              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccUsuo8D.s 			page 155
+ARM GAS  /tmp/cc5RgpaF.s 			page 155
 
 
  5486              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -9298,7 +9298,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  839:src/decn.c    **** 	return do_log(r, y, &lx);
  5533              		.loc 1 839 2 view .LVU1295
  5534 000a 1146     		mov	r1, r2
-ARM GAS  /tmp/ccUsuo8D.s 			page 156
+ARM GAS  /tmp/cc5RgpaF.s 			page 156
 
 
  5535              	.LVL465:
@@ -9358,7 +9358,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  5582              	.LBB1711:
  5583              	.LBI1708:
  126:src/decn.c    **** 	return decNumberMultiply(r, a, b, &Ctx);
-ARM GAS  /tmp/ccUsuo8D.s 			page 157
+ARM GAS  /tmp/cc5RgpaF.s 			page 157
 
 
  5584              		.loc 1 126 12 is_stmt 1 view .LVU1305
@@ -9418,7 +9418,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  5631              		.loc 1 867 12 is_stmt 1 view .LVU1314
  5632              	.LBE1712:
  868:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 158
+ARM GAS  /tmp/cc5RgpaF.s 			page 158
 
 
  5633              		.loc 1 868 2 view .LVU1315
@@ -9478,7 +9478,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  5675              		.loc 1 127 9 view .LVU1327
  5676              	.LBE1720:
  5677              	.LBE1719:
-ARM GAS  /tmp/ccUsuo8D.s 			page 159
+ARM GAS  /tmp/cc5RgpaF.s 			page 159
 
 
  877:src/decn.c    **** 
@@ -9538,7 +9538,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  925:src/decn.c    **** 	Ctx.digits = digits;
  5725              		.loc 1 925 2 view .LVU1337
  5726 0008 2346     		mov	r3, r4
-ARM GAS  /tmp/ccUsuo8D.s 			page 160
+ARM GAS  /tmp/cc5RgpaF.s 			page 160
 
 
  924:src/decn.c    **** 	decNumberRemainder(&out.n, x, y, &Ctx);
@@ -9598,7 +9598,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  5769              		.global	is_even
  5770              		.syntax unified
  5771              		.thumb
-ARM GAS  /tmp/ccUsuo8D.s 			page 161
+ARM GAS  /tmp/cc5RgpaF.s 			page 161
 
 
  5772              		.thumb_func
@@ -9658,7 +9658,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  5814              		.loc 1 307 2 is_stmt 1 view .LVU1363
  5815 0016 114A     		ldr	r2, .L405+4
  5816 0018 09A9     		add	r1, sp, #36
-ARM GAS  /tmp/ccUsuo8D.s 			page 162
+ARM GAS  /tmp/cc5RgpaF.s 			page 162
 
 
  5817 001a 6846     		mov	r0, sp
@@ -9718,7 +9718,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  5859 003a 5DF804FB 		ldr	pc, [sp], #4
  5860              	.LVL493:
  5861              	.L404:
-ARM GAS  /tmp/ccUsuo8D.s 			page 163
+ARM GAS  /tmp/cc5RgpaF.s 			page 163
 
 
  5862              		.cfi_restore_state
@@ -9778,7 +9778,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  5911              		.loc 1 615 2 view .LVU1382
  616:src/decn.c    **** 
  5912              		.loc 1 616 2 view .LVU1383
-ARM GAS  /tmp/ccUsuo8D.s 			page 164
+ARM GAS  /tmp/cc5RgpaF.s 			page 164
 
 
  618:src/decn.c    **** 		return dn_1(r);				// 1^x = 1
@@ -9838,7 +9838,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  5956              	.LVL500:
   83:src/decn.c    **** }
  5957              		.loc 1 83 9 view .LVU1395
-ARM GAS  /tmp/ccUsuo8D.s 			page 165
+ARM GAS  /tmp/cc5RgpaF.s 			page 165
 
 
  5958              	.LBE1732:
@@ -9898,7 +9898,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  5999              	.LVL504:
   83:src/decn.c    **** }
  6000              		.loc 1 83 9 view .LVU1409
-ARM GAS  /tmp/ccUsuo8D.s 			page 166
+ARM GAS  /tmp/cc5RgpaF.s 			page 166
 
 
  6001              	.LBE1739:
@@ -9958,7 +9958,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  641:src/decn.c    **** 			return decNumberZero(r);		// y^inf |y|<1 = +0
  6041              		.loc 1 641 6 view .LVU1424
  6042              	.LBE1740:
-ARM GAS  /tmp/ccUsuo8D.s 			page 167
+ARM GAS  /tmp/cc5RgpaF.s 			page 167
 
 
  675:src/decn.c    **** 	}
@@ -10018,7 +10018,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
   74:src/decn.c    **** }
  6086              		.loc 1 74 9 view .LVU1436
  6087 007c 2B68     		ldr	r3, [r5]
-ARM GAS  /tmp/ccUsuo8D.s 			page 168
+ARM GAS  /tmp/cc5RgpaF.s 			page 168
 
 
  6088 007e 012B     		cmp	r3, #1
@@ -10078,7 +10078,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  647:src/decn.c    **** 	if (decNumberIsInfinite(y)) {
  6132              		.loc 1 647 2 is_stmt 1 view .LVU1447
  648:src/decn.c    **** 		if (ynegative) {
-ARM GAS  /tmp/ccUsuo8D.s 			page 169
+ARM GAS  /tmp/cc5RgpaF.s 			page 169
 
 
  6133              		.loc 1 648 2 view .LVU1448
@@ -10138,7 +10138,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  6173 00c0 4B4B     		ldr	r3, .L479+12
  6174 00c2 01A8     		add	r0, sp, #4
  6175              	.LVL523:
-ARM GAS  /tmp/ccUsuo8D.s 			page 170
+ARM GAS  /tmp/cc5RgpaF.s 			page 170
 
 
  127:src/decn.c    **** }
@@ -10198,7 +10198,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  6217              		.loc 1 628 10 is_stmt 0 view .LVU1475
  6218 00da 3946     		mov	r1, r7
  6219 00dc 2046     		mov	r0, r4
-ARM GAS  /tmp/ccUsuo8D.s 			page 171
+ARM GAS  /tmp/cc5RgpaF.s 			page 171
 
 
  6220 00de FFF7FEFF 		bl	decNumberCopy
@@ -10258,7 +10258,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  671:src/decn.c    **** 		}
  6262              		.loc 1 671 4 is_stmt 1 view .LVU1488
  6263              	.LBB1764:
-ARM GAS  /tmp/ccUsuo8D.s 			page 172
+ARM GAS  /tmp/cc5RgpaF.s 			page 172
 
 
  6264              	.LBI1758:
@@ -10318,7 +10318,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  6303 011e 2846     		mov	r0, r5
  6304              	.LVL539:
  681:src/decn.c    **** 			negate = 1;
-ARM GAS  /tmp/ccUsuo8D.s 			page 173
+ARM GAS  /tmp/cc5RgpaF.s 			page 173
 
 
  6305              		.loc 1 681 7 view .LVU1504
@@ -10378,7 +10378,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  126:src/decn.c    **** 	return decNumberMultiply(r, a, b, &Ctx);
  6346              		.loc 1 126 12 view .LVU1518
  6347              	.LBB1752:
-ARM GAS  /tmp/ccUsuo8D.s 			page 174
+ARM GAS  /tmp/cc5RgpaF.s 			page 174
 
 
  127:src/decn.c    **** }
@@ -10438,7 +10438,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  6387              		.loc 1 151 2 view .LVU1533
  151:src/decn.c    **** }
  6388              		.loc 1 151 9 is_stmt 0 view .LVU1534
-ARM GAS  /tmp/ccUsuo8D.s 			page 175
+ARM GAS  /tmp/cc5RgpaF.s 			page 175
 
 
  6389 0154 264A     		ldr	r2, .L479+12
@@ -10498,7 +10498,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  6430              	.LVL555:
  6431              	.L425:
  262:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 176
+ARM GAS  /tmp/cc5RgpaF.s 			page 176
 
 
  6432              		.loc 1 262 9 view .LVU1548
@@ -10558,7 +10558,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  6474 0196 0AA8     		add	r0, sp, #40
  6475 0198 FFF7FEFF 		bl	dn_ln
  6476              	.LVL563:
-ARM GAS  /tmp/ccUsuo8D.s 			page 177
+ARM GAS  /tmp/cc5RgpaF.s 			page 177
 
 
  688:src/decn.c    **** 	}
@@ -10618,7 +10618,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  6516              		.loc 1 261 12 view .LVU1575
  6517              	.LBB1762:
  262:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 178
+ARM GAS  /tmp/cc5RgpaF.s 			page 178
 
 
  6518              		.loc 1 262 2 view .LVU1576
@@ -10678,7 +10678,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  6558              		.align	2
  6559              	.L479:
  6560 01e4 00000000 		.word	const_1
-ARM GAS  /tmp/ccUsuo8D.s 			page 179
+ARM GAS  /tmp/cc5RgpaF.s 			page 179
 
 
  6561 01e8 00000000 		.word	const__1
@@ -10738,7 +10738,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  881:src/decn.c    **** 
  6614              		.loc 1 881 2 view .LVU1596
  883:src/decn.c    **** 
-ARM GAS  /tmp/ccUsuo8D.s 			page 180
+ARM GAS  /tmp/cc5RgpaF.s 			page 180
 
 
  6615              		.loc 1 883 2 view .LVU1597
@@ -10798,7 +10798,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  6658              		.loc 1 131 9 view .LVU1608
  6659              	.LBE1786:
  6660              	.LBE1787:
-ARM GAS  /tmp/ccUsuo8D.s 			page 181
+ARM GAS  /tmp/cc5RgpaF.s 			page 181
 
 
  6661              	.LBE1788:
@@ -10858,7 +10858,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  6703 0030 2846     		mov	r0, r5
  6704 0032 FFF7FEFF 		bl	decNumberMinus
  6705              	.LVL586:
-ARM GAS  /tmp/ccUsuo8D.s 			page 182
+ARM GAS  /tmp/cc5RgpaF.s 			page 182
 
 
  151:src/decn.c    **** }
@@ -10918,7 +10918,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  6746              		.cfi_def_cfa_offset 12
  6747              		@ sp needed
  6748 004e 30BD     		pop	{r4, r5, pc}
-ARM GAS  /tmp/ccUsuo8D.s 			page 183
+ARM GAS  /tmp/cc5RgpaF.s 			page 183
 
 
  6749              	.LVL591:
@@ -10978,7 +10978,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  6799              		.global	decNumberPow10
  6800              		.syntax unified
  6801              		.thumb
-ARM GAS  /tmp/ccUsuo8D.s 			page 184
+ARM GAS  /tmp/cc5RgpaF.s 			page 184
 
 
  6802              		.thumb_func
@@ -11038,7 +11038,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  894:src/decn.c    **** 	decNumber s, t;
  6850              		.loc 1 894 81 is_stmt 0 view .LVU1651
  6851 0000 70B5     		push	{r4, r5, r6, lr}
-ARM GAS  /tmp/ccUsuo8D.s 			page 185
+ARM GAS  /tmp/cc5RgpaF.s 			page 185
 
 
  6852              		.cfi_def_cfa_offset 16
@@ -11098,7 +11098,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  130:src/decn.c    **** 	return decNumberDivide(r, a, b, &Ctx);
  6898              		.loc 1 130 12 view .LVU1660
  6899              	.LBB1803:
-ARM GAS  /tmp/ccUsuo8D.s 			page 186
+ARM GAS  /tmp/cc5RgpaF.s 			page 186
 
 
  131:src/decn.c    **** }
@@ -11158,7 +11158,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  6941              		.loc 1 900 7 is_stmt 0 view .LVU1673
  6942 002c 3046     		mov	r0, r6
  6943 002e FFF7FEFF 		bl	is_even
-ARM GAS  /tmp/ccUsuo8D.s 			page 187
+ARM GAS  /tmp/cc5RgpaF.s 			page 187
 
 
  6944              	.LVL607:
@@ -11218,7 +11218,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  6988 004a 70BD     		pop	{r4, r5, r6, pc}
  6989              	.LVL613:
  6990              	.L502:
-ARM GAS  /tmp/ccUsuo8D.s 			page 188
+ARM GAS  /tmp/cc5RgpaF.s 			page 188
 
 
  6991              		.cfi_restore_state
@@ -11278,7 +11278,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  151:src/decn.c    **** }
  7031              		.loc 1 151 9 is_stmt 0 view .LVU1698
  7032 0062 034A     		ldr	r2, .L503
-ARM GAS  /tmp/ccUsuo8D.s 			page 189
+ARM GAS  /tmp/cc5RgpaF.s 			page 189
 
 
  7033 0064 09A9     		add	r1, sp, #36
@@ -11338,7 +11338,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  941:src/decn.c    **** 
  7083              		.loc 1 941 6 view .LVU1705
  7084 0004 1D4C     		ldr	r4, .L514
-ARM GAS  /tmp/ccUsuo8D.s 			page 190
+ARM GAS  /tmp/cc5RgpaF.s 			page 190
 
 
  932:src/decn.c    **** 	/* Declare a structure large enough to hold a really long number.
@@ -11398,7 +11398,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  949:src/decn.c    **** 		dn_add(res, res, y);
  7122              		.loc 1 949 2 view .LVU1723
  949:src/decn.c    **** 		dn_add(res, res, y);
-ARM GAS  /tmp/ccUsuo8D.s 			page 191
+ARM GAS  /tmp/cc5RgpaF.s 			page 191
 
 
  7123              		.loc 1 949 16 is_stmt 0 view .LVU1724
@@ -11458,7 +11458,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  932:src/decn.c    **** 	/* Declare a structure large enough to hold a really long number.
  7168              		.loc 1 932 12 is_stmt 1 view .LVU1734
  7169              	.LBB1834:
-ARM GAS  /tmp/ccUsuo8D.s 			page 192
+ARM GAS  /tmp/cc5RgpaF.s 			page 192
 
 
  950:src/decn.c    **** 	return res;
@@ -11518,7 +11518,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  7217              		.align	1
  7218              		.p2align 2,,3
  7219              		.syntax unified
-ARM GAS  /tmp/ccUsuo8D.s 			page 193
+ARM GAS  /tmp/cc5RgpaF.s 			page 193
 
 
  7220              		.thumb
@@ -11578,7 +11578,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  7263 001a 05E0     		b	.L517
  7264              	.LVL635:
  7265              	.L520:
-ARM GAS  /tmp/ccUsuo8D.s 			page 194
+ARM GAS  /tmp/cc5RgpaF.s 			page 194
 
 
  557:src/decn.c    **** 		else
@@ -11638,7 +11638,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  7308              		.loc 1 557 4 is_stmt 1 view .LVU1766
  556:src/decn.c    **** 			decNumberBigMod(&b, r, &t);
  7309              		.loc 1 556 3 view .LVU1767
-ARM GAS  /tmp/ccUsuo8D.s 			page 195
+ARM GAS  /tmp/cc5RgpaF.s 			page 195
 
 
  557:src/decn.c    **** 		else
@@ -11698,7 +11698,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  7358              		.cfi_startproc
  7359              		@ args = 0, pretend = 0, frame = 72
  7360              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccUsuo8D.s 			page 196
+ARM GAS  /tmp/cc5RgpaF.s 			page 196
 
 
  582:src/decn.c    **** 
@@ -11758,7 +11758,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  7403              	.LBE1846:
  589:src/decn.c    **** 		decNumberCopy(r, &a);
  7404              		.loc 1 589 7 is_stmt 1 view .LVU1788
-ARM GAS  /tmp/ccUsuo8D.s 			page 197
+ARM GAS  /tmp/cc5RgpaF.s 			page 197
 
 
  7405              	.LBB1849:
@@ -11818,7 +11818,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  7450 0044 02A9     		add	r1, sp, #8
  7451 0046 2046     		mov	r0, r4
  7452 0048 FFF7FEFF 		bl	decNumberCopy
-ARM GAS  /tmp/ccUsuo8D.s 			page 198
+ARM GAS  /tmp/cc5RgpaF.s 			page 198
 
 
  7453              	.LVL650:
@@ -11878,7 +11878,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  7502 0002 A7B0     		sub	sp, sp, #156
  7503              		.cfi_def_cfa_offset 176
  599:src/decn.c    **** 		return r;
-ARM GAS  /tmp/ccUsuo8D.s 			page 199
+ARM GAS  /tmp/cc5RgpaF.s 			page 199
 
 
  7504              		.loc 1 599 6 view .LVU1805
@@ -11938,7 +11938,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  7546              	.LBE1858:
  7547              	.LBE1857:
  604:src/decn.c    **** 	dn_divide(&t, &a, &gcd);
-ARM GAS  /tmp/ccUsuo8D.s 			page 200
+ARM GAS  /tmp/cc5RgpaF.s 			page 200
 
 
  7548              		.loc 1 604 2 is_stmt 1 view .LVU1818
@@ -11998,7 +11998,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  7589 0042 2046     		mov	r0, r4
  7590 0044 FFF7FEFF 		bl	decNumberMultiply
  7591              	.LVL665:
-ARM GAS  /tmp/ccUsuo8D.s 			page 201
+ARM GAS  /tmp/cc5RgpaF.s 			page 201
 
 
  127:src/decn.c    **** }
@@ -12058,7 +12058,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  7638              		.loc 1 74 9 view .LVU1839
  7639              	.LBE1856:
  7640              	.LBE1865:
-ARM GAS  /tmp/ccUsuo8D.s 			page 202
+ARM GAS  /tmp/cc5RgpaF.s 			page 202
 
 
  603:src/decn.c    **** 	dn_gcd(&gcd, &a, &b, 1);
@@ -12118,7 +12118,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  7690              	.LBB1867:
  127:src/decn.c    **** }
  7691              		.loc 1 127 9 view .LVU1847
-ARM GAS  /tmp/ccUsuo8D.s 			page 203
+ARM GAS  /tmp/cc5RgpaF.s 			page 203
 
 
  7692 000a 5B46     		mov	r3, fp
@@ -12178,7 +12178,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  7733              		.loc 1 127 9 view .LVU1860
  7734 002a FFF7FEFF 		bl	decNumberMultiply
  7735              	.LVL676:
-ARM GAS  /tmp/ccUsuo8D.s 			page 204
+ARM GAS  /tmp/cc5RgpaF.s 			page 204
 
 
  127:src/decn.c    **** }
@@ -12238,7 +12238,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  7781              	.LBE1887:
  967:src/decn.c    **** 	dn_1(&t.n);
  7782              		.loc 1 967 2 is_stmt 1 view .LVU1870
-ARM GAS  /tmp/ccUsuo8D.s 			page 205
+ARM GAS  /tmp/cc5RgpaF.s 			page 205
 
 
  7783              	.LBB1888:
@@ -12298,7 +12298,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  336:src/decn.c    **** }
  7821              		.loc 1 336 9 view .LVU1887
  7822              	.LBE1886:
-ARM GAS  /tmp/ccUsuo8D.s 			page 206
+ARM GAS  /tmp/cc5RgpaF.s 			page 206
 
 
  7823              	.LBE1891:
@@ -12358,7 +12358,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  7867 006a 0846     		mov	r0, r1
  7868 006c FFF7FEFF 		bl	decNumberAdd
  7869              	.LVL687:
-ARM GAS  /tmp/ccUsuo8D.s 			page 207
+ARM GAS  /tmp/cc5RgpaF.s 			page 207
 
 
  7870              	.LBE1897:
@@ -12418,7 +12418,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  7914              	.LBB1911:
  7915              	.LBI1904:
  130:src/decn.c    **** 	return decNumberDivide(r, a, b, &Ctx);
-ARM GAS  /tmp/ccUsuo8D.s 			page 208
+ARM GAS  /tmp/cc5RgpaF.s 			page 208
 
 
  7916              		.loc 1 130 12 view .LVU1908
@@ -12478,7 +12478,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  7954              		.loc 1 119 9 view .LVU1924
  7955 0092 4B46     		mov	r3, r9
  7956 0094 3A46     		mov	r2, r7
-ARM GAS  /tmp/ccUsuo8D.s 			page 209
+ARM GAS  /tmp/cc5RgpaF.s 			page 209
 
 
  7957 0096 0846     		mov	r0, r1
@@ -12538,7 +12538,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  972:src/decn.c    **** 		const int odd = i & 1;
  7997              		.loc 1 972 12 is_stmt 0 discriminator 4 view .LVU1939
  7998 00ac 1EB9     		cbnz	r6, .L562
-ARM GAS  /tmp/ccUsuo8D.s 			page 210
+ARM GAS  /tmp/cc5RgpaF.s 			page 210
 
 
  7999 00ae 0125     		movs	r5, #1
@@ -12598,7 +12598,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1004:src/decn.c    **** }
  8039              		.loc 1 1004 3 is_stmt 1 view .LVU1954
  8040              	.LVL703:
-ARM GAS  /tmp/ccUsuo8D.s 			page 211
+ARM GAS  /tmp/cc5RgpaF.s 			page 211
 
 
  8041              	.LBB1934:
@@ -12658,7 +12658,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  993:src/decn.c    **** 			else
  8085              		.loc 1 993 5 is_stmt 1 view .LVU1965
  8086              	.LVL708:
-ARM GAS  /tmp/ccUsuo8D.s 			page 212
+ARM GAS  /tmp/cc5RgpaF.s 			page 212
 
 
  8087              	.LBB1922:
@@ -12718,7 +12718,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  8130              	.LBE1923:
  980:src/decn.c    **** 				dn_subtract(&c.n, &c.n, &t.n);
  8131              		.loc 1 980 7 view .LVU1977
-ARM GAS  /tmp/ccUsuo8D.s 			page 213
+ARM GAS  /tmp/cc5RgpaF.s 			page 213
 
 
  8132 011a B8F1000F 		cmp	r8, #0
@@ -12778,7 +12778,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  8173              	.L551:
  119:src/decn.c    **** }
  8174              		.loc 1 119 9 view .LVU1991
-ARM GAS  /tmp/ccUsuo8D.s 			page 214
+ARM GAS  /tmp/cc5RgpaF.s 			page 214
 
 
  8175              	.LBE1928:
@@ -12838,7 +12838,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  8218              		.section	.text.decNumberPow_1,"ax",%progbits
  8219              		.align	1
  8220              		.p2align 2,,3
-ARM GAS  /tmp/ccUsuo8D.s 			page 215
+ARM GAS  /tmp/cc5RgpaF.s 			page 215
 
 
  8221              		.global	decNumberPow_1
@@ -12898,7 +12898,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  8264              	.LVL725:
  859:src/decn.c    **** 	dn_mulPI(&t, &u);
  8265              		.loc 1 859 2 is_stmt 0 view .LVU2016
-ARM GAS  /tmp/ccUsuo8D.s 			page 216
+ARM GAS  /tmp/cc5RgpaF.s 			page 216
 
 
  8266 001a FFF7FEFF 		bl	decNumberMod
@@ -12958,7 +12958,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  8308              	.LVL730:
  8309              	.L587:
  8310              		.cfi_restore_state
-ARM GAS  /tmp/ccUsuo8D.s 			page 217
+ARM GAS  /tmp/cc5RgpaF.s 			page 217
 
 
  858:src/decn.c    **** 	decNumberMod(&u, x, &const_2);
@@ -13018,7 +13018,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  863:src/decn.c    **** 
  8352              		.loc 1 863 1 view .LVU2042
  8353 004e 13B0     		add	sp, sp, #76
-ARM GAS  /tmp/ccUsuo8D.s 			page 218
+ARM GAS  /tmp/cc5RgpaF.s 			page 218
 
 
  8354              		.cfi_def_cfa_offset 12
@@ -13078,7 +13078,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  8402              		.loc 1 1786 5 view .LVU2050
  8403 0006 13F0700F 		tst	r3, #112
 1781:src/decn.c    **** 	decNumber x, t;
-ARM GAS  /tmp/ccUsuo8D.s 			page 219
+ARM GAS  /tmp/cc5RgpaF.s 			page 219
 
 
  8404              		.loc 1 1781 85 view .LVU2051
@@ -13138,7 +13138,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1848:src/decn.c    **** 
  8446              		.loc 1 1848 1 view .LVU2064
  8447 0024 43B0     		add	sp, sp, #268
-ARM GAS  /tmp/ccUsuo8D.s 			page 220
+ARM GAS  /tmp/cc5RgpaF.s 			page 220
 
 
  8448              		.cfi_remember_state
@@ -13198,7 +13198,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  8490              		.loc 1 126 12 view .LVU2076
  8491              	.LBB2042:
  127:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 221
+ARM GAS  /tmp/cc5RgpaF.s 			page 221
 
 
  8492              		.loc 1 127 2 view .LVU2077
@@ -13258,7 +13258,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  8534              	.LBI2048:
  130:src/decn.c    **** 	return decNumberDivide(r, a, b, &Ctx);
  8535              		.loc 1 130 12 view .LVU2090
-ARM GAS  /tmp/ccUsuo8D.s 			page 222
+ARM GAS  /tmp/cc5RgpaF.s 			page 222
 
 
  8536              	.LBB2049:
@@ -13318,7 +13318,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1793:src/decn.c    **** 		if (dn_eq0(xin))
  8580              		.loc 1 1793 6 view .LVU2101
  8581              	.LBE2149:
-ARM GAS  /tmp/ccUsuo8D.s 			page 223
+ARM GAS  /tmp/cc5RgpaF.s 			page 223
 
 
  8582              	.LBI2032:
@@ -13378,7 +13378,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  8621              		.loc 1 131 9 is_stmt 0 view .LVU2116
  8622 0094 844B     		ldr	r3, .L642+4
  8623 0096 8849     		ldr	r1, .L642+20
-ARM GAS  /tmp/ccUsuo8D.s 			page 224
+ARM GAS  /tmp/cc5RgpaF.s 			page 224
 
 
  8624 0098 2A46     		mov	r2, r5
@@ -13438,7 +13438,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  8666              	.LVL767:
  8667              	.L636:
 1823:src/decn.c    **** 			return res;
-ARM GAS  /tmp/ccUsuo8D.s 			page 225
+ARM GAS  /tmp/cc5RgpaF.s 			page 225
 
 
  8668              		.loc 1 1823 12 view .LVU2129
@@ -13498,7 +13498,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  8709 00ce 0BDB     		blt	.L600
  8710 00d0 6B89     		ldrh	r3, [r5, #10]
  8711 00d2 002B     		cmp	r3, #0
-ARM GAS  /tmp/ccUsuo8D.s 			page 226
+ARM GAS  /tmp/cc5RgpaF.s 			page 226
 
 
  8712 00d4 40F09880 		bne	.L601
@@ -13558,7 +13558,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  8753 00f6 FFF7FEFF 		bl	is_int
  8754              	.LVL774:
 1807:src/decn.c    **** 			return set_NaN(res);
-ARM GAS  /tmp/ccUsuo8D.s 			page 227
+ARM GAS  /tmp/cc5RgpaF.s 			page 227
 
 
  8755              		.loc 1 1807 6 view .LVU2156
@@ -13618,7 +13618,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1738:src/decn.c    **** 	int k;
  8797              		.loc 1 1738 2 view .LVU2169
 1739:src/decn.c    **** #ifdef DUMP
-ARM GAS  /tmp/ccUsuo8D.s 			page 228
+ARM GAS  /tmp/cc5RgpaF.s 			page 228
 
 
  8798              		.loc 1 1739 2 view .LVU2170
@@ -13678,7 +13678,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  119:src/decn.c    **** }
  8843              		.loc 1 119 9 view .LVU2180
  8844 012c FFF7FEFF 		bl	decNumberAdd
-ARM GAS  /tmp/ccUsuo8D.s 			page 229
+ARM GAS  /tmp/cc5RgpaF.s 			page 229
 
 
  8845              	.LVL782:
@@ -13738,7 +13738,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  319:src/decn.c    **** 	return dn_subtract(x, x, &const_1);
  8886              		.loc 1 319 12 view .LVU2194
  8887              	.LBB2083:
-ARM GAS  /tmp/ccUsuo8D.s 			page 230
+ARM GAS  /tmp/cc5RgpaF.s 			page 230
 
 
  320:src/decn.c    **** }
@@ -13798,7 +13798,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  8928              		.loc 1 1746 23 is_stmt 1 view .LVU2208
 1746:src/decn.c    **** 		dn_divide(&u, gamma_consts[k], &t);
  8929              		.loc 1 1746 15 view .LVU2209
-ARM GAS  /tmp/ccUsuo8D.s 			page 231
+ARM GAS  /tmp/cc5RgpaF.s 			page 231
 
 
 1746:src/decn.c    **** 		dn_divide(&u, gamma_consts[k], &t);
@@ -13858,7 +13858,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  119:src/decn.c    **** }
  8971              		.loc 1 119 9 view .LVU2223
  8972 017a FFF7FEFF 		bl	decNumberAdd
-ARM GAS  /tmp/ccUsuo8D.s 			page 232
+ARM GAS  /tmp/cc5RgpaF.s 			page 232
 
 
  8973              	.LVL799:
@@ -13918,7 +13918,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  9013              		.loc 1 127 9 view .LVU2237
  9014 0198 39A8     		add	r0, sp, #228
  9015              	.LVL805:
-ARM GAS  /tmp/ccUsuo8D.s 			page 233
+ARM GAS  /tmp/cc5RgpaF.s 			page 233
 
 
  127:src/decn.c    **** }
@@ -13978,7 +13978,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  9055 01ae 30A9     		add	r1, sp, #192
  9056              	.LVL812:
  119:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 234
+ARM GAS  /tmp/cc5RgpaF.s 			page 234
 
 
  9057              		.loc 1 119 9 view .LVU2253
@@ -14038,7 +14038,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  9098              	.LVL816:
  127:src/decn.c    **** }
  9099              		.loc 1 127 9 view .LVU2267
-ARM GAS  /tmp/ccUsuo8D.s 			page 235
+ARM GAS  /tmp/cc5RgpaF.s 			page 235
 
 
  9100              	.LBE2043:
@@ -14098,7 +14098,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  9141 01f8 2B4B     		ldr	r3, .L642+4
  9142 01fa 0CA9     		add	r1, sp, #48
  9143              	.LVL821:
-ARM GAS  /tmp/ccUsuo8D.s 			page 236
+ARM GAS  /tmp/cc5RgpaF.s 			page 236
 
 
  123:src/decn.c    **** }
@@ -14158,7 +14158,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  9185 0218 4846     		mov	r0, r9
  9186 021a FFF7FEFF 		bl	is_int
  9187              	.LVL826:
-ARM GAS  /tmp/ccUsuo8D.s 			page 237
+ARM GAS  /tmp/cc5RgpaF.s 			page 237
 
 
 1816:src/decn.c    **** 			dn_1(res);
@@ -14218,7 +14218,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  9230 023e 1A4F     		ldr	r7, .L642+4
  9231              	.LBE2122:
  9232              	.LBE2121:
-ARM GAS  /tmp/ccUsuo8D.s 			page 238
+ARM GAS  /tmp/cc5RgpaF.s 			page 238
 
 
  9233              	.LBB2126:
@@ -14278,7 +14278,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  9276 0252 4246     		mov	r2, r8
  9277 0254 4946     		mov	r1, r9
  9278 0256 4846     		mov	r0, r9
-ARM GAS  /tmp/ccUsuo8D.s 			page 239
+ARM GAS  /tmp/cc5RgpaF.s 			page 239
 
 
  9279 0258 FFF7FEFF 		bl	decNumberSubtract
@@ -14338,7 +14338,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  9322 0268 002D     		cmp	r5, #0
  9323 026a EFD1     		bne	.L607
  9324              	.LVL835:
-ARM GAS  /tmp/ccUsuo8D.s 			page 240
+ARM GAS  /tmp/cc5RgpaF.s 			page 240
 
 
   74:src/decn.c    **** }
@@ -14398,7 +14398,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  9367 0292 7FF4C2AE 		bne	.L596
  9368 0296 EBE6     		b	.L632
  9369              	.LVL839:
-ARM GAS  /tmp/ccUsuo8D.s 			page 241
+ARM GAS  /tmp/cc5RgpaF.s 			page 241
 
 
  9370              	.L640:
@@ -14458,7 +14458,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1660:src/decn.c    **** 		if (decNumberIsInfinite(x) && !decNumberIsInfinite(y))
  9422              		.loc 1 1660 2 view .LVU2344
 1657:src/decn.c    **** 	decNumber n, s;
-ARM GAS  /tmp/ccUsuo8D.s 			page 242
+ARM GAS  /tmp/cc5RgpaF.s 			page 242
 
 
  9423              		.loc 1 1657 89 is_stmt 0 view .LVU2345
@@ -14518,7 +14518,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  9465              	.LBB2160:
  9466              	.LBI2160:
   65:src/decn.c    **** 	return decNumberIsNegative(x) && ! decNumberIsZero(x);
-ARM GAS  /tmp/ccUsuo8D.s 			page 243
+ARM GAS  /tmp/cc5RgpaF.s 			page 243
 
 
  9467              		.loc 1 65 5 is_stmt 1 view .LVU2358
@@ -14578,7 +14578,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1863:src/decn.c    **** }
  9508              		.loc 1 1863 2 view .LVU2372
 1863:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 244
+ARM GAS  /tmp/cc5RgpaF.s 			page 244
 
 
  9509              		.loc 1 1863 9 is_stmt 0 view .LVU2373
@@ -14638,7 +14638,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  9550 0050 13B9     		cbnz	r3, .L652
   70:src/decn.c    **** }
  9551              		.loc 1 70 35 view .LVU2387
-ARM GAS  /tmp/ccUsuo8D.s 			page 245
+ARM GAS  /tmp/cc5RgpaF.s 			page 245
 
 
  9552 0052 2368     		ldr	r3, [r4]
@@ -14698,7 +14698,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  9593              		.loc 1 1678 2 is_stmt 1 view .LVU2400
 1678:src/decn.c    **** 		return PERM_INTG;
  9594              		.loc 1 1678 6 is_stmt 0 view .LVU2401
-ARM GAS  /tmp/ccUsuo8D.s 			page 246
+ARM GAS  /tmp/cc5RgpaF.s 			page 246
 
 
  9595 006e 3046     		mov	r0, r6
@@ -14758,7 +14758,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  9637              		.cfi_remember_state
  9638              		.cfi_def_cfa_offset 16
  9639              		@ sp needed
-ARM GAS  /tmp/ccUsuo8D.s 			page 247
+ARM GAS  /tmp/cc5RgpaF.s 			page 247
 
 
  9640 0090 70BD     		pop	{r4, r5, r6, pc}
@@ -14818,7 +14818,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  9683              		@ sp needed
  9684 00ac 70BD     		pop	{r4, r5, r6, pc}
  9685              	.LVL865:
-ARM GAS  /tmp/ccUsuo8D.s 			page 248
+ARM GAS  /tmp/cc5RgpaF.s 			page 248
 
 
  9686              	.L668:
@@ -14878,7 +14878,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  9732              		.cfi_endproc
  9733              	.LFE114:
  9735              		.section	.text.cvt_2rad_sincos,"ax",%progbits
-ARM GAS  /tmp/ccUsuo8D.s 			page 249
+ARM GAS  /tmp/cc5RgpaF.s 			page 249
 
 
  9736              		.align	1
@@ -14938,7 +14938,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  9780 0016 62D0     		beq	.L687
 1098:src/decn.c    **** 		break;
  9781              		.loc 1 1098 14 view .LVU2444
-ARM GAS  /tmp/ccUsuo8D.s 			page 250
+ARM GAS  /tmp/cc5RgpaF.s 			page 250
 
 
  9782 0018 0028     		cmp	r0, #0
@@ -14998,7 +14998,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  9825 0042 2846     		mov	r0, r5
  9826 0044 FFF7FEFF 		bl	dn_lt
  9827              	.LVL876:
-ARM GAS  /tmp/ccUsuo8D.s 			page 251
+ARM GAS  /tmp/cc5RgpaF.s 			page 251
 
 
 1112:src/decn.c    **** 		dn_subtract(&x.n, &x.n, thresholds[2]);
@@ -15058,7 +15058,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  9869 007c 09D1     		bne	.L705
  9870              	.L685:
 1139:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 252
+ARM GAS  /tmp/cc5RgpaF.s 			page 252
 
 
  9871              		.loc 1 1139 5 is_stmt 1 view .LVU2469
@@ -15118,7 +15118,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  9912              		.loc 1 150 12 view .LVU2482
  9913              	.LBB2194:
  151:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 253
+ARM GAS  /tmp/cc5RgpaF.s 			page 253
 
 
  9914              		.loc 1 151 2 view .LVU2483
@@ -15178,7 +15178,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  9956 00b0 2068     		ldr	r0, [r4]
  9957 00b2 2946     		mov	r1, r5
  9958 00b4 FFF7FEFF 		bl	dn_lt
-ARM GAS  /tmp/ccUsuo8D.s 			page 254
+ARM GAS  /tmp/cc5RgpaF.s 			page 254
 
 
  9959              	.LVL890:
@@ -15238,7 +15238,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  10003              	.LVL895:
 1091:src/decn.c    **** 
  10004              		.loc 1 1091 3 view .LVU2506
-ARM GAS  /tmp/ccUsuo8D.s 			page 255
+ARM GAS  /tmp/cc5RgpaF.s 			page 255
 
 
 1140:src/decn.c    **** 
@@ -15298,7 +15298,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  10046 0112 0D4B     		ldr	r3, .L709+8
  10047 0114 A268     		ldr	r2, [r4, #8]
  10048 0116 2946     		mov	r1, r5
-ARM GAS  /tmp/ccUsuo8D.s 			page 256
+ARM GAS  /tmp/cc5RgpaF.s 			page 256
 
 
  10049 0118 2846     		mov	r0, r5
@@ -15358,7 +15358,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1132:src/decn.c    **** 		}
  10091              		.loc 1 1132 4 is_stmt 0 view .LVU2532
  10092 013c BEE7     		b	.L683
-ARM GAS  /tmp/ccUsuo8D.s 			page 257
+ARM GAS  /tmp/cc5RgpaF.s 			page 257
 
 
  10093              	.L710:
@@ -15418,7 +15418,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1065:src/decn.c    **** 		cmplx_NaN(sinv, cosv);
  10146              		.loc 1 1065 2 view .LVU2538
 1062:src/decn.c    **** 	decNumber x;
-ARM GAS  /tmp/ccUsuo8D.s 			page 258
+ARM GAS  /tmp/cc5RgpaF.s 			page 258
 
 
  10147              		.loc 1 1062 1 is_stmt 0 view .LVU2539
@@ -15478,7 +15478,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  10190              	.LVL916:
 1068:src/decn.c    **** 		sincosTaylor(&x, sinv, cosv);
  10191              		.loc 1 1068 3 view .LVU2551
-ARM GAS  /tmp/ccUsuo8D.s 			page 259
+ARM GAS  /tmp/cc5RgpaF.s 			page 259
 
 
  10192 0022 FFF7FEFF 		bl	decNumberMod
@@ -15538,7 +15538,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1142:src/decn.c    **** 	decNumber c;
  10241              		.loc 1 1142 61 view .LVU2559
  10242 000a 0446     		mov	r4, r0
-ARM GAS  /tmp/ccUsuo8D.s 			page 260
+ARM GAS  /tmp/cc5RgpaF.s 			page 260
 
 
 1143:src/decn.c    **** 
@@ -15598,7 +15598,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  10284 001e 01A9     		add	r1, sp, #4
  10285              	.LVL925:
 1147:src/decn.c    **** 	return res;
-ARM GAS  /tmp/ccUsuo8D.s 			page 261
+ARM GAS  /tmp/cc5RgpaF.s 			page 261
 
 
  10286              		.loc 1 1147 2 is_stmt 0 view .LVU2573
@@ -15658,7 +15658,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1152:src/decn.c    **** 
  10334              		.loc 1 1152 2 is_stmt 1 view .LVU2582
 1154:src/decn.c    **** 		return set_NaN(res);
-ARM GAS  /tmp/ccUsuo8D.s 			page 262
+ARM GAS  /tmp/cc5RgpaF.s 			page 262
 
 
  10335              		.loc 1 1154 2 view .LVU2583
@@ -15718,7 +15718,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  10377              		.loc 1 1156 2 is_stmt 0 view .LVU2595
  10378 0020 01A8     		add	r0, sp, #4
  10379              	.LVL934:
-ARM GAS  /tmp/ccUsuo8D.s 			page 263
+ARM GAS  /tmp/cc5RgpaF.s 			page 263
 
 
 1156:src/decn.c    **** 	return res;
@@ -15778,7 +15778,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1163:src/decn.c    **** 	sincosNumber x2, s, c;
  10427              		.loc 1 1163 61 view .LVU2605
  10428 0008 A2B0     		sub	sp, sp, #136
-ARM GAS  /tmp/ccUsuo8D.s 			page 264
+ARM GAS  /tmp/cc5RgpaF.s 			page 264
 
 
  10429              		.cfi_def_cfa_offset 152
@@ -15838,7 +15838,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1171:src/decn.c    **** 		if (decNumberIsZero(&c.n))
  10471              		.loc 1 1171 3 view .LVU2618
  10472 0026 17A9     		add	r1, sp, #92
-ARM GAS  /tmp/ccUsuo8D.s 			page 265
+ARM GAS  /tmp/cc5RgpaF.s 			page 265
 
 
  10473              	.LVL942:
@@ -15898,7 +15898,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  131:src/decn.c    **** }
  10513              		.loc 1 131 9 view .LVU2633
  10514 004e FFF7FEFF 		bl	decNumberDivide
-ARM GAS  /tmp/ccUsuo8D.s 			page 266
+ARM GAS  /tmp/cc5RgpaF.s 			page 266
 
 
  10515              	.LVL949:
@@ -15958,7 +15958,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  10558              	.LBB2231:
  10559              	.LBB2221:
 1178:src/decn.c    **** 
-ARM GAS  /tmp/ccUsuo8D.s 			page 267
+ARM GAS  /tmp/cc5RgpaF.s 			page 267
 
 
  10560              		.loc 1 1178 1 view .LVU2645
@@ -16018,7 +16018,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  10610              	.LBB2234:
  127:src/decn.c    **** }
  10611              		.loc 1 127 9 view .LVU2652
-ARM GAS  /tmp/ccUsuo8D.s 			page 268
+ARM GAS  /tmp/cc5RgpaF.s 			page 268
 
 
  10612 0004 0A46     		mov	r2, r1
@@ -16078,7 +16078,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  10654              	.LBB2243:
  324:src/decn.c    **** }
  10655              		.loc 1 324 2 view .LVU2665
-ARM GAS  /tmp/ccUsuo8D.s 			page 269
+ARM GAS  /tmp/cc5RgpaF.s 			page 269
 
 
  10656              	.LBB2244:
@@ -16138,7 +16138,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  10698 0034 01A9     		add	r1, sp, #4
  10699 0036 2046     		mov	r0, r4
  10700 0038 FFF7FEFF 		bl	sincosTaylor
-ARM GAS  /tmp/ccUsuo8D.s 			page 270
+ARM GAS  /tmp/cc5RgpaF.s 			page 270
 
 
  10701              	.LVL964:
@@ -16198,7 +16198,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1203:src/decn.c    **** 
  10743              		.loc 1 1203 1 view .LVU2690
  10744 0054 0AB0     		add	sp, sp, #40
-ARM GAS  /tmp/ccUsuo8D.s 			page 271
+ARM GAS  /tmp/cc5RgpaF.s 			page 271
 
 
  10745              		.cfi_def_cfa_offset 16
@@ -16258,7 +16258,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  10793              	.LVL971:
 1210:src/decn.c    **** 
  10794              		.loc 1 1210 2 is_stmt 1 view .LVU2699
-ARM GAS  /tmp/ccUsuo8D.s 			page 272
+ARM GAS  /tmp/cc5RgpaF.s 			page 272
 
 
 1213:src/decn.c    **** 		dn_minus(&a, x);
@@ -16318,7 +16318,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  10835              		.loc 1 1227 7 view .LVU2713
  10836 002c DFF8A0B1 		ldr	fp, .L788+20
  10837              	.LBB2257:
-ARM GAS  /tmp/ccUsuo8D.s 			page 273
+ARM GAS  /tmp/cc5RgpaF.s 			page 273
 
 
  10838              	.LBB2258:
@@ -16378,7 +16378,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  10886 0050 FFF7FEFF 		bl	decNumberSquareRoot
  10887              	.LVL979:
  10888              	.LBE2275:
-ARM GAS  /tmp/ccUsuo8D.s 			page 274
+ARM GAS  /tmp/cc5RgpaF.s 			page 274
 
 
  10889              	.LBE2274:
@@ -16438,7 +16438,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  10931              	.LBE2271:
  10932              	.LBE2285:
 1233:src/decn.c    **** 		dn_inc(&b);
-ARM GAS  /tmp/ccUsuo8D.s 			page 275
+ARM GAS  /tmp/cc5RgpaF.s 			page 275
 
 
  10933              		.loc 1 1233 3 is_stmt 1 discriminator 2 view .LVU2732
@@ -16498,7 +16498,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  131:src/decn.c    **** }
  10973              		.loc 1 131 9 discriminator 2 view .LVU2747
  10974              	.LBE2289:
-ARM GAS  /tmp/ccUsuo8D.s 			page 276
+ARM GAS  /tmp/cc5RgpaF.s 			page 276
 
 
  10975              	.LBE2288:
@@ -16558,7 +16558,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  11017              	.LBB2297:
  119:src/decn.c    **** }
  11018              		.loc 1 119 9 view .LVU2760
-ARM GAS  /tmp/ccUsuo8D.s 			page 277
+ARM GAS  /tmp/cc5RgpaF.s 			page 277
 
 
  11019 0090 DFF84081 		ldr	r8, .L788+24
@@ -16618,7 +16618,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  11061              		.loc 1 131 2 view .LVU2772
  131:src/decn.c    **** }
  11062              		.loc 1 131 9 is_stmt 0 view .LVU2773
-ARM GAS  /tmp/ccUsuo8D.s 			page 278
+ARM GAS  /tmp/cc5RgpaF.s 			page 278
 
 
  11063 00b6 1CA9     		add	r1, sp, #112
@@ -16678,7 +16678,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  11105              	.LBB2309:
  11106              	.LBI2291:
  126:src/decn.c    **** 	return decNumberMultiply(r, a, b, &Ctx);
-ARM GAS  /tmp/ccUsuo8D.s 			page 279
+ARM GAS  /tmp/cc5RgpaF.s 			page 279
 
 
  11107              		.loc 1 126 12 discriminator 1 view .LVU2786
@@ -16738,7 +16738,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  11147              	.LBB2312:
  11148              	.LBI2312:
  118:src/decn.c    **** 	return decNumberAdd(r, a, b, &Ctx);
-ARM GAS  /tmp/ccUsuo8D.s 			page 280
+ARM GAS  /tmp/cc5RgpaF.s 			page 280
 
 
  11149              		.loc 1 118 12 discriminator 1 view .LVU2801
@@ -16798,7 +16798,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  11190              	.LBB2315:
  11191              	.LBI2315:
  126:src/decn.c    **** 	return decNumberMultiply(r, a, b, &Ctx);
-ARM GAS  /tmp/ccUsuo8D.s 			page 281
+ARM GAS  /tmp/cc5RgpaF.s 			page 281
 
 
  11192              		.loc 1 126 12 discriminator 1 view .LVU2815
@@ -16858,7 +16858,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  11232              	.LBB2319:
  11233              	.LBI2319:
  122:src/decn.c    **** 	return decNumberSubtract(r, a, b, &Ctx);
-ARM GAS  /tmp/ccUsuo8D.s 			page 282
+ARM GAS  /tmp/cc5RgpaF.s 			page 282
 
 
  11234              		.loc 1 122 12 discriminator 1 view .LVU2830
@@ -16918,7 +16918,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1261:src/decn.c    **** 	dn_multiply(res, res, &a);
  11275              		.loc 1 1261 12 is_stmt 0 discriminator 1 view .LVU2844
  11276 0136 37A9     		add	r1, sp, #220
-ARM GAS  /tmp/ccUsuo8D.s 			page 283
+ARM GAS  /tmp/cc5RgpaF.s 			page 283
 
 
  11277 0138 2046     		mov	r0, r4
@@ -16978,7 +16978,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  11318 0152 2B46     		mov	r3, r5
  11319 0154 2246     		mov	r2, r4
  11320 0156 2146     		mov	r1, r4
-ARM GAS  /tmp/ccUsuo8D.s 			page 284
+ARM GAS  /tmp/cc5RgpaF.s 			page 284
 
 
  11321 0158 2046     		mov	r0, r4
@@ -17038,7 +17038,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  151:src/decn.c    **** }
  11362              		.loc 1 151 9 view .LVU2871
  11363              	.LBE2255:
-ARM GAS  /tmp/ccUsuo8D.s 			page 285
+ARM GAS  /tmp/cc5RgpaF.s 			page 285
 
 
  11364              	.LBE2331:
@@ -17098,7 +17098,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  123:src/decn.c    **** }
  11405              		.loc 1 123 9 is_stmt 0 view .LVU2885
  11406 0198 094B     		ldr	r3, .L788+4
-ARM GAS  /tmp/ccUsuo8D.s 			page 286
+ARM GAS  /tmp/cc5RgpaF.s 			page 286
 
 
  11407 019a 0C49     		ldr	r1, .L788+16
@@ -17158,7 +17158,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  11451 01d0 00000000 		.word	const_0_1
  11452 01d4 00000000 		.word	const_2
  11453              		.cfi_endproc
-ARM GAS  /tmp/ccUsuo8D.s 			page 287
+ARM GAS  /tmp/cc5RgpaF.s 			page 287
 
 
  11454              	.LFE90:
@@ -17218,7 +17218,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  11498              		.loc 1 256 5 is_stmt 0 view .LVU2907
  11499 000e 1DB1     		cbz	r5, .L790
  257:src/decn.c    **** 	return x;
-ARM GAS  /tmp/ccUsuo8D.s 			page 288
+ARM GAS  /tmp/cc5RgpaF.s 			page 288
 
 
  11500              		.loc 1 257 3 is_stmt 1 view .LVU2908
@@ -17278,7 +17278,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  11542 0026 1948     		ldr	r0, .L799+8
  11543 0028 6946     		mov	r1, sp
  11544 002a FFF7FEFF 		bl	dn_lt
-ARM GAS  /tmp/ccUsuo8D.s 			page 289
+ARM GAS  /tmp/cc5RgpaF.s 			page 289
 
 
  11545              	.LVL1041:
@@ -17338,7 +17338,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  11585 0044 1046     		mov	r0, r2
  11586 0046 FFF7FEFF 		bl	decNumberSubtract
  11587              	.LVL1046:
-ARM GAS  /tmp/ccUsuo8D.s 			page 290
+ARM GAS  /tmp/cc5RgpaF.s 			page 290
 
 
  123:src/decn.c    **** }
@@ -17398,7 +17398,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  11628 005c FFF7FEFF 		bl	decNumberAdd
  11629              	.LVL1050:
  119:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 291
+ARM GAS  /tmp/cc5RgpaF.s 			page 291
 
 
  11630              		.loc 1 119 9 view .LVU2949
@@ -17458,7 +17458,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  11671 0076 064A     		ldr	r2, .L799+12
  11672 0078 6946     		mov	r1, sp
  11673 007a 2846     		mov	r0, r5
-ARM GAS  /tmp/ccUsuo8D.s 			page 292
+ARM GAS  /tmp/cc5RgpaF.s 			page 292
 
 
  11674 007c FFF7FEFF 		bl	decNumberMultiply
@@ -17518,7 +17518,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  11722              		.loc 1 1304 5 view .LVU2970
  11723 0002 0B7A     		ldrb	r3, [r1, #8]	@ zero_extendqisi2
  11724 0004 13F0300F 		tst	r3, #48
-ARM GAS  /tmp/ccUsuo8D.s 			page 293
+ARM GAS  /tmp/cc5RgpaF.s 			page 293
 
 
 1301:src/decn.c    **** 	decNumber abx, z;
@@ -17578,7 +17578,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  147:src/decn.c    **** }
  11767              		.loc 1 147 9 view .LVU2983
  11768 0020 0C46     		mov	r4, r1
-ARM GAS  /tmp/ccUsuo8D.s 			page 294
+ARM GAS  /tmp/cc5RgpaF.s 			page 294
 
 
  11769              	.LVL1061:
@@ -17638,7 +17638,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  11808              		.loc 1 1317 3 is_stmt 1 view .LVU2998
  11809 003c 2846     		mov	r0, r5
  11810 003e FFF7FEFF 		bl	decNumberZero
-ARM GAS  /tmp/ccUsuo8D.s 			page 295
+ARM GAS  /tmp/cc5RgpaF.s 			page 295
 
 
  11811              	.LVL1066:
@@ -17698,7 +17698,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  11852              	.LVL1070:
  123:src/decn.c    **** }
  11853              		.loc 1 123 9 view .LVU3012
-ARM GAS  /tmp/ccUsuo8D.s 			page 296
+ARM GAS  /tmp/cc5RgpaF.s 			page 296
 
 
  11854 0054 114B     		ldr	r3, .L810+4
@@ -17758,7 +17758,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  11895 006c 0C49     		ldr	r1, .L810+8
  11896 006e 6846     		mov	r0, sp
  11897 0070 FFF7FEFF 		bl	decNumberSubtract
-ARM GAS  /tmp/ccUsuo8D.s 			page 297
+ARM GAS  /tmp/cc5RgpaF.s 			page 297
 
 
  11898              	.LVL1074:
@@ -17818,7 +17818,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  11938              		.loc 1 127 9 is_stmt 0 view .LVU3039
  11939 0088 044B     		ldr	r3, .L810+4
  11940 008a 064A     		ldr	r2, .L810+12
-ARM GAS  /tmp/ccUsuo8D.s 			page 298
+ARM GAS  /tmp/cc5RgpaF.s 			page 298
 
 
  11941 008c 6946     		mov	r1, sp
@@ -17878,7 +17878,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  11990 0002 8AB0     		sub	sp, sp, #40
  11991              		.cfi_def_cfa_offset 48
 1329:src/decn.c    **** 	decNumber z;
-ARM GAS  /tmp/ccUsuo8D.s 			page 299
+ARM GAS  /tmp/cc5RgpaF.s 			page 299
 
 
  11992              		.loc 1 1329 64 view .LVU3047
@@ -17938,7 +17938,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  12038              	.LFB94:
 1337:src/decn.c    **** 	decNumber z;
  12039              		.loc 1 1337 64 is_stmt 1 view -0
-ARM GAS  /tmp/ccUsuo8D.s 			page 300
+ARM GAS  /tmp/cc5RgpaF.s 			page 300
 
 
  12040              		.cfi_startproc
@@ -17998,7 +17998,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  12081              		@ sp needed
  12082 001a 10BD     		pop	{r4, pc}
 1343:src/decn.c    **** 
-ARM GAS  /tmp/ccUsuo8D.s 			page 301
+ARM GAS  /tmp/cc5RgpaF.s 			page 301
 
 
  12083              		.loc 1 1343 1 view .LVU3072
@@ -18058,7 +18058,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  12127              		.loc 1 1350 4 is_stmt 1 view .LVU3084
  12128              	.LVL1091:
  12129              	.LBB2390:
-ARM GAS  /tmp/ccUsuo8D.s 			page 302
+ARM GAS  /tmp/cc5RgpaF.s 			page 302
 
 
  12130              	.LBI2390:
@@ -18118,7 +18118,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  12171 0034 0CDB     		blt	.L825
  12172              	.LVL1098:
  12173              	.L820:
-ARM GAS  /tmp/ccUsuo8D.s 			page 303
+ARM GAS  /tmp/cc5RgpaF.s 			page 303
 
 
 1358:src/decn.c    **** 	return res;
@@ -18178,7 +18178,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  12216              		.loc 1 151 2 view .LVU3109
  151:src/decn.c    **** }
  12217              		.loc 1 151 9 is_stmt 0 view .LVU3110
-ARM GAS  /tmp/ccUsuo8D.s 			page 304
+ARM GAS  /tmp/cc5RgpaF.s 			page 304
 
 
  12218 0050 044A     		ldr	r2, .L826+8
@@ -18238,7 +18238,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1367:src/decn.c    **** 		return set_NaN(at);
  12267              		.loc 1 1367 2 view .LVU3118
 1367:src/decn.c    **** 		return set_NaN(at);
-ARM GAS  /tmp/ccUsuo8D.s 			page 305
+ARM GAS  /tmp/cc5RgpaF.s 			page 305
 
 
  12268              		.loc 1 1367 24 is_stmt 0 view .LVU3119
@@ -18298,7 +18298,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  12310 0022 4889     		ldrh	r0, [r1, #10]
  12311              	.LVL1111:
   74:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 306
+ARM GAS  /tmp/cc5RgpaF.s 			page 306
 
 
  12312              		.loc 1 74 9 view .LVU3132
@@ -18358,7 +18358,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  12354              	.LBE2403:
 1397:src/decn.c    **** 		if (yneg)
  12355              		.loc 1 1397 3 is_stmt 1 view .LVU3145
-ARM GAS  /tmp/ccUsuo8D.s 			page 307
+ARM GAS  /tmp/cc5RgpaF.s 			page 307
 
 
  12356              	.LBB2405:
@@ -18418,7 +18418,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  12397 0058 7006     		lsls	r0, r6, #25
  12398 005a 2AD4     		bmi	.L865
 1428:src/decn.c    **** 		decNumberPIon2(at);
-ARM GAS  /tmp/ccUsuo8D.s 			page 308
+ARM GAS  /tmp/cc5RgpaF.s 			page 308
 
 
  12399              		.loc 1 1428 2 is_stmt 1 view .LVU3159
@@ -18478,7 +18478,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  12439              		.loc 1 118 12 view .LVU3173
  12440              	.LBB2412:
  119:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 309
+ARM GAS  /tmp/cc5RgpaF.s 			page 309
 
 
  12441              		.loc 1 119 2 view .LVU3174
@@ -18538,7 +18538,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1371:src/decn.c    **** 			if (dn_eq0(x)) {
  12485              		.loc 1 1371 6 is_stmt 0 view .LVU3185
  12486 00a2 002D     		cmp	r5, #0
-ARM GAS  /tmp/ccUsuo8D.s 			page 310
+ARM GAS  /tmp/cc5RgpaF.s 			page 310
 
 
  12487 00a4 3FDB     		blt	.L867
@@ -18598,7 +18598,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  12526              	.LVL1134:
  274:src/decn.c    **** }
  12527              		.loc 1 274 2 is_stmt 0 view .LVU3201
-ARM GAS  /tmp/ccUsuo8D.s 			page 311
+ARM GAS  /tmp/cc5RgpaF.s 			page 311
 
 
  12528 00bc 09A8     		add	r0, sp, #36
@@ -18658,7 +18658,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  12569              	.LBB2424:
  12570              	.LBI2424:
  270:src/decn.c    **** 	decNumberCopy(pi, &const_PI);
-ARM GAS  /tmp/ccUsuo8D.s 			page 312
+ARM GAS  /tmp/cc5RgpaF.s 			page 312
 
 
  12571              		.loc 1 270 6 view .LVU3215
@@ -18718,7 +18718,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  12611 00ec 5906     		lsls	r1, r3, #25
  12612              	.LVL1146:
 1404:src/decn.c    **** 				decNumberPI(&t);
-ARM GAS  /tmp/ccUsuo8D.s 			page 313
+ARM GAS  /tmp/cc5RgpaF.s 			page 313
 
 
  12613              		.loc 1 1404 7 view .LVU3230
@@ -18778,7 +18778,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  12654              	.LVL1152:
  12655              	.L852:
 1421:src/decn.c    **** 				if (yneg)
-ARM GAS  /tmp/ccUsuo8D.s 			page 314
+ARM GAS  /tmp/cc5RgpaF.s 			page 314
 
 
  12656              		.loc 1 1421 5 is_stmt 1 view .LVU3244
@@ -18838,7 +18838,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  12697 0126 002F     		cmp	r7, #0
  12698 0128 05DB     		blt	.L870
  12699              	.LVL1157:
-ARM GAS  /tmp/ccUsuo8D.s 			page 315
+ARM GAS  /tmp/cc5RgpaF.s 			page 315
 
 
  12700              	.L863:
@@ -18898,7 +18898,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  12741              		.loc 1 271 2 view .LVU3270
  12742              	.LBE2441:
  12743              	.LBE2440:
-ARM GAS  /tmp/ccUsuo8D.s 			page 316
+ARM GAS  /tmp/cc5RgpaF.s 			page 316
 
 
 1375:src/decn.c    **** 				} else
@@ -18958,7 +18958,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  12792              		.cfi_offset 4, -8
  12793              		.cfi_offset 14, -4
  12794 0002 8AB0     		sub	sp, sp, #40
-ARM GAS  /tmp/ccUsuo8D.s 			page 317
+ARM GAS  /tmp/cc5RgpaF.s 			page 317
 
 
  12795              		.cfi_def_cfa_offset 48
@@ -19018,7 +19018,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  12840              	op_r2p:
  12841              	.LVL1170:
  12842              	.LFB98:
-ARM GAS  /tmp/ccUsuo8D.s 			page 318
+ARM GAS  /tmp/cc5RgpaF.s 			page 318
 
 
 1457:src/decn.c    **** 	decNumber x, y, rx, ry;
@@ -19078,7 +19078,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  12884 001e 1E22     		movs	r2, #30
  12885 0020 FFF7FEFF 		bl	decNumberDRG_internal
  12886              	.LVL1176:
-ARM GAS  /tmp/ccUsuo8D.s 			page 319
+ARM GAS  /tmp/cc5RgpaF.s 			page 319
 
 
 1049:src/decn.c    **** }
@@ -19138,7 +19138,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  12931              		.cfi_endproc
  12932              	.LFE98:
  12934              		.section	.text.op_p2r,"ax",%progbits
-ARM GAS  /tmp/ccUsuo8D.s 			page 320
+ARM GAS  /tmp/cc5RgpaF.s 			page 320
 
 
  12935              		.align	1
@@ -19198,7 +19198,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  127:src/decn.c    **** }
  12979              		.loc 1 127 9 view .LVU3324
  12980 0016 0D4B     		ldr	r3, .L884
-ARM GAS  /tmp/ccUsuo8D.s 			page 321
+ARM GAS  /tmp/cc5RgpaF.s 			page 321
 
 
  12981 0018 13A9     		add	r1, sp, #76
@@ -19258,7 +19258,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1490:src/decn.c    **** #ifdef RP_PREFIX
  13022              		.loc 1 1490 2 view .LVU3338
  13023 0038 0AA9     		add	r1, sp, #40
-ARM GAS  /tmp/ccUsuo8D.s 			page 322
+ARM GAS  /tmp/cc5RgpaF.s 			page 322
 
 
  13024 003a 01A8     		add	r0, sp, #4
@@ -19318,7 +19318,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1502:src/decn.c    **** 	decNumber t, u, v;
  13073              		.loc 1 1502 74 view .LVU3346
  13074 0006 0646     		mov	r6, r0
-ARM GAS  /tmp/ccUsuo8D.s 			page 323
+ARM GAS  /tmp/cc5RgpaF.s 			page 323
 
 
 1505:src/decn.c    **** 		if (dn_abs_lt(x, &const_0_5)) {
@@ -19378,7 +19378,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  127:src/decn.c    **** }
  13115              		.loc 1 127 9 view .LVU3361
  13116              	.LBE2455:
-ARM GAS  /tmp/ccUsuo8D.s 			page 324
+ARM GAS  /tmp/cc5RgpaF.s 			page 324
 
 
  13117              	.LBE2454:
@@ -19438,7 +19438,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  131:src/decn.c    **** }
  13158              		.loc 1 131 9 view .LVU3375
  13159 003c 13A8     		add	r0, sp, #76
-ARM GAS  /tmp/ccUsuo8D.s 			page 325
+ARM GAS  /tmp/cc5RgpaF.s 			page 325
 
 
  13160              	.LVL1207:
@@ -19498,7 +19498,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  13200 0050 13AA     		add	r2, sp, #76
  13201              	.LVL1211:
  127:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 326
+ARM GAS  /tmp/cc5RgpaF.s 			page 326
 
 
  13202              		.loc 1 127 9 view .LVU3390
@@ -19558,7 +19558,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  13242              		.loc 1 130 12 view .LVU3404
  13243              	.LBB2473:
  131:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 327
+ARM GAS  /tmp/cc5RgpaF.s 			page 327
 
 
  13244              		.loc 1 131 2 view .LVU3405
@@ -19618,7 +19618,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  163:src/decn.c    **** }
  13288              		.loc 1 163 9 view .LVU3416
  13289 0086 FFF7FEFF 		bl	decNumberExp
-ARM GAS  /tmp/ccUsuo8D.s 			page 328
+ARM GAS  /tmp/cc5RgpaF.s 			page 328
 
 
  13290              	.LVL1223:
@@ -19678,7 +19678,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  123:src/decn.c    **** }
  13330              		.loc 1 123 9 view .LVU3431
  13331 0098 0AA9     		add	r1, sp, #40
-ARM GAS  /tmp/ccUsuo8D.s 			page 329
+ARM GAS  /tmp/cc5RgpaF.s 			page 329
 
 
  13332              	.LVL1228:
@@ -19738,7 +19738,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  13374              	.LBE2483:
  13375              	.LBE2482:
  13376              		.cfi_endproc
-ARM GAS  /tmp/ccUsuo8D.s 			page 330
+ARM GAS  /tmp/cc5RgpaF.s 			page 330
 
 
  13377              	.LFE100:
@@ -19798,7 +19798,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  13421              		.loc 1 256 2 view .LVU3455
  256:src/decn.c    **** 		decNumberCopy(x, &const_NaN);
  13422              		.loc 1 256 5 is_stmt 0 view .LVU3456
-ARM GAS  /tmp/ccUsuo8D.s 			page 331
+ARM GAS  /tmp/cc5RgpaF.s 			page 331
 
 
  13423 0012 10B1     		cbz	r0, .L899
@@ -19858,7 +19858,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  13465 0030 38BD     		pop	{r3, r4, r5, pc}
  13466              	.LVL1242:
  13467              	.L907:
-ARM GAS  /tmp/ccUsuo8D.s 			page 332
+ARM GAS  /tmp/cc5RgpaF.s 			page 332
 
 
 1535:src/decn.c    **** 
@@ -19918,7 +19918,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  13512              		.loc 1 1540 4 is_stmt 1 view .LVU3480
  13513              	.LVL1245:
  13514              	.LBB2488:
-ARM GAS  /tmp/ccUsuo8D.s 			page 333
+ARM GAS  /tmp/cc5RgpaF.s 			page 333
 
 
  13515              	.LBI2488:
@@ -19978,7 +19978,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  13557              	.LBE2492:
  13558              	.LBE2493:
 1543:src/decn.c    **** 	return res;
-ARM GAS  /tmp/ccUsuo8D.s 			page 334
+ARM GAS  /tmp/cc5RgpaF.s 			page 334
 
 
  13559              		.loc 1 1543 2 is_stmt 1 view .LVU3493
@@ -20038,7 +20038,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  13606 0004 13F0300F 		tst	r3, #48
 1547:src/decn.c    **** 	decNumber a, b;
  13607              		.loc 1 1547 62 view .LVU3503
-ARM GAS  /tmp/ccUsuo8D.s 			page 335
+ARM GAS  /tmp/cc5RgpaF.s 			page 335
 
 
  13608 0008 93B0     		sub	sp, sp, #76
@@ -20098,7 +20098,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  13649 0020 1449     		ldr	r1, .L924+4
  13650              	.LVL1258:
 1552:src/decn.c    **** 		if (decNumberIsNegative(x))
-ARM GAS  /tmp/ccUsuo8D.s 			page 336
+ARM GAS  /tmp/cc5RgpaF.s 			page 336
 
 
  13651              		.loc 1 1552 7 view .LVU3517
@@ -20158,7 +20158,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  13692              	.LBE2501:
  13693              	.LBE2503:
 1561:src/decn.c    **** 
-ARM GAS  /tmp/ccUsuo8D.s 			page 337
+ARM GAS  /tmp/cc5RgpaF.s 			page 337
 
 
  13694              		.loc 1 1561 1 view .LVU3531
@@ -20218,7 +20218,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  13736 0052 09A9     		add	r1, sp, #36
  13737              	.LVL1264:
  119:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 338
+ARM GAS  /tmp/cc5RgpaF.s 			page 338
 
 
  13738              		.loc 1 119 9 view .LVU3544
@@ -20278,7 +20278,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  13783              		.cfi_endproc
  13784              	.LFE103:
  13786              		.section	.text.decNumberArcSinh,"ax",%progbits
-ARM GAS  /tmp/ccUsuo8D.s 			page 339
+ARM GAS  /tmp/cc5RgpaF.s 			page 339
 
 
  13787              		.align	1
@@ -20338,7 +20338,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  13834              		.loc 1 1578 65 view .LVU3561
  13835 0008 0646     		mov	r6, r0
  13836              	.LBB2526:
-ARM GAS  /tmp/ccUsuo8D.s 			page 340
+ARM GAS  /tmp/cc5RgpaF.s 			page 340
 
 
  13837              	.LBB2517:
@@ -20398,7 +20398,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  13878              	.LBB2523:
  119:src/decn.c    **** }
  13879              		.loc 1 119 2 view .LVU3575
-ARM GAS  /tmp/ccUsuo8D.s 			page 341
+ARM GAS  /tmp/cc5RgpaF.s 			page 341
 
 
  119:src/decn.c    **** }
@@ -20458,7 +20458,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  119:src/decn.c    **** }
  13921              		.loc 1 119 2 view .LVU3589
  119:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 342
+ARM GAS  /tmp/cc5RgpaF.s 			page 342
 
 
  13922              		.loc 1 119 9 is_stmt 0 view .LVU3590
@@ -20518,7 +20518,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  13963              		.loc 1 119 9 is_stmt 0 view .LVU3603
  13964 0044 09A9     		add	r1, sp, #36
  13965              	.LVL1281:
-ARM GAS  /tmp/ccUsuo8D.s 			page 343
+ARM GAS  /tmp/cc5RgpaF.s 			page 343
 
 
  119:src/decn.c    **** }
@@ -20578,7 +20578,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  14008              		.loc 1 1589 1 view .LVU3615
  14009              		.align	2
  14010              	.L928:
-ARM GAS  /tmp/ccUsuo8D.s 			page 344
+ARM GAS  /tmp/cc5RgpaF.s 			page 344
 
 
  14011 0068 00000000 		.word	Ctx
@@ -20638,7 +20638,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  14059              	.LBE2547:
  14060              	.LBE2549:
  14061              	.LBE2551:
-ARM GAS  /tmp/ccUsuo8D.s 			page 345
+ARM GAS  /tmp/cc5RgpaF.s 			page 345
 
 
 1592:src/decn.c    **** 	decNumber z;
@@ -20698,7 +20698,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  14102              	.LVL1292:
  123:src/decn.c    **** }
  14103              		.loc 1 123 9 view .LVU3638
-ARM GAS  /tmp/ccUsuo8D.s 			page 346
+ARM GAS  /tmp/cc5RgpaF.s 			page 346
 
 
  14104              	.LBE2557:
@@ -20758,7 +20758,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1599:src/decn.c    **** }
  14145              		.loc 1 1599 9 is_stmt 0 view .LVU3652
  14146 0034 01A9     		add	r1, sp, #4
-ARM GAS  /tmp/ccUsuo8D.s 			page 347
+ARM GAS  /tmp/cc5RgpaF.s 			page 347
 
 
  14147 0036 2046     		mov	r0, r4
@@ -20818,7 +20818,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1602:src/decn.c    **** 	decNumber y, z;
  14195              		.loc 1 1602 65 view .LVU3661
  14196 000a 0446     		mov	r4, r0
-ARM GAS  /tmp/ccUsuo8D.s 			page 348
+ARM GAS  /tmp/cc5RgpaF.s 			page 348
 
 
 1605:src/decn.c    **** 		return set_NaN(res);
@@ -20878,7 +20878,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  14238              		.loc 1 147 9 view .LVU3674
  14239              	.LBE2565:
  14240              	.LBI2564:
-ARM GAS  /tmp/ccUsuo8D.s 			page 349
+ARM GAS  /tmp/cc5RgpaF.s 			page 349
 
 
  146:src/decn.c    **** 	return decNumberAbs(r, a, &Ctx);
@@ -20938,7 +20938,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  14279              	.LBE2570:
  14280              	.LBE2569:
 1611:src/decn.c    **** 	}
-ARM GAS  /tmp/ccUsuo8D.s 			page 350
+ARM GAS  /tmp/cc5RgpaF.s 			page 350
 
 
  14281              		.loc 1 1611 3 is_stmt 1 view .LVU3691
@@ -20998,7 +20998,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  123:src/decn.c    **** }
  14324              		.loc 1 123 9 is_stmt 0 view .LVU3703
  14325 0046 2A46     		mov	r2, r5
-ARM GAS  /tmp/ccUsuo8D.s 			page 351
+ARM GAS  /tmp/cc5RgpaF.s 			page 351
 
 
  14326 0048 0F4B     		ldr	r3, .L941+4
@@ -21058,7 +21058,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  127:src/decn.c    **** }
  14367              		.loc 1 127 9 is_stmt 0 view .LVU3717
  14368 005e 0A4B     		ldr	r3, .L941+4
-ARM GAS  /tmp/ccUsuo8D.s 			page 352
+ARM GAS  /tmp/cc5RgpaF.s 			page 352
 
 
  14369 0060 0D4A     		ldr	r2, .L941+20
@@ -21118,7 +21118,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  14412              		@ sp needed
  14413 0080 30BD     		pop	{r4, r5, pc}
  14414              	.LVL1318:
-ARM GAS  /tmp/ccUsuo8D.s 			page 353
+ARM GAS  /tmp/cc5RgpaF.s 			page 353
 
 
  14415              	.L942:
@@ -21178,7 +21178,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  14464              	.LBE2591:
  14465              		.cfi_endproc
  14466              	.LFE107:
-ARM GAS  /tmp/ccUsuo8D.s 			page 354
+ARM GAS  /tmp/cc5RgpaF.s 			page 354
 
 
  14468              		.section	.text.decNumberR2D,"ax",%progbits
@@ -21238,7 +21238,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1631:src/decn.c    **** 	return dn_multiply(res, x, &const_PIon200);
  14519              		.loc 1 1631 61 is_stmt 1 view -0
  14520              		.cfi_startproc
-ARM GAS  /tmp/ccUsuo8D.s 			page 355
+ARM GAS  /tmp/cc5RgpaF.s 			page 355
 
 
  14521              		@ args = 0, pretend = 0, frame = 0
@@ -21298,7 +21298,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  14568              		.loc 1 131 2 view .LVU3751
  131:src/decn.c    **** }
  14569              		.loc 1 131 9 is_stmt 0 view .LVU3752
-ARM GAS  /tmp/ccUsuo8D.s 			page 356
+ARM GAS  /tmp/cc5RgpaF.s 			page 356
 
 
  14570 0000 014B     		ldr	r3, .L953
@@ -21358,7 +21358,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  14619              	.LBE2600:
  14620              	.LBE2599:
  14621              		.cfi_endproc
-ARM GAS  /tmp/ccUsuo8D.s 			page 357
+ARM GAS  /tmp/cc5RgpaF.s 			page 357
 
 
  14622              	.LFE111:
@@ -21418,7 +21418,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  14674              	.LFB113:
 1647:src/decn.c    **** 	return decNumberDRG_internal(res, x, XeqOpCode);
  14675              		.loc 1 1647 61 is_stmt 1 view -0
-ARM GAS  /tmp/ccUsuo8D.s 			page 358
+ARM GAS  /tmp/cc5RgpaF.s 			page 358
 
 
  14676              		.cfi_startproc
@@ -21478,7 +21478,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1689:src/decn.c    **** 
  14724              		.loc 1 1689 30 view .LVU3775
  14725 0006 01A8     		add	r0, sp, #4
-ARM GAS  /tmp/ccUsuo8D.s 			page 359
+ARM GAS  /tmp/cc5RgpaF.s 			page 359
 
 
  14726              	.LVL1334:
@@ -21538,7 +21538,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  14767              		.loc 1 119 9 view .LVU3788
  14768              	.LBE2607:
  14769              	.LBE2608:
-ARM GAS  /tmp/ccUsuo8D.s 			page 360
+ARM GAS  /tmp/cc5RgpaF.s 			page 360
 
 
  14770              	.LBE2609:
@@ -21598,7 +21598,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  123:src/decn.c    **** }
  14810              		.loc 1 123 9 view .LVU3803
  14811              	.LBE2614:
-ARM GAS  /tmp/ccUsuo8D.s 			page 361
+ARM GAS  /tmp/cc5RgpaF.s 			page 361
 
 
  14812              	.LBE2613:
@@ -21658,7 +21658,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1702:src/decn.c    **** 
  14853              		.loc 1 1702 1 is_stmt 0 view .LVU3817
  14854 0052 2046     		mov	r0, r4
-ARM GAS  /tmp/ccUsuo8D.s 			page 362
+ARM GAS  /tmp/cc5RgpaF.s 			page 362
 
 
  14855 0054 1DB0     		add	sp, sp, #116
@@ -21718,7 +21718,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  14896              	.LBB2624:
  14897              	.LBB2623:
  14898              	.LBB2622:
-ARM GAS  /tmp/ccUsuo8D.s 			page 363
+ARM GAS  /tmp/cc5RgpaF.s 			page 363
 
 
  14899              	.LBB2621:
@@ -21778,7 +21778,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  14945              		.cfi_def_cfa_offset 16
  14946              		.cfi_offset 4, -16
  14947              		.cfi_offset 5, -12
-ARM GAS  /tmp/ccUsuo8D.s 			page 364
+ARM GAS  /tmp/cc5RgpaF.s 			page 364
 
 
  14948              		.cfi_offset 6, -8
@@ -21838,7 +21838,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  14989              	.LBE2628:
 1713:src/decn.c    **** 			decNumberIntg(res, res);
  14990              		.loc 1 1713 3 is_stmt 1 view .LVU3854
-ARM GAS  /tmp/ccUsuo8D.s 			page 365
+ARM GAS  /tmp/cc5RgpaF.s 			page 365
 
 
 1713:src/decn.c    **** 			decNumberIntg(res, res);
@@ -21898,7 +21898,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  15033              		.loc 1 501 2 view .LVU3866
  503:src/decn.c    **** 	decNumberToIntegralValue(r, x, &Ctx);
  15034              		.loc 1 503 12 is_stmt 0 view .LVU3867
-ARM GAS  /tmp/ccUsuo8D.s 			page 366
+ARM GAS  /tmp/cc5RgpaF.s 			page 366
 
 
  15035 0034 0323     		movs	r3, #3
@@ -21958,7 +21958,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1718:src/decn.c    **** 
  15077              		.loc 1 1718 1 view .LVU3880
  15078              		.align	2
-ARM GAS  /tmp/ccUsuo8D.s 			page 367
+ARM GAS  /tmp/cc5RgpaF.s 			page 367
 
 
  15079              	.L976:
@@ -22018,7 +22018,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  15127              		.loc 1 324 2 view .LVU3888
  15128              	.LBB2642:
  15129              	.LBI2639:
-ARM GAS  /tmp/ccUsuo8D.s 			page 368
+ARM GAS  /tmp/cc5RgpaF.s 			page 368
 
 
  118:src/decn.c    **** 	return decNumberAdd(r, a, b, &Ctx);
@@ -22078,7 +22078,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  15171 0020 00000000 		.word	Ctx
  15172 0024 00000000 		.word	const_1
  15173              		.cfi_endproc
-ARM GAS  /tmp/ccUsuo8D.s 			page 369
+ARM GAS  /tmp/cc5RgpaF.s 			page 369
 
 
  15174              	.LFE119:
@@ -22138,7 +22138,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  15224              		.loc 1 1863 9 view .LVU3909
  15225              		.cfi_endproc
  15226              	.LFE121:
-ARM GAS  /tmp/ccUsuo8D.s 			page 370
+ARM GAS  /tmp/cc5RgpaF.s 			page 370
 
 
  15228 0006 00BF     		.section	.text.decNumberLnBeta,"ax",%progbits
@@ -22198,7 +22198,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  15274              	.LBI2647:
 1862:src/decn.c    **** 	return Gamma_LnGamma(res, xin, 1);
  15275              		.loc 1 1862 12 is_stmt 1 view .LVU3919
-ARM GAS  /tmp/ccUsuo8D.s 			page 371
+ARM GAS  /tmp/cc5RgpaF.s 			page 371
 
 
  15276              	.LBB2649:
@@ -22258,7 +22258,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  15315              	.LVL1392:
  119:src/decn.c    **** }
  15316              		.loc 1 119 9 view .LVU3935
-ARM GAS  /tmp/ccUsuo8D.s 			page 372
+ARM GAS  /tmp/cc5RgpaF.s 			page 372
 
 
  15317 0026 01A9     		add	r1, sp, #4
@@ -22318,7 +22318,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  15357 003e 0AA8     		add	r0, sp, #40
  15358              	.LVL1399:
 1863:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 373
+ARM GAS  /tmp/cc5RgpaF.s 			page 373
 
 
  15359              		.loc 1 1863 9 view .LVU3950
@@ -22378,7 +22378,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  15403              		.align	1
  15404              		.p2align 2,,3
  15405              		.global	decNumberHMS2HR
-ARM GAS  /tmp/ccUsuo8D.s 			page 374
+ARM GAS  /tmp/cc5RgpaF.s 			page 374
 
 
  15406              		.syntax unified
@@ -22438,7 +22438,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  15450              	.LBE2663:
  15451              	.LBE2665:
 1881:src/decn.c    **** 	decNumber m, s, t, x;
-ARM GAS  /tmp/ccUsuo8D.s 			page 375
+ARM GAS  /tmp/cc5RgpaF.s 			page 375
 
 
  15452              		.loc 1 1881 66 view .LVU3973
@@ -22498,7 +22498,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  15493              	.LBE2669:
  15494              	.LBE2668:
  15495              	.LBE2674:
-ARM GAS  /tmp/ccUsuo8D.s 			page 376
+ARM GAS  /tmp/cc5RgpaF.s 			page 376
 
 
  15496              	.LBB2675:
@@ -22558,7 +22558,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  15540              		.loc 1 523 12 view .LVU3996
  15541              	.LBE2687:
  524:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 377
+ARM GAS  /tmp/cc5RgpaF.s 			page 377
 
 
  15542              		.loc 1 524 2 view .LVU3997
@@ -22618,7 +22618,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  15582              	.LBB2691:
  127:src/decn.c    **** }
  15583              		.loc 1 127 2 view .LVU4012
-ARM GAS  /tmp/ccUsuo8D.s 			page 378
+ARM GAS  /tmp/cc5RgpaF.s 			page 378
 
 
  127:src/decn.c    **** }
@@ -22678,7 +22678,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  15626              	.LBE2700:
  15627              	.LBB2701:
  15628              	.LBB2698:
-ARM GAS  /tmp/ccUsuo8D.s 			page 379
+ARM GAS  /tmp/cc5RgpaF.s 			page 379
 
 
  119:src/decn.c    **** }
@@ -22738,7 +22738,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  127:src/decn.c    **** }
  15669              		.loc 1 127 9 view .LVU4039
  15670 0072 6846     		mov	r0, sp
-ARM GAS  /tmp/ccUsuo8D.s 			page 380
+ARM GAS  /tmp/cc5RgpaF.s 			page 380
 
 
  15671 0074 FFF7FEFF 		bl	decNumberMultiply
@@ -22798,7 +22798,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  15711 0086 09AA     		add	r2, sp, #36
  15712              	.LVL1434:
  119:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 381
+ARM GAS  /tmp/cc5RgpaF.s 			page 381
 
 
  15713              		.loc 1 119 9 view .LVU4054
@@ -22858,7 +22858,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  15755              	.L991:
  15756              		.cfi_restore_state
 1897:src/decn.c    **** 	return res;
-ARM GAS  /tmp/ccUsuo8D.s 			page 382
+ARM GAS  /tmp/cc5RgpaF.s 			page 382
 
 
  15757              		.loc 1 1897 11 is_stmt 1 view .LVU4067
@@ -22918,7 +22918,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1902:src/decn.c    **** 	const int neg = decNumberIsNegative(xin);
  15805              		.loc 1 1902 2 view .LVU4076
 1903:src/decn.c    **** 
-ARM GAS  /tmp/ccUsuo8D.s 			page 383
+ARM GAS  /tmp/cc5RgpaF.s 			page 383
 
 
  15806              		.loc 1 1903 2 view .LVU4077
@@ -22978,7 +22978,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  147:src/decn.c    **** }
  15849              		.loc 1 147 9 view .LVU4089
  15850              	.LBE2722:
-ARM GAS  /tmp/ccUsuo8D.s 			page 384
+ARM GAS  /tmp/cc5RgpaF.s 			page 384
 
 
  15851              	.LBE2724:
@@ -23038,7 +23038,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  504:src/decn.c    **** 	Ctx.round = a;
  15891              		.loc 1 504 2 view .LVU4104
  15892 002c 2246     		mov	r2, r4
-ARM GAS  /tmp/ccUsuo8D.s 			page 385
+ARM GAS  /tmp/cc5RgpaF.s 			page 385
 
 
  15893 002e 09A9     		add	r1, sp, #36
@@ -23098,7 +23098,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  15933              	.LBB2735:
  127:src/decn.c    **** }
  15934              		.loc 1 127 2 view .LVU4119
-ARM GAS  /tmp/ccUsuo8D.s 			page 386
+ARM GAS  /tmp/cc5RgpaF.s 			page 386
 
 
  127:src/decn.c    **** }
@@ -23158,7 +23158,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  15975 0060 12A9     		add	r1, sp, #72
  15976              	.LVL1461:
  364:src/decn.c    **** 	r->exponent += p;
-ARM GAS  /tmp/ccUsuo8D.s 			page 387
+ARM GAS  /tmp/cc5RgpaF.s 			page 387
 
 
  15977              		.loc 1 364 2 is_stmt 0 view .LVU4134
@@ -23218,7 +23218,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  16021              		.loc 1 1913 2 is_stmt 1 view .LVU4144
  16022              	.LBB2754:
  16023              	.LBI2742:
-ARM GAS  /tmp/ccUsuo8D.s 			page 388
+ARM GAS  /tmp/cc5RgpaF.s 			page 388
 
 
  523:src/decn.c    **** 	return round2int(r, x, DEC_ROUND_DOWN);
@@ -23278,7 +23278,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  16065              	.LBI2756:
  118:src/decn.c    **** 	return decNumberAdd(r, a, b, &Ctx);
  16066              		.loc 1 118 12 view .LVU4158
-ARM GAS  /tmp/ccUsuo8D.s 			page 389
+ARM GAS  /tmp/cc5RgpaF.s 			page 389
 
 
  16067              	.LBB2758:
@@ -23338,7 +23338,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  16107              	.LVL1471:
 1989:src/decn.c    **** 	Ctx.digits = digits;
  16108              		.loc 1 1989 2 is_stmt 1 view .LVU4173
-ARM GAS  /tmp/ccUsuo8D.s 			page 390
+ARM GAS  /tmp/cc5RgpaF.s 			page 390
 
 
 1990:src/decn.c    **** 	decNumberPlus(res, x, &Ctx);
@@ -23398,7 +23398,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  16148              	.LVL1475:
  365:src/decn.c    **** 	return r;
  16149              		.loc 1 365 2 view .LVU4189
-ARM GAS  /tmp/ccUsuo8D.s 			page 391
+ARM GAS  /tmp/cc5RgpaF.s 			page 391
 
 
  365:src/decn.c    **** 	return r;
@@ -23458,7 +23458,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  16191              	.LBB2776:
  364:src/decn.c    **** 	r->exponent += p;
  16192              		.loc 1 364 2 view .LVU4203
-ARM GAS  /tmp/ccUsuo8D.s 			page 392
+ARM GAS  /tmp/cc5RgpaF.s 			page 392
 
 
  16193 00da 09A9     		add	r1, sp, #36
@@ -23518,7 +23518,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  16233              		.loc 1 1929 2 is_stmt 1 view .LVU4217
 1930:src/decn.c    **** 
  16234              		.loc 1 1930 1 is_stmt 0 view .LVU4218
-ARM GAS  /tmp/ccUsuo8D.s 			page 393
+ARM GAS  /tmp/cc5RgpaF.s 			page 393
 
 
  16235 00fe 2846     		mov	r0, r5
@@ -23578,7 +23578,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  16278              	.LVL1490:
  119:src/decn.c    **** }
  16279              		.loc 1 119 9 view .LVU4230
-ARM GAS  /tmp/ccUsuo8D.s 			page 394
+ARM GAS  /tmp/cc5RgpaF.s 			page 394
 
 
  16280              	.LBE2782:
@@ -23638,7 +23638,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  16325              		.global	decNumberHMSAdd
  16326              		.syntax unified
  16327              		.thumb
-ARM GAS  /tmp/ccUsuo8D.s 			page 395
+ARM GAS  /tmp/cc5RgpaF.s 			page 395
 
 
  16328              		.thumb_func
@@ -23698,7 +23698,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  16371              	.LVL1498:
  119:src/decn.c    **** }
  16372              		.loc 1 119 9 view .LVU4253
-ARM GAS  /tmp/ccUsuo8D.s 			page 396
+ARM GAS  /tmp/cc5RgpaF.s 			page 396
 
 
  16373 001a 01A9     		add	r1, sp, #4
@@ -23758,7 +23758,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1943:src/decn.c    **** 
  16421              		.loc 1 1943 2 view .LVU4262
 1945:src/decn.c    **** 	decNumberHMS2HR(&b, y);
-ARM GAS  /tmp/ccUsuo8D.s 			page 397
+ARM GAS  /tmp/cc5RgpaF.s 			page 397
 
 
  16422              		.loc 1 1945 2 view .LVU4263
@@ -23818,7 +23818,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  123:src/decn.c    **** }
  16464              		.loc 1 123 9 view .LVU4276
  16465              	.LBE2788:
-ARM GAS  /tmp/ccUsuo8D.s 			page 398
+ARM GAS  /tmp/cc5RgpaF.s 			page 398
 
 
  16466              	.LBE2787:
@@ -23878,7 +23878,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  16513              		.loc 1 73 5 view .LVU4285
  16514              	.LBB2791:
   74:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 399
+ARM GAS  /tmp/cc5RgpaF.s 			page 399
 
 
  16515              		.loc 1 74 2 view .LVU4286
@@ -23938,7 +23938,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  16557              		.loc 1 1969 1 view .LVU4298
  16558 0014 2046     		mov	r0, r4
  16559 0016 10BD     		pop	{r4, pc}
-ARM GAS  /tmp/ccUsuo8D.s 			page 400
+ARM GAS  /tmp/cc5RgpaF.s 			page 400
 
 
  16560              	.LVL1518:
@@ -23998,7 +23998,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  16601              	.L1020:
 1969:src/decn.c    **** 
  16602              		.loc 1 1969 1 view .LVU4312
-ARM GAS  /tmp/ccUsuo8D.s 			page 401
+ARM GAS  /tmp/cc5RgpaF.s 			page 401
 
 
  16603 002a 00BF     		.align	2
@@ -24058,7 +24058,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 1977:src/decn.c    **** 	return bool2dn(res, (TRUTH_TABLE >> bit) & 1);
  16650              		.loc 1 1977 59 view .LVU4322
  16651 000c 9B00     		lsls	r3, r3, #2
-ARM GAS  /tmp/ccUsuo8D.s 			page 402
+ARM GAS  /tmp/cc5RgpaF.s 			page 402
 
 
  16652              	.LVL1524:
@@ -24118,7 +24118,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  16693 0018 4A89     		ldrh	r2, [r1, #10]
  16694 001a 12B9     		cbnz	r2, .L1024
  16695 001c 0A68     		ldr	r2, [r1]
-ARM GAS  /tmp/ccUsuo8D.s 			page 403
+ARM GAS  /tmp/cc5RgpaF.s 			page 403
 
 
  16696 001e 012A     		cmp	r2, #1
@@ -24178,7 +24178,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  336:src/decn.c    **** }
  16738              		.loc 1 336 9 view .LVU4348
  16739              	.LBE2823:
-ARM GAS  /tmp/ccUsuo8D.s 			page 404
+ARM GAS  /tmp/cc5RgpaF.s 			page 404
 
 
  16740              	.LBE2822:
@@ -24238,7 +24238,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  16784              		.loc 1 74 9 view .LVU4358
  16785 0050 12F0700F 		tst	r2, #112
  16786 0054 E0D0     		beq	.L1023
-ARM GAS  /tmp/ccUsuo8D.s 			page 405
+ARM GAS  /tmp/cc5RgpaF.s 			page 405
 
 
  16787 0056 DEE7     		b	.L1022
@@ -24298,7 +24298,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  16835 0008 2768     		ldr	r7, [r4]
  16836              	.LVL1540:
 1989:src/decn.c    **** 	Ctx.digits = digits;
-ARM GAS  /tmp/ccUsuo8D.s 			page 406
+ARM GAS  /tmp/cc5RgpaF.s 			page 406
 
 
  16837              		.loc 1 1989 2 is_stmt 1 view .LVU4367
@@ -24358,7 +24358,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  16880              	.LVL1544:
  16881              	.LFB133:
 2041:src/decn.c    **** 	decNumber t;
-ARM GAS  /tmp/ccUsuo8D.s 			page 407
+ARM GAS  /tmp/cc5RgpaF.s 			page 407
 
 
  16882              		.loc 1 2041 109 is_stmt 1 view -0
@@ -24418,7 +24418,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 2041:src/decn.c    **** 	decNumber t;
  16926              		.loc 1 2041 12 is_stmt 1 view .LVU4392
  16927              	.LBB2844:
-ARM GAS  /tmp/ccUsuo8D.s 			page 408
+ARM GAS  /tmp/cc5RgpaF.s 			page 408
 
 
 2057:src/decn.c    **** 	t.exponent += n;
@@ -24478,7 +24478,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  16967 0032 87F80C80 		strb	r8, [r7, #12]
  506:src/decn.c    **** }
  16968              		.loc 1 506 2 is_stmt 1 view .LVU4408
-ARM GAS  /tmp/ccUsuo8D.s 			page 409
+ARM GAS  /tmp/cc5RgpaF.s 			page 409
 
 
  16969              	.LVL1552:
@@ -24538,7 +24538,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  17015              		.thumb_func
  17016              		.fpu fpv4-sp-d16
  17018              	decNumber2Fraction:
-ARM GAS  /tmp/ccUsuo8D.s 			page 410
+ARM GAS  /tmp/cc5RgpaF.s 			page 410
 
 
  17019              	.LVL1556:
@@ -24598,7 +24598,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  17059              	.LVL1557:
  17060              	.LBB2890:
  17061              	.LBI2890:
-ARM GAS  /tmp/ccUsuo8D.s 			page 411
+ARM GAS  /tmp/cc5RgpaF.s 			page 411
 
 
 2065:src/decn.c    **** 	decNumber z, dold, t, s, maxd;
@@ -24658,7 +24658,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  17100              		.loc 1 2091 3 is_stmt 1 view .LVU4447
  17101 003c 5146     		mov	r1, r10
  17102 003e FFF7FEFF 		bl	decNumberCopy
-ARM GAS  /tmp/ccUsuo8D.s 			page 412
+ARM GAS  /tmp/cc5RgpaF.s 			page 412
 
 
  17103              	.LVL1561:
@@ -24718,7 +24718,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  503:src/decn.c    **** 	decNumberToIntegralValue(r, x, &Ctx);
  17144              		.loc 1 503 12 view .LVU4461
  17145 0064 4FF0050B 		mov	fp, #5
-ARM GAS  /tmp/ccUsuo8D.s 			page 413
+ARM GAS  /tmp/cc5RgpaF.s 			page 413
 
 
  17146 0068 9A46     		mov	r10, r3
@@ -24778,7 +24778,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  17189              		.loc 1 501 16 view .LVU4472
  17190 0076 277B     		ldrb	r7, [r4, #12]	@ zero_extendqisi2
  17191              	.LVL1568:
-ARM GAS  /tmp/ccUsuo8D.s 			page 414
+ARM GAS  /tmp/cc5RgpaF.s 			page 414
 
 
  503:src/decn.c    **** 	decNumberToIntegralValue(r, x, &Ctx);
@@ -24838,7 +24838,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  127:src/decn.c    **** }
  17233              		.loc 1 127 9 view .LVU4486
  17234              	.LBE2926:
-ARM GAS  /tmp/ccUsuo8D.s 			page 415
+ARM GAS  /tmp/cc5RgpaF.s 			page 415
 
 
  17235              	.LBE2928:
@@ -24898,7 +24898,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  17274              		.loc 1 2108 4 is_stmt 1 view .LVU4501
  17275 00ae 1EA9     		add	r1, sp, #120
  17276 00b0 3046     		mov	r0, r6
-ARM GAS  /tmp/ccUsuo8D.s 			page 416
+ARM GAS  /tmp/cc5RgpaF.s 			page 416
 
 
  17277 00b2 FFF7FEFF 		bl	decNumberCopy
@@ -24958,7 +24958,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  505:src/decn.c    **** 	return r;
  17317              		.loc 1 505 2 view .LVU4516
  17318              	.LBE2904:
-ARM GAS  /tmp/ccUsuo8D.s 			page 417
+ARM GAS  /tmp/cc5RgpaF.s 			page 417
 
 
  17319              	.LBE2906:
@@ -25018,7 +25018,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  17360              	.LBE2939:
  17361              	.LBE2938:
 2101:src/decn.c    **** 			decNumberTrunc(&s, &z);
-ARM GAS  /tmp/ccUsuo8D.s 			page 418
+ARM GAS  /tmp/cc5RgpaF.s 			page 418
 
 
  17362              		.loc 1 2101 4 is_stmt 1 view .LVU4530
@@ -25078,7 +25078,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  17407 00ee BDD1     		bne	.L1058
  17408 00f0 9DF88070 		ldrb	r7, [sp, #128]	@ zero_extendqisi2
  17409 00f4 17F0700F 		tst	r7, #112
-ARM GAS  /tmp/ccUsuo8D.s 			page 419
+ARM GAS  /tmp/cc5RgpaF.s 			page 419
 
 
  17410 00f8 B8D1     		bne	.L1058
@@ -25138,7 +25138,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  17452              	.LVL1591:
  503:src/decn.c    **** 	decNumberToIntegralValue(r, x, &Ctx);
  17453              		.loc 1 503 2 is_stmt 1 view .LVU4552
-ARM GAS  /tmp/ccUsuo8D.s 			page 420
+ARM GAS  /tmp/cc5RgpaF.s 			page 420
 
 
  504:src/decn.c    **** 	Ctx.round = a;
@@ -25198,7 +25198,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  17494              	.LBB2959:
  17495              	.LBI2892:
  150:src/decn.c    **** 	return decNumberMinus(r, a, &Ctx);
-ARM GAS  /tmp/ccUsuo8D.s 			page 421
+ARM GAS  /tmp/cc5RgpaF.s 			page 421
 
 
  17496              		.loc 1 150 12 view .LVU4567
@@ -25258,7 +25258,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  17536              		.loc 1 127 9 is_stmt 0 view .LVU4581
  17537 013c 5146     		mov	r1, r10
  17538 013e 2B46     		mov	r3, r5
-ARM GAS  /tmp/ccUsuo8D.s 			page 422
+ARM GAS  /tmp/cc5RgpaF.s 			page 422
 
 
  17539 0140 3246     		mov	r2, r6
@@ -25318,7 +25318,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  17579              	.LBE2956:
  17580              	.LBE2964:
 2114:src/decn.c    **** 		if (dn_eq0(n))
-ARM GAS  /tmp/ccUsuo8D.s 			page 423
+ARM GAS  /tmp/cc5RgpaF.s 			page 423
 
 
  17581              		.loc 1 2114 5 is_stmt 0 view .LVU4596
@@ -25378,7 +25378,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  17623              		.loc 1 2119 4 view .LVU4608
  17624              	.LBB2969:
  17625              	.LBI2969:
-ARM GAS  /tmp/ccUsuo8D.s 			page 424
+ARM GAS  /tmp/cc5RgpaF.s 			page 424
 
 
  130:src/decn.c    **** 	return decNumberDivide(r, a, b, &Ctx);
@@ -25438,7 +25438,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  17669              	.LVL1609:
 2076:src/decn.c    **** 		if (decNumberIsNegative(x))
  17670              		.loc 1 2076 3 is_stmt 0 view .LVU4620
-ARM GAS  /tmp/ccUsuo8D.s 			page 425
+ARM GAS  /tmp/cc5RgpaF.s 			page 425
 
 
  17671 019e FFF7FEFF 		bl	decNumberZero
@@ -25498,7 +25498,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  17715              		.cfi_remember_state
  17716              		.cfi_def_cfa_offset 36
  17717              	.LVL1615:
-ARM GAS  /tmp/ccUsuo8D.s 			page 426
+ARM GAS  /tmp/cc5RgpaF.s 			page 426
 
 
 2123:src/decn.c    **** 
@@ -25558,7 +25558,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  17762              	.LBI2973:
  335:src/decn.c    **** 	return decNumberCopy(r, &const_1);
  17763              		.loc 1 335 12 view .LVU4641
-ARM GAS  /tmp/ccUsuo8D.s 			page 427
+ARM GAS  /tmp/cc5RgpaF.s 			page 427
 
 
  17764              	.LBB2975:
@@ -25618,7 +25618,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  17811              		.loc 1 2011 5 view .LVU4650
  17812 0002 0B7A     		ldrb	r3, [r1, #8]	@ zero_extendqisi2
  17813 0004 13F0700F 		tst	r3, #112
-ARM GAS  /tmp/ccUsuo8D.s 			page 428
+ARM GAS  /tmp/cc5RgpaF.s 			page 428
 
 
 2001:src/decn.c    **** 	decNumber t, u;
@@ -25678,7 +25678,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  17852 0032 29D0     		beq	.L1090
  17853              	.L1085:
 2038:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 429
+ARM GAS  /tmp/cc5RgpaF.s 			page 429
 
 
  17854              		.loc 1 2038 2 is_stmt 1 view .LVU4667
@@ -25738,7 +25738,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  17892              	.LBB2998:
 1992:src/decn.c    **** 	Ctx.round = default_round;
  17893              		.loc 1 1992 13 view .LVU4684
-ARM GAS  /tmp/ccUsuo8D.s 			page 430
+ARM GAS  /tmp/cc5RgpaF.s 			page 430
 
 
  17894 004c 3760     		str	r7, [r6]
@@ -25798,7 +25798,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  17935 0066 FFF7FEFF 		bl	decNumberDivide
  17936              	.LVL1636:
  131:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 431
+ARM GAS  /tmp/cc5RgpaF.s 			page 431
 
 
  17937              		.loc 1 131 9 view .LVU4698
@@ -25858,7 +25858,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  17979 0086 D5D1     		bne	.L1085
  17980              	.L1090:
 2036:src/decn.c    **** 
-ARM GAS  /tmp/ccUsuo8D.s 			page 432
+ARM GAS  /tmp/cc5RgpaF.s 			page 432
 
 
  17981              		.loc 1 2036 3 is_stmt 1 view .LVU4711
@@ -25918,7 +25918,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 2173:src/decn.c    **** 		dn_p2(&b, &b);
 2174:src/decn.c    **** 		dn_multiply(&t, &an, &d);
 2175:src/decn.c    **** 		dn_add(&v, &t, &b);
-ARM GAS  /tmp/ccUsuo8D.s 			page 433
+ARM GAS  /tmp/cc5RgpaF.s 			page 433
 
 
 2176:src/decn.c    **** 		gcheckSmall(&v);
@@ -25978,7 +25978,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  18044 000c E9B0     		sub	sp, sp, #420
  18045              		.cfi_def_cfa_offset 456
  18046              		.loc 1 2201 6 view .LVU4725
-ARM GAS  /tmp/ccUsuo8D.s 			page 434
+ARM GAS  /tmp/cc5RgpaF.s 			page 434
 
 
  18047 000e 097A     		ldrb	r1, [r1, #8]	@ zero_extendqisi2
@@ -26038,7 +26038,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 2197:src/decn.c    **** 	const int regularised = op & 2;
  18090              		.loc 1 2197 12 view .LVU4738
  18091 003a A3F20E33 		subw	r3, r3, #782
-ARM GAS  /tmp/ccUsuo8D.s 			page 435
+ARM GAS  /tmp/cc5RgpaF.s 			page 435
 
 
 2198:src/decn.c    **** 	const int upper = op & 1;
@@ -26098,7 +26098,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  18131 0062 05E0     		b	.L1093
  18132              	.LVL1655:
  18133              	.L1094:
-ARM GAS  /tmp/ccUsuo8D.s 			page 436
+ARM GAS  /tmp/cc5RgpaF.s 			page 436
 
 
 2203:src/decn.c    **** 	}
@@ -26158,7 +26158,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 2235:src/decn.c    **** 		return dn_1m(res, res);
 2236:src/decn.c    **** 	decNumberGamma(&z, a);
 2237:src/decn.c    **** 	return dn_subtract(res, &z, res);
-ARM GAS  /tmp/ccUsuo8D.s 			page 437
+ARM GAS  /tmp/cc5RgpaF.s 			page 437
 
 
 2238:src/decn.c    **** }
@@ -26218,7 +26218,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  18196 0082 B24B     		ldr	r3, .L1144+12
  18197 0084 0EAA     		add	r2, sp, #56
  18198              	.LVL1661:
-ARM GAS  /tmp/ccUsuo8D.s 			page 438
+ARM GAS  /tmp/cc5RgpaF.s 			page 438
 
 
  135:src/decn.c    **** }
@@ -26278,7 +26278,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  324:src/decn.c    **** }
  18239              		.loc 1 324 2 view .LVU4791
  18240              	.LBB3124:
-ARM GAS  /tmp/ccUsuo8D.s 			page 439
+ARM GAS  /tmp/cc5RgpaF.s 			page 439
 
 
  18241              	.LBI3124:
@@ -26338,7 +26338,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  18286 00ba 3946     		mov	r1, r7
  18287 00bc 20A8     		add	r0, sp, #128
  18288              	.LVL1668:
-ARM GAS  /tmp/ccUsuo8D.s 			page 440
+ARM GAS  /tmp/cc5RgpaF.s 			page 440
 
 
  123:src/decn.c    **** }
@@ -26398,7 +26398,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 2167:src/decn.c    **** 	decNumberZero(&i);
  18329              		.loc 1 2167 2 is_stmt 0 view .LVU4815
  18330 00ce 0DF1EC0B 		add	fp, sp, #236
-ARM GAS  /tmp/ccUsuo8D.s 			page 441
+ARM GAS  /tmp/cc5RgpaF.s 			page 441
 
 
  18331              	.LBB3148:
@@ -26458,7 +26458,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  18374 00fe FFF7FEFF 		bl	decNumberCopy
  18375              	.LVL1680:
 2169:src/decn.c    **** 		dn_inc(&i);
-ARM GAS  /tmp/ccUsuo8D.s 			page 442
+ARM GAS  /tmp/cc5RgpaF.s 			page 442
 
 
  18376              		.loc 1 2169 20 is_stmt 1 view .LVU4827
@@ -26518,7 +26518,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  123:src/decn.c    **** }
  18416              		.loc 1 123 9 is_stmt 0 view .LVU4842
  18417 0112 2B46     		mov	r3, r5
-ARM GAS  /tmp/ccUsuo8D.s 			page 443
+ARM GAS  /tmp/cc5RgpaF.s 			page 443
 
 
  18418 0114 5FAA     		add	r2, sp, #380
@@ -26578,7 +26578,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  18458              		.loc 1 119 2 view .LVU4856
  119:src/decn.c    **** }
  18459              		.loc 1 119 9 is_stmt 0 view .LVU4857
-ARM GAS  /tmp/ccUsuo8D.s 			page 444
+ARM GAS  /tmp/cc5RgpaF.s 			page 444
 
 
  18460 012a 20A9     		add	r1, sp, #128
@@ -26638,7 +26638,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  18501 0144 20AA     		add	r2, sp, #128
  18502              	.LVL1695:
  119:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 445
+ARM GAS  /tmp/cc5RgpaF.s 			page 445
 
 
  18503              		.loc 1 119 9 view .LVU4871
@@ -26698,7 +26698,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  131:src/decn.c    **** }
  18545              		.loc 1 131 2 view .LVU4884
  131:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 446
+ARM GAS  /tmp/cc5RgpaF.s 			page 446
 
 
  18546              		.loc 1 131 9 is_stmt 0 view .LVU4885
@@ -26758,7 +26758,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  18587              		.loc 1 126 12 view .LVU4898
  18588              	.LBB3171:
  127:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 447
+ARM GAS  /tmp/cc5RgpaF.s 			page 447
 
 
  18589              		.loc 1 127 2 view .LVU4899
@@ -26818,7 +26818,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  18629              		.loc 1 2185 3 view .LVU4913
  18630 01a0 5146     		mov	r1, r10
  18631 01a2 5846     		mov	r0, fp
-ARM GAS  /tmp/ccUsuo8D.s 			page 448
+ARM GAS  /tmp/cc5RgpaF.s 			page 448
 
 
 2183:src/decn.c    **** 			break;
@@ -26878,7 +26878,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  18674              	.LBE3176:
 2190:src/decn.c    **** 	dn_exp(&t, &u);
  18675              		.loc 1 2190 2 is_stmt 1 view .LVU4926
-ARM GAS  /tmp/ccUsuo8D.s 			page 449
+ARM GAS  /tmp/cc5RgpaF.s 			page 449
 
 
  18676              	.LBB3178:
@@ -26938,7 +26938,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  18716 01e2 5A46     		mov	r2, fp
  18717 01e4 3946     		mov	r1, r7
  18718 01e6 2046     		mov	r0, r4
-ARM GAS  /tmp/ccUsuo8D.s 			page 450
+ARM GAS  /tmp/cc5RgpaF.s 			page 450
 
 
  18719 01e8 FFF7FEFF 		bl	decNumberMultiply
@@ -26998,7 +26998,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  18760              		.loc 1 122 12 view .LVU4953
  18761              	.LBB3187:
  123:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 451
+ARM GAS  /tmp/cc5RgpaF.s 			page 451
 
 
  18762              		.loc 1 123 2 view .LVU4954
@@ -27058,7 +27058,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  18803              		.loc 1 1862 12 view .LVU4967
  18804              	.LBB3191:
 1863:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 452
+ARM GAS  /tmp/cc5RgpaF.s 			page 452
 
 
  18805              		.loc 1 1863 2 view .LVU4968
@@ -27118,7 +27118,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  18845              		.loc 1 127 9 is_stmt 0 view .LVU4982
  18846 023e 3146     		mov	r1, r6
  18847 0240 424B     		ldr	r3, .L1144+12
-ARM GAS  /tmp/ccUsuo8D.s 			page 453
+ARM GAS  /tmp/cc5RgpaF.s 			page 453
 
 
  18848 0242 464A     		ldr	r2, .L1144+28
@@ -27178,7 +27178,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
   70:src/decn.c    **** }
  18888              		.loc 1 70 35 view .LVU4997
  18889 026a D8F80030 		ldr	r3, [r8]
-ARM GAS  /tmp/ccUsuo8D.s 			page 454
+ARM GAS  /tmp/cc5RgpaF.s 			page 454
 
 
  18890 026e 012B     		cmp	r3, #1
@@ -27238,7 +27238,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  18933              	.LBE3203:
  18934              	.LBE3205:
  18935              	.LBE3207:
-ARM GAS  /tmp/ccUsuo8D.s 			page 455
+ARM GAS  /tmp/cc5RgpaF.s 			page 455
 
 
  18936              	.LBE3209:
@@ -27298,7 +27298,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 2134:src/decn.c    **** 		dn_inc(&ap);
  18980              		.loc 1 2134 12 view .LVU5019
 2134:src/decn.c    **** 		dn_inc(&ap);
-ARM GAS  /tmp/ccUsuo8D.s 			page 456
+ARM GAS  /tmp/cc5RgpaF.s 			page 456
 
 
  18981              		.loc 1 2134 2 is_stmt 0 view .LVU5020
@@ -27358,7 +27358,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  19023              	.LVL1752:
  131:src/decn.c    **** }
  19024              		.loc 1 131 9 view .LVU5033
-ARM GAS  /tmp/ccUsuo8D.s 			page 457
+ARM GAS  /tmp/cc5RgpaF.s 			page 457
 
 
  19025              	.LBE3220:
@@ -27418,7 +27418,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
 2139:src/decn.c    **** 			break;
  19066              		.loc 1 2139 7 is_stmt 0 view .LVU5047
  19067 02e8 0346     		mov	r3, r0
-ARM GAS  /tmp/ccUsuo8D.s 			page 458
+ARM GAS  /tmp/cc5RgpaF.s 			page 458
 
 
 2141:src/decn.c    **** 	}
@@ -27478,7 +27478,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  19108 0308 104B     		ldr	r3, .L1144+12
  19109 030a 4246     		mov	r2, r8
  19110 030c 5FA9     		add	r1, sp, #380
-ARM GAS  /tmp/ccUsuo8D.s 			page 459
+ARM GAS  /tmp/cc5RgpaF.s 			page 459
 
 
  19111              	.LVL1760:
@@ -27538,7 +27538,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  19151 0326 FFF7FEFF 		bl	decNumberExp
  19152              	.LVL1766:
  163:src/decn.c    **** }
-ARM GAS  /tmp/ccUsuo8D.s 			page 460
+ARM GAS  /tmp/cc5RgpaF.s 			page 460
 
 
  19153              		.loc 1 163 9 view .LVU5076
@@ -27598,7 +27598,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  19199 0360 12F0700F 		tst	r2, #112
  19200 0364 85D1     		bne	.L1109
  19201              	.L1106:
-ARM GAS  /tmp/ccUsuo8D.s 			page 461
+ARM GAS  /tmp/cc5RgpaF.s 			page 461
 
 
  19202              	.LVL1769:
@@ -27658,7 +27658,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  19244              	.L1146:
  19245 037c 00000000 		.word	Ctx
  19246 0380 00000000 		.word	const_1
-ARM GAS  /tmp/ccUsuo8D.s 			page 462
+ARM GAS  /tmp/cc5RgpaF.s 			page 462
 
 
  19247              		.cfi_endproc
@@ -27718,7 +27718,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  19291              	.LBB3243:
  256:src/decn.c    **** 		decNumberCopy(x, &const_NaN);
  19292              		.loc 1 256 2 view .LVU5108
-ARM GAS  /tmp/ccUsuo8D.s 			page 463
+ARM GAS  /tmp/cc5RgpaF.s 			page 463
 
 
  256:src/decn.c    **** 		decNumberCopy(x, &const_NaN);
@@ -27778,7 +27778,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  19332              	.LVL1780:
 2248:src/decn.c    **** 	if (sgn)
  19333              		.loc 1 2248 2 is_stmt 0 view .LVU5119
-ARM GAS  /tmp/ccUsuo8D.s 			page 464
+ARM GAS  /tmp/cc5RgpaF.s 			page 464
 
 
  19334 0036 0246     		mov	r2, r0
@@ -27821,10 +27821,10 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  19365              		.cfi_endproc
  19366              	.LFE139:
  19368              		.global	gamma_consts
- 19369              		.section	.rodata.degrees.9090,"a"
+ 19369              		.section	.rodata.degrees.9087,"a"
  19370              		.align	2
  19371              		.set	.LANCHOR2,. + 0
- 19374              	degrees.9090:
+ 19374              	degrees.9087:
  19375 0000 00000000 		.word	const_45
  19376 0004 00000000 		.word	const_90
  19377 0008 00000000 		.word	const_180
@@ -27838,7 +27838,7 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  19387 0008 00000000 		.word	const_gammaC03
  19388 000c 00000000 		.word	const_gammaC04
  19389 0010 00000000 		.word	const_gammaC05
-ARM GAS  /tmp/ccUsuo8D.s 			page 465
+ARM GAS  /tmp/cc5RgpaF.s 			page 465
 
 
  19390 0014 00000000 		.word	const_gammaC06
@@ -27857,10 +27857,10 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  19403 0048 00000000 		.word	const_gammaC19
  19404 004c 00000000 		.word	const_gammaC20
  19405 0050 00000000 		.word	const_gammaC21
- 19406              		.section	.rodata.gradians.9091,"a"
+ 19406              		.section	.rodata.gradians.9088,"a"
  19407              		.align	2
  19408              		.set	.LANCHOR1,. + 0
- 19411              	gradians.9091:
+ 19411              	gradians.9088:
  19412 0000 00000000 		.word	const_50
  19413 0004 00000000 		.word	const_100
  19414 0008 00000000 		.word	const_200
@@ -27879,427 +27879,427 @@ ARM GAS  /tmp/ccUsuo8D.s 			page 1
  19427              		.file 11 "src/int.h"
  19428              		.file 12 "src/decn.h"
  19429              		.file 13 "src/complex.h"
-ARM GAS  /tmp/ccUsuo8D.s 			page 466
+ARM GAS  /tmp/cc5RgpaF.s 			page 466
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 decn.c
-     /tmp/ccUsuo8D.s:18     .text.decNumberDRG_internal:0000000000000000 $t
-     /tmp/ccUsuo8D.s:26     .text.decNumberDRG_internal:0000000000000000 decNumberDRG_internal
-     /tmp/ccUsuo8D.s:61     .text.decNumberDRG_internal:0000000000000024 $d
-     /tmp/ccUsuo8D.s:329    .text.decNumberDRG_internal:000000000000008c $d
-     /tmp/ccUsuo8D.s:341    .text.realULP:0000000000000000 $t
-     /tmp/ccUsuo8D.s:348    .text.realULP:0000000000000000 realULP
-     /tmp/ccUsuo8D.s:574    .text.realULP:0000000000000084 $d
-     /tmp/ccUsuo8D.s:587    .text.dn_lt0:0000000000000000 $t
-     /tmp/ccUsuo8D.s:595    .text.dn_lt0:0000000000000000 dn_lt0
-     /tmp/ccUsuo8D.s:644    .text.dn_le0:0000000000000000 $t
-     /tmp/ccUsuo8D.s:652    .text.dn_le0:0000000000000000 dn_le0
-     /tmp/ccUsuo8D.s:702    .text.dn_eq0:0000000000000000 $t
-     /tmp/ccUsuo8D.s:710    .text.dn_eq0:0000000000000000 dn_eq0
-     /tmp/ccUsuo8D.s:747    .text.dn_eq:0000000000000000 $t
-     /tmp/ccUsuo8D.s:755    .text.dn_eq:0000000000000000 dn_eq
-     /tmp/ccUsuo8D.s:867    .text.dn_eq:000000000000004c $d
-     /tmp/ccUsuo8D.s:872    .text.dn_eq1:0000000000000000 $t
-     /tmp/ccUsuo8D.s:880    .text.dn_eq1:0000000000000000 dn_eq1
-     /tmp/ccUsuo8D.s:897    .text.dn_eq1:0000000000000008 $d
-     /tmp/ccUsuo8D.s:902    .text.dn_lt:0000000000000000 $t
-     /tmp/ccUsuo8D.s:910    .text.dn_lt:0000000000000000 dn_lt
-     /tmp/ccUsuo8D.s:1012   .text.dn_lt:0000000000000040 $d
-     /tmp/ccUsuo8D.s:1019   .text.dn_abs_lt:0000000000000000 $t
-     /tmp/ccUsuo8D.s:1027   .text.dn_abs_lt:0000000000000000 dn_abs_lt
-     /tmp/ccUsuo8D.s:1083   .text.dn_abs_lt:000000000000001c $d
-     /tmp/ccUsuo8D.s:1088   .text.gcheckSmall:0000000000000000 $t
-     /tmp/ccUsuo8D.s:1095   .text.gcheckSmall:0000000000000000 gcheckSmall
-     /tmp/ccUsuo8D.s:1138   .text.gcheckSmall:000000000000001c $d
-     /tmp/ccUsuo8D.s:1143   .text.relative_error:0000000000000000 $t
-     /tmp/ccUsuo8D.s:1151   .text.relative_error:0000000000000000 relative_error
-     /tmp/ccUsuo8D.s:1279   .text.relative_error:0000000000000048 $d
-     /tmp/ccUsuo8D.s:1284   .text.absolute_error:0000000000000000 $t
-     /tmp/ccUsuo8D.s:1292   .text.absolute_error:0000000000000000 absolute_error
-     /tmp/ccUsuo8D.s:1354   .text.absolute_error:0000000000000020 $d
-     /tmp/ccUsuo8D.s:1359   .text.convergence_threshold:0000000000000000 $t
-     /tmp/ccUsuo8D.s:1367   .text.convergence_threshold:0000000000000000 convergence_threshold
-     /tmp/ccUsuo8D.s:1394   .text.convergence_threshold:0000000000000014 $d
-     /tmp/ccUsuo8D.s:1400   .text.dn_add:0000000000000000 $t
-     /tmp/ccUsuo8D.s:1408   .text.dn_add:0000000000000000 dn_add
-     /tmp/ccUsuo8D.s:1425   .text.dn_add:0000000000000008 $d
-     /tmp/ccUsuo8D.s:1430   .text.dn_subtract:0000000000000000 $t
-     /tmp/ccUsuo8D.s:1438   .text.dn_subtract:0000000000000000 dn_subtract
-     /tmp/ccUsuo8D.s:1455   .text.dn_subtract:0000000000000008 $d
-     /tmp/ccUsuo8D.s:1460   .text.dn_multiply:0000000000000000 $t
-     /tmp/ccUsuo8D.s:1468   .text.dn_multiply:0000000000000000 dn_multiply
-     /tmp/ccUsuo8D.s:1485   .text.dn_multiply:0000000000000008 $d
-     /tmp/ccUsuo8D.s:1490   .text.dn_divide:0000000000000000 $t
-     /tmp/ccUsuo8D.s:1498   .text.dn_divide:0000000000000000 dn_divide
-     /tmp/ccUsuo8D.s:1515   .text.dn_divide:0000000000000008 $d
-     /tmp/ccUsuo8D.s:1520   .text.dn_compare:0000000000000000 $t
-     /tmp/ccUsuo8D.s:1528   .text.dn_compare:0000000000000000 dn_compare
-     /tmp/ccUsuo8D.s:1545   .text.dn_compare:0000000000000008 $d
-     /tmp/ccUsuo8D.s:1550   .text.dn_min:0000000000000000 $t
-     /tmp/ccUsuo8D.s:1558   .text.dn_min:0000000000000000 dn_min
-     /tmp/ccUsuo8D.s:1575   .text.dn_min:0000000000000008 $d
-ARM GAS  /tmp/ccUsuo8D.s 			page 467
+     /tmp/cc5RgpaF.s:18     .text.decNumberDRG_internal:0000000000000000 $t
+     /tmp/cc5RgpaF.s:26     .text.decNumberDRG_internal:0000000000000000 decNumberDRG_internal
+     /tmp/cc5RgpaF.s:61     .text.decNumberDRG_internal:0000000000000024 $d
+     /tmp/cc5RgpaF.s:329    .text.decNumberDRG_internal:000000000000008c $d
+     /tmp/cc5RgpaF.s:341    .text.realULP:0000000000000000 $t
+     /tmp/cc5RgpaF.s:348    .text.realULP:0000000000000000 realULP
+     /tmp/cc5RgpaF.s:574    .text.realULP:0000000000000084 $d
+     /tmp/cc5RgpaF.s:587    .text.dn_lt0:0000000000000000 $t
+     /tmp/cc5RgpaF.s:595    .text.dn_lt0:0000000000000000 dn_lt0
+     /tmp/cc5RgpaF.s:644    .text.dn_le0:0000000000000000 $t
+     /tmp/cc5RgpaF.s:652    .text.dn_le0:0000000000000000 dn_le0
+     /tmp/cc5RgpaF.s:702    .text.dn_eq0:0000000000000000 $t
+     /tmp/cc5RgpaF.s:710    .text.dn_eq0:0000000000000000 dn_eq0
+     /tmp/cc5RgpaF.s:747    .text.dn_eq:0000000000000000 $t
+     /tmp/cc5RgpaF.s:755    .text.dn_eq:0000000000000000 dn_eq
+     /tmp/cc5RgpaF.s:867    .text.dn_eq:000000000000004c $d
+     /tmp/cc5RgpaF.s:872    .text.dn_eq1:0000000000000000 $t
+     /tmp/cc5RgpaF.s:880    .text.dn_eq1:0000000000000000 dn_eq1
+     /tmp/cc5RgpaF.s:897    .text.dn_eq1:0000000000000008 $d
+     /tmp/cc5RgpaF.s:902    .text.dn_lt:0000000000000000 $t
+     /tmp/cc5RgpaF.s:910    .text.dn_lt:0000000000000000 dn_lt
+     /tmp/cc5RgpaF.s:1012   .text.dn_lt:0000000000000040 $d
+     /tmp/cc5RgpaF.s:1019   .text.dn_abs_lt:0000000000000000 $t
+     /tmp/cc5RgpaF.s:1027   .text.dn_abs_lt:0000000000000000 dn_abs_lt
+     /tmp/cc5RgpaF.s:1083   .text.dn_abs_lt:000000000000001c $d
+     /tmp/cc5RgpaF.s:1088   .text.gcheckSmall:0000000000000000 $t
+     /tmp/cc5RgpaF.s:1095   .text.gcheckSmall:0000000000000000 gcheckSmall
+     /tmp/cc5RgpaF.s:1138   .text.gcheckSmall:000000000000001c $d
+     /tmp/cc5RgpaF.s:1143   .text.relative_error:0000000000000000 $t
+     /tmp/cc5RgpaF.s:1151   .text.relative_error:0000000000000000 relative_error
+     /tmp/cc5RgpaF.s:1279   .text.relative_error:0000000000000048 $d
+     /tmp/cc5RgpaF.s:1284   .text.absolute_error:0000000000000000 $t
+     /tmp/cc5RgpaF.s:1292   .text.absolute_error:0000000000000000 absolute_error
+     /tmp/cc5RgpaF.s:1354   .text.absolute_error:0000000000000020 $d
+     /tmp/cc5RgpaF.s:1359   .text.convergence_threshold:0000000000000000 $t
+     /tmp/cc5RgpaF.s:1367   .text.convergence_threshold:0000000000000000 convergence_threshold
+     /tmp/cc5RgpaF.s:1394   .text.convergence_threshold:0000000000000014 $d
+     /tmp/cc5RgpaF.s:1400   .text.dn_add:0000000000000000 $t
+     /tmp/cc5RgpaF.s:1408   .text.dn_add:0000000000000000 dn_add
+     /tmp/cc5RgpaF.s:1425   .text.dn_add:0000000000000008 $d
+     /tmp/cc5RgpaF.s:1430   .text.dn_subtract:0000000000000000 $t
+     /tmp/cc5RgpaF.s:1438   .text.dn_subtract:0000000000000000 dn_subtract
+     /tmp/cc5RgpaF.s:1455   .text.dn_subtract:0000000000000008 $d
+     /tmp/cc5RgpaF.s:1460   .text.dn_multiply:0000000000000000 $t
+     /tmp/cc5RgpaF.s:1468   .text.dn_multiply:0000000000000000 dn_multiply
+     /tmp/cc5RgpaF.s:1485   .text.dn_multiply:0000000000000008 $d
+     /tmp/cc5RgpaF.s:1490   .text.dn_divide:0000000000000000 $t
+     /tmp/cc5RgpaF.s:1498   .text.dn_divide:0000000000000000 dn_divide
+     /tmp/cc5RgpaF.s:1515   .text.dn_divide:0000000000000008 $d
+     /tmp/cc5RgpaF.s:1520   .text.dn_compare:0000000000000000 $t
+     /tmp/cc5RgpaF.s:1528   .text.dn_compare:0000000000000000 dn_compare
+     /tmp/cc5RgpaF.s:1545   .text.dn_compare:0000000000000008 $d
+     /tmp/cc5RgpaF.s:1550   .text.dn_min:0000000000000000 $t
+     /tmp/cc5RgpaF.s:1558   .text.dn_min:0000000000000000 dn_min
+     /tmp/cc5RgpaF.s:1575   .text.dn_min:0000000000000008 $d
+ARM GAS  /tmp/cc5RgpaF.s 			page 467
 
 
-     /tmp/ccUsuo8D.s:1580   .text.dn_max:0000000000000000 $t
-     /tmp/ccUsuo8D.s:1588   .text.dn_max:0000000000000000 dn_max
-     /tmp/ccUsuo8D.s:1605   .text.dn_max:0000000000000008 $d
-     /tmp/ccUsuo8D.s:1610   .text.dn_abs:0000000000000000 $t
-     /tmp/ccUsuo8D.s:1618   .text.dn_abs:0000000000000000 dn_abs
-     /tmp/ccUsuo8D.s:1635   .text.dn_abs:0000000000000008 $d
-     /tmp/ccUsuo8D.s:1640   .text.dn_minus:0000000000000000 $t
-     /tmp/ccUsuo8D.s:1648   .text.dn_minus:0000000000000000 dn_minus
-     /tmp/ccUsuo8D.s:1665   .text.dn_minus:0000000000000008 $d
-     /tmp/ccUsuo8D.s:1670   .text.dn_plus:0000000000000000 $t
-     /tmp/ccUsuo8D.s:1678   .text.dn_plus:0000000000000000 dn_plus
-     /tmp/ccUsuo8D.s:1695   .text.dn_plus:0000000000000008 $d
-     /tmp/ccUsuo8D.s:1700   .text.dn_sqrt:0000000000000000 $t
-     /tmp/ccUsuo8D.s:1708   .text.dn_sqrt:0000000000000000 dn_sqrt
-     /tmp/ccUsuo8D.s:1725   .text.dn_sqrt:0000000000000008 $d
-     /tmp/ccUsuo8D.s:1730   .text.dn_exp:0000000000000000 $t
-     /tmp/ccUsuo8D.s:1738   .text.dn_exp:0000000000000000 dn_exp
-     /tmp/ccUsuo8D.s:1755   .text.dn_exp:0000000000000008 $d
-     /tmp/ccUsuo8D.s:1760   .text.dn_average:0000000000000000 $t
-     /tmp/ccUsuo8D.s:1768   .text.dn_average:0000000000000000 dn_average
-     /tmp/ccUsuo8D.s:1837   .text.dn_average:0000000000000020 $d
-     /tmp/ccUsuo8D.s:1843   .text.int_to_dn:0000000000000000 $t
-     /tmp/ccUsuo8D.s:1851   .text.int_to_dn:0000000000000000 int_to_dn
-     /tmp/ccUsuo8D.s:1922   .text.int_to_dn:0000000000000028 $d
-     /tmp/ccUsuo8D.s:1931   .text.dn_to_int:0000000000000000 $t
-     /tmp/ccUsuo8D.s:1939   .text.dn_to_int:0000000000000000 dn_to_int
-     /tmp/ccUsuo8D.s:2024   .text.dn_to_int:0000000000000024 $d
-     /tmp/ccUsuo8D.s:2029   .text.dn_to_ull:0000000000000000 $t
-     /tmp/ccUsuo8D.s:2037   .text.dn_to_ull:0000000000000000 dn_to_ull
-     /tmp/ccUsuo8D.s:2180   .text.dn_to_ull:0000000000000058 $d
-     /tmp/ccUsuo8D.s:2186   .text.set_NaN:0000000000000000 $t
-     /tmp/ccUsuo8D.s:2194   .text.set_NaN:0000000000000000 set_NaN
-     /tmp/ccUsuo8D.s:2224   .text.set_NaN:0000000000000010 $d
-     /tmp/ccUsuo8D.s:2229   .text.set_inf:0000000000000000 $t
-     /tmp/ccUsuo8D.s:2237   .text.set_inf:0000000000000000 set_inf
-     /tmp/ccUsuo8D.s:2254   .text.set_inf:0000000000000008 $d
-     /tmp/ccUsuo8D.s:2259   .text.set_neginf:0000000000000000 $t
-     /tmp/ccUsuo8D.s:2267   .text.set_neginf:0000000000000000 set_neginf
-     /tmp/ccUsuo8D.s:2284   .text.set_neginf:0000000000000008 $d
-     /tmp/ccUsuo8D.s:2289   .text.decNumberPI:0000000000000000 $t
-     /tmp/ccUsuo8D.s:2297   .text.decNumberPI:0000000000000000 decNumberPI
-     /tmp/ccUsuo8D.s:2313   .text.decNumberPI:0000000000000008 $d
-     /tmp/ccUsuo8D.s:2318   .text.decNumberPIon2:0000000000000000 $t
-     /tmp/ccUsuo8D.s:2326   .text.decNumberPIon2:0000000000000000 decNumberPIon2
-     /tmp/ccUsuo8D.s:2342   .text.decNumberPIon2:0000000000000008 $d
-     /tmp/ccUsuo8D.s:2347   .text.is_int:0000000000000000 $t
-     /tmp/ccUsuo8D.s:2355   .text.is_int:0000000000000000 is_int
-     /tmp/ccUsuo8D.s:2498   .text.is_int:000000000000005c $d
-     /tmp/ccUsuo8D.s:2503   .text.dn_check_gcd:0000000000000000 $t
-     /tmp/ccUsuo8D.s:2510   .text.dn_check_gcd:0000000000000000 dn_check_gcd
-     /tmp/ccUsuo8D.s:2674   .text.dn_check_gcd:000000000000007c $d
-     /tmp/ccUsuo8D.s:2683   .text.dn_inc:0000000000000000 $t
-     /tmp/ccUsuo8D.s:2691   .text.dn_inc:0000000000000000 dn_inc
-     /tmp/ccUsuo8D.s:2722   .text.dn_inc:000000000000000c $d
-     /tmp/ccUsuo8D.s:2730   .text.dn_dec:0000000000000000 $t
-     /tmp/ccUsuo8D.s:2738   .text.dn_dec:0000000000000000 dn_dec
-     /tmp/ccUsuo8D.s:2769   .text.dn_dec:000000000000000c $d
-ARM GAS  /tmp/ccUsuo8D.s 			page 468
+     /tmp/cc5RgpaF.s:1580   .text.dn_max:0000000000000000 $t
+     /tmp/cc5RgpaF.s:1588   .text.dn_max:0000000000000000 dn_max
+     /tmp/cc5RgpaF.s:1605   .text.dn_max:0000000000000008 $d
+     /tmp/cc5RgpaF.s:1610   .text.dn_abs:0000000000000000 $t
+     /tmp/cc5RgpaF.s:1618   .text.dn_abs:0000000000000000 dn_abs
+     /tmp/cc5RgpaF.s:1635   .text.dn_abs:0000000000000008 $d
+     /tmp/cc5RgpaF.s:1640   .text.dn_minus:0000000000000000 $t
+     /tmp/cc5RgpaF.s:1648   .text.dn_minus:0000000000000000 dn_minus
+     /tmp/cc5RgpaF.s:1665   .text.dn_minus:0000000000000008 $d
+     /tmp/cc5RgpaF.s:1670   .text.dn_plus:0000000000000000 $t
+     /tmp/cc5RgpaF.s:1678   .text.dn_plus:0000000000000000 dn_plus
+     /tmp/cc5RgpaF.s:1695   .text.dn_plus:0000000000000008 $d
+     /tmp/cc5RgpaF.s:1700   .text.dn_sqrt:0000000000000000 $t
+     /tmp/cc5RgpaF.s:1708   .text.dn_sqrt:0000000000000000 dn_sqrt
+     /tmp/cc5RgpaF.s:1725   .text.dn_sqrt:0000000000000008 $d
+     /tmp/cc5RgpaF.s:1730   .text.dn_exp:0000000000000000 $t
+     /tmp/cc5RgpaF.s:1738   .text.dn_exp:0000000000000000 dn_exp
+     /tmp/cc5RgpaF.s:1755   .text.dn_exp:0000000000000008 $d
+     /tmp/cc5RgpaF.s:1760   .text.dn_average:0000000000000000 $t
+     /tmp/cc5RgpaF.s:1768   .text.dn_average:0000000000000000 dn_average
+     /tmp/cc5RgpaF.s:1837   .text.dn_average:0000000000000020 $d
+     /tmp/cc5RgpaF.s:1843   .text.int_to_dn:0000000000000000 $t
+     /tmp/cc5RgpaF.s:1851   .text.int_to_dn:0000000000000000 int_to_dn
+     /tmp/cc5RgpaF.s:1922   .text.int_to_dn:0000000000000028 $d
+     /tmp/cc5RgpaF.s:1931   .text.dn_to_int:0000000000000000 $t
+     /tmp/cc5RgpaF.s:1939   .text.dn_to_int:0000000000000000 dn_to_int
+     /tmp/cc5RgpaF.s:2024   .text.dn_to_int:0000000000000024 $d
+     /tmp/cc5RgpaF.s:2029   .text.dn_to_ull:0000000000000000 $t
+     /tmp/cc5RgpaF.s:2037   .text.dn_to_ull:0000000000000000 dn_to_ull
+     /tmp/cc5RgpaF.s:2180   .text.dn_to_ull:0000000000000058 $d
+     /tmp/cc5RgpaF.s:2186   .text.set_NaN:0000000000000000 $t
+     /tmp/cc5RgpaF.s:2194   .text.set_NaN:0000000000000000 set_NaN
+     /tmp/cc5RgpaF.s:2224   .text.set_NaN:0000000000000010 $d
+     /tmp/cc5RgpaF.s:2229   .text.set_inf:0000000000000000 $t
+     /tmp/cc5RgpaF.s:2237   .text.set_inf:0000000000000000 set_inf
+     /tmp/cc5RgpaF.s:2254   .text.set_inf:0000000000000008 $d
+     /tmp/cc5RgpaF.s:2259   .text.set_neginf:0000000000000000 $t
+     /tmp/cc5RgpaF.s:2267   .text.set_neginf:0000000000000000 set_neginf
+     /tmp/cc5RgpaF.s:2284   .text.set_neginf:0000000000000008 $d
+     /tmp/cc5RgpaF.s:2289   .text.decNumberPI:0000000000000000 $t
+     /tmp/cc5RgpaF.s:2297   .text.decNumberPI:0000000000000000 decNumberPI
+     /tmp/cc5RgpaF.s:2313   .text.decNumberPI:0000000000000008 $d
+     /tmp/cc5RgpaF.s:2318   .text.decNumberPIon2:0000000000000000 $t
+     /tmp/cc5RgpaF.s:2326   .text.decNumberPIon2:0000000000000000 decNumberPIon2
+     /tmp/cc5RgpaF.s:2342   .text.decNumberPIon2:0000000000000008 $d
+     /tmp/cc5RgpaF.s:2347   .text.is_int:0000000000000000 $t
+     /tmp/cc5RgpaF.s:2355   .text.is_int:0000000000000000 is_int
+     /tmp/cc5RgpaF.s:2498   .text.is_int:000000000000005c $d
+     /tmp/cc5RgpaF.s:2503   .text.dn_check_gcd:0000000000000000 $t
+     /tmp/cc5RgpaF.s:2510   .text.dn_check_gcd:0000000000000000 dn_check_gcd
+     /tmp/cc5RgpaF.s:2674   .text.dn_check_gcd:000000000000007c $d
+     /tmp/cc5RgpaF.s:2683   .text.dn_inc:0000000000000000 $t
+     /tmp/cc5RgpaF.s:2691   .text.dn_inc:0000000000000000 dn_inc
+     /tmp/cc5RgpaF.s:2722   .text.dn_inc:000000000000000c $d
+     /tmp/cc5RgpaF.s:2730   .text.dn_dec:0000000000000000 $t
+     /tmp/cc5RgpaF.s:2738   .text.dn_dec:0000000000000000 dn_dec
+     /tmp/cc5RgpaF.s:2769   .text.dn_dec:000000000000000c $d
+ARM GAS  /tmp/cc5RgpaF.s 			page 468
 
 
-     /tmp/ccUsuo8D.s:2777   .text.dn_p1:0000000000000000 $t
-     /tmp/ccUsuo8D.s:2785   .text.dn_p1:0000000000000000 dn_p1
-     /tmp/ccUsuo8D.s:2808   .text.dn_p1:0000000000000008 $d
-     /tmp/ccUsuo8D.s:2816   .text.dn_m1:0000000000000000 $t
-     /tmp/ccUsuo8D.s:2824   .text.dn_m1:0000000000000000 dn_m1
-     /tmp/ccUsuo8D.s:2847   .text.dn_m1:0000000000000008 $d
-     /tmp/ccUsuo8D.s:2855   .text.dn_1m:0000000000000000 $t
-     /tmp/ccUsuo8D.s:2863   .text.dn_1m:0000000000000000 dn_1m
-     /tmp/ccUsuo8D.s:2891   .text.dn_1m:000000000000000c $d
-     /tmp/ccUsuo8D.s:2899   .text.dn_1:0000000000000000 $t
-     /tmp/ccUsuo8D.s:2907   .text.dn_1:0000000000000000 dn_1
-     /tmp/ccUsuo8D.s:2924   .text.dn_1:0000000000000008 $d
-     /tmp/ccUsuo8D.s:2929   .text.dn__1:0000000000000000 $t
-     /tmp/ccUsuo8D.s:2937   .text.dn__1:0000000000000000 dn__1
-     /tmp/ccUsuo8D.s:2954   .text.dn__1:0000000000000008 $d
-     /tmp/ccUsuo8D.s:2959   .text.dn_p2:0000000000000000 $t
-     /tmp/ccUsuo8D.s:2967   .text.dn_p2:0000000000000000 dn_p2
-     /tmp/ccUsuo8D.s:2990   .text.dn_p2:0000000000000008 $d
-     /tmp/ccUsuo8D.s:2998   .text.dn_mul2:0000000000000000 $t
-     /tmp/ccUsuo8D.s:3006   .text.dn_mul2:0000000000000000 dn_mul2
-     /tmp/ccUsuo8D.s:3029   .text.dn_mul2:0000000000000008 $d
-     /tmp/ccUsuo8D.s:3037   .text.dn_div2:0000000000000000 $t
-     /tmp/ccUsuo8D.s:3045   .text.dn_div2:0000000000000000 dn_div2
-     /tmp/ccUsuo8D.s:3068   .text.dn_div2:0000000000000008 $d
-     /tmp/ccUsuo8D.s:3076   .text.dn_mul100:0000000000000000 $t
-     /tmp/ccUsuo8D.s:3084   .text.dn_mul100:0000000000000000 dn_mul100
-     /tmp/ccUsuo8D.s:3125   .text.dn_mulPI:0000000000000000 $t
-     /tmp/ccUsuo8D.s:3133   .text.dn_mulPI:0000000000000000 dn_mulPI
-     /tmp/ccUsuo8D.s:3156   .text.dn_mulPI:0000000000000008 $d
-     /tmp/ccUsuo8D.s:3164   .text.dn_mulpow10:0000000000000000 $t
-     /tmp/ccUsuo8D.s:3172   .text.dn_mulpow10:0000000000000000 dn_mulpow10
-     /tmp/ccUsuo8D.s:3207   .text.decNumberMantissa:0000000000000000 $t
-     /tmp/ccUsuo8D.s:3215   .text.decNumberMantissa:0000000000000000 decNumberMantissa
-     /tmp/ccUsuo8D.s:3321   .text.decNumberMantissa:0000000000000044 $d
-     /tmp/ccUsuo8D.s:3326   .text.decNumberExponent:0000000000000000 $t
-     /tmp/ccUsuo8D.s:3334   .text.decNumberExponent:0000000000000000 decNumberExponent
-     /tmp/ccUsuo8D.s:3438   .text.decNumberExponent:0000000000000040 $d
-     /tmp/ccUsuo8D.s:3443   .text.decNumberULP:0000000000000000 $t
-     /tmp/ccUsuo8D.s:3451   .text.decNumberULP:0000000000000000 decNumberULP
-     /tmp/ccUsuo8D.s:3478   .text.decNumberNeighbour:0000000000000000 $t
-     /tmp/ccUsuo8D.s:3486   .text.decNumberNeighbour:0000000000000000 decNumberNeighbour
-     /tmp/ccUsuo8D.s:3723   .text.decNumberNeighbour:00000000000000ac $d
-     /tmp/ccUsuo8D.s:3729   .text.decNumberRecip:0000000000000000 $t
-     /tmp/ccUsuo8D.s:3737   .text.decNumberRecip:0000000000000000 decNumberRecip
-     /tmp/ccUsuo8D.s:3765   .text.decNumberRecip:000000000000000c $d
-     /tmp/ccUsuo8D.s:3773   .text.decNumberFloor:0000000000000000 $t
-     /tmp/ccUsuo8D.s:3781   .text.decNumberFloor:0000000000000000 decNumberFloor
-     /tmp/ccUsuo8D.s:3837   .text.decNumberFloor:0000000000000018 $d
-     /tmp/ccUsuo8D.s:3842   .text.decNumberCeil:0000000000000000 $t
-     /tmp/ccUsuo8D.s:3850   .text.decNumberCeil:0000000000000000 decNumberCeil
-     /tmp/ccUsuo8D.s:3906   .text.decNumberCeil:0000000000000018 $d
-     /tmp/ccUsuo8D.s:3911   .text.decNumberTrunc:0000000000000000 $t
-     /tmp/ccUsuo8D.s:3919   .text.decNumberTrunc:0000000000000000 decNumberTrunc
-     /tmp/ccUsuo8D.s:3975   .text.decNumberTrunc:0000000000000018 $d
-     /tmp/ccUsuo8D.s:3980   .text.decNumberRound:0000000000000000 $t
-     /tmp/ccUsuo8D.s:3988   .text.decNumberRound:0000000000000000 decNumberRound
-     /tmp/ccUsuo8D.s:4044   .text.decNumberRound:0000000000000018 $d
-ARM GAS  /tmp/ccUsuo8D.s 			page 469
+     /tmp/cc5RgpaF.s:2777   .text.dn_p1:0000000000000000 $t
+     /tmp/cc5RgpaF.s:2785   .text.dn_p1:0000000000000000 dn_p1
+     /tmp/cc5RgpaF.s:2808   .text.dn_p1:0000000000000008 $d
+     /tmp/cc5RgpaF.s:2816   .text.dn_m1:0000000000000000 $t
+     /tmp/cc5RgpaF.s:2824   .text.dn_m1:0000000000000000 dn_m1
+     /tmp/cc5RgpaF.s:2847   .text.dn_m1:0000000000000008 $d
+     /tmp/cc5RgpaF.s:2855   .text.dn_1m:0000000000000000 $t
+     /tmp/cc5RgpaF.s:2863   .text.dn_1m:0000000000000000 dn_1m
+     /tmp/cc5RgpaF.s:2891   .text.dn_1m:000000000000000c $d
+     /tmp/cc5RgpaF.s:2899   .text.dn_1:0000000000000000 $t
+     /tmp/cc5RgpaF.s:2907   .text.dn_1:0000000000000000 dn_1
+     /tmp/cc5RgpaF.s:2924   .text.dn_1:0000000000000008 $d
+     /tmp/cc5RgpaF.s:2929   .text.dn__1:0000000000000000 $t
+     /tmp/cc5RgpaF.s:2937   .text.dn__1:0000000000000000 dn__1
+     /tmp/cc5RgpaF.s:2954   .text.dn__1:0000000000000008 $d
+     /tmp/cc5RgpaF.s:2959   .text.dn_p2:0000000000000000 $t
+     /tmp/cc5RgpaF.s:2967   .text.dn_p2:0000000000000000 dn_p2
+     /tmp/cc5RgpaF.s:2990   .text.dn_p2:0000000000000008 $d
+     /tmp/cc5RgpaF.s:2998   .text.dn_mul2:0000000000000000 $t
+     /tmp/cc5RgpaF.s:3006   .text.dn_mul2:0000000000000000 dn_mul2
+     /tmp/cc5RgpaF.s:3029   .text.dn_mul2:0000000000000008 $d
+     /tmp/cc5RgpaF.s:3037   .text.dn_div2:0000000000000000 $t
+     /tmp/cc5RgpaF.s:3045   .text.dn_div2:0000000000000000 dn_div2
+     /tmp/cc5RgpaF.s:3068   .text.dn_div2:0000000000000008 $d
+     /tmp/cc5RgpaF.s:3076   .text.dn_mul100:0000000000000000 $t
+     /tmp/cc5RgpaF.s:3084   .text.dn_mul100:0000000000000000 dn_mul100
+     /tmp/cc5RgpaF.s:3125   .text.dn_mulPI:0000000000000000 $t
+     /tmp/cc5RgpaF.s:3133   .text.dn_mulPI:0000000000000000 dn_mulPI
+     /tmp/cc5RgpaF.s:3156   .text.dn_mulPI:0000000000000008 $d
+     /tmp/cc5RgpaF.s:3164   .text.dn_mulpow10:0000000000000000 $t
+     /tmp/cc5RgpaF.s:3172   .text.dn_mulpow10:0000000000000000 dn_mulpow10
+     /tmp/cc5RgpaF.s:3207   .text.decNumberMantissa:0000000000000000 $t
+     /tmp/cc5RgpaF.s:3215   .text.decNumberMantissa:0000000000000000 decNumberMantissa
+     /tmp/cc5RgpaF.s:3321   .text.decNumberMantissa:0000000000000044 $d
+     /tmp/cc5RgpaF.s:3326   .text.decNumberExponent:0000000000000000 $t
+     /tmp/cc5RgpaF.s:3334   .text.decNumberExponent:0000000000000000 decNumberExponent
+     /tmp/cc5RgpaF.s:3438   .text.decNumberExponent:0000000000000040 $d
+     /tmp/cc5RgpaF.s:3443   .text.decNumberULP:0000000000000000 $t
+     /tmp/cc5RgpaF.s:3451   .text.decNumberULP:0000000000000000 decNumberULP
+     /tmp/cc5RgpaF.s:3478   .text.decNumberNeighbour:0000000000000000 $t
+     /tmp/cc5RgpaF.s:3486   .text.decNumberNeighbour:0000000000000000 decNumberNeighbour
+     /tmp/cc5RgpaF.s:3723   .text.decNumberNeighbour:00000000000000ac $d
+     /tmp/cc5RgpaF.s:3729   .text.decNumberRecip:0000000000000000 $t
+     /tmp/cc5RgpaF.s:3737   .text.decNumberRecip:0000000000000000 decNumberRecip
+     /tmp/cc5RgpaF.s:3765   .text.decNumberRecip:000000000000000c $d
+     /tmp/cc5RgpaF.s:3773   .text.decNumberFloor:0000000000000000 $t
+     /tmp/cc5RgpaF.s:3781   .text.decNumberFloor:0000000000000000 decNumberFloor
+     /tmp/cc5RgpaF.s:3837   .text.decNumberFloor:0000000000000018 $d
+     /tmp/cc5RgpaF.s:3842   .text.decNumberCeil:0000000000000000 $t
+     /tmp/cc5RgpaF.s:3850   .text.decNumberCeil:0000000000000000 decNumberCeil
+     /tmp/cc5RgpaF.s:3906   .text.decNumberCeil:0000000000000018 $d
+     /tmp/cc5RgpaF.s:3911   .text.decNumberTrunc:0000000000000000 $t
+     /tmp/cc5RgpaF.s:3919   .text.decNumberTrunc:0000000000000000 decNumberTrunc
+     /tmp/cc5RgpaF.s:3975   .text.decNumberTrunc:0000000000000018 $d
+     /tmp/cc5RgpaF.s:3980   .text.decNumberRound:0000000000000000 $t
+     /tmp/cc5RgpaF.s:3988   .text.decNumberRound:0000000000000000 decNumberRound
+     /tmp/cc5RgpaF.s:4044   .text.decNumberRound:0000000000000018 $d
+ARM GAS  /tmp/cc5RgpaF.s 			page 469
 
 
-     /tmp/ccUsuo8D.s:4049   .text.decNumberFrac:0000000000000000 $t
-     /tmp/ccUsuo8D.s:4057   .text.decNumberFrac:0000000000000000 decNumberFrac
-     /tmp/ccUsuo8D.s:4159   .text.decNumberFrac:000000000000002c $d
-     /tmp/ccUsuo8D.s:4164   .text.dn_ln:0000000000000000 $t
-     /tmp/ccUsuo8D.s:4172   .text.dn_ln:0000000000000000 dn_ln
-     /tmp/ccUsuo8D.s:4806   .text.dn_ln:00000000000001a4 $d
-     /tmp/ccUsuo8D.s:4822   .text.decNumberLn1p:0000000000000000 $t
-     /tmp/ccUsuo8D.s:4830   .text.decNumberLn1p:0000000000000000 decNumberLn1p
-     /tmp/ccUsuo8D.s:5035   .text.decNumberLn1p:0000000000000078 $d
-     /tmp/ccUsuo8D.s:5041   .text.decNumberExpm1:0000000000000000 $t
-     /tmp/ccUsuo8D.s:5049   .text.decNumberExpm1:0000000000000000 decNumberExpm1
-     /tmp/ccUsuo8D.s:5273   .text.decNumberExpm1:0000000000000080 $d
-     /tmp/ccUsuo8D.s:5280   .text.do_log:0000000000000000 $t
-     /tmp/ccUsuo8D.s:5288   .text.do_log:0000000000000000 do_log
-     /tmp/ccUsuo8D.s:5435   .text.do_log:0000000000000050 $d
-     /tmp/ccUsuo8D.s:5442   .text.dn_log2:0000000000000000 $t
-     /tmp/ccUsuo8D.s:5450   .text.dn_log2:0000000000000000 dn_log2
-     /tmp/ccUsuo8D.s:5467   .text.dn_log2:0000000000000008 $d
-     /tmp/ccUsuo8D.s:5472   .text.dn_log10:0000000000000000 $t
-     /tmp/ccUsuo8D.s:5480   .text.dn_log10:0000000000000000 dn_log10
-     /tmp/ccUsuo8D.s:5497   .text.dn_log10:0000000000000008 $d
-     /tmp/ccUsuo8D.s:5502   .text.decNumberLogxy:0000000000000000 $t
-     /tmp/ccUsuo8D.s:5510   .text.decNumberLogxy:0000000000000000 decNumberLogxy
-     /tmp/ccUsuo8D.s:5556   .text.decNumberSquare:0000000000000000 $t
-     /tmp/ccUsuo8D.s:5564   .text.decNumberSquare:0000000000000000 decNumberSquare
-     /tmp/ccUsuo8D.s:5594   .text.decNumberSquare:0000000000000008 $d
-     /tmp/ccUsuo8D.s:5601   .text.decNumberCube:0000000000000000 $t
-     /tmp/ccUsuo8D.s:5609   .text.decNumberCube:0000000000000000 decNumberCube
-     /tmp/ccUsuo8D.s:5688   .text.decNumberCube:0000000000000024 $d
-     /tmp/ccUsuo8D.s:5693   .text.decNumberMod:0000000000000000 $t
-     /tmp/ccUsuo8D.s:5701   .text.decNumberMod:0000000000000000 decNumberMod
-     /tmp/ccUsuo8D.s:5762   .text.decNumberMod:0000000000000028 $d
-     /tmp/ccUsuo8D.s:5767   .text.is_even:0000000000000000 $t
-     /tmp/ccUsuo8D.s:5775   .text.is_even:0000000000000000 is_even
-     /tmp/ccUsuo8D.s:5888   .text.is_even:0000000000000058 $d
-     /tmp/ccUsuo8D.s:5895   .text.dn_power_internal:0000000000000000 $t
-     /tmp/ccUsuo8D.s:5903   .text.dn_power_internal:0000000000000000 dn_power_internal
-     /tmp/ccUsuo8D.s:6560   .text.dn_power_internal:00000000000001e4 $d
-     /tmp/ccUsuo8D.s:6573   .text.dn_power:0000000000000000 $t
-     /tmp/ccUsuo8D.s:6581   .text.dn_power:0000000000000000 dn_power
-     /tmp/ccUsuo8D.s:6599   .text.decNumberCubeRoot:0000000000000000 $t
-     /tmp/ccUsuo8D.s:6607   .text.decNumberCubeRoot:0000000000000000 decNumberCubeRoot
-     /tmp/ccUsuo8D.s:6754   .text.decNumberCubeRoot:0000000000000050 $d
-     /tmp/ccUsuo8D.s:6761   .text.decNumberPow2:0000000000000000 $t
-     /tmp/ccUsuo8D.s:6769   .text.decNumberPow2:0000000000000000 decNumberPow2
-     /tmp/ccUsuo8D.s:6791   .text.decNumberPow2:000000000000000c $d
-     /tmp/ccUsuo8D.s:6797   .text.decNumberPow10:0000000000000000 $t
-     /tmp/ccUsuo8D.s:6805   .text.decNumberPow10:0000000000000000 decNumberPow10
-     /tmp/ccUsuo8D.s:6827   .text.decNumberPow10:000000000000000c $d
-     /tmp/ccUsuo8D.s:6833   .text.decNumberXRoot:0000000000000000 $t
-     /tmp/ccUsuo8D.s:6841   .text.decNumberXRoot:0000000000000000 decNumberXRoot
-     /tmp/ccUsuo8D.s:7052   .text.decNumberXRoot:0000000000000070 $d
-     /tmp/ccUsuo8D.s:7059   .text.decNumberBigMod:0000000000000000 $t
-     /tmp/ccUsuo8D.s:7067   .text.decNumberBigMod:0000000000000000 decNumberBigMod
-     /tmp/ccUsuo8D.s:7209   .text.decNumberBigMod:000000000000007c $d
-     /tmp/ccUsuo8D.s:7217   .text.dn_gcd:0000000000000000 $t
-     /tmp/ccUsuo8D.s:7224   .text.dn_gcd:0000000000000000 dn_gcd
-ARM GAS  /tmp/ccUsuo8D.s 			page 470
+     /tmp/cc5RgpaF.s:4049   .text.decNumberFrac:0000000000000000 $t
+     /tmp/cc5RgpaF.s:4057   .text.decNumberFrac:0000000000000000 decNumberFrac
+     /tmp/cc5RgpaF.s:4159   .text.decNumberFrac:000000000000002c $d
+     /tmp/cc5RgpaF.s:4164   .text.dn_ln:0000000000000000 $t
+     /tmp/cc5RgpaF.s:4172   .text.dn_ln:0000000000000000 dn_ln
+     /tmp/cc5RgpaF.s:4806   .text.dn_ln:00000000000001a4 $d
+     /tmp/cc5RgpaF.s:4822   .text.decNumberLn1p:0000000000000000 $t
+     /tmp/cc5RgpaF.s:4830   .text.decNumberLn1p:0000000000000000 decNumberLn1p
+     /tmp/cc5RgpaF.s:5035   .text.decNumberLn1p:0000000000000078 $d
+     /tmp/cc5RgpaF.s:5041   .text.decNumberExpm1:0000000000000000 $t
+     /tmp/cc5RgpaF.s:5049   .text.decNumberExpm1:0000000000000000 decNumberExpm1
+     /tmp/cc5RgpaF.s:5273   .text.decNumberExpm1:0000000000000080 $d
+     /tmp/cc5RgpaF.s:5280   .text.do_log:0000000000000000 $t
+     /tmp/cc5RgpaF.s:5288   .text.do_log:0000000000000000 do_log
+     /tmp/cc5RgpaF.s:5435   .text.do_log:0000000000000050 $d
+     /tmp/cc5RgpaF.s:5442   .text.dn_log2:0000000000000000 $t
+     /tmp/cc5RgpaF.s:5450   .text.dn_log2:0000000000000000 dn_log2
+     /tmp/cc5RgpaF.s:5467   .text.dn_log2:0000000000000008 $d
+     /tmp/cc5RgpaF.s:5472   .text.dn_log10:0000000000000000 $t
+     /tmp/cc5RgpaF.s:5480   .text.dn_log10:0000000000000000 dn_log10
+     /tmp/cc5RgpaF.s:5497   .text.dn_log10:0000000000000008 $d
+     /tmp/cc5RgpaF.s:5502   .text.decNumberLogxy:0000000000000000 $t
+     /tmp/cc5RgpaF.s:5510   .text.decNumberLogxy:0000000000000000 decNumberLogxy
+     /tmp/cc5RgpaF.s:5556   .text.decNumberSquare:0000000000000000 $t
+     /tmp/cc5RgpaF.s:5564   .text.decNumberSquare:0000000000000000 decNumberSquare
+     /tmp/cc5RgpaF.s:5594   .text.decNumberSquare:0000000000000008 $d
+     /tmp/cc5RgpaF.s:5601   .text.decNumberCube:0000000000000000 $t
+     /tmp/cc5RgpaF.s:5609   .text.decNumberCube:0000000000000000 decNumberCube
+     /tmp/cc5RgpaF.s:5688   .text.decNumberCube:0000000000000024 $d
+     /tmp/cc5RgpaF.s:5693   .text.decNumberMod:0000000000000000 $t
+     /tmp/cc5RgpaF.s:5701   .text.decNumberMod:0000000000000000 decNumberMod
+     /tmp/cc5RgpaF.s:5762   .text.decNumberMod:0000000000000028 $d
+     /tmp/cc5RgpaF.s:5767   .text.is_even:0000000000000000 $t
+     /tmp/cc5RgpaF.s:5775   .text.is_even:0000000000000000 is_even
+     /tmp/cc5RgpaF.s:5888   .text.is_even:0000000000000058 $d
+     /tmp/cc5RgpaF.s:5895   .text.dn_power_internal:0000000000000000 $t
+     /tmp/cc5RgpaF.s:5903   .text.dn_power_internal:0000000000000000 dn_power_internal
+     /tmp/cc5RgpaF.s:6560   .text.dn_power_internal:00000000000001e4 $d
+     /tmp/cc5RgpaF.s:6573   .text.dn_power:0000000000000000 $t
+     /tmp/cc5RgpaF.s:6581   .text.dn_power:0000000000000000 dn_power
+     /tmp/cc5RgpaF.s:6599   .text.decNumberCubeRoot:0000000000000000 $t
+     /tmp/cc5RgpaF.s:6607   .text.decNumberCubeRoot:0000000000000000 decNumberCubeRoot
+     /tmp/cc5RgpaF.s:6754   .text.decNumberCubeRoot:0000000000000050 $d
+     /tmp/cc5RgpaF.s:6761   .text.decNumberPow2:0000000000000000 $t
+     /tmp/cc5RgpaF.s:6769   .text.decNumberPow2:0000000000000000 decNumberPow2
+     /tmp/cc5RgpaF.s:6791   .text.decNumberPow2:000000000000000c $d
+     /tmp/cc5RgpaF.s:6797   .text.decNumberPow10:0000000000000000 $t
+     /tmp/cc5RgpaF.s:6805   .text.decNumberPow10:0000000000000000 decNumberPow10
+     /tmp/cc5RgpaF.s:6827   .text.decNumberPow10:000000000000000c $d
+     /tmp/cc5RgpaF.s:6833   .text.decNumberXRoot:0000000000000000 $t
+     /tmp/cc5RgpaF.s:6841   .text.decNumberXRoot:0000000000000000 decNumberXRoot
+     /tmp/cc5RgpaF.s:7052   .text.decNumberXRoot:0000000000000070 $d
+     /tmp/cc5RgpaF.s:7059   .text.decNumberBigMod:0000000000000000 $t
+     /tmp/cc5RgpaF.s:7067   .text.decNumberBigMod:0000000000000000 decNumberBigMod
+     /tmp/cc5RgpaF.s:7209   .text.decNumberBigMod:000000000000007c $d
+     /tmp/cc5RgpaF.s:7217   .text.dn_gcd:0000000000000000 $t
+     /tmp/cc5RgpaF.s:7224   .text.dn_gcd:0000000000000000 dn_gcd
+ARM GAS  /tmp/cc5RgpaF.s 			page 470
 
 
-     /tmp/ccUsuo8D.s:7346   .text.decNumberGCD:0000000000000000 $t
-     /tmp/ccUsuo8D.s:7354   .text.decNumberGCD:0000000000000000 decNumberGCD
-     /tmp/ccUsuo8D.s:7477   .text.decNumberLCM:0000000000000000 $t
-     /tmp/ccUsuo8D.s:7485   .text.decNumberLCM:0000000000000000 decNumberLCM
-     /tmp/ccUsuo8D.s:7650   .text.decNumberLCM:0000000000000074 $d
-     /tmp/ccUsuo8D.s:7655   .text.sincosTaylor:0000000000000000 $t
-     /tmp/ccUsuo8D.s:7663   .text.sincosTaylor:0000000000000000 sincosTaylor
-     /tmp/ccUsuo8D.s:8213   .text.sincosTaylor:0000000000000154 $d
-     /tmp/ccUsuo8D.s:8219   .text.decNumberPow_1:0000000000000000 $t
-     /tmp/ccUsuo8D.s:8227   .text.decNumberPow_1:0000000000000000 decNumberPow_1
-     /tmp/ccUsuo8D.s:8362   .text.decNumberPow_1:0000000000000054 $d
-     /tmp/ccUsuo8D.s:8371   .text.Gamma_LnGamma:0000000000000000 $t
-     /tmp/ccUsuo8D.s:8378   .text.Gamma_LnGamma:0000000000000000 Gamma_LnGamma
-     /tmp/ccUsuo8D.s:9384   .text.Gamma_LnGamma:00000000000002a4 $d
-     /tmp/ccUsuo8D.s:9407   .text.perm_helper:0000000000000000 $t
-     /tmp/ccUsuo8D.s:9414   .text.perm_helper:0000000000000000 perm_helper
-     /tmp/ccUsuo8D.s:9728   .text.perm_helper:00000000000000d4 $d
-     /tmp/ccUsuo8D.s:9736   .text.cvt_2rad_sincos:0000000000000000 $t
-     /tmp/ccUsuo8D.s:9743   .text.cvt_2rad_sincos:0000000000000000 cvt_2rad_sincos
-     /tmp/ccUsuo8D.s:10096  .text.cvt_2rad_sincos:0000000000000140 $d
-     /tmp/ccUsuo8D.s:10105  .text.cvt_rad2:0000000000000000 $t
-     /tmp/ccUsuo8D.s:10113  .text.cvt_rad2:0000000000000000 cvt_rad2
-     /tmp/ccUsuo8D.s:10130  .text.dn_sincos:0000000000000000 $t
-     /tmp/ccUsuo8D.s:10138  .text.dn_sincos:0000000000000000 dn_sincos
-     /tmp/ccUsuo8D.s:10210  .text.dn_sincos:0000000000000034 $d
-     /tmp/ccUsuo8D.s:10215  .text.decNumberSin:0000000000000000 $t
-     /tmp/ccUsuo8D.s:10223  .text.decNumberSin:0000000000000000 decNumberSin
-     /tmp/ccUsuo8D.s:10301  .text.decNumberSin:000000000000002c $d
-     /tmp/ccUsuo8D.s:10306  .text.decNumberCos:0000000000000000 $t
-     /tmp/ccUsuo8D.s:10314  .text.decNumberCos:0000000000000000 decNumberCos
-     /tmp/ccUsuo8D.s:10395  .text.decNumberCos:000000000000002c $d
-     /tmp/ccUsuo8D.s:10400  .text.decNumberTan:0000000000000000 $t
-     /tmp/ccUsuo8D.s:10408  .text.decNumberTan:0000000000000000 decNumberTan
-     /tmp/ccUsuo8D.s:10575  .text.decNumberTan:0000000000000068 $d
-     /tmp/ccUsuo8D.s:10581  .text.decNumberSinc:0000000000000000 $t
-     /tmp/ccUsuo8D.s:10589  .text.decNumberSinc:0000000000000000 decNumberSinc
-     /tmp/ccUsuo8D.s:10753  .text.decNumberSinc:0000000000000058 $d
-     /tmp/ccUsuo8D.s:10760  .text.do_atan:0000000000000000 $t
-     /tmp/ccUsuo8D.s:10768  .text.do_atan:0000000000000000 do_atan
-     /tmp/ccUsuo8D.s:11446  .text.do_atan:00000000000001bc $d
-     /tmp/ccUsuo8D.s:11457  .text.do_asin:0000000000000000 $t
-     /tmp/ccUsuo8D.s:11465  .text.do_asin:0000000000000000 do_asin
-     /tmp/ccUsuo8D.s:11691  .text.do_asin:0000000000000084 $d
-     /tmp/ccUsuo8D.s:11699  .text.do_acos:0000000000000000 $t
-     /tmp/ccUsuo8D.s:11707  .text.do_acos:0000000000000000 do_acos
-     /tmp/ccUsuo8D.s:11960  .text.do_acos:0000000000000098 $d
-     /tmp/ccUsuo8D.s:11968  .text.decNumberArcSin:0000000000000000 $t
-     /tmp/ccUsuo8D.s:11976  .text.decNumberArcSin:0000000000000000 decNumberArcSin
-     /tmp/ccUsuo8D.s:12028  .text.decNumberArcCos:0000000000000000 $t
-     /tmp/ccUsuo8D.s:12036  .text.decNumberArcCos:0000000000000000 decNumberArcCos
-     /tmp/ccUsuo8D.s:12088  .text.decNumberArcTan:0000000000000000 $t
-     /tmp/ccUsuo8D.s:12096  .text.decNumberArcTan:0000000000000000 decNumberArcTan
-     /tmp/ccUsuo8D.s:12227  .text.decNumberArcTan:000000000000005c $d
-     /tmp/ccUsuo8D.s:12236  .text.do_atan2:0000000000000000 $t
-     /tmp/ccUsuo8D.s:12244  .text.do_atan2:0000000000000000 do_atan2
-     /tmp/ccUsuo8D.s:12760  .text.do_atan2:000000000000014c $d
-     /tmp/ccUsuo8D.s:12772  .text.decNumberArcTan2:0000000000000000 $t
-ARM GAS  /tmp/ccUsuo8D.s 			page 471
+     /tmp/cc5RgpaF.s:7346   .text.decNumberGCD:0000000000000000 $t
+     /tmp/cc5RgpaF.s:7354   .text.decNumberGCD:0000000000000000 decNumberGCD
+     /tmp/cc5RgpaF.s:7477   .text.decNumberLCM:0000000000000000 $t
+     /tmp/cc5RgpaF.s:7485   .text.decNumberLCM:0000000000000000 decNumberLCM
+     /tmp/cc5RgpaF.s:7650   .text.decNumberLCM:0000000000000074 $d
+     /tmp/cc5RgpaF.s:7655   .text.sincosTaylor:0000000000000000 $t
+     /tmp/cc5RgpaF.s:7663   .text.sincosTaylor:0000000000000000 sincosTaylor
+     /tmp/cc5RgpaF.s:8213   .text.sincosTaylor:0000000000000154 $d
+     /tmp/cc5RgpaF.s:8219   .text.decNumberPow_1:0000000000000000 $t
+     /tmp/cc5RgpaF.s:8227   .text.decNumberPow_1:0000000000000000 decNumberPow_1
+     /tmp/cc5RgpaF.s:8362   .text.decNumberPow_1:0000000000000054 $d
+     /tmp/cc5RgpaF.s:8371   .text.Gamma_LnGamma:0000000000000000 $t
+     /tmp/cc5RgpaF.s:8378   .text.Gamma_LnGamma:0000000000000000 Gamma_LnGamma
+     /tmp/cc5RgpaF.s:9384   .text.Gamma_LnGamma:00000000000002a4 $d
+     /tmp/cc5RgpaF.s:9407   .text.perm_helper:0000000000000000 $t
+     /tmp/cc5RgpaF.s:9414   .text.perm_helper:0000000000000000 perm_helper
+     /tmp/cc5RgpaF.s:9728   .text.perm_helper:00000000000000d4 $d
+     /tmp/cc5RgpaF.s:9736   .text.cvt_2rad_sincos:0000000000000000 $t
+     /tmp/cc5RgpaF.s:9743   .text.cvt_2rad_sincos:0000000000000000 cvt_2rad_sincos
+     /tmp/cc5RgpaF.s:10096  .text.cvt_2rad_sincos:0000000000000140 $d
+     /tmp/cc5RgpaF.s:10105  .text.cvt_rad2:0000000000000000 $t
+     /tmp/cc5RgpaF.s:10113  .text.cvt_rad2:0000000000000000 cvt_rad2
+     /tmp/cc5RgpaF.s:10130  .text.dn_sincos:0000000000000000 $t
+     /tmp/cc5RgpaF.s:10138  .text.dn_sincos:0000000000000000 dn_sincos
+     /tmp/cc5RgpaF.s:10210  .text.dn_sincos:0000000000000034 $d
+     /tmp/cc5RgpaF.s:10215  .text.decNumberSin:0000000000000000 $t
+     /tmp/cc5RgpaF.s:10223  .text.decNumberSin:0000000000000000 decNumberSin
+     /tmp/cc5RgpaF.s:10301  .text.decNumberSin:000000000000002c $d
+     /tmp/cc5RgpaF.s:10306  .text.decNumberCos:0000000000000000 $t
+     /tmp/cc5RgpaF.s:10314  .text.decNumberCos:0000000000000000 decNumberCos
+     /tmp/cc5RgpaF.s:10395  .text.decNumberCos:000000000000002c $d
+     /tmp/cc5RgpaF.s:10400  .text.decNumberTan:0000000000000000 $t
+     /tmp/cc5RgpaF.s:10408  .text.decNumberTan:0000000000000000 decNumberTan
+     /tmp/cc5RgpaF.s:10575  .text.decNumberTan:0000000000000068 $d
+     /tmp/cc5RgpaF.s:10581  .text.decNumberSinc:0000000000000000 $t
+     /tmp/cc5RgpaF.s:10589  .text.decNumberSinc:0000000000000000 decNumberSinc
+     /tmp/cc5RgpaF.s:10753  .text.decNumberSinc:0000000000000058 $d
+     /tmp/cc5RgpaF.s:10760  .text.do_atan:0000000000000000 $t
+     /tmp/cc5RgpaF.s:10768  .text.do_atan:0000000000000000 do_atan
+     /tmp/cc5RgpaF.s:11446  .text.do_atan:00000000000001bc $d
+     /tmp/cc5RgpaF.s:11457  .text.do_asin:0000000000000000 $t
+     /tmp/cc5RgpaF.s:11465  .text.do_asin:0000000000000000 do_asin
+     /tmp/cc5RgpaF.s:11691  .text.do_asin:0000000000000084 $d
+     /tmp/cc5RgpaF.s:11699  .text.do_acos:0000000000000000 $t
+     /tmp/cc5RgpaF.s:11707  .text.do_acos:0000000000000000 do_acos
+     /tmp/cc5RgpaF.s:11960  .text.do_acos:0000000000000098 $d
+     /tmp/cc5RgpaF.s:11968  .text.decNumberArcSin:0000000000000000 $t
+     /tmp/cc5RgpaF.s:11976  .text.decNumberArcSin:0000000000000000 decNumberArcSin
+     /tmp/cc5RgpaF.s:12028  .text.decNumberArcCos:0000000000000000 $t
+     /tmp/cc5RgpaF.s:12036  .text.decNumberArcCos:0000000000000000 decNumberArcCos
+     /tmp/cc5RgpaF.s:12088  .text.decNumberArcTan:0000000000000000 $t
+     /tmp/cc5RgpaF.s:12096  .text.decNumberArcTan:0000000000000000 decNumberArcTan
+     /tmp/cc5RgpaF.s:12227  .text.decNumberArcTan:000000000000005c $d
+     /tmp/cc5RgpaF.s:12236  .text.do_atan2:0000000000000000 $t
+     /tmp/cc5RgpaF.s:12244  .text.do_atan2:0000000000000000 do_atan2
+     /tmp/cc5RgpaF.s:12760  .text.do_atan2:000000000000014c $d
+     /tmp/cc5RgpaF.s:12772  .text.decNumberArcTan2:0000000000000000 $t
+ARM GAS  /tmp/cc5RgpaF.s 			page 471
 
 
-     /tmp/ccUsuo8D.s:12780  .text.decNumberArcTan2:0000000000000000 decNumberArcTan2
-     /tmp/ccUsuo8D.s:12832  .text.op_r2p:0000000000000000 $t
-     /tmp/ccUsuo8D.s:12840  .text.op_r2p:0000000000000000 op_r2p
-     /tmp/ccUsuo8D.s:12930  .text.op_r2p:0000000000000050 $d
-     /tmp/ccUsuo8D.s:12935  .text.op_p2r:0000000000000000 $t
-     /tmp/ccUsuo8D.s:12943  .text.op_p2r:0000000000000000 op_p2r
-     /tmp/ccUsuo8D.s:13040  .text.op_p2r:000000000000004c $d
-     /tmp/ccUsuo8D.s:13046  .text.dn_sinhcosh:0000000000000000 $t
-     /tmp/ccUsuo8D.s:13054  .text.dn_sinhcosh:0000000000000000 dn_sinhcosh
-     /tmp/ccUsuo8D.s:13371  .text.dn_sinhcosh:00000000000000b0 $d
-     /tmp/ccUsuo8D.s:13380  .text.decNumberSinh:0000000000000000 $t
-     /tmp/ccUsuo8D.s:13388  .text.decNumberSinh:0000000000000000 decNumberSinh
-     /tmp/ccUsuo8D.s:13471  .text.decNumberSinh:0000000000000034 $d
-     /tmp/ccUsuo8D.s:13476  .text.decNumberCosh:0000000000000000 $t
-     /tmp/ccUsuo8D.s:13484  .text.decNumberCosh:0000000000000000 decNumberCosh
-     /tmp/ccUsuo8D.s:13575  .text.decNumberCosh:0000000000000038 $d
-     /tmp/ccUsuo8D.s:13581  .text.decNumberTanh:0000000000000000 $t
-     /tmp/ccUsuo8D.s:13589  .text.decNumberTanh:0000000000000000 decNumberTanh
-     /tmp/ccUsuo8D.s:13777  .text.decNumberTanh:0000000000000070 $d
-     /tmp/ccUsuo8D.s:13787  .text.decNumberArcSinh:0000000000000000 $t
-     /tmp/ccUsuo8D.s:13795  .text.decNumberArcSinh:0000000000000000 decNumberArcSinh
-     /tmp/ccUsuo8D.s:14011  .text.decNumberArcSinh:0000000000000068 $d
-     /tmp/ccUsuo8D.s:14017  .text.decNumberArcCosh:0000000000000000 $t
-     /tmp/ccUsuo8D.s:14025  .text.decNumberArcCosh:0000000000000000 decNumberArcCosh
-     /tmp/ccUsuo8D.s:14160  .text.decNumberArcCosh:0000000000000040 $d
-     /tmp/ccUsuo8D.s:14166  .text.decNumberArcTanh:0000000000000000 $t
-     /tmp/ccUsuo8D.s:14174  .text.decNumberArcTanh:0000000000000000 decNumberArcTanh
-     /tmp/ccUsuo8D.s:14419  .text.decNumberArcTanh:0000000000000084 $d
-     /tmp/ccUsuo8D.s:14430  .text.decNumberD2R:0000000000000000 $t
-     /tmp/ccUsuo8D.s:14438  .text.decNumberD2R:0000000000000000 decNumberD2R
-     /tmp/ccUsuo8D.s:14461  .text.decNumberD2R:0000000000000008 $d
-     /tmp/ccUsuo8D.s:14469  .text.decNumberR2D:0000000000000000 $t
-     /tmp/ccUsuo8D.s:14477  .text.decNumberR2D:0000000000000000 decNumberR2D
-     /tmp/ccUsuo8D.s:14500  .text.decNumberR2D:0000000000000008 $d
-     /tmp/ccUsuo8D.s:14508  .text.decNumberG2R:0000000000000000 $t
-     /tmp/ccUsuo8D.s:14516  .text.decNumberG2R:0000000000000000 decNumberG2R
-     /tmp/ccUsuo8D.s:14539  .text.decNumberG2R:0000000000000008 $d
-     /tmp/ccUsuo8D.s:14547  .text.decNumberR2G:0000000000000000 $t
-     /tmp/ccUsuo8D.s:14555  .text.decNumberR2G:0000000000000000 decNumberR2G
-     /tmp/ccUsuo8D.s:14578  .text.decNumberR2G:0000000000000008 $d
-     /tmp/ccUsuo8D.s:14586  .text.decNumberG2D:0000000000000000 $t
-     /tmp/ccUsuo8D.s:14594  .text.decNumberG2D:0000000000000000 decNumberG2D
-     /tmp/ccUsuo8D.s:14617  .text.decNumberG2D:0000000000000008 $d
-     /tmp/ccUsuo8D.s:14625  .text.decNumberD2G:0000000000000000 $t
-     /tmp/ccUsuo8D.s:14633  .text.decNumberD2G:0000000000000000 decNumberD2G
-     /tmp/ccUsuo8D.s:14656  .text.decNumberD2G:0000000000000008 $d
-     /tmp/ccUsuo8D.s:14664  .text.decNumberDRG:0000000000000000 $t
-     /tmp/ccUsuo8D.s:14672  .text.decNumberDRG:0000000000000000 decNumberDRG
-     /tmp/ccUsuo8D.s:14690  .text.decNumberDRG:0000000000000008 $d
-     /tmp/ccUsuo8D.s:14695  .text.decNumberComb:0000000000000000 $t
-     /tmp/ccUsuo8D.s:14703  .text.decNumberComb:0000000000000000 decNumberComb
-     /tmp/ccUsuo8D.s:14920  .text.decNumberComb:0000000000000070 $d
-     /tmp/ccUsuo8D.s:14926  .text.decNumberPerm:0000000000000000 $t
-     /tmp/ccUsuo8D.s:14934  .text.decNumberPerm:0000000000000000 decNumberPerm
-     /tmp/ccUsuo8D.s:15080  .text.decNumberPerm:000000000000004c $d
-     /tmp/ccUsuo8D.s:15085  .text.decNumberFactorial:0000000000000000 $t
-     /tmp/ccUsuo8D.s:15093  .text.decNumberFactorial:0000000000000000 decNumberFactorial
-ARM GAS  /tmp/ccUsuo8D.s 			page 472
+     /tmp/cc5RgpaF.s:12780  .text.decNumberArcTan2:0000000000000000 decNumberArcTan2
+     /tmp/cc5RgpaF.s:12832  .text.op_r2p:0000000000000000 $t
+     /tmp/cc5RgpaF.s:12840  .text.op_r2p:0000000000000000 op_r2p
+     /tmp/cc5RgpaF.s:12930  .text.op_r2p:0000000000000050 $d
+     /tmp/cc5RgpaF.s:12935  .text.op_p2r:0000000000000000 $t
+     /tmp/cc5RgpaF.s:12943  .text.op_p2r:0000000000000000 op_p2r
+     /tmp/cc5RgpaF.s:13040  .text.op_p2r:000000000000004c $d
+     /tmp/cc5RgpaF.s:13046  .text.dn_sinhcosh:0000000000000000 $t
+     /tmp/cc5RgpaF.s:13054  .text.dn_sinhcosh:0000000000000000 dn_sinhcosh
+     /tmp/cc5RgpaF.s:13371  .text.dn_sinhcosh:00000000000000b0 $d
+     /tmp/cc5RgpaF.s:13380  .text.decNumberSinh:0000000000000000 $t
+     /tmp/cc5RgpaF.s:13388  .text.decNumberSinh:0000000000000000 decNumberSinh
+     /tmp/cc5RgpaF.s:13471  .text.decNumberSinh:0000000000000034 $d
+     /tmp/cc5RgpaF.s:13476  .text.decNumberCosh:0000000000000000 $t
+     /tmp/cc5RgpaF.s:13484  .text.decNumberCosh:0000000000000000 decNumberCosh
+     /tmp/cc5RgpaF.s:13575  .text.decNumberCosh:0000000000000038 $d
+     /tmp/cc5RgpaF.s:13581  .text.decNumberTanh:0000000000000000 $t
+     /tmp/cc5RgpaF.s:13589  .text.decNumberTanh:0000000000000000 decNumberTanh
+     /tmp/cc5RgpaF.s:13777  .text.decNumberTanh:0000000000000070 $d
+     /tmp/cc5RgpaF.s:13787  .text.decNumberArcSinh:0000000000000000 $t
+     /tmp/cc5RgpaF.s:13795  .text.decNumberArcSinh:0000000000000000 decNumberArcSinh
+     /tmp/cc5RgpaF.s:14011  .text.decNumberArcSinh:0000000000000068 $d
+     /tmp/cc5RgpaF.s:14017  .text.decNumberArcCosh:0000000000000000 $t
+     /tmp/cc5RgpaF.s:14025  .text.decNumberArcCosh:0000000000000000 decNumberArcCosh
+     /tmp/cc5RgpaF.s:14160  .text.decNumberArcCosh:0000000000000040 $d
+     /tmp/cc5RgpaF.s:14166  .text.decNumberArcTanh:0000000000000000 $t
+     /tmp/cc5RgpaF.s:14174  .text.decNumberArcTanh:0000000000000000 decNumberArcTanh
+     /tmp/cc5RgpaF.s:14419  .text.decNumberArcTanh:0000000000000084 $d
+     /tmp/cc5RgpaF.s:14430  .text.decNumberD2R:0000000000000000 $t
+     /tmp/cc5RgpaF.s:14438  .text.decNumberD2R:0000000000000000 decNumberD2R
+     /tmp/cc5RgpaF.s:14461  .text.decNumberD2R:0000000000000008 $d
+     /tmp/cc5RgpaF.s:14469  .text.decNumberR2D:0000000000000000 $t
+     /tmp/cc5RgpaF.s:14477  .text.decNumberR2D:0000000000000000 decNumberR2D
+     /tmp/cc5RgpaF.s:14500  .text.decNumberR2D:0000000000000008 $d
+     /tmp/cc5RgpaF.s:14508  .text.decNumberG2R:0000000000000000 $t
+     /tmp/cc5RgpaF.s:14516  .text.decNumberG2R:0000000000000000 decNumberG2R
+     /tmp/cc5RgpaF.s:14539  .text.decNumberG2R:0000000000000008 $d
+     /tmp/cc5RgpaF.s:14547  .text.decNumberR2G:0000000000000000 $t
+     /tmp/cc5RgpaF.s:14555  .text.decNumberR2G:0000000000000000 decNumberR2G
+     /tmp/cc5RgpaF.s:14578  .text.decNumberR2G:0000000000000008 $d
+     /tmp/cc5RgpaF.s:14586  .text.decNumberG2D:0000000000000000 $t
+     /tmp/cc5RgpaF.s:14594  .text.decNumberG2D:0000000000000000 decNumberG2D
+     /tmp/cc5RgpaF.s:14617  .text.decNumberG2D:0000000000000008 $d
+     /tmp/cc5RgpaF.s:14625  .text.decNumberD2G:0000000000000000 $t
+     /tmp/cc5RgpaF.s:14633  .text.decNumberD2G:0000000000000000 decNumberD2G
+     /tmp/cc5RgpaF.s:14656  .text.decNumberD2G:0000000000000008 $d
+     /tmp/cc5RgpaF.s:14664  .text.decNumberDRG:0000000000000000 $t
+     /tmp/cc5RgpaF.s:14672  .text.decNumberDRG:0000000000000000 decNumberDRG
+     /tmp/cc5RgpaF.s:14690  .text.decNumberDRG:0000000000000008 $d
+     /tmp/cc5RgpaF.s:14695  .text.decNumberComb:0000000000000000 $t
+     /tmp/cc5RgpaF.s:14703  .text.decNumberComb:0000000000000000 decNumberComb
+     /tmp/cc5RgpaF.s:14920  .text.decNumberComb:0000000000000070 $d
+     /tmp/cc5RgpaF.s:14926  .text.decNumberPerm:0000000000000000 $t
+     /tmp/cc5RgpaF.s:14934  .text.decNumberPerm:0000000000000000 decNumberPerm
+     /tmp/cc5RgpaF.s:15080  .text.decNumberPerm:000000000000004c $d
+     /tmp/cc5RgpaF.s:15085  .text.decNumberFactorial:0000000000000000 $t
+     /tmp/cc5RgpaF.s:15093  .text.decNumberFactorial:0000000000000000 decNumberFactorial
+ARM GAS  /tmp/cc5RgpaF.s 			page 472
 
 
-     /tmp/ccUsuo8D.s:15171  .text.decNumberFactorial:0000000000000020 $d
-     /tmp/ccUsuo8D.s:15177  .text.decNumberGamma:0000000000000000 $t
-     /tmp/ccUsuo8D.s:15185  .text.decNumberGamma:0000000000000000 decNumberGamma
-     /tmp/ccUsuo8D.s:15203  .text.decNumberLnGamma:0000000000000000 $t
-     /tmp/ccUsuo8D.s:15211  .text.decNumberLnGamma:0000000000000000 decNumberLnGamma
-     /tmp/ccUsuo8D.s:15229  .text.decNumberLnBeta:0000000000000000 $t
-     /tmp/ccUsuo8D.s:15237  .text.decNumberLnBeta:0000000000000000 decNumberLnBeta
-     /tmp/ccUsuo8D.s:15398  .text.decNumberLnBeta:0000000000000058 $d
-     /tmp/ccUsuo8D.s:15403  .text.decNumberHMS2HR:0000000000000000 $t
-     /tmp/ccUsuo8D.s:15411  .text.decNumberHMS2HR:0000000000000000 decNumberHMS2HR
-     /tmp/ccUsuo8D.s:15784  .text.decNumberHMS2HR:00000000000000b4 $d
-     /tmp/ccUsuo8D.s:15790  .text.decNumberHR2HMS:0000000000000000 $t
-     /tmp/ccUsuo8D.s:15798  .text.decNumberHR2HMS:0000000000000000 decNumberHR2HMS
-     /tmp/ccUsuo8D.s:16315  .text.decNumberHR2HMS:0000000000000138 $d
-     /tmp/ccUsuo8D.s:16323  .text.decNumberHMSAdd:0000000000000000 $t
-     /tmp/ccUsuo8D.s:16331  .text.decNumberHMSAdd:0000000000000000 decNumberHMSAdd
-     /tmp/ccUsuo8D.s:16401  .text.decNumberHMSAdd:0000000000000030 $d
-     /tmp/ccUsuo8D.s:16406  .text.decNumberHMSSub:0000000000000000 $t
-     /tmp/ccUsuo8D.s:16414  .text.decNumberHMSSub:0000000000000000 decNumberHMSSub
-     /tmp/ccUsuo8D.s:16484  .text.decNumberHMSSub:0000000000000030 $d
-     /tmp/ccUsuo8D.s:16489  .text.decNumberNot:0000000000000000 $t
-     /tmp/ccUsuo8D.s:16497  .text.decNumberNot:0000000000000000 decNumberNot
-     /tmp/ccUsuo8D.s:16605  .text.decNumberNot:000000000000002c $d
-     /tmp/ccUsuo8D.s:16610  .text.decNumberBooleanOp:0000000000000000 $t
-     /tmp/ccUsuo8D.s:16618  .text.decNumberBooleanOp:0000000000000000 decNumberBooleanOp
-     /tmp/ccUsuo8D.s:16791  .text.decNumberBooleanOp:0000000000000058 $d
-     /tmp/ccUsuo8D.s:16801  .text.decNumberRoundDigits:0000000000000000 $t
-     /tmp/ccUsuo8D.s:16809  .text.decNumberRoundDigits:0000000000000000 decNumberRoundDigits
-     /tmp/ccUsuo8D.s:16866  .text.decNumberRoundDigits:0000000000000020 $d
-     /tmp/ccUsuo8D.s:16871  .text.decNumberRoundDecimals:0000000000000000 $t
-     /tmp/ccUsuo8D.s:16879  .text.decNumberRoundDecimals:0000000000000000 decNumberRoundDecimals
-     /tmp/ccUsuo8D.s:17005  .text.decNumberRoundDecimals:0000000000000050 $d
-     /tmp/ccUsuo8D.s:17010  .text.decNumber2Fraction:0000000000000000 $t
-     /tmp/ccUsuo8D.s:17018  .text.decNumber2Fraction:0000000000000000 decNumber2Fraction
-     /tmp/ccUsuo8D.s:17772  .text.decNumber2Fraction:00000000000001dc $d
-     /tmp/ccUsuo8D.s:17784  .text.decNumberRnd:0000000000000000 $t
-     /tmp/ccUsuo8D.s:17792  .text.decNumberRnd:0000000000000000 decNumberRnd
-     /tmp/ccUsuo8D.s:18001  .text.decNumberRnd:0000000000000098 $d
-     /tmp/ccUsuo8D.s:18007  .text.decNumberGammap:0000000000000000 $t
-     /tmp/ccUsuo8D.s:18015  .text.decNumberGammap:0000000000000000 decNumberGammap
-     /tmp/ccUsuo8D.s:19184  .text.decNumberGammap:0000000000000340 $d
-     /tmp/ccUsuo8D.s:19199  .text.decNumberGammap:0000000000000360 $t
-     /tmp/ccUsuo8D.s:19245  .text.decNumberGammap:000000000000037c $d
-     /tmp/ccUsuo8D.s:19251  .text.decFactor:0000000000000000 $t
-     /tmp/ccUsuo8D.s:19259  .text.decFactor:0000000000000000 decFactor
-     /tmp/ccUsuo8D.s:19361  .text.decFactor:0000000000000054 $d
-     /tmp/ccUsuo8D.s:19384  .rodata.gamma_consts:0000000000000000 gamma_consts
-     /tmp/ccUsuo8D.s:19370  .rodata.degrees.9090:0000000000000000 $d
-     /tmp/ccUsuo8D.s:19374  .rodata.degrees.9090:0000000000000000 degrees.9090
-     /tmp/ccUsuo8D.s:19380  .rodata.gamma_consts:0000000000000000 $d
-     /tmp/ccUsuo8D.s:19407  .rodata.gradians.9091:0000000000000000 $d
-     /tmp/ccUsuo8D.s:19411  .rodata.gradians.9091:0000000000000000 gradians.9091
-     /tmp/ccUsuo8D.s:82     .text.decNumberDRG_internal:0000000000000039 $d
-     /tmp/ccUsuo8D.s:82     .text.decNumberDRG_internal:000000000000003a $t
+     /tmp/cc5RgpaF.s:15171  .text.decNumberFactorial:0000000000000020 $d
+     /tmp/cc5RgpaF.s:15177  .text.decNumberGamma:0000000000000000 $t
+     /tmp/cc5RgpaF.s:15185  .text.decNumberGamma:0000000000000000 decNumberGamma
+     /tmp/cc5RgpaF.s:15203  .text.decNumberLnGamma:0000000000000000 $t
+     /tmp/cc5RgpaF.s:15211  .text.decNumberLnGamma:0000000000000000 decNumberLnGamma
+     /tmp/cc5RgpaF.s:15229  .text.decNumberLnBeta:0000000000000000 $t
+     /tmp/cc5RgpaF.s:15237  .text.decNumberLnBeta:0000000000000000 decNumberLnBeta
+     /tmp/cc5RgpaF.s:15398  .text.decNumberLnBeta:0000000000000058 $d
+     /tmp/cc5RgpaF.s:15403  .text.decNumberHMS2HR:0000000000000000 $t
+     /tmp/cc5RgpaF.s:15411  .text.decNumberHMS2HR:0000000000000000 decNumberHMS2HR
+     /tmp/cc5RgpaF.s:15784  .text.decNumberHMS2HR:00000000000000b4 $d
+     /tmp/cc5RgpaF.s:15790  .text.decNumberHR2HMS:0000000000000000 $t
+     /tmp/cc5RgpaF.s:15798  .text.decNumberHR2HMS:0000000000000000 decNumberHR2HMS
+     /tmp/cc5RgpaF.s:16315  .text.decNumberHR2HMS:0000000000000138 $d
+     /tmp/cc5RgpaF.s:16323  .text.decNumberHMSAdd:0000000000000000 $t
+     /tmp/cc5RgpaF.s:16331  .text.decNumberHMSAdd:0000000000000000 decNumberHMSAdd
+     /tmp/cc5RgpaF.s:16401  .text.decNumberHMSAdd:0000000000000030 $d
+     /tmp/cc5RgpaF.s:16406  .text.decNumberHMSSub:0000000000000000 $t
+     /tmp/cc5RgpaF.s:16414  .text.decNumberHMSSub:0000000000000000 decNumberHMSSub
+     /tmp/cc5RgpaF.s:16484  .text.decNumberHMSSub:0000000000000030 $d
+     /tmp/cc5RgpaF.s:16489  .text.decNumberNot:0000000000000000 $t
+     /tmp/cc5RgpaF.s:16497  .text.decNumberNot:0000000000000000 decNumberNot
+     /tmp/cc5RgpaF.s:16605  .text.decNumberNot:000000000000002c $d
+     /tmp/cc5RgpaF.s:16610  .text.decNumberBooleanOp:0000000000000000 $t
+     /tmp/cc5RgpaF.s:16618  .text.decNumberBooleanOp:0000000000000000 decNumberBooleanOp
+     /tmp/cc5RgpaF.s:16791  .text.decNumberBooleanOp:0000000000000058 $d
+     /tmp/cc5RgpaF.s:16801  .text.decNumberRoundDigits:0000000000000000 $t
+     /tmp/cc5RgpaF.s:16809  .text.decNumberRoundDigits:0000000000000000 decNumberRoundDigits
+     /tmp/cc5RgpaF.s:16866  .text.decNumberRoundDigits:0000000000000020 $d
+     /tmp/cc5RgpaF.s:16871  .text.decNumberRoundDecimals:0000000000000000 $t
+     /tmp/cc5RgpaF.s:16879  .text.decNumberRoundDecimals:0000000000000000 decNumberRoundDecimals
+     /tmp/cc5RgpaF.s:17005  .text.decNumberRoundDecimals:0000000000000050 $d
+     /tmp/cc5RgpaF.s:17010  .text.decNumber2Fraction:0000000000000000 $t
+     /tmp/cc5RgpaF.s:17018  .text.decNumber2Fraction:0000000000000000 decNumber2Fraction
+     /tmp/cc5RgpaF.s:17772  .text.decNumber2Fraction:00000000000001dc $d
+     /tmp/cc5RgpaF.s:17784  .text.decNumberRnd:0000000000000000 $t
+     /tmp/cc5RgpaF.s:17792  .text.decNumberRnd:0000000000000000 decNumberRnd
+     /tmp/cc5RgpaF.s:18001  .text.decNumberRnd:0000000000000098 $d
+     /tmp/cc5RgpaF.s:18007  .text.decNumberGammap:0000000000000000 $t
+     /tmp/cc5RgpaF.s:18015  .text.decNumberGammap:0000000000000000 decNumberGammap
+     /tmp/cc5RgpaF.s:19184  .text.decNumberGammap:0000000000000340 $d
+     /tmp/cc5RgpaF.s:19199  .text.decNumberGammap:0000000000000360 $t
+     /tmp/cc5RgpaF.s:19245  .text.decNumberGammap:000000000000037c $d
+     /tmp/cc5RgpaF.s:19251  .text.decFactor:0000000000000000 $t
+     /tmp/cc5RgpaF.s:19259  .text.decFactor:0000000000000000 decFactor
+     /tmp/cc5RgpaF.s:19361  .text.decFactor:0000000000000054 $d
+     /tmp/cc5RgpaF.s:19384  .rodata.gamma_consts:0000000000000000 gamma_consts
+     /tmp/cc5RgpaF.s:19370  .rodata.degrees.9087:0000000000000000 $d
+     /tmp/cc5RgpaF.s:19374  .rodata.degrees.9087:0000000000000000 degrees.9087
+     /tmp/cc5RgpaF.s:19380  .rodata.gamma_consts:0000000000000000 $d
+     /tmp/cc5RgpaF.s:19407  .rodata.gradians.9088:0000000000000000 $d
+     /tmp/cc5RgpaF.s:19411  .rodata.gradians.9088:0000000000000000 gradians.9088
+     /tmp/cc5RgpaF.s:82     .text.decNumberDRG_internal:0000000000000039 $d
+     /tmp/cc5RgpaF.s:82     .text.decNumberDRG_internal:000000000000003a $t
 
 UNDEFINED SYMBOLS
 get_trig_mode
-ARM GAS  /tmp/ccUsuo8D.s 			page 473
+ARM GAS  /tmp/cc5RgpaF.s 			page 473
 
 
 decNumberCopy
@@ -28359,7 +28359,7 @@ const_2PI
 cmplx_NaN
 const_5
 const_0_1
-ARM GAS  /tmp/ccUsuo8D.s 			page 474
+ARM GAS  /tmp/cc5RgpaF.s 			page 474
 
 
 const_0_75

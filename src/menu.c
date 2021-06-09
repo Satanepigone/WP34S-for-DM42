@@ -488,8 +488,6 @@ static void set_menu_label (const char *str, int smallp, int dotcol, int shifted
   xmax = ((dotcol/MENU_WIDTH)+1)*MENU_WIDTH;
   const int offset = smallp ? 256 : 0;
 
-  forceDispPlot=0;
-
 #ifdef RP_PREFIX
   RectPolConv = 0;
 #endif

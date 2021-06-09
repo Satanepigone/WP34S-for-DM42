@@ -84,61 +84,18 @@ int setuptty(int reset) {
 
 void reset_disp(void) {
 #ifdef DM42
-	int rcl = is_dot(RCL_annun);
-	int bat = is_dot(BATTERY);
-	int leq = is_dot(LIT_EQ);
-	int rpn = is_dot(RPN);
-	int i;
-        for (i=0; i<TOP_DOTS; i++)
-		if (i != RCL_annun && i != BATTERY && i != LIT_EQ )
-			clr_dot(i);
-	dot(RCL_annun, rcl);
-	dot(BATTERY, bat);
-	dot(LIT_EQ, leq);
-	dot(RPN, rpn);
-#else  
-#ifndef CONSOLE
-	int rcl = is_dot(RCL_annun);
-	int bat = is_dot(BATTERY);
-	int leq = is_dot(LIT_EQ);
-	int rpn = is_dot(RPN);
-#ifndef REALBUILD
-	*LastDisplayedText = '\0';
-#endif
-        wait_for_display();
-#if defined(QTGUI) || defined(IOS)
-    	xset(LcdData, 0, sizeof(LcdData));
-    	xset(LastDisplayedNumber, ' ', NUMBER_LENGTH);
-    	LastDisplayedNumber[NUMBER_LENGTH]=0;
-    	xset(LastDisplayedExponent, ' ', EXPONENT_LENGTH);
-    	LastDisplayedExponent[EXPONENT_LENGTH]=0;
-#else
-        // terrible code which assumes int are 4 bytes long. Works fine for realbuild and for WINGUI though
-	xset((void *) AT91C_SLCDC_MEM, 0, 4 * 20);
-#endif
-	dot(RCL_annun, rcl);
-	dot(BATTERY, bat);
-	dot(LIT_EQ, leq);
-	dot(RPN, rpn);
-#else
-// Console
-#ifdef USECURSES
-	int i;
-        for (i=0; i<400; i++)
-		if (i != RCL_annun && i != BATTERY && i != LIT_EQ )
-			clr_dot(i);
-
-	erase();
-        MOVE(0, 4);
-#else
-        putchar('\r');
-        for (i=0; i<70; i++)
-                putchar(' ');
-        putchar('\r');
-        putchar(' ');
-#endif
-#endif
-        State2.invalid_disp = 0;
+  int rcl = is_dot(RCL_annun);
+  int bat = is_dot(BATTERY);
+  int leq = is_dot(LIT_EQ);
+  int rpn = is_dot(RPN);
+  int i;
+  for (i=0; i<TOP_DOTS; i++)
+    if (i != RCL_annun && i != BATTERY && i != LIT_EQ )
+      clr_dot(i);
+  dot(RCL_annun, rcl);
+  dot(BATTERY, bat);
+  dot(LIT_EQ, leq);
+  dot(RPN, rpn);
 #endif
 }
 
