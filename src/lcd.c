@@ -37,21 +37,6 @@
 static unsigned char dots[TOP_DOTS];
 #endif
 
-#if defined(USECURSES) && !defined(DM42)
-static void dispreg(const char n, int index) {
-  char buf[64];
-        if (is_intmode())
-                sprintf(buf, "%llx", (unsigned long long int)get_reg_n_int(index));
-        else {
-		if (is_dblmode())
-			decimal128ToString(&(get_reg_n(index)->d), buf);
-		else
-			decimal64ToString(&(get_reg_n(index)->s), buf);
-	}
-        PRINTF("%c: %s", n, buf);
-}
-#endif
-
 #if defined(USECURSES) || defined(DM42) // want this in DM42
 /* Some wrapper routines to set segments of the display */
 void set_dot(int n) {
@@ -64,22 +49,6 @@ int is_dot(int n) {
 	return dots[n];
 }
 #endif
-
-int setuptty(int reset) {
-#ifdef CONSOLE
-#if defined(USECURSES) && !defined(DM42) //don't want this in DM42
-        if (reset)
-                endwin();
-        else {
-                initscr();
-                cbreak();
-                noecho();
-                //keypad(stdscr, TRUE);
-				}
-#endif
-#endif
-        return 0;
-}
 
 
 void reset_disp(void) {
@@ -100,15 +69,6 @@ void reset_disp(void) {
 #if defined(DM42)
   #define setBlackPixel(x, y)                bitblt24(x, 1, y, 1, BLT_OR,   BLT_NONE)
   #define setWhitePixel(x, y)                bitblt24(x, 1, y, 1, BLT_ANDN, BLT_NONE)
-
-/* void left_side (int i, int j) { //i - xleft reference; j - ytop reference */
-/*   lcd_fill_rect ( i+2, j+11, 4, 8, 0xff ); */
-/*   lcd_fill_rect ( i+3, j+3, 4, 8, 0xff ); */
-/*   setBlackPixel ( i+4, j+2 ); */
-/*   setBlackPixel ( i+3, j+19 ); */
-/*   setWhitePixel ( i+6, j+3 ); */
-/*   setWhitePixel ( i+5, j+18 ); */
-/* } */
 
 void left_side (int i, int j) { //i - xleft reference; j - ytop reference
   lcd_fill_rect (i+2, j+11, 1, 9, 0xff);
@@ -387,280 +347,6 @@ void show_disp(void) { // This function re-draws everything.
 }
 #endif
 
-#if defined(USECURSES) && !defined(DM42)
-void show_disp(void) {
-        int i, j, p, x;
-        const int dig_base = 16;
-
-        /* Segments 0 - 107 are the main digits */
-        for (i=0; i<DISPLAY_DIGITS; i++) {
-	  p = i*SEGS_PER_DIGIT; // 9 - 7 + dot and comma
-                x = 3+5*i;
-                if (dots[p]) {
-                        MOVE(x+1, dig_base);    PRINTF("--");
-                }
-                if (dots[p+1]) {
-                        MOVE(x, dig_base+1);    PRINTF("|");
-                        MOVE(x, dig_base+2);    PRINTF("|");
-                }
-                if (dots[p+3]) {
-                        MOVE(x+3, dig_base+1);  PRINTF("|");
-                        MOVE(x+3, dig_base+2);  PRINTF("|");
-                }
-                if (dots[p+2]) {
-                        MOVE(x+1, dig_base+3);  PRINTF("--");
-                }
-                if (dots[p+4]) {
-                        MOVE(x, dig_base+4);    PRINTF("|");
-                        MOVE(x, dig_base+5);    PRINTF("|");
-                }
-                if (dots[p+6]) {
-                        MOVE(x+3, dig_base+4);  PRINTF("|");
-                        MOVE(x+3, dig_base+5);  PRINTF("|");
-                }
-                if (dots[p+5]) {
-                        MOVE(x+1, dig_base+6);  PRINTF("--");
-                }
-                if (dots[p+7]) {
-                        MOVE(x+4, dig_base+6);  PRINTF(".");
-                }
-                if (dots[p+8]) {
-                        MOVE(x+3, dig_base+7);  PRINTF("/");
-                }
-        }
-        /* Segments 108 - 128 are the exponent digits */
-        for (i=0; i<3; i++) {
-                p = i*7+108;
-                x = 66 + i * 4;
-                if (dots[p]) {
-                        MOVE(x+1, dig_base-1);  PRINTF("-");
-                }
-                if (dots[p+1]) {
-                        MOVE(x, dig_base);      PRINTF("|");
-                }
-                if (dots[p+3]) {
-                        MOVE(x+2, dig_base);    PRINTF("|");
-                }
-                if (dots[p+2]) {
-                        MOVE(x+1, dig_base+1);  PRINTF("-");
-                }
-                if (dots[p+4]) {
-                        MOVE(x, dig_base+2);    PRINTF("|");
-                }
-                if (dots[p+6]) {
-                        MOVE(x+2, dig_base+2);  PRINTF("|");
-                }
-                if (dots[p+5]) {
-                        MOVE(x+1, dig_base+3);  PRINTF("-");
-                }
-        }
-        /* Segments 129 & 130 are the signs */
-        if (dots[MANT_SIGN]) {
-                MOVE(0, dig_base+3);
-                PRINTF("--");
-        }
-        if (dots[EXP_SIGN]) {
-                MOVE(64, dig_base+1);
-                PRINTF("-");
-        }
-        if (dots[BIG_EQ]) {
-                MOVE(47, 12);   PRINTF("==");
-        }
-        if (dots[LIT_EQ]) {
-                MOVE(64, 10);   PRINTF("=");
-        }
-        if (dots[DOWN_ARR]) {
-                MOVE(52, 10);   PRINTF("v");
-        }
-        if (dots[INPUT]) {
-                MOVE(55, 10);   PRINTF("INPUT");
-        }
-        if (dots[BATTERY]) {
-                MOVE(70, 10);   PRINTF("####-");
-        }
-        if (dots[BEG]) {
-                MOVE(52, 12);   PRINTF("BEG");
-        }
-        if (dots[STO_annun]) {
-                MOVE(62, 12);   PRINTF("STO");
-        }
-        if (dots[RCL_annun]) {
-                MOVE(72, 12);   PRINTF("RCL");
-        }
-        if (dots[RAD]) {
-                MOVE(52, 14);   PRINTF("RAD");
-        }
-        if (dots[DEG]) {
-                MOVE(62, 14);   PRINTF("360");
-        }
-        if (dots[RPN]) {
-                MOVE(72, 14);   PRINTF("RPN");
-        }
-        /* The graphical bit last */
-        for (i=0; i<BITMAP_WIDTH; i++)
-                for (j=0; j<6; j++) {
-                        if (dots[i*6+j+MATRIX_BASE]) {
-                                MOVE(1+i, 9+j);
-                                PRINTF("#");
-                        }
-                }
-}
-#endif
-
-void show_stack(void) {
-#ifdef USECURSES
-  int i;
-
-        if (!State2.flags)
-                return;
-
-        // Stack display smashes the stack registers
-        for (i=4; i<STACK_SIZE; i++) {
-                MOVE(26, 8-i);
-                PRINTF("%c ", i<stack_size()?'*':' ');
-                dispreg(REGNAMES[i], regX_idx + i);
-        }
-        MOVE(53, 2);    dispreg(REGNAMES[regJ_idx-regX_idx], regJ_idx);
-        MOVE(53, 1);    dispreg(REGNAMES[regK_idx-regX_idx], regK_idx);
-        for (i=0; i<4; i++) {
-                MOVE(0, 4-i);
-                dispreg(REGNAMES[i], regX_idx + i);
-        }
-        MOVE(53, 4);
-        dispreg(REGNAMES[regL_idx-regX_idx], regL_idx);
-        MOVE(53, 3);
-        dispreg(REGNAMES[regI_idx-regX_idx], regI_idx);
-        MOVE(53, 0);
-        PRINTF("stack depth: %d", stack_size());
-#endif
-}
-
-void show_flags(void) {
-#if defined(CONSOLE) && !defined(DM42)
-	extern unsigned int get_local_flags(void);
-
-	if (!State2.flags)
-		return;
-	MOVE(0, 0);
-	PRINTF(" %c ", JustDisplayed ? '*' : ' ');
-	MOVE(5, 0);
-	switch (cur_shift()) {
-	case SHIFT_F:   PRINTF("[f-shift]");    break;
-	case SHIFT_G:   PRINTF("[g-shift]");    break;
-	case SHIFT_H:   PRINTF("[h-shift]");    break;
-	default:                                break;
-	}
-	if (State2.hyp) {
-		MOVE(14, 0);
-		if (State2.dot)
-			PRINTF("[hyp]");
-		else
-			PRINTF("[hyp-1]");
-	}
-	if (!State2.runmode) {
-		MOVE(21, 0);
-		PRINTF("[prog]");
-	}
-	if (view_instruction_counter) {
-		MOVE(28, 0);
-		PRINTF("#%llu", instruction_count);
-	}
-	MOVE(0, 0);
-
-#ifdef USECURSES
-#define FLAG_BASE       5
-	MOVE(10, FLAG_BASE);
-	if (State2.rarg)
-		PRINTF("[rcmd]");
-	else if (State2.arrow)
-		PRINTF("[arr]");
-	if (State2.dot) {
-		MOVE(18, FLAG_BASE);
-		PRINTF("[dot]");
-	}
-	if (State2.ind) {
-		MOVE(24, FLAG_BASE);
-		PRINTF("[ind]");
-	}
-	if (State2.trace) {
-		MOVE(30, FLAG_BASE);
-		PRINTF("[trace]");
-	}
-	if (State2.cmplx) {
-		MOVE(40, FLAG_BASE);
-		PRINTF("[cmplx]");
-	}
-	if (State2.catalogue) {
-		MOVE(50, FLAG_BASE);
-		PRINTF("[cat %03u]", State2.catalogue);
-	}
-	if (State2.hms) {
-		MOVE(64, FLAG_BASE);
-		PRINTF("[H.MS]");
-	}
-	if (UState.fract) {
-		MOVE(71, FLAG_BASE);
-		PRINTF("[FRACT]");
-	}
-	if (State2.multi) {
-		MOVE(71, FLAG_BASE+1);
-		PRINTF("[MULTI]");
-	}
-	MOVE(50, FLAG_BASE+1);
-	PRINTF("[RRS %03u]", ProgSize);
-	if (State2.state_lift) {
-		MOVE(10, FLAG_BASE+1);
-		PRINTF("[lift]");
-	}
-	if (Running) {
-		MOVE(18, FLAG_BASE+1);
-		PRINTF("[running]");
-	}
-	MOVE(70, 5);
-	PRINTF("iw = %u/%u", State2.window, IntMaxWindow);
-	MOVE(30, FLAG_BASE+1);
-	PRINTF("shft = %u", cur_shift());
-	MOVE(40, FLAG_BASE+1);
-	PRINTF("trig = %u", UState.trigmode);
-	MOVE(60, FLAG_BASE+1);
-	PRINTF("r = %u", ShowRegister);
-//	MOVE(60, FLAG_BASE+1);
-//	PRINTF("apos = %u", State2.alpha_pos);
-	MOVE(10, FLAG_BASE+2);
-	PRINTF("numdig = %u   alpha '%-31s'   lflags = %03o-%03o",
-			State2.numdigit, Alpha, get_local_flags() >> 8,
-			get_local_flags() & 0xff);
-	if (State.entryp) {
-		MOVE(0, FLAG_BASE+2);
-		PRINTF("entryp");
-	}
-	MOVE(10, FLAG_BASE+3);
-	PRINTF("digval=%u", State2.digval);
-	MOVE(23, FLAG_BASE+3);
-	PRINTF("pc = %03u", state_pc());
-	MOVE(34, FLAG_BASE+3);
-	PRINTF("ap = %u", State2.alpha_pos);
-	MOVE(45, FLAG_BASE+3);
-	PRINTF("cmddot = %u  cmdeex = %u  eol = %u",
-			CmdLineDot, CmdLineEex, CmdLineLength);
-	MOVE(0, FLAG_BASE+3);
-	PRINTF("JG=%d", UState.jg1582?1582:1752);
-#endif
-#endif
-}
-
-void wait_for_display(void)
-{
-}
-
-#if defined(USECURSES) && !defined(DM42) 
-void finish_display(void) {
-        show_disp();
-        MOVE(0, 0);
-        refresh();
-
-}
-#endif
 #if defined(DM42) 
 void finish_display(void) {
   //  lcd_clear_buf();
@@ -735,54 +421,16 @@ void do_all_dots(void) {
 }
 #endif
 
-#ifdef CONSOLE
-#ifndef DM42
-/* Take a string and cleanse all non-printing characters from it.
- * Replace them with the usual [xxx] sequences.
- */
-extern const char *pretty(unsigned char);
-
-static char *cleanse(const char *s) {
-        static char res[50];
-        char *p;
-
-        for (p=res; *s != '\0'; s++) {
-                unsigned char c = 0xff & *s;
-                const char *m = pretty(c);
-                if (m == NULL) {
-                        *p++ = c;
-                } else {
-                        *p++ = '[';
-                        p = scopy_char(p, m, ']');
-                }
-        }
-        *p = '\0';
-        return res;
-}
-#endif
-#endif
-
 void show_progtrace(char *buf) {
-#ifndef DM42
-#ifdef CONSOLE
-        int pc = state_pc();
-
-#ifdef USECURSES
-        int i;
-
-        if (!State2.flags)
-                return;
-
-        for (i=4; i>0 && pc >= 0; i--) {
-                MOVE(0, i);
-                if (pc) {
-                        opcode op = getprog(pc);
-                        PRINTF("%03d %08x: %s", pc, op, cleanse(prt(op, buf)));
-                } else
-                        PRINTF("000:");
-                pc = do_dec(pc, 1);
-        }
-#endif
-#endif
-#endif       
 }
+
+void show_stack(void) {
+}
+
+void show_flags(void) {
+}
+
+void wait_for_display(void)
+{
+}
+

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccmN5JHI.s 			page 1
+ARM GAS  /tmp/ccGJygUL.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
   23:src/prt.c     **** static const char *prt_monadic(const unsigned int f, char *instr) {
   24:src/prt.c     **** 	if (f < NUM_MONADIC && (! isNULL(monfuncs[f].mondreal) || ! isNULL(monfuncs[f].monint)))
   25:src/prt.c     **** 		return sncopy(instr, monfuncs[f].fname, NAME_LEN);
-ARM GAS  /tmp/ccmN5JHI.s 			page 2
+ARM GAS  /tmp/ccGJygUL.s 			page 2
 
 
   26:src/prt.c     **** 	return "???";
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
   80:src/prt.c     **** static const char *prt_specials(unsigned int opm, char *instr) {
   81:src/prt.c     **** 	static const char digits[16] = "0123456789ABCDEF";
   82:src/prt.c     **** 	char cmp = '0';
-ARM GAS  /tmp/ccmN5JHI.s 			page 3
+ARM GAS  /tmp/ccGJygUL.s 			page 3
 
 
   83:src/prt.c     **** 
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  137:src/prt.c     **** 
  138:src/prt.c     **** 
  139:src/prt.c     **** /* The number of argument digits needed for a command */
-ARM GAS  /tmp/ccmN5JHI.s 			page 4
+ARM GAS  /tmp/ccGJygUL.s 			page 4
 
 
  140:src/prt.c     **** int num_arg_digits(int cmd) {
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  194:src/prt.c     **** 
  195:src/prt.c     **** 		case RARG_SHUFFLE:
  196:src/prt.c     **** 			p = scopy(instr, "\027" SPACE_AFTER_CMD);
-ARM GAS  /tmp/ccmN5JHI.s 			page 5
+ARM GAS  /tmp/ccGJygUL.s 			page 5
 
 
  197:src/prt.c     **** 			for (n = 0; n < 4; n++) {
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
   35              		.cfi_startproc
   36              		@ args = 0, pretend = 0, frame = 0
   37              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccmN5JHI.s 			page 6
+ARM GAS  /tmp/ccGJygUL.s 			page 6
 
 
  250:src/prt.c     **** 	char *p, c;
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
   70 0016 01EB0211 		add	r1, r1, r2, lsl #4
   71 001a 2846     		mov	r0, r5
   72              	.LVL5:
-ARM GAS  /tmp/ccmN5JHI.s 			page 7
+ARM GAS  /tmp/ccGJygUL.s 			page 7
 
 
  255:src/prt.c     **** 	p = sncopy_char(instr, multicmds[cmd].cmd, NAME_LEN, '\'');
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  110 003a 4370     		strb	r3, [r0, #1]
  260:src/prt.c     **** 		if (c != '\0')
  111              		.loc 1 260 3 is_stmt 1 view .LVU31
-ARM GAS  /tmp/ccmN5JHI.s 			page 8
+ARM GAS  /tmp/ccGJygUL.s 			page 8
 
 
  112              	.LVL12:
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  157              		@ args = 0, pretend = 0, frame = 0
  158              		@ frame_needed = 0, uses_anonymous_args = 0
  123:src/prt.c     **** 	const unsigned int dirn = arg & 1;
-ARM GAS  /tmp/ccmN5JHI.s 			page 9
+ARM GAS  /tmp/ccGJygUL.s 			page 9
 
 
  159              		.loc 1 123 2 view .LVU45
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  129:src/prt.c     **** 				cnsts_conv[conv].imperial, IMPERIAL_NAMELEN);
  199              		.loc 1 129 3 view .LVU60
  200 002c 3144     		add	r1, r1, r6
-ARM GAS  /tmp/ccmN5JHI.s 			page 10
+ARM GAS  /tmp/ccGJygUL.s 			page 10
 
 
  201 002e 0622     		movs	r2, #6
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  243              		.loc 1 136 1 view .LVU72
  244 005a 7047     		bx	lr
  245              	.L24:
-ARM GAS  /tmp/ccmN5JHI.s 			page 11
+ARM GAS  /tmp/ccGJygUL.s 			page 11
 
 
  246              		.align	2
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
   88:src/prt.c     **** 		opm += OP_Xeq0 - OP_Xeq1;
  297              		.loc 1 88 5 view .LVU76
  298 0004 062A     		cmp	r2, #6
-ARM GAS  /tmp/ccmN5JHI.s 			page 12
+ARM GAS  /tmp/ccGJygUL.s 			page 12
 
 
  299 0006 0BD8     		bhi	.L26
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
   75:src/prt.c     **** 	*p++ = '?';
  335              		.loc 1 75 2 view .LVU95
   76:src/prt.c     **** 	return instr;
-ARM GAS  /tmp/ccmN5JHI.s 			page 13
+ARM GAS  /tmp/ccGJygUL.s 			page 13
 
 
  336              		.loc 1 76 2 view .LVU96
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  380 0041 55       		.byte	(.L30-.L32)/2
  381 0042 55       		.byte	(.L30-.L32)/2
  382 0043 55       		.byte	(.L30-.L32)/2
-ARM GAS  /tmp/ccmN5JHI.s 			page 14
+ARM GAS  /tmp/ccGJygUL.s 			page 14
 
 
  383 0044 55       		.byte	(.L30-.L32)/2
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  433              	.L31:
  434              		.cfi_restore_state
  115:src/prt.c     **** 	}
-ARM GAS  /tmp/ccmN5JHI.s 			page 15
+ARM GAS  /tmp/ccGJygUL.s 			page 15
 
 
  435              		.loc 1 115 3 is_stmt 1 view .LVU111
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
   75:src/prt.c     **** 	*p++ = '?';
  473              		.loc 1 75 2 view .LVU128
   75:src/prt.c     **** 	*p++ = '?';
-ARM GAS  /tmp/ccmN5JHI.s 			page 16
+ARM GAS  /tmp/ccGJygUL.s 			page 16
 
 
  474              		.loc 1 75 7 is_stmt 0 view .LVU129
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  513 009a 1424     		movs	r4, #20
   74:src/prt.c     **** 	*p++ = r;
  514              		.loc 1 74 7 view .LVU145
-ARM GAS  /tmp/ccmN5JHI.s 			page 17
+ARM GAS  /tmp/ccGJygUL.s 			page 17
 
 
  515 009c D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  554              		.loc 1 75 7 view .LVU160
  555 00b6 3022     		movs	r2, #48
  556 00b8 E2E7     		b	.L45
-ARM GAS  /tmp/ccmN5JHI.s 			page 18
+ARM GAS  /tmp/ccGJygUL.s 			page 18
 
 
  557              	.LVL43:
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  597              	.L38:
  104:src/prt.c     **** 	case OP_SIGMAPLUS:	return "\221+";
  598              		.loc 1 104 15 is_stmt 1 view .LVU175
-ARM GAS  /tmp/ccmN5JHI.s 			page 19
+ARM GAS  /tmp/ccGJygUL.s 			page 19
 
 
  104:src/prt.c     **** 	case OP_SIGMAPLUS:	return "\221+";
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  648              		@ args = 0, pretend = 0, frame = 0
  649              		@ frame_needed = 0, uses_anonymous_args = 0
  650              		@ link register save eliminated.
-ARM GAS  /tmp/ccmN5JHI.s 			page 20
+ARM GAS  /tmp/ccGJygUL.s 			page 20
 
 
   24:src/prt.c     **** 		return sncopy(instr, monfuncs[f].fname, NAME_LEN);
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  692              		.cfi_restore 4
  693              		.cfi_def_cfa_offset 0
  694              	.LBB67:
-ARM GAS  /tmp/ccmN5JHI.s 			page 21
+ARM GAS  /tmp/ccGJygUL.s 			page 21
 
 
  695              	.LBB66:
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  744              		.loc 1 29 66 is_stmt 1 view -0
  745              		.cfi_startproc
  746              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccmN5JHI.s 			page 22
+ARM GAS  /tmp/ccGJygUL.s 			page 22
 
 
  747              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  788 0024 30BC     		pop	{r4, r5}
  789              		.cfi_restore 5
  790              		.cfi_restore 4
-ARM GAS  /tmp/ccmN5JHI.s 			page 23
+ARM GAS  /tmp/ccGJygUL.s 			page 23
 
 
  791              		.cfi_def_cfa_offset 0
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  841              	.LFB2:
   35:src/prt.c     **** 	if (f < NUM_TRIADIC && (! isNULL(trifuncs[f].trireal) || ! isNULL(trifuncs[f].triint)))
  842              		.loc 1 35 67 is_stmt 1 view -0
-ARM GAS  /tmp/ccmN5JHI.s 			page 24
+ARM GAS  /tmp/ccGJygUL.s 			page 24
 
 
  843              		.cfi_startproc
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
   39:src/prt.c     **** 
  885              		.loc 1 39 1 view .LVU235
  886 0024 30BC     		pop	{r4, r5}
-ARM GAS  /tmp/ccmN5JHI.s 			page 25
+ARM GAS  /tmp/ccGJygUL.s 			page 25
 
 
  887              		.cfi_restore 5
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  937              	num_arg_digits.part.0:
  938              	.LVL79:
  939              	.LFB24:
-ARM GAS  /tmp/ccmN5JHI.s 			page 26
+ARM GAS  /tmp/ccGJygUL.s 			page 26
 
 
  140:src/prt.c     **** 	int lim = argcmds[cmd].lim;
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  982              	.LFE24:
  984              		.section	.rodata.prt_rargs.str1.4,"aMS",%progbits,1
  985              		.align	2
-ARM GAS  /tmp/ccmN5JHI.s 			page 27
+ARM GAS  /tmp/ccGJygUL.s 			page 27
 
 
  986              	.LC9:
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  1031              		.loc 1 168 20 view .LVU260
  1032 000c 07EB0413 		add	r3, r7, r4, lsl #4
  162:src/prt.c     **** 	int ind = op & RARG_IND;
-ARM GAS  /tmp/ccmN5JHI.s 			page 28
+ARM GAS  /tmp/ccGJygUL.s 			page 28
 
 
  1033              		.loc 1 162 15 view .LVU261
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  176:src/prt.c     **** 		return "???";
  1068              		.loc 1 176 10 is_stmt 0 view .LVU281
  1069 002e 962C     		cmp	r4, #150
-ARM GAS  /tmp/ccmN5JHI.s 			page 29
+ARM GAS  /tmp/ccGJygUL.s 			page 29
 
 
  1070 0030 28D8     		bhi	.L117
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  1112 0066 FFF7FEFF 		bl	sncopy
  1113              	.LVL92:
  190:src/prt.c     **** 
-ARM GAS  /tmp/ccmN5JHI.s 			page 30
+ARM GAS  /tmp/ccGJygUL.s 			page 30
 
 
  1114              		.loc 1 190 4 is_stmt 1 view .LVU294
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  176:src/prt.c     **** 		return "???";
  1155              		.loc 1 176 10 is_stmt 0 view .LVU308
  1156 008e 962C     		cmp	r4, #150
-ARM GAS  /tmp/ccmN5JHI.s 			page 31
+ARM GAS  /tmp/ccGJygUL.s 			page 31
 
 
  1157 0090 F8D8     		bhi	.L117
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  241:src/prt.c     **** 			}
  1195              		.loc 1 241 10 is_stmt 0 view .LVU325
  1196 00b6 2E23     		movs	r3, #46
-ARM GAS  /tmp/ccmN5JHI.s 			page 32
+ARM GAS  /tmp/ccGJygUL.s 			page 32
 
 
  1197 00b8 00F8013B 		strb	r3, [r0], #1
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  1236              		.loc 1 144 5 view .LVU340
  1237 00de 0246     		mov	r2, r0
  1238              	.L106:
-ARM GAS  /tmp/ccmN5JHI.s 			page 33
+ARM GAS  /tmp/ccGJygUL.s 			page 33
 
 
  144:src/prt.c     **** 		return 2;
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  1278 0104 2846     		mov	r0, r5
  1279 0106 FFF7FEFF 		bl	scopy
  1280              	.LVL115:
-ARM GAS  /tmp/ccmN5JHI.s 			page 34
+ARM GAS  /tmp/ccGJygUL.s 			page 34
 
 
  197:src/prt.c     **** 				*p++ = REGNAMES[arg & 3];
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  1321              	.LVL121:
  210:src/prt.c     **** 				*p = arg - 100 + 'A';
  1322              		.loc 1 210 20 view .LVU370
-ARM GAS  /tmp/ccmN5JHI.s 			page 35
+ARM GAS  /tmp/ccGJygUL.s 			page 35
 
 
  1323 0138 07EB0803 		add	r3, r7, r8
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  1362              		.cfi_restore 9
  1363              		.cfi_restore 8
  1364              		.cfi_restore 7
-ARM GAS  /tmp/ccmN5JHI.s 			page 36
+ARM GAS  /tmp/ccGJygUL.s 			page 36
 
 
  1365              		.cfi_restore 6
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  1411              	.LFE11:
  1413              		.section	.text.num_arg_digits,"ax",%progbits
  1414              		.align	1
-ARM GAS  /tmp/ccmN5JHI.s 			page 37
+ARM GAS  /tmp/ccGJygUL.s 			page 37
 
 
  1415              		.p2align 2,,3
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  1458              		.loc 1 153 1 view .LVU405
  1459 001a 7047     		bx	lr
  1460              	.L152:
-ARM GAS  /tmp/ccmN5JHI.s 			page 38
+ARM GAS  /tmp/ccGJygUL.s 			page 38
 
 
  1461              		.align	2
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  300:src/prt.c     **** 	xset(instr, '\0', 16);
  1484              		.loc 1 300 2 view .LVU408
  298:src/prt.c     **** 	unsigned int arg;
-ARM GAS  /tmp/ccmN5JHI.s 			page 39
+ARM GAS  /tmp/ccGJygUL.s 			page 39
 
 
  1485              		.loc 1 298 41 is_stmt 0 view .LVU409
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  1532 0032 04       		.byte	(.L157-.L158)/2
  1533 0033 00       		.p2align 1
  1534              	.L157:
-ARM GAS  /tmp/ccmN5JHI.s 			page 40
+ARM GAS  /tmp/ccGJygUL.s 			page 40
 
 
  307:src/prt.c     **** 	case KIND_SPEC:	return prt_specials(arg, instr);
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  314:src/prt.c     **** 	}
  315:src/prt.c     **** 	return "???";
  316:src/prt.c     **** }
-ARM GAS  /tmp/ccmN5JHI.s 			page 41
+ARM GAS  /tmp/ccGJygUL.s 			page 41
 
 
  1570              		.loc 1 316 1 view .LVU436
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  1617              		.cfi_restore 4
  1618              		.cfi_restore 3
  1619              		.cfi_def_cfa_offset 0
-ARM GAS  /tmp/ccmN5JHI.s 			page 42
+ARM GAS  /tmp/ccGJygUL.s 			page 42
 
 
  1620              	.LVL147:
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  1665              		.loc 1 49 20 view .LVU458
  1666              	.LBB126:
   50:src/prt.c     **** 		return prt_cmplx(! isNULL(monfuncs[f].mondreal), monfuncs[f].fname, instr);
-ARM GAS  /tmp/ccmN5JHI.s 			page 43
+ARM GAS  /tmp/ccGJygUL.s 			page 43
 
 
  1667              		.loc 1 50 2 view .LVU459
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
   42:src/prt.c     **** 	if (add_prefix)
  1710              		.loc 1 42 2 view .LVU471
   43:src/prt.c     **** 		*p++ = COMPLEX_PREFIX;
-ARM GAS  /tmp/ccmN5JHI.s 			page 44
+ARM GAS  /tmp/ccGJygUL.s 			page 44
 
 
  1711              		.loc 1 43 2 view .LVU472
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  1755              	.LVL162:
  1756              	.L182:
  1757              		.cfi_restore_state
-ARM GAS  /tmp/ccmN5JHI.s 			page 45
+ARM GAS  /tmp/ccGJygUL.s 			page 45
 
 
  302:src/prt.c     **** 	if (isRARG(op))
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
   63:src/prt.c     **** 		return sncopy(instr, p, NAME_LEN);
  1801              		.loc 1 63 15 is_stmt 0 view .LVU498
  1802 00cc 0849     		ldr	r1, .L186+16
-ARM GAS  /tmp/ccmN5JHI.s 			page 46
+ARM GAS  /tmp/ccGJygUL.s 			page 46
 
 
   64:src/prt.c     **** 	}
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  1855              		.global	prt_umen
  1856              		.syntax unified
  1857              		.thumb
-ARM GAS  /tmp/ccmN5JHI.s 			page 47
+ARM GAS  /tmp/ccGJygUL.s 			page 47
 
 
  1858              		.thumb_func
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  1902              		.loc 1 325 2 is_stmt 1 view .LVU518
  1903 001e C4F30723 		ubfx	r3, r4, #8, #8
  1904              		.loc 1 325 6 is_stmt 0 view .LVU519
-ARM GAS  /tmp/ccmN5JHI.s 			page 48
+ARM GAS  /tmp/ccGJygUL.s 			page 48
 
 
  1905 0022 E4B2     		uxtb	r4, r4
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  338:src/prt.c     **** }
  1942              		.loc 1 338 1 view .LVU527
  1943 003a 38BD     		pop	{r3, r4, r5, pc}
-ARM GAS  /tmp/ccmN5JHI.s 			page 49
+ARM GAS  /tmp/ccGJygUL.s 			page 49
 
 
  1944              	.LVL175:
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  1984              	.LBE174:
  1985              	.LBE173:
  329:src/prt.c     **** 	case KIND_NIL:	return prt_niladic(arg, instr);
-ARM GAS  /tmp/ccmN5JHI.s 			page 50
+ARM GAS  /tmp/ccGJygUL.s 			page 50
 
 
  1986              		.loc 1 329 4 is_stmt 1 view .LVU542
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  2033              		.cfi_def_cfa_offset 0
  2034              	.LVL183:
  332:src/prt.c     **** 	case KIND_TRI:	return prt_triadic(arg, instr);
-ARM GAS  /tmp/ccmN5JHI.s 			page 51
+ARM GAS  /tmp/ccGJygUL.s 			page 51
 
 
  2035              		.loc 1 332 24 view .LVU553
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
   56:src/prt.c     **** 		return prt_cmplx(! isNULL(dyfuncs[f].dydreal), dyfuncs[f].fname, instr);
  2079              		.loc 1 56 26 view .LVU565
  2080 008e 01EBC403 		add	r3, r1, r4, lsl #3
-ARM GAS  /tmp/ccmN5JHI.s 			page 52
+ARM GAS  /tmp/ccGJygUL.s 			page 52
 
 
  2081 0092 E400     		lsls	r4, r4, #3
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  2122              	.LVL193:
  2123              	.L223:
   46:src/prt.c     **** }
-ARM GAS  /tmp/ccmN5JHI.s 			page 53
+ARM GAS  /tmp/ccGJygUL.s 			page 53
 
 
  2124              		.loc 1 46 2 view .LVU579
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  2167 00c4 0B2A     		cmp	r2, #11
  2168 00c6 B7DC     		bgt	.L217
  274:src/prt.c     **** 	case DBL_XEQ:
-ARM GAS  /tmp/ccmN5JHI.s 			page 54
+ARM GAS  /tmp/ccGJygUL.s 			page 54
 
 
  2169              		.loc 1 274 2 is_stmt 1 view .LVU593
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  2208              		.loc 1 291 3 is_stmt 1 view .LVU608
  2209              	.LVL203:
  292:src/prt.c     **** 			*p++ = c;
-ARM GAS  /tmp/ccmN5JHI.s 			page 55
+ARM GAS  /tmp/ccGJygUL.s 			page 55
 
 
  2210              		.loc 1 292 3 view .LVU609
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  2254              	.LBB181:
  2255              	.LBB159:
  2256              	.LBB157:
-ARM GAS  /tmp/ccmN5JHI.s 			page 56
+ARM GAS  /tmp/ccGJygUL.s 			page 56
 
 
  2257              	.LBB156:
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  2299              	.LVL212:
  2300              	.L192:
  282:src/prt.c     **** 	  break;
-ARM GAS  /tmp/ccmN5JHI.s 			page 57
+ARM GAS  /tmp/ccGJygUL.s 			page 57
 
 
  2301              		.loc 1 282 4 view .LVU634
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  2351              	.LVL217:
  2352              	.LFB16:
  339:src/prt.c     **** 
-ARM GAS  /tmp/ccmN5JHI.s 			page 58
+ARM GAS  /tmp/ccGJygUL.s 			page 58
 
 
  340:src/prt.c     **** const char *catcmd(opcode op, char instr[16]) {
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  349:src/prt.c     ****     if (f < NUM_RARG) {
  2396              		.loc 1 349 5 is_stmt 1 view .LVU658
  2397              		.loc 1 349 8 is_stmt 0 view .LVU659
-ARM GAS  /tmp/ccmN5JHI.s 			page 59
+ARM GAS  /tmp/ccGJygUL.s 			page 59
 
 
  2398 0022 962B     		cmp	r3, #150
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  384:src/prt.c     ****       name = niladics[f].nname;
  385:src/prt.c     ****       goto copy;
  386:src/prt.c     **** 
-ARM GAS  /tmp/ccmN5JHI.s 			page 60
+ARM GAS  /tmp/ccGJygUL.s 			page 60
 
 
  387:src/prt.c     ****     case KIND_MON:
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  2446              	.LVL225:
  360:src/prt.c     **** 	  return sncopy(instr, cnsts[arg].cname, CONST_NAMELEN);
  2447              		.loc 1 360 2 is_stmt 1 view .LVU676
-ARM GAS  /tmp/ccmN5JHI.s 			page 61
+ARM GAS  /tmp/ccGJygUL.s 			page 61
 
 
  360:src/prt.c     **** 	  return sncopy(instr, cnsts[arg].cname, CONST_NAMELEN);
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  2488              	.LVL232:
  391:src/prt.c     **** 
  2489              		.loc 1 391 7 is_stmt 1 view .LVU692
-ARM GAS  /tmp/ccmN5JHI.s 			page 62
+ARM GAS  /tmp/ccGJygUL.s 			page 62
 
 
  2490 0078 0CE0     		b	.L250
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  2529              		.loc 1 403 7 is_stmt 1 view .LVU707
  403:src/prt.c     ****     }
  2530              		.loc 1 403 14 is_stmt 0 view .LVU708
-ARM GAS  /tmp/ccmN5JHI.s 			page 63
+ARM GAS  /tmp/ccGJygUL.s 			page 63
 
 
  2531 0094 2846     		mov	r0, r5
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  346:src/prt.c     ****   } else if (isRARG(op)) {
  2576              		.loc 1 346 12 view .LVU720
  2577 00b8 FFF7FEBF 		b	prt_multi
-ARM GAS  /tmp/ccmN5JHI.s 			page 64
+ARM GAS  /tmp/ccGJygUL.s 			page 64
 
 
  2578              	.LVL244:
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  2624              		.loc 1 85 3 is_stmt 1 view .LVU730
   85:src/prt.c     **** 		return instr;
  2625              		.loc 1 85 18 is_stmt 0 view .LVU731
-ARM GAS  /tmp/ccmN5JHI.s 			page 65
+ARM GAS  /tmp/ccGJygUL.s 			page 65
 
 
  2626 00de 0E4A     		ldr	r2, .L264+24
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  2671 0114 00000000 		.word	argcmds
  2672 0118 00000000 		.word	.LANCHOR0
  2673 011c 01000000 		.word	cnsts+1
-ARM GAS  /tmp/ccmN5JHI.s 			page 66
+ARM GAS  /tmp/ccGJygUL.s 			page 66
 
 
  2674              	.LBE190:
@@ -3923,67 +3923,67 @@ ARM GAS  /tmp/ccmN5JHI.s 			page 1
  2693              		.file 8 "src/storage.h"
  2694              		.file 9 "src/display.h"
  2695              		.file 10 "src/consts.h"
-ARM GAS  /tmp/ccmN5JHI.s 			page 67
+ARM GAS  /tmp/ccGJygUL.s 			page 67
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 prt.c
-     /tmp/ccmN5JHI.s:18     .rodata.prt_multi.str1.4:0000000000000000 $d
-     /tmp/ccmN5JHI.s:22     .text.prt_multi:0000000000000000 $t
-     /tmp/ccmN5JHI.s:30     .text.prt_multi:0000000000000000 prt_multi
-     /tmp/ccmN5JHI.s:139    .text.prt_multi:0000000000000050 $d
-     /tmp/ccmN5JHI.s:145    .text.prt_conv:0000000000000000 $t
-     /tmp/ccmN5JHI.s:152    .text.prt_conv:0000000000000000 prt_conv
-     /tmp/ccmN5JHI.s:248    .text.prt_conv:000000000000005c $d
-     /tmp/ccmN5JHI.s:254    .rodata.prt_specials.part.0.str1.4:0000000000000000 $d
-     /tmp/ccmN5JHI.s:279    .text.prt_specials.part.0:0000000000000000 $t
-     /tmp/ccmN5JHI.s:286    .text.prt_specials.part.0:0000000000000000 prt_specials.part.0
-     /tmp/ccmN5JHI.s:365    .text.prt_specials.part.0:0000000000000032 $d
-     /tmp/ccmN5JHI.s:622    .text.prt_specials.part.0:00000000000000e4 $d
-     /tmp/ccmN5JHI.s:636    .text.prt_monadic:0000000000000000 $t
-     /tmp/ccmN5JHI.s:643    .text.prt_monadic:0000000000000000 prt_monadic
-     /tmp/ccmN5JHI.s:728    .text.prt_monadic:000000000000003c $d
-     /tmp/ccmN5JHI.s:734    .text.prt_dyadic:0000000000000000 $t
-     /tmp/ccmN5JHI.s:741    .text.prt_dyadic:0000000000000000 prt_dyadic
-     /tmp/ccmN5JHI.s:826    .text.prt_dyadic:000000000000003c $d
-     /tmp/ccmN5JHI.s:832    .text.prt_triadic:0000000000000000 $t
-     /tmp/ccmN5JHI.s:839    .text.prt_triadic:0000000000000000 prt_triadic
-     /tmp/ccmN5JHI.s:924    .text.prt_triadic:000000000000003c $d
-     /tmp/ccmN5JHI.s:930    .text.num_arg_digits.part.0:0000000000000000 $t
-     /tmp/ccmN5JHI.s:937    .text.num_arg_digits.part.0:0000000000000000 num_arg_digits.part.0
-     /tmp/ccmN5JHI.s:979    .text.num_arg_digits.part.0:000000000000002c $d
-     /tmp/ccmN5JHI.s:985    .rodata.prt_rargs.str1.4:0000000000000000 $d
-     /tmp/ccmN5JHI.s:998    .text.prt_rargs:0000000000000000 $t
-     /tmp/ccmN5JHI.s:1005   .text.prt_rargs:0000000000000000 prt_rargs
-     /tmp/ccmN5JHI.s:1403   .text.prt_rargs:0000000000000178 $d
-     /tmp/ccmN5JHI.s:1414   .text.num_arg_digits:0000000000000000 $t
-     /tmp/ccmN5JHI.s:1422   .text.num_arg_digits:0000000000000000 num_arg_digits
-     /tmp/ccmN5JHI.s:1463   .text.num_arg_digits:000000000000001c $d
-     /tmp/ccmN5JHI.s:1468   .text.prt:0000000000000000 $t
-     /tmp/ccmN5JHI.s:1476   .text.prt:0000000000000000 prt
-     /tmp/ccmN5JHI.s:1526   .text.prt:000000000000002c $d
-     /tmp/ccmN5JHI.s:1830   .text.prt:00000000000000e0 $d
-     /tmp/ccmN5JHI.s:1843   .rodata.prt_umen.str1.4:0000000000000000 $d
-     /tmp/ccmN5JHI.s:1853   .text.prt_umen:0000000000000000 $t
-     /tmp/ccmN5JHI.s:1861   .text.prt_umen:0000000000000000 prt_umen
-     /tmp/ccmN5JHI.s:1912   .text.prt_umen:000000000000002c $d
-     /tmp/ccmN5JHI.s:2327   .text.prt_umen:0000000000000140 $d
-     /tmp/ccmN5JHI.s:2342   .text.catcmd:0000000000000000 $t
-     /tmp/ccmN5JHI.s:2350   .text.catcmd:0000000000000000 catcmd
-     /tmp/ccmN5JHI.s:2432   .text.catcmd:0000000000000046 $d
-     /tmp/ccmN5JHI.s:2666   .text.catcmd:0000000000000100 $d
-     /tmp/ccmN5JHI.s:2679   .rodata.digits.8302:0000000000000000 $d
-     /tmp/ccmN5JHI.s:2683   .rodata.digits.8302:0000000000000000 digits.8302
-     /tmp/ccmN5JHI.s:408    .text.prt_specials.part.0:000000000000005d $d
-     /tmp/ccmN5JHI.s:408    .text.prt_specials.part.0:000000000000005e $t
-     /tmp/ccmN5JHI.s:1533   .text.prt:0000000000000033 $d
-     /tmp/ccmN5JHI.s:1533   .text.prt:0000000000000034 $t
-     /tmp/ccmN5JHI.s:1919   .text.prt_umen:0000000000000033 $d
-     /tmp/ccmN5JHI.s:1919   .text.prt_umen:0000000000000034 $t
-     /tmp/ccmN5JHI.s:2440   .text.catcmd:000000000000004d $d
-     /tmp/ccmN5JHI.s:2440   .text.catcmd:000000000000004e $t
+     /tmp/ccGJygUL.s:18     .rodata.prt_multi.str1.4:0000000000000000 $d
+     /tmp/ccGJygUL.s:22     .text.prt_multi:0000000000000000 $t
+     /tmp/ccGJygUL.s:30     .text.prt_multi:0000000000000000 prt_multi
+     /tmp/ccGJygUL.s:139    .text.prt_multi:0000000000000050 $d
+     /tmp/ccGJygUL.s:145    .text.prt_conv:0000000000000000 $t
+     /tmp/ccGJygUL.s:152    .text.prt_conv:0000000000000000 prt_conv
+     /tmp/ccGJygUL.s:248    .text.prt_conv:000000000000005c $d
+     /tmp/ccGJygUL.s:254    .rodata.prt_specials.part.0.str1.4:0000000000000000 $d
+     /tmp/ccGJygUL.s:279    .text.prt_specials.part.0:0000000000000000 $t
+     /tmp/ccGJygUL.s:286    .text.prt_specials.part.0:0000000000000000 prt_specials.part.0
+     /tmp/ccGJygUL.s:365    .text.prt_specials.part.0:0000000000000032 $d
+     /tmp/ccGJygUL.s:622    .text.prt_specials.part.0:00000000000000e4 $d
+     /tmp/ccGJygUL.s:636    .text.prt_monadic:0000000000000000 $t
+     /tmp/ccGJygUL.s:643    .text.prt_monadic:0000000000000000 prt_monadic
+     /tmp/ccGJygUL.s:728    .text.prt_monadic:000000000000003c $d
+     /tmp/ccGJygUL.s:734    .text.prt_dyadic:0000000000000000 $t
+     /tmp/ccGJygUL.s:741    .text.prt_dyadic:0000000000000000 prt_dyadic
+     /tmp/ccGJygUL.s:826    .text.prt_dyadic:000000000000003c $d
+     /tmp/ccGJygUL.s:832    .text.prt_triadic:0000000000000000 $t
+     /tmp/ccGJygUL.s:839    .text.prt_triadic:0000000000000000 prt_triadic
+     /tmp/ccGJygUL.s:924    .text.prt_triadic:000000000000003c $d
+     /tmp/ccGJygUL.s:930    .text.num_arg_digits.part.0:0000000000000000 $t
+     /tmp/ccGJygUL.s:937    .text.num_arg_digits.part.0:0000000000000000 num_arg_digits.part.0
+     /tmp/ccGJygUL.s:979    .text.num_arg_digits.part.0:000000000000002c $d
+     /tmp/ccGJygUL.s:985    .rodata.prt_rargs.str1.4:0000000000000000 $d
+     /tmp/ccGJygUL.s:998    .text.prt_rargs:0000000000000000 $t
+     /tmp/ccGJygUL.s:1005   .text.prt_rargs:0000000000000000 prt_rargs
+     /tmp/ccGJygUL.s:1403   .text.prt_rargs:0000000000000178 $d
+     /tmp/ccGJygUL.s:1414   .text.num_arg_digits:0000000000000000 $t
+     /tmp/ccGJygUL.s:1422   .text.num_arg_digits:0000000000000000 num_arg_digits
+     /tmp/ccGJygUL.s:1463   .text.num_arg_digits:000000000000001c $d
+     /tmp/ccGJygUL.s:1468   .text.prt:0000000000000000 $t
+     /tmp/ccGJygUL.s:1476   .text.prt:0000000000000000 prt
+     /tmp/ccGJygUL.s:1526   .text.prt:000000000000002c $d
+     /tmp/ccGJygUL.s:1830   .text.prt:00000000000000e0 $d
+     /tmp/ccGJygUL.s:1843   .rodata.prt_umen.str1.4:0000000000000000 $d
+     /tmp/ccGJygUL.s:1853   .text.prt_umen:0000000000000000 $t
+     /tmp/ccGJygUL.s:1861   .text.prt_umen:0000000000000000 prt_umen
+     /tmp/ccGJygUL.s:1912   .text.prt_umen:000000000000002c $d
+     /tmp/ccGJygUL.s:2327   .text.prt_umen:0000000000000140 $d
+     /tmp/ccGJygUL.s:2342   .text.catcmd:0000000000000000 $t
+     /tmp/ccGJygUL.s:2350   .text.catcmd:0000000000000000 catcmd
+     /tmp/ccGJygUL.s:2432   .text.catcmd:0000000000000046 $d
+     /tmp/ccGJygUL.s:2666   .text.catcmd:0000000000000100 $d
+     /tmp/ccGJygUL.s:2679   .rodata.digits.8302:0000000000000000 $d
+     /tmp/ccGJygUL.s:2683   .rodata.digits.8302:0000000000000000 digits.8302
+     /tmp/ccGJygUL.s:408    .text.prt_specials.part.0:000000000000005d $d
+     /tmp/ccGJygUL.s:408    .text.prt_specials.part.0:000000000000005e $t
+     /tmp/ccGJygUL.s:1533   .text.prt:0000000000000033 $d
+     /tmp/ccGJygUL.s:1533   .text.prt:0000000000000034 $t
+     /tmp/ccGJygUL.s:1919   .text.prt_umen:0000000000000033 $d
+     /tmp/ccGJygUL.s:1919   .text.prt_umen:0000000000000034 $t
+     /tmp/ccGJygUL.s:2440   .text.catcmd:000000000000004d $d
+     /tmp/ccGJygUL.s:2440   .text.catcmd:000000000000004e $t
 
-ARM GAS  /tmp/ccmN5JHI.s 			page 68
+ARM GAS  /tmp/ccGJygUL.s 			page 68
 
 
 UNDEFINED SYMBOLS
