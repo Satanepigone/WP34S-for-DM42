@@ -690,25 +690,27 @@ void init_state(void) {
 }
 
 void soft_init_state(void) {
-	int soft;
-	unsigned int runmode;
-	unsigned int alphas;
+  int soft;
+  unsigned int runmode;
+  unsigned int alphas;
 
-	if (CmdLineLength) {
-		CmdLineLength = 0;
-		CmdLineEex = 0;
-		CmdLineDot = 0;
-		return;
-	}
-	soft = State2.multi || State2.rarg || State2.hyp || State2.gtodot || State2.labellist ||
-			State2.cmplx || State2.arrow || State2.test != TST_NONE || State2.status;
-	runmode = State2.runmode;
-	alphas = State2.alphas;
-	init_state();
-	if (soft) {
-		State2.runmode = runmode;
-		State2.alphas = alphas;
-	}
+  if (CmdLineLength) {
+    CmdLineLength = 0;
+    CmdLineEex = 0;
+    CmdLineDot = 0;
+    return;
+  }
+  soft = State2.multi || State2.rarg || State2.hyp || State2.gtodot || State2.labellist ||
+    State2.cmplx || State2.arrow || State2.test != TST_NONE || State2.status;
+  runmode = State2.runmode;
+  alphas = State2.alphas;
+  init_state();
+  if (soft) {
+    State2.runmode = runmode;
+    State2.alphas = alphas;
+  }
+  clear_disp(); // clears display so it is redrawn
+  display_current_menu();
 }
 
 static int check_confirm(int op) {
@@ -3496,7 +3498,7 @@ void process_keycode(int c)
        * Turn off the RPN annunciator as a visual feedback
        */
       clr_dot(RPN);
-      finish_RPN(); // RPN
+      lcd_refresh();
     }
 
 #ifndef CONSOLE
@@ -3547,7 +3549,7 @@ void process_keycode(int c)
 	  display();
 	}
 	else {
-	  finish_RPN(); // Update the RPN annunciator
+	  lcd_refresh(); // Update the RPN annunciator
 	}
       }
 #endif
@@ -3558,7 +3560,7 @@ void process_keycode(int c)
      *  Turn on the RPN symbol if desired
      */
     if (ShowRPN) {
-      finish_RPN(); // RPN
+      lcd_refresh();
     }
   }
   else {
@@ -3664,7 +3666,7 @@ void process_keycode(int c)
 	  //print_debug(70,c);
 	  OpCode = c;
 	  OpCodeDisplayPending = 1;
-	  finish_RPN(); // Update the RPN annunciator
+	  lcd_refresh(); // Update the RPN annunciator
 	  goto no_display; // No need to update the display before the command is executed
 	}
       }

@@ -33,24 +33,32 @@
 #include "pretty.h"
 
 
-#if defined(USECURSES) || defined(DM42) // want this in DM42
 static unsigned char dots[TOP_DOTS];
-#endif
 
-#if defined(USECURSES) || defined(DM42) // want this in DM42
 /* Some wrapper routines to set segments of the display */
 void set_dot(int n) {
-        dots[n] = 1;
+  dots[n] |= 1;
+  if (dots[n]&2) return;
+  draw_dot(n);
+  dots[n] = 3; // 11;
 }
 void clr_dot(int n) {
-        dots[n] = 0;
+  dots[n] &= ~1;
+  if ( !(dots[n]&2)) return;
+  draw_dot(n);
+  dots[n] = 0; // =0 would work too.
 }
+
 int is_dot(int n) {
-	return dots[n];
+	return dots[n]&1;
 }
-#endif
 
-
+void clear_disp(void) {
+      for (int i=0; i<TOP_DOTS; i++)
+	dots[i] = 0;
+      lcd_clear_buf();
+}
+  
 void reset_disp(void) {
 	int rcl = is_dot(RCL_annun);
 	int bat = is_dot(BATTERY);
@@ -58,109 +66,119 @@ void reset_disp(void) {
 	int rpn = is_dot(RPN);
 	int i;
         for (i=0; i<TOP_DOTS; i++)
-		if (i != RCL_annun && i != BATTERY && i != LIT_EQ )
-			clr_dot(i);
+	  //		if (i != RCL_annun && i != BATTERY && i != LIT_EQ )
+	  //			clr_dot(i);
+	  dots[i] <<= 1;
 	dot(RCL_annun, rcl);
 	dot(BATTERY, bat);
 	dot(LIT_EQ, leq);
 	dot(RPN, rpn);
 }
 
-#if defined(DM42)
-  #define setBlackPixel(x, y)                bitblt24(x, 1, y, 1, BLT_OR,   BLT_NONE)
-  #define setWhitePixel(x, y)                bitblt24(x, 1, y, 1, BLT_ANDN, BLT_NONE)
-
-void left_side (int i, int j) { //i - xleft reference; j - ytop reference
-  lcd_fill_rect (i+2, j+11, 1, 9, 0xff);
-  lcd_fill_rect (i+3, j+2, 1, 18, 0xff);
-  lcd_fill_rect (i+4, j+2, 1, 17, 0xff);
-  lcd_fill_rect (i+5, j+3, 1, 15, 0xff);
-  lcd_fill_rect (i+6, j+4, 1, 7, 0xff);
-}
-void left_side_top (int i, int j) {
-  left_side(i, j);
-}
-void left_side_bottom (int i, int j) {
-  left_side(i-2, j+19);
-}
-void right_side (int i, int j) {
-  lcd_fill_rect (i+16, j+11, 1, 7, 0xff);
-  lcd_fill_rect (i+17, j+4, 1, 15, 0xff);
-  lcd_fill_rect (i+18, j+3, 1, 17, 0xff);
-  lcd_fill_rect (i+19, j+2, 1, 18, 0xff);
-  lcd_fill_rect (i+20, j+2, 1, 9, 0xff);
-}
-void right_side_top (int i, int j) {
-  right_side(i, j);
-}
-void right_side_bottom (int i, int j) {
-  right_side(i-2, j+19);
-}
-void top (int i, int j) {
-  lcd_fill_rect ( i+5, j, 14, 1, 0xff );
-  lcd_fill_rect ( i+4, j+1, 16, 1, 0xff );
-  lcd_fill_rect ( i+6, j+2, 12, 1, 0xff );
-  lcd_fill_rect ( i+7, j+3, 10, 1, 0xff );
-}
-void middle (int i, int j) {
-  lcd_fill_rect ( i+5, j+19, 11, 3, 0xff );
-  setBlackPixel ( i+4, j+20 );
-  setBlackPixel ( i+16, j+20 );
-}
-void bottom (int i, int j) {
-  lcd_fill_rect ( i+2, j+40, 14, 1, 0xff );
-  lcd_fill_rect ( i+1, j+39, 16, 1, 0xff );
-  lcd_fill_rect ( i+3, j+38, 12, 1, 0xff );
-  lcd_fill_rect ( i+4, j+37, 10, 1, 0xff );
-}
-void decimal (int i, int j) {
-  lcd_fill_rect (i+19, j+40, 5, 5, 0xff);
-}
-void comma (int i, int j) {
-  lcd_fill_rect (i+21, j+45, 3, 3, 0xff);
-  lcd_fill_rect (i+19, j+48, 3, 3, 0xff);
+void reset_7_segment(void) {
+  for (int i = 0; i <= EXP_SIGN; ++i) {
+    dots[i] <<= 1;
+  }
 }
 
-void exp_left_side (int i, int j) {
-  lcd_fill_rect (i, j+6, 1, 6, 0xff );
-  lcd_fill_rect (i+1, j, 1, 11, 0xff );
-  lcd_fill_rect (i+2, j+1, 1, 9, 0xff );
-  lcd_fill_rect (i+3, j+2, 1, 4, 0xff );
+#define setBlackPixel(x, y)                bitblt24(x, 1, y, 1, BLT_OR,   BLT_NONE)
+#define setWhitePixel(x, y)                bitblt24(x, 1, y, 1, BLT_ANDN, BLT_NONE)
+
+void left_side (int i, int j, int col) { //i - xleft reference; j - ytop reference
+  lcd_fill_rect (i+2, j+11, 1, 9, col);
+  lcd_fill_rect (i+3, j+2, 1, 18, col);
+  lcd_fill_rect (i+4, j+2, 1, 17, col);
+  lcd_fill_rect (i+5, j+3, 1, 15, col);
+  lcd_fill_rect (i+6, j+4, 1, 7, col);
 }
-void exp_left_side_top (int i, int j) {
-  exp_left_side(i+1, j);
+void left_side_top (int i, int j, int col) {
+  left_side(i, j, col);
 }
-void exp_left_side_bottom (int i, int j) {
-  exp_left_side(i, j+11);
+void left_side_bottom (int i, int j, int col) {
+  left_side(i-2, j+19, col);
 }
-void exp_right_side (int i, int j) {
-  lcd_fill_rect (i+12, j, 1, 6, 0xff );
-  lcd_fill_rect (i+11, j+1, 1, 11, 0xff );
-  lcd_fill_rect (i+10, j+2, 1, 9, 0xff );
-  lcd_fill_rect (i+9, j+6, 1, 4, 0xff );
+void right_side (int i, int j, int col) {
+  lcd_fill_rect (i+16, j+11, 1, 7, col);
+  lcd_fill_rect (i+17, j+4, 1, 15, col);
+  lcd_fill_rect (i+18, j+3, 1, 17, col);
+  lcd_fill_rect (i+19, j+2, 1, 18, col);
+  lcd_fill_rect (i+20, j+2, 1, 9, col);
 }
-void exp_right_side_top (int i, int j) {
-  exp_right_side(i, j);
+void right_side_top (int i, int j, int col) {
+  right_side(i, j, col);
 }
-void exp_right_side_bottom (int i, int j) {
-  exp_right_side(i-1, j+11);
+void right_side_bottom (int i, int j, int col) {
+  right_side(i-2, j+19, col);
 }
-void exp_top (int i, int j) {
-  lcd_fill_rect (i+4, j, 7, 1, 0xff );
-  lcd_fill_rect (i+5, j+1, 5, 1, 0xff );
-  lcd_fill_rect (i+6, j+2, 3, 1, 0xff );
+void top (int i, int j, int col) {
+  lcd_fill_rect ( i+5, j, 14, 1, col );
+  lcd_fill_rect ( i+4, j+1, 16, 1, col );
+  lcd_fill_rect ( i+6, j+2, 12, 1, col );
+  lcd_fill_rect ( i+7, j+3, 10, 1, col );
 }
-void exp_bottom (int i, int j) {
-  lcd_fill_rect (i+2, j+22, 7, 1, 0xff );
-  lcd_fill_rect (i+3, j+21, 5, 1, 0xff );
-  lcd_fill_rect (i+4, j+20, 3, 1, 0xff );
+void middle (int i, int j, int col) {
+  //  lcd_fill_rect ( i+5, j+19, 11, 3, col );
+  //  setBlackPixel ( i+4, j+20 );
+  //  setBlackPixel ( i+16, j+20 );
+  lcd_fill_rect ( i+5, j+21, 11, 1, col );
+  lcd_fill_rect ( i+4, j+20, 13, 1, col );
+  lcd_fill_rect ( i+5, j+19, 11, 1, col );
 }
-void exp_middle (int i, int j) {
-  lcd_fill_rect (i+4, j+10, 5, 1, 0xff );
-  lcd_fill_rect (i+3, j+11, 7, 1, 0xff );
-  lcd_fill_rect (i+4, j+12, 5, 1, 0xff );
+void bottom (int i, int j, int col) {
+  lcd_fill_rect ( i+2, j+40, 14, 1, col );
+  lcd_fill_rect ( i+1, j+39, 16, 1, col );
+  lcd_fill_rect ( i+3, j+38, 12, 1, col );
+  lcd_fill_rect ( i+4, j+37, 10, 1, col );
 }
-  
+void decimal (int i, int j, int col) {
+  lcd_fill_rect (i+19, j+40, 5, 5, col);
+}
+void comma (int i, int j, int col) {
+  lcd_fill_rect (i+21, j+45, 3, 3, col);
+  lcd_fill_rect (i+19, j+48, 3, 3, col);
+}
+
+void exp_left_side (int i, int j, int col) {
+  lcd_fill_rect (i, j+6, 1, 6, col );
+  lcd_fill_rect (i+1, j, 1, 11, col );
+  lcd_fill_rect (i+2, j+1, 1, 9, col );
+  lcd_fill_rect (i+3, j+2, 1, 4, col );
+}
+void exp_left_side_top (int i, int j, int col) {
+  exp_left_side(i+1, j, col);
+}
+void exp_left_side_bottom (int i, int j, int col) {
+  exp_left_side(i, j+11, col);
+}
+void exp_right_side (int i, int j, int col) {
+  lcd_fill_rect (i+12, j, 1, 6, col );
+  lcd_fill_rect (i+11, j+1, 1, 11, col );
+  lcd_fill_rect (i+10, j+2, 1, 9, col );
+  lcd_fill_rect (i+9, j+6, 1, 4, col );
+}
+void exp_right_side_top (int i, int j, int col) {
+  exp_right_side(i, j, col);
+}
+void exp_right_side_bottom (int i, int j, int col) {
+  exp_right_side(i-1, j+11, col);
+}
+void exp_top (int i, int j, int col) {
+  lcd_fill_rect (i+4, j, 7, 1, col );
+  lcd_fill_rect (i+5, j+1, 5, 1, col );
+  lcd_fill_rect (i+6, j+2, 3, 1, col );
+}
+void exp_bottom (int i, int j, int col) {
+  lcd_fill_rect (i+2, j+22, 7, 1, col );
+  lcd_fill_rect (i+3, j+21, 5, 1, col );
+  lcd_fill_rect (i+4, j+20, 3, 1, col );
+}
+void exp_middle (int i, int j, int col) {
+  lcd_fill_rect (i+4, j+10, 5, 1, col );
+  lcd_fill_rect (i+3, j+11, 7, 1, col );
+  lcd_fill_rect (i+4, j+12, 5, 1, col );
+}
+
+#if 0
 void show_disp(void) { // This function re-draws everything.
   // It may be fast enough. It does mean that clearing everything first is needed,
   // or we keep track of changes.
@@ -316,15 +334,6 @@ void show_disp(void) { // This function re-draws everything.
 	  lcd_setXY (t20, 325, y_ann-30);
 	  lcd_writeText(t20, "DEG");
         }
-        /* if (dots[RPN]) { */
-	/*   lcd_setXY (t20, 365, y_ann-30); */
-	/*   if (ENTRY_RPN_ENABLED) { */
-	/*     lcd_writeText(t20, "eRPN"); */
-	/*   } */
-	/*   else { */
-	/*     lcd_writeText(t20, "RPN"); */
-	/*   } */
-        /* } */
 	draw_RPN_RCL();
 	
 	/* The graphical bit last */
@@ -347,32 +356,243 @@ void show_disp(void) { // This function re-draws everything.
 }
 #endif
 
-#if defined(DM42) 
+void draw_dot (int n) {
+  int x, col = 0, inverse = 1;
+  if (dots[n] & 1) {
+    col = 0xff;
+    inverse = 0;
+  }
+  
+  if (n <= 107) {
+    x = XLEFT + DWIDTH*(n/9);
+    switch (n % 9) {  
+    case 0:
+      top (x, YTOP, col);
+      return;
+    case 1:
+      left_side_top (x, YTOP, col);
+      return;
+    case 2:
+      middle (x, YTOP, col);
+      return;
+    case 3:
+      right_side_top (x, YTOP, col);
+      return;
+    case 4:
+      left_side_bottom (x, YTOP, col);
+      return;
+    case 5:
+      bottom (x, YTOP, col);
+      return;
+    case 6:
+      right_side_bottom (x, YTOP, col);
+      return;
+    case 7:
+      decimal (x, YTOP, col);
+      return;
+    case 8:
+      comma (x, YTOP, col);
+      return;
+    default:;
+    }
+  }
+  else if (n <= 128) { // exponent digits
+    x = XLEFT_EXP + DWIDTH_EXP*((n-108)/7);
+    switch ((n-108) % 7) {
+    case 0:
+      exp_top (x, YTOP_EXP, col);
+      return;
+    case 1:
+      exp_left_side_top (x, YTOP_EXP, col);
+      return;
+    case 2:
+      exp_middle (x, YTOP_EXP, col);
+      return;
+    case 3:
+      exp_right_side_top (x, YTOP_EXP, col);
+      return;
+    case 4:
+      exp_left_side_bottom (x, YTOP_EXP, col);
+      return;
+    case 5:
+      exp_bottom (x, YTOP_EXP, col);
+      return;
+    case 6:
+      exp_right_side_bottom (x, YTOP_EXP, col);
+      return;
+    default:;
+    }
+  }
+  else if (n <= 141) {
+    switch (n) {
+    case MANT_SIGN:
+      middle (XLEFT - DWIDTH, YTOP, col);
+      return;
+    case EXP_SIGN:
+      exp_middle (XLEFT_EXP-DWIDTH_EXP, YTOP, col);
+      return;
+    case BIG_EQ:
+      lcd_fill_rect (250, Y_ANNUNC-34, 15, 4, col);
+      lcd_fill_rect (250, Y_ANNUNC-24, 15, 4, col);
+      return;
+    case LIT_EQ:
+      draw_LEQ();
+      return;
+    case DOWN_ARR:
+      lcd_fill_rect(287,Y_ANNUNC-67,5,12,col);
+      lcd_fill_rect(285,Y_ANNUNC-55,9,1,col);
+      lcd_fill_rect(286,Y_ANNUNC-54,7,1,col);
+      lcd_fill_rect(287,Y_ANNUNC-53,5,1,col);
+      lcd_fill_rect(288,Y_ANNUNC-52,3,1,col);
+      lcd_fill_rect(289,Y_ANNUNC-51,1,1,col);
+      return;
+    case INPUT:
+      t20->inv = inverse;
+      lcd_setXY(t20, 305, Y_ANNUNC-70);
+      lcd_writeText(t20,"ALPHA");
+      return;
+    case BATTERY:
+      return;
+    case BEG:
+#ifdef MODIFY_BEG_SSIZE8
+      /* t20->inv = 0; */
+      /* if (dots[BEG] & 1) { */
+      /* 	lcd_setXY (t20, 285, Y_ANNUNC-50); */
+      /* 	lcd_writeText(t20, "S:8"); */
+      /* } */
+      /* else { */
+      /* 	lcd_setXY (t20, 285, Y_ANNUNC-50); */
+      /* 	lcd_writeText(t20, "S:4"); */
+      /* }	   */
+      {
+	int d = UState.stack_depth;
+	//	print_debug(100, dots[BEG]);
+	if (!(dots[BEG] & 8)) { // test bit 3;
+	  if (d) {
+	    draw_BEG(8, 0);
+	    dots[BEG] = 7; // 0111
+	  }
+	  else {
+	    draw_BEG(4, 0);
+	    dots[BEG] = 4; // 0100
+	  }
+	}
+	else if (d == (dots[BEG] & 2)) { // no drawing needed
+	  if (d) {
+	    dots[BEG] = 7;
+	  }
+	  else {
+	    dots[BEG] = 4;
+	  }
+	}
+	else {
+	  if (d) { // changing S:4 to S:8
+	    draw_BEG(4, 1);
+	    draw_BEG(8, 0);
+	    dots[BEG] = 7;
+	  }
+	  else {
+	    draw_BEG(8, 1);
+	    draw_BEG(4, 0);
+	    dots[BEG] = 4;
+	  }
+	}
+      }
+#else
+      t20->inv = inverse;
+      lcd_setXY (t20, 285, y_ann-50);
+      lcd_writeText(t20, "BEG");
+#endif
+      return;
+    case STO_annun:
+      t20->inv = inverse;
+      lcd_setXY (t20, 325, Y_ANNUNC-50);
+      lcd_writeText(t20, "PGM");
+      return;
+    case RCL_annun:
+      draw_RCL(inverse);
+    case RAD:
+      t20->inv = inverse;
+      lcd_setXY (t20, 285, Y_ANNUNC-30);
+      lcd_writeText(t20, "RAD");
+      return;
+    case DEG:
+      t20->inv = inverse;
+      lcd_setXY (t20, 325, Y_ANNUNC-30);
+      lcd_writeText(t20, "DEG");
+      return;
+    case RPN:
+      draw_RPN(inverse);
+      return;
+    default:;
+    }
+  }
+  else if (n < MAX_DOTS) { // column = (n-142)/6; row = (n-142) % 6
+    lcd_fill_rect ( XLEFT-DWIDTH+5*((n-142)/6)+15, YTOP-(10+6*6)+((n-142)%6)*6, 4, 5, col);
+    return;
+  }
+  else if (n < TOP_DOTS) { // column = (n-MAX_DOTS)/6; row = ((n-MAX_DOTS)%6)
+    lcd_fill_rect( XLEFT-DWIDTH+5*((n-MAX_DOTS)/6)+15, 70-(10+6*5)+((n-MAX_DOTS)%6)*5, 4, 4, col);
+    return;
+  }
+}
+
+void draw_BEG (int depth, int inverse) {
+  t20->inv = inverse;
+  lcd_setXY (t20, 285, Y_ANNUNC-50);
+  if (depth == 4) {
+    lcd_writeText(t20, "S:4");
+  }
+  else {
+    lcd_writeText(t20, "S:8");
+  }
+  return;
+}
+
 void finish_display(void) {
-  //  lcd_clear_buf();
-  lcd_fill_rect (0, 0, 400, 188, 0); //leave bottom 52 rows for menu 
-  show_disp();
+  draw_PRT();
+  finish_7_segment();
+#ifdef TOP_ROW
+  finish_top_row();
+#endif
   lcd_refresh();
 }
 
-void draw_RPN_RCL(void) {
-  t20->inv = !dots[RPN];
+void finish_7_segment(void) {
+  for (int i = 0; i <= EXP_SIGN; ++i) {
+    if ((dots[i]&3) == 2) clr_dot(i);
+  }
+}
+
+#ifdef TOP_ROW
+void finish_top_row(void) {
+ for (int i = MB_TOP; i < TOP_DOTS; ++i) {
+    if ((dots[i]&3) == 2) clr_dot(i);
+  }
+} 
+#endif
+
+void draw_RPN(int inverse) {
+  t20->inv = inverse;
   if (ENTRY_RPN_ENABLED) {
-    lcd_setXY (t20, 355, Y_ANNUNC-30); // 70 is y_ann
+    lcd_setXY (t20, 355, Y_ANNUNC-30);
     lcd_writeText(t20, "eRPN");
   }
   else {
-    lcd_setXY (t20, 365, Y_ANNUNC-30); // 70 is y_ann
+    lcd_setXY (t20, 365, Y_ANNUNC-30);
     lcd_writeText(t20, "RPN");
   }
-  t20->inv = !dots[RCL_annun];
-  lcd_setXY (t20, 365, Y_ANNUNC-50); // 70 is y_ann
+}
+
+void draw_RCL(int inverse) {
+  t20->inv = inverse;
+  lcd_setXY (t20, 365, Y_ANNUNC-50);
   lcd_writeText(t20, "RUN");
-  t20->inv = 0;
+  //  t20->inv = 0;
 }
 
 void draw_LEQ(void) { // little equals
-  t20->inv = !dots[LIT_EQ];
+  t20->inv = !(dots[LIT_EQ]&1);
   lcd_setXY (t20, 360, Y_ANNUNC-70);
 #ifdef INCLUDE_C_LOCK
   if (C_LOCKED) {
@@ -399,15 +619,9 @@ void finish_PRT (void) {
 }
 
 void finish_LEQ(void) { // refreshes the LEQ flag only
-  draw_LEQ();  
   lcd_refresh();
 }
   
-void finish_RPN(void) { // refreshes the RPN and RUN flags only
-  draw_RPN_RCL();  
-  lcd_refresh();
-}
-
 extern void all_menu_dots (void);
 
 void do_all_dots(void) {
@@ -419,7 +633,6 @@ void do_all_dots(void) {
   clr_dot(RCL_annun);
   clr_dot(LIT_EQ);
 }
-#endif
 
 void show_progtrace(char *buf) {
 }

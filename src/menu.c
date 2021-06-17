@@ -77,14 +77,14 @@ void disp_about() {
 
   xcopy ((title + 29), SvnRevision, 4);
 
-  lcd_clear_buf();
+  clear_disp(); // clears buffer and zeros dots[]
   lcd_writeClr(t24);
-
 
   lcd_setXY(t24, 0, 5);
   lcd_putsR(t24, title);
   lcd_setXY(t20, t24->x, t24->y);
   t20->newln = 1;
+  t20->inv = 0;
 #ifdef TOP_ROW
   lcd_puts(t20, "With longer alpha display and top row,");
 #elif defined(BIGGER_DISPLAY)

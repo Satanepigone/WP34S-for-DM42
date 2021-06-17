@@ -416,6 +416,7 @@ void program_main(){
   if (!load_ram_file(0)) DispMsg = CNULL; // no message if it loads ok
   load_backup_file(0);
   load_lib_file(0);
+  lcd_clear_buf();
   t20->newln = 0;
   t20->lnfill = 0;
   t20->fixed = 1;
@@ -509,7 +510,7 @@ void program_main(){
     }
     else if ( StopWatchRunning && ( Ticker % STOPWATCH_BLINK ) == 0 ) {
       dot( LIT_EQ, !is_dot( LIT_EQ ) );
-      finish_LEQ();
+      lcd_refresh();
     }
 #endif
     if ( (c != K_HEARTBEAT) && (c >= 0) ) {
@@ -530,6 +531,7 @@ void program_main(){
 	CLR_ST(STAT_MENU);
 	reset_shift();
 	remapped =  no_key;
+	clear_disp();
 	display_current_menu();
       }
       if (remapped.key_34s == K_MULTI) {
