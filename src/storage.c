@@ -59,9 +59,13 @@
 #define BACKUP_FLASH
 
 #ifdef DM42
-
+#ifdef C_VERSION
 #define STATE_FILE "wp34s/wp34c.dat"
 #define BACKUP_FILE "wp34s/wp34c-backup.dat"
+#else
+#define STATE_FILE "wp34s/wp34s.dat"
+#define BACKUP_FILE "wp34s/wp34s-backup.dat"
+#endif
 #define LIBRARY_FILE "wp34s/wp34s-lib.dat"
 #define FPT ppgm_fp //use this as the file pointer
 

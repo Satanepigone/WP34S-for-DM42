@@ -364,7 +364,11 @@ struct _ndmap do_multi (struct _ndmap r) {
     r = no_key;
     break;
   case HELP:
+#ifdef C_VERSION
     run_help_file("/HELP/wp34c_help.html");
+#else
+    run_help_file("/HELP/wp34s_help.html");
+#endif
     reset_shift();
     r = no_key;
     break;

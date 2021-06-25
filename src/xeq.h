@@ -27,7 +27,13 @@
 #define VERSION_STRING  "3.3"
 
 #ifdef DM42
+
+#ifdef C_VERSION
 #define VERS_DISPLAY "34C\006" VERSION_STRING "\222T"
+#else
+#define VERS_DISPLAY "34S\006" VERSION_STRING "\222T"
+#endif
+
 #else
 
 #if defined(INFRARED)

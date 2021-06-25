@@ -73,8 +73,11 @@ const char * menu_line_str(uint8_t line_id, char * s, const int slen) {
 }
 
 void disp_about() {
+#ifdef C_VERSION
   char title[] = "WP 34C calculator for DM42: v     ";
-
+#else
+  char title[] = "WP 34S calculator for DM42: v     ";
+#endif
   xcopy ((title + 29), SvnRevision, 4);
 
   clear_disp(); // clears buffer and zeros dots[]

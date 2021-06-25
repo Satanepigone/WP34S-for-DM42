@@ -368,6 +368,10 @@
 // Rectangular - Polar y-reg prefix change:
 #define RP_PREFIX
 
+// Replaces 34S by 34C in various places.
+// Intended to be used alongside EXTRA_FLAGS.
+#define C_VERSION
+
 // Reduces RAM program steps by 2 and provides 4 bytes of extra flags
 // in persistent RAM. About 10 of these are used by C_LOCK_MODE but there are others!
 #define EXTRA_FLAGS
