@@ -40,6 +40,7 @@
 #include <stdarg.h>
 
 #ifdef DM42
+#include "features.h"
 #include "dmcp.h"
 #endif
 
