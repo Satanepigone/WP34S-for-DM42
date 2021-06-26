@@ -165,7 +165,7 @@ LIBDIR =
 
 all :	top
 
-top :	top_setup clean_some $(BUILD_DIR)/wp34s_top.elf
+top :	top_setup clean_some $(BUILD_DIR)/wp34c_top.elf
 
 top_setup:
 	$(eval TARGET = wp34c_top)
@@ -173,14 +173,14 @@ top_setup:
 	$(shell cat src/main_0.h | sed -e 's/pversion/$(VERSION_NO)/g' -e 's/pname/$(TARGET)/g' > src/main.h)
 	$(eval CFLAGS += -DBIGGER_DISPLAY -DTOP_ROW)
 
-normal: normal_setup clean_some $(BUILD_DIR)/wp34s.elf 
+normal: normal_setup clean_some $(BUILD_DIR)/wp34c.elf 
 
 normal_setup:
 	$(eval TARGET = wp34c)
 	$(eval LDFLAGS = --specs=nosys.specs $(CPUFLAGS) -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections -Wl,--wrap=_malloc_r)
 	$(shell cat src/main_0.h | sed -e 's/pversion/$(VERSION_NO)/g' -e 's/pname/$(TARGET)/g' > src/main.h)
 
-long :	long_setup clean_some $(BUILD_DIR)/wp34s_long.elf
+long :	long_setup clean_some $(BUILD_DIR)/wp34c_long.elf
 
 long_setup:
 	$(eval TARGET = wp34c_long)
@@ -241,7 +241,7 @@ $(BUILD_DIR)/%.o: %.cc Makefile | $(BUILD_DIR)
 $(BUILD_DIR)/%.o: %.s Makefile | $(BUILD_DIR)
 	$(AS) -c $(CFLAGS) $< -o $@
 
-$(BUILD_DIR)/wp34s.elf: $(OBJECTS) Makefile
+$(BUILD_DIR)/wp34c.elf: $(OBJECTS) Makefile
 	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
 	$(OBJCOPY) --remove-section .qspi -O ihex    $@  $(BUILD_DIR)/$(TARGET)_flash.hex
 	$(OBJCOPY) --remove-section .qspi -O binary  $@  $(BUILD_DIR)/$(TARGET)_flash.bin
@@ -251,7 +251,7 @@ $(BUILD_DIR)/wp34s.elf: $(OBJECTS) Makefile
 	$(BIN_DIR)add_pgm_chsum build/$(TARGET)_flash.bin build/$(TARGET).pgm
 	$(SIZE) $@
 
-$(BUILD_DIR)/wp34s_long.elf: $(OBJECTS) Makefile
+$(BUILD_DIR)/wp34c_long.elf: $(OBJECTS) Makefile
 	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
 	$(OBJCOPY) --remove-section .qspi -O ihex    $@  $(BUILD_DIR)/$(TARGET)_flash.hex
 	$(OBJCOPY) --remove-section .qspi -O binary  $@  $(BUILD_DIR)/$(TARGET)_flash.bin
@@ -261,7 +261,7 @@ $(BUILD_DIR)/wp34s_long.elf: $(OBJECTS) Makefile
 	$(BIN_DIR)add_pgm_chsum build/$(TARGET)_flash.bin build/$(TARGET).pgm
 	$(SIZE) $@
 
-$(BUILD_DIR)/wp34s_top.elf: $(OBJECTS) Makefile
+$(BUILD_DIR)/wp34c_top.elf: $(OBJECTS) Makefile
 	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
 	$(OBJCOPY) --remove-section .qspi -O ihex    $@  $(BUILD_DIR)/$(TARGET)_flash.hex
 	$(OBJCOPY) --remove-section .qspi -O binary  $@  $(BUILD_DIR)/$(TARGET)_flash.bin

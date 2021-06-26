@@ -42,8 +42,8 @@ struct _ustate {
         unsigned int unused_c1 :      1;	// free
   	unsigned int unused_c2 :      1;	// free
 #endif
-        unsigned int c_lock_1 :      1;	// free
-  	unsigned int c_lock_2 :      1;	// free
+        unsigned int unused_c3 :      1;	// free
+  	unsigned int unused_c4 :      1;	// free
 #else
 	unsigned int contrast :      4;	// Display contrast
 #endif
@@ -82,11 +82,7 @@ struct _ustate {
 	unsigned int trigmode :      2;	// Trig mode (DEG, RAD, GRAD)
 // 24 bits
 	unsigned int sigma_mode :    3;	// Which sigma regression mode we're using
-#ifdef DM42
-        unsigned int c_lock_3 :    1;	// Speed setting, 1 = slow, 0 = fast
-#else
-        unsigned int slow_speed :    1;	// Speed setting, 1 = slow, 0 = fast
-#endif
+	unsigned int slow_speed :    1;	// Speed setting, 1 = slow, 0 = fast
 	unsigned int rounding_mode : 3;	// Which rounding mode we're using
 	unsigned int jg1582 :        1;	// Julian/Gregorian change over in 1582 instead of 1752
 };
@@ -148,23 +144,10 @@ struct _state {
 	unsigned int catpos :      7;	// Position in said catalogue
 	unsigned int entryp :      1;	// Has the user entered something since the last program stop
 	unsigned int have_stats :  1;	// Statistics registers are allocated
-#ifdef DM42
-        unsigned int c_lock_4 :      1;	// free
-	unsigned int c_lock_10 :  1;   // Used to wake up correctly
-#else
 	unsigned int deep_sleep :  1;   // Used to wake up correctly
-        unsigned int unused :      1;	// free
-#endif
+	unsigned int unused :      1;	// free
 #ifdef INFRARED
-#ifdef DM42
-  unsigned int c_lock_5 : 1;
-  unsigned int c_lock_6 : 1;
-  unsigned int c_lock_7 : 1;
-  unsigned int c_lock_8 : 1;
-  unsigned int c_lock_9 : 1;
-#else
-  	unsigned int print_delay : 5;   // LF delay for printer
-#endif
+	unsigned int print_delay : 5;   // LF delay for printer
 	signed   int local_regs : 11;   // Position on return stack where current local variables start
 #else
 	signed   int local_regs : 16;   // Position on return stack where current local variables start
@@ -575,66 +558,46 @@ extern volatile unsigned int OnKeyTicks; // ON (EXIT) key has been held down for
 
 #ifdef INCLUDE_C_LOCK
 
-#ifdef EXTRA_FLAGS
 #define CLflags PersistentRam._extra_flags
-#define C_LOCK_ON CLflags.c_lock_on
-#define REAL_FLAG CLflags.real_entry
-#define IMAG_FLAG CLflags.imag_entry
-#define INIT_STACK_SIZE CLflags.init_stack_size
-#define INIT_LIFT CLflags.init_lift
-#define CPX_J CLflags.cpx_ij
-#define CPX_ENABLED CLflags.cpx_enabled
-#define POLAR_DISPLAY CLflags.polar_display
-#define POLAR_FORM CLflags.polar_form
-#else
-#define C_LOCK_ON UState.c_lock_1 
-#define REAL_FLAG UState.c_lock_2
-#define IMAG_FLAG UState.c_lock_3
-#define INIT_STACK_SIZE State.c_lock_4
-#define INIT_LIFT State.c_lock_5
-#define CPX_J State.c_lock_6
-#define CPX_ENABLED State.c_lock_7
-#define POLAR_DISPLAY State.c_lock_8
-#define POLAR_FORM State.c_lock_9
-#endif
 
+#define C_LOCK_ON CLflags.c_lock_on
 #define C_LOCKED (C_LOCK_ON && CPX_ENABLED)
 #define LOCK_C C_LOCK_ON = 1
 #define UNLOCK_C C_LOCK_ON = 0
 
+#define REAL_FLAG CLflags.real_entry
 #define SET_REAL REAL_FLAG = 1
 #define CLEAR_REAL REAL_FLAG = 0
 
+#define IMAG_FLAG CLflags.imag_entry
 #define SET_IMAG IMAG_FLAG = 1
 #define CLEAR_IMAG IMAG_FLAG = 0
 
+#define INIT_STACK_SIZE CLflags.init_stack_size
 #define INIT_4 INIT_STACK_SIZE = 0
 #define INIT_8 INIT_STACK_SIZE = 1
 #define TRUE_8 INIT_STACK_SIZE
 
+#define INIT_LIFT CLflags.init_lift
 #define SET_INIT_LIFT INIT_LIFT = 1
 #define CLEAR_INIT_LIFT INIT_LIFT = 0
 
+#define CPX_J CLflags.cpx_ij
 #define SET_CPX_I CPX_J = 0
 #define SET_CPX_J CPX_J = 1
 
+#define CPX_ENABLED CLflags.cpx_enabled
 #define SET_CPX_YES CPX_ENABLED = 1
 #define SET_CPX_NO CPX_ENABLED = 0
 
+#define POLAR_DISPLAY CLflags.polar_display
 #define SET_POLAR_DISPLAY POLAR_DISPLAY = 1
 #define SET_RECTANGULAR_DISPLAY POLAR_DISPLAY = 0
 
 #ifdef ENTRY_RPN
-
-#ifdef EXTRA_FLAGS
 #define ENTRY_RPN_ENABLED CLflags.entry_on
-#else
-#define ENTRY_RPN_ENABLED State.c_lock_10
-#endif
-
-#define ENTRY_RPN_ON ENTRY_RPN_ENABLED = 1
-#define ENTRY_RPN_OFF ENTRY_RPN_ENABLED = 0
-
+#define ENTRY_RPN_ON CLflags.entry_on = 1
+#define ENTRY_RPN_OFF CLflags.entry_on = 0
 #endif
 
 /*
@@ -644,11 +607,12 @@ when set, it isn't and polar form needs to be worked out.
 The flag should be set by any routine that changes what's in x and y.
 It is tested (when POLAR_DISPLAY is true) in display() in display.c
 */
+#define POLAR_FORM CLflags.polar_form
 #define POLAR_FORM_NOT_READY POLAR_FORM
 #define CLEAR_POLAR_READY POLAR_FORM = 1
 #define SET_POLAR_READY POLAR_FORM = 0
 
-#endif /* INCLUDE_C_LOCK */
+#endif
 
 #endif /* COMPILE_XROM */
 #endif /* DATA_H_ */
