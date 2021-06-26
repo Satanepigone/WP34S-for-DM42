@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccIiZMQn.s 			page 1
+ARM GAS  /tmp/cc6am8sh.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccIiZMQn.s 			page 1
   32              		.cfi_startproc
   33              		@ args = 0, pretend = 0, frame = 0
   34              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccIiZMQn.s 			page 2
+ARM GAS  /tmp/cc6am8sh.s 			page 2
 
 
   35              		@ link register save eliminated.
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccIiZMQn.s 			page 1
   44:src/font.c    **** }
   69              		.loc 1 44 1 view .LVU13
   70 0030 0130     		adds	r0, r0, #1
-ARM GAS  /tmp/ccIiZMQn.s 			page 3
+ARM GAS  /tmp/cc6am8sh.s 			page 3
 
 
   71 0032 30BC     		pop	{r4, r5}
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccIiZMQn.s 			page 1
  119 0012 0622     		movne	r2, #6
  120 0014 01F10104 		add	r4, r1, #1
  121              	.LBB4:
-ARM GAS  /tmp/ccIiZMQn.s 			page 4
+ARM GAS  /tmp/cc6am8sh.s 			page 4
 
 
  122              	.LBB5:
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccIiZMQn.s 			page 1
  163 003c A5FB03E2 		umull	lr, r2, r5, r3
  164 0040 9208     		lsrs	r2, r2, #2
  165 0042 02EB420E 		add	lr, r2, r2, lsl #1
-ARM GAS  /tmp/ccIiZMQn.s 			page 5
+ARM GAS  /tmp/cc6am8sh.s 			page 5
 
 
  166 0046 A3EB4E03 		sub	r3, r3, lr, lsl #1
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccIiZMQn.s 			page 1
  214              		.loc 1 56 2 view .LVU44
   57:src/font.c    **** 		{
   58:src/font.c    **** 			127, 142, 238,   0,   6, 224,   0,   0, 192,  44, 123,  16,
-ARM GAS  /tmp/ccIiZMQn.s 			page 6
+ARM GAS  /tmp/cc6am8sh.s 			page 6
 
 
   59:src/font.c    **** 			 38,   1,   0,  69,  88,  64, 128, 105,  10,   0, 104, 218,
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccIiZMQn.s 			page 1
  113:src/font.c    **** 			 17,  99, 140,  84,  73, 146, 108,  69,  34,  36, 128, 204,
  114:src/font.c    **** 			200,  17,  76, 177,  84,  51, 207, 131,  36,  85,  21, 137,
  115:src/font.c    **** 			 10,  28,  53, 162,  76, 143, 165,  69,   9,  98,   2,  17,
-ARM GAS  /tmp/ccIiZMQn.s 			page 7
+ARM GAS  /tmp/cc6am8sh.s 			page 7
 
 
  116:src/font.c    **** 			239,  32,  81,  63,  42, 128, 172, 233,  40, 211, 101, 170,
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccIiZMQn.s 			page 1
  169:src/font.c    **** 		},
  170:src/font.c    **** 		{
  171:src/font.c    **** 			250,   8,   9, 224,  65, 114, 105,  96,  46, 106, 251, 170,
-ARM GAS  /tmp/ccIiZMQn.s 			page 8
+ARM GAS  /tmp/cc6am8sh.s 			page 8
 
 
  172:src/font.c    **** 			226, 192, 167, 105,  73,   4,  84,  67, 178,  42, 161,  11,
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccIiZMQn.s 			page 1
  234              		.loc 1 204 15 view .LVU50
  235 000a 33F81070 		ldrh	r7, [r3, r0, lsl #1]
  236              	.LVL11:
-ARM GAS  /tmp/ccIiZMQn.s 			page 9
+ARM GAS  /tmp/cc6am8sh.s 			page 9
 
 
  237              		.loc 1 205 2 is_stmt 1 view .LVU51
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccIiZMQn.s 			page 1
  283 0044 6DB2     		sxtb	r5, r5
  284              	.LBE8:
  210:src/font.c    **** 		for (j=0; j<6; j++) {
-ARM GAS  /tmp/ccIiZMQn.s 			page 10
+ARM GAS  /tmp/cc6am8sh.s 			page 10
 
 
  285              		.loc 1 210 9 view .LVU71
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccIiZMQn.s 			page 1
  329 006c EFD1     		bne	.L33
  211:src/font.c    **** 			if (z & (1 << (n&7)))
  330              		.loc 1 211 24 discriminator 2 view .LVU86
-ARM GAS  /tmp/ccIiZMQn.s 			page 11
+ARM GAS  /tmp/cc6am8sh.s 			page 11
 
 
  331 006e 1EF80000 		ldrb	r0, [lr, r0]	@ zero_extendqisi2
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccIiZMQn.s 			page 1
  370      11A33B77 
  370      F633C618 
  370      FFB92008 
-ARM GAS  /tmp/ccIiZMQn.s 			page 12
+ARM GAS  /tmp/cc6am8sh.s 			page 12
 
 
  371 0030 40600831 		.ascii	"@`\0101\006\000\000\000\004\000\000\200\017h\340\311"
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccIiZMQn.s 			page 1
  384 00f5 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000"
  384      00000000 
  384      00
-ARM GAS  /tmp/ccIiZMQn.s 			page 13
+ARM GAS  /tmp/cc6am8sh.s 			page 13
 
 
  385 00fe 4D42DEBE 		.ascii	"MB\336\276\320wH\020\347\356W\027\007\200\2268\210_"
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccIiZMQn.s 			page 1
  396      6425357E 
  396      FE383233 
  397 01e1 EE246963 		.ascii	"\356$ic\2141G\231\231\251\024effDtwKRff\216433U\011"
-ARM GAS  /tmp/ccIiZMQn.s 			page 14
+ARM GAS  /tmp/cc6am8sh.s 			page 14
 
 
  397      8C314799 
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccIiZMQn.s 			page 1
  409      DDC7EA5D 
  409      82FF4900 
  409      D90F1480 
-ARM GAS  /tmp/ccIiZMQn.s 			page 15
+ARM GAS  /tmp/cc6am8sh.s 			page 15
 
 
  409      5436
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccIiZMQn.s 			page 1
  427      6D56D466 
  427      CB62
  428 0089 A1635A0E 		.ascii	"\241cZ\016\264\267\375\376\333\330^\245\027\010\253"
-ARM GAS  /tmp/ccIiZMQn.s 			page 16
+ARM GAS  /tmp/cc6am8sh.s 			page 16
 
 
  428      B4B7FDFE 
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccIiZMQn.s 			page 1
  442 0158 DAFEA1FA 		.ascii	"\332\376\241\372*G\005xMj1\253\265\205ZH\336\221\330"
  442      2A470578 
  442      4D6A31AB 
-ARM GAS  /tmp/ccIiZMQn.s 			page 17
+ARM GAS  /tmp/cc6am8sh.s 			page 17
 
 
  442      B5855A48 
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccIiZMQn.s 			page 1
  455      001C00A0 
  455      02
  456 0230 07001000 		.ascii	"\007\000\020\000\300\203\002\000\200\020@\004\200\200"
-ARM GAS  /tmp/ccIiZMQn.s 			page 18
+ARM GAS  /tmp/cc6am8sh.s 			page 18
 
 
  456      C0830200 
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccIiZMQn.s 			page 1
  481      8157C381 
  481      81818339 
  481      878DACAB 
-ARM GAS  /tmp/ccIiZMQn.s 			page 19
+ARM GAS  /tmp/cc6am8sh.s 			page 19
 
 
  481      83
@@ -1095,27 +1095,27 @@ ARM GAS  /tmp/ccIiZMQn.s 			page 1
  484      15
  485              		.text
  486              	.Letext0:
-ARM GAS  /tmp/ccIiZMQn.s 			page 20
+ARM GAS  /tmp/cc6am8sh.s 			page 20
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 font.c
-     /tmp/ccIiZMQn.s:18     .text.charlengths:0000000000000000 $t
-     /tmp/ccIiZMQn.s:27     .text.charlengths:0000000000000000 charlengths
-     /tmp/ccIiZMQn.s:79     .text.charlengths:0000000000000038 $d
-     /tmp/ccIiZMQn.s:86     .text.findlengths:0000000000000000 $t
-     /tmp/ccIiZMQn.s:94     .text.findlengths:0000000000000000 findlengths
-     /tmp/ccIiZMQn.s:192    .text.findlengths:000000000000006c $d
-     /tmp/ccIiZMQn.s:199    .text.unpackchar:0000000000000000 $t
-     /tmp/ccIiZMQn.s:207    .text.unpackchar:0000000000000000 unpackchar
-     /tmp/ccIiZMQn.s:357    .text.unpackchar:0000000000000084 $d
-     /tmp/ccIiZMQn.s:363    .rodata.bm_large.5521:0000000000000000 $d
-     /tmp/ccIiZMQn.s:367    .rodata.bm_large.5521:0000000000000000 bm_large.5521
-     /tmp/ccIiZMQn.s:414    .rodata.bm_small.5522:0000000000000000 $d
-     /tmp/ccIiZMQn.s:418    .rodata.bm_small.5522:0000000000000000 bm_small.5522
-     /tmp/ccIiZMQn.s:461    .rodata.divs.5505:0000000000000000 $d
-     /tmp/ccIiZMQn.s:465    .rodata.divs.5505:0000000000000000 divs.5505
-     /tmp/ccIiZMQn.s:468    .rodata.widths.5504:0000000000000000 $d
-     /tmp/ccIiZMQn.s:472    .rodata.widths.5504:0000000000000000 widths.5504
+     /tmp/cc6am8sh.s:18     .text.charlengths:0000000000000000 $t
+     /tmp/cc6am8sh.s:27     .text.charlengths:0000000000000000 charlengths
+     /tmp/cc6am8sh.s:79     .text.charlengths:0000000000000038 $d
+     /tmp/cc6am8sh.s:86     .text.findlengths:0000000000000000 $t
+     /tmp/cc6am8sh.s:94     .text.findlengths:0000000000000000 findlengths
+     /tmp/cc6am8sh.s:192    .text.findlengths:000000000000006c $d
+     /tmp/cc6am8sh.s:199    .text.unpackchar:0000000000000000 $t
+     /tmp/cc6am8sh.s:207    .text.unpackchar:0000000000000000 unpackchar
+     /tmp/cc6am8sh.s:357    .text.unpackchar:0000000000000084 $d
+     /tmp/cc6am8sh.s:363    .rodata.bm_large.5521:0000000000000000 $d
+     /tmp/cc6am8sh.s:367    .rodata.bm_large.5521:0000000000000000 bm_large.5521
+     /tmp/cc6am8sh.s:414    .rodata.bm_small.5522:0000000000000000 $d
+     /tmp/cc6am8sh.s:418    .rodata.bm_small.5522:0000000000000000 bm_small.5522
+     /tmp/cc6am8sh.s:461    .rodata.divs.5505:0000000000000000 $d
+     /tmp/cc6am8sh.s:465    .rodata.divs.5505:0000000000000000 divs.5505
+     /tmp/cc6am8sh.s:468    .rodata.widths.5504:0000000000000000 $d
+     /tmp/cc6am8sh.s:472    .rodata.widths.5504:0000000000000000 widths.5504
 
 NO UNDEFINED SYMBOLS
