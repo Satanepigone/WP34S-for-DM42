@@ -141,7 +141,7 @@ CPUFLAGS += -mthumb -march=armv7e-m -mfloat-abi=hard -mfpu=fpv4-sp-d16
 ASFLAGS = $(CPUFLAGS) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 CFLAGS  = $(CPUFLAGS) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 CFLAGS += -Wno-misleading-indentation
-CFLAGS += -DDM42=1
+CFLAGS += -DDM42=1 -DC_VERSION=1
 DBGFLAGS = -g 
 
 ifeq ($(DEBUG), 1)
