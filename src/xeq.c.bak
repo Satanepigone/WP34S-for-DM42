@@ -5528,9 +5528,10 @@ void xeq_xrom(void) {
      state = 1;
 #endif
      
+     //     print_debug(100,state);
      dot(RCL_annun, state);
-     lcd_refresh();
-     
+     finish_RPN(); // RPN
+
      while (! Pause && Running) {
        xeq_single();
        //       if (is_key_pressed() || (Ticker != last_ticker)) // flashes but empty loop 1/3 the speed
@@ -5547,12 +5548,13 @@ void xeq_xrom(void) {
      // Program has terminated
      clr_dot(RCL_annun);
      ShowRPN = 1; // display() may turn it off again
-     lcd_refresh(); // put here to turn off the RCL annunciator
+     finish_RPN(); // put here to turn off the RCL annunciator
+     //     print_debug(100, State2.disp_freeze);
      display(); // turns off RPN if it was freeeeze and returns doing little
-     
+     //     print_debug(101, ShowRPN*100+State2.disp_freeze);
      if (ShowRPN) {
        set_dot(RPN);
-       lcd_refresh(); // RPN
+       finish_RPN(); // RPN
      }
 #ifndef CONSOLE
      // Avoid accidental restart with R/S or APD after program ends

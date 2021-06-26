@@ -364,11 +364,7 @@ struct _ndmap do_multi (struct _ndmap r) {
     r = no_key;
     break;
   case HELP:
-#ifdef C_VERSION
-    run_help_file("/HELP/wp34c_help.html");
-#else
     run_help_file("/HELP/wp34s_help.html");
-#endif
     reset_shift();
     r = no_key;
     break;
@@ -420,7 +416,6 @@ void program_main(){
   if (!load_ram_file(0)) DispMsg = CNULL; // no message if it loads ok
   load_backup_file(0);
   load_lib_file(0);
-  lcd_clear_buf();
   t20->newln = 0;
   t20->lnfill = 0;
   t20->fixed = 1;
@@ -514,7 +509,7 @@ void program_main(){
     }
     else if ( StopWatchRunning && ( Ticker % STOPWATCH_BLINK ) == 0 ) {
       dot( LIT_EQ, !is_dot( LIT_EQ ) );
-      lcd_refresh();
+      finish_LEQ();
     }
 #endif
     if ( (c != K_HEARTBEAT) && (c >= 0) ) {
@@ -535,12 +530,10 @@ void program_main(){
 	CLR_ST(STAT_MENU);
 	reset_shift();
 	remapped =  no_key;
-	clear_disp();
 	display_current_menu();
       }
       if (remapped.key_34s == K_MULTI) {
 	remapped = do_multi (remapped);
-	clear_disp();
 	display_current_menu();
       }
       if (remapped.key_34s == K_EXIT) break;

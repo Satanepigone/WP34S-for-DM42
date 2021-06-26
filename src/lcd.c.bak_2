@@ -60,20 +60,19 @@ void clear_disp(void) {
 }
   
 void reset_disp(void) {
-  clr_dot(STO_annun); // gets turned back on if needed;
-  int rcl = is_dot(RCL_annun);
-  int bat = is_dot(BATTERY);
-  int leq = is_dot(LIT_EQ);
-  int rpn = is_dot(RPN);
-  int i;
-  for (i=0; i<TOP_DOTS; i++)
-    //		if (i != RCL_annun && i != BATTERY && i != LIT_EQ )
-    //			clr_dot(i);
-    dots[i] <<= 1;
-  dot(RCL_annun, rcl);
-  dot(BATTERY, bat);
-  dot(LIT_EQ, leq);
-  dot(RPN, rpn);
+	int rcl = is_dot(RCL_annun);
+	int bat = is_dot(BATTERY);
+	int leq = is_dot(LIT_EQ);
+	int rpn = is_dot(RPN);
+	int i;
+        for (i=0; i<TOP_DOTS; i++)
+	  //		if (i != RCL_annun && i != BATTERY && i != LIT_EQ )
+	  //			clr_dot(i);
+	  dots[i] <<= 1;
+	dot(RCL_annun, rcl);
+	dot(BATTERY, bat);
+	dot(LIT_EQ, leq);
+	dot(RPN, rpn);
 }
 
 void reset_7_segment(void) {

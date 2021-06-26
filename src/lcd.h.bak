@@ -18,6 +18,9 @@
 #define __LCD_H__
 #include "xeq.h"
 
+#if defined(QTGUI) || defined(IOS)
+#include <stdint.h>
+#endif
 
 extern int setuptty(int reset);
 extern void set_dot(int n);
@@ -27,23 +30,17 @@ extern int is_dot(int n);
 extern void show_disp(void);
 extern void wait_for_display(void);
 extern void finish_display(void);
-extern void finish_7_segment(void);
 #ifdef DM42
-extern void draw_dot(int n);
-extern void draw_RPN(int inverse);
-extern void draw_RCL(int inverse);
-extern void draw_BEG(int depth, int inverse);
+extern void draw_RPN_RCL(void);
+extern void finish_RPN(void);
 extern void draw_LEQ(void);
 extern void finish_LEQ(void);
-extern void finish_top_row(void);
 extern void draw_PRT(void);
 extern void finish_PRT(void);
 extern void do_all_dots(void);
 #endif
 extern void show_flags(void);
-extern void clear_disp(void);
 extern void reset_disp(void);
-extern void reset_7_segment(void);
 extern void show_progtrace(char *buf);
 extern void show_stack(void);
 
@@ -92,11 +89,60 @@ extern void show_stack(void);
 #define MB_TOP			MATRIX_BASE
 #endif
 
-#define XLEFT 26
-#define YTOP 130
-#define DWIDTH 25
-#define XLEFT_EXP 344
-#define YTOP_EXP 130
-#define DWIDTH_EXP 18
+
+#ifndef DM42
+
+#if defined(CONSOLE) && !defined(NOCURSES)
+#define GETCHAR(...)
+#define GETCHAR_ERR(...)
+#define PRINTF(...)
+#define MOVE(...)
+
+#else
+
+#ifdef USECURSES
+#include <curses.h>
+#define GETCHAR	getch
+#define GETCHAR_ERR	ERR
+#define PRINTF	printw
+#define MOVE(x, y)	move(y, x)
+#else
+#define GETCHAR getchar
+#define GETCHAR_ERR	EOF
+#define PRINTF	printf
+#define MOVE(x, y)
+
+#ifdef USETERMIO
+#include <termio.h>
+#else
+#include <termios.h>
+#endif
+
+#endif
+
+#endif
+
+#if defined(WINGUI)
+// The symbols are declared in VirtualLCD.cpp
+extern void WindowsBlink(int a);
+extern void WindowsSwapBuffers();
+#ifdef _WINDLL
+#define EXPORT __declspec(dllexport)
+#else
+#define EXPORT __declspec(dllimport)
+#endif
+extern unsigned int LcdData[20];
+#undef AT91C_SLLCDC_MEM LcdData
+#define Lcd_Enable()
+#endif
+
+#if defined(QTGUI) || defined(IOS)
+extern uint64_t LcdData[10];
+#undef AT91C_SLCDC_MEM
+#define AT91C_SLCDC_MEM ((uint32_t*) LcdData)
+#define Lcd_Enable()
+#endif
+
+#endif
 
 #endif

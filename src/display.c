@@ -14,6 +14,12 @@
  * along with 34S.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifdef DM42
+#include "dmcp.h"
+#endif
+
+#define DM42SAFE
+
 #include "features.h"
 #include "xeq.h" 
 #include "storage.h"
@@ -31,6 +37,7 @@
 #ifndef DM42
 #include "serial.h"
 #endif
+#undef DM42SAFE
 
 static enum separator_modes { SEP_NONE, SEP_COMMA, SEP_DOT } SeparatorMode;
 static enum decimal_modes { DECIMAL_DOT, DECIMAL_COMMA } DecimalMode;
@@ -58,7 +65,7 @@ short int no_status_top = 0;
 FLAG ShowRPN;		   // controls visibility of RPN annunciator
 FLAG JustDisplayed;	   // Avoid duplicate calls to display()
 SMALL_INT IntMaxWindow;    // Number of windows for integer display
-FLAG IoAnnunciator;	   // Status of the little "=" sign
+//FLAG IoAnnunciator;	   // Status of the little "=" sign
 
 /* Message strings
  * Strings starting S7_ are for the lower 7 segment line.  Strings starting S_
@@ -70,6 +77,7 @@ static const char S7_ERROR[] = "Error";		/* Default lower line error display */
 static const char S7_NaN[] = "not nuMmEric";	/* Displaying NaN in lower line */
 static const char S7_INF[] = "Infinity";	/* Displaying infinity in lower line */
 static const char S7_STEP[] = "StEP ";		/* Step marker in program mode (lower line) */
+
 static const char S7_fract_EQ[] = " = ";	/* Exponent in fraction mode indicates low, equal or high */
 static const char S7_fract_LT[] = " Lt";
 static const char S7_fract_GT[] = " Gt";
@@ -80,6 +88,7 @@ static const char libname[][5] = {
   "roMm"
 #endif
 };
+
 
 
 /* Set the separator and decimal mode globals
@@ -170,6 +179,7 @@ void error_message(const unsigned int e)
     };
 #undef MSG1
 #undef MSG2
+
   if (e != ERR_NONE || Running) {
     const char *p = error_table[e];
     const char *q = find_char(p, '\0') + 1;
@@ -2522,7 +2532,8 @@ static void set_exp(int exp, int flags, char *res) {
 	 * browsing constants.
 	 */
 #ifdef MODIFY_BEG_SSIZE8
-	dot(BEG, UState.stack_depth && ! Running);
+	//	dot(BEG, UState.stack_depth && ! Running);
+	draw_dot(BEG);
 #else
 	dot(BEG, state_pc() <= 1 && ! Running);
 #endif
@@ -2533,7 +2544,7 @@ static void set_exp(int exp, int flags, char *res) {
 	dot(INPUT, State2.catalogue || State2.alphas || State2.confirm);
 	dot(DOWN_ARR, (State2.alphas || State2.multi) && State2.alphashift);
 	dot(BIG_EQ, get_user_flag(A_FLAG));
-	set_IO_annunciator();
+	//	set_IO_annunciator();
 
 	/* Set the trig mode indicator 360 or RAD.  Grad is handled elsewhere.
 	 */
@@ -2545,27 +2556,27 @@ static void set_exp(int exp, int flags, char *res) {
       /*
        *  Toggle the little "=" sign
        */
-      void set_IO_annunciator(void) {
-#ifndef DM42
-	int on = SerialOn
-#endif
-#ifdef DM42
-	  int on = 0
-#endif
-#ifdef REALBUILD
-	  || DebugFlag
-#endif
-#ifdef INFRARED
-	  || PrinterColumn != 0
-#endif
-	  ;
+/*       void set_IO_annunciator(void) { */
+/* #ifndef DM42 */
+/* 	int on = SerialOn */
+/* #endif */
+/* #ifdef DM42 */
+/* 	  int on = 0 */
+/* #endif */
+/* #ifdef REALBUILD */
+/* 	  || DebugFlag */
+/* #endif */
+/* #ifdef INFRARED */
+/* 	  || PrinterColumn != 0 */
+/* #endif */
+/* 	  ; */
 
-	if (on != IoAnnunciator) {
-	  dot(LIT_EQ, on);
-	  IoAnnunciator = on;
-	  finish_display(); //LIT_EQ
-	}
-      }
+/* 	if (on != IoAnnunciator) { */
+/* 	  dot(LIT_EQ, on); */
+/* 	  IoAnnunciator = on; */
+/* 	  finish_display(); //LIT_EQ */
+/* 	} */
+/*       } */
 
 #ifdef TOP_ROW
       /*
@@ -2596,9 +2607,10 @@ static void set_exp(int exp, int flags, char *res) {
 	  wait_for_display(); // Normally called from reset_disp()
 
 	  // Erase 7-segment display
-	  for (i = 0; i <= EXP_SIGN; ++i) {
-	    clr_dot(i);
-	  }
+	  //	  for (i = 0; i <= EXP_SIGN; ++i) {
+	  //	    clr_dot(i);
+	  //	  }
+	  reset_7_segment();
 	  goto only_update_x;
 	}
 #ifdef INCLUDE_YREG_CODE
@@ -2954,7 +2966,13 @@ static void set_exp(int exp, int flags, char *res) {
 	DispMsg = CNULL;
 	DispPlot = 0;
 	State2.disp_small = 0;
-	finish_display();
+	if (WasDataEntry) {
+	  finish_7_segment();
+	  lcd_refresh();
+	}
+	else {
+	  finish_display();
+	}
 	no_status_top = 0;
 #ifdef CONSOLE
 	JustDisplayed = 1;
@@ -2990,9 +3008,10 @@ static void set_exp(int exp, int flags, char *res) {
 	  wait_for_display(); // Normally called from reset_disp()
 
 	  // Erase 7-segment display
-	  for (i = 0; i <= EXP_SIGN; ++i) {
-	    clr_dot(i);
-	  }
+	  //	  for (i = 0; i <= EXP_SIGN; ++i) {
+	  //	    clr_dot(i);
+	  //	  }
+	  reset_7_segment();
 	  goto only_update_x;
 	}
 
@@ -3304,7 +3323,13 @@ static void set_exp(int exp, int flags, char *res) {
 	DispMsg = CNULL;
 	DispPlot = 0;
 	State2.disp_small = 0;
-	finish_display();
+	if (WasDataEntry) {
+	  finish_7_segment();
+	  lcd_refresh();
+	}
+	else {
+	  finish_display();
+	}
 #ifdef CONSOLE
 	JustDisplayed = 1;
 #endif
