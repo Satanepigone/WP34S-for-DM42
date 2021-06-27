@@ -316,13 +316,6 @@ void do_now (int key, int shift) { // key and shift are like the output of remap
 
 struct _ndmap do_multi (struct _ndmap r) {
   switch(r.shift) {
-  /* case LASTX: // Last x via RCL L */
-  /*   do_now (K11, 0); // RCL */
-  /*   do_now (K_RELEASE,0); // release */
-  /*   do_now (K15,0); // TAN key */
-  /*   r.key_34s = K_RELEASE; */
-  /*   r.shift = 0; // set up for release; */
-  /*   break; */
   case ONSTO: // flash_backup()
     flash_backup(OP_SAVE);
     reset_shift();

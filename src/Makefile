@@ -33,9 +33,12 @@ DM42 := 1
 ###################################
 ###################################
 ###################################
-# Note: this makes the libdecNum34s.a library file.
+# Note: this Makefile makes the libdecNum34s.a library file
+# for the host machine.
 # After running this you need to (re)run the Makefile_calc_obj
-# in decNumber/.
+# in decNumber/ as it overwrites the calculator decNumber files.
+# I don't think you do need to run it yourself, actually.
+# This job seems to be done by the top-level Makefile.
 ###################################
 ###################################
 ###################################

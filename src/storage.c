@@ -762,33 +762,33 @@ int flash_remove( int step_no, int count )
  */
 void flash_backup( enum nilop op )
 {
-	if ( not_running() ) {
-		process_cmdline_set_lift();
-		init_state();
-		checksum_all();
-		if ( program_flash( &BackupFlash, &PersistentRam, sizeof( BackupFlash ) / PAGE_SIZE ) ) {
-			error_message( ERR_IO );
-			DispMsg = "Error";
-		}
-		else {
-			DispMsg = "Saved";
-		}
-	}
+  if ( not_running() ) {
+    process_cmdline_set_lift();
+    init_state();
+    checksum_all();
+    if ( program_flash( &BackupFlash, &PersistentRam, sizeof( BackupFlash ) / PAGE_SIZE ) ) {
+      error_message( ERR_IO );
+      DispMsg = "Error";
+    }
+    else {
+      DispMsg = "Saved";
+    }
+  }
 }
 
 
 void flash_restore( enum nilop op )
 {
-	if ( not_running() ) {
-		if ( checksum_backup() ) {
-			error_message( ERR_INVALID );
-		}
-		else {
-			xcopy( &PersistentRam, &BackupFlash, sizeof( PersistentRam ) );
-			init_state();
-			DispMsg = "Restored";
-		}
-	}
+  if ( not_running() ) {
+    if ( checksum_backup() ) {
+      error_message( ERR_INVALID );
+    }
+    else {
+      xcopy( &PersistentRam, &BackupFlash, sizeof( PersistentRam ) );
+      init_state();
+      DispMsg = "Restored";
+    }
+  }
 }
 
 

@@ -3382,7 +3382,10 @@ static int process(const int c) {
  }
 
  void process_keycode_with_shift ( struct _ndmap remapped ) {
-   if (remapped.key_34s == K_NOP) return;
+   if (remapped.key_34s == K_NOP) {
+     WasDataEntry = 0; // makes sure display is updated properly with status messages
+     return;
+   }
    if (remapped.key_34s == K_SSHOT) {
      start_buzzer_freq(4400); sys_delay(10); stop_buzzer();// Start click 
      if ( create_screenshot(1) == 2 ) {
