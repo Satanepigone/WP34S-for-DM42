@@ -25,10 +25,9 @@ extern void clr_dot(int n);
 extern int is_dot(int n);
 //extern void set_status_grob(unsigned long long int grob[6]);
 extern void show_disp(void);
-extern void wait_for_display(void);
 extern void finish_display(void);
 extern void finish_7_segment(void);
-#ifdef DM42
+extern void finish_alpha_row(void);
 extern void draw_dot(int n);
 extern void draw_RPN(int inverse);
 extern void draw_RCL(int inverse);
@@ -39,13 +38,9 @@ extern void finish_top_row(void);
 extern void draw_PRT(void);
 extern void finish_PRT(void);
 extern void do_all_dots(void);
-#endif
-extern void show_flags(void);
 extern void clear_disp(void);
 extern void reset_disp(void);
 extern void reset_7_segment(void);
-extern void show_progtrace(char *buf);
-extern void show_stack(void);
 
 #define MANT_SIGN	129
 #define EXP_SIGN	130

@@ -135,15 +135,8 @@ static struct _ndmap remap (const int c) {
 
 void shutdown( void )
 {
-#ifndef DM42
-  checksum_all();
-  setuptty( 1 );
-  save_statefile( NULL );
-  exit( 0 );
-#else
   //  save_ram_file(0);
   SET_ST(STAT_PGM_END);
-#endif
 }
 
 
@@ -152,20 +145,12 @@ void shutdown( void )
  */
 int is_key_pressed(void) 
 {
-#ifdef DM42
   return !key_empty();
-#else
-  return 0;
-#endif
 }
 
 int get_key(void)
 {
-  #ifdef DM42
   return key_pop();
-  #else
-  return 0;
-  #endif
 }
 
 /*
@@ -174,7 +159,6 @@ int get_key(void)
  */
 int put_key( int k )
 {
-  #ifdef DM42
   const char wp34s_to_DM42[] = {
     KEY_SIGMA, KEY_INV, KEY_SQRT, KEY_LOG, KEY_F5, KEY_F6, // 0-5
     KEY_STO, KEY_RCL, KEY_RDN, KEY_SHIFT, KEY_COS, KEY_TAN, // 6-11
@@ -190,9 +174,6 @@ int put_key( int k )
   else {
     return -1;
   }
-  #else
-  return k;
-  #endif
 }
 
 enum shifts shift_down(void)
@@ -200,49 +181,6 @@ enum shifts shift_down(void)
 	return SHIFT_N;
 }
 
-#ifndef DM42   // No serial operations for DM42
-#ifndef WIN32  // Windows uses winserial.c
-/*
- *  Open a COM port for transmission
- */
-int open_port( int baud, int bits, int parity, int stopbits )
-{
-	return 0;
-}
-
-
-/*
- *  Close the COM port after transmission is complete
- */
-extern void close_port( void )
-{
-}
-
-
-/*
- *  Output a single byte to the serial
- */
-void put_byte( unsigned char byte )
-{
-	report_err(ERR_PROG_BAD);
-}
-
-
-/*
- *  Force buffer flush
- */
-void flush_comm( void )
-{
-}
-
-#endif
-#endif
-
-
-/*
- *  Main loop
- */
-#ifdef DM42
 void start_key_timer (void);
 long int keyticks (void);
 void moveto (int line, int x);
@@ -259,10 +197,13 @@ long int keyticks () {
   return i >> 8;
 }
 
+/*
+ * Debug function - print_debug displays two integers
+ */
+
 char spaces[22] = "                     ";	//21 spaces.
 char print_string[22];
 int n_p = 0;
-
 
 void moveto(int line, int x) {//These are line number and character positions
   lcd_setLine(fReg, line-1); //line 0 is the top line
@@ -276,36 +217,14 @@ void print_debug (int i, int j) {
   lcd_print (fReg , (const char*) print_string );
   lcd_refresh();
   sys_delay (1000);
-  /* wait_for_key_press(); */
-  //  key_pop_all();
-  // while ((key_pop()<=0) || (key_pop()==K_HEARTBEAT));;
-  // key_pop_all();
   strcpy( print_string, spaces );
   moveto (3, 1);
   lcd_print (fReg , (const char*) print_string );
   lcd_refresh();
-  // while (key_empty()<=0);; // wait for release
-  // key_pop_all();
 }
-
-void print_debug2 (int i, char* j) {
-  strcpy( print_string, spaces );
-  sprintf ( print_string, "D:%4i,%13s", i, j);
-  moveto (3, 1);
-  lcd_print (fReg , (const char*) print_string );
-  lcd_refresh();
-  sys_delay (2500);
-  /* wait_for_key_press(); */
-  //  key_pop_all();
-  // while ((key_pop()<=0) || (key_pop()==K_HEARTBEAT));;
-  // key_pop_all();
-  strcpy( print_string, spaces );
-  moveto (3, 1);
-  lcd_print (fReg , (const char*) print_string );
-  lcd_refresh();
-  // while (key_empty()<=0);; // wait for release
-  // key_pop_all();
-}
+/*
+ * End of debug code
+ */
 
 void do_now (int key, int shift) { // key and shift are like the output of remapped
   struct _ndmap temp;
@@ -401,6 +320,9 @@ struct _ndmap do_multi (struct _ndmap r) {
   return r;
 }
 
+/*
+ *  Main loop
+ */
 void program_main(){
   int c;
   struct _ndmap remapped;
@@ -545,33 +467,3 @@ void program_main(){
   //  free_storage();
   return;
 }
-#else
-int main(int argc, char *argv[]) {
-	int c, n = 0;
-	int warm = 0;
-//#include "pretty.c"
-
-	xeq_init_contexts();
-#ifndef DM42
-	load_statefile( NULL );
-#endif      
- skipargs:
-	if (!warm)
-		init_34s();
-	State2.flags = 1;
-	if (setuptty(0) == 0) {
-		display();
-		JustDisplayed = 0;
-		while ((c = GETCHAR()) != GETCHAR_ERR && c != CH_QUIT) {
-			  c=remap(c);
-			if(c != K_UNKNOWN) {
-			  process_keycode(c);
-			  process_keycode(K_RELEASE);
-			}
-	}
-		setuptty(1);
-	}
-	shutdown();
-	return 0;
-}
-#endif

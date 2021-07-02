@@ -34,6 +34,13 @@
 
 
 static unsigned char dots[TOP_DOTS];
+/*
+ * bit 1 of each char represents what's in the display buffer;
+ * bit 0 is zeroed at the start of display() by the reset functions.
+ * set_dot and clr_dot look at bit 1 to decide whether to draw / erase / leave
+ * At the end of display(), "10" means that something is drawn which hasn't been
+ * set by display(). finish_display looks for this, and erases such dots.
+ */ 
 
 /* Some wrapper routines to set segments of the display */
 void set_dot(int n) {
@@ -46,7 +53,7 @@ void clr_dot(int n) {
   dots[n] &= ~1;
   if ( !(dots[n]&2)) return;
   draw_dot(n);
-  dots[n] = 0; // =0 would work too.
+  dots[n] = 0; 
 }
 
 int is_dot(int n) {
@@ -67,8 +74,6 @@ void reset_disp(void) {
   int rpn = is_dot(RPN);
   int i;
   for (i=0; i<TOP_DOTS; i++)
-    //		if (i != RCL_annun && i != BATTERY && i != LIT_EQ )
-    //			clr_dot(i);
     dots[i] <<= 1;
   dot(RCL_annun, rcl);
   dot(BATTERY, bat);
@@ -82,10 +87,8 @@ void reset_7_segment(void) {
   }
 }
 
-#define setBlackPixel(x, y)                bitblt24(x, 1, y, 1, BLT_OR,   BLT_NONE)
-#define setWhitePixel(x, y)                bitblt24(x, 1, y, 1, BLT_ANDN, BLT_NONE)
 
-void left_side (int i, int j, int col) { //i - xleft reference; j - ytop reference
+void left_side (int i, int j, int col) { // i - xleft reference; j - ytop reference; col - colour
   lcd_fill_rect (i+2, j+11, 1, 9, col);
   lcd_fill_rect (i+3, j+2, 1, 18, col);
   lcd_fill_rect (i+4, j+2, 1, 17, col);
@@ -118,9 +121,6 @@ void top (int i, int j, int col) {
   lcd_fill_rect ( i+7, j+3, 10, 1, col );
 }
 void middle (int i, int j, int col) {
-  //  lcd_fill_rect ( i+5, j+19, 11, 3, col );
-  //  setBlackPixel ( i+4, j+20 );
-  //  setBlackPixel ( i+16, j+20 );
   lcd_fill_rect ( i+5, j+21, 11, 1, col );
   lcd_fill_rect ( i+4, j+20, 13, 1, col );
   lcd_fill_rect ( i+5, j+19, 11, 1, col );
@@ -178,184 +178,6 @@ void exp_middle (int i, int j, int col) {
   lcd_fill_rect (i+3, j+11, 7, 1, col );
   lcd_fill_rect (i+4, j+12, 5, 1, col );
 }
-
-#if 0
-void show_disp(void) { // This function re-draws everything.
-  // It may be fast enough. It does mean that clearing everything first is needed,
-  // or we keep track of changes.
-  // Try clearing everything first first.
-        int i, j, p;
-	uint32_t x;
-	const uint32_t xleft = 26;
-	const uint32_t ytop = 130; // was 170
-	const uint32_t dwidth = 25;
-	const uint32_t xleft_exp = 344;
-	const uint32_t ytop_exp = 130; // was 170
-	const uint32_t dwidth_exp = 18;
-	const uint32_t y_ann = Y_ANNUNC;
-        /* Segments 0 - 107 are the main digits */
-        for (i=0; i<DISPLAY_DIGITS; i++) { // 0 -> 11 inclusive
-                p = i*SEGS_PER_DIGIT;
-                x = xleft + dwidth*i;
-                if (dots[p]) { // top
-		  top (x, ytop);
-                }
-                if (dots[p+1]) { // top left
-		  left_side_top (x, ytop);
-                }
-                if (dots[p+3]) { // top right
-		  right_side_top (x, ytop);
-                }
-                if (dots[p+2]) { // centre line
-		  middle (x, ytop);
-                }
-                if (dots[p+4]) { // lower left
-		  left_side_bottom (x, ytop);
-                }
-                if (dots[p+6]) { // lower right
-		  right_side_bottom (x, ytop);
-                }
-                if (dots[p+5]) { // bottom
-		  bottom (x, ytop);
-                }
-                if (dots[p+7]) { // point
-		  decimal (x, ytop);
-                }
-                if (dots[p+8]) { // comma
-		  comma (x, ytop);
-                }
-        }
-        /* Segments 108 - 128 are the exponent digits */
-        for (i=0; i<3; i++) {
-                p = i*7+108;
-                x = xleft_exp + dwidth_exp*i;
-                if (dots[p]) { // top
-		  exp_top (x, ytop_exp);
-                }
-                if (dots[p+1]) { // top left
-		  exp_left_side_top (x, ytop_exp);
-                }
-                if (dots[p+3]) { // top right
-		  exp_right_side_top (x, ytop_exp);
-                }
-                if (dots[p+2]) { // centre line
-		  exp_middle (x, ytop_exp);
-                }
-                if (dots[p+4]) { // lower left
-		  exp_left_side_bottom (x, ytop_exp);
-                }
-                if (dots[p+6]) { // lower right
-		  exp_right_side_bottom (x, ytop_exp);
-                }
-                if (dots[p+5]) { // bottom
-		  exp_bottom (x, ytop_exp);
-                }
-        }
-        /* Segments 129 & 130 are the signs */
-        if (dots[MANT_SIGN]) {
-	  middle (xleft - dwidth, ytop);
-        }
-        if (dots[EXP_SIGN]) {
-	  exp_middle (xleft_exp-dwidth_exp, ytop);
-        }
-
-	if (dots[BIG_EQ]) {
-	  lcd_fill_rect (250, y_ann-34, 15, 4, 0xff);
-	  lcd_fill_rect (250, y_ann-24, 15, 4, 0xff);
-        }
-	t20->inv = 0;
-	
-	draw_PRT();
-	
-	/* if (UState.print_on) { */
-	/*   lcd_setXY(t20, 250, y_ann-70); */
-	/*   lcd_writeText(t20,"PRT"); */
-        /* } */
-
-        if (dots[DOWN_ARR]) {
-	  lcd_fill_rect(287,y_ann-67,5,12,0xff);
-	  lcd_fill_rect(285,y_ann-55,9,1,0xff);
-	  lcd_fill_rect(286,y_ann-54,7,1,0xff);
-	  lcd_fill_rect(287,y_ann-53,5,1,0xff);
-	  lcd_fill_rect(288,y_ann-52,3,1,0xff);
-	  lcd_fill_rect(289,y_ann-51,1,1,0xff);
-        }
-
-	if (dots[INPUT]) {
-	  lcd_setXY(t20, 305, y_ann-70);
-	  lcd_writeText(t20,"ALPHA");
-        }
-
-	/* if (dots[LIT_EQ]) { */
-	/*   lcd_setXY (t20, 360, y_ann-70); */
-	/*   if (C_LOCKED) { */
-	/*     lcd_writeText(t20, "C_LK"); */
-	/*   } */
-	/*   else { */
-	/*     lcd_writeText(t20, "="); */
-	/*   } */
-        /* } */
-
-	draw_LEQ();
-	
-	if (dots[BATTERY]) {
-	  //    MOVE(70, 10);   PRINTF("####-");
-        }
-#ifdef MODIFY_BEG_SSIZE8
-	if (dots[BEG]) {
-	  lcd_setXY (t20, 285, y_ann-50);
-	  lcd_writeText(t20, "S:8");
-        }
-	else {
-	  lcd_setXY (t20, 285, y_ann-50);
-	  lcd_writeText(t20, "S:4");
-	}	  
-#else
-	if (dots[BEG]) {
-	  lcd_setXY (t20, 285, y_ann-50);
-	  lcd_writeText(t20, "BEG");
-        }
-#endif
-	if (dots[STO_annun]) {
-	  lcd_setXY (t20, 325, y_ann-50);
-	  lcd_writeText(t20, "PGM");
-        }
-
-	/* if (dots[RCL_annun]) { */
-	/*   lcd_setXY (t20, 365, y_ann-50); */
-	/*   lcd_writeText(t20, "RUN"); */
-        /* } */
-
-	if (dots[RAD]) {
-	  lcd_setXY (t20, 285, y_ann-30);
-	  lcd_writeText(t20, "RAD");
-	}
-
-	if (dots[DEG]) {
-	  lcd_setXY (t20, 325, y_ann-30);
-	  lcd_writeText(t20, "DEG");
-        }
-	draw_RPN_RCL();
-	
-	/* The graphical bit last */
-        for (i=0; i<BITMAP_WIDTH; i++) {
-	  for (j=0; j<6; j++) {
-	    if (dots[i*6+j+MATRIX_BASE]) {
-	      lcd_fill_rect( xleft-dwidth+5*i+15, ytop-(10+6*6)+j*6, 4, 5, 0xff);
-	    }
-	  }
-	}
-#ifdef TOP_ROW
-        for (i=0; i<BW_TOP; i++) {
-	  for (j=0; j<6; j++) {
-	    if (dots[i*6+j+MB_TOP]) {
-	      lcd_fill_rect( xleft-dwidth+5*i+15, 70-(10+6*5)+j*5, 4, 4, 0xff);
-	    }
-	  }
-	}
-#endif
-}
-#endif
 
 void draw_dot (int n) {
   int x, col = 0, inverse = 1;
@@ -456,18 +278,8 @@ void draw_dot (int n) {
       return;
     case BEG:
 #ifdef MODIFY_BEG_SSIZE8
-      /* t20->inv = 0; */
-      /* if (dots[BEG] & 1) { */
-      /* 	lcd_setXY (t20, 285, Y_ANNUNC-50); */
-      /* 	lcd_writeText(t20, "S:8"); */
-      /* } */
-      /* else { */
-      /* 	lcd_setXY (t20, 285, Y_ANNUNC-50); */
-      /* 	lcd_writeText(t20, "S:4"); */
-      /* }	   */
       {
 	int d = UState.stack_depth;
-	//	print_debug(100, dots[BEG]);
 	if (!(dots[BEG] & 8)) { // test bit 3;
 	  if (d) {
 	    draw_BEG(8, 0);
@@ -553,6 +365,7 @@ void draw_BEG (int depth, int inverse) {
 void finish_display(void) {
   draw_PRT();
   finish_7_segment();
+  finish_alpha_row();
 #ifdef TOP_ROW
   finish_top_row();
 #endif
@@ -561,6 +374,12 @@ void finish_display(void) {
 
 void finish_7_segment(void) {
   for (int i = 0; i <= EXP_SIGN; ++i) {
+    if ((dots[i]&3) == 2) clr_dot(i);
+  }
+}
+
+void finish_alpha_row(void) {
+  for (int i = MATRIX_BASE; i < MAX_DOTS; ++i) {
     if ((dots[i]&3) == 2) clr_dot(i);
   }
 }
@@ -633,18 +452,5 @@ void do_all_dots(void) {
   finish_display();
   clr_dot(RCL_annun);
   clr_dot(LIT_EQ);
-}
-
-void show_progtrace(char *buf) {
-}
-
-void show_stack(void) {
-}
-
-void show_flags(void) {
-}
-
-void wait_for_display(void)
-{
 }
 

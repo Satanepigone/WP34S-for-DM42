@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccwYzcSC.s 			page 1
+ARM GAS  /tmp/ccz307kS.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
   27:src/matrix.c  **** 	return col + row * ncols;
   28:src/matrix.c  **** }
   29:src/matrix.c  **** 		
-ARM GAS  /tmp/ccwYzcSC.s 			page 2
+ARM GAS  /tmp/ccz307kS.s 			page 2
 
 
   30:src/matrix.c  **** static void matrix_get(decNumber *r, const decimal64 *base, int row, int col, int ncols) {
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
   44:src/matrix.c  **** 	}
   45:src/matrix.c  **** 	if (base >= LOCAL_REG_BASE && LocalRegs < 0) {
   68              		.loc 1 45 2 is_stmt 1 view .LVU11
-ARM GAS  /tmp/ccwYzcSC.s 			page 3
+ARM GAS  /tmp/ccz307kS.s 			page 3
 
 
   69              		.loc 1 45 5 is_stmt 0 view .LVU12
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  109 0056 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
  110              	.LVL8:
  111              	.L5:
-ARM GAS  /tmp/ccwYzcSC.s 			page 4
+ARM GAS  /tmp/ccz307kS.s 			page 4
 
 
   49:src/matrix.c  **** 	if (base < 0 || base + s > limit || s > MAX_DIMENSION) {
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  157              	matrix_decompose:
  158              	.LVL15:
  159              	.LFB4:
-ARM GAS  /tmp/ccwYzcSC.s 			page 5
+ARM GAS  /tmp/ccz307kS.s 			page 5
 
 
   56:src/matrix.c  **** 
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  188 0012 37DB     		blt	.L40
   79:src/matrix.c  **** 		dn_abs(&ax, x);
   80:src/matrix.c  **** 		x = &ax;
-ARM GAS  /tmp/ccwYzcSC.s 			page 6
+ARM GAS  /tmp/ccz307kS.s 			page 6
 
 
   81:src/matrix.c  **** 		u = 0;
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  229 003e A4FB0034 		umull	r3, r4, r4, r0
   89:src/matrix.c  **** 	r = (n / 100) % 100;
  230              		.loc 1 89 8 view .LVU65
-ARM GAS  /tmp/ccwYzcSC.s 			page 7
+ARM GAS  /tmp/ccz307kS.s 			page 7
 
 
  231 0042 01FB1C02 		mls	r2, r1, ip, r0
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  273 0064 C7F80080 		str	r8, [r7]
  274              	.LVL26:
  275              	.L15:
-ARM GAS  /tmp/ccwYzcSC.s 			page 8
+ARM GAS  /tmp/ccz307kS.s 			page 8
 
 
  101:src/matrix.c  **** 	return base;
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  316              		.loc 1 79 3 view .LVU99
  317 0088 FFF7FEFF 		bl	dn_abs
  318              	.LVL35:
-ARM GAS  /tmp/ccwYzcSC.s 			page 9
+ARM GAS  /tmp/ccz307kS.s 			page 9
 
 
   80:src/matrix.c  **** 		u = 0;
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  363 0002 0023     		movs	r3, #0
  364 0004 FFF7FEFF 		bl	matrix_decompose
  365              	.LVL39:
-ARM GAS  /tmp/ccwYzcSC.s 			page 10
+ARM GAS  /tmp/ccz307kS.s 			page 10
 
 
  109:src/matrix.c  **** 
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  133:src/matrix.c  **** 	decimal64 *base;
  134:src/matrix.c  **** 	const decimal64 *diag, *off;
  135:src/matrix.c  **** 
-ARM GAS  /tmp/ccwYzcSC.s 			page 11
+ARM GAS  /tmp/ccz307kS.s 			page 11
 
 
  136:src/matrix.c  **** 	getX(&x);
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  406              		.cfi_def_cfa_offset 12
  407              		.cfi_offset 4, -12
  408              		.cfi_offset 5, -8
-ARM GAS  /tmp/ccwYzcSC.s 			page 12
+ARM GAS  /tmp/ccz307kS.s 			page 12
 
 
  409              		.cfi_offset 14, -4
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  452              		.loc 1 182 3 is_stmt 1 view .LVU132
  182:src/matrix.c  **** 	}
  453              		.loc 1 182 20 is_stmt 0 view .LVU133
-ARM GAS  /tmp/ccwYzcSC.s 			page 13
+ARM GAS  /tmp/ccz307kS.s 			page 13
 
 
  454 0030 00FB0211 		mla	r1, r0, r2, r1
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  217:src/matrix.c  **** 		report_err(ERR_RANGE);
  218:src/matrix.c  **** 		return NULL;
  219:src/matrix.c  **** 	}
-ARM GAS  /tmp/ccwYzcSC.s 			page 14
+ARM GAS  /tmp/ccz307kS.s 			page 14
 
 
  220:src/matrix.c  **** 	base += n*cols;
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  274:src/matrix.c  **** decNumber *matrix_getrc(decNumber *res, const decNumber *m) {
  275:src/matrix.c  **** 	decNumber ydn;
  276:src/matrix.c  **** 	int rows, cols, c, r, pos;
-ARM GAS  /tmp/ccwYzcSC.s 			page 15
+ARM GAS  /tmp/ccz307kS.s 			page 15
 
 
  277:src/matrix.c  **** 	int n = matrix_decompose(m, &rows, &cols, NULL);
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  331:src/matrix.c  **** 
  332:src/matrix.c  **** 	if (abase == NULL || bbase == NULL)
  333:src/matrix.c  **** 		return NULL;
-ARM GAS  /tmp/ccwYzcSC.s 			page 16
+ARM GAS  /tmp/ccz307kS.s 			page 16
 
 
  334:src/matrix.c  **** 	if (acols != brows) {
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  388:src/matrix.c  **** 	matrix_descriptor(r, n, w, h);
  389:src/matrix.c  **** 	return r;
  390:src/matrix.c  **** }
-ARM GAS  /tmp/ccwYzcSC.s 			page 17
+ARM GAS  /tmp/ccz307kS.s 			page 17
 
 
  391:src/matrix.c  **** 
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  445:src/matrix.c  **** }
  446:src/matrix.c  **** 
  447:src/matrix.c  **** static void matrix_put128(const decNumber *x, decimal128 *base, int row, int col, int ncols) {
-ARM GAS  /tmp/ccwYzcSC.s 			page 18
+ARM GAS  /tmp/ccz307kS.s 			page 18
 
 
  448:src/matrix.c  **** 	packed128_from_number(base + matrix_idx(row, col, ncols), x);
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  502:src/matrix.c  **** 			matrix_get128(&u, A, i, k, n);
  503:src/matrix.c  **** 			dn_divide(&max, &u, &t);
  504:src/matrix.c  **** 			matrix_put128(&max, A, i, k, n);
-ARM GAS  /tmp/ccwYzcSC.s 			page 19
+ARM GAS  /tmp/ccz307kS.s 			page 19
 
 
  505:src/matrix.c  **** 		}
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  559:src/matrix.c  **** 		dn_divide(x+k, x+k, &r);
  560:src/matrix.c  **** 	}
  561:src/matrix.c  **** }
-ARM GAS  /tmp/ccwYzcSC.s 			page 20
+ARM GAS  /tmp/ccz307kS.s 			page 20
 
 
  562:src/matrix.c  **** 
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  514              		.loc 1 577 2 is_stmt 1 view .LVU150
  515              		.loc 1 577 5 is_stmt 0 view .LVU151
  516 0016 DDE90103 		ldrd	r0, r3, [sp, #4]
-ARM GAS  /tmp/ccwYzcSC.s 			page 21
+ARM GAS  /tmp/ccz307kS.s 			page 21
 
 
  517              	.LVL58:
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  585:src/matrix.c  **** 		}
  586:src/matrix.c  **** 	}
  587:src/matrix.c  **** 	if (mbase != NULL)
-ARM GAS  /tmp/ccwYzcSC.s 			page 22
+ARM GAS  /tmp/ccz307kS.s 			page 22
 
 
  558              		.loc 1 587 2 is_stmt 1 view .LVU165
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  457:src/matrix.c  **** 	int pvt, spvt = 1;
  607              		.loc 1 457 2 view .LVU177
  458:src/matrix.c  **** 	decimal128 *p1, *p2;
-ARM GAS  /tmp/ccwYzcSC.s 			page 23
+ARM GAS  /tmp/ccz307kS.s 			page 23
 
 
  608              		.loc 1 458 2 view .LVU178
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  651 0034 0596     		str	r6, [sp, #20]
  652 0036 0291     		str	r1, [sp, #8]
  653 0038 0394     		str	r4, [sp, #12]
-ARM GAS  /tmp/ccwYzcSC.s 			page 24
+ARM GAS  /tmp/ccz307kS.s 			page 24
 
 
  458:src/matrix.c  **** 	decimal128 *p1, *p2;
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  692              		.loc 1 467 3 view .LVU205
  693 0052 FFF7FEFF 		bl	dn_abs
  694              	.LVL72:
-ARM GAS  /tmp/ccwYzcSC.s 			page 25
+ARM GAS  /tmp/ccz307kS.s 			page 25
 
 
  468:src/matrix.c  **** 			matrix_get128(&t, A, j, k, n);
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  734              		.loc 1 444 2 view .LVU220
  735              	.LBE84:
  736              	.LBE85:
-ARM GAS  /tmp/ccwYzcSC.s 			page 26
+ARM GAS  /tmp/ccz307kS.s 			page 26
 
 
  470:src/matrix.c  **** 			if (dn_gt(&u, &max)) {
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  776 009e 049B     		ldr	r3, [sp, #16]
  777              	.LVL81:
  477:src/matrix.c  **** 
-ARM GAS  /tmp/ccwYzcSC.s 			page 27
+ARM GAS  /tmp/ccz307kS.s 			page 27
 
 
  778              		.loc 1 477 14 view .LVU236
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  818              		.loc 1 496 6 view .LVU250
  819 00b8 0028     		cmp	r0, #0
  820 00ba 40F09680 		bne	.L79
-ARM GAS  /tmp/ccwYzcSC.s 			page 28
+ARM GAS  /tmp/ccz307kS.s 			page 28
 
 
  821              	.LVL88:
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  861              	.LBE95:
  862              	.LBE94:
   27:src/matrix.c  **** }
-ARM GAS  /tmp/ccwYzcSC.s 			page 29
+ARM GAS  /tmp/ccz307kS.s 			page 29
 
 
  863              		.loc 1 27 2 is_stmt 1 view .LVU265
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  904 00ec 0136     		adds	r6, r6, #1
  905              	.LVL96:
  906              	.LBB103:
-ARM GAS  /tmp/ccwYzcSC.s 			page 30
+ARM GAS  /tmp/ccz307kS.s 			page 30
 
 
  907              	.LBB101:
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  948              	.LBB107:
  949              	.LBB106:
  444:src/matrix.c  **** }
-ARM GAS  /tmp/ccwYzcSC.s 			page 31
+ARM GAS  /tmp/ccz307kS.s 			page 31
 
 
  950              		.loc 1 444 2 is_stmt 0 view .LVU292
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  443:src/matrix.c  **** 	decimal128ToNumber(base + matrix_idx(row, col, ncols), r);
  992              		.loc 1 443 13 view .LVU305
  993              	.LBB113:
-ARM GAS  /tmp/ccwYzcSC.s 			page 32
+ARM GAS  /tmp/ccz307kS.s 			page 32
 
 
  444:src/matrix.c  **** }
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  1034 0148 FFF7FEFF 		bl	packed128_from_number
  1035              	.LVL110:
  448:src/matrix.c  **** }
-ARM GAS  /tmp/ccwYzcSC.s 			page 33
+ARM GAS  /tmp/ccz307kS.s 			page 33
 
 
  1036              		.loc 1 448 2 view .LVU320
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  1077 017c 5EE7     		b	.L76
  1078              	.LVL115:
  1079              	.L94:
-ARM GAS  /tmp/ccwYzcSC.s 			page 34
+ARM GAS  /tmp/ccz307kS.s 			page 34
 
 
  481:src/matrix.c  **** 			p1 = A + (n * k);
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  1118              		.loc 1 486 9 is_stmt 0 discriminator 3 view .LVU349
  1119 01b0 94E80F00 		ldm	r4, {r0, r1, r2, r3}
  1120 01b4 86E80F00 		stm	r6, {r0, r1, r2, r3}
-ARM GAS  /tmp/ccwYzcSC.s 			page 35
+ARM GAS  /tmp/ccz307kS.s 			page 35
 
 
  487:src/matrix.c  **** 				p1++;
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  476:src/matrix.c  **** 			*pivots++ = pvt;
  1162              		.loc 1 476 3 is_stmt 1 view .LVU363
  476:src/matrix.c  **** 			*pivots++ = pvt;
-ARM GAS  /tmp/ccwYzcSC.s 			page 36
+ARM GAS  /tmp/ccz307kS.s 			page 36
 
 
  1163              		.loc 1 476 6 is_stmt 0 view .LVU364
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  1210              		.cfi_offset 7, -24
  1211              		.cfi_offset 8, -20
  1212              		.cfi_offset 9, -16
-ARM GAS  /tmp/ccwYzcSC.s 			page 37
+ARM GAS  /tmp/ccz307kS.s 			page 37
 
 
  1213              		.cfi_offset 10, -12
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  1254 0034 58F82330 		ldr	r3, [r8, r3, lsl #2]
  533:src/matrix.c  **** 			b[k] = b[pivot[k]];
  1255              		.loc 1 533 21 view .LVU387
-ARM GAS  /tmp/ccwYzcSC.s 			page 38
+ARM GAS  /tmp/ccz307kS.s 			page 38
 
 
  1256 0038 58F82720 		ldr	r2, [r8, r7, lsl #2]
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
   27:src/matrix.c  **** }
  1297              		.loc 1 27 2 view .LVU401
  1298              	.LBB126:
-ARM GAS  /tmp/ccwYzcSC.s 			page 39
+ARM GAS  /tmp/ccz307kS.s 			page 39
 
 
  1299              	.LBB125:
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  531:src/matrix.c  **** 		if (k != pivot[k]) {
  1341              		.loc 1 531 2 is_stmt 0 view .LVU414
  1342 009e 9A42     		cmp	r2, r3
-ARM GAS  /tmp/ccwYzcSC.s 			page 40
+ARM GAS  /tmp/ccz307kS.s 			page 40
 
 
  1343 00a0 04D0     		beq	.L116
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  1389 00e8 05F12404 		add	r4, r5, #36
  1390              	.LVL146:
  1391              	.L106:
-ARM GAS  /tmp/ccwYzcSC.s 			page 41
+ARM GAS  /tmp/ccz307kS.s 			page 41
 
 
  549:src/matrix.c  **** 			dn_multiply(&t, &r, x+i);
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  1433              	.L107:
  553:src/matrix.c  **** #if 0
  1434              		.loc 1 553 3 is_stmt 1 view .LVU436
-ARM GAS  /tmp/ccwYzcSC.s 			page 42
+ARM GAS  /tmp/ccz307kS.s 			page 42
 
 
  1435              	.LVL151:
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  1477              		.cfi_endproc
  1478              	.LFE24:
  1480 013e 00BF     		.section	.text.matrix_descriptor,"ax",%progbits
-ARM GAS  /tmp/ccwYzcSC.s 			page 43
+ARM GAS  /tmp/ccz307kS.s 			page 43
 
 
  1481              		.align	1
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  1525              		.loc 1 62 5 view .LVU459
  1526 0016 70B1     		cbz	r0, .L117
  1527              	.LVL161:
-ARM GAS  /tmp/ccwYzcSC.s 			page 44
+ARM GAS  /tmp/ccz307kS.s 			page 44
 
 
  1528              	.LBB137:
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  1574              	.LVL165:
  1575              	.LFB6:
  117:src/matrix.c  **** 	int r, c;
-ARM GAS  /tmp/ccwYzcSC.s 			page 45
+ARM GAS  /tmp/ccz307kS.s 			page 45
 
 
  1576              		.loc 1 117 38 is_stmt 1 view -0
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  1619              		.cfi_endproc
  1620              	.LFE6:
  1622              		.section	.text.matrix_copy,"ax",%progbits
-ARM GAS  /tmp/ccwYzcSC.s 			page 46
+ARM GAS  /tmp/ccz307kS.s 			page 46
 
 
  1623              		.align	1
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  1666              		.loc 1 164 5 is_stmt 0 view .LVU493
  1667 0012 C8B1     		cbz	r0, .L130
  167:src/matrix.c  **** 	if (matrix_descriptor(r, d, rows, cols) == 0)
-ARM GAS  /tmp/ccwYzcSC.s 			page 47
+ARM GAS  /tmp/ccz307kS.s 			page 47
 
 
  1668              		.loc 1 167 2 is_stmt 1 view .LVU494
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  1707              		.loc 1 172 1 view .LVU509
  1708 0044 02B0     		add	sp, sp, #8
  1709              		.cfi_remember_state
-ARM GAS  /tmp/ccwYzcSC.s 			page 48
+ARM GAS  /tmp/ccz307kS.s 			page 48
 
 
  1710              		.cfi_def_cfa_offset 16
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  1757              	.LVL184:
  192:src/matrix.c  **** 	if (base < 0)
  1758              		.loc 1 192 9 view .LVU519
-ARM GAS  /tmp/ccwYzcSC.s 			page 49
+ARM GAS  /tmp/ccz307kS.s 			page 49
 
 
  1759 000a 04AA     		add	r2, sp, #16
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  1801 0034 10BD     		pop	{r4, pc}
  196:src/matrix.c  **** 
  1802              		.loc 1 196 1 view .LVU532
-ARM GAS  /tmp/ccwYzcSC.s 			page 50
+ARM GAS  /tmp/ccz307kS.s 			page 50
 
 
  1803              		.cfi_endproc
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  1848              		.loc 1 204 2 is_stmt 1 view .LVU543
  204:src/matrix.c  **** 	cols++;
  1849              		.loc 1 204 28 is_stmt 0 view .LVU544
-ARM GAS  /tmp/ccwYzcSC.s 			page 51
+ARM GAS  /tmp/ccz307kS.s 			page 51
 
 
  1850 0016 DDE90323 		ldrd	r2, r3, [sp, #12]
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  1892 003c 10BD     		pop	{r4, pc}
  207:src/matrix.c  **** 
  1893              		.loc 1 207 1 view .LVU557
-ARM GAS  /tmp/ccwYzcSC.s 			page 52
+ARM GAS  /tmp/ccz307kS.s 			page 52
 
 
  1894              		.cfi_endproc
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  1940              		.loc 1 213 2 is_stmt 1 view .LVU567
  213:src/matrix.c  **** 		return NULL;
  1941              		.loc 1 213 5 is_stmt 0 view .LVU568
-ARM GAS  /tmp/ccwYzcSC.s 			page 53
+ARM GAS  /tmp/ccz307kS.s 			page 53
 
 
  1942 0014 041E     		subs	r4, r0, #0
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  1981              		.cfi_remember_state
  1982              		.cfi_def_cfa_offset 16
  1983              		@ sp needed
-ARM GAS  /tmp/ccwYzcSC.s 			page 54
+ARM GAS  /tmp/ccz307kS.s 			page 54
 
 
  1984 0040 70BD     		pop	{r4, r5, r6, pc}
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  225:src/matrix.c  **** 
  2032              		.loc 1 225 2 view .LVU592
  227:src/matrix.c  **** 	if (base < 0)
-ARM GAS  /tmp/ccwYzcSC.s 			page 55
+ARM GAS  /tmp/ccz307kS.s 			page 55
 
 
  2033              		.loc 1 227 2 view .LVU593
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  231:src/matrix.c  **** 		report_err(ERR_RANGE);
  2074              		.loc 1 231 5 view .LVU607
  2075 0020 0ED4     		bmi	.L151
-ARM GAS  /tmp/ccwYzcSC.s 			page 56
+ARM GAS  /tmp/ccz307kS.s 			page 56
 
 
  231:src/matrix.c  **** 		report_err(ERR_RANGE);
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  2116              		.cfi_remember_state
  2117              		.cfi_def_cfa_offset 16
  2118              		@ sp needed
-ARM GAS  /tmp/ccwYzcSC.s 			page 57
+ARM GAS  /tmp/ccz307kS.s 			page 57
 
 
  2119 004a 70BD     		pop	{r4, r5, r6, pc}
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  242:src/matrix.c  **** 		return NULL;
  2165              		.loc 1 242 6 view .LVU632
  2166 0008 1A46     		mov	r2, r3
-ARM GAS  /tmp/ccwYzcSC.s 			page 58
+ARM GAS  /tmp/ccz307kS.s 			page 58
 
 
  2167 000a 0846     		mov	r0, r1
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  2212              		.thumb_func
  2213              		.fpu fpv4-sp-d16
  2215              	matrix_colq:
-ARM GAS  /tmp/ccwYzcSC.s 			page 59
+ARM GAS  /tmp/ccz307kS.s 			page 59
 
 
  2216              	.LVL237:
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  254:src/matrix.c  **** }
  2257              		.loc 1 254 9 is_stmt 0 view .LVU656
  2258 0020 2046     		mov	r0, r4
-ARM GAS  /tmp/ccwYzcSC.s 			page 60
+ARM GAS  /tmp/ccz307kS.s 			page 60
 
 
  255:src/matrix.c  **** 
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  2307              		.cfi_def_cfa_offset 32
  257:src/matrix.c  **** 	int h, w, ri, ci;
  2308              		.loc 1 257 104 view .LVU665
-ARM GAS  /tmp/ccwYzcSC.s 			page 61
+ARM GAS  /tmp/ccz307kS.s 			page 61
 
 
  2309 0006 0446     		mov	r4, r0
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  2348              		.loc 1 265 5 is_stmt 0 view .LVU680
  2349 002e 002D     		cmp	r5, #0
  264:src/matrix.c  **** 	if (ri < 0 || ci < 0 || ri >= h || ci >= w) {
-ARM GAS  /tmp/ccwYzcSC.s 			page 62
+ARM GAS  /tmp/ccz307kS.s 			page 62
 
 
  2350              		.loc 1 264 5 view .LVU681
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  2390              	.LVL257:
  270:src/matrix.c  **** 	return r;
  2391              		.loc 1 270 2 view .LVU696
-ARM GAS  /tmp/ccwYzcSC.s 			page 63
+ARM GAS  /tmp/ccz307kS.s 			page 63
 
 
  2392 004e FFF7FEFF 		bl	int_to_dn
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  2436              		.section	.text.matrix_getrc,"ax",%progbits
  2437              		.align	1
  2438              		.p2align 2,,3
-ARM GAS  /tmp/ccwYzcSC.s 			page 64
+ARM GAS  /tmp/ccz307kS.s 			page 64
 
 
  2439              		.global	matrix_getrc
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  2482              		.loc 1 281 2 is_stmt 1 view .LVU719
  2483 0016 03A8     		add	r0, sp, #12
  2484              	.LVL268:
-ARM GAS  /tmp/ccwYzcSC.s 			page 65
+ARM GAS  /tmp/ccz307kS.s 			page 65
 
 
  281:src/matrix.c  **** 	pos = dn_to_int(&ydn);
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  2522              		.loc 1 291 2 is_stmt 1 view .LVU736
  2523 0042 691C     		adds	r1, r5, #1
  2524 0044 03A8     		add	r0, sp, #12
-ARM GAS  /tmp/ccwYzcSC.s 			page 66
+ARM GAS  /tmp/ccz307kS.s 			page 66
 
 
  2525 0046 FFF7FEFF 		bl	int_to_dn
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  2568              		.cfi_endproc
  2569              	.LFE16:
  2571              		.section	.text.matrix_genadd,"ax",%progbits
-ARM GAS  /tmp/ccwYzcSC.s 			page 67
+ARM GAS  /tmp/ccz307kS.s 			page 67
 
 
  2572              		.align	1
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  2616              	.LVL285:
  297:src/matrix.c  **** 	int arows, acols, brows, bcols;
  2617              		.loc 1 297 100 view .LVU759
-ARM GAS  /tmp/ccwYzcSC.s 			page 68
+ARM GAS  /tmp/ccz307kS.s 			page 68
 
 
  2618 0012 1F46     		mov	r7, r3
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  2657 003c 31D1     		bne	.L177
  2658              	.LVL291:
  310:src/matrix.c  **** 		decimal64ToNumber(bbase + i, &s);
-ARM GAS  /tmp/ccwYzcSC.s 			page 69
+ARM GAS  /tmp/ccz307kS.s 			page 69
 
 
  2659              		.loc 1 310 12 is_stmt 1 view .LVU775
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  2701              		.loc 1 310 28 discriminator 3 view .LVU787
  2702 007c 09F10109 		add	r9, r9, #1
  2703              	.LVL298:
-ARM GAS  /tmp/ccwYzcSC.s 			page 70
+ARM GAS  /tmp/ccz307kS.s 			page 70
 
 
  310:src/matrix.c  **** 		decimal64ToNumber(bbase + i, &s);
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  2747              		@ sp needed
  2748 00ae BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
  2749              	.LVL305:
-ARM GAS  /tmp/ccwYzcSC.s 			page 71
+ARM GAS  /tmp/ccz307kS.s 			page 71
 
 
  2750              	.L181:
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  2796              	.LVL308:
  329:src/matrix.c  **** 	decimal64 *bbase = matrix_decomp(b, &brows, &bcols);
  2797              		.loc 1 329 2 is_stmt 1 view .LVU809
-ARM GAS  /tmp/ccwYzcSC.s 			page 72
+ARM GAS  /tmp/ccz307kS.s 			page 72
 
 
  322:src/matrix.c  **** 	int arows, acols, brows, bcols;
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  334:src/matrix.c  **** 		report_err(ERR_MATRIX_DIM);
  2837              		.loc 1 334 2 is_stmt 1 view .LVU825
  334:src/matrix.c  **** 		report_err(ERR_MATRIX_DIM);
-ARM GAS  /tmp/ccwYzcSC.s 			page 73
+ARM GAS  /tmp/ccz307kS.s 			page 73
 
 
  2838              		.loc 1 334 5 is_stmt 0 view .LVU826
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  2877              		.loc 1 328 13 view .LVU841
  2878 0058 0193     		str	r3, [sp, #4]
  343:src/matrix.c  **** 		for (j=0; j<bcols; j++) {
-ARM GAS  /tmp/ccwYzcSC.s 			page 74
+ARM GAS  /tmp/ccz307kS.s 			page 74
 
 
  2879              		.loc 1 343 2 view .LVU842
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  2918              		.loc 1 31 2 discriminator 3 view .LVU857
  2919              	.LBB145:
  2920              	.LBI145:
-ARM GAS  /tmp/ccwYzcSC.s 			page 75
+ARM GAS  /tmp/ccz307kS.s 			page 75
 
 
   26:src/matrix.c  **** 	return col + row * ncols;
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
   31:src/matrix.c  **** }
  2960              		.loc 1 31 2 discriminator 3 view .LVU873
  2961 0090 07EBC000 		add	r0, r7, r0, lsl #3
-ARM GAS  /tmp/ccwYzcSC.s 			page 76
+ARM GAS  /tmp/ccz307kS.s 			page 76
 
 
  2962 0094 FFF7FEFF 		bl	decimal64ToNumber
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  3003              		.loc 1 352 4 view .LVU886
  3004 00c4 08F10808 		add	r8, r8, #8
  3005              	.LVL338:
-ARM GAS  /tmp/ccwYzcSC.s 			page 77
+ARM GAS  /tmp/ccz307kS.s 			page 77
 
 
  344:src/matrix.c  **** 			decNumberZero(&sum);
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  3043              		.loc 1 356 1 view .LVU903
  3044 00ea 0DF5737D 		add	sp, sp, #972
  3045              		.cfi_remember_state
-ARM GAS  /tmp/ccwYzcSC.s 			page 78
+ARM GAS  /tmp/ccz307kS.s 			page 78
 
 
  3046              		.cfi_def_cfa_offset 36
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  3092              		.cfi_offset 4, -24
  3093              		.cfi_offset 5, -20
  3094              		.cfi_offset 6, -16
-ARM GAS  /tmp/ccwYzcSC.s 			page 79
+ARM GAS  /tmp/ccz307kS.s 			page 79
 
 
  3095              		.cfi_offset 7, -12
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  370:src/matrix.c  **** 		next = start;
  3135              		.loc 1 370 12 view .LVU928
  3136 002e 4FF0000C 		mov	ip, #0
-ARM GAS  /tmp/ccwYzcSC.s 			page 80
+ARM GAS  /tmp/ccz307kS.s 			page 80
 
 
  380:src/matrix.c  **** 		do {
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  3174 0054 0EEBCC01 		add	r1, lr, ip, lsl #3
  3175 0058 03C9     		ldm	r1, {r0, r1}
  3176 005a 6446     		mov	r4, ip
-ARM GAS  /tmp/ccwYzcSC.s 			page 81
+ARM GAS  /tmp/ccz307kS.s 			page 81
 
 
  3177 005c 88E80300 		stm	r8, {r0, r1}
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  384:src/matrix.c  **** 		} while (next > start);
  3216              		.loc 1 384 4 is_stmt 1 discriminator 2 view .LVU961
  3217              	.LVL365:
-ARM GAS  /tmp/ccwYzcSC.s 			page 82
+ARM GAS  /tmp/ccz307kS.s 			page 82
 
 
  385:src/matrix.c  **** 	}
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  3259              		.cfi_endproc
  3260              	.LFE19:
  3262 00ba 00BF     		.section	.text.matrix_rowops,"ax",%progbits
-ARM GAS  /tmp/ccwYzcSC.s 			page 83
+ARM GAS  /tmp/ccz307kS.s 			page 83
 
 
  3263              		.align	1
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  3305              		.loc 1 400 9 is_stmt 0 view .LVU987
  3306 0012 02A8     		add	r0, sp, #8
  3307 0014 01AA     		add	r2, sp, #4
-ARM GAS  /tmp/ccwYzcSC.s 			page 84
+ARM GAS  /tmp/ccz307kS.s 			page 84
 
 
  3308 0016 6946     		mov	r1, sp
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  3346              	.LVL380:
  412:src/matrix.c  **** 			decimal64ToNumber(r1, &t);
  3347              		.loc 1 412 13 is_stmt 1 view .LVU1004
-ARM GAS  /tmp/ccwYzcSC.s 			page 85
+ARM GAS  /tmp/ccz307kS.s 			page 85
 
 
  412:src/matrix.c  **** 			decimal64ToNumber(r1, &t);
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  3389              		.cfi_remember_state
  3390              		.cfi_def_cfa_offset 16
  3391              		@ sp needed
-ARM GAS  /tmp/ccwYzcSC.s 			page 86
+ARM GAS  /tmp/ccz307kS.s 			page 86
 
 
  3392 006c 70BD     		pop	{r4, r5, r6, pc}
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  421:src/matrix.c  **** 
  3433              		.loc 1 421 17 view .LVU1031
  3434 008c 00FB03F0 		mul	r0, r0, r3
-ARM GAS  /tmp/ccwYzcSC.s 			page 87
+ARM GAS  /tmp/ccz307kS.s 			page 87
 
 
  3435              	.LVL394:
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  3477 00c4 14A9     		add	r1, sp, #80
  3478 00c6 FFF7FEFF 		bl	packed_from_number
  3479              	.LVL402:
-ARM GAS  /tmp/ccwYzcSC.s 			page 88
+ARM GAS  /tmp/ccz307kS.s 			page 88
 
 
  427:src/matrix.c  **** 				decimal64ToNumber(r1, &ydn);
@@ -5278,7 +5278,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  3518 00ec 0136     		adds	r6, r6, #1
  3519              	.LVL409:
  424:src/matrix.c  **** 				swap_reg((REGISTER *) r1++, (REGISTER *) r2++);
-ARM GAS  /tmp/ccwYzcSC.s 			page 89
+ARM GAS  /tmp/ccz307kS.s 			page 89
 
 
  3520              		.loc 1 424 4 discriminator 3 view .LVU1060
@@ -5338,7 +5338,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  3559              		.cfi_offset 4, -24
  3560              		.cfi_offset 5, -20
  3561              		.cfi_offset 6, -16
-ARM GAS  /tmp/ccwYzcSC.s 			page 90
+ARM GAS  /tmp/ccz307kS.s 			page 90
 
 
  3562              		.cfi_offset 7, -12
@@ -5398,7 +5398,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  3608 0034 0AAC     		add	r4, sp, #40
  3609 0036 4FEA0818 		lsl	r8, r8, #4
  3610              		.loc 1 608 8 view .LVU1087
-ARM GAS  /tmp/ccwYzcSC.s 			page 91
+ARM GAS  /tmp/ccz307kS.s 			page 91
 
 
  3611 003a 0026     		movs	r6, #0
@@ -5458,7 +5458,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  3652              	.LVL426:
  3653              	.L256:
  611:src/matrix.c  **** 	}
-ARM GAS  /tmp/ccwYzcSC.s 			page 92
+ARM GAS  /tmp/ccz307kS.s 			page 92
 
 
  612:src/matrix.c  **** 	return r;
@@ -5518,7 +5518,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  3693              		.cfi_offset 5, -28
  3694              		.cfi_offset 6, -24
  3695              		.cfi_offset 7, -20
-ARM GAS  /tmp/ccwYzcSC.s 			page 93
+ARM GAS  /tmp/ccz307kS.s 			page 93
 
 
  3696              		.cfi_offset 8, -16
@@ -5578,7 +5578,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  632:src/matrix.c  **** 	if (i == 0) {
  3731              		.loc 1 632 6 is_stmt 0 view .LVU1122
  3732 0024 0246     		mov	r2, r0
-ARM GAS  /tmp/ccwYzcSC.s 			page 94
+ARM GAS  /tmp/ccz307kS.s 			page 94
 
 
  3733 0026 03A9     		add	r1, sp, #12
@@ -5638,7 +5638,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  640:src/matrix.c  **** 		matrix_pivoting_solve(mat, b, pivots, x, n);
  3774              		.loc 1 640 34 view .LVU1136
  3775 0054 0021     		movs	r1, #0
-ARM GAS  /tmp/ccwYzcSC.s 			page 95
+ARM GAS  /tmp/ccz307kS.s 			page 95
 
 
  640:src/matrix.c  **** 		matrix_pivoting_solve(mat, b, pivots, x, n);
@@ -5698,7 +5698,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  3815              	.LVL444:
  642:src/matrix.c  **** 			packed_from_number(base + matrix_idx(j, i, n), x+j);
  3816              		.loc 1 642 18 is_stmt 1 discriminator 3 view .LVU1152
-ARM GAS  /tmp/ccwYzcSC.s 			page 96
+ARM GAS  /tmp/ccz307kS.s 			page 96
 
 
  642:src/matrix.c  **** 			packed_from_number(base + matrix_idx(j, i, n), x+j);
@@ -5758,7 +5758,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  3859              		.cfi_startproc
  3860              		@ args = 0, pretend = 0, frame = 2024
  3861              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccwYzcSC.s 			page 97
+ARM GAS  /tmp/ccz307kS.s 			page 97
 
 
  650:src/matrix.c  **** 	int n, i, brows, bcols, creg;
@@ -5818,7 +5818,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  661:src/matrix.c  **** 	bbase = matrix_decomp(b, &brows, &bcols);
  3902              		.loc 1 661 2 is_stmt 1 view .LVU1180
  3903 001c 0746     		mov	r7, r0
-ARM GAS  /tmp/ccwYzcSC.s 			page 98
+ARM GAS  /tmp/ccz307kS.s 			page 98
 
 
  3904              		.loc 1 661 10 is_stmt 0 view .LVU1181
@@ -5878,7 +5878,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  3948              	.LVL461:
  3949              		.loc 1 670 5 view .LVU1197
  3950 0054 98B3     		cbz	r0, .L300
-ARM GAS  /tmp/ccwYzcSC.s 			page 99
+ARM GAS  /tmp/ccz307kS.s 			page 99
 
 
  671:src/matrix.c  **** 		return NULL;
@@ -5938,7 +5938,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  682:src/matrix.c  **** 		bv[i] = bbase + i;
  3989              		.loc 1 682 2 is_stmt 0 discriminator 3 view .LVU1213
  3990 0082 8C42     		cmp	r4, r1
-ARM GAS  /tmp/ccwYzcSC.s 			page 100
+ARM GAS  /tmp/ccz307kS.s 			page 100
 
 
  3991 0084 FAD1     		bne	.L285
@@ -5998,7 +5998,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  4035              	.L280:
  4036              		.cfi_restore_state
  665:src/matrix.c  **** 		return NULL;
-ARM GAS  /tmp/ccwYzcSC.s 			page 101
+ARM GAS  /tmp/ccz307kS.s 			page 101
 
 
  4037              		.loc 1 665 3 is_stmt 1 view .LVU1226
@@ -6058,7 +6058,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  4080 00e2 3046     		mov	r0, r6
  4081 00e4 E4E7     		b	.L302
  4082              		.cfi_endproc
-ARM GAS  /tmp/ccwYzcSC.s 			page 102
+ARM GAS  /tmp/ccz307kS.s 			page 102
 
 
  4083              	.LFE28:
@@ -6118,7 +6118,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  4124 000c 16A9     		add	r1, sp, #88
  4125              	.LVL484:
  4126              		.loc 1 701 6 view .LVU1250
-ARM GAS  /tmp/ccwYzcSC.s 			page 103
+ARM GAS  /tmp/ccz307kS.s 			page 103
 
 
  4127 000e FFF7FEFF 		bl	matrix_lu_check
@@ -6178,7 +6178,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  715:src/matrix.c  **** 		dn_mulpow10(&u, r, 1);
  4168              		.loc 1 715 3 is_stmt 1 discriminator 3 view .LVU1265
  4169 003c 0122     		movs	r2, #1
-ARM GAS  /tmp/ccwYzcSC.s 			page 104
+ARM GAS  /tmp/ccz307kS.s 			page 104
 
 
  4170 003e 3146     		mov	r1, r6
@@ -6238,7 +6238,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  4210 006a A742     		cmp	r7, r4
  4211 006c 05F11005 		add	r5, r5, #16
  4212 0070 F4DC     		bgt	.L309
-ARM GAS  /tmp/ccwYzcSC.s 			page 105
+ARM GAS  /tmp/ccz307kS.s 			page 105
 
 
  722:src/matrix.c  **** 	}
@@ -6298,7 +6298,7 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  4260              		.file 2 "src/decNumber/decContext.h"
  4261              		.file 3 "src/decNumber/decNumber.h"
  4262              		.file 4 "src/decNumber/decimal64.h"
-ARM GAS  /tmp/ccwYzcSC.s 			page 106
+ARM GAS  /tmp/ccz307kS.s 			page 106
 
 
  4263              		.file 5 "src/decNumber/decimal128.h"
@@ -6307,67 +6307,67 @@ ARM GAS  /tmp/ccwYzcSC.s 			page 1
  4266              		.file 8 "src/consts.h"
  4267              		.file 9 "src/storage.h"
  4268              		.file 10 "src/decn.h"
-ARM GAS  /tmp/ccwYzcSC.s 			page 107
+ARM GAS  /tmp/ccz307kS.s 			page 107
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 matrix.c
-     /tmp/ccwYzcSC.s:18     .text.matrix_range_check:0000000000000000 $t
-     /tmp/ccwYzcSC.s:26     .text.matrix_range_check:0000000000000000 matrix_range_check
-     /tmp/ccwYzcSC.s:145    .text.matrix_range_check:0000000000000074 $d
-     /tmp/ccwYzcSC.s:150    .text.matrix_decompose:0000000000000000 $t
-     /tmp/ccwYzcSC.s:157    .text.matrix_decompose:0000000000000000 matrix_decompose
-     /tmp/ccwYzcSC.s:336    .text.matrix_decompose:000000000000009c $d
-     /tmp/ccwYzcSC.s:342    .text.matrix_decomp:0000000000000000 $t
-     /tmp/ccwYzcSC.s:349    .text.matrix_decomp:0000000000000000 matrix_decomp
-     /tmp/ccwYzcSC.s:387    .text.matrix_do_loop:0000000000000000 $t
-     /tmp/ccwYzcSC.s:394    .text.matrix_do_loop:0000000000000000 matrix_do_loop
-     /tmp/ccwYzcSC.s:468    .text.matrix_lu_check:0000000000000000 $t
-     /tmp/ccwYzcSC.s:475    .text.matrix_lu_check:0000000000000000 matrix_lu_check
-     /tmp/ccwYzcSC.s:593    .text.LU_decomposition:0000000000000000 $t
-     /tmp/ccwYzcSC.s:600    .text.LU_decomposition:0000000000000000 LU_decomposition
-     /tmp/ccwYzcSC.s:1186   .text.matrix_pivoting_solve:0000000000000000 $t
-     /tmp/ccwYzcSC.s:1193   .text.matrix_pivoting_solve:0000000000000000 matrix_pivoting_solve
-     /tmp/ccwYzcSC.s:1481   .text.matrix_descriptor:0000000000000000 $t
-     /tmp/ccwYzcSC.s:1488   .text.matrix_descriptor:0000000000000000 matrix_descriptor
-     /tmp/ccwYzcSC.s:1565   .text.matrix_is_square:0000000000000000 $t
-     /tmp/ccwYzcSC.s:1573   .text.matrix_is_square:0000000000000000 matrix_is_square
-     /tmp/ccwYzcSC.s:1623   .text.matrix_copy:0000000000000000 $t
-     /tmp/ccwYzcSC.s:1631   .text.matrix_copy:0000000000000000 matrix_copy
-     /tmp/ccwYzcSC.s:1728   .text.matrix_all:0000000000000000 $t
-     /tmp/ccwYzcSC.s:1736   .text.matrix_all:0000000000000000 matrix_all
-     /tmp/ccwYzcSC.s:1807   .text.matrix_diag:0000000000000000 $t
-     /tmp/ccwYzcSC.s:1815   .text.matrix_diag:0000000000000000 matrix_diag
-     /tmp/ccwYzcSC.s:1898   .text.matrix_row:0000000000000000 $t
-     /tmp/ccwYzcSC.s:1906   .text.matrix_row:0000000000000000 matrix_row
-     /tmp/ccwYzcSC.s:2017   .text.matrix_col:0000000000000000 $t
-     /tmp/ccwYzcSC.s:2025   .text.matrix_col:0000000000000000 matrix_col
-     /tmp/ccwYzcSC.s:2136   .text.matrix_rowq:0000000000000000 $t
-     /tmp/ccwYzcSC.s:2144   .text.matrix_rowq:0000000000000000 matrix_rowq
-     /tmp/ccwYzcSC.s:2207   .text.matrix_colq:0000000000000000 $t
-     /tmp/ccwYzcSC.s:2215   .text.matrix_colq:0000000000000000 matrix_colq
-     /tmp/ccwYzcSC.s:2280   .text.matrix_getreg:0000000000000000 $t
-     /tmp/ccwYzcSC.s:2288   .text.matrix_getreg:0000000000000000 matrix_getreg
-     /tmp/ccwYzcSC.s:2437   .text.matrix_getrc:0000000000000000 $t
-     /tmp/ccwYzcSC.s:2445   .text.matrix_getrc:0000000000000000 matrix_getrc
-     /tmp/ccwYzcSC.s:2572   .text.matrix_genadd:0000000000000000 $t
-     /tmp/ccwYzcSC.s:2580   .text.matrix_genadd:0000000000000000 matrix_genadd
-     /tmp/ccwYzcSC.s:2761   .text.matrix_multiply:0000000000000000 $t
-     /tmp/ccwYzcSC.s:2769   .text.matrix_multiply:0000000000000000 matrix_multiply
-     /tmp/ccwYzcSC.s:3072   .text.matrix_transpose:0000000000000000 $t
-     /tmp/ccwYzcSC.s:3080   .text.matrix_transpose:0000000000000000 matrix_transpose
-     /tmp/ccwYzcSC.s:3263   .text.matrix_rowops:0000000000000000 $t
-     /tmp/ccwYzcSC.s:3271   .text.matrix_rowops:0000000000000000 matrix_rowops
-     /tmp/ccwYzcSC.s:3537   .text.matrix_determinant:0000000000000000 $t
-     /tmp/ccwYzcSC.s:3545   .text.matrix_determinant:0000000000000000 matrix_determinant
-     /tmp/ccwYzcSC.s:3667   .text.matrix_inverse:0000000000000000 $t
-     /tmp/ccwYzcSC.s:3675   .text.matrix_inverse:0000000000000000 matrix_inverse
-     /tmp/ccwYzcSC.s:3847   .text.matrix_linear_eqn:0000000000000000 $t
-     /tmp/ccwYzcSC.s:3855   .text.matrix_linear_eqn:0000000000000000 matrix_linear_eqn
-     /tmp/ccwYzcSC.s:4086   .text.matrix_lu_decomp:0000000000000000 $t
-     /tmp/ccwYzcSC.s:4094   .text.matrix_lu_decomp:0000000000000000 matrix_lu_decomp
+     /tmp/ccz307kS.s:18     .text.matrix_range_check:0000000000000000 $t
+     /tmp/ccz307kS.s:26     .text.matrix_range_check:0000000000000000 matrix_range_check
+     /tmp/ccz307kS.s:145    .text.matrix_range_check:0000000000000074 $d
+     /tmp/ccz307kS.s:150    .text.matrix_decompose:0000000000000000 $t
+     /tmp/ccz307kS.s:157    .text.matrix_decompose:0000000000000000 matrix_decompose
+     /tmp/ccz307kS.s:336    .text.matrix_decompose:000000000000009c $d
+     /tmp/ccz307kS.s:342    .text.matrix_decomp:0000000000000000 $t
+     /tmp/ccz307kS.s:349    .text.matrix_decomp:0000000000000000 matrix_decomp
+     /tmp/ccz307kS.s:387    .text.matrix_do_loop:0000000000000000 $t
+     /tmp/ccz307kS.s:394    .text.matrix_do_loop:0000000000000000 matrix_do_loop
+     /tmp/ccz307kS.s:468    .text.matrix_lu_check:0000000000000000 $t
+     /tmp/ccz307kS.s:475    .text.matrix_lu_check:0000000000000000 matrix_lu_check
+     /tmp/ccz307kS.s:593    .text.LU_decomposition:0000000000000000 $t
+     /tmp/ccz307kS.s:600    .text.LU_decomposition:0000000000000000 LU_decomposition
+     /tmp/ccz307kS.s:1186   .text.matrix_pivoting_solve:0000000000000000 $t
+     /tmp/ccz307kS.s:1193   .text.matrix_pivoting_solve:0000000000000000 matrix_pivoting_solve
+     /tmp/ccz307kS.s:1481   .text.matrix_descriptor:0000000000000000 $t
+     /tmp/ccz307kS.s:1488   .text.matrix_descriptor:0000000000000000 matrix_descriptor
+     /tmp/ccz307kS.s:1565   .text.matrix_is_square:0000000000000000 $t
+     /tmp/ccz307kS.s:1573   .text.matrix_is_square:0000000000000000 matrix_is_square
+     /tmp/ccz307kS.s:1623   .text.matrix_copy:0000000000000000 $t
+     /tmp/ccz307kS.s:1631   .text.matrix_copy:0000000000000000 matrix_copy
+     /tmp/ccz307kS.s:1728   .text.matrix_all:0000000000000000 $t
+     /tmp/ccz307kS.s:1736   .text.matrix_all:0000000000000000 matrix_all
+     /tmp/ccz307kS.s:1807   .text.matrix_diag:0000000000000000 $t
+     /tmp/ccz307kS.s:1815   .text.matrix_diag:0000000000000000 matrix_diag
+     /tmp/ccz307kS.s:1898   .text.matrix_row:0000000000000000 $t
+     /tmp/ccz307kS.s:1906   .text.matrix_row:0000000000000000 matrix_row
+     /tmp/ccz307kS.s:2017   .text.matrix_col:0000000000000000 $t
+     /tmp/ccz307kS.s:2025   .text.matrix_col:0000000000000000 matrix_col
+     /tmp/ccz307kS.s:2136   .text.matrix_rowq:0000000000000000 $t
+     /tmp/ccz307kS.s:2144   .text.matrix_rowq:0000000000000000 matrix_rowq
+     /tmp/ccz307kS.s:2207   .text.matrix_colq:0000000000000000 $t
+     /tmp/ccz307kS.s:2215   .text.matrix_colq:0000000000000000 matrix_colq
+     /tmp/ccz307kS.s:2280   .text.matrix_getreg:0000000000000000 $t
+     /tmp/ccz307kS.s:2288   .text.matrix_getreg:0000000000000000 matrix_getreg
+     /tmp/ccz307kS.s:2437   .text.matrix_getrc:0000000000000000 $t
+     /tmp/ccz307kS.s:2445   .text.matrix_getrc:0000000000000000 matrix_getrc
+     /tmp/ccz307kS.s:2572   .text.matrix_genadd:0000000000000000 $t
+     /tmp/ccz307kS.s:2580   .text.matrix_genadd:0000000000000000 matrix_genadd
+     /tmp/ccz307kS.s:2761   .text.matrix_multiply:0000000000000000 $t
+     /tmp/ccz307kS.s:2769   .text.matrix_multiply:0000000000000000 matrix_multiply
+     /tmp/ccz307kS.s:3072   .text.matrix_transpose:0000000000000000 $t
+     /tmp/ccz307kS.s:3080   .text.matrix_transpose:0000000000000000 matrix_transpose
+     /tmp/ccz307kS.s:3263   .text.matrix_rowops:0000000000000000 $t
+     /tmp/ccz307kS.s:3271   .text.matrix_rowops:0000000000000000 matrix_rowops
+     /tmp/ccz307kS.s:3537   .text.matrix_determinant:0000000000000000 $t
+     /tmp/ccz307kS.s:3545   .text.matrix_determinant:0000000000000000 matrix_determinant
+     /tmp/ccz307kS.s:3667   .text.matrix_inverse:0000000000000000 $t
+     /tmp/ccz307kS.s:3675   .text.matrix_inverse:0000000000000000 matrix_inverse
+     /tmp/ccz307kS.s:3847   .text.matrix_linear_eqn:0000000000000000 $t
+     /tmp/ccz307kS.s:3855   .text.matrix_linear_eqn:0000000000000000 matrix_linear_eqn
+     /tmp/ccz307kS.s:4086   .text.matrix_lu_decomp:0000000000000000 $t
+     /tmp/ccz307kS.s:4094   .text.matrix_lu_decomp:0000000000000000 matrix_lu_decomp
 
-ARM GAS  /tmp/ccwYzcSC.s 			page 108
+ARM GAS  /tmp/ccz307kS.s 			page 108
 
 
 UNDEFINED SYMBOLS

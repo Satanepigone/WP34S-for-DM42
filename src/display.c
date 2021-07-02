@@ -2604,12 +2604,6 @@ static void set_exp(int exp, int flags, char *res) {
 	}
 
 	if (WasDataEntry) {
-	  wait_for_display(); // Normally called from reset_disp()
-
-	  // Erase 7-segment display
-	  //	  for (i = 0; i <= EXP_SIGN; ++i) {
-	  //	    clr_dot(i);
-	  //	  }
 	  reset_7_segment();
 	  goto only_update_x;
 	}
@@ -2815,7 +2809,9 @@ static void set_exp(int exp, int flags, char *res) {
 #endif
 	} else if (State2.runmode) {
 	  if (DispMsg) { 
-	    set_status(DispMsg);
+	    set_status_top(DispMsg);
+	    no_status_top = 1;// experiment
+	    annuc = 1;
 	  } else if (DispPlot) {
 	    set_status_graphic((const unsigned char *)get_reg_n(DispPlot-1));
 	  } else if (State2.alphas) {
@@ -2854,9 +2850,6 @@ static void set_exp(int exp, int flags, char *res) {
 	  }
 	}
 	else {
-#ifndef DM42
-	  show_progtrace(buf);
-#endif
 	  i = state_pc();
 	  if (i > 0)
 	    set_status(prt(getprog(i), buf));
@@ -2867,9 +2860,7 @@ static void set_exp(int exp, int flags, char *res) {
 	    annuc = 1;
 	  goto nostk;
 	}
-	show_stack();
       nostk:
-	show_flags();
 	if (!skip) {
 	  if (State2.runmode) {
 	  only_update_x:
@@ -2949,8 +2940,8 @@ static void set_exp(int exp, int flags, char *res) {
 	  && (! State2.registerlist || State2.smode == SDISP_SHOW || State2.disp_as_alpha);
 
 #if defined(INCLUDE_YREG_CODE)
-	if ((annuc && (! State2.disp_temp || State2.hms)) || State2.wascomplex) // makes sure that hms numbers appear in the dot-matrix display
-	  annunciators();
+	if ((annuc && (! State2.disp_temp || State2.hms || DispMsg != NULL)) || State2.wascomplex) // makes sure that hms numbers appear in the dot-matrix display
+	  annunciators(); // still displays y-reg as dispmsg is now in top row
  	State2.hms = 0;
 #else
 	if ((annuc && ! State2.disp_temp) || State2.wascomplex)
@@ -3005,12 +2996,6 @@ static void set_exp(int exp, int flags, char *res) {
 	}
 
 	if (WasDataEntry) {
-	  wait_for_display(); // Normally called from reset_disp()
-
-	  // Erase 7-segment display
-	  //	  for (i = 0; i <= EXP_SIGN; ++i) {
-	  //	    clr_dot(i);
-	  //	  }
 	  reset_7_segment();
 	  goto only_update_x;
 	}
@@ -3193,9 +3178,6 @@ static void set_exp(int exp, int flags, char *res) {
 	    annuc = 1;
 	  }
 	} else {
-#ifndef DM42
-	  show_progtrace(buf);
-#endif
 	  i = state_pc();
 	  if (i > 0)
 	    set_status(prt(getprog(i), buf));
@@ -3220,8 +3202,7 @@ static void set_exp(int exp, int flags, char *res) {
 	      annuc = 1;
 	  goto nostk;
 	}
-	show_stack();
-      nostk:	show_flags();
+      nostk:
 	if (!skip) {
 	  if (State2.runmode) {
 	  only_update_x:

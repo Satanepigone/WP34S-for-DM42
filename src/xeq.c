@@ -1040,6 +1040,9 @@ void cpx_nop(enum nilop op) { // miscellaneous complex operations
 		SET_CPX_NO;
 	case OP_C_OFF: // exit complex mode - only called if CPX_ENABLED and C_LOCK_ON
 		finish_cpx_entry(1);
+#ifdef DM42
+		dot(LIT_EQ,0); // turn off C_LK before turning off C_LOCKED
+#endif
 		UNLOCK_C;
 		UState.stack_depth = TRUE_8; // restore prior stack size
 		State2.wascomplex = 0;
@@ -3614,7 +3617,8 @@ void cmdflag(unsigned int arg, enum rarg op) {
 
 	if ( arg == A_FLAG ) {
 		dot( BIG_EQ, flg );
-		finish_display(); // BIG_EQ
+		//		finish_display(); // BIG_EQ
+		lcd_refresh();
 	}
 }
 
@@ -4527,7 +4531,6 @@ static int dispatch_xrom(void *fp)
 	XromRunning = 1;
 	gsbgto(addrXROM((xp - xrom) + 1), 1, state_pc());
 	xeq_xrom();
-	//	print_debug(999,0);
 	return 1;
 }
 
@@ -5832,7 +5835,8 @@ void set_running_on() {
 	if (!is_xrom())
 		error_message(ERR_NONE);
 	dot(BEG, 0);
-	finish_display(); // BEG
+	//	finish_display(); // BEG
+	lcd_refresh();
 }
 
 /* Command to stash registers A through D into volatile RAM and to restore them

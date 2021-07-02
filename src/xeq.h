@@ -453,7 +453,6 @@ extern int current_catalogue_max(void);
 
 #ifdef DM42
 void print_debug (int i, int j);
-void print_debug2 (int i, char* j);
 long int keyticks (void);
 #endif
 

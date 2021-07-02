@@ -16,9 +16,7 @@ build/storage.o: src/storage.c /usr/include/newlib/stdio.h \
  /usr/include/newlib/sys/_pthreadtypes.h /usr/include/newlib/sys/sched.h \
  /usr/include/newlib/machine/types.h /usr/include/newlib/sys/stdio.h \
  /usr/include/newlib/stdlib.h /usr/include/newlib/machine/stdlib.h \
- /usr/include/newlib/alloca.h /usr/include/newlib/string.h \
- /usr/include/newlib/sys/_locale.h /usr/include/newlib/strings.h \
- /usr/include/newlib/sys/string.h src/features.h dmcp/dmcp.h \
+ /usr/include/newlib/alloca.h src/features.h dmcp/dmcp.h \
  /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h dmcp/ff_ifc.h \
  dmcp/lft_ifc.h src/xeq.h src/errors.h src/decNumber/decNumber.h \
  src/decNumber/../features.h src/decNumber/decContext.h \
@@ -89,14 +87,6 @@ build/storage.o: src/storage.c /usr/include/newlib/stdio.h \
 /usr/include/newlib/machine/stdlib.h:
 
 /usr/include/newlib/alloca.h:
-
-/usr/include/newlib/string.h:
-
-/usr/include/newlib/sys/_locale.h:
-
-/usr/include/newlib/strings.h:
-
-/usr/include/newlib/sys/string.h:
 
 src/features.h:
 

@@ -19,47 +19,21 @@
  * Module written by MvC
  */
 
-#ifdef REALBUILD
-
-#define PERSISTENT_RAM __attribute__((section(".persistentram")))
-#define SLCDCMEM       __attribute__((section(".slcdcmem")))
-#define VOLATILE_RAM   __attribute__((section(".volatileram")))
-#define BACKUP_FLASH   __attribute__((section(".backupflash")))
-
-#ifndef NULL
-#define NULL 0
-#endif
-
-#else // not realbuild
-
 // Emulator definitions
 #include <stdio.h>
 #include <stdlib.h>
-#include <stddef.h>
-#include <string.h>
-#include <stdarg.h>
+//#include <stddef.h>
+//#include <string.h>
+//#include <stdarg.h>
 
-#ifdef DM42
 #include "features.h"
 #include "dmcp.h"
-#endif
-
-#ifndef DM42
-
-#if defined(QTGUI) || ( defined(USECURSES) && !defined(WIN32) )
-#include <errno.h>
-#include <stdlib.h>
-#include <unistd.h>
-#endif
-
-#endif
 
 #define PERSISTENT_RAM
 #define SLCDCMEM
 #define VOLATILE_RAM
 #define BACKUP_FLASH
 
-#ifdef DM42
 #ifdef C_VERSION
 #define STATE_FILE "wp34s/wp34c.dat"
 #define BACKUP_FILE "wp34s/wp34c-backup.dat"
@@ -67,17 +41,9 @@
 #define STATE_FILE "wp34s/wp34s.dat"
 #define BACKUP_FILE "wp34s/wp34s-backup.dat"
 #endif
+
 #define LIBRARY_FILE "wp34s/wp34s-lib.dat"
 #define FPT ppgm_fp //use this as the file pointer
-
-#else
-
-#define STATE_FILE "wp34c.dat"
-#define BACKUP_FILE "wp34c-backup.dat"
-#define LIBRARY_FILE "wp34s-lib.dat"
-
-#endif
-#endif
 
 #define DM42SAFE
 #include "xeq.h"
@@ -87,16 +53,12 @@
 #include "alpha.h"
 #undef DM42SAFE
 
-#ifdef DM42
 #define PAGE_SIZE	 256 // if saving to flash need page size of 2k on DM42
-#else
-#define PAGE_SIZE	 256
-#endif
+// but we aren't actually saving to flash any more!
 
 /*
  *  Setup the persistent RAM
  */
-#ifdef DM42
 
 TPersistentRam *main_ram, *backup_ram;
 FLASH_REGION *library_ram;
@@ -116,12 +78,6 @@ void init_mem () { // called at start of program_main in console.c
   library_ram = (FLASH_REGION *) v;
 }
 
-#else
-
-PERSISTENT_RAM TPersistentRam PersistentRam;
-
-#endif
-
 /*
  *  Data that is saved in the SLCD controller during deep sleep
  */
@@ -137,23 +93,6 @@ VOLATILE_RAM TXromLocal XromLocal;
 /* Private space for four registers temporarily
  */
 VOLATILE_RAM REGISTER XromA2D[4];
-
-/*
- *  The backup flash area:
- *  2 KB for storage of programs and registers
- *  Same data as in persistent RAM but in flash memory
- */
-#if !defined(REALBUILD)
-/*
- *  We need to define the Library space here.
- *  On the device the linker takes care of this.
- */
-#ifdef DM42 // has already been done by init_mem above
-#else
-BACKUP_FLASH TPersistentRam BackupFlash;
-FLASH_REGION UserFlash;
-#endif
-#endif
 
 /*
  *  The CCITT 16 bit CRC algorithm (X^16 + X^12 + X^5 + 1)
@@ -174,7 +113,6 @@ unsigned short int crc16( const void *base, unsigned int length )
 	return crc;
 }
 
-
 /*
  *  Compute a checksum and compare it against the stored sum
  *  Returns non zero value if failure
@@ -190,7 +128,6 @@ static int test_checksum( const void *data, unsigned int length, unsigned short 
 	return crc != oldcrc && oldcrc != MAGIC_MARKER;
 }
 
-
 /*
  *  Checksum the current program.
  */
@@ -200,7 +137,6 @@ short unsigned int checksum_program( void )
 	return crc16( get_current_prog(), ProgEnd - ProgBegin + 1 );
 	// Size surely needs doubling - bytes, not steps. ND.
 }
-
 
 /*
  *  Checksum the persistent RAM area
@@ -212,7 +148,6 @@ int checksum_ram( void )
 			      Crc, &Crc );
 }
 
-
 /*
  *  Checksum the backup flash region
  *  Returns non zero value if failure
@@ -222,7 +157,6 @@ int checksum_backup( void )
 	return test_checksum( &BackupFlash, sizeof( BackupFlash ) - sizeof( short ),
 		              BackupFlash._crc, NULL );
 }
-
 
 /*
  *  Checksum a flash region
@@ -235,7 +169,6 @@ static int checksum_region( FLASH_REGION *fr, FLASH_REGION *header )
 	return l > sizeof( fr->prog ) || test_checksum( fr->prog, l, fr->crc, &(header->crc ) );
 }
 
-
 /*
  *  Helper to store final END in empty program space
  */
@@ -245,7 +178,6 @@ static void stoend( void )
 	Prog[ 0 ] = ( OP_NIL | OP_END );
 }
 
-
 /*
  *  Clear the program space
  */
@@ -254,7 +186,6 @@ void clpall( void )
 	clrretstk_pc();
 	stoend();
 }
-
 
 /*
  *  Sanity checks for program (step) deletion
@@ -269,7 +200,6 @@ static int check_delete_prog( unsigned int pc )
 	}
 	return 1;
 }
-
 
 /*
  *  Clear just the current program
@@ -298,7 +228,6 @@ void clrprog( void )
 	update_program_bounds( 1 );
 }
  
-
 /*
  *  Clear all - programs and registers
  */
@@ -327,19 +256,11 @@ void reset( void )
   xset( &PersistentRam, 0, sizeof( PersistentRam ) );
 	clrall();
 	init_state();
-#ifndef DM42
-	UState.contrast = 6;
-#endif
 #ifdef INFRARED
-#ifdef DM42
 	printer_set_delay(1800);
-#else
-        State.print_delay = 10;
-#endif
 #endif
 	DispMsg = "Erased";
 }
-
 
 /*
  *  Store into program space.
@@ -451,95 +372,17 @@ int append_program( const s_opcode *source, int length )
 }
 
 
-#ifdef REALBUILD
-/*
- *  We do not copy any static data from flash to RAM at startup and
- *  thus can't use code in RAM. In order to program flash use the
- *  IAP feature in ROM instead
- */
-#define IAP_FUNC ((int (*)(unsigned int)) (*(int *)0x400008))
-
-/*
- *  Issue a command to the flash controller. Must be done from ROM.
- *  Returns zero if OK or non zero on error.
- */
-static int flash_command( unsigned int cmd )
-{
-	SUPC_SetVoltageOutput( SUPC_VDD_180 );
-	return IAP_FUNC( cmd ) >> 1;
-}
-
-/*
- *  Program the flash starting at destination.
- *  Returns 0 if OK or non zero on error.
- *  count is in pages, destination % PAGE_SIZE needs to be 0.
- */
-static int program_flash( void *destination, void *source, int count )
-{
-	unsigned int *flash = (unsigned int *) destination;
-	unsigned short int *sp = (unsigned short int *) source;
-
-	lock();  // No interrupts, please!
-
-	while ( count-- > 0 ) {
-		/*
-		 *  Setup the command for the controller by computing the page from the address
-		 */
-		const unsigned int cmd = 0x5A000003 | ( (unsigned int) flash & 0x1ff00 );
-		int i;
-
-		/*
-		 *  Copy the source to the flash write buffer
-		 */
-		for ( i = 0; i < PAGE_SIZE / 4; ++i, sp += 2 ) {
-			*flash++ = *sp | ( (unsigned int) ( sp[ 1 ] ) << 16 );
-		}
-
-		/*
-		 *  Command the controller to erase and write the page.
-		 */
-		if ( flash_command( cmd ) ) {
-			report_err( ERR_IO );
-			break;
-		}
-	}
-	unlock();
-	return Error != 0;
-}
-
-
-/*
- *  Set the boot bit to ROM and turn off the device.
- *  Next power ON goes into SAM-BA mode.
- */
-void sam_ba_boot(void)
-{
-	/*
-	 *  Command the controller to clear GPNVM1
-	 */
-	lock();
-	flash_command( 0x5A00010C );
-	SUPC_Shutdown();
-}
-
-
-#else // below here, it's not REALBUILD
-
 /*
  *  Emulate the flash in a file wp34s-lib.dat or wp34c-backup.dat
  *  Page numbers are relative to the start of the user flash
  *  count is in pages, destination % PAGE_SIZE needs to be 0.
  */
-#if defined(QTGUI) || defined(IOS)
-extern char* get_region_path(int region);
-#else
+
 static char* get_region_path(int region)
 {
 	return region == REGION_BACKUP ? BACKUP_FILE : LIBRARY_FILE;
 }
-#endif
 
-#ifdef DM42
 
 static int program_flash( void *destination, void *source, int count )
 {
@@ -609,61 +452,6 @@ int check_create_wp34sdir(void) {
   sys_disk_write_enable(0);
   return f;
 }
-
-#else //ifdef DM42 false
-
-static int program_flash( void *destination, void *source, int count )
-{
-  char *name;
-  char *dest = (char *) destination;
-  FILE *f = NULL;
-  int offset;
-
-  /*
-   *  Copy the source to the destination memory
-   */
-
-  memcpy( dest, source, count * PAGE_SIZE );
-
-  /*
-   *  Update the correct region file
-   */
-  if ( dest >= (char *) &BackupFlash && dest < (char *) &BackupFlash + sizeof( BackupFlash ) ) {
-    name = get_region_path( REGION_BACKUP );
-    offset = dest - (char *) &BackupFlash;
-  }
-  else if ( dest >= (char *) &UserFlash && dest < (char *) &UserFlash + sizeof( UserFlash ) ) {
-    name = get_region_path( REGION_LIBRARY );
-    offset = dest - (char *) &UserFlash;
-  }
-  else {
-    // Bad address
-    report_err( ERR_ILLEGAL );
-    return 1;
-  }
-
-  f = fopen( name, "rb+" );
-  if ( f == NULL ) {
-    f = fopen( name, "wb+" );
-  }
-  if ( f == NULL ) {
-    report_err( ERR_IO );
-    return 1;
-  }
-  fseek( f, offset, SEEK_SET );
-  if ( count != fwrite( dest, PAGE_SIZE, count, f ) ) {
-    fclose( f );
-    report_err( ERR_IO );
-    return 1;
-  }
-  fclose( f );
- return 0;
-}
-  
-#endif //ifdef DM42
-
-
-#endif //ifdef REALBUILD
 
 
 /*
@@ -953,129 +741,6 @@ void recall_program( enum nilop op )
 	}
 }
 
-
-#if !defined(REALBUILD) && !defined(IOS)
-/*
- *  Filesystem access for emulator
- */
-
-#ifndef DM42
-
-#ifdef _WIN32
-#define ASSEMBLER "..\\tools\\wp34s_asm.exe"
-#else
-#define ASSEMBLER "../tools/wp34s_asm.pl"
-#endif
-
-#define ASSEMBLER_OPTIONS ""
-char CurrentDir[ FILENAME_MAX + 1 ];
-char StateFile[ FILENAME_MAX + 1 ] = STATE_FILE;
-//char BackupFile[ FILENAME_MAX + 1 ] = BACKUP_FILE;
-//char LibraryFile[ FILENAME_MAX + 1 ] = LIBRARY_FILE;
-char ComPort[ FILENAME_MAX + 1 ] = "COM1";
-char Assembler[ FILENAME_MAX + 1 ] = ASSEMBLER;
-
-/*
- *  Show (GUI) message
- */
-#ifdef QTGUI
-extern void showMessage(const char* title, const char* message);
-#endif
-
-
-static void ShowMessage( const char *title, const char *format, ... )
-{
-	va_list args;
-#ifndef QTGUI
-#ifdef WINGUI
-	char msg[ 10000 ];
-	va_start( args, format );
-	vsprintf( msg, format, args );
-	MessageBox( NULL, msg, title, MB_OK );
-#else
-	va_start( args, format );
-	fprintf( stderr, "%s:\n", title );
-	vfprintf( stderr, format, args );
-	fputc( '\n', stderr );
-#endif
-#else
-	char msg[ 10000 ];
-	va_start( args, format );
-	vsprintf( msg, format, args );
-	showMessage(title, msg);
-#endif
-}
-
-
-
-/*
- *  Save/Load state to a file
- */
-void save_statefile( const char *filename )
-{
-	FILE *f;
-	if ( filename != NULL && *filename != '\0' ) {
-		strncpy( StateFile, filename, FILENAME_MAX );
-	}
-	f = fopen( StateFile, "wb" );
-	if ( f == NULL ) {
-		ShowMessage( "Save Error", strerror( errno ) );
-		return;
-	}
-	process_cmdline_set_lift();
-	init_state();
-	checksum_all();
-	fwrite( &PersistentRam, sizeof( PersistentRam ), 1, f );
-	fclose( f );
-#ifdef DEBUG
-	printf( "sizeof struct _state = %d\n", (int)sizeof( struct _state ) );
-	printf( "sizeof struct _ustate = %d\n", (int)sizeof( struct _ustate ) );
-	printf( "sizeof RAM = %d (%d free)\n", (int)sizeof(PersistentRam), 2048 - (int)sizeof(PersistentRam));
-	printf( "sizeof struct _state2 = %d\n", (int)sizeof( struct _state2 ) );
-	printf( "sizeof while on = %d\n", (int)sizeof(TStateWhileOn));
-	printf( "sizeof decNumber = %d\n", (int)sizeof(decNumber));
-	printf( "sizeof decContext = %d\n", (int)sizeof(decContext));
-#endif
-}
-
-/*
- *  Helper to expand filenames with startup directory
- */
-#ifdef _WIN32
-#include <direct.h>
-#define getcwd _getcwd
-#define SEPARATOR '\\'
-#else
-#define SEPARATOR '/'
-#endif
-
-static char *expand_filename( char *buffer, const char *filename )
-{
-	char *p;
-	size_t l;
-
-	if ( *CurrentDir == '\0' ) {
-		// Determine current directory on first call
-		getcwd( CurrentDir, FILENAME_MAX );
-		p = CurrentDir + strlen( CurrentDir );
-		if ( p != CurrentDir && p[ -1 ] != SEPARATOR ) {
-			*p = SEPARATOR;
-			p[ 1 ] = '\0';
-		}
-	}
-	if ( *filename == SEPARATOR || filename[ 1 ] == ':' ) {
-		// Absolute path left unchanged
-		strncpy( buffer, filename, FILENAME_MAX );
-	}
-	else {
-		// Prepend CurrentDir
-		strncpy( buffer, CurrentDir, FILENAME_MAX );
-		l = strlen( buffer );
-		strncpy( buffer + l, filename, FILENAME_MAX - l );
-	}
-	return buffer;
-}
-#endif //ifndef DM42
 
 /*
  *  Lots of file routines for DM42
@@ -1631,95 +1296,92 @@ void import_textfile( const char *filename )
 #include "pretty.h"
 
 static const char *pretty( unsigned char z ) {
-	if ( z == 32 ) {
-		return "space";
-	}
-	if ( z < 32 ) {
-		return map32[ z & 0x1f ];
-	}
-	if (z >= 127) {
-		return maptop[ z - 127 ];
-	}
-	return CNULL;
+  if ( z == 32 ) {
+    return "space";
+  }
+  if ( z < 32 ) {
+    return map32[ z & 0x1f ];
+  }
+  if (z >= 127) {
+    return maptop[ z - 127 ];
+  }
+  return CNULL;
 }
 
 
 static void write_pretty( const char *in, FILE *f ) {
-	const char *p;
-	const char *delim;
-	char c;
+  const char *p;
+  const char *delim;
+  char c;
 
-	delim = strchr( in, '\'' );
-	if ( delim == NULL ) {
-		delim = strchr( in, 0x06 );
-	}
-	while ( *in != '\0' ) {
-		c = *in;
-		p = NULL;
-		if ( in++ == delim ) {
-			if ( c == 0x06 ) {
-				++in;
-				c = ' ';
-			}
-		}
-		else {
-			p = pretty( c );
-		}
-		if ( p == CNULL ) {
-			fputc( c, f );
-		}
-		else {
-			fputc( '[', f );
-			while ( *p != '\0' ) {
-				fputc( *p++, f );
-			}
-			fputc( ']', f );
-		}
-	}
-	fputc( '\n', f );
+  delim = strchr( in, '\'' );
+  if ( delim == NULL ) {
+    delim = strchr( in, 0x06 );
+  }
+  while ( *in != '\0' ) {
+    c = *in;
+    p = NULL;
+    if ( in++ == delim ) {
+      if ( c == 0x06 ) {
+	++in;
+	c = ' ';
+      }
+    }
+    else {
+      p = pretty( c );
+    }
+    if ( p == CNULL ) {
+      fputc( c, f );
+    }
+    else {
+      fputc( '[', f );
+      while ( *p != '\0' ) {
+	fputc( *p++, f );
+      }
+      fputc( ']', f );
+    }
+  }
+  fputc( '\n', f );
 }
 
 
 extern void export_textfile( const char *filename )
 {
-	FILE *f;
-	unsigned int pc = state_pc();
-	int runmode = State2.runmode;
-	int numlen = isRAM( pc ) ? 3 : 4;
+  FILE *f;
+  unsigned int pc = state_pc();
+  int runmode = State2.runmode;
+  int numlen = isRAM( pc ) ? 3 : 4;
 
-	f = fopen( filename, "wt" );
-	if ( f == NULL ) return;
+  f = fopen( filename, "wt" );
+  if ( f == NULL ) return;
 
-	if ( runmode ) {
-		// current program
-		pc = ProgBegin;
-	}
-	else {
-		// complete program memory
-		pc = 1;
-		numlen = 3;
-	}
-	if ( pc == 0 ) {
-		++pc;
-	}
+  if ( runmode ) {
+    // current program
+    pc = ProgBegin;
+  }
+  else {
+    // complete program memory
+    pc = 1;
+    numlen = 3;
+  }
+  if ( pc == 0 ) {
+    ++pc;
+  }
 
-	PcWrapped = 0;
-	while ( !PcWrapped ) {
-		char buffer[ 16 ];
-		const char *p;
-		opcode op = getprog( pc );
-		unsigned int upc = user_pc( pc );
-		*num_arg_0( buffer, upc, numlen ) = '\0';
-		fprintf( f, "%s ", buffer );
-		p = prt( op, buffer );
-		write_pretty( p, f );
-		pc = do_inc( pc, runmode );
-	}
+  PcWrapped = 0;
+  while ( !PcWrapped ) {
+    char buffer[ 16 ];
+    const char *p;
+    opcode op = getprog( pc );
+    unsigned int upc = user_pc( pc );
+    *num_arg_0( buffer, upc, numlen ) = '\0';
+    fprintf( f, "%s ", buffer );
+    p = prt( op, buffer );
+    write_pretty( p, f );
+    pc = do_inc( pc, runmode );
+  }
 
-	fclose( f );
+  fclose( f );
 }
 #endif //ifndef DM42
-
-#endif //if not defined REALBUILD or IOS
-
 

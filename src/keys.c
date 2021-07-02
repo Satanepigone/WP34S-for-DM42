@@ -1008,7 +1008,6 @@ static int process_fg_shifted(const keycode c) {
 	switch (c) {
 	case K00:
 	  if (! UState.intm) {
-	    //	    print_debug(100,0);
 	    State2.hyp = 1;
 	    State2.dot = op;
 	    // State2.cmplx = 0;
@@ -1535,7 +1534,6 @@ static int process_cmplx(const keycode c) {
 	if (c == K00) {
 		// HYP
 		process_cmdline_set_lift();
-		//		print_debug(100,1);
 		State2.hyp = 1;
 		State2.dot = op;
 		State2.cmplx = 1;
@@ -1623,9 +1621,6 @@ static int process_hyp(const keycode c) {
 	  if (c == K_F) f = 1 - f;
 #endif
 	stay:
-		// process_cmdline_set_lift();
-	  //	  print_debug(100,2);
-	  
 	  State2.hyp = 1;
 		State2.cmplx = cmplx;
 		State2.dot = f;
@@ -3313,7 +3308,6 @@ static int process(const int c) {
 	/*
 	 *  The handlers in this block need to call reset_shift somewhere
 	 */
-	// print_debug (2, c);
 	if (State2.arrow)
 		return process_arrow((const keycode)c);
 
@@ -3370,7 +3364,6 @@ static int process(const int c) {
 			return process_fg_shifted((const keycode)c);
 		if (shift == SHIFT_H)
 			return process_h_shifted((const keycode)c);
-		// print_debug (3, c);
 		return process_normal((const keycode)c);
 	}
 }
@@ -3409,9 +3402,7 @@ static int process(const int c) {
 void process_keycode(int c)
 {
   static int was_paused;
-  //volatile int cmdline_empty; // volatile because it's uninitialized in some cases
-  int cmdline_empty = 0;        // Visual studio chokes in debug mode over the above
-  //print_debug(60,c);
+  int cmdline_empty = 0;
   if (was_paused && Pause == 0)
     {
     /*
@@ -3521,14 +3512,12 @@ void process_keycode(int c)
    */
   if (c == K_RELEASE)
     {
-      //      print_debug (80,c);
     if (OpCode != 0) {
       /*
        * Execute the key on release
        */
       GoFast = 1;
       c = OpCode;
-      //      print_debug(81,c);
       OpCode = 0;
 
       if (c == STATE_SST)
@@ -3570,13 +3559,11 @@ void process_keycode(int c)
     /*
      *  Decode the key 
      */
-    //    print_debug (90, cur_shift());
     WasDataEntry = 0;
     ShowRPN = ! Running;	// Default behaviour, may be turned off later
 #ifdef DM42
     if (c != K_OP) {
       c = process(c);
-      //print_debug (91,cur_shift());
       // returns an op-code or state
     }
     else {
@@ -3666,7 +3653,6 @@ void process_keycode(int c)
 	}
 	else {
 	  // Save the op-code for execution on key-up
-	  //print_debug(70,c);
 	  OpCode = c;
 	  OpCodeDisplayPending = 1;
 	  lcd_refresh(); // Update the RPN annunciator
