@@ -853,7 +853,9 @@ void cmdplotprint( unsigned int arg, enum rarg op )
       /*
        *  Print this line
        */
-      print_tab( col ) || print_graphic( width, p );
+      //      print_tab( col ) || print_graphic( width, p );
+      print_tab( col );
+      print_graphic( width, p );
       PrinterColumn = col + width;
       if ( --height ) {
 	/*

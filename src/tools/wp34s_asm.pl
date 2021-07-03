@@ -180,7 +180,7 @@ my $op_svn = $DEFAULT_OP_SVN;
 my $report_op_svn = 1;
 
 my $enable_pp = 0;
-my $DEFAULT_PREPROC = "wp34s_pp.pl";
+my $DEFAULT_PREPROC = "./wp34s_pp.pl";
 my $preproc = $DEFAULT_PREPROC;
 my $preproc_fallback_dir = "";
 

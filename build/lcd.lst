@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccc2zjbk.s 			page 1
+ARM GAS  /tmp/ccctyiBz.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
   24:src/lcd.c     **** #include "xeq.h"
   25:src/lcd.c     **** 
   26:src/lcd.c     **** #if defined(INCLUDE_C_LOCK) || defined(INFRARED)
-ARM GAS  /tmp/ccc2zjbk.s 			page 2
+ARM GAS  /tmp/ccctyiBz.s 			page 2
 
 
   27:src/lcd.c     **** #include "data.h"
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
   81:src/lcd.c     ****   dot(RPN, rpn);
   82:src/lcd.c     **** }
   83:src/lcd.c     **** 
-ARM GAS  /tmp/ccc2zjbk.s 			page 3
+ARM GAS  /tmp/ccctyiBz.s 			page 3
 
 
   84:src/lcd.c     **** void reset_7_segment(void) {
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  138:src/lcd.c     ****   lcd_fill_rect (i+21, j+45, 3, 3, col);
  139:src/lcd.c     ****   lcd_fill_rect (i+19, j+48, 3, 3, col);
  140:src/lcd.c     **** }
-ARM GAS  /tmp/ccc2zjbk.s 			page 4
+ARM GAS  /tmp/ccctyiBz.s 			page 4
 
 
  141:src/lcd.c     **** 
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  195:src/lcd.c     ****     case 1:
  196:src/lcd.c     ****       left_side_top (x, YTOP, col);
  197:src/lcd.c     ****       return;
-ARM GAS  /tmp/ccc2zjbk.s 			page 5
+ARM GAS  /tmp/ccctyiBz.s 			page 5
 
 
  198:src/lcd.c     ****     case 2:
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  252:src/lcd.c     ****       middle (XLEFT - DWIDTH, YTOP, col);
  253:src/lcd.c     ****       return;
  254:src/lcd.c     ****     case EXP_SIGN:
-ARM GAS  /tmp/ccc2zjbk.s 			page 6
+ARM GAS  /tmp/ccctyiBz.s 			page 6
 
 
  255:src/lcd.c     ****       exp_middle (XLEFT_EXP-DWIDTH_EXP, YTOP, col);
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  309:src/lcd.c     **** 	    draw_BEG(4, 0);
  310:src/lcd.c     **** 	    dots[BEG] = 4;
  311:src/lcd.c     **** 	  }
-ARM GAS  /tmp/ccc2zjbk.s 			page 7
+ARM GAS  /tmp/ccctyiBz.s 			page 7
 
 
  312:src/lcd.c     **** 	}
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
   41 0002 034B     		ldr	r3, .L3+4
   42 0004 106B     		ldr	r0, [r2, #48]
   43 0006 0349     		ldr	r1, .L3+8
-ARM GAS  /tmp/ccc2zjbk.s 			page 8
+ARM GAS  /tmp/ccctyiBz.s 			page 8
 
 
   44 0008 1847     		bx	r3	@ indirect register sibling call
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
   97              	clear_disp:
   98              	.LFB3:
   63:src/lcd.c     ****       for (int i=0; i<TOP_DOTS; i++)
-ARM GAS  /tmp/ccc2zjbk.s 			page 9
+ARM GAS  /tmp/ccctyiBz.s 			page 9
 
 
   99              		.loc 1 63 23 is_stmt 1 view -0
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  143              		.syntax unified
  144              		.thumb
  145              		.thumb_func
-ARM GAS  /tmp/ccc2zjbk.s 			page 10
+ARM GAS  /tmp/ccctyiBz.s 			page 10
 
 
  146              		.fpu fpv4-sp-d16
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  189              		.section	.text.left_side,"ax",%progbits
  190              		.align	1
  191              		.p2align 2,,3
-ARM GAS  /tmp/ccc2zjbk.s 			page 11
+ARM GAS  /tmp/ccctyiBz.s 			page 11
 
 
  192              		.global	left_side
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
   92:src/lcd.c     ****   lcd_fill_rect (i+3, j+2, 1, 18, col);
  237              		.loc 1 92 3 view .LVU42
  238 001c B847     		blx	r7
-ARM GAS  /tmp/ccc2zjbk.s 			page 12
+ARM GAS  /tmp/ccctyiBz.s 			page 12
 
 
  239              	.LVL17:
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  288              		.p2align 2,,3
  289              		.global	left_side_top
  290              		.syntax unified
-ARM GAS  /tmp/ccc2zjbk.s 			page 13
+ARM GAS  /tmp/ccctyiBz.s 			page 13
 
 
  291              		.thumb
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  341              		.align	1
  342              		.p2align 2,,3
  343              		.global	right_side
-ARM GAS  /tmp/ccc2zjbk.s 			page 14
+ARM GAS  /tmp/ccctyiBz.s 			page 14
 
 
  344              		.syntax unified
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  389 001a 311D     		adds	r1, r6, #4
  390 001c 04F11100 		add	r0, r4, #17
  391 0020 0095     		str	r5, [sp]
-ARM GAS  /tmp/ccc2zjbk.s 			page 15
+ARM GAS  /tmp/ccctyiBz.s 			page 15
 
 
  392 0022 0F23     		movs	r3, #15
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  440              		.global	right_side_top
  441              		.syntax unified
  442              		.thumb
-ARM GAS  /tmp/ccc2zjbk.s 			page 16
+ARM GAS  /tmp/ccctyiBz.s 			page 16
 
 
  443              		.thumb_func
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  493              		.p2align 2,,3
  494              		.global	top
  495              		.syntax unified
-ARM GAS  /tmp/ccc2zjbk.s 			page 17
+ARM GAS  /tmp/ccctyiBz.s 			page 17
 
 
  496              		.thumb
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  542              	.LVL49:
  120:src/lcd.c     ****   lcd_fill_rect ( i+7, j+3, 10, 1, col );
  543              		.loc 1 120 3 view .LVU91
-ARM GAS  /tmp/ccc2zjbk.s 			page 18
+ARM GAS  /tmp/ccctyiBz.s 			page 18
 
 
  544 0022 B11C     		adds	r1, r6, #2
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  594              		.cfi_offset 5, -20
  595              		.cfi_offset 6, -16
  596              		.cfi_offset 7, -12
-ARM GAS  /tmp/ccc2zjbk.s 			page 19
+ARM GAS  /tmp/ccctyiBz.s 			page 19
 
 
  597              		.cfi_offset 8, -8
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  641              		.cfi_def_cfa_offset 24
  642              		@ sp needed
  643 003c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
-ARM GAS  /tmp/ccc2zjbk.s 			page 20
+ARM GAS  /tmp/ccctyiBz.s 			page 20
 
 
  644              	.LVL60:
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  692              	.LVL63:
  129:src/lcd.c     ****   lcd_fill_rect ( i+1, j+39, 16, 1, col );
  693              		.loc 1 129 3 view .LVU116
-ARM GAS  /tmp/ccc2zjbk.s 			page 21
+ARM GAS  /tmp/ccctyiBz.s 			page 21
 
 
  694 0012 0123     		movs	r3, #1
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  743              		.thumb
  744              		.thumb_func
  745              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/ccc2zjbk.s 			page 22
+ARM GAS  /tmp/ccctyiBz.s 			page 22
 
 
  747              	decimal:
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  794              		.thumb
  795              		.thumb_func
  796              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/ccc2zjbk.s 			page 23
+ARM GAS  /tmp/ccctyiBz.s 			page 23
 
 
  798              	comma:
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  842 0026 B847     		blx	r7
  843              	.LVL80:
  140:src/lcd.c     **** 
-ARM GAS  /tmp/ccc2zjbk.s 			page 24
+ARM GAS  /tmp/ccctyiBz.s 			page 24
 
 
  844              		.loc 1 140 1 is_stmt 0 view .LVU141
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  893 000e 0631     		adds	r1, r1, #6
  894              	.LVL83:
  143:src/lcd.c     ****   lcd_fill_rect (i+1, j, 1, 11, col );
-ARM GAS  /tmp/ccc2zjbk.s 			page 25
+ARM GAS  /tmp/ccctyiBz.s 			page 25
 
 
  895              		.loc 1 143 3 view .LVU149
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  944              		.syntax unified
  945              		.thumb
  946              		.thumb_func
-ARM GAS  /tmp/ccc2zjbk.s 			page 26
+ARM GAS  /tmp/ccctyiBz.s 			page 26
 
 
  947              		.fpu fpv4-sp-d16
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  997              		.global	exp_right_side
  998              		.syntax unified
  999              		.thumb
-ARM GAS  /tmp/ccc2zjbk.s 			page 27
+ARM GAS  /tmp/ccctyiBz.s 			page 27
 
 
  1000              		.thumb_func
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  157:src/lcd.c     ****   lcd_fill_rect (i+9, j+6, 1, 4, col );
  1046              		.loc 1 157 3 view .LVU173
  1047 0024 B11C     		adds	r1, r6, #2
-ARM GAS  /tmp/ccc2zjbk.s 			page 28
+ARM GAS  /tmp/ccctyiBz.s 			page 28
 
 
  1048 0026 04F10A00 		add	r0, r4, #10
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  1098              	.LFE21:
  1100              		.section	.text.exp_right_side_bottom,"ax",%progbits
  1101              		.align	1
-ARM GAS  /tmp/ccc2zjbk.s 			page 29
+ARM GAS  /tmp/ccctyiBz.s 			page 29
 
 
  1102              		.p2align 2,,3
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  1151              		.cfi_offset 5, -16
  1152              		.cfi_offset 6, -12
  1153              		.cfi_offset 7, -8
-ARM GAS  /tmp/ccc2zjbk.s 			page 30
+ARM GAS  /tmp/ccctyiBz.s 			page 30
 
 
  1154              		.cfi_offset 14, -4
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  1199              	.L64:
  1200 0034 3D020008 		.word	134218301
  1201              		.cfi_endproc
-ARM GAS  /tmp/ccc2zjbk.s 			page 31
+ARM GAS  /tmp/ccctyiBz.s 			page 31
 
 
  1202              	.LFE23:
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  1249 0016 B847     		blx	r7
  1250              	.LVL121:
  173:src/lcd.c     ****   lcd_fill_rect (i+4, j+20, 3, 1, col );
-ARM GAS  /tmp/ccc2zjbk.s 			page 32
+ARM GAS  /tmp/ccctyiBz.s 			page 32
 
 
  1251              		.loc 1 173 3 is_stmt 1 view .LVU206
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  1301              		.cfi_offset 4, -24
  1302              		.cfi_offset 5, -20
  1303              		.cfi_offset 6, -16
-ARM GAS  /tmp/ccc2zjbk.s 			page 33
+ARM GAS  /tmp/ccctyiBz.s 			page 33
 
 
  1304              		.cfi_offset 7, -12
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  1348 003a 02B0     		add	sp, sp, #8
  1349              		.cfi_def_cfa_offset 24
  1350              		@ sp needed
-ARM GAS  /tmp/ccc2zjbk.s 			page 34
+ARM GAS  /tmp/ccctyiBz.s 			page 34
 
 
  1351 003c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  1398 000a 5974     		strb	r1, [r3, #17]
  355:src/lcd.c     ****   if (depth == 4) {
  1399              		.loc 1 355 3 is_stmt 1 view .LVU232
-ARM GAS  /tmp/ccc2zjbk.s 			page 35
+ARM GAS  /tmp/ccctyiBz.s 			page 35
 
 
  1400 000c 1846     		mov	r0, r3
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  1443 002e 00BF     		.align	2
  1444              	.L78:
  1445 0030 00200010 		.word	268443648
-ARM GAS  /tmp/ccc2zjbk.s 			page 36
+ARM GAS  /tmp/ccctyiBz.s 			page 36
 
 
  1446 0034 6D020008 		.word	134218349
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  394:src/lcd.c     **** 
  395:src/lcd.c     **** void draw_RPN(int inverse) {
  1471              		.loc 1 395 28 is_stmt 1 view -0
-ARM GAS  /tmp/ccc2zjbk.s 			page 37
+ARM GAS  /tmp/ccctyiBz.s 			page 37
 
 
  1472              		.cfi_startproc
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  1512 0028 BDE81040 		pop	{r4, lr}
  1513              		.cfi_remember_state
  1514              		.cfi_restore 14
-ARM GAS  /tmp/ccc2zjbk.s 			page 38
+ARM GAS  /tmp/ccctyiBz.s 			page 38
 
 
  1515              		.cfi_restore 4
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  407:src/lcd.c     **** void draw_RCL(int inverse) {
  1566              		.loc 1 407 28 is_stmt 1 view -0
  1567              		.cfi_startproc
-ARM GAS  /tmp/ccc2zjbk.s 			page 39
+ARM GAS  /tmp/ccctyiBz.s 			page 39
 
 
  1568              		@ args = 0, pretend = 0, frame = 0
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  1613 0024 6D020008 		.word	134218349
  1614 0028 7D020008 		.word	134218365
  1615 002c 00000000 		.word	.LC4
-ARM GAS  /tmp/ccc2zjbk.s 			page 40
+ARM GAS  /tmp/ccctyiBz.s 			page 40
 
 
  1616              		.cfi_endproc
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  1665 0018 4FF4B471 		mov	r1, #360
  1666 001c A847     		blx	r5
  1667              	.LVL151:
-ARM GAS  /tmp/ccc2zjbk.s 			page 41
+ARM GAS  /tmp/ccctyiBz.s 			page 41
 
 
  417:src/lcd.c     **** #ifdef INCLUDE_C_LOCK
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  1707 0052 0022     		movs	r2, #0
  1708 0054 5A74     		strb	r2, [r3, #17]
  1709              		.loc 1 428 1 view .LVU297
-ARM GAS  /tmp/ccc2zjbk.s 			page 42
+ARM GAS  /tmp/ccctyiBz.s 			page 42
 
 
  1710 0056 38BD     		pop	{r3, r4, r5, pc}
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  1761              		.cfi_offset 14, -4
  184:src/lcd.c     ****     col = 0xff;
  1762              		.loc 1 184 11 view .LVU302
-ARM GAS  /tmp/ccc2zjbk.s 			page 43
+ARM GAS  /tmp/ccctyiBz.s 			page 43
 
 
  1763 0002 B24D     		ldr	r5, .L160
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  1802 0036 3ED8     		bhi	.L103
  1803 0038 DFE803F0 		tbb	[pc, r3]
  1804              	.L108:
-ARM GAS  /tmp/ccc2zjbk.s 			page 44
+ARM GAS  /tmp/ccctyiBz.s 			page 44
 
 
  1805 003c 7C       		.byte	(.L116-.L108)/2
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  1849 0076 8501     		.2byte	(.L125-.L120)/2
  1850 0078 6801     		.2byte	(.L124-.L120)/2
  1851 007a 6B01     		.2byte	(.L123-.L120)/2
-ARM GAS  /tmp/ccc2zjbk.s 			page 45
+ARM GAS  /tmp/ccctyiBz.s 			page 45
 
 
  1852 007c 7201     		.2byte	(.L122-.L120)/2
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  1893              		.loc 1 362 3 view .LVU340
  362:src/lcd.c     **** }
  1894              		.loc 1 362 3 is_stmt 0 view .LVU341
-ARM GAS  /tmp/ccc2zjbk.s 			page 46
+ARM GAS  /tmp/ccctyiBz.s 			page 46
 
 
  1895              	.LBE58:
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  1939 00d4 DF010000 		.word	.L138+1
  1940 00d8 FB010000 		.word	.L137+1
  1941 00dc 05020000 		.word	.L136+1
-ARM GAS  /tmp/ccc2zjbk.s 			page 47
+ARM GAS  /tmp/ccctyiBz.s 			page 47
 
 
  1942 00e0 5D020000 		.word	.L135+1
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  1983              		.loc 1 344 5 view .LVU364
  1984 012a 5431     		adds	r1, r1, #84
  1985 012c 0523     		movs	r3, #5
-ARM GAS  /tmp/ccc2zjbk.s 			page 48
+ARM GAS  /tmp/ccctyiBz.s 			page 48
 
 
  1986 012e 0422     		movs	r2, #4
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  2031 0148 BDE87040 		pop	{r4, r5, r6, lr}
  2032              		.cfi_restore 14
  2033              		.cfi_restore 6
-ARM GAS  /tmp/ccc2zjbk.s 			page 49
+ARM GAS  /tmp/ccctyiBz.s 			page 49
 
 
  2034              		.cfi_restore 5
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  2079              		.loc 1 112 3 is_stmt 0 view .LVU382
  2080              	.LBE67:
  2081              	.LBE66:
-ARM GAS  /tmp/ccc2zjbk.s 			page 50
+ARM GAS  /tmp/ccctyiBz.s 			page 50
 
 
  351:src/lcd.c     **** 
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  2126              		.cfi_remember_state
  2127              		.cfi_def_cfa_offset 16
  2128              		@ sp needed
-ARM GAS  /tmp/ccc2zjbk.s 			page 51
+ARM GAS  /tmp/ccctyiBz.s 			page 51
 
 
  2129 017c BDE87040 		pop	{r4, r5, r6, lr}
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  2172 0198 1A46     		mov	r2, r3
  2173 019a AA21     		movs	r1, #170
  2174 019c A047     		blx	r4
-ARM GAS  /tmp/ccc2zjbk.s 			page 52
+ARM GAS  /tmp/ccctyiBz.s 			page 52
 
 
  2175              	.LVL200:
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  2218 01c2 02B0     		add	sp, sp, #8
  2219              		.cfi_remember_state
  2220              		.cfi_def_cfa_offset 16
-ARM GAS  /tmp/ccc2zjbk.s 			page 53
+ARM GAS  /tmp/ccctyiBz.s 			page 53
 
 
  2221              		@ sp needed
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  2268 01ea A847     		blx	r5
  2269              	.LVL214:
  259:src/lcd.c     ****       return;
-ARM GAS  /tmp/ccc2zjbk.s 			page 54
+ARM GAS  /tmp/ccctyiBz.s 			page 54
 
 
  2270              		.loc 1 259 7 is_stmt 1 view .LVU422
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  2317 0220 A847     		blx	r5
  2318              	.LVL221:
  267:src/lcd.c     ****       lcd_fill_rect(287,Y_ANNUNC-53,5,1,col);
-ARM GAS  /tmp/ccc2zjbk.s 			page 55
+ARM GAS  /tmp/ccctyiBz.s 			page 55
 
 
  2319              		.loc 1 267 7 view .LVU430
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  2364              		.loc 1 273 16 view .LVU439
  2365 0266 4374     		strb	r3, [r0, #17]
  274:src/lcd.c     ****       lcd_writeText(t20,"ALPHA");
-ARM GAS  /tmp/ccc2zjbk.s 			page 56
+ARM GAS  /tmp/ccctyiBz.s 			page 56
 
 
  2366              		.loc 1 274 7 is_stmt 1 view .LVU440
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  284:src/lcd.c     **** 	    draw_BEG(8, 0);
  2409              		.loc 1 284 4 is_stmt 1 view .LVU452
  284:src/lcd.c     **** 	    draw_BEG(8, 0);
-ARM GAS  /tmp/ccc2zjbk.s 			page 57
+ARM GAS  /tmp/ccctyiBz.s 			page 57
 
 
  2410              		.loc 1 284 7 is_stmt 0 view .LVU453
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  2450              		.loc 1 321 7 is_stmt 1 view .LVU467
  2451 02b4 084C     		ldr	r4, .L160+12
  2452              	.LVL236:
-ARM GAS  /tmp/ccc2zjbk.s 			page 58
+ARM GAS  /tmp/ccctyiBz.s 			page 58
 
 
  322:src/lcd.c     ****       lcd_writeText(t20, "PGM");
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  2496              		.loc 1 408 3 view .LVU478
  2497 02fc 206B     		ldr	r0, [r4, #48]
  408:src/lcd.c     ****   lcd_setXY (t20, 365, Y_ANNUNC-50);
-ARM GAS  /tmp/ccc2zjbk.s 			page 59
+ARM GAS  /tmp/ccctyiBz.s 			page 59
 
 
  2498              		.loc 1 408 12 view .LVU479
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  2540 032c F1E7     		b	.L140
  2541              	.L130:
  333:src/lcd.c     ****       lcd_setXY (t20, 325, Y_ANNUNC-30);
-ARM GAS  /tmp/ccc2zjbk.s 			page 60
+ARM GAS  /tmp/ccctyiBz.s 			page 60
 
 
  2542              		.loc 1 333 7 is_stmt 1 view .LVU492
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  2584 0350 02B0     		add	sp, sp, #8
  2585              		.cfi_remember_state
  2586              		.cfi_def_cfa_offset 16
-ARM GAS  /tmp/ccc2zjbk.s 			page 61
+ARM GAS  /tmp/ccctyiBz.s 			page 61
 
 
  2587              		@ sp needed
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  2633 0364 FFF7FEBF 		b	exp_left_side
  2634              	.LVL253:
  2635              	.L121:
-ARM GAS  /tmp/ccc2zjbk.s 			page 62
+ARM GAS  /tmp/ccctyiBz.s 			page 62
 
 
  2636              		.cfi_restore_state
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  148:src/lcd.c     ****   exp_left_side(i+1, j, col);
  2680              		.loc 1 148 6 view .LVU523
  2681              	.LBB91:
-ARM GAS  /tmp/ccc2zjbk.s 			page 63
+ARM GAS  /tmp/ccctyiBz.s 			page 63
 
 
  149:src/lcd.c     **** }
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  2724              	.LVL264:
  2725              	.L127:
  252:src/lcd.c     ****       return;
-ARM GAS  /tmp/ccc2zjbk.s 			page 64
+ARM GAS  /tmp/ccctyiBz.s 			page 64
 
 
  2726              		.loc 1 252 7 is_stmt 1 view .LVU536
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  2775              		.loc 1 47 11 view .LVU543
  2776 000c 2A54     		strb	r2, [r5, r0]
   48:src/lcd.c     ****   draw_dot(n);
-ARM GAS  /tmp/ccc2zjbk.s 			page 65
+ARM GAS  /tmp/ccctyiBz.s 			page 65
 
 
  2777              		.loc 1 48 3 is_stmt 1 view .LVU544
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  2823              		.cfi_offset 4, -12
  2824              		.cfi_offset 5, -8
  2825              		.cfi_offset 14, -4
-ARM GAS  /tmp/ccc2zjbk.s 			page 66
+ARM GAS  /tmp/ccctyiBz.s 			page 66
 
 
   53:src/lcd.c     ****   if ( !(dots[n]&2)) return;
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  2870              		.loc 1 69 23 is_stmt 1 view -0
  2871              		.cfi_startproc
  2872              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccc2zjbk.s 			page 67
+ARM GAS  /tmp/ccctyiBz.s 			page 67
 
 
  2873              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  2914              	.LBE95:
  2915              	.LBE96:
   71:src/lcd.c     ****   int bat = is_dot(BATTERY);
-ARM GAS  /tmp/ccc2zjbk.s 			page 68
+ARM GAS  /tmp/ccctyiBz.s 			page 68
 
 
  2916              		.loc 1 71 3 is_stmt 1 view .LVU580
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
   73:src/lcd.c     ****   int rpn = is_dot(RPN);
  2961              		.loc 1 73 3 is_stmt 1 view .LVU590
  2962              	.LBB111:
-ARM GAS  /tmp/ccc2zjbk.s 			page 69
+ARM GAS  /tmp/ccctyiBz.s 			page 69
 
 
  2963              	.LBI103:
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  3000 004e 1A70     		strb	r2, [r3]
   76:src/lcd.c     ****     dots[i] <<= 1;
  3001              		.loc 1 76 25 is_stmt 1 discriminator 3 view .LVU608
-ARM GAS  /tmp/ccc2zjbk.s 			page 70
+ARM GAS  /tmp/ccctyiBz.s 			page 70
 
 
  3002              	.LVL281:
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  3048              		.thumb
  3049              		.thumb_func
  3050              		.fpu fpv4-sp-d16
-ARM GAS  /tmp/ccc2zjbk.s 			page 71
+ARM GAS  /tmp/ccctyiBz.s 			page 71
 
 
  3052              	finish_7_segment:
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  3095 0012 2819     		adds	r0, r5, r4
  3096              	.LVL290:
  377:src/lcd.c     ****   }
-ARM GAS  /tmp/ccc2zjbk.s 			page 72
+ARM GAS  /tmp/ccctyiBz.s 			page 72
 
 
  3097              		.loc 1 377 5 is_stmt 1 view .LVU629
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  3135              	.LBE117:
  3136              	.LBE119:
  376:src/lcd.c     ****     if ((dots[i]&3) == 2) clr_dot(i);
-ARM GAS  /tmp/ccc2zjbk.s 			page 73
+ARM GAS  /tmp/ccctyiBz.s 			page 73
 
 
  3137              		.loc 1 376 34 is_stmt 1 view .LVU646
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  3184 0002 0D4C     		ldr	r4, .L213
  3185              	.LBB128:
  3186              	.LBB122:
-ARM GAS  /tmp/ccc2zjbk.s 			page 74
+ARM GAS  /tmp/ccctyiBz.s 			page 74
 
 
  3187              	.LBB123:
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  3226 0026 9B07     		lsls	r3, r3, #30
   53:src/lcd.c     ****   if ( !(dots[n]&2)) return;
  3227              		.loc 1 53 11 view .LVU671
-ARM GAS  /tmp/ccc2zjbk.s 			page 75
+ARM GAS  /tmp/ccctyiBz.s 			page 75
 
 
  3228 0028 2270     		strb	r2, [r4]
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  3271              		.p2align 2,,3
  3272              		.global	draw_PRT
  3273              		.syntax unified
-ARM GAS  /tmp/ccc2zjbk.s 			page 76
+ARM GAS  /tmp/ccctyiBz.s 			page 76
 
 
  3274              		.thumb
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  3320              		.cfi_restore 5
  3321              		.cfi_restore 4
  3322              		.cfi_def_cfa_offset 0
-ARM GAS  /tmp/ccc2zjbk.s 			page 77
+ARM GAS  /tmp/ccctyiBz.s 			page 77
 
 
  433:src/lcd.c     ****   lcd_writeText(t20,"PRT");
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  3370              		.cfi_restore 14
  3371              		.cfi_restore 4
  3372              		.cfi_def_cfa_offset 0
-ARM GAS  /tmp/ccc2zjbk.s 			page 78
+ARM GAS  /tmp/ccctyiBz.s 			page 78
 
 
  372:src/lcd.c     **** }
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  3421 0010 31020008 		.word	134218289
  3422              		.cfi_endproc
  3423              	.LFE35:
-ARM GAS  /tmp/ccc2zjbk.s 			page 79
+ARM GAS  /tmp/ccctyiBz.s 			page 79
 
 
  3425              		.section	.text.finish_LEQ,"ax",%progbits
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  447:src/lcd.c     ****   for (int i=0; i<TOP_DOTS; i++) {
  3473              		.loc 1 447 24 is_stmt 0 view .LVU719
  3474 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
-ARM GAS  /tmp/ccc2zjbk.s 			page 80
+ARM GAS  /tmp/ccctyiBz.s 			page 80
 
 
  3475              		.cfi_def_cfa_offset 24
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  3517              	.LVL315:
   50:src/lcd.c     **** }
  3518              		.loc 1 50 3 is_stmt 1 view .LVU732
-ARM GAS  /tmp/ccc2zjbk.s 			page 81
+ARM GAS  /tmp/ccctyiBz.s 			page 81
 
 
   50:src/lcd.c     **** }
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
   56:src/lcd.c     **** }
  3557              		.loc 1 56 11 is_stmt 0 view .LVU748
  3558 004a 0023     		movs	r3, #0
-ARM GAS  /tmp/ccc2zjbk.s 			page 82
+ARM GAS  /tmp/ccctyiBz.s 			page 82
 
 
  3559 004c 88F88A30 		strb	r3, [r8, #138]
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  3599              		.align	2
  3600              	.L243:
  3601 0070 FFFFFFFF 		.word	.LANCHOR0-1
-ARM GAS  /tmp/ccc2zjbk.s 			page 83
+ARM GAS  /tmp/ccctyiBz.s 			page 83
 
 
  3602              		.cfi_endproc
@@ -4946,144 +4946,144 @@ ARM GAS  /tmp/ccc2zjbk.s 			page 1
  3623              		.file 11 "src/display.h"
  3624              		.file 12 "src/storage.h"
  3625              		.file 13 "src/pretty.h"
-ARM GAS  /tmp/ccc2zjbk.s 			page 84
+ARM GAS  /tmp/ccctyiBz.s 			page 84
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 lcd.c
-     /tmp/ccc2zjbk.s:18     .rodata.draw_BEG.part.0.str1.4:0000000000000000 $d
-     /tmp/ccc2zjbk.s:22     .text.draw_BEG.part.0:0000000000000000 $t
-     /tmp/ccc2zjbk.s:30     .text.draw_BEG.part.0:0000000000000000 draw_BEG.part.0
-     /tmp/ccc2zjbk.s:49     .text.draw_BEG.part.0:000000000000000c $d
-     /tmp/ccc2zjbk.s:56     .text.is_dot:0000000000000000 $t
-     /tmp/ccc2zjbk.s:64     .text.is_dot:0000000000000000 is_dot
-     /tmp/ccc2zjbk.s:84     .text.is_dot:000000000000000c $d
-     /tmp/ccc2zjbk.s:89     .text.clear_disp:0000000000000000 $t
-     /tmp/ccc2zjbk.s:97     .text.clear_disp:0000000000000000 clear_disp
-     /tmp/ccc2zjbk.s:134    .text.clear_disp:0000000000000014 $d
-     /tmp/ccc2zjbk.s:140    .text.reset_7_segment:0000000000000000 $t
-     /tmp/ccc2zjbk.s:148    .text.reset_7_segment:0000000000000000 reset_7_segment
-     /tmp/ccc2zjbk.s:185    .text.reset_7_segment:0000000000000014 $d
-     /tmp/ccc2zjbk.s:190    .text.left_side:0000000000000000 $t
-     /tmp/ccc2zjbk.s:198    .text.left_side:0000000000000000 left_side
-     /tmp/ccc2zjbk.s:282    .text.left_side:0000000000000054 $d
-     /tmp/ccc2zjbk.s:287    .text.left_side_top:0000000000000000 $t
-     /tmp/ccc2zjbk.s:295    .text.left_side_top:0000000000000000 left_side_top
-     /tmp/ccc2zjbk.s:311    .text.left_side_bottom:0000000000000000 $t
-     /tmp/ccc2zjbk.s:319    .text.left_side_bottom:0000000000000000 left_side_bottom
-     /tmp/ccc2zjbk.s:341    .text.right_side:0000000000000000 $t
-     /tmp/ccc2zjbk.s:349    .text.right_side:0000000000000000 right_side
-     /tmp/ccc2zjbk.s:433    .text.right_side:000000000000005c $d
-     /tmp/ccc2zjbk.s:438    .text.right_side_top:0000000000000000 $t
-     /tmp/ccc2zjbk.s:446    .text.right_side_top:0000000000000000 right_side_top
-     /tmp/ccc2zjbk.s:462    .text.right_side_bottom:0000000000000000 $t
-     /tmp/ccc2zjbk.s:470    .text.right_side_bottom:0000000000000000 right_side_bottom
-     /tmp/ccc2zjbk.s:492    .text.top:0000000000000000 $t
-     /tmp/ccc2zjbk.s:500    .text.top:0000000000000000 top
-     /tmp/ccc2zjbk.s:569    .text.top:0000000000000040 $d
-     /tmp/ccc2zjbk.s:574    .text.middle:0000000000000000 $t
-     /tmp/ccc2zjbk.s:582    .text.middle:0000000000000000 middle
-     /tmp/ccc2zjbk.s:649    .text.middle:0000000000000040 $d
-     /tmp/ccc2zjbk.s:654    .text.bottom:0000000000000000 $t
-     /tmp/ccc2zjbk.s:662    .text.bottom:0000000000000000 bottom
-     /tmp/ccc2zjbk.s:734    .text.bottom:0000000000000048 $d
-     /tmp/ccc2zjbk.s:739    .text.decimal:0000000000000000 $t
-     /tmp/ccc2zjbk.s:747    .text.decimal:0000000000000000 decimal
-     /tmp/ccc2zjbk.s:785    .text.decimal:0000000000000018 $d
-     /tmp/ccc2zjbk.s:790    .text.comma:0000000000000000 $t
-     /tmp/ccc2zjbk.s:798    .text.comma:0000000000000000 comma
-     /tmp/ccc2zjbk.s:854    .text.comma:000000000000002c $d
-     /tmp/ccc2zjbk.s:859    .text.exp_left_side:0000000000000000 $t
-     /tmp/ccc2zjbk.s:867    .text.exp_left_side:0000000000000000 exp_left_side
-     /tmp/ccc2zjbk.s:936    .text.exp_left_side:0000000000000040 $d
-     /tmp/ccc2zjbk.s:941    .text.exp_left_side_top:0000000000000000 $t
-     /tmp/ccc2zjbk.s:949    .text.exp_left_side_top:0000000000000000 exp_left_side_top
-     /tmp/ccc2zjbk.s:968    .text.exp_left_side_bottom:0000000000000000 $t
-     /tmp/ccc2zjbk.s:976    .text.exp_left_side_bottom:0000000000000000 exp_left_side_bottom
-     /tmp/ccc2zjbk.s:995    .text.exp_right_side:0000000000000000 $t
-     /tmp/ccc2zjbk.s:1003   .text.exp_right_side:0000000000000000 exp_right_side
-     /tmp/ccc2zjbk.s:1072   .text.exp_right_side:0000000000000044 $d
-     /tmp/ccc2zjbk.s:1077   .text.exp_right_side_top:0000000000000000 $t
-     /tmp/ccc2zjbk.s:1085   .text.exp_right_side_top:0000000000000000 exp_right_side_top
-     /tmp/ccc2zjbk.s:1101   .text.exp_right_side_bottom:0000000000000000 $t
-ARM GAS  /tmp/ccc2zjbk.s 			page 85
+     /tmp/ccctyiBz.s:18     .rodata.draw_BEG.part.0.str1.4:0000000000000000 $d
+     /tmp/ccctyiBz.s:22     .text.draw_BEG.part.0:0000000000000000 $t
+     /tmp/ccctyiBz.s:30     .text.draw_BEG.part.0:0000000000000000 draw_BEG.part.0
+     /tmp/ccctyiBz.s:49     .text.draw_BEG.part.0:000000000000000c $d
+     /tmp/ccctyiBz.s:56     .text.is_dot:0000000000000000 $t
+     /tmp/ccctyiBz.s:64     .text.is_dot:0000000000000000 is_dot
+     /tmp/ccctyiBz.s:84     .text.is_dot:000000000000000c $d
+     /tmp/ccctyiBz.s:89     .text.clear_disp:0000000000000000 $t
+     /tmp/ccctyiBz.s:97     .text.clear_disp:0000000000000000 clear_disp
+     /tmp/ccctyiBz.s:134    .text.clear_disp:0000000000000014 $d
+     /tmp/ccctyiBz.s:140    .text.reset_7_segment:0000000000000000 $t
+     /tmp/ccctyiBz.s:148    .text.reset_7_segment:0000000000000000 reset_7_segment
+     /tmp/ccctyiBz.s:185    .text.reset_7_segment:0000000000000014 $d
+     /tmp/ccctyiBz.s:190    .text.left_side:0000000000000000 $t
+     /tmp/ccctyiBz.s:198    .text.left_side:0000000000000000 left_side
+     /tmp/ccctyiBz.s:282    .text.left_side:0000000000000054 $d
+     /tmp/ccctyiBz.s:287    .text.left_side_top:0000000000000000 $t
+     /tmp/ccctyiBz.s:295    .text.left_side_top:0000000000000000 left_side_top
+     /tmp/ccctyiBz.s:311    .text.left_side_bottom:0000000000000000 $t
+     /tmp/ccctyiBz.s:319    .text.left_side_bottom:0000000000000000 left_side_bottom
+     /tmp/ccctyiBz.s:341    .text.right_side:0000000000000000 $t
+     /tmp/ccctyiBz.s:349    .text.right_side:0000000000000000 right_side
+     /tmp/ccctyiBz.s:433    .text.right_side:000000000000005c $d
+     /tmp/ccctyiBz.s:438    .text.right_side_top:0000000000000000 $t
+     /tmp/ccctyiBz.s:446    .text.right_side_top:0000000000000000 right_side_top
+     /tmp/ccctyiBz.s:462    .text.right_side_bottom:0000000000000000 $t
+     /tmp/ccctyiBz.s:470    .text.right_side_bottom:0000000000000000 right_side_bottom
+     /tmp/ccctyiBz.s:492    .text.top:0000000000000000 $t
+     /tmp/ccctyiBz.s:500    .text.top:0000000000000000 top
+     /tmp/ccctyiBz.s:569    .text.top:0000000000000040 $d
+     /tmp/ccctyiBz.s:574    .text.middle:0000000000000000 $t
+     /tmp/ccctyiBz.s:582    .text.middle:0000000000000000 middle
+     /tmp/ccctyiBz.s:649    .text.middle:0000000000000040 $d
+     /tmp/ccctyiBz.s:654    .text.bottom:0000000000000000 $t
+     /tmp/ccctyiBz.s:662    .text.bottom:0000000000000000 bottom
+     /tmp/ccctyiBz.s:734    .text.bottom:0000000000000048 $d
+     /tmp/ccctyiBz.s:739    .text.decimal:0000000000000000 $t
+     /tmp/ccctyiBz.s:747    .text.decimal:0000000000000000 decimal
+     /tmp/ccctyiBz.s:785    .text.decimal:0000000000000018 $d
+     /tmp/ccctyiBz.s:790    .text.comma:0000000000000000 $t
+     /tmp/ccctyiBz.s:798    .text.comma:0000000000000000 comma
+     /tmp/ccctyiBz.s:854    .text.comma:000000000000002c $d
+     /tmp/ccctyiBz.s:859    .text.exp_left_side:0000000000000000 $t
+     /tmp/ccctyiBz.s:867    .text.exp_left_side:0000000000000000 exp_left_side
+     /tmp/ccctyiBz.s:936    .text.exp_left_side:0000000000000040 $d
+     /tmp/ccctyiBz.s:941    .text.exp_left_side_top:0000000000000000 $t
+     /tmp/ccctyiBz.s:949    .text.exp_left_side_top:0000000000000000 exp_left_side_top
+     /tmp/ccctyiBz.s:968    .text.exp_left_side_bottom:0000000000000000 $t
+     /tmp/ccctyiBz.s:976    .text.exp_left_side_bottom:0000000000000000 exp_left_side_bottom
+     /tmp/ccctyiBz.s:995    .text.exp_right_side:0000000000000000 $t
+     /tmp/ccctyiBz.s:1003   .text.exp_right_side:0000000000000000 exp_right_side
+     /tmp/ccctyiBz.s:1072   .text.exp_right_side:0000000000000044 $d
+     /tmp/ccctyiBz.s:1077   .text.exp_right_side_top:0000000000000000 $t
+     /tmp/ccctyiBz.s:1085   .text.exp_right_side_top:0000000000000000 exp_right_side_top
+     /tmp/ccctyiBz.s:1101   .text.exp_right_side_bottom:0000000000000000 $t
+ARM GAS  /tmp/ccctyiBz.s 			page 85
 
 
-     /tmp/ccc2zjbk.s:1109   .text.exp_right_side_bottom:0000000000000000 exp_right_side_bottom
-     /tmp/ccc2zjbk.s:1131   .text.exp_top:0000000000000000 $t
-     /tmp/ccc2zjbk.s:1139   .text.exp_top:0000000000000000 exp_top
-     /tmp/ccc2zjbk.s:1200   .text.exp_top:0000000000000034 $d
-     /tmp/ccc2zjbk.s:1205   .text.exp_bottom:0000000000000000 $t
-     /tmp/ccc2zjbk.s:1213   .text.exp_bottom:0000000000000000 exp_bottom
-     /tmp/ccc2zjbk.s:1277   .text.exp_bottom:0000000000000038 $d
-     /tmp/ccc2zjbk.s:1282   .text.exp_middle:0000000000000000 $t
-     /tmp/ccc2zjbk.s:1290   .text.exp_middle:0000000000000000 exp_middle
-     /tmp/ccc2zjbk.s:1357   .text.exp_middle:0000000000000040 $d
-     /tmp/ccc2zjbk.s:1362   .rodata.draw_BEG.str1.4:0000000000000000 $d
-     /tmp/ccc2zjbk.s:1366   .text.draw_BEG:0000000000000000 $t
-     /tmp/ccc2zjbk.s:1374   .text.draw_BEG:0000000000000000 draw_BEG
-     /tmp/ccc2zjbk.s:1445   .text.draw_BEG:0000000000000030 $d
-     /tmp/ccc2zjbk.s:1453   .rodata.draw_RPN.str1.4:0000000000000000 $d
-     /tmp/ccc2zjbk.s:1460   .text.draw_RPN:0000000000000000 $t
-     /tmp/ccc2zjbk.s:1468   .text.draw_RPN:0000000000000000 draw_RPN
-     /tmp/ccc2zjbk.s:1541   .text.draw_RPN:0000000000000040 $d
-     /tmp/ccc2zjbk.s:1551   .rodata.draw_RCL.str1.4:0000000000000000 $d
-     /tmp/ccc2zjbk.s:1555   .text.draw_RCL:0000000000000000 $t
-     /tmp/ccc2zjbk.s:1563   .text.draw_RCL:0000000000000000 draw_RCL
-     /tmp/ccc2zjbk.s:1612   .text.draw_RCL:0000000000000020 $d
-     /tmp/ccc2zjbk.s:1620   .rodata.draw_LEQ.str1.4:0000000000000000 $d
-     /tmp/ccc2zjbk.s:1627   .text.draw_LEQ:0000000000000000 $t
-     /tmp/ccc2zjbk.s:1635   .text.draw_LEQ:0000000000000000 draw_LEQ
-     /tmp/ccc2zjbk.s:1714   .text.draw_LEQ:0000000000000058 $d
-     /tmp/ccc2zjbk.s:1725   .rodata.draw_dot.str1.4:0000000000000000 $d
-     /tmp/ccc2zjbk.s:1738   .text.draw_dot:0000000000000000 $t
-     /tmp/ccc2zjbk.s:1746   .text.draw_dot:0000000000000000 draw_dot
-     /tmp/ccc2zjbk.s:1805   .text.draw_dot:000000000000003c $d
-     /tmp/ccc2zjbk.s:1849   .text.draw_dot:0000000000000076 $d
-     /tmp/ccc2zjbk.s:1856   .text.draw_dot:0000000000000082 $t
-     /tmp/ccc2zjbk.s:1938   .text.draw_dot:00000000000000d0 $d
-     /tmp/ccc2zjbk.s:1951   .text.draw_dot:0000000000000100 $t
-     /tmp/ccc2zjbk.s:2473   .text.draw_dot:00000000000002cc $d
-     /tmp/ccc2zjbk.s:2492   .text.draw_dot:00000000000002f8 $t
-     /tmp/ccc2zjbk.s:2736   .text.draw_dot:00000000000003b0 $d
-     /tmp/ccc2zjbk.s:2746   .text.set_dot:0000000000000000 $t
-     /tmp/ccc2zjbk.s:2754   .text.set_dot:0000000000000000 set_dot
-     /tmp/ccc2zjbk.s:2798   .text.set_dot:0000000000000020 $d
-     /tmp/ccc2zjbk.s:2803   .text.clr_dot:0000000000000000 $t
-     /tmp/ccc2zjbk.s:2811   .text.clr_dot:0000000000000000 clr_dot
-     /tmp/ccc2zjbk.s:2855   .text.clr_dot:0000000000000020 $d
-     /tmp/ccc2zjbk.s:2860   .text.reset_disp:0000000000000000 $t
-     /tmp/ccc2zjbk.s:2868   .text.reset_disp:0000000000000000 reset_disp
-     /tmp/ccc2zjbk.s:3038   .text.reset_disp:0000000000000074 $d
-     /tmp/ccc2zjbk.s:3044   .text.finish_7_segment:0000000000000000 $t
-     /tmp/ccc2zjbk.s:3052   .text.finish_7_segment:0000000000000000 finish_7_segment
-     /tmp/ccc2zjbk.s:3150   .text.finish_7_segment:0000000000000038 $d
-     /tmp/ccc2zjbk.s:3155   .text.finish_alpha_row:0000000000000000 $t
-     /tmp/ccc2zjbk.s:3163   .text.finish_alpha_row:0000000000000000 finish_alpha_row
-     /tmp/ccc2zjbk.s:3261   .text.finish_alpha_row:0000000000000038 $d
-     /tmp/ccc2zjbk.s:3266   .rodata.draw_PRT.str1.4:0000000000000000 $d
-     /tmp/ccc2zjbk.s:3270   .text.draw_PRT:0000000000000000 $t
-     /tmp/ccc2zjbk.s:3278   .text.draw_PRT:0000000000000000 draw_PRT
-     /tmp/ccc2zjbk.s:3329   .text.draw_PRT:000000000000002c $d
-     /tmp/ccc2zjbk.s:3338   .text.finish_display:0000000000000000 $t
-ARM GAS  /tmp/ccc2zjbk.s 			page 86
+     /tmp/ccctyiBz.s:1109   .text.exp_right_side_bottom:0000000000000000 exp_right_side_bottom
+     /tmp/ccctyiBz.s:1131   .text.exp_top:0000000000000000 $t
+     /tmp/ccctyiBz.s:1139   .text.exp_top:0000000000000000 exp_top
+     /tmp/ccctyiBz.s:1200   .text.exp_top:0000000000000034 $d
+     /tmp/ccctyiBz.s:1205   .text.exp_bottom:0000000000000000 $t
+     /tmp/ccctyiBz.s:1213   .text.exp_bottom:0000000000000000 exp_bottom
+     /tmp/ccctyiBz.s:1277   .text.exp_bottom:0000000000000038 $d
+     /tmp/ccctyiBz.s:1282   .text.exp_middle:0000000000000000 $t
+     /tmp/ccctyiBz.s:1290   .text.exp_middle:0000000000000000 exp_middle
+     /tmp/ccctyiBz.s:1357   .text.exp_middle:0000000000000040 $d
+     /tmp/ccctyiBz.s:1362   .rodata.draw_BEG.str1.4:0000000000000000 $d
+     /tmp/ccctyiBz.s:1366   .text.draw_BEG:0000000000000000 $t
+     /tmp/ccctyiBz.s:1374   .text.draw_BEG:0000000000000000 draw_BEG
+     /tmp/ccctyiBz.s:1445   .text.draw_BEG:0000000000000030 $d
+     /tmp/ccctyiBz.s:1453   .rodata.draw_RPN.str1.4:0000000000000000 $d
+     /tmp/ccctyiBz.s:1460   .text.draw_RPN:0000000000000000 $t
+     /tmp/ccctyiBz.s:1468   .text.draw_RPN:0000000000000000 draw_RPN
+     /tmp/ccctyiBz.s:1541   .text.draw_RPN:0000000000000040 $d
+     /tmp/ccctyiBz.s:1551   .rodata.draw_RCL.str1.4:0000000000000000 $d
+     /tmp/ccctyiBz.s:1555   .text.draw_RCL:0000000000000000 $t
+     /tmp/ccctyiBz.s:1563   .text.draw_RCL:0000000000000000 draw_RCL
+     /tmp/ccctyiBz.s:1612   .text.draw_RCL:0000000000000020 $d
+     /tmp/ccctyiBz.s:1620   .rodata.draw_LEQ.str1.4:0000000000000000 $d
+     /tmp/ccctyiBz.s:1627   .text.draw_LEQ:0000000000000000 $t
+     /tmp/ccctyiBz.s:1635   .text.draw_LEQ:0000000000000000 draw_LEQ
+     /tmp/ccctyiBz.s:1714   .text.draw_LEQ:0000000000000058 $d
+     /tmp/ccctyiBz.s:1725   .rodata.draw_dot.str1.4:0000000000000000 $d
+     /tmp/ccctyiBz.s:1738   .text.draw_dot:0000000000000000 $t
+     /tmp/ccctyiBz.s:1746   .text.draw_dot:0000000000000000 draw_dot
+     /tmp/ccctyiBz.s:1805   .text.draw_dot:000000000000003c $d
+     /tmp/ccctyiBz.s:1849   .text.draw_dot:0000000000000076 $d
+     /tmp/ccctyiBz.s:1856   .text.draw_dot:0000000000000082 $t
+     /tmp/ccctyiBz.s:1938   .text.draw_dot:00000000000000d0 $d
+     /tmp/ccctyiBz.s:1951   .text.draw_dot:0000000000000100 $t
+     /tmp/ccctyiBz.s:2473   .text.draw_dot:00000000000002cc $d
+     /tmp/ccctyiBz.s:2492   .text.draw_dot:00000000000002f8 $t
+     /tmp/ccctyiBz.s:2736   .text.draw_dot:00000000000003b0 $d
+     /tmp/ccctyiBz.s:2746   .text.set_dot:0000000000000000 $t
+     /tmp/ccctyiBz.s:2754   .text.set_dot:0000000000000000 set_dot
+     /tmp/ccctyiBz.s:2798   .text.set_dot:0000000000000020 $d
+     /tmp/ccctyiBz.s:2803   .text.clr_dot:0000000000000000 $t
+     /tmp/ccctyiBz.s:2811   .text.clr_dot:0000000000000000 clr_dot
+     /tmp/ccctyiBz.s:2855   .text.clr_dot:0000000000000020 $d
+     /tmp/ccctyiBz.s:2860   .text.reset_disp:0000000000000000 $t
+     /tmp/ccctyiBz.s:2868   .text.reset_disp:0000000000000000 reset_disp
+     /tmp/ccctyiBz.s:3038   .text.reset_disp:0000000000000074 $d
+     /tmp/ccctyiBz.s:3044   .text.finish_7_segment:0000000000000000 $t
+     /tmp/ccctyiBz.s:3052   .text.finish_7_segment:0000000000000000 finish_7_segment
+     /tmp/ccctyiBz.s:3150   .text.finish_7_segment:0000000000000038 $d
+     /tmp/ccctyiBz.s:3155   .text.finish_alpha_row:0000000000000000 $t
+     /tmp/ccctyiBz.s:3163   .text.finish_alpha_row:0000000000000000 finish_alpha_row
+     /tmp/ccctyiBz.s:3261   .text.finish_alpha_row:0000000000000038 $d
+     /tmp/ccctyiBz.s:3266   .rodata.draw_PRT.str1.4:0000000000000000 $d
+     /tmp/ccctyiBz.s:3270   .text.draw_PRT:0000000000000000 $t
+     /tmp/ccctyiBz.s:3278   .text.draw_PRT:0000000000000000 draw_PRT
+     /tmp/ccctyiBz.s:3329   .text.draw_PRT:000000000000002c $d
+     /tmp/ccctyiBz.s:3338   .text.finish_display:0000000000000000 $t
+ARM GAS  /tmp/ccctyiBz.s 			page 86
 
 
-     /tmp/ccc2zjbk.s:3346   .text.finish_display:0000000000000000 finish_display
-     /tmp/ccc2zjbk.s:3380   .text.finish_display:0000000000000018 $d
-     /tmp/ccc2zjbk.s:3385   .text.finish_PRT:0000000000000000 $t
-     /tmp/ccc2zjbk.s:3393   .text.finish_PRT:0000000000000000 finish_PRT
-     /tmp/ccc2zjbk.s:3421   .text.finish_PRT:0000000000000010 $d
-     /tmp/ccc2zjbk.s:3426   .text.finish_LEQ:0000000000000000 $t
-     /tmp/ccc2zjbk.s:3434   .text.finish_LEQ:0000000000000000 finish_LEQ
-     /tmp/ccc2zjbk.s:3448   .text.finish_LEQ:0000000000000004 $d
-     /tmp/ccc2zjbk.s:3453   .text.do_all_dots:0000000000000000 $t
-     /tmp/ccc2zjbk.s:3461   .text.do_all_dots:0000000000000000 do_all_dots
-     /tmp/ccc2zjbk.s:3601   .text.do_all_dots:0000000000000070 $d
-     /tmp/ccc2zjbk.s:3606   .bss.dots:0000000000000000 $d
-     /tmp/ccc2zjbk.s:3610   .bss.dots:0000000000000000 dots
-     /tmp/ccc2zjbk.s:1815   .text.draw_dot:0000000000000045 $d
-     /tmp/ccc2zjbk.s:1815   .text.draw_dot:0000000000000046 $t
+     /tmp/ccctyiBz.s:3346   .text.finish_display:0000000000000000 finish_display
+     /tmp/ccctyiBz.s:3380   .text.finish_display:0000000000000018 $d
+     /tmp/ccctyiBz.s:3385   .text.finish_PRT:0000000000000000 $t
+     /tmp/ccctyiBz.s:3393   .text.finish_PRT:0000000000000000 finish_PRT
+     /tmp/ccctyiBz.s:3421   .text.finish_PRT:0000000000000010 $d
+     /tmp/ccctyiBz.s:3426   .text.finish_LEQ:0000000000000000 $t
+     /tmp/ccctyiBz.s:3434   .text.finish_LEQ:0000000000000000 finish_LEQ
+     /tmp/ccctyiBz.s:3448   .text.finish_LEQ:0000000000000004 $d
+     /tmp/ccctyiBz.s:3453   .text.do_all_dots:0000000000000000 $t
+     /tmp/ccctyiBz.s:3461   .text.do_all_dots:0000000000000000 do_all_dots
+     /tmp/ccctyiBz.s:3601   .text.do_all_dots:0000000000000070 $d
+     /tmp/ccctyiBz.s:3606   .bss.dots:0000000000000000 $d
+     /tmp/ccctyiBz.s:3610   .bss.dots:0000000000000000 dots
+     /tmp/ccctyiBz.s:1815   .text.draw_dot:0000000000000045 $d
+     /tmp/ccctyiBz.s:1815   .text.draw_dot:0000000000000046 $t
 
 UNDEFINED SYMBOLS
 main_ram

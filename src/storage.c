@@ -1021,7 +1021,7 @@ void load_prog_file () {
 
   // File is now open with correct permissions
 
-  fsize = f_size(FPT);
+  fsize = f_size(FPT); // size in bytes
   if (fsize > LIBRARY_SIZE) {// too big! Wrong file?
     f_close(FPT);
     DispMsg = "File too big";
@@ -1045,10 +1045,15 @@ void load_prog_file () {
 
   fr = (FLASH_REGION*) buffer;
     
-  if (checksum_region(fr, fr)) {//crc failed - wrong filetype?
-    DispMsg = "File crc err";
-        free(buffer);
-    return;
+  if (checksum_region(fr, fr)) {// crc failed - wrong filetype?
+    unsigned short correct_crc = fr->crc; // get crc from after program end
+    unsigned short end_of_prog = 4 + (fr->size)*2;
+    unsigned short possible_crc = buffer[end_of_prog] + buffer[end_of_prog+1]*256;
+    if (possible_crc != correct_crc) { // if still no good, bail out
+      DispMsg = "File crc err";
+      free(buffer);
+      return;
+    }
   }
 
   store_program_from_buffer (fr);

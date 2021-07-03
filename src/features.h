@@ -56,7 +56,7 @@
 // Note: the function OnKeyticks isn't implemented in the DM42 code as I didn't notice it.
 
 // Include the pixel plotting commands
-// #define INCLUDE_PLOTTING
+ #define INCLUDE_PLOTTING
 
 // Build a tiny version of the device
 // #define TINY_BUILD

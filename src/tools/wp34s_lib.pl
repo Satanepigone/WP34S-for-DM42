@@ -53,7 +53,7 @@ my $STATE_MODE = "";
 
 my $CRC_INITIALIZER = 0x5aa5;
 
-my $DEFAULT_ASM = "wp34s_asm.pl";
+my $DEFAULT_ASM = "./wp34s_asm.pl";
 my $asm_script = $DEFAULT_ASM;
 my $preproc_script = ""; # Allows pass-thru of script name to ASM.
 
