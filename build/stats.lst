@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccdokjku.s 			page 1
+ARM GAS  /tmp/ccJLWTVJ.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
   28:src/stats.c   **** #define DISCRETE_TOLERANCE	&const_0_1
   29:src/stats.c   **** 
   30:src/stats.c   **** /*
-ARM GAS  /tmp/ccdokjku.s 			page 2
+ARM GAS  /tmp/ccJLWTVJ.s 			page 2
 
 
   31:src/stats.c   ****  *  Define register block
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
   85:src/stats.c   **** 	SizeStatRegs = 0;
   86:src/stats.c   **** 	State.have_stats = 0;
   87:src/stats.c   **** }
-ARM GAS  /tmp/ccdokjku.s 			page 3
+ARM GAS  /tmp/ccJLWTVJ.s 			page 3
 
 
   88:src/stats.c   **** 
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  142:src/stats.c   **** /* Accumulate sigma data.
  143:src/stats.c   ****  */
  144:src/stats.c   **** static void sigop(decimal64 *r, const decNumber *a, decNumber *(*op)(decNumber *, const decNumber *
-ARM GAS  /tmp/ccdokjku.s 			page 4
+ARM GAS  /tmp/ccJLWTVJ.s 			page 4
 
 
  145:src/stats.c   **** 	decNumber t, u;
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  199:src/stats.c   **** 	mulop(&sigmalnYlnY, &ly, &ly, op);
  200:src/stats.c   **** 	mulop(&sigmalnXlnY, &lx, &ly, op);
  201:src/stats.c   **** 	mulop(&sigmaXlnY, x, &ly, op);
-ARM GAS  /tmp/ccdokjku.s 			page 5
+ARM GAS  /tmp/ccJLWTVJ.s 			page 5
 
 
  202:src/stats.c   **** 	mulop(&sigmaYlnX, y, &lx, op);
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  256:src/stats.c   **** 				if (dn_gt(&c, &b)) {
  257:src/stats.c   **** 					decNumberCopy(&b, &c);
  258:src/stats.c   **** 					m = (enum sigma_modes) i;
-ARM GAS  /tmp/ccdokjku.s 			page 6
+ARM GAS  /tmp/ccJLWTVJ.s 			page 6
 
 
  259:src/stats.c   **** 				}
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  313:src/stats.c   **** 		decimal64ToNumber(lnx ? &sigmalnX : &sigmaX, sx);
  314:src/stats.c   **** 	if (sy != NULL)
  315:src/stats.c   **** 		decimal64ToNumber(lny ? &sigmalnY : &sigmaY, sy);
-ARM GAS  /tmp/ccdokjku.s 			page 7
+ARM GAS  /tmp/ccJLWTVJ.s 			page 7
 
 
  316:src/stats.c   **** 	if (sxx != NULL) {
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  370:src/stats.c   **** 
  371:src/stats.c   **** void sigma_sum(enum nilop op) {
  372:src/stats.c   **** 	REGISTER *const x = StackBase;
-ARM GAS  /tmp/ccdokjku.s 			page 8
+ARM GAS  /tmp/ccJLWTVJ.s 			page 8
 
 
  373:src/stats.c   **** 	REGISTER *const y = get_reg_n(regY_idx);
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  427:src/stats.c   **** 
  428:src/stats.c   **** 	if (check_data(1))
  429:src/stats.c   **** 		return;
-ARM GAS  /tmp/ccdokjku.s 			page 9
+ARM GAS  /tmp/ccJLWTVJ.s 			page 9
 
 
  430:src/stats.c   **** 	get_sigmas(&N, &sx, &sy, NULL, NULL, NULL, SIGMA_QUIET_POWER);
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  484:src/stats.c   **** }
  485:src/stats.c   **** 
  486:src/stats.c   **** 
-ARM GAS  /tmp/ccdokjku.s 			page 10
+ARM GAS  /tmp/ccJLWTVJ.s 			page 10
 
 
  487:src/stats.c   **** 
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  541:src/stats.c   **** 
  542:src/stats.c   **** 	dn_multiply(t, &N, &sxx);
  543:src/stats.c   **** 	decNumberSquare(&u, &sx);
-ARM GAS  /tmp/ccdokjku.s 			page 11
+ARM GAS  /tmp/ccJLWTVJ.s 			page 11
 
 
  544:src/stats.c   **** 	dn_subtract(&v, t, &u);
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  598:src/stats.c   **** 	m = get_sigmas(&N, &sx, &sy, &sxx, NULL, &sxy, (enum sigma_modes) UState.sigma_mode);
  599:src/stats.c   **** 
  600:src/stats.c   **** 	dn_multiply(B, &N, &sxx);
-ARM GAS  /tmp/ccdokjku.s 			page 12
+ARM GAS  /tmp/ccJLWTVJ.s 			page 12
 
 
  601:src/stats.c   **** 	decNumberSquare(&u, &sx);
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  655:src/stats.c   **** 	case SIGMA_QUIET_POWER:
  656:src/stats.c   **** 		dn_ln(&t, y);
  657:src/stats.c   **** 		dn_subtract(&u, &t, &b);
-ARM GAS  /tmp/ccdokjku.s 			page 13
+ARM GAS  /tmp/ccJLWTVJ.s 			page 13
 
 
  658:src/stats.c   **** 		dn_divide(&t, &u, &a);
@@ -778,13 +778,13 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
   37 0002 1549     		ldr	r1, .L4+4
   38 0004 1B68     		ldr	r3, [r3]
  704:src/stats.c   ****   RandS2 = TAUSWORTHE (RandS2,  2, 25, 4294967288UL, 4);
-ARM GAS  /tmp/ccdokjku.s 			page 14
+ARM GAS  /tmp/ccJLWTVJ.s 			page 14
 
 
  705:src/stats.c   ****   RandS3 = TAUSWORTHE (RandS3,  3, 11, 4294967280UL, 17);
   39              		.loc 1 705 12 view .LVU3
   40 0006 154A     		ldr	r2, .L4+8
-  41 0008 D3F8D807 		ldr	r0, [r3, #2008]
+  41 0008 D3F8D80F 		ldr	r0, [r3, #4056]
  699:src/stats.c   **** #define MASK 0xffffffffUL
   42              		.loc 1 699 41 view .LVU4
   43 000c 70B4     		push	{r4, r5, r6}
@@ -794,10 +794,10 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
   47              		.cfi_offset 6, -4
  704:src/stats.c   ****   RandS2 = TAUSWORTHE (RandS2,  2, 25, 4294967288UL, 4);
   48              		.loc 1 704 12 view .LVU5
-  49 000e D3F8D467 		ldr	r6, [r3, #2004]
+  49 000e D3F8D46F 		ldr	r6, [r3, #4052]
  703:src/stats.c   ****   RandS2 = TAUSWORTHE (RandS2,  2, 25, 4294967288UL, 4);
   50              		.loc 1 703 12 view .LVU6
-  51 0012 D3F8D057 		ldr	r5, [r3, #2000]
+  51 0012 D3F8D05F 		ldr	r5, [r3, #4048]
  704:src/stats.c   ****   RandS2 = TAUSWORTHE (RandS2,  2, 25, 4294967288UL, 4);
   52              		.loc 1 704 12 view .LVU7
   53 0016 3401     		lsls	r4, r6, #4
@@ -827,7 +827,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
   70 003c 81EA0400 		eor	r0, r1, r4
  704:src/stats.c   ****   RandS3 = TAUSWORTHE (RandS3,  3, 11, 4294967280UL, 17);
   71              		.loc 1 704 10 view .LVU15
-  72 0040 C3F8D447 		str	r4, [r3, #2004]
+  72 0040 C3F8D44F 		str	r4, [r3, #4052]
  708:src/stats.c   **** }
   73              		.loc 1 708 1 view .LVU16
   74 0044 5040     		eors	r0, r0, r2
@@ -838,17 +838,17 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
   79              		.cfi_def_cfa_offset 0
  703:src/stats.c   ****   RandS2 = TAUSWORTHE (RandS2,  2, 25, 4294967288UL, 4);
   80              		.loc 1 703 10 view .LVU17
-ARM GAS  /tmp/ccdokjku.s 			page 15
+ARM GAS  /tmp/ccJLWTVJ.s 			page 15
 
 
-  81 0048 C3F8D017 		str	r1, [r3, #2000]
+  81 0048 C3F8D01F 		str	r1, [r3, #4048]
  704:src/stats.c   ****   RandS3 = TAUSWORTHE (RandS3,  3, 11, 4294967280UL, 17);
   82              		.loc 1 704 3 is_stmt 1 view .LVU18
  705:src/stats.c   **** 
   83              		.loc 1 705 3 view .LVU19
  705:src/stats.c   **** 
   84              		.loc 1 705 10 is_stmt 0 view .LVU20
-  85 004c C3F8D827 		str	r2, [r3, #2008]
+  85 004c C3F8D82F 		str	r2, [r3, #4056]
  707:src/stats.c   **** }
   86              		.loc 1 707 3 is_stmt 1 view .LVU21
   87              		.loc 1 708 1 is_stmt 0 view .LVU22
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  125 000a 03FB00F1 		mul	r1, r3, r0
  717:src/stats.c   **** 	if (RandS1 < 2) RandS1 += 2UL;
  126              		.loc 1 717 2 is_stmt 1 view .LVU30
-ARM GAS  /tmp/ccdokjku.s 			page 16
+ARM GAS  /tmp/ccJLWTVJ.s 			page 16
 
 
  127              		.loc 1 717 5 is_stmt 0 view .LVU31
@@ -920,7 +920,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  139 0016 174A     		ldr	r2, .L15+8
  716:src/stats.c   **** 	if (RandS1 < 2) RandS1 += 2UL;
  140              		.loc 1 716 9 view .LVU36
- 141 0018 C4F8D017 		str	r1, [r4, #2000]
+ 141 0018 C4F8D01F 		str	r1, [r4, #4048]
  142              		.loc 1 719 2 is_stmt 1 view .LVU37
  143              		.loc 1 719 11 is_stmt 0 view .LVU38
  144 001c 02FB00F0 		mul	r0, r2, r0
@@ -933,7 +933,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  150              		.loc 1 720 18 is_stmt 1 discriminator 1 view .LVU41
  151              		.loc 1 720 25 is_stmt 0 discriminator 1 view .LVU42
  152 0024 0830     		adds	r0, r0, #8
- 153 0026 C4F8D407 		str	r0, [r4, #2004]
+ 153 0026 C4F8D40F 		str	r0, [r4, #4052]
  721:src/stats.c   **** 
  722:src/stats.c   **** 	RandS3 = LCG (RandS2);
  154              		.loc 1 722 2 is_stmt 1 discriminator 1 view .LVU43
@@ -943,7 +943,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  157              		.loc 1 723 2 is_stmt 1 discriminator 1 view .LVU45
  158              	.L14:
  159              		.loc 1 723 26 is_stmt 0 discriminator 1 view .LVU46
- 160 002e C4F8D837 		str	r3, [r4, #2008]
+ 160 002e C4F8D83F 		str	r3, [r4, #4056]
  161              	.LVL3:
  724:src/stats.c   **** #undef LCG
  725:src/stats.c   **** 
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  726:src/stats.c   **** 		taus_get();
  167              		.loc 1 726 12 discriminator 1 view .LVU50
  168              		.loc 1 727 3 discriminator 1 view .LVU51
-ARM GAS  /tmp/ccdokjku.s 			page 17
+ARM GAS  /tmp/ccJLWTVJ.s 			page 17
 
 
  169 0036 FFF7FEFF 		bl	taus_get
@@ -1010,7 +1010,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  203              	.LVL10:
  717:src/stats.c   **** 
  204              		.loc 1 717 25 discriminator 1 view .LVU68
- 205 0050 C4F8D007 		str	r0, [r4, #2000]
+ 205 0050 C4F8D00F 		str	r0, [r4, #4048]
  719:src/stats.c   **** 	if (RandS2 < 8) RandS2 += 8UL;
  206              		.loc 1 719 2 is_stmt 1 discriminator 1 view .LVU69
  719:src/stats.c   **** 	if (RandS2 < 8) RandS2 += 8UL;
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  208 0054 03FB00F0 		mul	r0, r3, r0
  720:src/stats.c   **** 
  209              		.loc 1 720 2 is_stmt 1 discriminator 1 view .LVU71
-ARM GAS  /tmp/ccdokjku.s 			page 18
+ARM GAS  /tmp/ccJLWTVJ.s 			page 18
 
 
  210              	.L9:
@@ -1027,7 +1027,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  212 0058 044B     		ldr	r3, .L15
  719:src/stats.c   **** 	if (RandS2 < 8) RandS2 += 8UL;
  213              		.loc 1 719 9 view .LVU73
- 214 005a C4F8D407 		str	r0, [r4, #2004]
+ 214 005a C4F8D40F 		str	r0, [r4, #4052]
  722:src/stats.c   **** 	if (RandS3 < 16) RandS3 += 16UL;
  215              		.loc 1 722 2 is_stmt 1 view .LVU74
  722:src/stats.c   **** 	if (RandS3 < 16) RandS3 += 16UL;
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  255              		.cfi_offset 5, -12
  256              		.cfi_offset 6, -8
  257              		.cfi_offset 14, -4
-ARM GAS  /tmp/ccdokjku.s 			page 19
+ARM GAS  /tmp/ccJLWTVJ.s 			page 19
 
 
  258 0002 92B0     		sub	sp, sp, #72
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  304              		.cfi_startproc
  305              		@ args = 0, pretend = 0, frame = 72
  306              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccdokjku.s 			page 20
+ARM GAS  /tmp/ccJLWTVJ.s 			page 20
 
 
  145:src/stats.c   **** 
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  350              		.section	.text.sigma_helper,"ax",%progbits
  351              		.align	1
  352              		.p2align 2,,3
-ARM GAS  /tmp/ccdokjku.s 			page 21
+ARM GAS  /tmp/ccJLWTVJ.s 			page 21
 
 
  353              		.syntax unified
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  396              	.LVL24:
  182:src/stats.c   **** 	mulop128(&sigmaX2, x, x, op);
  397              		.loc 1 182 2 is_stmt 1 view .LVU117
-ARM GAS  /tmp/ccdokjku.s 			page 22
+ARM GAS  /tmp/ccJLWTVJ.s 			page 22
 
 
  398 001a 2868     		ldr	r0, [r5]
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  440              	.LBB33:
  172:src/stats.c   **** }
  441              		.loc 1 172 14 is_stmt 0 view .LVU130
-ARM GAS  /tmp/ccdokjku.s 			page 23
+ARM GAS  /tmp/ccJLWTVJ.s 			page 23
 
 
  442 0042 3246     		mov	r2, r6
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  169:src/stats.c   **** 	decNumber t;
  484              		.loc 1 169 13 is_stmt 1 view .LVU143
  485              	.LBB38:
-ARM GAS  /tmp/ccdokjku.s 			page 24
+ARM GAS  /tmp/ccJLWTVJ.s 			page 24
 
 
  170:src/stats.c   **** 
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  172:src/stats.c   **** }
  526              		.loc 1 172 14 is_stmt 0 view .LVU158
  527 0086 FFF7FEFF 		bl	dn_multiply
-ARM GAS  /tmp/ccdokjku.s 			page 25
+ARM GAS  /tmp/ccJLWTVJ.s 			page 25
 
 
  528              	.LVL37:
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  198:src/stats.c   **** 	mulop(&sigmalnYlnY, &ly, &ly, op);
  572              		.loc 1 198 2 view .LVU169
  573 00c0 00F15808 		add	r8, r0, #88
-ARM GAS  /tmp/ccdokjku.s 			page 26
+ARM GAS  /tmp/ccJLWTVJ.s 			page 26
 
 
  574              	.LVL43:
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  166:src/stats.c   **** }
  614              		.loc 1 166 11 is_stmt 0 view .LVU184
  615 00de 1146     		mov	r1, r2
-ARM GAS  /tmp/ccdokjku.s 			page 27
+ARM GAS  /tmp/ccJLWTVJ.s 			page 27
 
 
  616 00e0 13A8     		add	r0, sp, #76
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  656              		.loc 1 166 11 view .LVU198
  657 0102 0146     		mov	r1, r0
  166:src/stats.c   **** }
-ARM GAS  /tmp/ccdokjku.s 			page 28
+ARM GAS  /tmp/ccJLWTVJ.s 			page 28
 
 
  658              		.loc 1 166 2 view .LVU199
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  699              	.LBB60:
  700              	.LBB61:
  166:src/stats.c   **** }
-ARM GAS  /tmp/ccdokjku.s 			page 29
+ARM GAS  /tmp/ccJLWTVJ.s 			page 29
 
 
  701              		.loc 1 166 11 is_stmt 0 view .LVU213
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  744              	.L23:
  745 0144 00000000 		.word	StatRegs
  746              		.cfi_endproc
-ARM GAS  /tmp/ccdokjku.s 			page 30
+ARM GAS  /tmp/ccJLWTVJ.s 			page 30
 
 
  747              	.LFE11:
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  793              	.LVL63:
  542:src/stats.c   **** 	decNumberSquare(&u, &sx);
  794              		.loc 1 542 2 is_stmt 1 view .LVU235
-ARM GAS  /tmp/ccdokjku.s 			page 31
+ARM GAS  /tmp/ccJLWTVJ.s 			page 31
 
 
  795 001c 3BAA     		add	r2, sp, #236
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  841 0068 05A9     		add	r1, sp, #20
  842 006a 2046     		mov	r0, r4
  843 006c FFF7FEFF 		bl	dn_multiply
-ARM GAS  /tmp/ccdokjku.s 			page 32
+ARM GAS  /tmp/ccJLWTVJ.s 			page 32
 
 
  844              	.LVL72:
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  888 00a4 2046     		mov	r0, r4
  889 00a6 FFF7FEFF 		bl	dn_lt
  890              	.LVL79:
-ARM GAS  /tmp/ccdokjku.s 			page 33
+ARM GAS  /tmp/ccJLWTVJ.s 			page 33
 
 
  557:src/stats.c   **** 		dn__1(t);
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  940              		@ frame_needed = 0, uses_anonymous_args = 0
  274:src/stats.c   **** 	decimal64 *xy = NULL;
  941              		.loc 1 274 2 view .LVU259
-ARM GAS  /tmp/ccdokjku.s 			page 34
+ARM GAS  /tmp/ccJLWTVJ.s 			page 34
 
 
  275:src/stats.c   **** 
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  986              		.loc 1 303 11 is_stmt 0 view .LVU269
  987 0026 5A4B     		ldr	r3, .L86
  988 0028 5A4A     		ldr	r2, .L86+4
-ARM GAS  /tmp/ccdokjku.s 			page 35
+ARM GAS  /tmp/ccJLWTVJ.s 			page 35
 
 
  989 002a 1A60     		str	r2, [r3]
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  1027 0054 1868     		ldr	r0, [r3]
  1028 0056 B9F1000F 		cmp	r9, #0
  1029 005a 43D0     		beq	.L48
-ARM GAS  /tmp/ccdokjku.s 			page 36
+ARM GAS  /tmp/ccJLWTVJ.s 			page 36
 
 
  313:src/stats.c   **** 	if (sy != NULL)
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  1068 0084 2AD0     		beq	.L54
  1069              	.LVL89:
  318:src/stats.c   **** 		else
-ARM GAS  /tmp/ccdokjku.s 			page 37
+ARM GAS  /tmp/ccJLWTVJ.s 			page 37
 
 
  1070              		.loc 1 318 4 is_stmt 1 view .LVU302
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  1111 00b2 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
  1112              	.LVL93:
  1113              	.L56:
-ARM GAS  /tmp/ccdokjku.s 			page 38
+ARM GAS  /tmp/ccJLWTVJ.s 			page 38
 
 
  1114              		.cfi_restore_state
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  320:src/stats.c   **** 	}
  1155              		.loc 1 320 4 is_stmt 0 view .LVU329
  1156 00e2 D3E7     		b	.L53
-ARM GAS  /tmp/ccdokjku.s 			page 39
+ARM GAS  /tmp/ccJLWTVJ.s 			page 39
 
 
  1157              	.L48:
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  1196              	.L37:
  244:src/stats.c   **** 	int i;
  1197              		.loc 1 244 19 view .LVU345
-ARM GAS  /tmp/ccdokjku.s 			page 40
+ARM GAS  /tmp/ccJLWTVJ.s 			page 40
 
 
  1198              	.LBE70:
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  293:src/stats.c   **** 
  1235              		.loc 1 293 3 view .LVU363
  1236 011c 8CE7     		b	.L42
-ARM GAS  /tmp/ccdokjku.s 			page 41
+ARM GAS  /tmp/ccJLWTVJ.s 			page 41
 
 
  1237              	.LVL104:
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  249:src/stats.c   **** 		dn_abs(&b, &c);
  1276              		.loc 1 249 3 is_stmt 0 view .LVU379
  1277 013e 0021     		movs	r1, #0
-ARM GAS  /tmp/ccdokjku.s 			page 42
+ARM GAS  /tmp/ccJLWTVJ.s 			page 42
 
 
  1278              	.LVL109:
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  1318              	.LVL116:
  1319              	.L85:
  255:src/stats.c   **** 				if (dn_gt(&c, &b)) {
-ARM GAS  /tmp/ccdokjku.s 			page 43
+ARM GAS  /tmp/ccJLWTVJ.s 			page 43
 
 
  1320              		.loc 1 255 5 is_stmt 1 view .LVU394
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  1369              		.cfi_startproc
  1370              		@ args = 0, pretend = 0, frame = 288
  1371              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccdokjku.s 			page 44
+ARM GAS  /tmp/ccJLWTVJ.s 			page 44
 
 
  594:src/stats.c   **** 	decNumber sx, sy, sxx, sxy;
@@ -2602,7 +2602,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  1384              		.loc 1 598 74 view .LVU407
  1385 0002 274B     		ldr	r3, .L90
  1386 0004 1B68     		ldr	r3, [r3]
- 1387 0006 93F8EB37 		ldrb	r3, [r3, #2027]	@ zero_extendqisi2
+ 1387 0006 93F8EB3F 		ldrb	r3, [r3, #4075]	@ zero_extendqisi2
  593:src/stats.c   **** 	decNumber N, u, v, denom;
  1388              		.loc 1 593 59 view .LVU408
  1389 000a CDB0     		sub	sp, sp, #308
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  1412              	.LVL123:
  600:src/stats.c   **** 	decNumberSquare(&u, &sx);
  1413              		.loc 1 600 2 view .LVU416
-ARM GAS  /tmp/ccdokjku.s 			page 45
+ARM GAS  /tmp/ccJLWTVJ.s 			page 45
 
 
  1414 002a 3AAA     		add	r2, sp, #232
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  609:src/stats.c   **** 	dn_multiply(&u, &sx, &sxy);
  1459              		.loc 1 609 2 view .LVU426
  1460 0070 31AA     		add	r2, sp, #196
-ARM GAS  /tmp/ccdokjku.s 			page 46
+ARM GAS  /tmp/ccJLWTVJ.s 			page 46
 
 
  1461 0072 3AA9     		add	r1, sp, #232
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  1510              		.loc 1 440 23 is_stmt 1 view -0
  1511              		.cfi_startproc
  1512              		@ args = 12, pretend = 0, frame = 112
-ARM GAS  /tmp/ccdokjku.s 			page 47
+ARM GAS  /tmp/ccJLWTVJ.s 			page 47
 
 
  1513              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  445:src/stats.c   **** 	dn_divide(&u, &t, denom);
  1556              		.loc 1 445 2 is_stmt 0 view .LVU445
  1557 0028 FFF7FEFF 		bl	dn_subtract
-ARM GAS  /tmp/ccdokjku.s 			page 48
+ARM GAS  /tmp/ccJLWTVJ.s 			page 48
 
 
  1558              	.LVL145:
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  1598              		.cfi_def_cfa_offset 24
  1599              		@ sp needed
  1600 0052 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
-ARM GAS  /tmp/ccdokjku.s 			page 49
+ARM GAS  /tmp/ccJLWTVJ.s 			page 49
 
 
  1601              	.LVL153:
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  1642              		.loc 1 458 3 view .LVU472
  458:src/stats.c   **** 	}
  1643              		.loc 1 458 5 is_stmt 0 view .LVU473
-ARM GAS  /tmp/ccdokjku.s 			page 50
+ARM GAS  /tmp/ccJLWTVJ.s 			page 50
 
 
  1644 0080 0AA9     		add	r1, sp, #40
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  756:src/stats.c   **** 		 s = getX_int() & 0xffffffff;
  757:src/stats.c   **** 	} else {
  758:src/stats.c   **** 		getX(&x);
-ARM GAS  /tmp/ccdokjku.s 			page 51
+ARM GAS  /tmp/ccJLWTVJ.s 			page 51
 
 
  759:src/stats.c   **** 		s = (unsigned long int) dn_to_ull(&x, &z);
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  1710              		.cfi_endproc
  1711              	.LFE39:
  1713              		.section	.text.ib_step,"ax",%progbits
-ARM GAS  /tmp/ccdokjku.s 			page 52
+ARM GAS  /tmp/ccJLWTVJ.s 			page 52
 
 
  1714              		.align	1
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  1760              		.loc 1 774 2 view .LVU499
  1761 001c 09A8     		add	r0, sp, #36
  1762 001e FFF7FEFF 		bl	check_low
-ARM GAS  /tmp/ccdokjku.s 			page 53
+ARM GAS  /tmp/ccJLWTVJ.s 			page 53
 
 
  1763              	.LVL174:
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  1809              		.loc 1 784 2 view .LVU508
  785:src/stats.c   **** 	decNumber t, u, v, w;
  1810              		.loc 1 785 2 view .LVU509
-ARM GAS  /tmp/ccdokjku.s 			page 54
+ARM GAS  /tmp/ccJLWTVJ.s 			page 54
 
 
  786:src/stats.c   **** 
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  792:src/stats.c   **** 	dn_multiply(&u, &t, &apb);
  1856              		.loc 1 792 2 view .LVU520
  1857 0036 1CAA     		add	r2, sp, #112
-ARM GAS  /tmp/ccdokjku.s 			page 55
+ARM GAS  /tmp/ccJLWTVJ.s 			page 55
 
 
  1858 0038 52A9     		add	r1, sp, #328
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  812:src/stats.c   **** 		dn_add(&t, a, &m);
  813:src/stats.c   **** 		dn_add(&u, &apb, &m);
  814:src/stats.c   **** 		dn_multiply(&w, &t, &u);
-ARM GAS  /tmp/ccdokjku.s 			page 56
+ARM GAS  /tmp/ccJLWTVJ.s 			page 56
 
 
  815:src/stats.c   **** 		dn_multiply(&t, &w, x);
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  1925 0092 37AA     		add	r2, sp, #220
  1926 0094 52A9     		add	r1, sp, #328
  1927 0096 5BA8     		add	r0, sp, #364
-ARM GAS  /tmp/ccdokjku.s 			page 57
+ARM GAS  /tmp/ccJLWTVJ.s 			page 57
 
 
  1928 0098 FFF7FEFF 		bl	dn_multiply
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  1974 00e4 52A9     		add	r1, sp, #328
  1975 00e6 2046     		mov	r0, r4
  1976 00e8 FFF7FEFF 		bl	dn_multiply
-ARM GAS  /tmp/ccdokjku.s 			page 58
+ARM GAS  /tmp/ccJLWTVJ.s 			page 58
 
 
  1977              	.LVL208:
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2023 0136 FFF7FEFF 		bl	dn_multiply
  2024              	.LVL216:
  820:src/stats.c   **** 		ib_step(&d, &c, &aa);
-ARM GAS  /tmp/ccdokjku.s 			page 59
+ARM GAS  /tmp/ccJLWTVJ.s 			page 59
 
 
  2025              		.loc 1 820 3 view .LVU555
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2072              		.global	sigmaCheck
  2073              		.syntax unified
  2074              		.thumb
-ARM GAS  /tmp/ccdokjku.s 			page 60
+ARM GAS  /tmp/ccJLWTVJ.s 			page 60
 
 
  2075              		.thumb_func
@@ -3578,14 +3578,14 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2101 000c 1B68     		ldr	r3, [r3]
   63:src/stats.c   **** 	return 0;
  2102              		.loc 1 63 65 view .LVU573
- 2103 000e 93F8CF17 		ldrb	r1, [r3, #1999]	@ zero_extendqisi2
+ 2103 000e 93F8CF1F 		ldrb	r1, [r3, #4047]	@ zero_extendqisi2
  2104 0012 C1F16401 		rsb	r1, r1, #100
   63:src/stats.c   **** 	return 0;
  2105              		.loc 1 63 76 view .LVU574
  2106 0016 C2EB8102 		rsb	r2, r2, r1, lsl #2
   63:src/stats.c   **** 	return 0;
  2107              		.loc 1 63 47 view .LVU575
- 2108 001a 03F58663 		add	r3, r3, #1072
+ 2108 001a 03F54363 		add	r3, r3, #3120
   63:src/stats.c   **** 	return 0;
  2109              		.loc 1 63 13 view .LVU576
  2110 001e 03EB4203 		add	r3, r3, r2, lsl #1
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2114              		.loc 1 64 9 is_stmt 0 view .LVU579
  2115 0024 0020     		movs	r0, #0
   65:src/stats.c   **** 
-ARM GAS  /tmp/ccdokjku.s 			page 61
+ARM GAS  /tmp/ccJLWTVJ.s 			page 61
 
 
  2116              		.loc 1 65 1 view .LVU580
@@ -3655,10 +3655,10 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2161              		.loc 1 69 23 view .LVU588
  2162 0002 144E     		ldr	r6, .L132
  2163 0004 3368     		ldr	r3, [r6]
- 2164 0006 93F8DD37 		ldrb	r3, [r3, #2013]	@ zero_extendqisi2
+ 2164 0006 93F8DD3F 		ldrb	r3, [r3, #4061]	@ zero_extendqisi2
   69:src/stats.c   **** 		SizeStatRegs = sizeof(STAT_DATA) >> 1;	// in 16 bit words!
  2165              		.loc 1 69 5 view .LVU589
-ARM GAS  /tmp/ccdokjku.s 			page 62
+ARM GAS  /tmp/ccJLWTVJ.s 			page 62
 
 
  2166 000a 13F02004 		ands	r4, r3, #32
@@ -3690,9 +3690,9 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
   76:src/stats.c   **** 		sigmaCheck();
  2184              		.loc 1 76 20 is_stmt 0 view .LVU598
  2185 0022 3268     		ldr	r2, [r6]
- 2186 0024 92F8DD37 		ldrb	r3, [r2, #2013]	@ zero_extendqisi2
+ 2186 0024 92F8DD3F 		ldrb	r3, [r2, #4061]	@ zero_extendqisi2
  2187 0028 43F02003 		orr	r3, r3, #32
- 2188 002c 82F8DD37 		strb	r3, [r2, #2013]
+ 2188 002c 82F8DD3F 		strb	r3, [r2, #4061]
   77:src/stats.c   **** 		xset(StatRegs, 0, sizeof(STAT_DATA));
  2189              		.loc 1 77 3 is_stmt 1 view .LVU599
  2190 0030 FFF7FEFF 		bl	sigmaCheck
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2207              		.cfi_restore 5
  2208              		.cfi_restore 4
  2209              		.cfi_restore 3
-ARM GAS  /tmp/ccdokjku.s 			page 63
+ARM GAS  /tmp/ccJLWTVJ.s 			page 63
 
 
  2210              		.cfi_def_cfa_offset 0
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2257              		@ frame_needed = 0, uses_anonymous_args = 0
  126:src/stats.c   **** 		report_err(ERR_MORE_POINTS);
  2258              		.loc 1 126 2 view .LVU612
-ARM GAS  /tmp/ccdokjku.s 			page 64
+ARM GAS  /tmp/ccJLWTVJ.s 			page 64
 
 
  125:src/stats.c   **** 	if (sigmaCheck() || sigmaN < n) {
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2302              		.p2align 2,,3
  2303              		.global	sigmaDeallocate
  2304              		.syntax unified
-ARM GAS  /tmp/ccdokjku.s 			page 65
+ARM GAS  /tmp/ccJLWTVJ.s 			page 65
 
 
  2305              		.thumb
@@ -3883,9 +3883,9 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2335              		.loc 1 86 2 is_stmt 1 view .LVU634
   86:src/stats.c   **** }
  2336              		.loc 1 86 19 is_stmt 0 view .LVU635
- 2337 0012 93F8DD27 		ldrb	r2, [r3, #2013]	@ zero_extendqisi2
+ 2337 0012 93F8DD2F 		ldrb	r2, [r3, #4061]	@ zero_extendqisi2
  2338 0016 61F34512 		bfi	r2, r1, #5, #1
- 2339 001a 83F8DD27 		strb	r2, [r3, #2013]
+ 2339 001a 83F8DD2F 		strb	r2, [r3, #4061]
   87:src/stats.c   **** 
  2340              		.loc 1 87 1 view .LVU636
  2341 001e 10BD     		pop	{r4, pc}
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2348              	.LFE2:
  2350              		.section	.text.sigmaCopy,"ax",%progbits
  2351              		.align	1
-ARM GAS  /tmp/ccdokjku.s 			page 66
+ARM GAS  /tmp/ccJLWTVJ.s 			page 66
 
 
  2352              		.p2align 2,,3
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
   98:src/stats.c   **** 
  2397              		.loc 1 98 1 is_stmt 0 view .LVU647
  2398 001e 2046     		mov	r0, r4
-ARM GAS  /tmp/ccdokjku.s 			page 67
+ARM GAS  /tmp/ccJLWTVJ.s 			page 67
 
 
  2399 0020 38BD     		pop	{r3, r4, r5, pc}
@@ -3994,7 +3994,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2427              		.loc 1 134 20 is_stmt 0 view .LVU651
  2428 0000 044B     		ldr	r3, .L152
  2429 0002 1B68     		ldr	r3, [r3]
- 2430 0004 93F8EB27 		ldrb	r2, [r3, #2027]	@ zero_extendqisi2
+ 2430 0004 93F8EB2F 		ldrb	r2, [r3, #4075]	@ zero_extendqisi2
  134:src/stats.c   **** }
  2431              		.loc 1 134 37 view .LVU652
  2432 0008 2E38     		subs	r0, r0, #46
@@ -4002,7 +4002,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  134:src/stats.c   **** }
  2434              		.loc 1 134 20 view .LVU653
  2435 000a 60F30202 		bfi	r2, r0, #0, #3
- 2436 000e 83F8EB27 		strb	r2, [r3, #2027]
+ 2436 000e 83F8EB2F 		strb	r2, [r3, #4075]
  135:src/stats.c   **** 
  2437              		.loc 1 135 1 view .LVU654
  2438 0012 7047     		bx	lr
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2449              		.global	sigma_clear
  2450              		.syntax unified
  2451              		.thumb
-ARM GAS  /tmp/ccdokjku.s 			page 68
+ARM GAS  /tmp/ccJLWTVJ.s 			page 68
 
 
  2452              		.thumb_func
@@ -4077,12 +4077,12 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2493              		.loc 1 86 2 is_stmt 1 view .LVU667
   86:src/stats.c   **** }
  2494              		.loc 1 86 19 is_stmt 0 view .LVU668
- 2495 0012 93F8DD27 		ldrb	r2, [r3, #2013]	@ zero_extendqisi2
-ARM GAS  /tmp/ccdokjku.s 			page 69
+ 2495 0012 93F8DD2F 		ldrb	r2, [r3, #4061]	@ zero_extendqisi2
+ARM GAS  /tmp/ccJLWTVJ.s 			page 69
 
 
  2496 0016 61F34512 		bfi	r2, r1, #5, #1
- 2497 001a 83F8DD27 		strb	r2, [r3, #2013]
+ 2497 001a 83F8DD2F 		strb	r2, [r3, #4061]
  2498              	.LBE80:
  2499              	.LBE81:
  139:src/stats.c   **** 
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2543 0012 0133     		adds	r3, r3, #1
  2544 0014 C2F88830 		str	r3, [r2, #136]
  216:src/stats.c   **** }
-ARM GAS  /tmp/ccdokjku.s 			page 70
+ARM GAS  /tmp/ccJLWTVJ.s 			page 70
 
 
  2545              		.loc 1 216 2 is_stmt 1 view .LVU678
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  219:src/stats.c   **** 	if (sigmaAllocate())
  2594              		.loc 1 219 20 is_stmt 0 view .LVU686
  2595 0000 00B5     		push	{lr}
-ARM GAS  /tmp/ccdokjku.s 			page 71
+ARM GAS  /tmp/ccJLWTVJ.s 			page 71
 
 
  2596              		.cfi_def_cfa_offset 4
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2639              		.align	2
  2640              	.L166:
  2641 0030 00000000 		.word	dn_subtract
-ARM GAS  /tmp/ccdokjku.s 			page 72
+ARM GAS  /tmp/ccJLWTVJ.s 			page 72
 
 
  2642 0034 00000000 		.word	StatRegs
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2687 0016 C3F88820 		str	r2, [r3, #136]
  2688 001a 01A8     		add	r0, sp, #4
  2689 001c D317     		asrs	r3, r2, #31
-ARM GAS  /tmp/ccdokjku.s 			page 73
+ARM GAS  /tmp/ccJLWTVJ.s 			page 73
 
 
  2690 001e FFF7FEFF 		bl	ullint_to_dn
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2739              		.loc 1 344 2 view .LVU715
  344:src/stats.c   **** 	const int dbl = is_dblmode();
  2740              		.loc 1 344 18 is_stmt 0 view .LVU716
-ARM GAS  /tmp/ccdokjku.s 			page 74
+ARM GAS  /tmp/ccJLWTVJ.s 			page 74
 
 
  2741 0000 224B     		ldr	r3, .L187
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2779 001e 132C     		cmp	r4, #19
  2780 0020 19D8     		bhi	.L178
  2781              	.LBB90:
-ARM GAS  /tmp/ccdokjku.s 			page 75
+ARM GAS  /tmp/ccJLWTVJ.s 			page 75
 
 
  358:src/stats.c   **** 		if (dbl)
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2820              		.cfi_restore 6
  2821              		.cfi_restore 5
  2822              		.cfi_restore 4
-ARM GAS  /tmp/ccdokjku.s 			page 76
+ARM GAS  /tmp/ccJLWTVJ.s 			page 76
 
 
  2823              		.cfi_def_cfa_offset 0
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2867              		.cfi_def_cfa_offset 0
  2868              	.LVL269:
  367:src/stats.c   **** 	}
-ARM GAS  /tmp/ccdokjku.s 			page 77
+ARM GAS  /tmp/ccJLWTVJ.s 			page 77
 
 
  2869              		.loc 1 367 4 view .LVU759
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  2915 0094 00000000 		.word	StatRegs
  2916              	.LBE92:
  2917              		.cfi_endproc
-ARM GAS  /tmp/ccdokjku.s 			page 78
+ARM GAS  /tmp/ccJLWTVJ.s 			page 78
 
 
  2918              	.LFE18:
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  375:src/stats.c   **** 		x->s = y->s = get_const(OP_ZERO, 0)->s;
  2963              		.loc 1 375 2 is_stmt 1 view .LVU779
  375:src/stats.c   **** 		x->s = y->s = get_const(OP_ZERO, 0)->s;
-ARM GAS  /tmp/ccdokjku.s 			page 79
+ARM GAS  /tmp/ccJLWTVJ.s 			page 79
 
 
  2964              		.loc 1 375 5 is_stmt 0 view .LVU780
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  383:src/stats.c   **** 		packed128_from_packed(&(x->d), &(x->s));
  3003              		.loc 1 383 2 is_stmt 1 view .LVU796
  383:src/stats.c   **** 		packed128_from_packed(&(x->d), &(x->s));
-ARM GAS  /tmp/ccdokjku.s 			page 80
+ARM GAS  /tmp/ccJLWTVJ.s 			page 80
 
 
  3004              		.loc 1 383 6 is_stmt 0 view .LVU797
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  3053              		.cfi_startproc
  3054              		@ args = 0, pretend = 0, frame = 144
  3055              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccdokjku.s 			page 81
+ARM GAS  /tmp/ccJLWTVJ.s 			page 81
 
 
  400:src/stats.c   **** 	decNumber sx, sy;
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  3096              	.LVL294:
  393:src/stats.c   **** 	if (exp)
  3097              		.loc 1 393 2 view .LVU819
-ARM GAS  /tmp/ccdokjku.s 			page 82
+ARM GAS  /tmp/ccJLWTVJ.s 			page 82
 
 
  3098 0024 1FA8     		add	r0, sp, #124
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  3137 003e 6520     		movs	r0, #101
  3138 0040 FFF7FEFF 		bl	setRegister
  3139              	.LVL304:
-ARM GAS  /tmp/ccdokjku.s 			page 83
+ARM GAS  /tmp/ccJLWTVJ.s 			page 83
 
 
  3140              	.L197:
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  418:src/stats.c   **** 
  3186              		.loc 1 418 2 view .LVU845
  3187 000c 0521     		movs	r1, #5
-ARM GAS  /tmp/ccdokjku.s 			page 84
+ARM GAS  /tmp/ccJLWTVJ.s 			page 84
 
 
  3188 000e 05AC     		add	r4, sp, #20
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  3230              		.cfi_endproc
  3231              	.LFE22:
  3233 0036 00BF     		.section	.text.stats_gmean,"ax",%progbits
-ARM GAS  /tmp/ccdokjku.s 			page 85
+ARM GAS  /tmp/ccJLWTVJ.s 			page 85
 
 
  3234              		.align	1
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  3278              		.loc 1 432 2 view .LVU868
  3279              	.LBB103:
  3280              	.LBI103:
-ARM GAS  /tmp/ccdokjku.s 			page 86
+ARM GAS  /tmp/ccJLWTVJ.s 			page 86
 
 
  390:src/stats.c   **** 	decNumber t, u, *p = &t;
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  391:src/stats.c   **** 
  3320              		.loc 1 391 2 view .LVU884
  393:src/stats.c   **** 	if (exp)
-ARM GAS  /tmp/ccdokjku.s 			page 87
+ARM GAS  /tmp/ccJLWTVJ.s 			page 87
 
 
  3321              		.loc 1 393 2 view .LVU885
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  3365              		.syntax unified
  3366              		.thumb
  3367              		.thumb_func
-ARM GAS  /tmp/ccdokjku.s 			page 88
+ARM GAS  /tmp/ccJLWTVJ.s 			page 88
 
 
  3368              		.fpu fpv4-sp-d16
@@ -5278,7 +5278,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  3411 0016 3BD0     		beq	.L212
  3412              	.LVL338:
  474:src/stats.c   **** 		rootn = 1;
-ARM GAS  /tmp/ccdokjku.s 			page 89
+ARM GAS  /tmp/ccJLWTVJ.s 			page 89
 
 
  3413              		.loc 1 474 2 is_stmt 1 discriminator 1 view .LVU909
@@ -5338,7 +5338,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  3455              		.loc 1 481 3 is_stmt 1 view .LVU921
  3456              	.LVL343:
  481:src/stats.c   **** 	do_s(regX_idx, &sxx, &sx, &N, n, rootn, exp);
-ARM GAS  /tmp/ccdokjku.s 			page 90
+ARM GAS  /tmp/ccJLWTVJ.s 			page 90
 
 
  3457              		.loc 1 481 3 is_stmt 0 view .LVU922
@@ -5398,7 +5398,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  3502 0092 0525     		movs	r5, #5
  3503 0094 0DF17C0B 		add	fp, sp, #124
  3504 0098 0DF1A00A 		add	r10, sp, #160
-ARM GAS  /tmp/ccdokjku.s 			page 91
+ARM GAS  /tmp/ccJLWTVJ.s 			page 91
 
 
  3505 009c 0DF15809 		add	r9, sp, #88
@@ -5458,7 +5458,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  489:src/stats.c   **** 	decNumber sxxy, sy, sxy, syy;
  3554              		.loc 1 489 39 is_stmt 1 view -0
  3555              		.cfi_startproc
-ARM GAS  /tmp/ccdokjku.s 			page 92
+ARM GAS  /tmp/ccJLWTVJ.s 			page 92
 
 
  3556              		@ args = 0, pretend = 0, frame = 296
@@ -5518,7 +5518,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  3595 001e 4FB0     		add	sp, sp, #316
  3596              		.cfi_remember_state
  3597              		.cfi_def_cfa_offset 20
-ARM GAS  /tmp/ccdokjku.s 			page 93
+ARM GAS  /tmp/ccJLWTVJ.s 			page 93
 
 
  3598              		@ sp needed
@@ -5578,7 +5578,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  3642 005e 33AA     		add	r2, sp, #204
  3643 0060 3CA8     		add	r0, sp, #240
  3644 0062 FFF7FEFF 		bl	dn_subtract
-ARM GAS  /tmp/ccdokjku.s 			page 94
+ARM GAS  /tmp/ccJLWTVJ.s 			page 94
 
 
  3645              	.LVL364:
@@ -5638,7 +5638,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  3684              		.loc 1 520 1 is_stmt 0 view .LVU979
  3685 008a 4FB0     		add	sp, sp, #316
  3686              		.cfi_remember_state
-ARM GAS  /tmp/ccdokjku.s 			page 95
+ARM GAS  /tmp/ccJLWTVJ.s 			page 95
 
 
  3687              		.cfi_def_cfa_offset 20
@@ -5698,7 +5698,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  517:src/stats.c   **** 	}
  3731              		.loc 1 517 3 view .LVU990
  3732 00b2 E8E7     		b	.L225
-ARM GAS  /tmp/ccdokjku.s 			page 96
+ARM GAS  /tmp/ccJLWTVJ.s 			page 96
 
 
  3733              	.LVL381:
@@ -5758,7 +5758,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  3780              		.cfi_offset 14, -4
  3781 0002 97B0     		sub	sp, sp, #92
  3782              		.cfi_def_cfa_offset 104
-ARM GAS  /tmp/ccdokjku.s 			page 97
+ARM GAS  /tmp/ccJLWTVJ.s 			page 97
 
 
  523:src/stats.c   **** 	decNumber sx, t;
@@ -5818,7 +5818,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  3828              		.p2align 2,,3
  3829              		.global	stats_correlation
  3830              		.syntax unified
-ARM GAS  /tmp/ccdokjku.s 			page 98
+ARM GAS  /tmp/ccJLWTVJ.s 			page 98
 
 
  3831              		.thumb
@@ -5862,7 +5862,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  3860              		.loc 1 567 43 is_stmt 0 view .LVU1019
  3861 000c 074B     		ldr	r3, .L244
  3862 000e 1B68     		ldr	r3, [r3]
- 3863 0010 93F8EB17 		ldrb	r1, [r3, #2027]	@ zero_extendqisi2
+ 3863 0010 93F8EB1F 		ldrb	r1, [r3, #4075]	@ zero_extendqisi2
  567:src/stats.c   **** 	setX(&t);
  3864              		.loc 1 567 2 view .LVU1020
  3865 0014 01A8     		add	r0, sp, #4
@@ -5878,7 +5878,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  569:src/stats.c   **** 
  3874              		.loc 1 569 1 is_stmt 0 view .LVU1022
  3875 0024 0BB0     		add	sp, sp, #44
-ARM GAS  /tmp/ccdokjku.s 			page 99
+ARM GAS  /tmp/ccJLWTVJ.s 			page 99
 
 
  3876              		.cfi_def_cfa_offset 4
@@ -5938,7 +5938,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  589:src/stats.c   **** 
  3923              		.loc 1 589 1 view .LVU1032
  3924 000e 45B0     		add	sp, sp, #276
-ARM GAS  /tmp/ccdokjku.s 			page 100
+ARM GAS  /tmp/ccJLWTVJ.s 			page 100
 
 
  3925              		.cfi_remember_state
@@ -5954,7 +5954,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  3933              		.loc 1 579 70 is_stmt 0 view .LVU1034
  3934 0012 1A4A     		ldr	r2, .L253
  3935 0014 1268     		ldr	r2, [r2]
- 3936 0016 92F8EB27 		ldrb	r2, [r2, #2027]	@ zero_extendqisi2
+ 3936 0016 92F8EB2F 		ldrb	r2, [r2, #4075]	@ zero_extendqisi2
  579:src/stats.c   **** 	dn_multiply(&t, &sx, &sy);
  3937              		.loc 1 579 2 view .LVU1035
  3938 001a 0090     		str	r0, [sp]
@@ -5998,7 +5998,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  584:src/stats.c   **** 		dn_divide(&u, &t, &v);
  3971              		.loc 1 584 3 is_stmt 1 view .LVU1041
  3972 0054 05A9     		add	r1, sp, #20
-ARM GAS  /tmp/ccdokjku.s 			page 101
+ARM GAS  /tmp/ccJLWTVJ.s 			page 101
 
 
  3973 0056 20A8     		add	r0, sp, #128
@@ -6058,7 +6058,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4024              		@ args = 0, pretend = 0, frame = 72
  4025              		@ frame_needed = 0, uses_anonymous_args = 0
  619:src/stats.c   **** 	enum sigma_modes m;
-ARM GAS  /tmp/ccdokjku.s 			page 102
+ARM GAS  /tmp/ccJLWTVJ.s 			page 102
 
 
  4026              		.loc 1 619 2 view .LVU1047
@@ -6118,7 +6118,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4066 0022 0628     		cmp	r0, #6
  4067 0024 08D0     		beq	.L258
  4068              	.LVL413:
-ARM GAS  /tmp/ccdokjku.s 			page 103
+ARM GAS  /tmp/ccJLWTVJ.s 			page 103
 
 
  4069              	.L259:
@@ -6178,7 +6178,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4116              		.loc 1 636 2 view .LVU1070
  632:src/stats.c   **** 	decNumber a, b, t, u;
  4117              		.loc 1 632 59 is_stmt 0 view .LVU1071
-ARM GAS  /tmp/ccdokjku.s 			page 104
+ARM GAS  /tmp/ccJLWTVJ.s 			page 104
 
 
  4118 0000 30B5     		push	{r4, r5, lr}
@@ -6238,7 +6238,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4162              	.LVL424:
  661:src/stats.c   **** 
  4163              		.loc 1 661 1 view .LVU1082
-ARM GAS  /tmp/ccdokjku.s 			page 105
+ARM GAS  /tmp/ccJLWTVJ.s 			page 105
 
 
  4164 002e 25B0     		add	sp, sp, #148
@@ -6298,7 +6298,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4210              		.loc 1 651 3 view .LVU1090
  4211 0064 6A46     		mov	r2, sp
  4212 0066 12A9     		add	r1, sp, #72
-ARM GAS  /tmp/ccdokjku.s 			page 106
+ARM GAS  /tmp/ccJLWTVJ.s 			page 106
 
 
  4213 0068 09A8     		add	r0, sp, #36
@@ -6358,7 +6358,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4258              		.loc 1 646 3 view .LVU1099
  4259 009a 12A9     		add	r1, sp, #72
  4260 009c 09AA     		add	r2, sp, #36
-ARM GAS  /tmp/ccdokjku.s 			page 107
+ARM GAS  /tmp/ccJLWTVJ.s 			page 107
 
 
  4261 009e 1BA8     		add	r0, sp, #108
@@ -6418,7 +6418,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  668:src/stats.c   **** 		return set_NaN(res);
  4308              		.loc 1 668 6 view .LVU1109
  4309 0006 0220     		movs	r0, #2
-ARM GAS  /tmp/ccdokjku.s 			page 108
+ARM GAS  /tmp/ccJLWTVJ.s 			page 108
 
 
  4310              	.LVL442:
@@ -6478,7 +6478,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  688:src/stats.c   **** 		dn_multiply(&u, &t, &a);
  4354              		.loc 1 688 3 is_stmt 1 view .LVU1120
  4355 0032 2946     		mov	r1, r5
-ARM GAS  /tmp/ccdokjku.s 			page 109
+ARM GAS  /tmp/ccJLWTVJ.s 			page 109
 
 
  4356 0034 12A8     		add	r0, sp, #72
@@ -6538,7 +6538,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4400              		.loc 1 684 10 is_stmt 0 view .LVU1130
  4401 006c 09AA     		add	r2, sp, #36
  4402 006e 12A9     		add	r1, sp, #72
-ARM GAS  /tmp/ccdokjku.s 			page 110
+ARM GAS  /tmp/ccJLWTVJ.s 			page 110
 
 
  4403 0070 2046     		mov	r0, r4
@@ -6598,7 +6598,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4450              		.global	stats_random
  4451              		.syntax unified
  4452              		.thumb
-ARM GAS  /tmp/ccdokjku.s 			page 111
+ARM GAS  /tmp/ccJLWTVJ.s 			page 111
 
 
  4453              		.thumb_func
@@ -6629,7 +6629,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4473 0004 2368     		ldr	r3, [r4]
  735:src/stats.c   **** 		taus_seed(0);
  4474              		.loc 1 735 5 view .LVU1145
- 4475 0006 D3F8D027 		ldr	r2, [r3, #2000]
+ 4475 0006 D3F8D02F 		ldr	r2, [r3, #4048]
  730:src/stats.c   **** 	// Start by generating the next in sequence
  4476              		.loc 1 730 34 view .LVU1146
  4477 000a 94B0     		sub	sp, sp, #80
@@ -6639,7 +6639,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4480 000c 12B9     		cbnz	r2, .L284
  735:src/stats.c   **** 		taus_seed(0);
  4481              		.loc 1 735 18 discriminator 1 view .LVU1148
- 4482 000e D3F8D427 		ldr	r2, [r3, #2004]
+ 4482 000e D3F8D42F 		ldr	r2, [r3, #4052]
  4483 0012 02B3     		cbz	r2, .L288
  4484              	.LVL461:
  4485              	.L284:
@@ -6652,13 +6652,13 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  740:src/stats.c   **** 		setX_int_sgn((((unsigned long long int)taus_get()) << 32) | s, 0);
  4490              		.loc 1 740 6 view .LVU1151
  4491 0018 2368     		ldr	r3, [r4]
- 4492 001a 93F8E837 		ldrb	r3, [r3, #2024]	@ zero_extendqisi2
+ 4492 001a 93F8E83F 		ldrb	r3, [r3, #4072]	@ zero_extendqisi2
  740:src/stats.c   **** 		setX_int_sgn((((unsigned long long int)taus_get()) << 32) | s, 0);
  4493              		.loc 1 740 5 view .LVU1152
  4494 001e 13F00103 		ands	r3, r3, #1
  737:src/stats.c   **** 
  4495              		.loc 1 737 6 view .LVU1153
-ARM GAS  /tmp/ccdokjku.s 			page 112
+ARM GAS  /tmp/ccJLWTVJ.s 			page 112
 
 
  4496 0022 0246     		mov	r2, r0
@@ -6718,7 +6718,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4538 004e FFF7FEFF 		bl	setX
  4539              	.LVL470:
  747:src/stats.c   **** 
-ARM GAS  /tmp/ccdokjku.s 			page 113
+ARM GAS  /tmp/ccJLWTVJ.s 			page 113
 
 
  4540              		.loc 1 747 1 is_stmt 0 view .LVU1166
@@ -6732,7 +6732,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4548              		.cfi_restore_state
  735:src/stats.c   **** 		taus_seed(0);
  4549              		.loc 1 735 33 discriminator 2 view .LVU1167
- 4550 0056 D3F8D807 		ldr	r0, [r3, #2008]
+ 4550 0056 D3F8D80F 		ldr	r0, [r3, #4056]
  4551              	.LVL472:
  735:src/stats.c   **** 		taus_seed(0);
  4552              		.loc 1 735 33 discriminator 2 view .LVU1168
@@ -6778,7 +6778,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4587              		.loc 1 755 6 is_stmt 0 view .LVU1175
  4588 0000 0D4B     		ldr	r3, .L295
  750:src/stats.c   **** 	unsigned long int s;
-ARM GAS  /tmp/ccdokjku.s 			page 114
+ARM GAS  /tmp/ccJLWTVJ.s 			page 114
 
 
  4589              		.loc 1 750 38 view .LVU1176
@@ -6788,7 +6788,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  755:src/stats.c   **** 		 s = getX_int() & 0xffffffff;
  4593              		.loc 1 755 6 view .LVU1177
  4594 0004 1B68     		ldr	r3, [r3]
- 4595 0006 93F8E837 		ldrb	r3, [r3, #2024]	@ zero_extendqisi2
+ 4595 0006 93F8E83F 		ldrb	r3, [r3, #4072]	@ zero_extendqisi2
  755:src/stats.c   **** 		 s = getX_int() & 0xffffffff;
  4596              		.loc 1 755 5 view .LVU1178
  4597 000a DB07     		lsls	r3, r3, #31
@@ -6838,7 +6838,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  761:src/stats.c   **** }
  4631              		.loc 1 761 2 is_stmt 1 view .LVU1189
  4632 002c FFF7FEFF 		bl	taus_seed
-ARM GAS  /tmp/ccdokjku.s 			page 115
+ARM GAS  /tmp/ccJLWTVJ.s 			page 115
 
 
  4633              	.LVL481:
@@ -6898,7 +6898,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4678 0008 0F46     		mov	r7, r1
  4679 000a 1546     		mov	r5, r2
  4680              		.loc 1 836 2 view .LVU1197
-ARM GAS  /tmp/ccdokjku.s 			page 116
+ARM GAS  /tmp/ccJLWTVJ.s 			page 116
 
 
  4681 000c 5D49     		ldr	r1, .L312
@@ -6958,7 +6958,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4717 003a 0AA8     		add	r0, sp, #40
  4718 003c FFF7FEFF 		bl	dn_p2
  4719              	.LVL490:
-ARM GAS  /tmp/ccdokjku.s 			page 117
+ARM GAS  /tmp/ccJLWTVJ.s 			page 117
 
 
  855:src/stats.c   **** 	dn_p1(&t, a);				// t = a+1
@@ -7018,7 +7018,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4755              		.loc 1 838 10 is_stmt 0 view .LVU1218
  4756 0066 3046     		mov	r0, r6
  4757 0068 FFF7FEFF 		bl	set_NaN
-ARM GAS  /tmp/ccdokjku.s 			page 118
+ARM GAS  /tmp/ccJLWTVJ.s 			page 118
 
 
  4758              	.LVL496:
@@ -7078,7 +7078,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4803              		.loc 1 857 5 view .LVU1228
  4804 00a4 0028     		cmp	r0, #0
  4805 00a6 D9D1     		bne	.L305
-ARM GAS  /tmp/ccdokjku.s 			page 119
+ARM GAS  /tmp/ccJLWTVJ.s 			page 119
 
 
  4806              	.L306:
@@ -7138,7 +7138,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4851 00e0 25A9     		add	r1, sp, #148
  4852 00e2 0AA8     		add	r0, sp, #40
  4853 00e4 FFF7FEFF 		bl	dn_ln
-ARM GAS  /tmp/ccdokjku.s 			page 120
+ARM GAS  /tmp/ccJLWTVJ.s 			page 120
 
 
  4854              	.LVL512:
@@ -7198,7 +7198,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4899              	.LVL520:
  857:src/stats.c   **** 		if (limit)
  4900              		.loc 1 857 5 view .LVU1248
-ARM GAS  /tmp/ccdokjku.s 			page 121
+ARM GAS  /tmp/ccJLWTVJ.s 			page 121
 
 
  4901 0130 88B1     		cbz	r0, .L311
@@ -7258,7 +7258,7 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4947 016e 1CA9     		add	r1, sp, #112
  4948 0170 01A8     		add	r0, sp, #4
  4949 0172 FFF7FEFF 		bl	dn_multiply
-ARM GAS  /tmp/ccdokjku.s 			page 122
+ARM GAS  /tmp/ccJLWTVJ.s 			page 122
 
 
  4950              	.LVL527:
@@ -7297,127 +7297,127 @@ ARM GAS  /tmp/ccdokjku.s 			page 1
  4982              		.file 9 "src/stats.h"
  4983              		.file 10 "src/consts.h"
  4984              		.file 11 "src/decn.h"
-ARM GAS  /tmp/ccdokjku.s 			page 123
+ARM GAS  /tmp/ccJLWTVJ.s 			page 123
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stats.c
-     /tmp/ccdokjku.s:18     .text.taus_get:0000000000000000 $t
-     /tmp/ccdokjku.s:26     .text.taus_get:0000000000000000 taus_get
-     /tmp/ccdokjku.s:92     .text.taus_get:0000000000000054 $d
-     /tmp/ccdokjku.s:99     .text.taus_seed:0000000000000000 $t
-     /tmp/ccdokjku.s:106    .text.taus_seed:0000000000000000 taus_seed
-     /tmp/ccdokjku.s:228    .text.taus_seed:000000000000006c $d
-     /tmp/ccdokjku.s:235    .text.sigop128:0000000000000000 $t
-     /tmp/ccdokjku.s:242    .text.sigop128:0000000000000000 sigop128
-     /tmp/ccdokjku.s:293    .text.sigop:0000000000000000 $t
-     /tmp/ccdokjku.s:300    .text.sigop:0000000000000000 sigop
-     /tmp/ccdokjku.s:351    .text.sigma_helper:0000000000000000 $t
-     /tmp/ccdokjku.s:358    .text.sigma_helper:0000000000000000 sigma_helper
-     /tmp/ccdokjku.s:745    .text.sigma_helper:0000000000000144 $d
+     /tmp/ccJLWTVJ.s:18     .text.taus_get:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:26     .text.taus_get:0000000000000000 taus_get
+     /tmp/ccJLWTVJ.s:92     .text.taus_get:0000000000000054 $d
+     /tmp/ccJLWTVJ.s:99     .text.taus_seed:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:106    .text.taus_seed:0000000000000000 taus_seed
+     /tmp/ccJLWTVJ.s:228    .text.taus_seed:000000000000006c $d
+     /tmp/ccJLWTVJ.s:235    .text.sigop128:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:242    .text.sigop128:0000000000000000 sigop128
+     /tmp/ccJLWTVJ.s:293    .text.sigop:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:300    .text.sigop:0000000000000000 sigop
+     /tmp/ccJLWTVJ.s:351    .text.sigma_helper:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:358    .text.sigma_helper:0000000000000000 sigma_helper
+     /tmp/ccJLWTVJ.s:745    .text.sigma_helper:0000000000000144 $d
                             *COM*:0000000000000004 StatRegs
-     /tmp/ccdokjku.s:750    .text.correlation:0000000000000000 $t
-     /tmp/ccdokjku.s:757    .text.correlation:0000000000000000 correlation
-     /tmp/ccdokjku.s:934    .text.get_sigmas:0000000000000000 get_sigmas
-     /tmp/ccdokjku.s:908    .text.correlation:00000000000000b8 $d
-     /tmp/ccdokjku.s:914    .rodata.get_sigmas.str1.4:0000000000000000 $d
-     /tmp/ccdokjku.s:927    .text.get_sigmas:0000000000000000 $t
-     /tmp/ccdokjku.s:977    .text.get_sigmas:0000000000000020 $d
-     /tmp/ccdokjku.s:983    .text.get_sigmas:0000000000000026 $t
-     /tmp/ccdokjku.s:1346   .text.get_sigmas:0000000000000190 $d
-     /tmp/ccdokjku.s:1358   .text.do_LR:0000000000000000 $t
-     /tmp/ccdokjku.s:1365   .text.do_LR:0000000000000000 do_LR
-     /tmp/ccdokjku.s:1495   .text.do_LR:00000000000000a0 $d
-     /tmp/ccdokjku.s:1500   .text.do_s:0000000000000000 $t
-     /tmp/ccdokjku.s:1507   .text.do_s:0000000000000000 do_s
-     /tmp/ccdokjku.s:1660   .text.check_low:0000000000000000 $t
-     /tmp/ccdokjku.s:1667   .text.check_low:0000000000000000 check_low
-     /tmp/ccdokjku.s:1709   .text.check_low:000000000000001c $d
-     /tmp/ccdokjku.s:1714   .text.ib_step:0000000000000000 $t
-     /tmp/ccdokjku.s:1721   .text.ib_step:0000000000000000 ib_step
-     /tmp/ccdokjku.s:1794   .text.betacf:0000000000000000 $t
-     /tmp/ccdokjku.s:1801   .text.betacf:0000000000000000 betacf
-     /tmp/ccdokjku.s:2070   .text.sigmaCheck:0000000000000000 $t
-     /tmp/ccdokjku.s:2078   .text.sigmaCheck:0000000000000000 sigmaCheck
-     /tmp/ccdokjku.s:2131   .text.sigmaCheck:0000000000000034 $d
+     /tmp/ccJLWTVJ.s:750    .text.correlation:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:757    .text.correlation:0000000000000000 correlation
+     /tmp/ccJLWTVJ.s:934    .text.get_sigmas:0000000000000000 get_sigmas
+     /tmp/ccJLWTVJ.s:908    .text.correlation:00000000000000b8 $d
+     /tmp/ccJLWTVJ.s:914    .rodata.get_sigmas.str1.4:0000000000000000 $d
+     /tmp/ccJLWTVJ.s:927    .text.get_sigmas:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:977    .text.get_sigmas:0000000000000020 $d
+     /tmp/ccJLWTVJ.s:983    .text.get_sigmas:0000000000000026 $t
+     /tmp/ccJLWTVJ.s:1346   .text.get_sigmas:0000000000000190 $d
+     /tmp/ccJLWTVJ.s:1358   .text.do_LR:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:1365   .text.do_LR:0000000000000000 do_LR
+     /tmp/ccJLWTVJ.s:1495   .text.do_LR:00000000000000a0 $d
+     /tmp/ccJLWTVJ.s:1500   .text.do_s:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:1507   .text.do_s:0000000000000000 do_s
+     /tmp/ccJLWTVJ.s:1660   .text.check_low:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:1667   .text.check_low:0000000000000000 check_low
+     /tmp/ccJLWTVJ.s:1709   .text.check_low:000000000000001c $d
+     /tmp/ccJLWTVJ.s:1714   .text.ib_step:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:1721   .text.ib_step:0000000000000000 ib_step
+     /tmp/ccJLWTVJ.s:1794   .text.betacf:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:1801   .text.betacf:0000000000000000 betacf
+     /tmp/ccJLWTVJ.s:2070   .text.sigmaCheck:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:2078   .text.sigmaCheck:0000000000000000 sigmaCheck
+     /tmp/ccJLWTVJ.s:2131   .text.sigmaCheck:0000000000000034 $d
                             *COM*:0000000000000004 SizeStatRegs
-     /tmp/ccdokjku.s:2138   .text.sigmaAllocate:0000000000000000 $t
-     /tmp/ccdokjku.s:2145   .text.sigmaAllocate:0000000000000000 sigmaAllocate
-     /tmp/ccdokjku.s:2237   .text.sigmaAllocate:0000000000000054 $d
-     /tmp/ccdokjku.s:2244   .text.check_data:0000000000000000 $t
-     /tmp/ccdokjku.s:2251   .text.check_data:0000000000000000 check_data
-     /tmp/ccdokjku.s:2296   .text.check_data:0000000000000024 $d
-     /tmp/ccdokjku.s:2301   .text.sigmaDeallocate:0000000000000000 $t
-     /tmp/ccdokjku.s:2309   .text.sigmaDeallocate:0000000000000000 sigmaDeallocate
-     /tmp/ccdokjku.s:2345   .text.sigmaDeallocate:0000000000000020 $d
-     /tmp/ccdokjku.s:2351   .text.sigmaCopy:0000000000000000 $t
-     /tmp/ccdokjku.s:2359   .text.sigmaCopy:0000000000000000 sigmaCopy
-     /tmp/ccdokjku.s:2405   .text.sigmaCopy:0000000000000024 $d
-     /tmp/ccdokjku.s:2410   .text.stats_mode:0000000000000000 $t
-     /tmp/ccdokjku.s:2418   .text.stats_mode:0000000000000000 stats_mode
-     /tmp/ccdokjku.s:2442   .text.stats_mode:0000000000000014 $d
-     /tmp/ccdokjku.s:2447   .text.sigma_clear:0000000000000000 $t
-ARM GAS  /tmp/ccdokjku.s 			page 124
+     /tmp/ccJLWTVJ.s:2138   .text.sigmaAllocate:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:2145   .text.sigmaAllocate:0000000000000000 sigmaAllocate
+     /tmp/ccJLWTVJ.s:2237   .text.sigmaAllocate:0000000000000054 $d
+     /tmp/ccJLWTVJ.s:2244   .text.check_data:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:2251   .text.check_data:0000000000000000 check_data
+     /tmp/ccJLWTVJ.s:2296   .text.check_data:0000000000000024 $d
+     /tmp/ccJLWTVJ.s:2301   .text.sigmaDeallocate:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:2309   .text.sigmaDeallocate:0000000000000000 sigmaDeallocate
+     /tmp/ccJLWTVJ.s:2345   .text.sigmaDeallocate:0000000000000020 $d
+     /tmp/ccJLWTVJ.s:2351   .text.sigmaCopy:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:2359   .text.sigmaCopy:0000000000000000 sigmaCopy
+     /tmp/ccJLWTVJ.s:2405   .text.sigmaCopy:0000000000000024 $d
+     /tmp/ccJLWTVJ.s:2410   .text.stats_mode:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:2418   .text.stats_mode:0000000000000000 stats_mode
+     /tmp/ccJLWTVJ.s:2442   .text.stats_mode:0000000000000014 $d
+     /tmp/ccJLWTVJ.s:2447   .text.sigma_clear:0000000000000000 $t
+ARM GAS  /tmp/ccJLWTVJ.s 			page 124
 
 
-     /tmp/ccdokjku.s:2455   .text.sigma_clear:0000000000000000 sigma_clear
-     /tmp/ccdokjku.s:2505   .text.sigma_clear:0000000000000020 $d
-     /tmp/ccdokjku.s:2511   .text.sigma_plus:0000000000000000 $t
-     /tmp/ccdokjku.s:2519   .text.sigma_plus:0000000000000000 sigma_plus
-     /tmp/ccdokjku.s:2573   .text.sigma_plus:0000000000000030 $d
-     /tmp/ccdokjku.s:2579   .text.sigma_minus:0000000000000000 $t
-     /tmp/ccdokjku.s:2587   .text.sigma_minus:0000000000000000 sigma_minus
-     /tmp/ccdokjku.s:2641   .text.sigma_minus:0000000000000030 $d
-     /tmp/ccdokjku.s:2647   .text.sigma_plus_x:0000000000000000 $t
-     /tmp/ccdokjku.s:2655   .text.sigma_plus_x:0000000000000000 sigma_plus_x
-     /tmp/ccdokjku.s:2718   .text.sigma_plus_x:000000000000003c $d
-     /tmp/ccdokjku.s:2724   .text.sigma_val:0000000000000000 $t
-     /tmp/ccdokjku.s:2732   .text.sigma_val:0000000000000000 sigma_val
-     /tmp/ccdokjku.s:2913   .text.sigma_val:000000000000008c $d
-     /tmp/ccdokjku.s:2921   .text.sigma_sum:0000000000000000 $t
-     /tmp/ccdokjku.s:2929   .text.sigma_sum:0000000000000000 sigma_sum
-     /tmp/ccdokjku.s:3034   .text.sigma_sum:0000000000000060 $d
-     /tmp/ccdokjku.s:3041   .text.stats_mean:0000000000000000 $t
-     /tmp/ccdokjku.s:3049   .text.stats_mean:0000000000000000 stats_mean
-     /tmp/ccdokjku.s:3153   .text.stats_wmean:0000000000000000 $t
-     /tmp/ccdokjku.s:3161   .text.stats_wmean:0000000000000000 stats_wmean
-     /tmp/ccdokjku.s:3234   .text.stats_gmean:0000000000000000 $t
-     /tmp/ccdokjku.s:3242   .text.stats_gmean:0000000000000000 stats_gmean
-     /tmp/ccdokjku.s:3362   .text.stats_deviations:0000000000000000 $t
-     /tmp/ccdokjku.s:3370   .text.stats_deviations:0000000000000000 stats_deviations
-     /tmp/ccdokjku.s:3543   .text.stats_wdeviations:0000000000000000 $t
-     /tmp/ccdokjku.s:3551   .text.stats_wdeviations:0000000000000000 stats_wdeviations
-     /tmp/ccdokjku.s:3752   .text.stats_wdeviations:00000000000000c4 $d
-     /tmp/ccdokjku.s:3758   .text.stats_sigper:0000000000000000 $t
-     /tmp/ccdokjku.s:3766   .text.stats_sigper:0000000000000000 stats_sigper
-     /tmp/ccdokjku.s:3827   .text.stats_correlation:0000000000000000 $t
-     /tmp/ccdokjku.s:3835   .text.stats_correlation:0000000000000000 stats_correlation
-     /tmp/ccdokjku.s:3882   .text.stats_correlation:000000000000002c $d
-     /tmp/ccdokjku.s:3887   .text.stats_COV:0000000000000000 $t
-     /tmp/ccdokjku.s:3895   .text.stats_COV:0000000000000000 stats_COV
-     /tmp/ccdokjku.s:4006   .text.stats_COV:000000000000007c $d
-     /tmp/ccdokjku.s:4011   .text.stats_LR:0000000000000000 $t
-     /tmp/ccdokjku.s:4019   .text.stats_LR:0000000000000000 stats_LR
-     /tmp/ccdokjku.s:4099   .text.stats_xhat:0000000000000000 $t
-     /tmp/ccdokjku.s:4107   .text.stats_xhat:0000000000000000 stats_xhat
-     /tmp/ccdokjku.s:4150   .text.stats_xhat:0000000000000022 $d
-     /tmp/ccdokjku.s:4156   .text.stats_xhat:0000000000000028 $t
-     /tmp/ccdokjku.s:4281   .text.stats_yhat:0000000000000000 $t
-     /tmp/ccdokjku.s:4289   .text.stats_yhat:0000000000000000 stats_yhat
-     /tmp/ccdokjku.s:4332   .text.stats_yhat:0000000000000022 $d
-     /tmp/ccdokjku.s:4338   .text.stats_yhat:0000000000000028 $t
-     /tmp/ccdokjku.s:4448   .text.stats_random:0000000000000000 $t
-     /tmp/ccdokjku.s:4456   .text.stats_random:0000000000000000 stats_random
-     /tmp/ccdokjku.s:4562   .text.stats_random:0000000000000064 $d
-     /tmp/ccdokjku.s:4568   .text.stats_sto_random:0000000000000000 $t
-     /tmp/ccdokjku.s:4576   .text.stats_sto_random:0000000000000000 stats_sto_random
-     /tmp/ccdokjku.s:4642   .text.stats_sto_random:0000000000000038 $d
-     /tmp/ccdokjku.s:4647   .text.betai:0000000000000000 $t
-     /tmp/ccdokjku.s:4655   .text.betai:0000000000000000 betai
-     /tmp/ccdokjku.s:4967   .text.betai:0000000000000184 $d
+     /tmp/ccJLWTVJ.s:2455   .text.sigma_clear:0000000000000000 sigma_clear
+     /tmp/ccJLWTVJ.s:2505   .text.sigma_clear:0000000000000020 $d
+     /tmp/ccJLWTVJ.s:2511   .text.sigma_plus:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:2519   .text.sigma_plus:0000000000000000 sigma_plus
+     /tmp/ccJLWTVJ.s:2573   .text.sigma_plus:0000000000000030 $d
+     /tmp/ccJLWTVJ.s:2579   .text.sigma_minus:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:2587   .text.sigma_minus:0000000000000000 sigma_minus
+     /tmp/ccJLWTVJ.s:2641   .text.sigma_minus:0000000000000030 $d
+     /tmp/ccJLWTVJ.s:2647   .text.sigma_plus_x:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:2655   .text.sigma_plus_x:0000000000000000 sigma_plus_x
+     /tmp/ccJLWTVJ.s:2718   .text.sigma_plus_x:000000000000003c $d
+     /tmp/ccJLWTVJ.s:2724   .text.sigma_val:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:2732   .text.sigma_val:0000000000000000 sigma_val
+     /tmp/ccJLWTVJ.s:2913   .text.sigma_val:000000000000008c $d
+     /tmp/ccJLWTVJ.s:2921   .text.sigma_sum:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:2929   .text.sigma_sum:0000000000000000 sigma_sum
+     /tmp/ccJLWTVJ.s:3034   .text.sigma_sum:0000000000000060 $d
+     /tmp/ccJLWTVJ.s:3041   .text.stats_mean:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:3049   .text.stats_mean:0000000000000000 stats_mean
+     /tmp/ccJLWTVJ.s:3153   .text.stats_wmean:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:3161   .text.stats_wmean:0000000000000000 stats_wmean
+     /tmp/ccJLWTVJ.s:3234   .text.stats_gmean:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:3242   .text.stats_gmean:0000000000000000 stats_gmean
+     /tmp/ccJLWTVJ.s:3362   .text.stats_deviations:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:3370   .text.stats_deviations:0000000000000000 stats_deviations
+     /tmp/ccJLWTVJ.s:3543   .text.stats_wdeviations:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:3551   .text.stats_wdeviations:0000000000000000 stats_wdeviations
+     /tmp/ccJLWTVJ.s:3752   .text.stats_wdeviations:00000000000000c4 $d
+     /tmp/ccJLWTVJ.s:3758   .text.stats_sigper:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:3766   .text.stats_sigper:0000000000000000 stats_sigper
+     /tmp/ccJLWTVJ.s:3827   .text.stats_correlation:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:3835   .text.stats_correlation:0000000000000000 stats_correlation
+     /tmp/ccJLWTVJ.s:3882   .text.stats_correlation:000000000000002c $d
+     /tmp/ccJLWTVJ.s:3887   .text.stats_COV:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:3895   .text.stats_COV:0000000000000000 stats_COV
+     /tmp/ccJLWTVJ.s:4006   .text.stats_COV:000000000000007c $d
+     /tmp/ccJLWTVJ.s:4011   .text.stats_LR:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:4019   .text.stats_LR:0000000000000000 stats_LR
+     /tmp/ccJLWTVJ.s:4099   .text.stats_xhat:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:4107   .text.stats_xhat:0000000000000000 stats_xhat
+     /tmp/ccJLWTVJ.s:4150   .text.stats_xhat:0000000000000022 $d
+     /tmp/ccJLWTVJ.s:4156   .text.stats_xhat:0000000000000028 $t
+     /tmp/ccJLWTVJ.s:4281   .text.stats_yhat:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:4289   .text.stats_yhat:0000000000000000 stats_yhat
+     /tmp/ccJLWTVJ.s:4332   .text.stats_yhat:0000000000000022 $d
+     /tmp/ccJLWTVJ.s:4338   .text.stats_yhat:0000000000000028 $t
+     /tmp/ccJLWTVJ.s:4448   .text.stats_random:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:4456   .text.stats_random:0000000000000000 stats_random
+     /tmp/ccJLWTVJ.s:4562   .text.stats_random:0000000000000064 $d
+     /tmp/ccJLWTVJ.s:4568   .text.stats_sto_random:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:4576   .text.stats_sto_random:0000000000000000 stats_sto_random
+     /tmp/ccJLWTVJ.s:4642   .text.stats_sto_random:0000000000000038 $d
+     /tmp/ccJLWTVJ.s:4647   .text.betai:0000000000000000 $t
+     /tmp/ccJLWTVJ.s:4655   .text.betai:0000000000000000 betai
+     /tmp/ccJLWTVJ.s:4967   .text.betai:0000000000000184 $d
 
 UNDEFINED SYMBOLS
-ARM GAS  /tmp/ccdokjku.s 			page 125
+ARM GAS  /tmp/ccJLWTVJ.s 			page 125
 
 
 main_ram
@@ -7477,7 +7477,7 @@ setY
 set_NaN
 const_randfac
 getX_int
-ARM GAS  /tmp/ccdokjku.s 			page 126
+ARM GAS  /tmp/ccJLWTVJ.s 			page 126
 
 
 getX

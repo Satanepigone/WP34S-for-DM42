@@ -34,9 +34,12 @@
 #define VOLATILE_RAM
 #define BACKUP_FLASH
 
-#ifdef C_VERSION
+#if defined C_VERSION
 #define STATE_FILE "wp34s/wp34c.dat"
 #define BACKUP_FILE "wp34s/wp34c-backup.dat"
+#elif defined FOUR_K
+#define STATE_FILE "wp34s/wp34s_4k.dat"
+#define BACKUP_FILE "wp34s/wp34s-backup_4k.dat"
 #else
 #define STATE_FILE "wp34s/wp34s.dat"
 #define BACKUP_FILE "wp34s/wp34s-backup.dat"
@@ -767,7 +770,7 @@ void save_lib_file ( int i ) {
     if (f != FR_OK) {
       f_close (FPT);
       sys_disk_write_enable(0);
-      DispMsg = "Err slf1";
+      DispMsg = "Can't open";
       return;
     }
   }
@@ -778,7 +781,7 @@ void save_lib_file ( int i ) {
   // File is now open with correct permissions
   f = f_write (FPT, (char *) &UserFlash, sizeof (UserFlash), &x);
   if ( f != FR_OK ) {
-    DispMsg = "Err slf2";
+    DispMsg = "FR not ok";
   }
   f_close( FPT );
   sys_disk_write_enable(0);
@@ -794,7 +797,7 @@ void load_lib_file ( int i ) {
     f = f_open (FPT, LIBRARY_FILE, FA_READ);
     if (f != FR_OK) {
       f_close (FPT);
-      //      DispMsg = "No file?";
+      DispMsg = "Can't open";
       return;
     }
   }
@@ -805,10 +808,10 @@ void load_lib_file ( int i ) {
   // File is now open with correct permissions
   f = f_read (FPT, (char *) &UserFlash, sizeof (UserFlash), &x);
   if ( f != FR_OK ) {
-    DispMsg = "Err slf2";
+    DispMsg = "FR not ok";
   }
   if ( !(f_eof(FPT)) ) {
-    DispMsg = "File too big";
+    DispMsg = "Not at eof";
   }
   f_close( FPT );
 }
@@ -829,7 +832,7 @@ void save_ram_file ( int i ) {
       if (f != FR_OK) {
 	f_close (FPT);
 	sys_disk_write_enable(0);
-	DispMsg = "Err srf1";
+	DispMsg = "Can't open";
 	return;
       }
     }
@@ -840,7 +843,7 @@ void save_ram_file ( int i ) {
     // File is now open with correct permissions
     f = f_write (FPT, (char *) &PersistentRam, sizeof (PersistentRam), &x);
     if ( f != FR_OK ) {
-      DispMsg = "Err srf2";
+      DispMsg = "FR not ok";
     }
     f_close( FPT );
     sys_disk_write_enable(0);
@@ -856,7 +859,7 @@ int load_ram_file ( int i ) { // this will load backup files too!
     f = f_open (FPT, STATE_FILE, FA_READ);
     if (f != FR_OK) {
       f_close (FPT);
-      //      DispMsg = "No file?";
+      DispMsg = "Can't open";
       return 1;
     }
   }
@@ -867,14 +870,14 @@ int load_ram_file ( int i ) { // this will load backup files too!
   // File is now open with correct permissions
   f = f_read (FPT, (char *) &PersistentRam, sizeof (PersistentRam), &x);
   if ( f != FR_OK ) {
-    DispMsg = "Err lrf2";
-      f_close( FPT );
-      return 1;
+    DispMsg = "FR not ok";
+    f_close( FPT );
+    return 1;
   }
   if ( !(f_eof(FPT)) ) {
-    DispMsg = "File too big";
-      f_close( FPT );
-      return 1;
+    DispMsg = "Not at eof";
+    f_close( FPT );
+    return 1;
   }
   f_close( FPT );
   return 0;
@@ -889,6 +892,7 @@ void load_backup_file ( int i ) { // goes into backup!
   if (i == 0) {
     f = f_open (FPT, BACKUP_FILE, FA_READ);
     if (f != FR_OK) {
+      DispMsg = "Can't open";
       f_close (FPT);
       return;
     }
@@ -900,10 +904,10 @@ void load_backup_file ( int i ) { // goes into backup!
   // File is now open with correct permissions
   f = f_read (FPT, (char *) &BackupFlash, sizeof (BackupFlash), &x);
   if ( f != FR_OK ) {
-    DispMsg = "Err lbf2";
+      DispMsg = "FR not ok";
   }
   if ( !(f_eof(FPT)) ) {
-    DispMsg = "File too big";
+    DispMsg = "Not at eof";
   }
   f_close( FPT );
 }
@@ -920,13 +924,13 @@ int open_selected_file (const char * fpath, const char * fname, void * data) {
     f = f_open (FPT, fpath, FA_READ);
   }
   else {
-    DispMsg = "data=3?";
+    DispMsg = "data=3??";
     return 3; // serious error!
   }
   if (f != FR_OK) {
     f_close (FPT);
     sys_disk_write_enable(0);
-    DispMsg = "File err";
+    DispMsg = "Can't open";
     return 2; // file can't be opened
   }
   else {
@@ -1038,7 +1042,7 @@ void load_prog_file () {
   if (!f_eof(FPT)) { //odd?
     free(buffer);
     f_close(FPT);
-    DispMsg = "File odd";
+    DispMsg = "Not at eof";
     return;
   }
   f_close(FPT);
@@ -1050,7 +1054,7 @@ void load_prog_file () {
     unsigned short end_of_prog = 4 + (fr->size)*2;
     unsigned short possible_crc = buffer[end_of_prog] + buffer[end_of_prog+1]*256;
     if (possible_crc != correct_crc) { // if still no good, bail out
-      DispMsg = "File crc err";
+      DispMsg = "CRC err";
       free(buffer);
       return;
     }

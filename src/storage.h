@@ -21,7 +21,13 @@
 // The actual size will be shorter on the device
 #ifdef DM42
 #define NUMPROG_FLASH	8190 //chosen to get length of user flash area multiple of 2k - short ints are 2 bytes, each step is 2 bytes too
+
+#if defined (FOUR_K)
+#define RAM_SIZE 4096 // in bytes
+#else
 #define RAM_SIZE 2048 // in bytes
+#endif
+
 #define LIBRARY_SIZE 16384 // in bytes
 #else
 #define NUMPROG_FLASH   9999

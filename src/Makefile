@@ -68,8 +68,13 @@ LDCTRL :=
 HOSTCC := $(CC)
 HOSTAR := $(AR)
 HOSTRANLIB := $(RANLIB)
+ifdef FOUR_K
+#HOSTCFLAGS := -Wall -O1 -g -DHOSTBUILD=1 -DDM42=1 -DFOUR_K=1
+HOSTCFLAGS := -w -O1 -g -DHOSTBUILD=1 -DDM42=1 -DFOUR_K=1
+else
 #HOSTCFLAGS := -Wall -O1 -g -DHOSTBUILD=1 -DDM42=1
 HOSTCFLAGS := -w -O1 -g -DHOSTBUILD=1 -DDM42=1
+endif
 
 OUTPUTDIR := $(SYSTEM)
 UTILITIES := $(SYSTEM)
@@ -101,7 +106,11 @@ DNOBJS := $(DNSRCS:%.c=$(OBJECTDIR)/%.o)
 DNSRCS := $(DNSRCS:%.c=decNumber/%.c)
 DNHDRS := $(DNSRCS:%.c=%.h) 
 
+ifdef FOUR_K
+OPCODES := $(TOOLS)/wp34s_4k.op
+else
 OPCODES := $(TOOLS)/wp34s.op
+endif
 
 # Targets and rules
 # PHONY targets don't refer to a file

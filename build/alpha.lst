@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccM2bksY.s 			page 1
+ARM GAS  /tmp/ccAztkBi.s 			page 1
 
 
    1              		.arch armv7e-m
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
   27:src/alpha.c   ****  */
   28:src/alpha.c   **** static char *internal_add_char(char *a, char c) {
   29:src/alpha.c   **** 	if (a == Alpha+NUMALPHA)
-ARM GAS  /tmp/ccM2bksY.s 			page 2
+ARM GAS  /tmp/ccAztkBi.s 			page 2
 
 
   30:src/alpha.c   **** 		*scopy(Alpha, Alpha+1) = c;
@@ -92,7 +92,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
   46 0006 0446     		mov	r4, r0
   47              		.loc 1 39 2 view .LVU5
   48 0008 0021     		movs	r1, #0
-  49 000a 02F5F660 		add	r0, r2, #1968
+  49 000a 02F57B60 		add	r0, r2, #4016
   50              	.LVL1:
   51              		.loc 1 39 2 view .LVU6
   52 000e FFF7FEFF 		bl	find_char
@@ -114,11 +114,11 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
   64              		.loc 1 29 2 view .LVU10
   29:src/alpha.c   **** 		*scopy(Alpha, Alpha+1) = c;
   65              		.loc 1 29 16 is_stmt 0 view .LVU11
-  66 0014 03F2CE72 		addw	r2, r3, #1998
+  66 0014 03F6CE72 		addw	r2, r3, #4046
   29:src/alpha.c   **** 		*scopy(Alpha, Alpha+1) = c;
   67              		.loc 1 29 5 view .LVU12
   68 0018 9042     		cmp	r0, r2
-ARM GAS  /tmp/ccM2bksY.s 			page 3
+ARM GAS  /tmp/ccAztkBi.s 			page 3
 
 
   69 001a 03D0     		beq	.L6
@@ -154,8 +154,8 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
   90              		.loc 1 30 3 is_stmt 1 view .LVU21
   30:src/alpha.c   **** 	else {
   91              		.loc 1 30 4 is_stmt 0 view .LVU22
-  92 0024 03F2B171 		addw	r1, r3, #1969
-  93 0028 03F5F660 		add	r0, r3, #1968
+  92 0024 03F6B171 		addw	r1, r3, #4017
+  93 0028 03F57B60 		add	r0, r3, #4016
   94              	.LVL7:
   30:src/alpha.c   **** 	else {
   95              		.loc 1 30 4 view .LVU23
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  111              	.LFE1:
  113              		.section	.text.add_string,"ax",%progbits
  114              		.align	1
-ARM GAS  /tmp/ccM2bksY.s 			page 4
+ARM GAS  /tmp/ccAztkBi.s 			page 4
 
 
  115              		.p2align 2,,3
@@ -219,7 +219,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  143 0008 0646     		mov	r6, r0
  144              		.loc 1 46 12 view .LVU32
  145 000a 0021     		movs	r1, #0
- 146 000c 03F5F660 		add	r0, r3, #1968
+ 146 000c 03F57B60 		add	r0, r3, #4016
  147              	.LVL11:
  148              		.loc 1 46 12 view .LVU33
  149 0010 FFF7FEFF 		bl	find_char
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
   33:src/alpha.c   **** 	}
  160              		.loc 1 33 6 is_stmt 0 view .LVU37
  161 001a 4FF00008 		mov	r8, #0
-ARM GAS  /tmp/ccM2bksY.s 			page 5
+ARM GAS  /tmp/ccAztkBi.s 			page 5
 
 
  162 001e 07E0     		b	.L13
@@ -288,7 +288,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  196 0030 3868     		ldr	r0, [r7]
   29:src/alpha.c   **** 		*scopy(Alpha, Alpha+1) = c;
  197              		.loc 1 29 16 view .LVU50
- 198 0032 00F2CE72 		addw	r2, r0, #1998
+ 198 0032 00F6CE72 		addw	r2, r0, #4046
   29:src/alpha.c   **** 		*scopy(Alpha, Alpha+1) = c;
  199              		.loc 1 29 5 view .LVU51
  200 0036 9442     		cmp	r4, r2
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  203              	.LVL19:
   29:src/alpha.c   **** 		*scopy(Alpha, Alpha+1) = c;
  204              		.loc 1 29 5 view .LVU53
-ARM GAS  /tmp/ccM2bksY.s 			page 6
+ARM GAS  /tmp/ccAztkBi.s 			page 6
 
 
  205 003a F1D1     		bne	.L11
@@ -306,8 +306,8 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  206              		.loc 1 30 3 is_stmt 1 view .LVU54
   30:src/alpha.c   **** 	else {
  207              		.loc 1 30 4 is_stmt 0 view .LVU55
- 208 003c 00F2B171 		addw	r1, r0, #1969
- 209 0040 00F5F660 		add	r0, r0, #1968
+ 208 003c 00F6B171 		addw	r1, r0, #4017
+ 209 0040 00F57B60 		add	r0, r0, #4016
  210 0044 FFF7FEFF 		bl	scopy
  211              	.LVL20:
   30:src/alpha.c   **** 	else {
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  248              		.loc 1 55 30 is_stmt 1 view -0
  249              		.cfi_startproc
  250              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccM2bksY.s 			page 7
+ARM GAS  /tmp/ccAztkBi.s 			page 7
 
 
  251              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -378,7 +378,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  261              		.loc 1 56 10 view .LVU67
  262 0006 0021     		movs	r1, #0
  263              		.loc 1 57 2 view .LVU68
- 264 0008 00F5F660 		add	r0, r0, #1968
+ 264 0008 00F57B60 		add	r0, r0, #4016
  265 000c 1E22     		movs	r2, #30
   56:src/alpha.c   **** 	DispMsg = NULL;
  266              		.loc 1 56 10 view .LVU69
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
   64:src/alpha.c   **** 	DispMsg = Alpha;
  296              		.loc 1 64 2 view .LVU72
   63:src/alpha.c   **** 	DispMsg = Alpha;
-ARM GAS  /tmp/ccM2bksY.s 			page 8
+ARM GAS  /tmp/ccAztkBi.s 			page 8
 
 
  297              		.loc 1 63 33 is_stmt 0 view .LVU73
@@ -449,7 +449,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  315 000e 2860     		str	r0, [r5]
   64:src/alpha.c   **** 	ShowRegister = reg;
  316              		.loc 1 64 12 view .LVU81
- 317 0010 03F5F663 		add	r3, r3, #1968
+ 317 0010 03F57B63 		add	r3, r3, #4016
  318              		.loc 1 66 20 view .LVU82
  319 0014 6FF3C711 		bfc	r1, #7, #1
   64:src/alpha.c   **** 	ShowRegister = reg;
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  337 0022 00BF     		.align	2
  338              	.L26:
  339 0024 00000000 		.word	StateWhileOn
-ARM GAS  /tmp/ccM2bksY.s 			page 9
+ARM GAS  /tmp/ccAztkBi.s 			page 9
 
 
  340 0028 00000000 		.word	main_ram
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
   64:src/alpha.c   **** 	ShowRegister = reg;
  386              		.loc 1 64 10 view .LVU100
  387 000a 094D     		ldr	r5, .L30+8
-ARM GAS  /tmp/ccM2bksY.s 			page 10
+ARM GAS  /tmp/ccAztkBi.s 			page 10
 
 
   65:src/alpha.c   **** 	State2.disp_small = 0;
@@ -547,7 +547,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  390              	.LVL30:
   64:src/alpha.c   **** 	ShowRegister = reg;
  391              		.loc 1 64 12 view .LVU102
- 392 000e 03F5F663 		add	r3, r3, #1968
+ 392 000e 03F57B63 		add	r3, r3, #4016
   66:src/alpha.c   **** 	frozen_display();
  393              		.loc 1 66 20 view .LVU103
  394 0012 6FF3C711 		bfc	r1, #7, #1
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  431              		.align	1
  432              		.p2align 2,,3
  433              		.global	alpha_view_reg
-ARM GAS  /tmp/ccM2bksY.s 			page 11
+ARM GAS  /tmp/ccAztkBi.s 			page 11
 
 
  434              		.syntax unified
@@ -658,13 +658,13 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  474              		.loc 1 64 2 view .LVU124
   65:src/alpha.c   **** 	State2.disp_small = 0;
  475              		.loc 1 65 15 is_stmt 0 view .LVU125
-ARM GAS  /tmp/ccM2bksY.s 			page 12
+ARM GAS  /tmp/ccAztkBi.s 			page 12
 
 
  476 000e 2860     		str	r0, [r5]
   64:src/alpha.c   **** 	ShowRegister = reg;
  477              		.loc 1 64 12 view .LVU126
- 478 0010 03F5F663 		add	r3, r3, #1968
+ 478 0010 03F57B63 		add	r3, r3, #4016
   66:src/alpha.c   **** 	frozen_display();
  479              		.loc 1 66 20 view .LVU127
  480 0014 6FF3C711 		bfc	r1, #7, #1
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  522              	cmdalpha:
  523              	.LVL36:
  524              	.LFB7:
-ARM GAS  /tmp/ccM2bksY.s 			page 13
+ARM GAS  /tmp/ccAztkBi.s 			page 13
 
 
   79:src/alpha.c   **** 
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  567              		@ args = 0, pretend = 0, frame = 8
  568              		@ frame_needed = 0, uses_anonymous_args = 0
   91:src/alpha.c   **** 	char buf[4];
-ARM GAS  /tmp/ccM2bksY.s 			page 14
+ARM GAS  /tmp/ccAztkBi.s 			page 14
 
 
  569              		.loc 1 91 2 view .LVU145
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  606              		.cfi_def_cfa_offset 8
  607              		@ sp needed
  608 0024 10BD     		pop	{r4, pc}
-ARM GAS  /tmp/ccM2bksY.s 			page 15
+ARM GAS  /tmp/ccAztkBi.s 			page 15
 
 
  609              		.cfi_endproc
@@ -890,7 +890,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  644              		.loc 1 110 6 view .LVU167
  645 0004 384B     		ldr	r3, .L57
  646 0006 1B68     		ldr	r3, [r3]
- 647 0008 93F8E837 		ldrb	r3, [r3, #2024]	@ zero_extendqisi2
+ 647 0008 93F8E83F 		ldrb	r3, [r3, #4072]	@ zero_extendqisi2
  103:src/alpha.c   **** 	char tbuf[NUMALPHA + 4], *p;
  648              		.loc 1 103 47 view .LVU168
  649 000c 9DB0     		sub	sp, sp, #116
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  651              	.LVL45:
  108:src/alpha.c   **** 	*p = '\0';
  652              		.loc 1 108 2 is_stmt 1 view .LVU169
-ARM GAS  /tmp/ccM2bksY.s 			page 16
+ARM GAS  /tmp/ccAztkBi.s 			page 16
 
 
  108:src/alpha.c   **** 	*p = '\0';
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  699              		.loc 1 115 4 is_stmt 1 view .LVU185
  700 0040 3046     		mov	r0, r6
  701 0042 2946     		mov	r1, r5
-ARM GAS  /tmp/ccM2bksY.s 			page 17
+ARM GAS  /tmp/ccAztkBi.s 			page 17
 
 
  702 0044 4246     		mov	r2, r8
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  128:src/alpha.c   **** 			decNumberMod(&y, &x, &const_10);
  129:src/alpha.c   **** 			*--p = '0' + dn_to_int(&y);
  130:src/alpha.c   **** 			decNumberFloor(&x, dn_divide(&y, &x, &const_10));
-ARM GAS  /tmp/ccM2bksY.s 			page 18
+ARM GAS  /tmp/ccAztkBi.s 			page 18
 
 
  131:src/alpha.c   **** 			if (dn_eq0(&x))
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  777              		.loc 1 124 6 view .LVU209
  778 0088 002B     		cmp	r3, #0
  123:src/alpha.c   **** 		if (sgn)
-ARM GAS  /tmp/ccM2bksY.s 			page 19
+ARM GAS  /tmp/ccAztkBi.s 			page 19
 
 
  779              		.loc 1 123 7 view .LVU210
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  820              		.loc 1 130 23 view .LVU223
  821 00b6 2A46     		mov	r2, r5
  129:src/alpha.c   **** 			decNumberFloor(&x, dn_divide(&y, &x, &const_10));
-ARM GAS  /tmp/ccM2bksY.s 			page 20
+ARM GAS  /tmp/ccAztkBi.s 			page 20
 
 
  822              		.loc 1 129 15 view .LVU224
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  865              		.cfi_endproc
  866              	.LFE9:
  868              		.section	.text.alen,"ax",%progbits
-ARM GAS  /tmp/ccM2bksY.s 			page 21
+ARM GAS  /tmp/ccAztkBi.s 			page 21
 
 
  869              		.align	1
@@ -1232,12 +1232,12 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  891 0004 2068     		ldr	r0, [r4]
  892              		.loc 1 145 9 view .LVU240
  893 0006 0021     		movs	r1, #0
- 894 0008 00F5F660 		add	r0, r0, #1968
+ 894 0008 00F57B60 		add	r0, r0, #4016
  895 000c FFF7FEFF 		bl	find_char
  896              	.LVL76:
  897              		.loc 1 145 32 view .LVU241
  898 0010 2368     		ldr	r3, [r4]
- 899 0012 03F5F663 		add	r3, r3, #1968
+ 899 0012 03F57B63 		add	r3, r3, #4016
  146:src/alpha.c   **** }
  900              		.loc 1 146 1 view .LVU242
  901 0016 C01A     		subs	r0, r0, r3
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  917              		.fpu fpv4-sp-d16
  919              	alpha_length:
  920              	.LVL77:
-ARM GAS  /tmp/ccM2bksY.s 			page 22
+ARM GAS  /tmp/ccAztkBi.s 			page 22
 
 
  921              	.LFB11:
@@ -1295,7 +1295,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  145:src/alpha.c   **** }
  945              		.loc 1 145 9 view .LVU249
  946 0006 0021     		movs	r1, #0
- 947 0008 00F5F660 		add	r0, r0, #1968
+ 947 0008 00F57B60 		add	r0, r0, #4016
  948 000c FFF7FEFF 		bl	find_char
  949              	.LVL79:
  145:src/alpha.c   **** }
@@ -1309,7 +1309,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  957              	.LBB54:
  145:src/alpha.c   **** }
  958              		.loc 1 145 32 view .LVU252
- 959 0014 03F5F663 		add	r3, r3, #1968
+ 959 0014 03F57B63 		add	r3, r3, #4016
  960              	.LBE54:
  961              	.LBE56:
  150:src/alpha.c   **** }
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  964              		.cfi_restore 14
  965              		.cfi_restore 4
  966              		.cfi_def_cfa_offset 0
-ARM GAS  /tmp/ccM2bksY.s 			page 23
+ARM GAS  /tmp/ccAztkBi.s 			page 23
 
 
  149:src/alpha.c   **** }
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1013              		.loc 1 158 8 view .LVU262
  1014 000e 0024     		movs	r4, #0
  1015              	.LVL82:
-ARM GAS  /tmp/ccM2bksY.s 			page 24
+ARM GAS  /tmp/ccAztkBi.s 			page 24
 
 
  1016              	.L68:
@@ -1390,12 +1390,12 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1021              		.loc 1 159 14 view .LVU265
  1022 0014 292F     		cmp	r7, #41
  1023 0016 08BF     		it	eq
- 1024 0018 90F8B057 		ldrbeq	r5, [r0, #1968]	@ zero_extendqisi2
+ 1024 0018 90F8B05F 		ldrbeq	r5, [r0, #4016]	@ zero_extendqisi2
  160:src/alpha.c   **** 
  161:src/alpha.c   **** 		*scopy(Alpha, Alpha+1) = c;
  1025              		.loc 1 161 4 view .LVU266
- 1026 001c 00F2B171 		addw	r1, r0, #1969
- 1027 0020 00F5F660 		add	r0, r0, #1968
+ 1026 001c 00F6B171 		addw	r1, r0, #4017
+ 1027 0020 00F57B60 		add	r0, r0, #4016
  159:src/alpha.c   **** 		const char c = rot?Alpha[0]:'\0';
  1028              		.loc 1 159 14 view .LVU267
  1029 0024 18BF     		it	ne
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1059              		.cfi_restore 7
  1060              		.cfi_restore 8
  1061              		.cfi_restore 14
-ARM GAS  /tmp/ccM2bksY.s 			page 25
+ARM GAS  /tmp/ccAztkBi.s 			page 25
 
 
  1062              		.loc 1 163 1 view .LVU277
@@ -1498,12 +1498,12 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1110              	.L82:
  169:src/alpha.c   **** 		xcopy(Alpha+1, Alpha, NUMALPHA-1);
  1111              		.loc 1 169 3 is_stmt 1 discriminator 3 view .LVU286
-ARM GAS  /tmp/ccM2bksY.s 			page 26
+ARM GAS  /tmp/ccAztkBi.s 			page 26
 
 
- 1112 000e 00F5F661 		add	r1, r0, #1968
+ 1112 000e 00F57B61 		add	r1, r0, #4016
  1113 0012 1D22     		movs	r2, #29
- 1114 0014 00F2B170 		addw	r0, r0, #1969
+ 1114 0014 00F6B170 		addw	r0, r0, #4017
  1115 0018 FFF7FEFF 		bl	xcopy
  1116              	.LVL91:
  1117              		.loc 1 170 3 discriminator 3 view .LVU287
@@ -1517,7 +1517,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1123              		.loc 1 168 2 discriminator 3 view .LVU290
  1124 0020 A542     		cmp	r5, r4
  1125              		.loc 1 170 12 discriminator 3 view .LVU291
- 1126 0022 80F8B077 		strb	r7, [r0, #1968]
+ 1126 0022 80F8B07F 		strb	r7, [r0, #4016]
  168:src/alpha.c   **** 		xcopy(Alpha+1, Alpha, NUMALPHA-1);
  1127              		.loc 1 168 19 is_stmt 1 discriminator 3 view .LVU292
  1128              	.LVL93:
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1161              	alpha_rot_r:
  1162              	.LVL95:
  1163              	.LFB14:
-ARM GAS  /tmp/ccM2bksY.s 			page 27
+ARM GAS  /tmp/ccAztkBi.s 			page 27
 
 
  173:src/alpha.c   **** 
@@ -1611,21 +1611,21 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1200              	.LBB62:
  145:src/alpha.c   **** }
  1201              		.loc 1 145 9 view .LVU307
- 1202 000c 03F5F660 		add	r0, r3, #1968
+ 1202 000c 03F57B60 		add	r0, r3, #4016
  1203              	.LVL97:
  145:src/alpha.c   **** }
  1204              		.loc 1 145 9 view .LVU308
  1205 0010 FFF7FEFF 		bl	find_char
  1206              	.LVL98:
  145:src/alpha.c   **** }
-ARM GAS  /tmp/ccM2bksY.s 			page 28
+ARM GAS  /tmp/ccAztkBi.s 			page 28
 
 
  1207              		.loc 1 145 34 view .LVU309
  1208 0014 3B68     		ldr	r3, [r7]
  145:src/alpha.c   **** }
  1209              		.loc 1 145 32 view .LVU310
- 1210 0016 03F5F661 		add	r1, r3, #1968
+ 1210 0016 03F57B61 		add	r1, r3, #4016
  1211              	.LVL99:
  145:src/alpha.c   **** }
  1212              		.loc 1 145 32 view .LVU311
@@ -1652,7 +1652,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1230              	.LVL103:
  1231              	.L101:
  1232              		.loc 1 179 9 view .LVU318
- 1233 0026 03F5F661 		add	r1, r3, #1968
+ 1233 0026 03F57B61 		add	r1, r3, #4016
  1234              	.LVL104:
  1235              	.L93:
  1236              	.LBB65:
@@ -1662,11 +1662,11 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1239 002a 03EB040C 		add	ip, r3, r4
  181:src/alpha.c   **** 			xcopy(Alpha+1, Alpha, al-1);
  1240              		.loc 1 181 4 discriminator 3 view .LVU321
- 1241 002e 03F2B170 		addw	r0, r3, #1969
+ 1241 002e 03F6B170 		addw	r0, r3, #4017
  1242 0032 2246     		mov	r2, r4
  180:src/alpha.c   **** 			const char c = Alpha[al-1];
  1243              		.loc 1 180 15 discriminator 3 view .LVU322
- 1244 0034 9CF8B087 		ldrb	r8, [ip, #1968]	@ zero_extendqisi2
+ 1244 0034 9CF8B08F 		ldrb	r8, [ip, #4016]	@ zero_extendqisi2
  1245              	.LVL105:
  1246              		.loc 1 181 4 is_stmt 1 discriminator 3 view .LVU323
  1247              	.LBE65:
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1252              		.loc 1 181 4 discriminator 3 view .LVU325
  1253 003a FFF7FEFF 		bl	xcopy
  1254              	.LVL107:
-ARM GAS  /tmp/ccM2bksY.s 			page 29
+ARM GAS  /tmp/ccAztkBi.s 			page 29
 
 
  182:src/alpha.c   **** 			Alpha[0] = c;
@@ -1690,7 +1690,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1259 0040 AE42     		cmp	r6, r5
  1260              	.LBB67:
  1261              		.loc 1 182 13 discriminator 3 view .LVU328
- 1262 0042 83F8B087 		strb	r8, [r3, #1968]
+ 1262 0042 83F8B08F 		strb	r8, [r3, #4016]
  1263              	.LBE67:
  179:src/alpha.c   **** 			const char c = Alpha[al-1];
  1264              		.loc 1 179 20 is_stmt 1 discriminator 3 view .LVU329
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1298              		.loc 1 190 2 view .LVU335
  189:src/alpha.c   **** 	setX_int_sgn(Alpha[0] & 0xff, 0);
  1299              		.loc 1 189 31 is_stmt 0 view .LVU336
-ARM GAS  /tmp/ccM2bksY.s 			page 30
+ARM GAS  /tmp/ccAztkBi.s 			page 30
 
 
  1300 0000 10B5     		push	{r4, lr}
@@ -1750,7 +1750,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1306 0004 2368     		ldr	r3, [r4]
  1307              		.loc 1 190 2 view .LVU338
  1308 0006 0022     		movs	r2, #0
- 1309 0008 93F8B007 		ldrb	r0, [r3, #1968]	@ zero_extendqisi2
+ 1309 0008 93F8B00F 		ldrb	r0, [r3, #4016]	@ zero_extendqisi2
  1310              	.LVL112:
  1311              		.loc 1 190 2 view .LVU339
  1312 000c 0021     		movs	r1, #0
@@ -1781,8 +1781,8 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1328 0012 2068     		ldr	r0, [r4]
  161:src/alpha.c   **** 	}
  1329              		.loc 1 161 4 view .LVU349
- 1330 0014 00F2B171 		addw	r1, r0, #1969
- 1331 0018 00F5F660 		add	r0, r0, #1968
+ 1330 0014 00F6B171 		addw	r1, r0, #4017
+ 1331 0018 00F57B60 		add	r0, r0, #4016
  1332 001c FFF7FEFF 		bl	scopy
  1333              	.LVL114:
  161:src/alpha.c   **** 	}
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  158:src/alpha.c   **** 		const char c = rot?Alpha[0]:'\0';
  1341              		.loc 1 158 12 is_stmt 0 view .LVU353
  1342              	.LBE69:
-ARM GAS  /tmp/ccM2bksY.s 			page 31
+ARM GAS  /tmp/ccAztkBi.s 			page 31
 
 
  1343              	.LBE68:
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1392              		.cfi_endproc
  1393              	.LFE16:
  1395 0016 00BF     		.section	.text.alpha_reg,"ax",%progbits
-ARM GAS  /tmp/ccM2bksY.s 			page 32
+ARM GAS  /tmp/ccAztkBi.s 			page 32
 
 
  1396              		.align	1
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1439 0018 01A8     		add	r0, sp, #4
  1440 001a FFF7FEFF 		bl	add_string
  1441              	.LVL125:
-ARM GAS  /tmp/ccM2bksY.s 			page 33
+ARM GAS  /tmp/ccAztkBi.s 			page 33
 
 
  208:src/alpha.c   **** }
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1477              		.loc 1 222 48 is_stmt 0 view .LVU382
  1478 0000 F0B5     		push	{r4, r5, r6, r7, lr}
  1479              		.cfi_def_cfa_offset 20
-ARM GAS  /tmp/ccM2bksY.s 			page 34
+ARM GAS  /tmp/ccAztkBi.s 			page 34
 
 
  1480              		.cfi_offset 4, -20
@@ -1994,7 +1994,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1489 0004 2768     		ldr	r7, [r4]
  216:src/alpha.c   **** }
  1490              		.loc 1 216 21 view .LVU384
- 1491 0006 97F8E837 		ldrb	r3, [r7, #2024]	@ zero_extendqisi2
+ 1491 0006 97F8E83F 		ldrb	r3, [r7, #4072]	@ zero_extendqisi2
  216:src/alpha.c   **** }
  1492              		.loc 1 216 39 view .LVU385
  1493 000a DB07     		lsls	r3, r3, #31
@@ -2022,7 +2022,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1509              		.loc 1 227 2 is_stmt 1 view .LVU390
  1510              		.loc 1 227 12 view .LVU391
  1511              		.loc 1 227 17 is_stmt 0 view .LVU392
- 1512 0012 97F8B047 		ldrb	r4, [r7, #1968]	@ zero_extendqisi2
+ 1512 0012 97F8B04F 		ldrb	r4, [r7, #4016]	@ zero_extendqisi2
  1513              	.LBB88:
  1514              	.LBB83:
  216:src/alpha.c   **** }
@@ -2038,13 +2038,13 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1523              	.LVL129:
  1524              	.L114:
  223:src/alpha.c   **** 	int i;
-ARM GAS  /tmp/ccM2bksY.s 			page 35
+ARM GAS  /tmp/ccAztkBi.s 			page 35
 
 
  1525              		.loc 1 223 25 view .LVU396
  1526 001a 0022     		movs	r2, #0
  1527 001c 1346     		mov	r3, r2
- 1528 001e 07F5F665 		add	r5, r7, #1968
+ 1528 001e 07F57B65 		add	r5, r7, #4016
  1529 0022 01E0     		b	.L117
  1530              	.LVL130:
  1531              	.L130:
@@ -2060,7 +2060,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1540              	.LVL132:
  227:src/alpha.c   **** 		z = (z << 8) | (0xff & Alpha[i]);
  1541              		.loc 1 227 29 discriminator 4 view .LVU400
- 1542 002a A5F2AF71 		subw	r1, r5, #1967
+ 1542 002a A5F6AF71 		subw	r1, r5, #4015
  1543              		.loc 1 228 10 discriminator 4 view .LVU401
  1544 002e 43EA1263 		orr	r3, r3, r2, lsr #24
  1545              		.loc 1 228 5 discriminator 4 view .LVU402
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1570 004c F0BD     		pop	{r4, r5, r6, r7, pc}
  1571              	.LVL136:
  1572              	.L113:
-ARM GAS  /tmp/ccM2bksY.s 			page 36
+ARM GAS  /tmp/ccAztkBi.s 			page 36
 
 
  1573              		.cfi_restore_state
@@ -2124,7 +2124,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1589 0052 2768     		ldr	r7, [r4]
  227:src/alpha.c   **** 		z = (z << 8) | (0xff & Alpha[i]);
  1590              		.loc 1 227 17 view .LVU414
- 1591 0054 97F8B047 		ldrb	r4, [r7, #1968]	@ zero_extendqisi2
+ 1591 0054 97F8B04F 		ldrb	r4, [r7, #4016]	@ zero_extendqisi2
  1592              	.LBB90:
  1593              	.LBB85:
  1594              	.LBB80:
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1615 0062 1346     		mov	r3, r2
  1616 0064 ECE7     		b	.L115
  1617              	.L132:
-ARM GAS  /tmp/ccM2bksY.s 			page 37
+ARM GAS  /tmp/ccAztkBi.s 			page 37
 
 
  1618 0066 00BF     		.align	2
@@ -2218,10 +2218,10 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1662              		.loc 1 216 21 view .LVU429
  1663 000c 194B     		ldr	r3, .L152
  1664 000e 1B68     		ldr	r3, [r3]
-ARM GAS  /tmp/ccM2bksY.s 			page 38
+ARM GAS  /tmp/ccAztkBi.s 			page 38
 
 
- 1665 0010 93F8E837 		ldrb	r3, [r3, #2024]	@ zero_extendqisi2
+ 1665 0010 93F8E83F 		ldrb	r3, [r3, #4072]	@ zero_extendqisi2
  216:src/alpha.c   **** }
  1666              		.loc 1 216 39 view .LVU430
  1667 0014 13F00103 		ands	r3, r3, #1
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  245:src/alpha.c   **** 		*--p = z & 0xff;
  246:src/alpha.c   **** 		z >>= 8;
  247:src/alpha.c   **** 	}
-ARM GAS  /tmp/ccM2bksY.s 			page 39
+ARM GAS  /tmp/ccAztkBi.s 			page 39
 
 
  248:src/alpha.c   **** 	return p;
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1747 0054 EED1     		bne	.L151
  1748              		.loc 1 249 1 view .LVU460
  1749 0056 3046     		mov	r0, r6
-ARM GAS  /tmp/ccM2bksY.s 			page 40
+ARM GAS  /tmp/ccAztkBi.s 			page 40
 
 
  1750 0058 03B0     		add	sp, sp, #12
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1793              		.loc 1 244 16 view .LVU471
  1794 006e 0028     		cmp	r0, #0
  1795 0070 E2D1     		bne	.L137
-ARM GAS  /tmp/ccM2bksY.s 			page 41
+ARM GAS  /tmp/ccAztkBi.s 			page 41
 
 
  1796 0072 DCE7     		b	.L133
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1843              	.LFE21:
  1845              		.section	.text.alpha_onoff,"ax",%progbits
  1846              		.align	1
-ARM GAS  /tmp/ccM2bksY.s 			page 42
+ARM GAS  /tmp/ccAztkBi.s 			page 42
 
 
  1847              		.p2align 2,,3
@@ -2516,72 +2516,72 @@ ARM GAS  /tmp/ccM2bksY.s 			page 1
  1895              		.file 10 "src/consts.h"
  1896              		.file 11 "src/int.h"
  1897              		.file 12 "src/decn.h"
-ARM GAS  /tmp/ccM2bksY.s 			page 43
+ARM GAS  /tmp/ccAztkBi.s 			page 43
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 alpha.c
-     /tmp/ccM2bksY.s:18     .text.add_char:0000000000000000 $t
-     /tmp/ccM2bksY.s:26     .text.add_char:0000000000000000 add_char
-     /tmp/ccM2bksY.s:109    .text.add_char:0000000000000034 $d
-     /tmp/ccM2bksY.s:114    .text.add_string:0000000000000000 $t
-     /tmp/ccM2bksY.s:122    .text.add_string:0000000000000000 add_string
-     /tmp/ccM2bksY.s:232    .text.add_string:0000000000000058 $d
-     /tmp/ccM2bksY.s:237    .text.clralpha:0000000000000000 $t
-     /tmp/ccM2bksY.s:245    .text.clralpha:0000000000000000 clralpha
-     /tmp/ccM2bksY.s:274    .text.clralpha:0000000000000014 $d
-     /tmp/ccM2bksY.s:280    .text.alpha_view_common:0000000000000000 $t
-     /tmp/ccM2bksY.s:288    .text.alpha_view_common:0000000000000000 alpha_view_common
-     /tmp/ccM2bksY.s:339    .text.alpha_view_common:0000000000000024 $d
-     /tmp/ccM2bksY.s:347    .text.alpha_view:0000000000000000 $t
-     /tmp/ccM2bksY.s:355    .text.alpha_view:0000000000000000 alpha_view
-     /tmp/ccM2bksY.s:421    .text.alpha_view:0000000000000028 $d
-     /tmp/ccM2bksY.s:431    .text.alpha_view_reg:0000000000000000 $t
-     /tmp/ccM2bksY.s:439    .text.alpha_view_reg:0000000000000000 alpha_view_reg
-     /tmp/ccM2bksY.s:504    .text.alpha_view_reg:0000000000000024 $d
-     /tmp/ccM2bksY.s:514    .text.cmdalpha:0000000000000000 $t
-     /tmp/ccM2bksY.s:522    .text.cmdalpha:0000000000000000 cmdalpha
-     /tmp/ccM2bksY.s:554    .text.multialpha:0000000000000000 $t
-     /tmp/ccM2bksY.s:562    .text.multialpha:0000000000000000 multialpha
-     /tmp/ccM2bksY.s:614    .text.alpha_ip:0000000000000000 $t
-     /tmp/ccM2bksY.s:622    .text.alpha_ip:0000000000000000 alpha_ip
-     /tmp/ccM2bksY.s:861    .text.alpha_ip:00000000000000e8 $d
-     /tmp/ccM2bksY.s:869    .text.alen:0000000000000000 $t
-     /tmp/ccM2bksY.s:877    .text.alen:0000000000000000 alen
-     /tmp/ccM2bksY.s:906    .text.alen:000000000000001c $d
-     /tmp/ccM2bksY.s:911    .text.alpha_length:0000000000000000 $t
-     /tmp/ccM2bksY.s:919    .text.alpha_length:0000000000000000 alpha_length
-     /tmp/ccM2bksY.s:975    .text.alpha_length:0000000000000024 $d
-     /tmp/ccM2bksY.s:980    .text.alpha_shift_l:0000000000000000 $t
-     /tmp/ccM2bksY.s:988    .text.alpha_shift_l:0000000000000000 alpha_shift_l
-     /tmp/ccM2bksY.s:1067   .text.alpha_shift_l:000000000000003c $d
-     /tmp/ccM2bksY.s:1072   .text.alpha_shift_r:0000000000000000 $t
-     /tmp/ccM2bksY.s:1080   .text.alpha_shift_r:0000000000000000 alpha_shift_r
-     /tmp/ccM2bksY.s:1148   .text.alpha_shift_r:000000000000002c $d
-     /tmp/ccM2bksY.s:1153   .text.alpha_rot_r:0000000000000000 $t
-     /tmp/ccM2bksY.s:1161   .text.alpha_rot_r:0000000000000000 alpha_rot_r
-     /tmp/ccM2bksY.s:1278   .text.alpha_rot_r:000000000000004c $d
-     /tmp/ccM2bksY.s:1283   .text.alpha_tox:0000000000000000 $t
-     /tmp/ccM2bksY.s:1291   .text.alpha_tox:0000000000000000 alpha_tox
-     /tmp/ccM2bksY.s:1349   .text.alpha_tox:0000000000000028 $d
-     /tmp/ccM2bksY.s:1354   .text.alpha_fromx:0000000000000000 $t
-     /tmp/ccM2bksY.s:1362   .text.alpha_fromx:0000000000000000 alpha_fromx
-     /tmp/ccM2bksY.s:1396   .text.alpha_reg:0000000000000000 $t
-     /tmp/ccM2bksY.s:1404   .text.alpha_reg:0000000000000000 alpha_reg
-     /tmp/ccM2bksY.s:1452   .text.alpha_sto:0000000000000000 $t
-     /tmp/ccM2bksY.s:1460   .text.alpha_sto:0000000000000000 alpha_sto
-     /tmp/ccM2bksY.s:1620   .text.alpha_sto:0000000000000068 $d
-     /tmp/ccM2bksY.s:1625   .text.alpha_rcl_s:0000000000000000 $t
-     /tmp/ccM2bksY.s:1633   .text.alpha_rcl_s:0000000000000000 alpha_rcl_s
-     /tmp/ccM2bksY.s:1800   .text.alpha_rcl_s:0000000000000074 $d
-     /tmp/ccM2bksY.s:1805   .text.alpha_rcl:0000000000000000 $t
-     /tmp/ccM2bksY.s:1813   .text.alpha_rcl:0000000000000000 alpha_rcl
-ARM GAS  /tmp/ccM2bksY.s 			page 44
+     /tmp/ccAztkBi.s:18     .text.add_char:0000000000000000 $t
+     /tmp/ccAztkBi.s:26     .text.add_char:0000000000000000 add_char
+     /tmp/ccAztkBi.s:109    .text.add_char:0000000000000034 $d
+     /tmp/ccAztkBi.s:114    .text.add_string:0000000000000000 $t
+     /tmp/ccAztkBi.s:122    .text.add_string:0000000000000000 add_string
+     /tmp/ccAztkBi.s:232    .text.add_string:0000000000000058 $d
+     /tmp/ccAztkBi.s:237    .text.clralpha:0000000000000000 $t
+     /tmp/ccAztkBi.s:245    .text.clralpha:0000000000000000 clralpha
+     /tmp/ccAztkBi.s:274    .text.clralpha:0000000000000014 $d
+     /tmp/ccAztkBi.s:280    .text.alpha_view_common:0000000000000000 $t
+     /tmp/ccAztkBi.s:288    .text.alpha_view_common:0000000000000000 alpha_view_common
+     /tmp/ccAztkBi.s:339    .text.alpha_view_common:0000000000000024 $d
+     /tmp/ccAztkBi.s:347    .text.alpha_view:0000000000000000 $t
+     /tmp/ccAztkBi.s:355    .text.alpha_view:0000000000000000 alpha_view
+     /tmp/ccAztkBi.s:421    .text.alpha_view:0000000000000028 $d
+     /tmp/ccAztkBi.s:431    .text.alpha_view_reg:0000000000000000 $t
+     /tmp/ccAztkBi.s:439    .text.alpha_view_reg:0000000000000000 alpha_view_reg
+     /tmp/ccAztkBi.s:504    .text.alpha_view_reg:0000000000000024 $d
+     /tmp/ccAztkBi.s:514    .text.cmdalpha:0000000000000000 $t
+     /tmp/ccAztkBi.s:522    .text.cmdalpha:0000000000000000 cmdalpha
+     /tmp/ccAztkBi.s:554    .text.multialpha:0000000000000000 $t
+     /tmp/ccAztkBi.s:562    .text.multialpha:0000000000000000 multialpha
+     /tmp/ccAztkBi.s:614    .text.alpha_ip:0000000000000000 $t
+     /tmp/ccAztkBi.s:622    .text.alpha_ip:0000000000000000 alpha_ip
+     /tmp/ccAztkBi.s:861    .text.alpha_ip:00000000000000e8 $d
+     /tmp/ccAztkBi.s:869    .text.alen:0000000000000000 $t
+     /tmp/ccAztkBi.s:877    .text.alen:0000000000000000 alen
+     /tmp/ccAztkBi.s:906    .text.alen:000000000000001c $d
+     /tmp/ccAztkBi.s:911    .text.alpha_length:0000000000000000 $t
+     /tmp/ccAztkBi.s:919    .text.alpha_length:0000000000000000 alpha_length
+     /tmp/ccAztkBi.s:975    .text.alpha_length:0000000000000024 $d
+     /tmp/ccAztkBi.s:980    .text.alpha_shift_l:0000000000000000 $t
+     /tmp/ccAztkBi.s:988    .text.alpha_shift_l:0000000000000000 alpha_shift_l
+     /tmp/ccAztkBi.s:1067   .text.alpha_shift_l:000000000000003c $d
+     /tmp/ccAztkBi.s:1072   .text.alpha_shift_r:0000000000000000 $t
+     /tmp/ccAztkBi.s:1080   .text.alpha_shift_r:0000000000000000 alpha_shift_r
+     /tmp/ccAztkBi.s:1148   .text.alpha_shift_r:000000000000002c $d
+     /tmp/ccAztkBi.s:1153   .text.alpha_rot_r:0000000000000000 $t
+     /tmp/ccAztkBi.s:1161   .text.alpha_rot_r:0000000000000000 alpha_rot_r
+     /tmp/ccAztkBi.s:1278   .text.alpha_rot_r:000000000000004c $d
+     /tmp/ccAztkBi.s:1283   .text.alpha_tox:0000000000000000 $t
+     /tmp/ccAztkBi.s:1291   .text.alpha_tox:0000000000000000 alpha_tox
+     /tmp/ccAztkBi.s:1349   .text.alpha_tox:0000000000000028 $d
+     /tmp/ccAztkBi.s:1354   .text.alpha_fromx:0000000000000000 $t
+     /tmp/ccAztkBi.s:1362   .text.alpha_fromx:0000000000000000 alpha_fromx
+     /tmp/ccAztkBi.s:1396   .text.alpha_reg:0000000000000000 $t
+     /tmp/ccAztkBi.s:1404   .text.alpha_reg:0000000000000000 alpha_reg
+     /tmp/ccAztkBi.s:1452   .text.alpha_sto:0000000000000000 $t
+     /tmp/ccAztkBi.s:1460   .text.alpha_sto:0000000000000000 alpha_sto
+     /tmp/ccAztkBi.s:1620   .text.alpha_sto:0000000000000068 $d
+     /tmp/ccAztkBi.s:1625   .text.alpha_rcl_s:0000000000000000 $t
+     /tmp/ccAztkBi.s:1633   .text.alpha_rcl_s:0000000000000000 alpha_rcl_s
+     /tmp/ccAztkBi.s:1800   .text.alpha_rcl_s:0000000000000074 $d
+     /tmp/ccAztkBi.s:1805   .text.alpha_rcl:0000000000000000 $t
+     /tmp/ccAztkBi.s:1813   .text.alpha_rcl:0000000000000000 alpha_rcl
+ARM GAS  /tmp/ccAztkBi.s 			page 44
 
 
-     /tmp/ccM2bksY.s:1846   .text.alpha_onoff:0000000000000000 $t
-     /tmp/ccM2bksY.s:1854   .text.alpha_onoff:0000000000000000 alpha_onoff
-     /tmp/ccM2bksY.s:1881   .text.alpha_onoff:0000000000000018 $d
+     /tmp/ccAztkBi.s:1846   .text.alpha_onoff:0000000000000000 $t
+     /tmp/ccAztkBi.s:1854   .text.alpha_onoff:0000000000000000 alpha_onoff
+     /tmp/ccAztkBi.s:1881   .text.alpha_onoff:0000000000000018 $d
 
 UNDEFINED SYMBOLS
 find_char

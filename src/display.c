@@ -2907,27 +2907,19 @@ static void set_exp(int exp, int flags, char *res) {
 	    const int n = nLIB(pc);
 	    xset(buf, '\0', sizeof(buf));
 	    set_exp(ProgFree, 1, CNULL);
+#ifdef FOUR_K
+	    if ((upc<1000) && n == 0) {
+	      num_arg_0(scopy_spc(buf, S7_STEP), upc, 3);
+	    }
+	    else {
+	      num_arg_0(scopy(buf, n == 0 ? S7_STEP : libname[n]), 
+		      upc, 4);  // 4 digits in ROM and Library
+	    }	      
+#else
 	    num_arg_0(scopy_spc(buf, n == 0 ? S7_STEP : libname[n]), 
 		      upc, 3 + (n & 1));  // 4 digits in ROM and Library
+#endif
 	    set_digits_string(buf, SEGS_PER_DIGIT);
-#if 0
-#ifndef REALBUILD
-	    xset(buf, '\0', sizeof(buf));
-	    set_exp(ProgFree, 1, CNULL);
-	    num_arg_0(scopy_spc(buf, n == 0 ? S7_STEP_ShortText : libname_shorttext[n]),
-		      upc, 3 + (n & 1));  // 4 digits in ROM and Library
-	    { // allow local declaration of b and l in C (not C++) on VisualStudio
-	      char *b=buf;
-	      char *l=LastDisplayedNumber;
-	      *l++=' ';
-	      while(*b) {
-		*l++=*b++;
-		*l++=' ';
-	      }
-	      *l=0;
-	    }
-#endif
-#endif
 	  }
 	}
 	set_annunciators();
@@ -3250,27 +3242,19 @@ static void set_exp(int exp, int flags, char *res) {
 	    const int n = nLIB(pc);
 	    xset(buf, '\0', sizeof(buf));
 	    set_exp(ProgFree, 1, CNULL);
+#ifdef FOUR_K
+	    if ((upc<1000) && n == 0) {
+	      num_arg_0(scopy_spc(buf, S7_STEP), upc, 3);
+	    }
+	    else {
+	      num_arg_0(scopy(buf, n == 0 ? S7_STEP : libname[n]), 
+		      upc, 4);  // 4 digits in ROM and Library
+	    }	      
+#else
 	    num_arg_0(scopy_spc(buf, n == 0 ? S7_STEP : libname[n]), 
 		      upc, 3 + (n & 1));  // 4 digits in ROM and Library
+#endif
 	    set_digits_string(buf, SEGS_PER_DIGIT);
-#if 0
-#ifndef REALBUILD
-	    xset(buf, '\0', sizeof(buf));
-	    set_exp(ProgFree, 1, CNULL);
-	    num_arg_0(scopy_spc(buf, n == 0 ? S7_STEP_ShortText : libname_shorttext[n]),
-		      upc, 3 + (n & 1));  // 4 digits in ROM and Library
-	    { // allow local declaration of b and l in C (not C++) on VisualStudio
-	      char *b=buf;
-	      char *l=LastDisplayedNumber;
-	      *l++=' ';
-	      while(*b) {
-		*l++=*b++;
-		*l++=' ';
-	      }
-	      *l=0;
-	    }
-#endif
-#endif
 	  }
 	}
 	set_annunciators();
