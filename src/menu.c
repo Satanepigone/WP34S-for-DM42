@@ -75,10 +75,15 @@ const char * menu_line_str(uint8_t line_id, char * s, const int slen) {
 void disp_about() {
 #ifdef C_VERSION
   char title[] = "WP 34C calculator for DM42: v     ";
+  xcopy ((title + 29), SvnRevision, 4);
+#elif defined(FOUR_K)
+  char title[] = "WP 34S_4k calculator for DM42: v     ";
+  xcopy ((title + 32), SvnRevision, 4);
 #else
   char title[] = "WP 34S calculator for DM42: v     ";
-#endif
   xcopy ((title + 29), SvnRevision, 4);
+#endif
+
 
   clear_disp(); // clears buffer and zeros dots[]
   lcd_writeClr(t24);
@@ -98,9 +103,14 @@ void disp_about() {
   lcd_puts(t20, "and some annunciators renamed.");
   lcd_puts(t20, "Includes printing, stopwatch,");
   lcd_puts(t20, "entry RPN, extended file handling,");
+#ifdef FOUR_K
+  lcd_puts(t20, "user-defined menus, 4k of RAM,");
+  lcd_puts(t20, "and complex lock mode.");
+#else
   lcd_puts(t20, "user-defined menus, and");
   lcd_puts(t20, "complex lock mode.");
-
+#endif
+  
   t20->y += 5;
 
   t20->bgfill = 1;

@@ -3,6 +3,8 @@
 ## A project to bring the WP&nbsp;34S calculator firmware to the DM42 hardware. 
 
 ### Recent changes:
+  * Shift characters now shown when entering alpha labels.
+
   * New display code. Previously the entire display was redrawn every time a key was pressed or when any part of the display changed. The DM42 hardware coped magnificently, but this method must surely increase power consumption if nothing else. The new code only redraws what has changed. I believe that all bugs have been corrected...if you want to stay with the previous version, I quite understand!
 
   * The wp34c and wp34s ("master" branch) code has been merged. You can now find both the wp34s and wp34c .pgm files in the the build directory of the master branch. The old wp34c branch has not been updated with the new display code, nor with the few changes detailed below. The wp34c files in the master branch are fully feature-equivalent with the wp34s files.

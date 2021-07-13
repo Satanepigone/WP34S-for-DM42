@@ -2778,10 +2778,17 @@ static void set_exp(int exp, int flags, char *res) {
 	  }
 	} else if (State2.multi) {
 	  bp = scopy_char(bp, multicmds[CmdBase].cmd, '\'');
+	  static const char shift_chars[4] = " \021\022\023";
+	  const char shift_char = shift_chars[cur_shift()];
 	  if (State2.numdigit > 0) {
 	    *bp++ = (char) State2.digval;
 	    if (State2.numdigit > 1)
 	      *bp++ = State2.digval2;
+	  }
+	  if (shift_char != ' ') {
+	    *bp++ = '\007';
+	    *bp++ = '\344';
+	    *bp++ = shift_char;
 	  }
 	  if (yreg_enabled) {
 	    set_status_top(buf);
@@ -3110,10 +3117,17 @@ static void set_exp(int exp, int flags, char *res) {
 	  set_status(buf);
 	} else if (State2.multi) {
 	  bp = scopy_char(bp, multicmds[CmdBase].cmd, '\'');
+	  static const char shift_chars[4] = " \021\022\023";
+	  const char shift_char = shift_chars[cur_shift()];
 	  if (State2.numdigit > 0) {
 	    *bp++ = (char) State2.digval;
 	    if (State2.numdigit > 1)
 	      *bp++ = State2.digval2;
+	  }
+	  if (shift_char != ' ') {
+	    *bp++ = '\007';
+	    *bp++ = '\344';
+	    *bp++ = shift_char;
 	  }
 	  set_status(buf);
 	} else if (State2.status) {
