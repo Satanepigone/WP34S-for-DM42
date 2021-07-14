@@ -72,6 +72,12 @@ static struct _ndmap remap (const int c) {
     return mapping_running[c];
   }
 
+  // In alpha mode, make sure that f-shift F5, F6 can summon alpha menus
+  if ( get_alpha_state() && cur_shift()==SHIFT_F) {
+    if (c == KEY_F5) return (struct _ndmap) { K_ARROW, 1 };
+    if (c == KEY_F6) return (struct _ndmap) { K_CMPLX, 1 };
+  }
+
   struct _menu Ref = get_current_menu_ref();
   
   switch (c) {
@@ -438,6 +444,7 @@ void program_main(){
     }
     if (c >= 0) {
       remapped = remap(c);
+      //      print_debug(c, remapped.key_34s);
       if (remapped.key_34s == K_SETMENU) {
 	set_menu ( remapped.shift );
 	display_current_menu ();

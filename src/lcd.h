@@ -32,6 +32,7 @@ extern void draw_dot(int n);
 extern void draw_RPN(int inverse);
 extern void draw_RCL(int inverse);
 extern void draw_BEG(int depth, int inverse);
+extern void draw_BATT(int level, int inverse);
 extern void draw_LEQ(void);
 extern void finish_LEQ(void);
 extern void finish_top_row(void);

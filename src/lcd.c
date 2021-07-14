@@ -69,14 +69,14 @@ void clear_disp(void) {
 void reset_disp(void) {
   clr_dot(STO_annun); // gets turned back on if needed;
   int rcl = is_dot(RCL_annun);
-  int bat = is_dot(BATTERY);
+  //  int bat = is_dot(BATTERY);
   int leq = is_dot(LIT_EQ);
   int rpn = is_dot(RPN);
   int i;
   for (i=0; i<TOP_DOTS; i++)
     dots[i] <<= 1;
   dot(RCL_annun, rcl);
-  dot(BATTERY, bat);
+  //  dot(BATTERY, bat);
   dot(LIT_EQ, leq);
   dot(RPN, rpn);
 }
@@ -275,6 +275,29 @@ void draw_dot (int n) {
       lcd_writeText(t20,"ALPHA");
       return;
     case BATTERY:
+      x = get_lowbat_state() + 2*usb_powered();
+      if (x == 3) x = 2;
+      dots[BATTERY] &= ~1; // clear bit 0
+      
+      switch (x) {
+      case 0: // neither low nor usb;
+	if (dots[BATTERY] & 2) { // was on; needs clearing
+	  draw_BATT (1, 1); // clear LOW
+	  draw_BATT (2, 1); // clear USB
+	}
+	break;
+      case 1: // draw LOW
+	if (dots[BATTERY] & 2) draw_BATT (2, 1); // clear USB - might have been there
+	draw_BATT (1, 0); // draw LOW
+	dots[BATTERY] |= 1; // set bit 0
+	break;
+      case 2: // draw USB
+	if (dots[BATTERY] & 2) draw_BATT (1, 1); // clear LOW - might have been there
+	draw_BATT (2, 0); // draw USB
+	dots[BATTERY] |= 1; // set bit 0
+	break;
+      default:;
+      }
       return;
     case BEG:
 #ifdef MODIFY_BEG_SSIZE8
@@ -362,7 +385,20 @@ void draw_BEG (int depth, int inverse) {
   return;
 }
 
+void draw_BATT (int level, int inverse) { // level = 0; ok; level = 1; low power; level = 2; USB
+  t20->inv = inverse; // If inverse is 1, this means clear it.
+  lcd_setXY (t20, XLEFT-DWIDTH+15, Y_ANNUNC-70);
+  if (level == 1) {
+    lcd_writeText(t20, "LOW");
+  }
+  else if (level == 2) {
+    lcd_writeText(t20, "USB");
+  }
+  return;
+}
+
 void finish_display(void) {
+  draw_dot(BATTERY);
   draw_PRT();
   finish_7_segment();
   finish_alpha_row();

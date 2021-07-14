@@ -3317,6 +3317,7 @@ static int process(const int c) {
 	 * works and were not
 	 */
 	cat = keycode_to_cat((keycode)c, shift);
+	//	print_debug(c,cat);
 	if ( cat != CATALOGUE_NONE ) {
 		if (is_bad_cmdline())
 			return STATE_UNFINISHED;
