@@ -3,6 +3,11 @@
 ## A project to bring the WP&nbsp;34S calculator firmware to the DM42 hardware. 
 
 ### Recent changes:
+
+  * Slight re-design of 7-segment characters to make them look a little nicer, particularly in the exponent. Here's a sample:
+  
+![20210718-11243279](help/screens/20210718-11243279.png)
+
   * Shift characters now shown when entering alpha labels.
 
   * New display code. Previously the entire display was redrawn every time a key was pressed or when any part of the display changed. The DM42 hardware coped magnificently, but this method must surely increase power consumption if nothing else. The new code only redraws what has changed. I believe that all bugs have been corrected...if you want to stay with the previous version, I quite understand!

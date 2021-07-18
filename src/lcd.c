@@ -73,7 +73,8 @@ void reset_disp(void) {
   int leq = is_dot(LIT_EQ);
   int rpn = is_dot(RPN);
   int i;
-  for (i=0; i<TOP_DOTS; i++)
+  reset_7_segment();
+  for (i=128; i<TOP_DOTS; i++)
     dots[i] <<= 1;
   dot(RCL_annun, rcl);
   //  dot(BATTERY, bat);
@@ -82,48 +83,75 @@ void reset_disp(void) {
 }
 
 void reset_7_segment(void) {
-  for (int i = 0; i <= EXP_SIGN; ++i) {
+  for (int i = 0; i <= 107; ++i) {
     dots[i] <<= 1;
   }
+  clear_exponent();
 }
 
+/* This next function clears the exponent region in the buffer, 
+ * and zeros that part of dots. This is needed because I currently 
+ * have segments which overlap, so complete redrawing is needed for
+ * small region.
+ */
+void clear_exponent(void) {
+  lcd_fill_rect(XLEFT_EXP-DWIDTH_EXP, YTOP, 400-XLEFT_EXP, 30, 0);
+  for (int i = 108; i<=128; ++i) {
+    dots[i] = 0;
+  }
+  dots[EXP_SIGN] = 0;
+}
 
 void left_side (int i, int j, int col) { // i - xleft reference; j - ytop reference; col - colour
-  lcd_fill_rect (i+2, j+11, 1, 9, col);
+  //  lcd_fill_rect (i+2, j+11, 1, 9, col);
+  lcd_fill_rect (i+2, j+13, 1, 7, col);
   lcd_fill_rect (i+3, j+2, 1, 18, col);
   lcd_fill_rect (i+4, j+2, 1, 17, col);
   lcd_fill_rect (i+5, j+3, 1, 15, col);
-  lcd_fill_rect (i+6, j+4, 1, 7, col);
+  //  lcd_fill_rect (i+6, j+4, 1, 7, col);
+  lcd_fill_rect (i+6, j+4, 1, 5, col);
 }
 void left_side_top (int i, int j, int col) {
-  left_side(i, j, col);
+  //  left_side(i, j, col);
+  left_side(i, j-1, col);
 }
 void left_side_bottom (int i, int j, int col) {
   left_side(i-2, j+19, col);
 }
 void right_side (int i, int j, int col) {
-  lcd_fill_rect (i+16, j+11, 1, 7, col);
+  //  lcd_fill_rect (i+16, j+11, 1, 7, col);
+  lcd_fill_rect (i+16, j+13, 1, 5, col);
   lcd_fill_rect (i+17, j+4, 1, 15, col);
   lcd_fill_rect (i+18, j+3, 1, 17, col);
   lcd_fill_rect (i+19, j+2, 1, 18, col);
-  lcd_fill_rect (i+20, j+2, 1, 9, col);
+  //  lcd_fill_rect (i+20, j+2, 1, 9, col);
+  lcd_fill_rect (i+20, j+2, 1, 7, col);
 }
 void right_side_top (int i, int j, int col) {
-  right_side(i, j, col);
+  //  right_side(i, j, col);
+  right_side(i, j-1, col);
 }
 void right_side_bottom (int i, int j, int col) {
   right_side(i-2, j+19, col);
 }
 void top (int i, int j, int col) {
-  lcd_fill_rect ( i+5, j, 14, 1, col );
-  lcd_fill_rect ( i+4, j+1, 16, 1, col );
-  lcd_fill_rect ( i+6, j+2, 12, 1, col );
-  lcd_fill_rect ( i+7, j+3, 10, 1, col );
+  //  lcd_fill_rect ( i+5, j, 14, 1, col );
+  //  lcd_fill_rect ( i+4, j+1, 16, 1, col );
+  //  lcd_fill_rect ( i+6, j+2, 12, 1, col );
+  //  lcd_fill_rect ( i+7, j+3, 10, 1, col );
+  lcd_fill_rect ( i+5, j-1, 14, 1, col );
+  lcd_fill_rect ( i+4, j, 16, 1, col );
+  lcd_fill_rect ( i+6, j+1, 12, 1, col );
+  lcd_fill_rect ( i+7, j+2, 10, 1, col );
 }
 void middle (int i, int j, int col) {
+  //  lcd_fill_rect ( i+5, j+21, 11, 1, col );
+  //  lcd_fill_rect ( i+4, j+20, 13, 1, col );
+  //  lcd_fill_rect ( i+5, j+19, 11, 1, col );
   lcd_fill_rect ( i+5, j+21, 11, 1, col );
   lcd_fill_rect ( i+4, j+20, 13, 1, col );
-  lcd_fill_rect ( i+5, j+19, 11, 1, col );
+  lcd_fill_rect ( i+4, j+19, 13, 1, col );
+  lcd_fill_rect ( i+5, j+18, 11, 1, col );
 }
 void bottom (int i, int j, int col) {
   lcd_fill_rect ( i+2, j+40, 14, 1, col );
@@ -139,44 +167,33 @@ void comma (int i, int j, int col) {
   lcd_fill_rect (i+19, j+48, 3, 3, col);
 }
 
-void exp_left_side (int i, int j, int col) {
-  lcd_fill_rect (i, j+6, 1, 6, col );
-  lcd_fill_rect (i+1, j, 1, 11, col );
-  lcd_fill_rect (i+2, j+1, 1, 9, col );
-  lcd_fill_rect (i+3, j+2, 1, 4, col );
-}
 void exp_left_side_top (int i, int j, int col) {
-  exp_left_side(i+1, j, col);
+  lcd_fill_rect (i+1, j+2, 1, 10, col);
+  lcd_fill_rect (i+2, j+1, 2, 12, col);
 }
 void exp_left_side_bottom (int i, int j, int col) {
-  exp_left_side(i, j+11, col);
+  lcd_fill_rect (i+0, j+14, 1, 9, col);
+  lcd_fill_rect (i+1, j+13, 2, 11, col);
 }
-void exp_right_side (int i, int j, int col) {
-  lcd_fill_rect (i+12, j, 1, 6, col );
-  lcd_fill_rect (i+11, j+1, 1, 11, col );
-  lcd_fill_rect (i+10, j+2, 1, 9, col );
-  lcd_fill_rect (i+9, j+6, 1, 4, col );
-}
+
 void exp_right_side_top (int i, int j, int col) {
-  exp_right_side(i, j, col);
+  lcd_fill_rect (i+11, j+2, 1, 9, col);
+  lcd_fill_rect (i+9, j+1, 2, 11, col);
 }
 void exp_right_side_bottom (int i, int j, int col) {
-  exp_right_side(i-1, j+11, col);
+  lcd_fill_rect (i+10, j+13, 1, 10, col);
+  lcd_fill_rect (i+8, j+12, 2, 12, col);
 }
 void exp_top (int i, int j, int col) {
-  lcd_fill_rect (i+4, j, 7, 1, col );
-  lcd_fill_rect (i+5, j+1, 5, 1, col );
-  lcd_fill_rect (i+6, j+2, 3, 1, col );
+  lcd_fill_rect (i+3, j+0, 7, 1, col );
+  lcd_fill_rect (i+2, j+1, 9, 2, col );
 }
 void exp_bottom (int i, int j, int col) {
-  lcd_fill_rect (i+2, j+22, 7, 1, col );
-  lcd_fill_rect (i+3, j+21, 5, 1, col );
-  lcd_fill_rect (i+4, j+20, 3, 1, col );
+  lcd_fill_rect (i+2, j+24, 7, 1, col );
+  lcd_fill_rect (i+1, j+22, 9, 2, col );
 }
 void exp_middle (int i, int j, int col) {
-  lcd_fill_rect (i+4, j+10, 5, 1, col );
-  lcd_fill_rect (i+3, j+11, 7, 1, col );
-  lcd_fill_rect (i+4, j+12, 5, 1, col );
+  lcd_fill_rect (i+2, j+11, 8, 3, col );
 }
 
 void draw_dot (int n) {
@@ -252,7 +269,7 @@ void draw_dot (int n) {
       middle (XLEFT - DWIDTH, YTOP, col);
       return;
     case EXP_SIGN:
-      exp_middle (XLEFT_EXP-DWIDTH_EXP, YTOP, col);
+      exp_middle (XLEFT_EXP-DWIDTH_EXP+2, YTOP, col);
       return;
     case BIG_EQ:
       lcd_fill_rect (250, Y_ANNUNC-34, 15, 4, col);

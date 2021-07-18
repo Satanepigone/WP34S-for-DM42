@@ -40,6 +40,7 @@ extern void draw_PRT(void);
 extern void finish_PRT(void);
 extern void do_all_dots(void);
 extern void clear_disp(void);
+extern void clear_exponent(void);
 extern void reset_disp(void);
 extern void reset_7_segment(void);
 
