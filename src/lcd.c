@@ -95,7 +95,7 @@ void reset_7_segment(void) {
  * small region.
  */
 void clear_exponent(void) {
-  lcd_fill_rect(XLEFT_EXP-DWIDTH_EXP, YTOP, 400-XLEFT_EXP, 30, 0);
+  lcd_fill_rect(XLEFT_EXP-DWIDTH_EXP, YTOP, 400-(XLEFT_EXP-DWIDTH_EXP), 30, 0);
   for (int i = 108; i<=128; ++i) {
     dots[i] = 0;
   }
@@ -168,21 +168,21 @@ void comma (int i, int j, int col) {
 }
 
 void exp_left_side_top (int i, int j, int col) {
-  lcd_fill_rect (i+1, j+2, 1, 10, col);
-  lcd_fill_rect (i+2, j+1, 2, 12, col);
+  lcd_fill_rect (i+1, j+2, 1, 9, col);
+  lcd_fill_rect (i+2, j+1, 2, 11, col);
 }
 void exp_left_side_bottom (int i, int j, int col) {
-  lcd_fill_rect (i+0, j+14, 1, 9, col);
-  lcd_fill_rect (i+1, j+13, 2, 11, col);
+  lcd_fill_rect (i+0, j+15, 1, 8, col);
+  lcd_fill_rect (i+1, j+14, 2, 10, col);
 }
 
 void exp_right_side_top (int i, int j, int col) {
-  lcd_fill_rect (i+11, j+2, 1, 9, col);
-  lcd_fill_rect (i+9, j+1, 2, 11, col);
+  lcd_fill_rect (i+11, j+2, 1, 8, col);
+  lcd_fill_rect (i+9, j+1, 2, 10, col);
 }
 void exp_right_side_bottom (int i, int j, int col) {
-  lcd_fill_rect (i+10, j+13, 1, 10, col);
-  lcd_fill_rect (i+8, j+12, 2, 12, col);
+  lcd_fill_rect (i+10, j+14, 1, 9, col);
+  lcd_fill_rect (i+8, j+13, 2, 11, col);
 }
 void exp_top (int i, int j, int col) {
   lcd_fill_rect (i+3, j+0, 7, 1, col );

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Makes all the wp34s pgm files
+
+# Get rid of object files from other builds
+
+make clean
+
+make normal
+make long
+make top

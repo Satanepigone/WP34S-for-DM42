@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Makes all the wp34s_4k pgm files
+
+# Get rid of object files from other builds
+
+make clean
+
+make normal -f Makefile_4k
+make long -f Makefile_4k
+make top -f Makefile_4k
