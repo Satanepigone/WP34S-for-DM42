@@ -52,6 +52,7 @@ struct _ndmap g_shift = {.key_34s = K_G, .shift = -1};
 struct _ndmap h_shift = {.key_34s = K_H, .shift = -1};
 struct _ndmap release = {.key_34s = K_RELEASE, .shift = -1};
 struct _ndmap do_multi (struct _ndmap r);
+int KeyDown = 0;
 
 static struct _ndmap remap (const int c) {
 
@@ -195,6 +196,7 @@ static long int start_ticks;
 
 void start_key_timer() {
     start_ticks = get_rtc_ticks();
+    KeyDown = 1;
 }
 
 long int keyticks () {
@@ -222,7 +224,7 @@ void print_debug (int i, int j) {
   moveto (3, 1);
   lcd_print (fReg , (const char*) print_string );
   lcd_refresh();
-  sys_delay (1000);
+  sys_delay (50);
   strcpy( print_string, spaces );
   moveto (3, 1);
   lcd_print (fReg , (const char*) print_string );
@@ -378,13 +380,18 @@ void program_main(){
     else if (!ST(STAT_PGM_END) && key_empty()) // Go to sleep if no keys available
     {
       CLR_ST(STAT_RUNNING);
-      sys_timer_start(0, 100);  // Timer 0: wake up for heartbeat 
-      sys_sleep();
-      if (sys_timer_timeout(0)) { // If timer has completed...
-	key_push (K_HEARTBEAT);
-	if (Pause > 0) Pause--;
+      if ( (Pause > 0) || KeyDown == 1 ) {
+	sys_timer_start(0, 100);  // Timer 0: wake up for heartbeat 
+	sys_sleep();
+	if (sys_timer_timeout(0)) { // If timer has completed...
+	  key_push (K_HEARTBEAT);
+	  if (Pause > 0) Pause--;
+	}
+	sys_timer_disable(0); // stop timer
       }
-      sys_timer_disable(0); // stop timer
+      else {
+	sys_sleep();
+      }	
     }
     
     // Wakeup in off state or going to sleep
@@ -463,7 +470,6 @@ void program_main(){
       if (remapped.key_34s == K_MULTI) {
 	remapped = do_multi (remapped);
 	clear_disp();
-	display_current_menu();
       }
       if (remapped.key_34s == K_EXIT) break;
       process_keycode_with_shift(remapped);

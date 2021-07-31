@@ -3265,8 +3265,10 @@ static int process(const int c) {
 	/*  Handle the keyboard timeout for catalogue navigation
 	 *  Must be done early in the process to capture the shifts correctly
 	 */
-	if (State2.catalogue && Keyticks > 30)
+	if (State2.catalogue && Keyticks > 30) {
 		CmdLineLength = 0;
+		KeyDown = 0;
+	}
 	/*
 	 *  Process the various cases
 	 *  The handlers in this block here do not handle shifts at all or do it themselves
@@ -3449,6 +3451,7 @@ void process_keycode(int c)
 	    /*
 	     *  Key is too long held down
 	     */
+	    KeyDown = 0;
 	    OpCode = 0;
 	    message("NULL", CNULL);
 	    // Force display update on key-up
@@ -3513,7 +3516,8 @@ void process_keycode(int c)
    */
   if (c == K_RELEASE)
     {
-    if (OpCode != 0) {
+      KeyDown = 0;
+      if (OpCode != 0) {
       /*
        * Execute the key on release
        */

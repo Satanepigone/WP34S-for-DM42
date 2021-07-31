@@ -143,6 +143,7 @@ struct _ndmap {
 
 extern void process_keycode_with_shift ( struct _ndmap remapped );
 extern unsigned int get_alpha_state ( void );
+extern int KeyDown;
 
 #endif
 #endif
