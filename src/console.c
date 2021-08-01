@@ -224,7 +224,7 @@ void print_debug (int i, int j) {
   moveto (3, 1);
   lcd_print (fReg , (const char*) print_string );
   lcd_refresh();
-  sys_delay (50);
+  sys_delay (200);
   strcpy( print_string, spaces );
   moveto (3, 1);
   lcd_print (fReg , (const char*) print_string );
@@ -381,6 +381,7 @@ void program_main(){
     {
       CLR_ST(STAT_RUNNING);
       if ( (Pause > 0) || KeyDown == 1 ) {
+	//	print_debug(300+Pause,300+KeyDown);
 	sys_timer_start(0, 100);  // Timer 0: wake up for heartbeat 
 	sys_sleep();
 	if (sys_timer_timeout(0)) { // If timer has completed...
@@ -388,9 +389,12 @@ void program_main(){
 	  if (Pause > 0) Pause--;
 	}
 	sys_timer_disable(0); // stop timer
+	//	print_debug(400+Pause,400+KeyDown);
       }
       else {
+	//	print_debug(100+Pause,100+KeyDown);
 	sys_sleep();
+	//	print_debug(2+Pause,200+KeyDown);
       }	
     }
     
@@ -473,7 +477,7 @@ void program_main(){
       }
       if (remapped.key_34s == K_EXIT) break;
       process_keycode_with_shift(remapped);
-      if (remapped.key_34s != K_HEARTBEAT || JustStopped) start_key_timer(); 
+      if ( ((remapped.key_34s != K_HEARTBEAT) && (remapped.key_34s != K_RELEASE)) || JustStopped) start_key_timer(); 
     }
   }
   save_ram_file(0);
