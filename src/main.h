@@ -43,8 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __PGM_MAIN_H__
 #define __PGM_MAIN_H__
 
-#define PROGRAM_NAME    "wp34s"
-#define PROGRAM_VERSION "104"
+#define PROGRAM_NAME    "wp34s_top_4k"
+#define PROGRAM_VERSION "105"
 
 //#define DBG_PRINT
 
