@@ -2,7 +2,9 @@
 
 ## A project to bring the WP&nbsp;34S calculator firmware to the DM42 hardware. 
 
-### Recent changes:
+### Recent changes (new users start with "Description" further down the page):
+
+  * Code changed so that the processor enters sleep state correctly after each keypress. This will reduce battery drain significantly. Existing users are recommomended to upgrade!
 
   * Slight re-design of 7-segment characters to make them look a little nicer, particularly in the exponent. Here's a sample:
   
