@@ -26,6 +26,7 @@
 
 ![4k_version](help/screens/4k_version.png)
 
+
 ##Description
 This version of the WP&nbsp;34S calculator now includes:
 
