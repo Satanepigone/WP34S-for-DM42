@@ -474,6 +474,7 @@ void program_main(){
       if (remapped.key_34s == K_MULTI) {
 	remapped = do_multi (remapped);
 	clear_disp();
+	display_current_menu();
       }
       if (remapped.key_34s == K_EXIT) break;
       process_keycode_with_shift(remapped);

@@ -111,7 +111,7 @@ If you wish to build the project yourself, note that the makefiles have been wri
 
   * Then, type either 'make normal', 'make long', or 'make top' to build the version of your choice. If you want all three you still have to run `make` three times; typing just `make` is the same as `make top`.
 
-  * Doing this builds the WP&nbsp;34S version of the program. To build the WP&nbsp34C version with non-standard memory layout, use '-f Makefile_34c' after each make command.
+  * Doing this builds the WP&nbsp;34S version of the program. To build the WP&nbsp;34C version with non-standard memory layout, use '-f Makefile_34c' after each make command.
 
   * To build the 4k version, use '-f Makefile_4k' instead.
   
