@@ -33,6 +33,7 @@ struct _menu {
 };
 
 extern struct _menu UserMenu;
+extern struct _menu MEMMenu;
 
 extern const char* arrow_key_string;
 extern const char* cmplx_key_string;
@@ -46,6 +47,9 @@ extern menu_name default_menu;
 extern void all_menu_dots ( void );
 extern void build_user_menu(void);
 extern void build_user_menu_from_program(int);
+extern void build_menu_of_labels(int);
+extern unsigned int find_next_label (unsigned int);
+extern int is_label_at ( unsigned int );
 extern void display_menu (struct _menu Ref);
 extern void display_current_menu ( void );
 extern menu_name get_menu ();

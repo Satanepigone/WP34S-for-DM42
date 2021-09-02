@@ -14,6 +14,19 @@ struct _menu UserMenu =
     }
   };
 
+struct _menu MEMMenu =
+  {
+    "MEM Menu", 
+    {
+      { NO_KEY, NO_KEY, "", "" },
+      { NO_KEY, NO_KEY, "", "" },
+      { NO_KEY, NO_KEY, "", "" },
+      { NO_KEY, NO_KEY, "", "" },
+      { NO_KEY, NO_KEY, "", "" },
+      { NO_KEY, NO_KEY, "", "" },
+    }
+  };
+
 const char* arrow_key_string = "--\015";
 const char* cmplx_key_string = "CPX";
 
@@ -464,8 +477,8 @@ static const struct _menu Menus[] = {
       { { K_OP, 0x314dfb55 }, { K_OP, 0x344dfb55 }, "UM1", "UM4" },
       { { K_OP, 0x324dfb55 }, { K_OP, 0x354dfb55 }, "UM2", "UM5" },
       { { K_OP, 0x334dfb55 }, { K_OP, 0x364dfb55 }, "UM3", "UM6" },
-      { ARROW_KEY, { K44, 3 }, "--\015", "" },
-      { CMPLX_KEY, { K34, 3 }, "CPX", "" },
+      { { K_OP, 0x4d41fb52 }, NO_KEY, "RAM", "" },
+      { { K_OP, 0x4249fb4c }, NO_KEY, "LIB", "" },
     }
   },
   {
@@ -624,6 +637,9 @@ struct _menu get_current_menu_ref() {
   if (current_menu == M_User) {
     return UserMenu;
   }
+  else if (current_menu == M_MEM) {
+    return MEMMenu;
+  }
   else {
     return Menus[i];
   }
@@ -679,15 +695,16 @@ void all_menu_dots () {
 }  
 void umen_store (int i, opcode opc, char* buf1);
 
+/*
 void build_user_menu(void){
   // find the label 'MNU'
    const int lbl = OP_DBL + (DBL_LBL << DBL_SHIFT) + 'M' + ('N' << 16) + ('U' << 24);
    build_user_menu_from_program (lbl);
 }
+*/
 
 void build_user_menu_from_program(int lbl)
 {
-  // find the label 'MNU'
   // const int lbl = OP_DBL + (DBL_LBL << DBL_SHIFT) + 'M' + ('N' << 16) + ('U' << 24);
   unsigned int pc = findmultilbl(lbl, 0);
   int i=0;
@@ -715,7 +732,10 @@ void build_user_menu_from_program(int lbl)
     if (op == (OP_NIL | OP_END))
       break;
     if (op == (OP_NIL | OP_NOP)) {
-      if (i==4) {
+      if (i==0) {
+	continue;
+      }
+      else if (i==4) {
 	UserMenu.keys[i].unshifted = (struct _ndmap) {K_ARROW, -1};
 	strncpy(UserMenu.keys[i].unshifted_label, arrow_key_string,5);
       }
@@ -789,3 +809,101 @@ void umen_store (int i, opcode opc, char* buf1) {
     }
 #pragma GCC diagnostic pop
 }  
+
+static unsigned int last_pc = 0;
+
+void build_menu_of_labels(int region) {
+  // region = 0 for RAM, 1 for LIB,
+  // 2 for carry on from last point,
+  // 3 for go back to the start of the current region
+  unsigned int pc;
+
+  if (region == 0) {
+    pc = 0; // just before start of RAM
+    last_pc = pc;
+  }
+  else if (region == 1) {
+    pc = addrLIB(0, REGION_LIBRARY);
+    last_pc = pc;
+  }
+  else if (region == 2) {
+    pc = last_pc;
+  }
+  else {
+    pc = addrLIB(0, nLIB(last_pc));
+    last_pc = pc;
+  }
+    
+  int label_count = 0;
+  opcode opc;
+  char *p;
+  char c;
+  char name[] = "   "; // 3 spaces
+
+  // Clear RAM menu
+  for (int j = 0; j<6; j++) { // clear RAM menu
+      MEMMenu.keys[j].unshifted_label[0] = '\0';
+      MEMMenu.keys[j].unshifted.shift = 0;
+      MEMMenu.keys[j].unshifted.key_34s = K_NOP;
+      MEMMenu.keys[j].shifted_label[0] = '\0';
+      MEMMenu.keys[j].shifted.shift = 0;
+      MEMMenu.keys[j].shifted.key_34s = K_NOP;
+  }
+
+  while ( (label_count < 12) && (pc = find_next_label(pc)) ) {
+    if ( getprog(do_inc(pc,0)) == (OP_NIL | OP_NOP) ) continue; // skip if next statement NOP
+    // Read that label
+    opc = getprog(pc);
+
+    p = name;
+    *p++ = opc & 0xff; // character 1
+    c = (opc >> 16) & 0xff;
+    *p++ = c;
+    if (c != '\0') { // if character 2 isn't null..
+      c = opc>>24;
+      *p++ = c;      
+      p = '\0';
+    }
+    // name contains string for menu entry
+    opc = opc - (DBL_LBL << DBL_SHIFT) + (DBL_XEQ << DBL_SHIFT);
+    // opc is now XEQ command
+    
+    // Make a menu entry, both XEQ command and label
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wstringop-truncation"
+    if (label_count<6) {
+      strncpy(MEMMenu.keys[label_count].unshifted_label, name, 4);
+      MEMMenu.keys[label_count].unshifted = (struct _ndmap) {K_OP, opc};
+    }
+    else {
+      strncpy(MEMMenu.keys[label_count-6].shifted_label, name, 4);
+      MEMMenu.keys[label_count-6].shifted = (struct _ndmap) {K_OP, opc};
+    }
+#pragma GCC diagnostic pop
+
+    // advance count
+    label_count++;
+  }
+  if ( pc == 0 ) {
+    last_pc = addrLIB(0, nLIB(last_pc));
+  }
+  else {
+    last_pc = pc;
+  }
+}
+
+// addrLIB(0, REGION_LIBRARY)
+
+unsigned int find_next_label ( unsigned int pc ) {
+  do {
+    pc = do_inc(pc, 0);
+    if (PcWrapped) return 0;
+  }
+  while (! is_label_at (pc) );
+  return pc;
+}
+
+int is_label_at ( unsigned int pc ) {
+  const unsigned int op = getprog(pc);
+  return (isDBL(op) && (opDBL(op) == DBL_LBL));
+}

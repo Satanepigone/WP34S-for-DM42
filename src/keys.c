@@ -926,7 +926,16 @@ static int process_normal(const keycode c)
 	case K30:				// XEQ
 		init_arg((enum rarg)op);
 		break;
-
+#ifdef DM42
+	case K40: // K_UP
+	  if (get_menu() == M_MEM) {
+	    return 0x504ffb54; // UMEN'TOP'
+	  }
+	case K50: // K_DOWN
+	  if (get_menu() == M_MEM) {
+	    return 0x5458fb4e; // UMEN'NXT'
+	  }
+#endif
 	default:
 		return op;			// Keys handled by table
 	}
@@ -3319,7 +3328,6 @@ static int process(const int c) {
 	 * works and were not
 	 */
 	cat = keycode_to_cat((keycode)c, shift);
-	//	print_debug(c,cat);
 	if ( cat != CATALOGUE_NONE ) {
 		if (is_bad_cmdline())
 			return STATE_UNFINISHED;

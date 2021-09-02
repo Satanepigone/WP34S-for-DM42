@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>WP 34S for DM42</title>
+    <title>WP 34C for DM42</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=VT323">
     <style>
       body{font-family: sans-serif;}
@@ -42,7 +42,7 @@
   Complex Lock Mode - CLMode
   -->
   <body>
-    <h1>WP&nbsp;34S for DM42</h1>
+    <h1>WP&nbsp;34C for DM42</h1>
     <h2 id="Home">Contents</h2>
     <ul>
       <li><a href="#Intro">About this program</a></li>
@@ -74,9 +74,9 @@
     </ul>
 
     <h2 id="Intro">About this program</h2>
-    This program is a port of the WP&nbsp;34S calculator to the DM42 platform.
+    This program is a port of the WP&nbsp;34C calculator to the DM42 platform.
     <br>
-    It includes much of the original WP&nbsp;34S code with some changes and extensions.
+    It includes much of the original WP&nbsp;34C code with some changes and extensions.
     <br>
     All of the original calculator's standard features are supported,
     along with the
@@ -88,9 +88,7 @@
     and <a href="#UDmenus">user-defined menus</a>.
     <br>
     As on the original calculator the calculator state occupies
-    2kB. (There is also a 4kB version, which is currently experimental.)
-    <br>
-    The library space for user programs is 16kB 
+    2kB. The library space for user programs is 16kB 
     (i.e., 8k program steps).
     <br>
     There are three versions of the program which differ only in their displays
@@ -107,12 +105,14 @@
     <br>
     Two program steps were taken up with flags used by the extra code.
     <br>
-    On the DM42 there is plenty of memory for everything and so rather
-    than having two separate versions, I have included 
-    <a href="#CLMode">complex lock mode</a>
-    as part of the WP&nbsp;34S.
+    On the DM42 there is plenty of memory for everything. This program
+    contains complex lock mode along with all of the features of the
+    standard WP&nbsp;34S. Two program steps are still used for extra
+    flags.
     <br>
-    This will not affect you if you never use it, but it's there if you ever need it.
+    A version of the program that does not use these two steps
+    is available in the "master" branch of the gitlab repository. This
+    is recommended to new users.
     
     <h2 id="Leave"><b>Exiting the program</b></h2>
     If you just want to turn the calculator off, press
@@ -126,7 +126,7 @@
       <li>Press <span class="button">F1</span> (EXIT).</li>
       <li>You can then use <span class="lcd">3: Load Program</span> to choose a
 	different firmware file to load, or <span class="lcd">2: Run Program</span>
-	to return to the already-loaded WP&nbsp;34S.</li>
+	to return to the already-loaded WP&nbsp;34C.</li>
     </ul>
 
     <h2 id="Notation">Notation</h2>
@@ -483,7 +483,7 @@
     library (16kB) in RAM rather than in flash memory.
     <br>
     The contents of RAM on the DM42 are permanent until
-    the WP&nbsp;34S program is exited (e.g., to re-load Free42); it even
+    the WP&nbsp;34C program is exited (e.g., to re-load Free42); it even
     survives battery replacement.
     <br>In particular, RAM persists when the calculator is turned off and on.
     <br>
@@ -494,11 +494,11 @@
     <br>
     The files are:
     <ul>
-      <li><b>wp34s.dat</b> - an image of the calculator's state. Since
+      <li><b>wp34c.dat</b> - an image of the calculator's state. Since
 	the RAM contents survive when the calculator is turned off, this
 	is only written when the EXIT button in the Setup
 	menu is pressed.</li> 
-      <li><b>wp34s-backup.dat</b> - in the Setup menu
+      <li><b>wp34c-backup.dat</b> - in the Setup menu
 	the
 	function <span class="lcd">OnSTO</span>
 	writes a copy of the calculator's state to the backup region
@@ -516,7 +516,7 @@
     When the calculator is switched off and on, no files are written
     or read.
     <br>
-    But when the WP&nbsp;34S firmware is
+    But when the WP&nbsp;34C firmware is
     loaded or run from the DMCP menu (options 3 and 2) the state,
     backup, and library regions are 
     reloaded from these three files.
@@ -559,7 +559,7 @@
     assembler suite of tools.
     <br>
     If you want the files to be portable to 
-    other systems, this is vital: the op-codes in the WP&nbsp;34S can change when
+    other systems, this is vital: the op-codes in the WP&nbsp;34C can change when
     the number of commands alters, making the files partially or
     completely unreadable.
     <br>
@@ -570,7 +570,7 @@
     human-readable, they can be re-assembled correctly when the op-codes change.
     <br>
     Transferring files as source listings is the
-    only reliable way to get them from one WP&nbsp;34S system to another,
+    only reliable way to get them from one WP&nbsp;34C system to another,
     unless both use the same op-codes.
 
     <h2 id="Print">IR Printing</h2>
@@ -636,7 +636,7 @@
     convenient, and others agree.
     <br>
     Because of this, the system allows you to define your own
-    user-defined menus. These can contain any WP&nbsp;34S command that can
+    user-defined menus. These can contain any WP&nbsp;34C command that can
     be entered as a program step.
     <br>
     The idea is to write a program containing the commands you want in
@@ -656,7 +656,7 @@
     For more details please see the documentation in help/ on the
     gitlab site.
 
-    <h2 id="RAMLIB">RAM and LIB contents menu generator</h2>
+	<h2 id="RAMLIB">RAM and LIB contents menu generator</h2>
     The <span class="lcd">RAM</span>
     and <span class="lcd">LIB</span>
     commands are found in the "Select user menu" menu
@@ -678,7 +678,6 @@
     skipped. (You can insert NOP at the start of a user-defined menu
     without causing trouble.) 
     
-
     <h2 id="ERPN">Entry RPN</h2>
     Normally, typing
     <span class="button">2</span> <span class="button">ENTER</span>

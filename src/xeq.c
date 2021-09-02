@@ -2387,9 +2387,27 @@ void cmdmultigto(const opcode o, enum multiops mopr) {
 }
 
 void multiumenu(const opcode o, enum multiops mopr) {
-  opcode op = (o & 0xFFFFF0FF) + ((DBL_LBL) << DBL_SHIFT); // change opcode to LBL
-  build_user_menu_from_program(op);
-  set_menu (M_User);
+  if (o == 0x4d41fb52) { // RAM
+    build_menu_of_labels(0);
+    set_menu (M_MEM);
+  }
+  else if (o == 0x4249fb4c) { // LIB
+    build_menu_of_labels(1);
+    set_menu (M_MEM);
+  }
+  else if (o == 0x5458fb4e) { // NXT
+    build_menu_of_labels(2);
+    //    set_menu (M_MEM); // don't use - menu is already M_MEM!
+  }
+  else if (o == 0x504ffb54) { // TOP
+    build_menu_of_labels(3);
+    //    set_menu (M_MEM); // don't use - menu is already M_MEM!
+  }
+  else {
+    opcode op = (o & 0xFFFFF0FF) + ((DBL_LBL) << DBL_SHIFT); // change opcode to LBL
+    build_user_menu_from_program(op);
+    set_menu (M_User);
+  }
   display_current_menu ();
 }
 

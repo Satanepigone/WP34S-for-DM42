@@ -91,6 +91,7 @@ typedef enum {
   M_Misc_C, // 23
   M_Usermenu,
   M_Print,
+  M_MEM = 98,
   M_User = 99,
 } menu_name;
 
