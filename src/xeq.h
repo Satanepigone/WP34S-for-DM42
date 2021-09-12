@@ -890,6 +890,7 @@ enum nilop {
 #ifdef INFRARED
 	OP_PRINT_ON, OP_PRINT_OFF,
 #endif
+	OP_ALPHAHELP,
 #ifdef _DEBUG // no
         OP_DEBUG,
 #endif
@@ -1415,6 +1416,8 @@ extern void op_gtoalpha(enum nilop op);
 extern void op_xeqalpha(enum nilop op);
 #ifdef DM42
 extern void multiumenu(const opcode o, enum multiops mopr);
+extern void alpha_help(enum nilop op);
+extern void display_help_file(char* fname);
 #endif
 extern void cmdmultigto(const opcode o, enum multiops mopr);
 extern void cmdlblp(unsigned int arg, enum rarg op);

@@ -723,6 +723,7 @@ static s_opcode prog_catalogue[] = {
 	NILIC(OP_GTOALPHA,	"GTO\240")
 	RARGCMD(RARG_ALPHAXEQ,	"\240XEQ")
 	RARGCMD(RARG_ALPHAGTO,	"\240GTO")
+	NILIC(OP_ALPHAHELP,     "\240HELP")
 
 #ifndef DM42
 	/* Serial commands */

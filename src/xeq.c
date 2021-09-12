@@ -2411,6 +2411,71 @@ void multiumenu(const opcode o, enum multiops mopr) {
   display_current_menu ();
 }
 
+void alpha_help (enum nilop op) {
+  // Name of file to read is in alpha.
+  char fname[10+NUMALPHA];
+
+  strcpy (fname,"/HELP/"); // folder prefix.
+  
+  if ( !(find_char(Alpha,'.') ) ) {
+    add_string(".html"); // complete file name, if needed.
+  }
+    
+  strcat (fname, Alpha); // join it all together!
+
+  if ( !file_exists(fname) ) {
+    DispMsg = "No file";
+    return;
+  }
+
+  display_help_file(fname); // new function
+}
+
+void display_help_file(char* fname) {
+  char* helpfile = "/HELP/xxHELP.html"; // fixed name to use.
+
+  sys_disk_write_enable(1);
+  f_rename(fname, helpfile);
+  sys_disk_write_enable(0);
+
+  key_push(0);
+  run_help_file(helpfile);
+
+  sys_disk_write_enable(1);
+  f_rename(helpfile, fname);
+  sys_disk_write_enable(0);
+
+  clear_disp();
+  display_current_menu();
+
+}
+// Function below is what would work if run_help_file()
+// worked.
+/* void alpha_help (enum nilop op) { */
+/*   char fname[10+NUMALPHA]; */
+
+/*   strcpy (fname,"/HELP/"); */
+  
+/*   if ( !(find_char(Alpha,'.') ) ) { */
+/*     add_string(".html"); */
+/*   } */
+    
+/*   strcat (fname, Alpha); */
+
+/*   if ( file_exists(fname) ) { */
+/*     run_help(); */
+/*     key_push(0); */
+/*     run_help_file(fname); */
+/*     clear_disp(); // clears display so it is redrawn */
+/*     display_current_menu(); */
+
+/*   } */
+/*   else { */
+/*     DispMsg = "No file"; */
+/*   } */
+/* } */
+
+
 static void branchtoalpha(int is_gsb, char buf[]) {
 	unsigned int op;
 
@@ -4186,8 +4251,7 @@ void cmdpause(unsigned int arg, enum rarg op) {
 #endif
 }
 
-
-
+ 
 void op_setspeed(enum nilop op) {
 #ifdef DM42
 #else
@@ -4201,6 +4265,7 @@ void op_prompt(enum nilop op) {
 	set_running_off();
 	alpha_view_common(regX_idx);
 }
+
 
 /* Test if a number is an integer or fractional */
 /* Special numbers are neither */

@@ -71,6 +71,7 @@
       <li><a href="#RAMLIB">RAM and LIB menus</a></li>
       <li><a href="#ERPN">Entry RPN</a></li>
       <li><a href="#CLMode">Complex Lock mode</a></li>
+      <li><a href="#UHelp">User Help Files</a></li>
     </ul>
 
     <h2 id="Intro">About this program</h2>
@@ -749,5 +750,26 @@
     are no programming functions, statistics, matrix, or integer
     commands. This is a limitation, but it hasn't proved a problem in
     the past. 
+
+    <h2 id="CLMode">User Help files</h2>
+    The idea is to allow a user to produce a html help file, which can be opened
+    and viewed with the new command <span class="lcd">&alpha;HELP</span>.
+    <br>
+    This allows a user to document their own (or other people's) programs
+    without trying to cram information into the limited display space available
+    on the WP 34S.
+    <br>
+    Suppose a help file called <span class="lcd">HRN.html</span>
+    is in the HELP folder on the DM42.
+    <br>
+    To open this file, put "HRN" in the alpha register and then call
+    <span class="lcd">&alpha;HELP</span>.
+    <br>
+    File names do not appear to be case-sensitive.
+    <br>
+    The extension ".html" is added automatically if there is no "."
+    character in the file name. This allows the use of files with different extensions.
+    <br>
+    The path "/HELP/" is added automatically.
   </body>
 </html>

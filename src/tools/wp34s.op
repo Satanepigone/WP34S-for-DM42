@@ -347,6 +347,8 @@ maxlibsteps=8190
 0x01d9	alias-c	P.ON
 0x01da	cmd	[print].OFF
 0x01da	alias-c	P.OFF
+0x01db	cmd	[alpha]HELP
+0x01db	alias-c	aHELP
 0x0200	cmd	FP
 0x0201	cmd	FLOOR
 0x0202	cmd	CEIL

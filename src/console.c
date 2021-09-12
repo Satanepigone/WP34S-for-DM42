@@ -285,9 +285,9 @@ struct _ndmap do_multi (struct _ndmap r) {
     break;
   case HELP:
 #ifdef C_VERSION
-    run_help_file("/HELP/wp34c_help.html");
+    display_help_file("/HELP/wp34c_help.html");
 #else
-    run_help_file("/HELP/wp34s_help.html");
+    display_help_file("/HELP/wp34s_help.html");
 #endif
     reset_shift();
     r = no_key;

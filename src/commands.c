@@ -750,6 +750,7 @@ const struct niladic niladics[ NUM_NILADIC ] = {
 	FUNC0(OP_PRINT_ON,	IRN(print_on_off),	"\222.ON",	"P.ON")
 	FUNC0(OP_PRINT_OFF,	IRN(print_on_off),	"\222.OFF",	"P.OFF")
 #endif
+       	FUNC0(OP_ALPHAHELP,	&alpha_help,	"\240HELP",	"aHELP")
 #ifdef _DEBUG
 	FUNC0(OP_DEBUG,		XNIL(DBG),		"DBG",		CNULL)
 #endif
