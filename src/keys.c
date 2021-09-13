@@ -928,11 +928,11 @@ static int process_normal(const keycode c)
 		break;
 #ifdef DM42
 	case K40: // K_UP
-	  if (get_menu() == M_MEM) {
+	  if ( (get_menu() == M_MEM) && (State2.runmode == 1) ) {
 	    return 0x504ffb54; // UMEN'TOP'
 	  }
 	case K50: // K_DOWN
-	  if (get_menu() == M_MEM) {
+	  if ( (get_menu() == M_MEM) && (State2.runmode == 1) ) {
 	    return 0x5458fb4e; // UMEN'NXT'
 	  }
 #endif
