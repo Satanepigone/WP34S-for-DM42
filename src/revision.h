@@ -24,4 +24,4 @@
 #ifdef REALBUILD
 __attribute__((section(".revision"),externally_visible))
 #endif
-const char SvnRevision[ 4 ] = "112 ";
+const char SvnRevision[ 4 ] = "113 ";

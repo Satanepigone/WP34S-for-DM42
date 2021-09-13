@@ -2726,6 +2726,8 @@ maxlibsteps=8190
 0xbd00	arg	SIG0	max=8,indirect
 0xbe00	arg	[print]DBSP	max=2,indirect
 0xbe00	alias-a	P.DBSP	max=2,indirect
+0xbf00	arg	ROM[integral]	max=104,indirect
+0xbf00	alias-a	RINTG	max=104,indirect
 0xf000	mult	LBL
 0xf100	mult	LBL?
 0xf200	mult	XEQ
@@ -2743,3 +2745,5 @@ maxlibsteps=8190
 0xfa00	alias-m	a
 0xfb00	mult	UMEN
 0xfb00	alias-m	MNU
+0xfc00	mult	ROM[integral]
+0xfc00	alias-m	RINTG

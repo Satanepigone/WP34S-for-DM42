@@ -3,6 +3,8 @@
 ## A project to bring the WP&nbsp;34S calculator firmware to the DM42 hardware. 
 
 ### Recent changes (new users start with "Description" further down the page):
+  * This is the Romberg branch. The old Romberg integration routine (from build 3892) is available in the Integrate menu (shift 8) as the command ROM[integral]. Everything else is the same as the main Master branch.
+
   * New feature added - the command αHELP takes a filename from the alpha register and opens a help file with this name. More details in the (usual) help file or in the file "User Help Files" in the help/ folder.
 
   * New feature added - the keys RAM and LIB in the User Menu menu (shift shift 2, then F5 or F6) bring up menus of alpha labels in RAM and LIB respectively, allowing each to be executed by pressing the appropriate menu key. This is documented in the file "RAM and LIB menu notes.docx" in the help/ folder. The calculator help file has also been updated.

@@ -928,11 +928,11 @@ static int process_normal(const keycode c)
 		break;
 #ifdef DM42
 	case K40: // K_UP
-	  if (get_menu() == M_MEM) {
+	  if ( (get_menu() == M_MEM) && (State2.runmode == 1) ) {
 	    return 0x504ffb54; // UMEN'TOP'
 	  }
 	case K50: // K_DOWN
-	  if (get_menu() == M_MEM) {
+	  if ( (get_menu() == M_MEM) && (State2.runmode == 1) ) {
 	    return 0x5458fb4e; // UMEN'NXT'
 	  }
 #endif
@@ -2296,25 +2296,34 @@ static int process_arg(const keycode c) {
 		break;
 
 	case K20:				// Enter is a short cut finisher but it also changes a few commands if it is first up
-		if (State2.numdigit == 0 && !State2.ind && !State2.dot) {
-			if (argcmds[base].label) {
-				init_arg((enum rarg)(base - RARG_LBL));
-				State2.multi = 1;
-				State2.alphashift = 0;
-				State2.rarg = 0;
-			} else if (base == RARG_SCI) {
-				reset_arg();
-				return OP_NIL | OP_FIXSCI;
-			} else if (base == RARG_ENG) {
-				reset_arg();
-				return OP_NIL | OP_FIXENG;
-			} else if (argcmds[base].stckreg)
-				State2.dot = 1;
-		} else if (State2.numdigit > 0)
-			return arg_eval(State2.digval);
-		else if (stack_reg)
-			State2.dot = 1 - State2.dot;
-		break;
+	  if (State2.numdigit == 0 && !State2.ind && !State2.dot) {
+	    if (argcmds[base].label) {
+#ifdef DM42
+	      if (base == RARG_RINTG) {
+		init_arg((enum rarg)(DBL_RINTG - DBL_LBL));
+	      }
+	      else {
+		init_arg((enum rarg)(base - RARG_LBL));
+	      }
+#else
+	      init_arg((enum rarg)(base - RARG_LBL));
+#endif
+	      State2.multi = 1;
+	      State2.alphashift = 0;
+	      State2.rarg = 0;
+	    } else if (base == RARG_SCI) {
+	      reset_arg();
+	      return OP_NIL | OP_FIXSCI;
+	    } else if (base == RARG_ENG) {
+	      reset_arg();
+	      return OP_NIL | OP_FIXENG;
+	    } else if (argcmds[base].stckreg)
+	      State2.dot = 1;
+	  } else if (State2.numdigit > 0)
+	    return arg_eval(State2.digval);
+	  else if (stack_reg)
+	    State2.dot = 1 - State2.dot;
+	  break;
 
 	case K24:	// <-
 		if (State2.numdigit == 0) {

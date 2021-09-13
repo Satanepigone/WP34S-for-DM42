@@ -1024,6 +1024,9 @@ enum rarg {
 #ifdef INFRARED
 	RARG_DBLSP,
 #endif
+#ifdef DM42
+	RARG_RINTG,
+#endif
         NUM_RARG        // Last entry defines number of operations
 };
 
@@ -1054,6 +1057,7 @@ enum multiops {
         DBL_ALPHA,
 #ifdef DM42
 	DBL_UMENU,
+	DBL_RINTG,
 #endif
 #ifdef XROM_LONG_BRANCH // no
         DBL_XBR,

@@ -365,7 +365,7 @@ static const struct _menu Menus[] = {
     { 
       { { K52, 1 }, { K_OP, RARG_BASEOP(RARG_DERIV)}, "SLV", "f'(x)" },
       { { K52, 2 }, { K_OP, RARG_BASEOP(RARG_2DERIV)}, "\004 dx", "f''(x)" },
-      { { K53, 2 }, NO_KEY, "SUM", "" },
+      { { K53, 2 }, { K_OP, RARG_BASEOP(RARG_RINTG)}, "SUM", "ROM\004" },
       { { K53, 1 }, NO_KEY, "PROD", "" },
       { ARROW_KEY, NO_KEY, "--\015", "" },
       { CMPLX_KEY, NO_KEY, "CPX", "" },

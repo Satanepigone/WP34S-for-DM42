@@ -1023,6 +1023,9 @@ const struct argcmd argcmds[ NUM_RARG ] = {
 #ifdef INFRARED
 	CMD(RARG_DBLSP,	        IRA(cmdprintmode),  2,			"\222DBSP",	"P.DBSP")
 #endif
+#ifdef DM42
+	CMDlbl(RARG_RINTG,	XARG(RINTEGRATE),			"ROM\004",		"RINTG")
+#endif
 #undef CMDlbl
 #undef CMDlblnI
 #undef CMDnoI
@@ -1066,6 +1069,7 @@ const struct multicmd multicmds[ NUM_MULTI ] = {
 	CMD(DBL_INTG,	XMULTI(INTEGRATE),		"\004",		"INTG")
 	CMD(DBL_ALPHA,	&multialpha,			"\240",		"a")
 	CMD(DBL_UMENU,	&multiumenu,			"UMEN",		"MNU")
+	CMD(DBL_RINTG,	XMULTI(RINTEGRATE),		"ROM\004",		"RINTG")
 #undef CMD
 };
 

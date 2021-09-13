@@ -134,6 +134,8 @@
 #include "bessel.wp34s"
 #include "digamma.wp34s"
 
+#include "rombintegrate.wp34s"
+
 // Test
 #ifdef _DEBUG
 	XLBL"DBG"
